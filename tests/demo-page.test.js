@@ -77,9 +77,9 @@ test('seeAlso reads name, link and description', () => {
 
 test('settingsLine writes "label: value" pairs and skips incomplete ones', () => {
   assert.equal(DP.settingsLine([
-    { label: 'Speed', value: 'Normal' }, { label: 'Fades in', value: 'on' },
+    { label: 'Speed', value: 'Normal' }, { label: 'Fades in', value: '开' },
     { label: 'Mode', value: '' }, { label: '', value: 'x' }
-  ]), 'Speed: Normal, Fades in: on');
+  ]), 'Speed: Normal, Fades in: 开');
   assert.equal(DP.settingsLine([]), '');
   assert.equal(DP.settingsLine(undefined), '');
 });
@@ -112,13 +112,13 @@ test('quoteText wraps typed text in quotes and keeps the 40-character cut inside
 });
 
 test('motionNote says what reduced motion changes in the player bar', () => {
-  assert.equal(DP.motionNote({ loop: true, slow: true }), 'Loop and Slow motion are off because your device is set to reduce motion.');
-  assert.equal(DP.motionNote({ loop: true }), 'Loop is off because your device is set to reduce motion.');
-  assert.equal(DP.motionNote({ slow: true }), 'Slow motion is off because your device is set to reduce motion.');
-  assert.equal(DP.motionNote({ pause: true, slow: true }), 'It starts paused and Slow motion is off because your device is set to reduce motion.');
-  assert.equal(DP.motionNote({ pause: true }), 'It starts paused because your device is set to reduce motion.');
-  assert.equal(DP.motionNote({ scroll: true }), 'The effects follow the scroll without animating because your device is set to reduce motion.');
-  assert.equal(DP.motionNote({ scroll: 'The layers stay still while the box scrolls' }), 'The layers stay still while the box scrolls because your device is set to reduce motion.');
+  assert.equal(DP.motionNote({ loop: true, slow: true }), '循环和慢动作已关闭，因为你的设备设置了减弱动态效果。');
+  assert.equal(DP.motionNote({ loop: true }), '循环已关闭，因为你的设备设置了减弱动态效果。');
+  assert.equal(DP.motionNote({ slow: true }), '慢动作已关闭，因为你的设备设置了减弱动态效果。');
+  assert.equal(DP.motionNote({ pause: true, slow: true }), '开始时处于暂停状态，慢动作已关闭，因为你的设备设置了减弱动态效果。');
+  assert.equal(DP.motionNote({ pause: true }), '开始时处于暂停状态，因为你的设备设置了减弱动态效果。');
+  assert.equal(DP.motionNote({ scroll: true }), '效果随滚动变化，不播放动画，因为你的设备设置了减弱动态效果。');
+  assert.equal(DP.motionNote({ scroll: '图层静止不动，只有盒子在滚动' }), '图层静止不动，只有盒子在滚动，因为你的设备设置了减弱动态效果。');
   assert.equal(DP.motionNote({}), '');
 });
 
@@ -276,7 +276,7 @@ test('a do-it page presses nothing on arrival under reduced motion', () => {
 test('a scroll page says under reduced motion that the effects follow the scroll without animating', () => {
   const page = standInPage('scroll', true);
   assert.deepEqual(page.player.children.map(c => [c.className, c.textContent]),
-    [['hb-player-note', 'The effects follow the scroll without animating because your device is set to reduce motion.']]);
+    [['hb-player-note', '效果随滚动变化，不播放动画，因为你的设备设置了减弱动态效果。']]);
 });
 
 test('reduced motion adds no note to a scroll page that is not set to reduce motion, or to a do-it page with nothing to switch off', () => {
@@ -285,16 +285,16 @@ test('reduced motion adds no note to a scroll page that is not set to reduce mot
 });
 
 test('a scroll page can say in its own words what reduced motion does there', () => {
-  const page = standInPage('scroll', true, { 'data-hb-motion-note': 'The layers stay still while the box scrolls' });
+  const page = standInPage('scroll', true, { 'data-hb-motion-note': '图层静止不动，只有盒子在滚动' });
   assert.deepEqual(page.player.children.map(c => [c.className, c.textContent]),
-    [['hb-player-note', 'The layers stay still while the box scrolls because your device is set to reduce motion.']]);
+    [['hb-player-note', '图层静止不动，只有盒子在滚动，因为你的设备设置了减弱动态效果。']]);
 });
 
 test('a scroll page with an empty sentence of its own gets the usual note, and only a scroll page reads the sentence', () => {
-  const usual = 'The effects follow the scroll without animating because your device is set to reduce motion.';
+  const usual = '效果随滚动变化，不播放动画，因为你的设备设置了减弱动态效果。';
   assert.deepEqual(standInPage('scroll', true, { 'data-hb-motion-note': '' }).player.children.map(c => c.textContent), [usual]);
-  assert.equal(standInPage('do', true, { 'data-hb-motion-note': 'The layers stay still while the box scrolls' }).player.children.length, 0);
-  assert.equal(standInPage('scroll', false, { 'data-hb-motion-note': 'The layers stay still while the box scrolls' }).player.children.length, 0);
+  assert.equal(standInPage('do', true, { 'data-hb-motion-note': '图层静止不动，只有盒子在滚动' }).player.children.length, 0);
+  assert.equal(standInPage('scroll', false, { 'data-hb-motion-note': '图层静止不动，只有盒子在滚动' }).player.children.length, 0);
 });
 
 test('a page with no prompt still gets its player: a scroll page scrolls on arrival and notes reduced motion', () => {
@@ -428,7 +428,7 @@ test('opened from disk, every link of the page to a folder opens its index.html;
 
 test('promptWithSettings adds the settings line only when a setting is complete', () => {
   assert.equal(DP.promptWithSettings('Add it.', [{ label: 'Speed', value: 'Normal' }, { label: 'Size', value: 'Big' }]),
-    'Add it.\n\nSettings from the demo: Speed: Normal, Size: Big.');
+    'Add it.\n\n演示中的设置：Speed: Normal, Size: Big。');
   assert.equal(DP.promptWithSettings('Add it.', []), 'Add it.');
   assert.equal(DP.promptWithSettings('Add it.', [{ label: 'Speed', value: '' }]), 'Add it.');
 });
@@ -443,7 +443,7 @@ test('pageCopyText reads the prompt and the Try it settings of a page', () => {
   const page = { querySelector: s => ({ '.hb-prompt': prompt, '.hb-try': tryStep })[s] || null };
   const doc = { querySelector: s => (s === '.hb-page' ? page : null), getElementById: id => (id === 'speed-lbl' ? { textContent: 'Speed' } : null) };
   const win = { getComputedStyle: () => ({ display: '' }) };
-  assert.equal(DP.pageCopyText(doc, win), 'Add a fade to [the card].\n\nSettings from the demo: Speed: Normal.');
+  assert.equal(DP.pageCopyText(doc, win), 'Add a fade to [the card].\n\n演示中的设置：Speed: Normal。');
   const noSettings = { querySelector: s => (s === '.hb-prompt' ? prompt : null) };
   assert.equal(DP.pageCopyText({ querySelector: s => (s === '.hb-page' ? noSettings : null) }, win), 'Add a fade to [the card].');
   assert.equal(DP.pageCopyText({ querySelector: () => null }, win), '');
@@ -483,8 +483,8 @@ test('a fetched page read on a phone gives the choices marked data-hb-phone and 
   // Detail: Medium is pressed in the markup and Low is the phone default; Wind has no phone default.
   const wind = choiceGroup('Wind', [{ text: 'Light' }, { text: 'Medium', pressed: true }]);
   const fetched = parsedPage(prompt, [choiceGroup('Detail', [{ text: 'Low', phone: true }, { text: 'Medium', pressed: true }, { text: 'High' }]), wind]);
-  const phone = prompt + '\n\nSettings from the demo: Detail: Low, Wind: Medium.';
-  const larger = prompt + '\n\nSettings from the demo: Detail: Medium, Wind: Medium.';
+  const phone = prompt + '\n\n演示中的设置：Detail: Low, Wind: Medium。';
+  const larger = prompt + '\n\n演示中的设置：Detail: Medium, Wind: Medium。';
   for (const [width, height, expected, screen] of [[375, 812, phone, 'a phone'], [320, 640, phone, 'a small phone'],
     [812, 375, phone, 'a phone held sideways'], [1280, 800, larger, 'a desktop'], [1366, 657, larger, 'a laptop'], [768, 1024, larger, 'a tablet']]) {
     assert.equal(DP.pageCopyText(fetched, windowOf(width, height)), expected, screen);
@@ -493,7 +493,7 @@ test('a fetched page read on a phone gives the choices marked data-hb-phone and 
   const own = parsedPage(prompt, [choiceGroup('Detail', [{ text: 'Low', phone: true }, { text: 'Medium' }, { text: 'High', pressed: true }]), wind]);
   for (const [width, height] of [[375, 812], [1280, 800]]) {
     const win = Object.assign(windowOf(width, height), { document: own });
-    assert.equal(DP.pageCopyText(own, win), prompt + '\n\nSettings from the demo: Detail: High, Wind: Medium.', `its own window, ${width}px wide`);
+    assert.equal(DP.pageCopyText(own, win), prompt + '\n\n演示中的设置：Detail: High, Wind: Medium。', `its own window, ${width}px wide`);
   }
 });
 
@@ -503,7 +503,7 @@ test("on the home page's stand-in window, the window the script runs in says whe
   const prompt = 'Add particles to [the hero].';
   const fetched = parsedPage(prompt, [choiceGroup('Number of particles', [{ text: '16,000', phone: true }, { text: '65,000', pressed: true }])]);
   const NO_STYLE = { getComputedStyle: () => ({ display: '' }) };
-  const copied = value => `${prompt}\n\nSettings from the demo: Number of particles: ${value}.`;
+  const copied = value => `${prompt}\n\n演示中的设置：Number of particles: ${value}。`;
   const before = Object.getOwnPropertyDescriptor(globalThis, 'matchMedia');
   try {
     globalThis.matchMedia = windowOf(375, 812).matchMedia;
@@ -528,7 +528,7 @@ test("pressing a page's Copy prompt copies what pageCopyText gives", async () =>
     querySelector: () => ({ getAttribute: () => null, textContent: ' Normal ' }) };
   const cases = [
     ['a page without a Try it step copies the prompt alone', null, prompt],
-    ['a page with a setting copies the prompt and the settings line', [speed], prompt + '\n\nSettings from the demo: Speed: Normal.']
+    ['a page with a setting copies the prompt and the settings line', [speed], prompt + '\n\n演示中的设置：Speed: Normal。']
   ];
   for (const [name, controls, expected] of cases) {
     const written = [], accepted = Promise.resolve();
@@ -538,7 +538,7 @@ test("pressing a page's Copy prompt copies what pageCopyText gives", async () =>
     await accepted;
     assert.deepEqual(written, [expected], name);
     assert.equal(written[0], DP.pageCopyText(page.doc, page.win), name);
-    assert.equal(page.button.textContent, 'Copied', name);
+    assert.equal(page.button.textContent, '已复制', name);
   }
 });
 
@@ -555,7 +555,7 @@ test('a copy that worked marks the star row, and nothing marks it before', async
 test('where the clipboard is missing, a copy through the text box marks the star row too', () => {
   const page = standInPage('once', false, {}, { prompt: 'Add a fade to [the card].', controls: null, clipboard: undefined, exec: true });
   page.button.emit('click', visitor);
-  assert.equal(page.button.textContent, 'Copied');
+  assert.equal(page.button.textContent, '已复制');
   assert.ok(page.starRow.classList.names.includes('is-asked'));
 });
 
@@ -565,7 +565,7 @@ test('a copy that did not work shows the keys to press and leaves the star row u
   page.button.emit('click', visitor);
   await refused.catch(() => {});
   await Promise.resolve();
-  assert.equal(page.button.textContent, 'Press Ctrl+C to copy');
+  assert.equal(page.button.textContent, '按 Ctrl+C 复制');
   assert.deepEqual(page.starRow.classList.names, []);
 });
 
@@ -574,5 +574,5 @@ test('a page with no star row still copies', async () => {
   const page = standInPage('once', false, {}, { prompt: 'Add a fade to [the card].', controls: null, clipboard: { writeText: () => accepted } }, null, { noStarRow: true });
   page.button.emit('click', visitor);
   await accepted;
-  assert.equal(page.button.textContent, 'Copied');
+  assert.equal(page.button.textContent, '已复制');
 });

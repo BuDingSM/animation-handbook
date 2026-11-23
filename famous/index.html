@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1578,8 +1578,8 @@ document.querySelectorAll('.fx-prompt').forEach(p=>{
   const more=document.createElement('button');
   more.type='button';more.className='fx-toggle';
   more.setAttribute('aria-controls',p.id);more.setAttribute('aria-expanded','false');
-  more.textContent='Show the full prompt';
-  more.addEventListener('click',()=>{const open=!p.classList.toggle('is-clamped');more.setAttribute('aria-expanded',String(open));more.textContent=open?'Show less':'Show the full prompt';});
+  more.textContent='显示完整提示词';
+  more.addEventListener('click',()=>{const open=!p.classList.toggle('is-clamped');more.setAttribute('aria-expanded',String(open));more.textContent=open?'收起':'显示完整提示词';});
   p.after(more);
 });
 
@@ -1590,7 +1590,7 @@ document.querySelectorAll('.fx-prompt').forEach(p=>{
 // button's name always starts with what it shows and names its entry.
 const ICON_COPY='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
 const ICON_DONE='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-const KEYS=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent)?'Press ⌘C to copy':'Press Ctrl+C to copy';
+const KEYS=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent)?'按 ⌘C 复制':'按 Ctrl+C 复制';
 const toastEl=document.getElementById('toast'),toastText=toastEl.querySelector('.toast-t');let toastTimer=0,toastClear=0;
 function toast(message){
   clearTimeout(toastTimer);clearTimeout(toastClear);
@@ -1603,7 +1603,7 @@ function copyState(btn,kind){
   clearTimeout(btn._timer);
   btn.classList.toggle('done',kind==='done');
   btn.querySelector('.i').outerHTML=kind==='done'?ICON_DONE:ICON_COPY;
-  const label=kind==='done'?'Copied':kind==='keys'?KEYS:'Copy prompt';
+  const label=kind==='done'?'已复制':kind==='keys'?KEYS:'复制提示词';
   btn.querySelector('.copy-l').textContent=label;
   btn.setAttribute('aria-label',kind==='done'?'Copied the prompt for '+title:kind==='keys'?KEYS+': the prompt for '+title+' is selected':'Copy prompt for '+title);
   if(kind)btn._timer=setTimeout(()=>copyState(btn,''),kind==='done'?2000:4000);
@@ -1632,7 +1632,7 @@ document.querySelectorAll('.fx .copy').forEach(btn=>btn.addEventListener('click'
   const text=prompt.textContent.replace(/\s+/g,' ').trim();
   const copied=()=>{
     copyState(btn,'done');
-    toast('Prompt copied. Paste it into your AI assistant.');
+    toast('提示词已复制，粘贴到你的 AI 助手里就能用。');
   };
   const fallback=()=>{
     if(copyThroughTextBox(text,btn)){copied();return;}

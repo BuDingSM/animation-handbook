@@ -61,15 +61,15 @@ const ENTRANCE_EXIT = '02-entrance-and-exit';
 const CONVERTED = [ENTRANCE_EXIT, '05-text-typography', '07-ambient-background', '06-3d-advanced', '04-micro-interactions', '01-scroll-based', '03-page-transitions'];
 
 // The Pause button of a loop page, exactly as in the template; {MODE} is '' (the page pauses itself) or '="css"'.
-const PAUSE = '<button class="hb-play" type="button" id="btn-pause" data-hb-pause{MODE} data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>';
+const PAUSE = '<button class="hb-play" type="button" id="btn-pause" data-hb-pause{MODE} data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>';
 
 // The Show me and Reset buttons of a do-it page, exactly as in the template (Reset only where the demo has a state to reset).
-const SHOW_ME = '<button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>';
-const RESET = '<button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>';
+const SHOW_ME = '<button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>';
+const RESET = '<button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>';
 
 // The Play and Back to top buttons of a scroll page, exactly as in the template.
-const PLAY = '<button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>';
-const TOP = '<button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>';
+const PLAY = '<button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>';
+const TOP = '<button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>';
 
 // Show me belongs to do-it pages and Reset to do-it and loop pages, each exactly as in the template: the shared script picks
 // what to press on arrival by the button it finds, and Reset brings back what the visitor changed. `html` is the whole page
@@ -159,12 +159,12 @@ for (const d of steps) {
     assert.match(html, /<p class="hb-cat">\d{2}\.\d{2} · [^<]+<\/p>/);
     const prompt = html.match(/<p class="hb-prompt">([^<]*)<\/p>/)[1];
     assert.ok(words(prompt) >= 60 && words(prompt) <= 130, `prompt has ${words(prompt)} words`);
-    if (hasTry) assert.ok(prompt.trim().endsWith('Match the settings listed below.'), 'prompt ending');
-    else assert.ok(!prompt.includes('Match the settings listed below.'), 'a page without settings does not point to them');
+    if (hasTry) assert.ok(prompt.trim().endsWith('按下面列出的设置来做。'), 'prompt ending');
+    else assert.ok(!prompt.includes('按下面列出的设置来做。'), 'a page without settings does not point to them');
     if (!hasTry) {
       // Nothing of a Try it step is left behind (a mistyped Try it tag would otherwise skip every settings check).
       assert.ok(!/hb-try|hb-setting|hb-options/.test(html), 'a page without Try it has no settings markup');
-      assert.ok(!html.includes('Your settings are added at the end.'), 'a page without settings does not promise them under Copy prompt');
+      assert.ok(!html.includes('你的设置会加在末尾。'), 'a page without settings does not promise them under Copy prompt');
     }
     const nums = [...html.matchAll(/<span class="hb-num" aria-hidden="true">(\d+)<\/span>/g)].map(m => Number(m[1]));
     assert.deepEqual(nums, hasTry ? [1, 2, 3] : [1, 2], 'steps are numbered in order');
@@ -313,7 +313,7 @@ for (const d of steps) {
 const SWITCHED = steps.filter(d => pageOf(d).includes('data-hb-modes'));
 // The mode switch (See inside and Compare), exactly as in the template, between the Watch step's heading and its stage, with
 // a note for See inside and one for Compare after the player bar, both hidden until their mode is pressed.
-const MODES = '<div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes><button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button><button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button><button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button></div>';
+const MODES = '<div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes><button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button><button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button><button type="button" data-hb-mode="compare" aria-pressed="false">对比</button></div>';
 // The notes box exactly: the See inside note, then the Compare note, each a direct child of the box and hidden at first.
 const NOTES_BOX = /<div class="hb-mode-notes" aria-live="polite"><p data-hb-for="inside" hidden>((?:(?!<\/p>)[\s\S])*)<\/p><p data-hb-for="compare" hidden>((?:(?!<\/p>)[\s\S])*)<\/p><\/div>/;
 const sentencesIn = html => decode(html.replace(/<[^>]+>/g, '')).split(/[.!?](?:\s|$)/).filter(s => s.trim()).length;
@@ -443,8 +443,8 @@ test('the do-it pages played with the pointer can be played from the keyboard', 
 // each kind is covered before a page of that kind exists.
 test('Show me belongs to do-it pages and Reset to do-it and loop pages, each exactly as in the template', () => {
   const PAUSE_BUTTON = PAUSE.replace('{MODE}', '');
-  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>Replay</button>';
-  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>';
+  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>重播</button>';
+  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>';
   const barOf = (...items) => `<div class="hb-player">\n      ${items.join('\n      ')}\n    </div>`;
   const check = (kind, html) => assertShowMeAndReset(kind, html, between(html, '<div class="hb-player">', '</div>'));
   const ok = (kind, ...items) => assert.doesNotThrow(() => check(kind, barOf(...items)), `a ${kind} page with ${items.length} controls passes`);
@@ -463,7 +463,7 @@ test('Show me belongs to do-it pages and Reset to do-it and loop pages, each exa
 
   notOk('one Show me control', 'do', barOf(RESET));
   notOk('one Show me control', 'do', barOf(SHOW_ME, SHOW_ME.replace('id="btn-demo"', 'id="btn-demo-2"')));
-  notOk('the Show me button is in the player bar exactly as in the template', 'do', barOf(SHOW_ME.replace('Show me</button>', 'Play</button>')));
+  notOk('the Show me button is in the player bar exactly as in the template', 'do', barOf(SHOW_ME.replace('演示一下</button>', '播放</button>')));
   notOk('on a do-it page the Reset button comes right after Show me', 'do', barOf(SHOW_ME, SLOW, RESET));
   notOk('on a do-it page the Reset button comes right after Show me', 'do', barOf(RESET, SHOW_ME));
   for (const [kind, first] of [['do', SHOW_ME], ['loop', PAUSE_BUTTON]]) {
@@ -478,9 +478,9 @@ test('Show me belongs to do-it pages and Reset to do-it and loop pages, each exa
 // kind is covered before a scroll page exists.
 test('Play, Back to top and the scroller belong to scroll pages, and a scroll page runs once on arrival with no other player control', () => {
   const noIcon = button => button.replace(/<svg[\s\S]*?<\/svg>/, '');
-  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>Replay</button>';
-  const LOOP = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>Loop</span></label>';
-  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>';
+  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>重播</button>';
+  const LOOP = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>';
+  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>';
   const pageOf = (bar, stage = '') => `<div class="stage">${stage}</div>\n    <div class="hb-player">\n      ${bar.join('\n      ')}\n    </div>`;
   const run = (kind, html, autoplay = true) => assertScrollControls(kind, html, between(html, '<div class="hb-player">', '</div>'), autoplay);
   const ok = (kind, html) => assert.doesNotThrow(() => run(kind, html), `a ${kind} page passes`);
@@ -498,8 +498,8 @@ test('Play, Back to top and the scroller belong to scroll pages, and a scroll pa
   // or class fails), and Back to top right after Play.
   const EXACT = 'Play and Back to top are in the player bar exactly as in the template';
   notOk(EXACT, 'scroll', `<div class="stage">${PLAY}</div>\n<div class="hb-player">\n${TOP}\n</div>`);
-  notOk(EXACT, 'scroll', pageOf([PLAY.replace('Play</button>', 'Scroll</button>'), TOP]));
-  notOk(EXACT, 'scroll', pageOf([PLAY, TOP.replace('Back to top</button>', 'Top</button>')]));
+  notOk(EXACT, 'scroll', pageOf([PLAY.replace('播放</button>', '滚动</button>'), TOP]));
+  notOk(EXACT, 'scroll', pageOf([PLAY, TOP.replace('回到顶部</button>', '顶部</button>')]));
   notOk(EXACT, 'scroll', pageOf([noIcon(PLAY), TOP]));
   notOk(EXACT, 'scroll', pageOf([PLAY, noIcon(TOP)]));
   notOk(EXACT, 'scroll', pageOf([PLAY.replace('id="btn-scroll"', 'id="btn-play"'), TOP]));
@@ -561,7 +561,7 @@ test('a setting that starts lower on phones marks that choice data-hb-phone, and
 
 // The footer of every page: the site's name, a link to the source on GitHub (in a new tab) and Back to top.
 test('every guided-steps page has the same footer, with a link to the source on GitHub', () => {
-  const FOOTER = '<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>';
+  const FOOTER = '<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>';
   assert.ok(steps.length > 0, 'there are guided-steps pages');
   assert.deepEqual(steps.filter(d => count(pageOf(d), FOOTER) !== 1 || count(pageOf(d), '<footer') !== 1).map(d => `${d.cat}/${d.slug}`), [],
     'pages without exactly this footer');
@@ -571,8 +571,8 @@ test('every guided-steps page has the same footer, with a link to the source on 
 // (docs/superpowers/specs/2026-10-12-star-button-design.md).
 const STAR_ICON = '<svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>';
 const STAR_HREF = 'href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"';
-const BAR_STAR = `<a class="hb-star" ${STAR_HREF} aria-label="Star on GitHub">${STAR_ICON}<span>Star on GitHub</span></a>`;
-const STAR_ROW = `<div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" ${STAR_HREF}>${STAR_ICON}Star on GitHub</a></div>`;
+const BAR_STAR = `<a class="hb-star" ${STAR_HREF} aria-label="在 GitHub 上点星">${STAR_ICON}<span>在 GitHub 上点星</span></a>`;
+const STAR_ROW = `<div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" ${STAR_HREF}>${STAR_ICON}在 GitHub 上点星</a></div>`;
 test('every guided-steps page asks for a star at the end of its top bar and under its prompt card', () => {
   const lastAfter = (part, piece, before) => part.trimEnd().endsWith(piece) &&
     part.slice(0, part.lastIndexOf(piece)).trimEnd().endsWith(before);
@@ -930,7 +930,7 @@ test('the counts written in the issue template, the 404 page and the sitemap mat
   const cards = totalCards();
   const template = read(path.join(ROOT, '.github/ISSUE_TEMPLATE/config.yml'));
   assert.equal(numberIn(template, /See all (\d+) techniques/), cards, 'config.yml: the link to the live handbook');
-  assert.equal(numberIn(read(path.join(ROOT, '404.html')), />Browse all (\d+) animations</), cards, '404.html: the Browse all link');
+  assert.equal(numberIn(read(path.join(ROOT, '404.html')), />浏览全部 (\d+) 个动画</), cards, '404.html: the Browse all link');
   // The sitemap lists two URLs more than the total: the home page and the Famous effects page, first and in that order, each
   // address once.
   const sitemap = read(path.join(ROOT, 'sitemap.xml'));
@@ -998,7 +998,7 @@ test('the 404 page sends /finder and /find to the finder, keeping only its answe
     ['/animation-handbook/animations/finder/', '', { words: 'finder' }]
   ];
   for (const [where, rest, want] of cases) assert.deepEqual({ ...whereTo(where, rest) }, want, where + rest);
-  assert.ok(html.includes('<a class="way" href="/animation-handbook/?view=find">Find an animation by what you saw</a>'), 'the third way back');
+  assert.ok(html.includes('<a class="way" href="/animation-handbook/?view=find">按你见过的样子找动画</a>'), 'the third way back');
 });
 
 // Where the bracket that opens at HOME[from] ('[' or '{') is closed. It steps over strings and // comments, so a quote or bracket

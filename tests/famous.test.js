@@ -229,14 +229,14 @@ test('the footer is the home page\'s, without the count', () => {
 test('the page script copies, falls back to the copy keys, shortens prompts on phones and shows the message, in the words of the animation pages and the home page', () => {
   const script = [...PAGE.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
   const shared = read(path.join(ROOT, 'assets', 'js', 'demo-page.js'));
-  for (const words of ['Show the full prompt', 'Show less', 'Press ⌘C to copy', 'Press Ctrl+C to copy']) {
+  for (const words of ['显示完整提示词', '收起', '按 ⌘C 复制', '按 Ctrl+C 复制']) {
     assert.ok(script.includes(`'${words}'`), `the page says "${words}"`);
     assert.ok(shared.includes(`'${words}'`), `as the animation pages do: "${words}"`);
   }
-  assert.ok(script.includes("toast('Prompt copied. Paste it into your AI assistant.')") && HOME.includes("toast('Prompt copied. Paste it into your AI assistant.')"), 'the home page\'s message');
+  assert.ok(script.includes("toast('提示词已复制，粘贴到你的 AI 助手里就能用。')") && HOME.includes("toast('提示词已复制，粘贴到你的 AI 助手里就能用。')"), 'the home page\'s message');
   assert.ok(script.includes("document.execCommand('copy')") && shared.includes("doc.execCommand('copy')"), 'where the clipboard is refused or missing, a hidden text box copies, as on the animation pages');
   assert.ok(script.indexOf("document.execCommand('copy')") < script.indexOf("copyState(btn,'keys')"), 'before the button asks for the copy keys');
-  for (const words of ["'Copy prompt'", "'Copied'"]) assert.ok(script.includes(words), words);
+  for (const words of ["'复制提示词'", "'已复制'"]) assert.ok(script.includes(words), words);
   assert.ok(PAGE.includes('<div class="toast" id="toast" role="status" aria-live="polite">'), 'the message box');
 });
 
@@ -346,7 +346,7 @@ for (const e of ENTRIES) {
     assert.ok(parts.length >= 1, 'at least one [part to fill in]');
     assert.equal(count(box[1], '<mark>['), parts.length, 'each [part] is marked');
     assert.ok(!/`|<code|<pre/.test(box[1]), 'no code');
-    assert.ok(!prompt.includes('Match the settings listed below.'), 'the page has no settings to match');
+    assert.ok(!prompt.includes('按下面列出的设置来做。'), 'the page has no settings to match');
     assert.match(prompt, /reduced motion/i, 'says what happens under reduced motion');
     if (e.start === 'hover' || e.start === 'press') assert.match(prompt, /\b(touch|tap|finger)/i, 'names touch, a tap or a finger');
     for (const other of ENTRIES) for (const w of siteWords(other)) assert.ok(!names(prompt, w), `names "${w}"`);

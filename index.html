@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -4722,7 +4722,7 @@ function buildCard(e){
   card.innerHTML=`<div class="stage"><div class="pv pv-${pv}" aria-hidden="true">${pvMarkup(pv)}</div>`+
     `<span class="tag">${esc(e.places.length?PLACE[e.places[0]].name:e.cat.name)}</span></div>`+
     `<div class="meta"><h3 class="title"><a href="${esc(pageHref(e.url))}">${esc(e.name)}</a></h3><p class="desc">${esc(e.desc)}</p>`+
-    `<div class="acts"><button type="button" class="copy" aria-label="${esc('Copy prompt for '+e.name)}">${ICON_COPY}<span class="copy-l" aria-live="polite">Copy prompt</span></button>`+
+    `<div class="acts"><button type="button" class="copy" aria-label="${esc('Copy prompt for '+e.name)}">${ICON_COPY}<span class="copy-l" aria-live="polite">复制提示词</span></button>`+
     `<span class="try" aria-hidden="true">Try it${ICON_ARROW}</span></div></div>`;
   if(reduce)card.querySelectorAll('animate').forEach(a=>a.remove());
   const eng=engines[pv]?engines[pv](card.querySelector('.pv')):null;
@@ -5302,8 +5302,8 @@ function copyState(btn,kind){
   clearTimeout(btn._timer);
   btn.classList.toggle('done',kind==='done');btn.classList.toggle('fail',kind==='fail');
   btn.querySelector('.i').outerHTML=kind==='done'?ICON_DONE:kind==='fail'?ICON_OPEN:ICON_COPY;
-  btn.querySelector('.copy-l').textContent=kind==='done'?'Copied':kind==='fail'?'Open to copy':'Copy prompt';
-  btn.setAttribute('aria-label',kind==='done'?'Prompt copied for '+name:kind==='fail'?'Open to copy the prompt for '+name:'Copy prompt for '+name);
+  btn.querySelector('.copy-l').textContent=kind==='done'?'已复制':kind==='fail'?'打开页面复制':'复制提示词';
+  btn.setAttribute('aria-label',kind==='done'?'已复制「'+name+'」的提示词':kind==='fail'?'打开页面复制「'+name+'」的提示词':'复制「'+name+'」的提示词');
   if(kind==='done')btn._timer=setTimeout(()=>copyState(btn,''),1800);
 }
 // The address of a card's page as it is read: its folder (the card's link names index.html when the home page is opened from disk).
@@ -5313,7 +5313,7 @@ cardsBox.addEventListener('click',e=>{
   if(!btn)return;
   const url=urlOf(btn.closest('.card'));
   if(btn.classList.contains('fail')){location.href=pageHref(url)+'#hb-prompt-title';return;}
-  writeClipboard(promptFor(url)).then(()=>{copyState(btn,'done');toast('Prompt copied. Paste it into your AI assistant.');},()=>copyState(btn,'fail'));
+  writeClipboard(promptFor(url)).then(()=>{copyState(btn,'done');toast('提示词已复制，粘贴到你的 AI 助手里就能用。');},()=>copyState(btn,'fail'));
 });
 // Reading the page starts when a mouse pointer rests on a card or the keyboard brings focus to it, so the copy is quick. A
 // finger does not count: on a phone the touch that sends it opens the card or scrolls the page, and the focus a tap gives the
