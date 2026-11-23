@@ -391,7 +391,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 03 备注：「View Transitions API」保留英文名（API 专名）；「FLIP 技巧」保留 FLIP 缩写。演示内假网站正文、FLIP 卡片名、pixelate 画布文案、shared-element 项目名属演示内容本身，保留英文；导航按钮名、演示内标签/按钮/说明文字已翻译。行为适配（最小改动）：cube-transition 的 `wordsIn.replace('from above','from '+from)` 改为中文（`from` 值改为 `'上方'`/`'侧面'`，replace 目标改为 `'从上方'`）；portal-zoom 的 `NUM` 数组（一~六）与 cube 的 `about()` 秒数词（`['两','三','四']+' 秒'`）。跨分类 "See also" 保留英文名，待协调人用汇总术语表统一改：dissolve → Shatter Effect；flip-technique → Drag to Reorder；circle-reveal → Clip-Path Reveal、Click / Tap Ripple；overlay-wipe → Curtain Reveal、Section Wipe；page-curl → 3D Flip Card；cube-transition → Scroll-Driven 3D Rotation、3D Flip Card；pixelate-transition → ASCII / Halftone。
 
-### 06 3D 与高级效果（28）—— 演示页已翻译（2026-11-23，协调人校验：页面 0 问题）；README 未翻（负责人结束时未交报告，28 个 README 与分类 README 仍是英文，已另派负责人补翻）
+### 06 3D 与高级效果（28）—— 已翻译（2026-11-23；演示页负责人与 README 补翻负责人均已报告，协调人校验 0 问题）
 
 | slug | 中文名 | 中文简介 |
 |---|---|---|
@@ -424,7 +424,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 | water-ripple | 水面涟漪 | 涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。 |
 | webgl-shader-animation | WebGL 着色器动画 | 逐像素计算的流动色彩图案。适合大胆的背景。 |
 
-06 备注：演示页术语表由协调人从已翻 h1/lede 提取（JSON-LD、meta/og 描述、提示词结尾、上一页/下一页均已校验通过）。README 补翻注意事项：28 个 README 的“关键参数”表须与页面中文设置标签逐项对上；"另见"同分类用中文名、跨分类保留英文名并在报告里列出；正文里指向其他动画的链接，跨分类的也先保留英文名（汇总脚本统一改）；分类 README 标题改为 `# 3D 与高级效果`、开头介绍用本文件分类描述、条目用列表 `- [中文名](slug/) — 中文简介` 并以 `## 全部动画` 为标题，其余小节（关键概念、浏览器要求、另见）一并翻译。
+06 备注：演示页术语表由协调人从已翻 h1/lede 提取；README 由补翻负责人翻译，协调人校验 0 问题（28 个 README 标题/章节/参数表/在线演示、分类 README 标题/介绍/28 条列表）。补翻负责人核对：参数默认值以页面实际默认（`class="on"`）为准；正文按钮名用「」标出；两处无链接的同分类引用用了中文名（physics-2d "as Cloth Simulation does"、cloth-simulation "the GPGPU particle demo"）；液态玻璃正文引用的帮助行按页面实际中文文案写。**协调人修了 liquid-glass 演示页 CSS 注释里的一处中英混杂**（`…shadow and 磨砂程度 but no bend…` → `…shadow and frosting but no bend…`，代码注释保持英文）。06 的 README "另见"跨分类英文名（补翻负责人报告，汇总时用 h1 映射脚本统一改）：Parallax Depth-of-Field（01）；Matrix Rain、Grain / Film Noise Overlay、Starfield / Space Particles、Abstract Geometric Motion、Particle Constellation、Flow Field、Game of Life、Mesh Gradient Animation、Ambient Ripple Effect、Ken Burns Effect（07）；Text Particles、Glitch Text、Scramble / Glitch Text、Text Clip-Path Reveal、Outline to Fill、Handwriting Draw（05）；Snap Scrolling、Swipe to Dismiss、Modal Expand、Spotlight Hover Glow、Animated Gradient Border、Hover State Animation、Gooey Menu、Checkmark Draw（04）；Flip In、Bounce In、Page Curl、Portal / Tunnel Zoom、Scrub Animation、Sticky Section、Cube Transition（02/03）；正文里无指向其他动画的链接。分类 README：标题 `# 3D 与高级效果`、介绍、28 条列表（`## 全部动画`）、`## 关键概念`、`## 浏览器要求`、`## 另见` 已翻；“另见”分类名仍英文（04 — Micro-Interactions、05 — Text & Typography）→ 汇总时改中文名。
 
 ### 07 氛围与背景（26）—— 已翻译（2026-11-23；负责人未交报告，协调人用脚本校验：0 问题）
 
@@ -477,7 +477,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 03 页面切换（17）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [x] 04 微交互（44）—— 翻译完成（负责人已报告，协调人校验 0 问题；修了 2 处脚本语法错误），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 05 文字与排版（19）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
-- [x] 06 3D 与高级效果（28）—— 演示页已翻译，术语表已汇总在本文件；README 补翻进行中（另派负责人），待其报告后写入 CATS
+- [x] 06 3D 与高级效果（28）—— 翻译完成（演示页 + README 负责人均已报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 07 氛围与背景（26）—— 翻译完成（负责人已报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 根 index.html（CATS + 搜索 placeholder + Popular 搜索词 + 分组 chips 名称）
 - [ ] 根 README.md
