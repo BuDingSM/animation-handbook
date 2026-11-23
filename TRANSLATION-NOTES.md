@@ -234,9 +234,39 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 由各分类负责人起草、协调人汇总后填入本节。规则：中文名要自然、符合中文前端开发者的习惯说法；简介是 "Best for …" 句的完整翻译；slug 保持英文；简介在 CATS、演示页、README、分类 README、根 README 五处完全一致。
 
-### 01 滚动驱动（27）
+### 01 滚动驱动（27）—— 已翻译（2026-11-23；分类负责人结束时未交报告，术语表由协调人从文件提取并用脚本校验）
 
-（待填）
+| slug | 中文名 | 中文简介 |
+|---|---|---|
+| counter-animation | 数字滚动计数 | 数字滚动进入视野时开始累加。最适合统计数据。 |
+| cover-card-to-fixed-header | 封面卡片变固定顶栏 | 高封面滚动时收成细顶栏。最适合文章页。 |
+| fly-in-fly-out-contact-list | 联系人列表飞入飞出 | 行在靠近顶部或底部边缘时淡入淡出、滑入滑出。最适合长列表。 |
+| hide-on-scroll-header | 滚动隐藏顶栏 | 往下滚隐藏顶栏，往上滚显示出来。最适合移动端页面。 |
+| horizontal-scroll | 横向滚动 | 往下滚，一行面板横向滑过。最适合作品集。 |
+| parallax-depth-of-field | 视差景深 | 各图层随焦点变化以各自的速度移动。最适合电影感开场。 |
+| parallax-scrolling | 视差滚动 | 远处的图层比近处的移动得更慢。最适合主视觉场景。 |
+| pin-animation | 固定动画 | 一部分固定不动，文字随滚动变化。最适合功能列表。 |
+| progress-bar | 阅读进度条 | 往下读，进度条随之填满。最适合长文章。 |
+| reveal-on-scroll | 滚动显现 | 卡片越过盒子里的一条线时出现。最适合长落地页。 |
+| reverse-scrolling-columns | 反向滚动列 | 两侧的列与中间一列朝相反方向滚动。最适合作品集。 |
+| scroll-background-color | 滚动驱动背景色 | 背景色随滚动经过的区域而变化。最适合故事讲述。 |
+| scroll-image-sequence | 滚动图片序列 | 滚动像翻书一样播放一串图片。最适合产品展示。 |
+| scroll-trigger | 滚动触发动画 | 动画在设定的滚动点开始、跟随并固定。最适合落地页。 |
+| scroll-velocity-skew | 滚动速度倾斜 | 滚得快时行会倾斜，停下时回正。最适合画廊。 |
+| scrollspy-nav | 滚动侦测导航 | 菜单高亮你正在读的章节。最适合长文档。 |
+| scrollytelling | 滚动叙事 | 旁边的图片随你往下读而变化。最适合数据故事。 |
+| scrub-animation | 滚动 scrub 动画 | 滚动像拖视频进度条一样正放倒放。最适合产品演示。 |
+| section-wipe | 区域擦除切换 | 每个区域从上一个上面滑过。最适合全屏故事。 |
+| smooth-scroll | 平滑（惯性）滚动 | 滚动滑到停下，而不是一下跳到位。最适合作品集网站。 |
+| snap-scrolling | 滚动吸附 | 盒子一次停在一个完整区域上。最适合幻灯片和画廊。 |
+| stacking-cards | 层叠卡片 | 卡片吸顶并叠成一摞。最适合分步讲述。 |
+| stagger-reveal | 交错显现 | 一组里的元素随滚动依次出现。最适合卡片网格。 |
+| sticky-section | 吸顶区域 | 一个区域固定不动，内容随之变化。最适合功能导览。 |
+| svg-line-draw | SVG 线条滚动描绘 | 线条随滚动沿路线自己画出来。最适合时间线。 |
+| text-fill-on-scroll | 滚动文字填充 | 词语随滚动一个接一个亮起来。最适合关键语句。 |
+| zoom-into-image | 图片缩放进入 | 小窗口随滚动放大填满整个盒子。最适合主视觉图片。 |
+
+01 备注：协调人校验通过——27 页 JSON-LD 均解析，name = h1，articleSection = 滚动驱动，inLanguage = zh-CN；meta/og 描述与 lede 一致；27 个 README 标题 = h1，含 [在线演示]，六个中文章节标题，`| 参数 | 默认值 | 效果 |` 表；上一页/下一页可见文案含邻居新 h1；8 条 `data-hb-motion-note` 均为中文且无句号（符合待改的测试正则 `/^[^。.]*[^。.\s]$/`，翻转时改 `tests/pages.test.js:143`）；6 页提示词本来就没有“按下面列出的设置来做。”结尾（horizontal-scroll、parallax-depth-of-field、pin-animation、scroll-trigger、scrollytelling、sticky-section——HEAD 里也没有，是无设置页，不是翻译丢失）；01 的 README "另见"里没有跨分类英文名（全部在 01 内）。分类 README 完整（27 条，CATS 顺序），只剩 `## Entries` 标题仍英文（汇总时统一为 `## 全部动画`）。
 
 ### 02 入场与退场（15）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
 
@@ -335,7 +365,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 术语表与规则（本文件）
 - [x] 共享界面机械替换（176 页模板文案 + demo-page.js + demo-page.css 注释 + 404.html + 测试同步；`node --test "tests/*.test.js"` 2371/2371 通过）
 - [x] 首页（根 index.html）UI 翻译：head/title/JSON-LD、导航、hero、PLACES、FIND_Q、结果区、知名效果、怎么用、页脚、noscript、render/findLine/showFound/showFinder/findWords；搜索分词 CJK 化（`wordsOf`：英文词 + 中文词组 + 单字；STOP 增加中文虚词）；`tools/check-pages.mjs` 的首页/演示页断言同步为中文；`tests/pages.test.js`、`tests/finder.test.js` 同步。首页测试全过；其余失败全部是分类页与未翻译 CATS 之间的逐页一致性检查，待 CATS 汇总后消除。
-- [ ] 01 滚动驱动（27）
+- [x] 01 滚动驱动（27）—— 翻译完成（负责人未交报告，协调人从文件校验），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 02 入场与退场（15）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [x] 03 页面切换（17）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 04 微交互（44）
