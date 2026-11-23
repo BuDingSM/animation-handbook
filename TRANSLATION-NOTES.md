@@ -290,7 +290,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 02 备注：演示内容本身是演示对象时保留英文——letter-by-letter 的输入 `Hello, world.`、split-text 的输入 `Design beyond the obvious`、slide-up-reveal 的标题 "Beautiful / interfaces / crafted with care."、word-by-word 的例句（按空格分词，中文会破坏演示）、shatter 的照片标题、clip-path 的表面标签与标题 "Unmasked"、curtain 的徽章/标题 "Unveiled" 及其副标题。行为适配：word-by-word 的时长助手按中文语序重写（`NUM` → 一/两/三…，`n<1` → 半秒）；curtain-reveal 的无暂停正则 `.replace(/,? (?:and)?holds?,/,',')` 改为中文 `.replace(/，?停顿一下/,'')`，四条模式说明都写成含“，停顿一下”以便移除后仍通顺；flip-in 的 JS 变量 `edge` 保持英文（top/bottom/left），模板字符串映射为“卡片的上/下/左 边”；各页时长词助手按中文语序重组（"about a third of a second" → 约三分之一秒；"a second and a half" → 一秒半）。跨分类 "See also" 保留英文名，待协调人统一改：curtain-reveal → Overlay Wipe（03）；shatter-effect → Dissolve Transition（03）、2D Physics（06）；ink-spread-reveal → Circle Reveal（03）。分类 README 的 `## Entries` 标题译为 `## 全部动画`（协调人统一：01/03 仍是 `## Entries`，汇总时统一改为 `## 全部动画`）。
 
-### 04 微交互（44）—— 已翻译（2026-11-23；负责人未交报告，协调人用脚本校验：0 问题，176 页内联脚本全部通过语法检查）
+### 04 微交互（44）—— 已翻译（2026-11-23；负责人已报告，协调人校验 0 问题，术语表与报告完全一致）
 
 | slug | 中文名 | 中文简介 |
 |---|---|---|
@@ -339,7 +339,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 | tooltip-reveal | 提示气泡浮现 | 停顿片刻后，小标签淡入出现。适合用在图标按钮上。 |
 | typing-indicator | 正在输入指示 | 聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。 |
 
-04 备注：协调人校验 0 问题（JSON-LD、meta/og 描述、提示词结尾、README 标题/章节/参数表、上一页/下一页）。**协调人修了 2 处翻译引入的脚本语法错误**：progress-animation 的 `,all='the bar, the ring and the steps'` 被改成 `const all='横条、圆环和步骤'`（丢了逗号、多出 const）→ 恢复为 `,all='横条、圆环和步骤'`；card-deck-swipe 的 else 分支字符串拼接断裂（`够远到能+(verb===…`）→ 改为 `够远到能'+(verb==='fade'?'淡出。':'飞走。')`。修后 176 页内联脚本全部通过语法检查。04 的 README "另见"跨分类英文名（协调人 grep 确认，汇总时用 h1 映射脚本统一改）：FLIP Technique（×3）、Liquid Glass（×2）、Animated Gradient Background、Clip-Path Reveal、Counter Animation、Fireworks、Image Distortion on Hover、Morph Transition、Morphing Blob、Parallax 3D Tilt、Progress Bar、Rotate Word Carousel、Shared Element Transition、Split-Flap Board、Text Gradient Animation、Wavy Text。分类 README 待汇总规范化：标题 `# 04 — 微交互` → `# 微交互`；条目为表格（`## 动画` + `| 演示 | 简介 |`）→ 转为列表并改标题为 `## 全部动画`；`## 关键概念` 已翻译；`## 另见` 的分类名仍英文（02 — Entrance & Exit、03 — Page Transitions）→ 改中文名。
+04 备注：负责人报告 + 协调人校验 0 问题（JSON-LD、meta/og 描述、提示词结尾、README 标题/章节/参数表、上一页/下一页）。负责人修过：44 个 h1 曾漏翻（批量脚本只翻了 title/meta/lede/JSON-LD），补翻后 0 失败；4 个选项按钮与 1 个设置名漏翻（drawer-slide 深、heart-burst 远、shimmer-effect 明亮、success-confetti 很多、Color 设置→颜色）；README 与页面选项词不一致 9 处（已统一）。**协调人修了 2 处翻译引入的脚本语法错误**：progress-animation 的 `,all='the bar, the ring and the steps'` 被改成 `const all='横条、圆环和步骤'`（丢了逗号、多出 const）→ 恢复为 `,all='横条、圆环和步骤'`（`all` 片段须保持为 inside 说明与 `STILL.inside` 的连续子串，修后仍满足）；card-deck-swipe 的 else 分支字符串拼接断裂（`够远到能+(verb===…`）→ 改为 `够远到能'+(verb==='fade'?'淡出。':'飞走。')`。修后 176 页内联脚本全部通过语法检查。04 的 README "另见"跨分类英文名（负责人报告与协调人 grep 一致，汇总时用 h1 映射脚本统一改）：FLIP Technique（accordion、drag-to-reorder、modal-expand）、Shared Element Transition（add-to-cart-fly）、Morph Transition（dynamic-island）、Liquid Glass（before-after-slider、magnifier-lens）、Clip-Path Reveal（before-after-slider）、3D Carousel（card-deck-swipe）、Morphing Blob（gooey-menu）、Text Gradient Animation（gradient-border）、Animated Gradient Background（gradient-border）、Image Distortion on Hover（image-trail）、Progress Bar（progress-animation）、Counter Animation / Rotate Word Carousel / Split-Flap Board（rolling-numbers）、Parallax 3D Tilt（spotlight-hover）、Fireworks（success-confetti）、Wavy Text（typing-indicator）。行为约束：copy-to-clipboard 的演示按钮 `Copy`/`Copied!` 可安全翻译（脚本不比较 textContent）；modal-expand 的 `data-label` 值（Top Left 等）保留英文（JS 标识符比较）；卡片组人名音译（Mira→米拉等），LIKE/NOPE→喜欢/不喜欢；演示密码 `letmein`、虚构品牌（lumen、NORDVEL 表盘、Atlas Studio 等）、按键名 Tab/Enter/Esc、产品名 ChatGPT/Claude/Cursor 保留英文。分类 README 待汇总规范化：标题 `# 04 — 微交互` → `# 微交互`；条目为表格（`## 动画` + `| 演示 | 简介 |`，负责人称表格是原文结构故保留）→ 转为列表并改标题为 `## 全部动画`；`## 关键概念` 已翻译；`## 另见` 的分类名仍英文（02 — Entrance & Exit、03 — Page Transitions）→ 改中文名。
 
 ### 05 文字与排版（19）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
 
@@ -444,7 +444,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 01 滚动驱动（27）—— 翻译完成（负责人未交报告，协调人从文件校验），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 02 入场与退场（15）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [x] 03 页面切换（17）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
-- [x] 04 微交互（44）—— 翻译完成（负责人未交报告，协调人校验 0 问题；修了 2 处脚本语法错误），术语表已汇总在本文件，待协调人写入 CATS
+- [x] 04 微交互（44）—— 翻译完成（负责人已报告，协调人校验 0 问题；修了 2 处脚本语法错误），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 05 文字与排版（19）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 06 3D 与高级效果（28）
 - [x] 07 氛围与背景（26）—— 翻译完成（负责人未交报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
