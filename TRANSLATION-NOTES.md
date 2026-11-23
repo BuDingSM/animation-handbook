@@ -266,7 +266,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 | text-fill-on-scroll | 滚动文字填充 | 词语随滚动一个接一个亮起来。最适合关键语句。 |
 | zoom-into-image | 图片缩放进入 | 小窗口随滚动放大填满整个盒子。最适合主视觉图片。 |
 
-01 备注：协调人校验通过——27 页 JSON-LD 均解析，name = h1，articleSection = 滚动驱动，inLanguage = zh-CN；meta/og 描述与 lede 一致；27 个 README 标题 = h1，含 [在线演示]，六个中文章节标题，`| 参数 | 默认值 | 效果 |` 表；上一页/下一页可见文案含邻居新 h1；8 条 `data-hb-motion-note` 均为中文且无句号（符合待改的测试正则 `/^[^。.]*[^。.\s]$/`，翻转时改 `tests/pages.test.js:143`）；6 页提示词本来就没有“按下面列出的设置来做。”结尾（horizontal-scroll、parallax-depth-of-field、pin-animation、scroll-trigger、scrollytelling、sticky-section——HEAD 里也没有，是无设置页，不是翻译丢失）；01 的 README "另见"里没有跨分类英文名（全部在 01 内）。分类 README 完整（27 条，CATS 顺序），只剩 `## Entries` 标题仍英文（汇总时统一为 `## 全部动画`）。
+01 备注：协调人校验通过——27 页 JSON-LD 均解析，name = h1，articleSection = 滚动驱动，inLanguage = zh-CN；meta/og 描述与 lede 一致；27 个 README 标题 = h1，含 [在线演示]，六个中文章节标题，`| 参数 | 默认值 | 效果 |` 表；上一页/下一页可见文案含邻居新 h1；8 条 `data-hb-motion-note` 均为中文且无句号（符合待改的测试正则 `/^[^。.]*[^。.\s]$/`，翻转时改 `tests/pages.test.js:143`）；6 页提示词本来就没有“按下面列出的设置来做。”结尾（horizontal-scroll、parallax-depth-of-field、pin-animation、scroll-trigger、scrollytelling、sticky-section——HEAD 里也没有，是无设置页，不是翻译丢失）。负责人报告的跨分类 "See also" 保留英文名 9 个，待协调人统一改：counter-animation → Rolling Numbers（04）；parallax-scrolling → Wave Layers（07）；scroll-background-color → Animated Gradient Background（07）；scroll-velocity-skew → Marquee / Ticker（05）；snap-scrolling → 3D Carousel（06）；svg-line-draw → SVG Path Animation（06）；text-fill-on-scroll → Kinetic Typography（05）、Highlighter Sweep（05）；zoom-into-image → Infinite Zoom（06）。行为适配（负责人报告）：scroll-image-sequence 的 `capCount.textContent !== words` 等字面量比较两侧同步翻译；scrollytelling 的 aria-label 由 `' meter deep' / ' meters deep'` 三元改为 `depNum.textContent + ' 米深'`；scroll-trigger 的减弱动态说明由 `FADES.replace('淡入','直接出现')` 处理；progress-bar 的比较说明须含 `NAMES.top` 原文（`NOTE.replace(NAMES.top, NAMES[s])`）；counter-animation 的秒数后缀改为 `'约' + … + '秒'`；text-fill-on-scroll 的演示段落用空格分词（48 个 token）；zoom-into-image 的 HTML 默认说明改为与脚本一致（`窗口：盒子的五分之二`）。已修：3 页 JSON-LD `headline` 替换串多余 `">`（reveal-on-scroll、reverse-scrolling-columns、scroll-background-color）、counter-animation README 的 U+FFFD 坏字符。分类 README 完整（27 条，CATS 顺序），只剩 `## Entries` 标题仍英文（汇总时统一为 `## 全部动画`；负责人建议 `## 条目`，协调人定为 `## 全部动画`，与首页“全部动画”用语一致）。
 
 ### 02 入场与退场（15）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
 
@@ -290,9 +290,56 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 02 备注：演示内容本身是演示对象时保留英文——letter-by-letter 的输入 `Hello, world.`、split-text 的输入 `Design beyond the obvious`、slide-up-reveal 的标题 "Beautiful / interfaces / crafted with care."、word-by-word 的例句（按空格分词，中文会破坏演示）、shatter 的照片标题、clip-path 的表面标签与标题 "Unmasked"、curtain 的徽章/标题 "Unveiled" 及其副标题。行为适配：word-by-word 的时长助手按中文语序重写（`NUM` → 一/两/三…，`n<1` → 半秒）；curtain-reveal 的无暂停正则 `.replace(/,? (?:and)?holds?,/,',')` 改为中文 `.replace(/，?停顿一下/,'')`，四条模式说明都写成含“，停顿一下”以便移除后仍通顺；flip-in 的 JS 变量 `edge` 保持英文（top/bottom/left），模板字符串映射为“卡片的上/下/左 边”；各页时长词助手按中文语序重组（"about a third of a second" → 约三分之一秒；"a second and a half" → 一秒半）。跨分类 "See also" 保留英文名，待协调人统一改：curtain-reveal → Overlay Wipe（03）；shatter-effect → Dissolve Transition（03）、2D Physics（06）；ink-spread-reveal → Circle Reveal（03）。分类 README 的 `## Entries` 标题译为 `## 全部动画`（协调人统一：01/03 仍是 `## Entries`，汇总时统一改为 `## 全部动画`）。
 
-### 04 微交互（44）
+### 04 微交互（44）—— 已翻译（2026-11-23；负责人未交报告，协调人用脚本校验：0 问题，176 页内联脚本全部通过语法检查）
 
-（待填）
+| slug | 中文名 | 中文简介 |
+|---|---|---|
+| accordion | 手风琴展开/收起 | 每个问题平滑展开，显示答案。适合用在常见问题页面上。 |
+| add-to-cart-fly | 加入购物车飞入 | 商品飞入购物车，购物车抖动并计数加一。适合用在商店里。 |
+| badge-pulse | 通知徽标脉冲 | 图标上的徽标脉冲闪动，吸引注意。适合用在未读消息上。 |
+| before-after-slider | 前后对比滑块 | 拖动一条线，横跨两张图片进行对比。适合用在照片编辑上。 |
+| button-loading-states | 按钮加载状态 | 按钮变成旋转指示，然后变成对勾或叉号。适合用在保存按钮上。 |
+| button-press-scale | 按钮按压缩放 | 按下时缩小，松开时弹回。适合用在主按钮上。 |
+| card-deck-swipe | 卡片组滑动 | 左右滑动顶部卡片，下一张随之升起。适合用在快速选择上。 |
+| checkmark-draw | 对勾绘制 | 任务成功后，对勾在圆圈里自己画出来。适合用在表单上。 |
+| click-ripple | 点击涟漪 | 按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。 |
+| copy-to-clipboard | 复制到剪贴板 | 「复制」变成对勾和「已复制」，然后再变回来。适合用在代码和链接上。 |
+| cursor-follower | 光标跟随 | 一个圆点跟随指针，并反转下方颜色。适合用在作品集上。 |
+| drag-to-reorder | 拖动排序 | 拖动一个项目，其他项目滑开让位。适合用在待办清单上。 |
+| drawer-slide | 抽屉滑出 | 侧边面板在变暗的页面上滑入。适合用在移动端菜单上。 |
+| dynamic-island | 灵动岛 | 黑色药丸长成通知，然后再缩回去。适合用在实时更新上。 |
+| error-shake | 错误抖动 | 输入错误时，字段左右抖动。适合用在登录表单上。 |
+| expanding-search | 搜索框展开 | 搜索图标展开成输入框，用完后收起。适合用在工具栏上。 |
+| focus-ring | 焦点环动画 | Tab 键到达的项目周围会收拢一个圆环。适合用在表单和菜单上。 |
+| form-field-morph | 表单字段变形 | 开始输入时，标签上移让开。适合用在注册表单上。 |
+| gooey-menu | 粘性菜单 | 小按钮像液体一样从圆形按钮里渗出来。适合用在快捷操作上。 |
+| gradient-border | 渐变边框动画 | 一条彩色带绕着卡片或按钮的边缘流动。适合用在精选优惠上。 |
+| hamburger-menu-toggle | 汉堡菜单切换 | 三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。 |
+| heart-burst | 点赞爱心迸发 | 爱心弹出并填满，同时迸出小爱心。适合用在点赞按钮上。 |
+| hold-to-confirm | 长按确认 | 按住按钮时它会逐渐填满，满了才执行操作。适合用在删除按钮上。 |
+| hover-state | 悬停状态动画 | 指向卡片时，它有六种反应方式。适合用在按钮和卡片上。 |
+| image-trail | 图片拖尾 | 图片在指针身后接连弹出，然后淡出。适合用在作品集上。 |
+| loading-spinner | 加载旋转指示 | 六个小图形循环转动，表示正在加载。适合用在短暂等待时。 |
+| magnetic-button | 磁吸按钮 | 向指针倾斜，然后弹回原位。适合用在一个主按钮上。 |
+| magnifier-lens | 放大镜 | 镜头跟随指针，近距离展示图片。适合用在商品照片上。 |
+| modal-expand | 弹窗展开 | 窗口从你按下的按钮处长出来。适合用在详情查看上。 |
+| progress-animation | 进度动画 | 进度条、圆环和步骤依次填满，显示进度。适合用在上传场景。 |
+| pull-to-refresh | 下拉刷新 | 向下拉动列表会出现旋转指示，然后出现新内容。适合用在信息流上。 |
+| rolling-numbers | 数字滚动 | 每个数字像里程表一样滚动到新值。适合用在价格上。 |
+| segmented-control | 分段控制器 | 高亮滑向你选中的选项。适合用在切换视图上。 |
+| shimmer-effect | 微光扫过效果 | 一道光带扫过灰色占位块。适合用在加载界面上。 |
+| skeleton-loader | 骨架屏 | 灰色色块在内容加载时占位。适合用在信息流和卡片上。 |
+| spotlight-hover | 聚光灯悬停辉光 | 柔和的光晕跟随指针，照亮卡片边缘。适合用在特性网格上。 |
+| star-rating | 星级评分 | 星星随指针填满，选中时弹出。适合用在评价上。 |
+| success-confetti | 成功彩带 | 任务完成时，按钮处迸出彩带。适合用在重要时刻。 |
+| swipe-to-dismiss | 滑动删除 | 卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。 |
+| theme-toggle-morph | 主题切换变形 | 颜色切换到深色时，太阳变成月亮。适合用在主题按钮上。 |
+| toast-notification | 轻提示 | 短消息滑入角落，之后自行离开。适合用在更新提醒上。 |
+| toggle-switch | 开关滑动 | 开关打开或关闭时，滑块随之滑动。适合用在设置项上。 |
+| tooltip-reveal | 提示气泡浮现 | 停顿片刻后，小标签淡入出现。适合用在图标按钮上。 |
+| typing-indicator | 正在输入指示 | 聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。 |
+
+04 备注：协调人校验 0 问题（JSON-LD、meta/og 描述、提示词结尾、README 标题/章节/参数表、上一页/下一页）。**协调人修了 2 处翻译引入的脚本语法错误**：progress-animation 的 `,all='the bar, the ring and the steps'` 被改成 `const all='横条、圆环和步骤'`（丢了逗号、多出 const）→ 恢复为 `,all='横条、圆环和步骤'`；card-deck-swipe 的 else 分支字符串拼接断裂（`够远到能+(verb===…`）→ 改为 `够远到能'+(verb==='fade'?'淡出。':'飞走。')`。修后 176 页内联脚本全部通过语法检查。04 的 README "另见"跨分类英文名（协调人 grep 确认，汇总时用 h1 映射脚本统一改）：FLIP Technique（×3）、Liquid Glass（×2）、Animated Gradient Background、Clip-Path Reveal、Counter Animation、Fireworks、Image Distortion on Hover、Morph Transition、Morphing Blob、Parallax 3D Tilt、Progress Bar、Rotate Word Carousel、Shared Element Transition、Split-Flap Board、Text Gradient Animation、Wavy Text。分类 README 待汇总规范化：标题 `# 04 — 微交互` → `# 微交互`；条目为表格（`## 动画` + `| 演示 | 简介 |`）→ 转为列表并改标题为 `## 全部动画`；`## 关键概念` 已翻译；`## 另见` 的分类名仍英文（02 — Entrance & Exit、03 — Page Transitions）→ 改中文名。
 
 ### 05 文字与排版（19）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
 
@@ -348,9 +395,38 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 （待填）
 
-### 07 氛围与背景（26）
+### 07 氛围与背景（26）—— 已翻译（2026-11-23；负责人未交报告，协调人用脚本校验：0 问题）
 
-（待填）
+| slug | 中文名 | 中文简介 |
+|---|---|---|
+| abstract-geometric-motion | 抽象几何动效 | 图形旋转、扩散、流动，形成平静无尽的图案。最适合音乐播放器。 |
+| ambient-ripple | 环境涟漪 | 涟漪从几个点扩散开来，如静水面上的水滴。最适合主视觉区。 |
+| animated-gradient-background | 动态渐变背景 | 颜色在柔和的渐变背景上缓缓流动。最适合主视觉区。 |
+| aurora | 极光 | 模糊的光带如北极光般摇曳。最适合深色背景。 |
+| breathing-glow | 呼吸光晕 | 柔和的光晕缓缓变大变小，如平静的呼吸。最适合闲置状态。 |
+| fire-effect | 火焰效果 | 火焰闪烁升腾，随热量升降。最适合游戏和活动页面。 |
+| fireworks | 烟花 | 火箭升空，爆成发光的火花，落下消散。最适合庆祝场合。 |
+| floating-elements | 漂浮元素 | 小图形缓缓漂移，各走各的路径。最适合主视觉背景。 |
+| flow-field | 流场 | 粒子沿看不见的水流前进，留下渐隐的轨迹。最适合艺术页面。 |
+| game-of-life | 生命游戏 | 细胞按邻居生死，图案不断生长。最适合科技类网站。 |
+| grain-overlay | 颗粒噪点叠加 | 细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。 |
+| grid-dot-pattern-parallax | 网格 / 圆点图案视差 | 圆点网格随指针轻轻移动，营造深度感。最适合科技类网站。 |
+| ken-burns | 肯·伯恩斯效果 | 照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。 |
+| light-leak | 漏光 | 温暖的光线不定时地从角落漫入。最适合照片类网站。 |
+| light-rays | 光束 | 柔和的光束从上方洒落，缓缓扫过。最适合主视觉开场。 |
+| lightning | 闪电 | 锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。 |
+| matrix-rain | 矩阵雨 | 发光的字符列在深色屏幕上落下。最适合科技主题。 |
+| mesh-gradient | 网格渐变 | 模糊的彩色色块漂移、交融。最适合落地页。 |
+| particle-constellation | 粒子星座 | 漂移的圆点靠近时用线连起来。最适合科技类网站。 |
+| plasma | 等离子场 | 平滑的色彩波浪无尽流动，全部由数学生成。最适合创意网站。 |
+| scanline | 扫描线效果 | 深色线条和扫过的光带，模仿老电视屏幕。最适合复古网站。 |
+| snow-rain | 雪 / 雨 | 雪花飘落，或雨丝落下，洒在黑暗的小镇上。最适合季节性页面。 |
+| starfield | 星空 | 星星从黑暗中向你飞来。最适合太空主题。 |
+| synthwave-grid | 合成波网格 | 发光的网格在条纹太阳下向你滚动而来。最适合音乐和游戏。 |
+| topographic-lines | 等高线 | 如徒步地图上的线条，缓缓弯曲漂移。最适合户外品牌。 |
+| wave-layers | 波浪层 | 层层波浪横向漂移，各自速度不同。最适合主视觉区。 |
+
+07 备注：协调人校验 0 问题（JSON-LD、meta/og 描述、提示词结尾、README 标题/章节/参数表、上一页/下一页）。**07 的同分类 "另见"链接名 57 处仍是英文**（如 Aurora / Northern Lights、Starfield / Space Particles、Fireworks、Light Leak 等），汇总时用 h1 映射脚本统一改为中文名。07 的 README "另见"跨分类英文名（汇总时同脚本改）：WebGL Shader Animation、Noise-Based Motion、Audio Visualizer、Click / Tap Ripple、Water Ripple、Cloth / Soft-Body Simulation、Volumetric Smoke / 3D Noise、Success Confetti、Canvas Particle Effect、Flocking、Chromatic Aberration、Parallax 3D Tilt、Infinite Zoom、Zoom Into Image、Glassmorphism Animated、Flash / Light Leak Transition、ASCII / Halftone、Marquee / Ticker、Parallax Scrolling。分类 README 待汇总规范化：开头介绍段仍英文（"Passive, looping effects…"）→ 翻译；条目为表格（`## Animations` + `| Demo | Description |`）→ 转为列表并改标题为 `## 全部动画`；`## 实现概要` 的 `| Approach | Used by |` 表仍英文 → 翻译；`## 另见` 的描述仍英文（06 — "GPU-intensive effects; WebGL shaders and particles"、04 — "the opposite end: brief, triggered, reactive"）→ 翻译。
 
 ## 刻意保留英文的内容
 
@@ -368,10 +444,10 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 01 滚动驱动（27）—— 翻译完成（负责人未交报告，协调人从文件校验），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 02 入场与退场（15）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [x] 03 页面切换（17）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
-- [ ] 04 微交互（44）
+- [x] 04 微交互（44）—— 翻译完成（负责人未交报告，协调人校验 0 问题；修了 2 处脚本语法错误），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 05 文字与排版（19）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 06 3D 与高级效果（28）
-- [ ] 07 氛围与背景（26）
+- [x] 07 氛围与背景（26）—— 翻译完成（负责人未交报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 根 index.html（CATS + 搜索 placeholder + Popular 搜索词 + 分组 chips 名称）
 - [ ] 根 README.md
 - [ ] llms.txt / sitemap.xml 重新生成
@@ -394,6 +470,8 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 ## 待协调人统一做的事（不要由分类负责人改）
 
 - **CATS 的 `key` 字段**：`const CAT=Object.fromEntries(CATS.map(c=>[slugify(c.name),c]))` 用分类名做 `?cat=` 的 key——中文名经 `slugify` 全变空串，7 个分类冲突。CATS 每项加 `key` 字段（英文 slug：scroll-based、entrance-exit、page-transitions、micro-interactions、text-typography、3d-advanced、ambient-background），CAT 行改为用 `c.key`；同步改 `tests/pages.test.js` 的 chips 测试（`key: cat.key`）、`?cat=` 测试与 `homeAddress`（不再取 `const slugify=` 行）、spots 的 `data-cat` 不用动（已是英文 slug）。
+- **README 动画名链接统一改中文（汇总脚本，06 报告后再跑）**：各分类 README 的 "另见"与正文里指向其他动画的链接，链接文字仍是英文原名。汇总时用脚本按 href 目标 slug 查 h1 中文名统一替换（只改 href 指向 `animations/<分类>/<slug>/` 的链接，不动外部链接与代码块；目标 h1 本身就是英文的如 View Transitions API、FLIP 技巧、滚动 scrub 动画，替换后不变）。协调人已用 `/tmp/seealso.cjs` 扫过全库（以 `## 另见` 分段 + href 解析为准；注意：以数字开头的原名如 3D Flip Card、2D Physics，`/^[A-Za-z]/` 会漏检，要用 `/[A-Za-z]/`）："另见"跨分类英文 82 处、同分类英文 57 处（全在 07；03 的 8 处 View Transitions API / FLIP 技巧与 01 的 13 处“滚动 scrub 动画”是中文名本身含拉丁字母，不是问题）；正文里的英文动画名链接主要在 06 的 README（28 页，负责人翻译 README 时可能已处理，汇总时以脚本扫出的为准再改）与 05/text-clip-path-reveal（Reveal on Scroll）、07/ambient-ripple（Click / Tap Ripple）、07/scanline（Grain Overlay、Chromatic Aberration）。
+- **分类 README 规范化（汇总时统一）**：标题——01/02/03/05/07 为 `# 中文名`，04 为 `# 04 — 微交互` → `# 微交互`，06 仍英文（负责人进行中）；条目区——01/02/03/05 为列表，04/07 为表格 → 统一转为 `- [中文名](slug/) — 中文简介` 列表，标题统一为 `## 全部动画`（现状：01/03 `## Entries`、02 `## 全部动画`、04/05 `## 动画`、07 `## Animations`）；07 的开头介绍段、`## 实现概要` 表、`## 另见` 描述仍英文 → 翻译；04 的 `## 关键概念` 已翻译，`## 另见` 分类名改中文。
 - **分类间不一致，汇总时统一**：① `hb-cat` 行——01/02/03/04/06/07 已翻成中文（`NN.NN · 中文分类名`），只有 05 的 19 页仍是英文 `05.NN · Text & Typography`，汇总时用脚本改掉。② 分类 README 的条目区标题——02 用了 `## 全部动画`、05 用了 `## 动画`、01/03 仍是 `## Entries`、04/06/07 仍是 `## Animations`，汇总时统一为 `## 全部动画`。
 - **搜索测试改中文**（`tests/pages.test.js:1086` 起与 `tests/finder.test.js` 的 CASES 28 条）：placeholder 例句、`first` 映射、parallax 断言、`page transitions` 行、Popular 映射、CASES 的英文卡片名，全部改为中文查询 + 中文期望名；`parallax` 的 SAME 组如需中文对应（视差/深度）须先实测 `tests/pages.test.js:1120` 的 SAME 遍历（直接匹配须排在组匹配前面）。
 - **famous**：CATS 翻译汇总后再跑 `node tools/make-famous.mjs` 重新生成 famous 页的生成块。
