@@ -54,8 +54,8 @@ test('inline links only safe targets and keeps parentheses around links', () => 
 });
 
 test('sections splits a README by its ## headings', () => {
-  const md = '# Title\r\n\r\n## What it is\r\nLine one\r\nline two\r\n\r\n## When to use it\r\n- A\r\n- B\r\n';
-  assert.deepEqual(DP.sections(md), { 'What it is': 'Line one\nline two', 'When to use it': '- A\n- B' });
+  const md = '# Title\r\n\r\n## 它是什么\r\nLine one\r\nline two\r\n\r\n## 什么时候用\r\n- A\r\n- B\r\n';
+  assert.deepEqual(DP.sections(md), { '它是什么': 'Line one\nline two', '什么时候用': '- A\n- B' });
 });
 
 test('sections keeps ### lines inside the section they belong to', () => {

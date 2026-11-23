@@ -51,8 +51,8 @@ const pageOf = d => read(path.join(d.dir, 'index.html'));
 const steps = demos.filter(d => pageOf(d).includes('<main class="hb-page">'));
 const HOME = read(path.join(ROOT, 'index.html'));
 const tryItOf = html => between(html, '<section class="hb-step hb-try"', '<section class="hb-step hb-prompt-step"');
-// The raw first column of the README's Key parameters table.
-const keyParameters = d => sections(read(path.join(d.dir, 'README.md')))['Key parameters'].split('\n')
+// The raw first column of the README's 关键参数 table.
+const keyParameters = d => sections(read(path.join(d.dir, 'README.md')))['关键参数'].split('\n')
   .filter(l => /^\s*\|/.test(l)).slice(2).map(row => (row.split('|')[1] || '').trim()).filter(Boolean);
 
 const ENTRANCE_EXIT = '02-entrance-and-exit';
@@ -137,10 +137,10 @@ for (const d of steps) {
     assert.ok(body, 'the body declares the page kind');
     const kind = body[1];
     // A scroll page where reduced motion turns an effect off says so in its own words; the shared script ends the note with
-    // " because your device is set to reduce motion.", so the sentence starts with a capital letter and has no full stop.
+    // "，因为你的设备设置了减弱动态效果。", so the note itself is one Chinese sentence with no 。 and does not end with 。 or whitespace.
     if (body[3] !== undefined) {
       assert.equal(kind, 'scroll', 'only a scroll page has data-hb-motion-note');
-      assert.match(body[3], /^[A-Z][^.]*[^.\s]$/, 'data-hb-motion-note is one sentence with no full stop');
+      assert.match(body[3], /^[^。.]*[^。.\s]$/, 'data-hb-motion-note is one sentence with no full stop');
     }
     for (const old of ['handbook.css', 'handbook.js', 'hb-view', 'hb-side', 'hb-take', 'ah-bar', 'Copy source', 'Read more',
       'class="note"', 'class="kv"', 'class="lbl"', 'class="btn-row"', 'Bricolage', 'PlexMono']) {
@@ -235,35 +235,35 @@ for (const d of steps) {
 
   test(`${d.slug}: README is ready for the site`, () => {
     const s = sections(read(path.join(d.dir, 'README.md')));
-    for (const h of ['What it is', 'When to use it', 'Key parameters', 'See also']) assert.ok(s[h], `section ${h}`);
-    assert.ok(!s['What it is'].includes('`'), 'What it is has no code');
-    assert.ok(!s['Key parameters'].includes('`'), 'Key parameters has no code');
-    assert.ok(table(s['Key parameters']).length > 0, 'Key parameters has rows');
-    const links = [...s['See also'].matchAll(/^\s*[-*]\s+\[[^\]]+\]\(([^)\s]+)\)(.*)$/gm)];
-    assert.ok(links.length > 0, 'See also has links');
+    for (const h of ['它是什么', '什么时候用', '关键参数', '另见']) assert.ok(s[h], `section ${h}`);
+    assert.ok(!s['它是什么'].includes('`'), '它是什么 has no code');
+    assert.ok(!s['关键参数'].includes('`'), 'Key parameters has no code');
+    assert.ok(table(s['关键参数']).length > 0, 'Key parameters has rows');
+    const links = [...s['另见'].matchAll(/^\s*[-*]\s+\[[^\]]+\]\(([^)\s]+)\)(.*)$/gm)];
+    assert.ok(links.length > 0, '另见 has links');
     for (const [, href, rest] of links) {
-      assert.ok(isDemoDir(path.resolve(d.dir, href)), `See also link ${href}`);
-      assert.match(rest, /^\s*[—–-]\s*\S/, `See also ${href} has a short description`);
+      assert.ok(isDemoDir(path.resolve(d.dir, href)), `另见 link ${href}`);
+      assert.match(rest, /^\s*[—–-]\s*\S/, `另见 ${href} has a short description`);
     }
   });
 
-  test(`${d.slug}: Try it and the README Key parameters name the same settings`, () => {
+  test(`${d.slug}: Try it and the README 关键参数 name the same settings`, () => {
     if (!pageOf(d).includes('<section class="hb-step hb-try"')) return; // no settings, no Try it step
     const tryIt = tryItOf(pageOf(d));
     const names = [...tryIt.matchAll(/<(p|label) class="hb-setting-name"[^>]*>([^<]*)<\/\1>|<label class="hb-switch-row"><span>([^<]*)<\/span>/g)]
       .map(m => decode((m[2] ?? m[3]).trim()));
     const keys = keyParameters(d);
     assert.ok(names.length > 0, 'Try it has settings');
-    for (const name of names) assert.ok(keys.includes(name), `Try it setting "${name}" is in Key parameters`);
+    for (const name of names) assert.ok(keys.includes(name), `Try it setting "${name}" is in 关键参数`);
     for (const key of keys) assert.ok(names.includes(key), `Key parameter "${key}" is a setting in Try it`);
   });
 
-  test(`${d.slug}: See also links use the titles of the pages they open`, () => {
-    const seeAlso = sections(read(path.join(d.dir, 'README.md')))['See also'];
+  test(`${d.slug}: 另见 links use the titles of the pages they open`, () => {
+    const seeAlso = sections(read(path.join(d.dir, 'README.md')))['另见'];
     for (const [, name, href] of seeAlso.matchAll(/^\s*[-*]\s+\[([^\]]+)\]\(([^)\s]+)\)/gm)) {
       const h1 = read(path.join(path.resolve(d.dir, href), 'index.html')).match(/<h1>([^<]*)<\/h1>/);
       assert.ok(h1, `${href} has a title`);
-      assert.equal(name, decode(h1[1]), `See also ${href}`);
+      assert.equal(name, decode(h1[1]), `另见 ${href}`);
     }
   });
 

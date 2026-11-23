@@ -1,7 +1,7 @@
 /* Animation Handbook — shared behaviour for the guided-steps demo pages.
  * Fills in "Your settings", Copy prompt (its text built by pageCopyText, which the home page uses too) and the star ask (the
  * first copy that works marks the star row under the prompt card), the README's
- * "What it is" and "Similar animations", plays the demo on arrival, replays it when a setting changes, runs
+ * “它是什么” and “相似效果”, plays the demo on arrival, replays it when a setting changes, runs
  * Pause and CSS slow motion on loop pages, presses Show me on do-it pages (not on arrival
  * when the visitor has already acted in the stage) and tells the page when the visitor
  * takes over ("hb:input"), and follows reduced motion (Loop and Slow motion greyed out,
@@ -64,7 +64,7 @@
       .replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
   }
 
-  // A README split into { "What it is": "...", ... } by its "## " headings.
+  // A README split into { “它是什么”: "...", ... } by its "## " headings.
   function sections(md) {
     var out = {}, current = null, buf = [];
     String(md).replace(/\r\n?/g, '\n').split('\n').forEach(function (line) {
@@ -350,7 +350,7 @@
     }
 
     // Opened from disk, every link of the page to a folder (the home link, Previous and Next, any other) opens that folder's
-    // index.html instead of its listing. Similar animations is not shown there (the README is not read from disk), so every
+    // index.html instead of its listing. 相似效果 is not shown there (the README is not read from disk), so every
     // link is in place by now.
     function openFoldersAsPages() {
       Array.prototype.forEach.call(doc.querySelectorAll('a[href]'), function (a) {
@@ -359,7 +359,7 @@
       });
     }
 
-    // What it is and Similar animations from the README. Opened from disk, the README link stays.
+    // 它是什么 and 相似效果 from the README. Opened from disk, the README link stays.
     function loadReadme() {
       var what = page.querySelector('.hb-what-text');
       var related = page.querySelector('.hb-related');
@@ -369,9 +369,9 @@
         return res.text();
       }).then(function (md) {
         var s = sections(md);
-        if (s['What it is']) what.innerHTML = paragraphs(s['What it is']);
+        if (s['它是什么']) what.innerHTML = paragraphs(s['它是什么']);
         var list = related && related.querySelector('.hb-rel-list');
-        var cards = seeAlso(s['See also']).filter(function (r) { return isSafeHref(r.href); });
+        var cards = seeAlso(s['另见']).filter(function (r) { return isSafeHref(r.href); });
         if (!list || !cards.length) return;
         list.innerHTML = cards.map(function (r) {
           var desc = r.desc.replace(/^[a-z]/, function (c) { return c.toUpperCase(); });
