@@ -1,18 +1,18 @@
-# Fireworks
+# 烟花
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/fireworks/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/fireworks/)
 
-## What it is
-A fireworks effect launches rockets from the bottom of a dark scene; each one slows as it climbs and, at the top of its climb, bursts into a ball of sparks that fly out, droop under gravity and fade away. Instead of being cleared, the canvas is covered with a faint see-through layer on every frame, so each spark leaves a glowing trail of the path it has flown.
+## 它是什么
+烟花效果从黑暗场景的底部发射火箭；每支火箭爬升时减速，在爬升顶点爆成一团火花，向外飞散，在重力下下垂、淡出。画布不是被清空，而是在每帧盖上一层淡淡的透明层，所以每颗火花都留下一条发光的轨迹，记录它飞过的路径。
 
-## When to use it
-- Launch, event and countdown pages
-- Holiday and New Year greetings
-- Success screens after a sign-up, a purchase or a finished course
-- Wins and level-ups in games
+## 什么时候用
+- 发布、活动和倒计时页面
+- 节日和新年祝福
+- 注册、购买或完成课程后的成功画面
+- 游戏中的胜利和升级
 
-## How it works
-The sky and the skyline are plain HTML behind and in front of a see-through canvas, which holds only the fireworks. A rocket leaves the bottom just fast enough for gravity to stop it at the height where it should burst, and it bursts the moment it stops rising:
+## 工作原理
+天空和天际线是普通的 HTML，分别在透明画布的后面和前面，画布里只有烟花。火箭以刚好够快的速度离开底部，让重力在它应该爆开的高度停住它，它在停止上升的瞬间爆开：
 
 ```js
 const g = .07 * U, top = H * (.2 + Math.random() * .26);      // U: the stage's height in 400ths
@@ -20,7 +20,7 @@ rockets.push({ x, y: H, vx: (Math.random() - .5) * .5 * U, vy: -Math.sqrt(2 * g 
 // each step: r.vy += r.g * k; r.x += r.vx * k; r.y += r.vy * k; if (r.vy >= 0) burst(r.x, r.y, …)
 ```
 
-A burst keeps its sparks in one typed array. For a round burst the speeds follow `sqrt(1 − u²)` for a random `u` between −1 and 1, which is how the sparks of a ball look from the side: thickest at the rim. A ring gives every spark nearly the top speed; a willow starts slower, droops more and lasts longer. Each step slows every spark by its drag and pulls it down:
+一次爆开把火花保存在一个类型化数组里。圆形爆开的速度遵循 `sqrt(1 − u²)`，`u` 是 −1 到 1 之间的随机数，这正是从侧面看一个火球的火花分布：边缘最密。环形让每颗火花几乎都是最高速度；柳树形开始更慢、下垂更多、持续更久。每步都靠阻力让每颗火花减速、把它往下拉：
 
 ```js
 const d = Math.pow(b.drag, k);                    // k: 60ths of a second, at most one per step
@@ -28,7 +28,7 @@ P[i + 2] *= d;  P[i + 3] = P[i + 3] * d + b.g * k;  // speed across, speed down
 P[i] += P[i + 2] * k;  P[i + 1] += P[i + 3] * k;
 ```
 
-Every frame first covers the canvas with `destination-out` at a fixed opacity, which wears the old picture down toward see-through, so the CSS sky shows through the fading trails. It covers once for every 60th of a second that has passed, at the opacity a 60 Hz screen would use, so trails last as long in seconds on every screen, and a frame with no cover due draws nothing. Then each burst is one stroke from where every spark was when the frame began to where it is now, drawn with `lighter`, so crossing sparks glow brighter:
+每帧先用固定不透明度的 `destination-out` 盖住画布，把旧画面磨向透明，这样 CSS 天空就能透过渐隐的轨迹显现出来。它按流逝的每六十分之一秒盖一次，用 60 Hz 屏幕会用的不透明度，所以轨迹在每个屏幕上持续的秒数相同，没有覆盖任务的帧什么也不画。然后每次爆开是一次描画，从每颗火花在帧开始时的位置画到它现在的位置，用 `lighter` 绘制，所以交叉的火花会更亮：
 
 ```js
 ctx.globalCompositeOperation = 'destination-out';
@@ -37,9 +37,9 @@ for (let i = 0; i < nf; i++) ctx.fillRect(0, 0, W, H);  // nf: covers due this f
 ctx.globalCompositeOperation = 'lighter';
 ```
 
-A frame longer than a 60th of a second (a 30 Hz phone, a busy moment) is moved in equal steps of at most one 60th, so drag and gravity put every spark where a 60 Hz screen would.
+超过六十分之一秒的一帧（30 Hz 的手机、繁忙的时刻）按最多六十分之一的等步移动，所以阻力和重力把每颗火花放到 60 Hz 屏幕上会放的位置。
 
-An 8-bit canvas cannot fade a faint pixel all the way to nothing: a pixel at 3/255 covered by 13% becomes 2.61, which rounds back to 3. Left alone, every burst would leave a dim ghost in the sky. So each burst remembers the patch it has lit. When it dies, its patch and its rocket's path wait half a second, while their last embers fade, and are then wiped with `clearRect`, 4 pixels wider on every side and on whole device pixels. The wipe leaves out every part where something may still glow: a rocket, a live burst, the path of a rocket that burst in the last half second, or another patch still waiting, each taken 4 pixels wider. Those parts are wiped later, with the patch of whatever glows there, so a wipe never cuts a visible ember.
+8 位画布无法把一个淡淡的像素完全淡到没有：3/255 的像素被盖 13% 后变成 2.61，又四舍五入回 3。放任不管，每次爆开都会在天空留下一个淡淡的鬼影。所以每次爆开都记住它点亮的区域。它死去时，它的区域和它火箭的路径等待半秒，让最后的余烬淡出，然后用 `clearRect` 擦除，每边宽 4 像素，按整个设备像素擦除。擦除会避开所有可能还在发光的部分：一支火箭、一次活着的爆开、半秒内爆开的火箭的路径，或另一块还在等待的区域，每块都按宽 4 像素算。那些部分稍后擦除，和那里发光的东西的区域一起擦，所以擦除永远不会切断可见的余烬。
 
 ```js
 const busy = [...rockets.map(q => column(q.sx, q.x, q.y)),
@@ -49,26 +49,26 @@ for (const m of marks) if (m.wait <= 0)
   for (const p of free([m.r[0] - 4, m.r[1] - 4, m.r[2] + 4, m.r[3] + 4], busy)) ctx.clearRect(/* p, on whole device pixels */);
 ```
 
-At Rarely and Sometimes the sky between bursts ends up clean. At Often, where bursts keep overlapping, a faint haze (at most 3/255) can stay in places until the sky there is free.
+在很少和有时，爆开之间的天空最终是干净的。在经常，爆开不断重叠的地方，淡淡的雾（最多 3/255）可能会留在一些地方，直到那里的天空空出来。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How often | Sometimes | The time between launches, on average: rarely about 2.2 seconds, sometimes 1.2 and often half a second, each gap a random half to one and a half times that |
-| Colors | Many colors | Each burst picks one color: from eight hues, from three golds, or from blues and violets |
-| Trails | Long | How much of the picture each 60th of a second's cover takes away: none 100%, short 30% and long 13% |
-| Burst shape | Round | A ball of sparks, a ring of sparks that all fly at nearly the same speed, or a willow whose sparks droop like branches |
+| 多久一次 | 有时 | 发射之间的平均时间：很少约 2.2 秒，有时 1.2 秒，经常半秒，每个间隔是它的随机一半到一倍半 |
+| 颜色 | 多彩 | 每次爆开选一种颜色：八种色相、三种金色，或蓝色和紫色 |
+| 轨迹 | 长 | 每六十分之一秒的覆盖带走多少画面：无是 100%，短是 30%，长是 13% |
+| 爆炸形状 | 圆形 | 一团火花、所有火花以几乎相同速度飞行的环形，或火花如枝条下垂的柳树形 |
 
-## Production notes
-- **Phones**: the demo gives a burst 50 sparks on phones and short screens (`(max-width: 600px), (max-height: 500px)`) instead of 90, and never keeps more than 300 sparks in the air there (900 elsewhere).
-- **One stroke per burst**: all the sparks of a burst share one color and opacity, so they go into one path; a frame with three bursts is three strokes, not hundreds.
-- **Flashes**: the glow at each burst is soft and drawn once. Avoid full-screen white flashes, which can trouble people with photosensitive conditions.
-- **Libraries**: fireworks-js and the tsParticles fireworks preset do the same with more shell types, and sound; the loop, drag, gravity and trail cover are the same idea.
-- **Reduced motion**: show a still picture of the bursts, as the demo does (one to three, as How often asks); never fire bursts on a page someone asked to keep still.
+## 生产注意事项
+- **手机**：演示在手机和矮屏幕（`(max-width: 600px), (max-height: 500px)`）上每次爆开给 50 颗火花而不是 90 颗，空中从不超过 300 颗火花（其他地方是 900 颗）。
+- **每次爆开一次描画**：一次爆开的所有火花共享一种颜色和不透明度，所以它们进一条路径；有三次爆开的一帧是三次描画，不是几百次。
+- **闪光**：每次爆开的光晕柔和、只画一次。避免全屏白色闪光，那会让光敏人群难受。
+- **库**：fireworks-js 和 tsParticles 的烟花预设用更多弹壳类型和声音做同样的事；循环、阻力、重力和轨迹覆盖是同样的思路。
+- **减少动态**：显示爆开的静止画面，就像演示做的那样（一到三次，按多久一次的设置）；在别人要求保持静止的页面上绝不发射爆开。
 
-## See also
-- [Success Confetti](../../04-micro-interactions/success-confetti/) — one burst of confetti for a single big moment
-- [Snow / Rain](../snow-rain/) — particles over the same kind of dark scene, falling instead of bursting
-- [Flow Field](../flow-field/) — particles that leave fading trails with the same see-through cover
-- [Starfield / Space Particles](../starfield/) — short trails from a cover that is the same on every screen
-- [Fire Effect](../fire-effect/) — flames from a grid of heat, with sparks that rise and fade
+## 另见
+- [成功彩带](../../04-micro-interactions/success-confetti/) — 为单个重要时刻来一次五彩纸屑爆开
+- [雪 / 雨](../snow-rain/) — 同种黑暗场景上的粒子，落下而不是爆开
+- [流场](../flow-field/) — 用同样的透明覆盖留下渐隐轨迹的粒子
+- [星空](../starfield/) — 每个屏幕上相同的覆盖带来的短拖尾
+- [火焰效果](../fire-effect/) — 热量网格的火焰，火花升起、淡出

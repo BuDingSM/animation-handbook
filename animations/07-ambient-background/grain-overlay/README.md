@@ -1,18 +1,18 @@
-# Grain / Film Noise Overlay
+# 颗粒噪点叠加
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grain-overlay/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grain-overlay/)
 
-## What it is
-Film grain lays a see-through layer of random dots over a design and draws it again and again, so the texture flickers like the grain of photographic film. At a low strength, around 5 to 10 percent, it is barely visible, yet flat digital colors feel warmer and deeper; much stronger, and it looks like a damaged screen. The trick is subtlety: people should not notice the grain, only miss it when it is gone.
+## 它是什么
+胶片颗粒在设计上铺一层半透明的随机圆点，一遍遍重画，让质感像摄影胶片的颗粒一样闪烁。强度低时，大约 5% 到 10%，几乎看不见，但扁平的数码色彩感觉更暖、更深；强得多时，看起来像坏掉的屏幕。诀窍是微妙：人们不应该注意到颗粒，只在它消失时想念它。
 
-## When to use it
-- Hero sections and portfolio pages where a photographic, editorial aesthetic is desired
-- Video player overlays where the grain bridges the gap between digital and cinematic
-- Brand-identity-heavy pages where "analog warmth" is part of the positioning
-- Dark-themed dashboards where pure flat surfaces feel too cold
+## 什么时候用
+- 想要摄影、编辑美学的主视觉区和作品集页面
+- 视频播放器叠加层，颗粒弥合数码与电影之间的差距
+- 品牌标识很重的页面，“模拟暖意”是定位的一部分
+- 深色主题仪表盘，纯扁平的表面感觉太冷
 
-## How it works
-**Canvas approach** — generate a new random noise texture each frame (or at a reduced rate for film-like cadence):
+## 工作原理
+**画布做法**——每帧生成一张新的随机噪点纹理（或以较低频率生成，获得像胶片一样的节奏）：
 
 ```js
 function drawGrain(canvas, ctx, pixelSize = 2, colorNoise = false) {
@@ -49,7 +49,7 @@ function loop(ts) {
 }
 ```
 
-**SVG `feTurbulence` approach** — the browser generates noise natively; cycling the `seed` attribute animates it:
+**SVG `feTurbulence` 做法**——浏览器原生生成噪点；循环 `seed` 属性就能让它动起来：
 
 ```html
 <svg width="0" height="0" style="position:absolute">
@@ -76,7 +76,7 @@ function loop(ts) {
 "></div>
 ```
 
-The raw noise is faint, half-transparent gray; the component transfer makes it opaque and stretches its contrast, so it shows as strongly as drawn dots at the same opacity.
+原始噪点是淡淡的半透明灰色；分量转换让它不透明、拉伸对比度，所以它在相同不透明度下和画出的圆点一样明显。
 
 ```js
 let seed = 0;
@@ -86,25 +86,25 @@ function loop() {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Strength | Light | How visible the grain is: faint is 4%, light 8% and strong 16%; 5–10% is felt more than seen, above 20% it looks like a damaged screen |
-| Grain size | Medium | The size of each dot: fine is 1px, medium 2px and coarse 3px; coarse looks like old film stock |
-| How often it changes | Like film | New grain every frame (60 times a second), like film (24), choppy (12) or slow (4); phones change it at most 24 times a second |
-| Blend | Film | How the grain mixes with the picture: film darkens dark areas and lightens light ones, like real grain (overlay blending); lighter only lightens (screen); softer is a gentler film (soft light) |
-| Colored grain | off | Randomly colored dots instead of gray ones |
-| Grain source | Random dots | Dots drawn by a script, or the browser's own noise filter; grain size and colored grain apply to the dots only |
+| 强度 | 轻微 | 颗粒有多明显：微弱是 4%，轻微 8%，强烈 16%；5–10% 是感觉到的多于看到的，超过 20% 看起来像坏掉的屏幕 |
+| 颗粒大小 | 中等 | 每个圆点有多大：细是 1px，中等 2px，粗是 3px；粗的像老胶片 |
+| 变化频率 | 像胶片 | 新颗粒每帧一次（每秒 60 次）、像胶片（24 次）、卡顿（12 次）或慢（4 次）；手机上每秒最多换 24 次 |
+| 混合方式 | 胶片 | 颗粒如何与画面混合：胶片让暗部更暗、亮部更亮，像真实颗粒（叠加混合）；只提亮是仅提亮（滤色）；更柔和是更温和的胶片（柔光） |
+| 彩色颗粒 | 关 | 随机彩色的圆点，而不是灰色的 |
+| 颗粒来源 | 随机圆点 | 脚本画的圆点，或浏览器自己的噪点滤镜；颗粒大小和彩色颗粒只适用于圆点 |
 
-## Production notes
-- **Canvas vs SVG feTurbulence**: canvas gives more control (pixel size, color noise) but is more CPU-intensive. SVG feTurbulence is GPU-accelerated and simpler but offers less control over grain character.
-- **Reduced update rate is intentional**: real film grain is 24fps, not 60fps. Generating a new canvas texture 60 times per second is wasted computation — 12–24fps matches the aesthetic and reduces CPU load.
-- **Phones**: the demo changes the grain at most 24 times a second on phone-sized screens (up to 600px wide, or up to 500px tall for a phone held sideways), and draws the canvas at CSS pixels rather than device pixels; drawing every dot is the costly part.
-- **`mix-blend-mode: overlay`** is the standard for grain: it darkens dark areas slightly and brightens light areas slightly, matching how silver halide responds to exposure.
-- **CSS filter on a pseudo-element**: the cleanest production approach — add `::after { content:''; position:absolute; inset:0; background:url(grain.png); animation:grain 0.5s steps(1) infinite; }` with a spritesheet of pre-generated grain frames. This offloads grain generation entirely to a static asset.
-- **React libraries**: `react-noise` and various `css-grain` packages implement the SVG filter approach as zero-config drop-in components.
+## 生产注意事项
+- **Canvas 与 SVG feTurbulence**：canvas 控制更多（像素大小、彩色噪点），但更耗 CPU。SVG feTurbulence 是 GPU 加速的、更简单，但对颗粒特性的控制更少。
+- **降低更新频率是故意的**：真实胶片颗粒是 24fps，不是 60fps。每秒生成 60 次新的画布纹理是浪费算力——12–24fps 符合美学，还降低 CPU 负载。
+- **手机**：演示在手机尺寸的屏幕（宽最多 600px，或横持手机时高最多 500px）上每秒最多换 24 次颗粒，并按 CSS 像素而不是设备像素画画布；画每个圆点才是耗费的部分。
+- **`mix-blend-mode: overlay`** 是颗粒的标准做法：它让暗部稍暗、亮部稍亮，符合卤化银对曝光的响应。
+- **伪元素上的 CSS 滤镜**：最干净的生产做法——加上 `::after { content:''; position:absolute; inset:0; background:url(grain.png); animation:grain 0.5s steps(1) infinite; }`，配一张预生成的颗粒帧精灵图。这样颗粒生成完全交给静态资源。
+- **React 库**：`react-noise` 和各种 `css-grain` 包把 SVG 滤镜做法实现为零配置的即插即用组件。
 
-## See also
-- [Scanline Effect](../scanline/) — dark lines over the page, like an old monitor
-- [Chromatic Aberration](../../06-3d-advanced/chromatic-aberration/) — colors split at the edges, like a cheap lens
-- [Light Leak](../light-leak/) — warm light washes in, like a film camera flaw
+## 另见
+- [扫描线效果](../scanline/) — 页面上的深色线条，像老显示器
+- [色差](../../06-3d-advanced/chromatic-aberration/) — 颜色在边缘分裂，像廉价镜头
+- [漏光](../light-leak/) — 暖光漫入，像胶片相机的缺陷

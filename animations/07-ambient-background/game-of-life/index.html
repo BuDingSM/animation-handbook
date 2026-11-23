@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game of Life — 动画手册</title>
-  <meta name="description" content="Cells live and die by their neighbors, and patterns grow. Best for tech sites.">
+  <title>生命游戏 — 动画手册</title>
+  <meta name="description" content="细胞按邻居生死，图案不断生长。最适合科技类网站。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/game-of-life/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Game of Life — 动画手册">
-  <meta property="og:description" content="Cells live and die by their neighbors, and patterns grow. Best for tech sites.">
+  <meta property="og:title" content="生命游戏 — 动画手册">
+  <meta property="og:description" content="细胞按邻居生死，图案不断生长。最适合科技类网站。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/game-of-life/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Game of Life — 动画手册">
-  <meta name="twitter:description" content="Cells live and die by their neighbors, and patterns grow. Best for tech sites.">
+  <meta name="twitter:title" content="生命游戏 — 动画手册">
+  <meta name="twitter:description" content="细胞按邻居生死，图案不断生长。最适合科技类网站。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Game of Life", "name": "Game of Life", "description": "Cells live and die by their neighbors, and patterns grow. Best for tech sites.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/game-of-life/", "inLanguage": "zh-CN", "articleSection": "Ambient & Background", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Ambient & Background, Game of Life"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "生命游戏", "name": "生命游戏", "description": "细胞按邻居生死，图案不断生长。最适合科技类网站。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/game-of-life/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 生命游戏"}</script>
   <style>
     :root{--ui-accent:#ffce5a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -45,20 +45,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../light-rays/" rel="prev" aria-label="上一个：Light Rays"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Light Rays</span></a><a href="../ken-burns/" rel="next" aria-label="下一个：Ken Burns Effect"><span><span class="hb-dir">下一个：</span>Ken Burns Effect</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../light-rays/" rel="prev" aria-label="上一个：光束"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>光束</span></a><a href="../ken-burns/" rel="next" aria-label="下一个：肯·伯恩斯效果"><span><span class="hb-dir">下一个：</span>肯·伯恩斯效果</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">07.23 · Ambient &amp; Background</p>
-    <h1>Game of Life</h1>
-    <p class="hb-lede">Cells live and die by their neighbors, and patterns grow. Best for tech sites.</p>
+    <p class="hb-cat">07.23 · 氛围与背景</p>
+    <h1>生命游戏</h1>
+    <p class="hb-lede">细胞按邻居生死，图案不断生长。最适合科技类网站。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Click, drag or touch it to draw new cells, or press Reset to start again.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。点击、拖动或触摸可以画出新的细胞，或按「重置」重新开始。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -67,10 +67,10 @@
     </div>
     <div class="stage">
       <canvas id="cvs" aria-hidden="true"></canvas>
-      <div class="lbl ins key" aria-hidden="true" data-hb-caption><span><i class="mk"></i>Lives on: two or three live neighbors</span><span><i class="mk die"></i>Dies next: fewer than two, or more than three</span><span><i class="mk born"></i>Born next: an empty cell with exactly three</span><span><i class="mk rate"></i><b id="rate">About 10 steps a second</b></span></div>
-      <p class="lbl ins zoom" aria-hidden="true" data-hb-caption><span>Zoomed in: three live neighbors, </span><span>so it is born next</span></p>
-      <p class="lbl side" aria-hidden="true" data-hb-caption>By chance</p>
-      <p class="lbl side" aria-hidden="true" data-hb-caption>By the rules</p>
+      <div class="lbl ins key" aria-hidden="true" data-hb-caption><span><i class="mk"></i>活下去：两个或三个活邻居</span><span><i class="mk die"></i>下一步会死：少于两个，或多于三个</span><span><i class="mk born"></i>下一步诞生：有正好三个活邻居的空格</span><span><i class="mk rate"></i><b id="rate">每秒大约 10 步</b></span></div>
+      <p class="lbl ins zoom" aria-hidden="true" data-hb-caption><span>放大：三个活邻居，</span><span>所以它下一步会诞生</span></p>
+      <p class="lbl side" aria-hidden="true" data-hb-caption>随机决定</p>
+      <p class="lbl side" aria-hidden="true" data-hb-caption>按规则</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
@@ -78,65 +78,65 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each mark shows a cell's next step: an empty cell with exactly three live neighbors is born, a live one with two or three lives on, and every other cell dies.</p>
-      <p data-hb-for="compare" hidden>In By chance, each cell lives or dies at random, so the grid only twinkles. In By the rules, each cell counts its neighbors, so shapes grow, move and settle.</p>
+      <p data-hb-for="inside" hidden>内部画面里，每个标记表示一个细胞的下一步：有正好三个活邻居的空格会诞生，有两个或三个活邻居的活细胞会活下去，其他细胞都会死去。</p>
+      <p data-hb-for="compare" hidden>随机决定里，每个细胞随机生死，所以网格只是闪烁。按规则里，每个细胞数自己的邻居，所以图形会生长、移动、稳定下来。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-gens="4" aria-pressed="false">Slow</button>
-          <button type="button" data-gens="10" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-gens="20" aria-pressed="false">Fast</button>
+          <button type="button" data-gens="4" aria-pressed="false">慢</button>
+          <button type="button" data-gens="10" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-gens="20" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly one generation follows the next.</p>
+        <p class="hb-hint">一代接一代有多快。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Cell size</p>
+        <p class="hb-setting-name" id="size-lbl">细胞大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-px="6" aria-pressed="false">Small</button>
-          <button type="button" data-px="9" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="14" aria-pressed="false">Large</button>
+          <button type="button" data-px="6" aria-pressed="false">小</button>
+          <button type="button" data-px="9" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="14" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Smaller cells make a bigger world; on phones the small ones are a little larger.</p>
+        <p class="hb-hint">细胞越小，世界越大；手机上的小细胞会稍大一点。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="pattern-lbl">Start pattern</p>
+        <p class="hb-setting-name" id="pattern-lbl">初始图案</p>
         <div class="seg" id="pattern-seg" role="group" aria-labelledby="pattern-lbl">
-          <button type="button" data-pattern="random" class="on" aria-pressed="true">Random</button>
-          <button type="button" data-pattern="gun" aria-pressed="false">Glider gun</button>
-          <button type="button" data-pattern="acorn" aria-pressed="false">Acorn</button>
+          <button type="button" data-pattern="random" class="on" aria-pressed="true">随机</button>
+          <button type="button" data-pattern="gun" aria-pressed="false">滑翔机枪</button>
+          <button type="button" data-pattern="acorn" aria-pressed="false">橡子</button>
         </div>
-        <p class="hb-hint">The glider gun fires gliders forever; the acorn grows from seven cells.</p>
+        <p class="hb-hint">滑翔机枪永远发射滑翔机；橡子由七个细胞长成。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" class="on" aria-pressed="true" aria-label="Mint" data-col="mint" style="background:#5fe0a8"></button>
-            <button type="button" aria-pressed="false" aria-label="Amber" data-col="amber" style="background:#ffc55a"></button>
-            <button type="button" aria-pressed="false" aria-label="Sky blue" data-col="sky" style="background:#6ab4ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Pink" data-col="pink" style="background:#ff80a0"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="薄荷绿" data-col="mint" style="background:#5fe0a8"></button>
+            <button type="button" aria-pressed="false" aria-label="琥珀色" data-col="amber" style="background:#ffc55a"></button>
+            <button type="button" aria-pressed="false" aria-label="天蓝色" data-col="sky" style="background:#6ab4ff"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-col="pink" style="background:#ff80a0"></button>
           </div>
-          <p class="hb-hint">The color of the living cells.</p>
+          <p class="hb-hint">活细胞的颜色。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Fading trails</span><input class="hb-switch" type="checkbox" role="switch" id="trail-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">Cells that die fade out instead of vanishing at once.</p>
+          <label class="hb-switch-row"><span>渐隐轨迹</span><input class="hb-switch" type="checkbox" role="switch" id="trail-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">死去的细胞会淡出，而不是一下子消失。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Grid lines</span><input class="hb-switch" type="checkbox" role="switch" id="grid-tog" autocomplete="off"></label>
-          <p class="hb-hint">Shows the squares the cells live in.</p>
+          <label class="hb-switch-row"><span>网格线</span><input class="hb-switch" type="checkbox" role="switch" id="grid-tog" autocomplete="off"></label>
+          <p class="hb-hint">显示细胞所在的方格。</p>
         </div>
       </div>
     </details>
@@ -145,10 +145,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a Game of Life background to [the section you want it behind]. Split a canvas into a grid of square cells, each alive or dead, and at a steady pace work out the next generation from each cell's eight neighbors: a dead cell with exactly three live neighbors is born, a live cell with two or three stays alive, and every other cell dies. Time the generations by elapsed time, not by frames, and when the settings include trails, let dying cells fade out. Let the visitor click, drag or touch to draw cells, and start again when the world settles. Keep the cells from getting too small on phones. If the visitor has reduced motion turned on, show one still frame. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[想要作为背景的区域]加上生命游戏背景。把画布分成方形细胞网格，每个细胞或生或死，按稳定的节奏，根据每个细胞的八个邻居算出下一代：有正好三个活邻居的死细胞会诞生，有两个或三个活邻居的活细胞会活下去，其他细胞都会死去。按流逝的时间而不是帧来计时世代，如果设置里包含轨迹，就让死去的细胞淡出。让访客点击、拖动或触摸来画细胞，世界稳定下来后重新开始。手机上别让细胞变得太小。如果访客开启了减弱动态效果，就显示一帧静止画面。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -168,9 +168,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Tech and science sites</li><li>Developer portfolios</li><li>Loading and idle screens</li><li>404 pages</li></ul>
+      <ul class="hb-tags hb-good"><li>科技和科学网站</li><li>开发者作品集</li><li>加载和闲置画面</li><li>404 页面</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Calm brands</li><li>Long reading pages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>平静风格的品牌</li><li>长文阅读页</li></ul>
     </div>
   </section>
 
@@ -198,7 +198,7 @@
   // See inside and Compare: rnd is Normal's random numbers (Compare's come from a seeded generator); home is Normal's world while
   // Compare shows (null once a setting, Reset or a resize made it out of date); fx, fy is the cell the loupe follows
   const NAME=32; // room above each half of Compare for its name
-  const WORDS=['no','one','two','three','four','five','six','seven','eight'];
+  const WORDS=['零','一','两','三','四','五','六','七','八'];
   const real=()=>Math.random(),cand=[null,null],cd=[1e9,1e9];
   let mode='normal',rnd=real,home=null,halves=null,penHalf=null,fx=0,fy=0,pickNow=true,emptyT=0,capH=0,outs=[];
 
@@ -337,7 +337,7 @@
     let n=0,any=0,num=0;
     for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const v=cells[at(fx+dx,fy+dy)];any+=v;if(dx||dy)n+=v;}
     const alive=cells[at(fx,fy)],dies=alive&&(n<2||n>3),born=!alive&&n===3;
-    const t0=`Zoomed in: ${WORDS[n]} live ${n===1?'neighbor':'neighbors'}, `,t1='so it '+(alive?(dies?'dies next':'lives on'):(born?'is born next':'stays empty'));
+    const t0=`放大：${WORDS[n]} 个活邻居，`,t1='所以它'+(alive?(dies?'下一步会死':'会活下去'):(born?'下一步会诞生':'保持空格'));
     if(zl[0].textContent!==t0)zl[0].textContent=t0;
     if(zl[1].textContent!==t1)zl[1].textContent=t1;
     emptyT=any?0:emptyT+dms;if(emptyT>=500)pickNow=true;
@@ -362,13 +362,13 @@
   }
   // The key's marks take the cells' color, and its last line the generations a second (Speed, a third as many in slow motion)
   function legend(){
-    const n=Math.max(1,Math.round(GENS/(slowTog.checked?3:1))),t=`About ${n} step${n===1?'':'s'} a second`;
+    const n=Math.max(1,Math.round(GENS/(slowTog.checked?3:1))),t=`每秒大约 ${n} 步`;
     if(rate.textContent!==t)rate.textContent=t;
     keyEl.style.setProperty('--cell',`rgb(${COLORS[COL]})`);
     place();
   }
   // Under reduced motion, while the loop is paused, the Compare note says it is a still; Play brings the moving words back
-  const MOVING=noteC.textContent,STILL="Shown still: By chance lets each cell live or die at random, so it stays plain noise. By the rules counts each cell's neighbors, so clumps and small shapes form.";
+  const MOVING=noteC.textContent,STILL="静止画面：随机决定让每个细胞随机生死，所以它只是普通的噪点。按规则数每个细胞的邻居，所以会形成团块和小图形。";
   function note(){const t=reduce.matches&&paused?STILL:MOVING;if(noteC.textContent!==t)noteC.textContent=t;}
 
   // loop() keeps exactly one frame requested in raf; Pause cancels it and Play starts one loop again. At most one picture per

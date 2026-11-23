@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flow Field — 动画手册</title>
-  <meta name="description" content="Particles ride invisible currents, leaving fading trails. Best for art pages.">
+  <title>流场 — 动画手册</title>
+  <meta name="description" content="粒子沿看不见的水流前进，留下渐隐的轨迹。最适合艺术页面。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/flow-field/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Flow Field — 动画手册">
-  <meta property="og:description" content="Particles ride invisible currents, leaving fading trails. Best for art pages.">
+  <meta property="og:title" content="流场 — 动画手册">
+  <meta property="og:description" content="粒子沿看不见的水流前进，留下渐隐的轨迹。最适合艺术页面。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/flow-field/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Flow Field — 动画手册">
-  <meta name="twitter:description" content="Particles ride invisible currents, leaving fading trails. Best for art pages.">
+  <meta name="twitter:title" content="流场 — 动画手册">
+  <meta name="twitter:description" content="粒子沿看不见的水流前进，留下渐隐的轨迹。最适合艺术页面。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Flow Field", "name": "Flow Field", "description": "Particles ride invisible currents, leaving fading trails. Best for art pages.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/flow-field/", "inLanguage": "zh-CN", "articleSection": "Ambient & Background", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Ambient & Background, Flow Field"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "流场", "name": "流场", "description": "粒子沿看不见的水流前进，留下渐隐的轨迹。最适合艺术页面。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/flow-field/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 流场"}</script>
   <style>
     :root{--ui-accent:#ffce5a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -43,20 +43,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../particle-constellation/" rel="prev" aria-label="上一个：Particle Constellation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Particle Constellation</span></a><a href="../synthwave-grid/" rel="next" aria-label="下一个：Synthwave Grid"><span><span class="hb-dir">下一个：</span>Synthwave Grid</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../particle-constellation/" rel="prev" aria-label="上一个：粒子星座"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>粒子星座</span></a><a href="../synthwave-grid/" rel="next" aria-label="下一个：合成波网格"><span><span class="hb-dir">下一个：</span>合成波网格</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">07.14 · Ambient &amp; Background</p>
-    <h1>Flow Field</h1>
-    <p class="hb-lede">Particles ride invisible currents, leaving fading trails. Best for art pages.</p>
+    <p class="hb-cat">07.14 · 氛围与背景</p>
+    <h1>流场</h1>
+    <p class="hb-lede">粒子沿看不见的水流前进，留下渐隐的轨迹。最适合艺术页面。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。点「暂停」仔细看看，或打开慢动作，看清运动的每个部分。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -66,76 +66,76 @@
     <div class="stage">
       <canvas id="cvs" aria-hidden="true"></canvas>
       <canvas class="field" id="field" aria-hidden="true"></canvas>
-      <p class="lbl fl what" aria-hidden="true" data-hb-caption>Arrows: the hidden current</p>
-      <p class="lbl fl how" aria-hidden="true" data-hb-caption>Each particle follows the arrow under it</p>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Random each step</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Follows the current</p>
+      <p class="lbl fl what" aria-hidden="true" data-hb-caption>箭头：隐藏的水流</p>
+      <p class="lbl fl how" aria-hidden="true" data-hb-caption>每个粒子跟着它下方的箭头走</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>每步随机</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>顺流而行</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the arrows show the invisible current: at every spot it points one way and turns slowly over time, and each particle follows the arrow under it.</p>
-      <p data-hb-for="compare" hidden>On the left, Random each step: each particle picks a new direction every step, so it only scribbles in place. On the right, Follows the current: the particles ride smooth streams.</p>
+      <p data-hb-for="inside" hidden>内部画面里，箭头表示看不见的水流：在每个位置它指向一个方向，并随时间慢慢转动，每个粒子都跟着它下方的箭头走。</p>
+      <p data-hb-for="compare" hidden>左边是每步随机：每个粒子每步都选一个新方向，所以只在原地乱画。右边是顺流而行：粒子乘着平滑的水流前进。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="scale-lbl">Swirl size</p>
+        <p class="hb-setting-name" id="scale-lbl">漩涡大小</p>
         <div class="seg" id="scale-seg" role="group" aria-labelledby="scale-lbl">
-          <button type="button" data-px="20" aria-pressed="false">Small</button>
-          <button type="button" data-px="34" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="60" aria-pressed="false">Large</button>
+          <button type="button" data-px="20" aria-pressed="false">小</button>
+          <button type="button" data-px="34" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="60" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Large swirls look calm; small ones look stormy.</p>
+        <p class="hb-hint">大漩涡看起来平静；小的像暴风雨。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="trail-lbl">Trail length</p>
+        <p class="hb-setting-name" id="trail-lbl">轨迹长度</p>
         <div class="seg" id="trail-seg" role="group" aria-labelledby="trail-lbl">
-          <button type="button" data-fade="0.12" aria-pressed="false">Short</button>
-          <button type="button" data-fade="0.06" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-fade="0.04" aria-pressed="false">Long</button>
+          <button type="button" data-fade="0.12" aria-pressed="false">短</button>
+          <button type="button" data-fade="0.06" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-fade="0.04" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">How long each particle's trail lingers.</p>
+        <p class="hb-hint">每个粒子的轨迹停留多久。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-spd="0.6" aria-pressed="false">Slow</button>
-          <button type="button" data-spd="1" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-spd="1.6" aria-pressed="false">Fast</button>
+          <button type="button" data-spd="0.6" aria-pressed="false">慢</button>
+          <button type="button" data-spd="1" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-spd="1.6" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How fast each particle moves.</p>
+        <p class="hb-hint">每个粒子移动的速度。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="count-lbl">Number of particles</p>
+          <p class="hb-setting-name" id="count-lbl">粒子数量</p>
           <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
-            <button type="button" data-n="400" aria-pressed="false">Few</button>
-            <button type="button" data-n="900" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-n="1500" aria-pressed="false">Many</button>
+            <button type="button" data-n="400" aria-pressed="false">少</button>
+            <button type="button" data-n="900" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-n="1500" aria-pressed="false">多</button>
           </div>
-          <p class="hb-hint">More particles fill the currents; phones show at most 500.</p>
+          <p class="hb-hint">粒子越多，水流越满；手机上最多显示 500 个。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="seg" id="color-seg" role="group" aria-labelledby="color-lbl">
-            <button type="button" data-col="mint" class="on" aria-pressed="true">Mint</button>
-            <button type="button" data-col="ember" aria-pressed="false">Ember</button>
-            <button type="button" data-col="ice" aria-pressed="false">Ice</button>
-            <button type="button" data-col="spectrum" aria-pressed="false">Rainbow</button>
+            <button type="button" data-col="mint" class="on" aria-pressed="true">薄荷绿</button>
+            <button type="button" data-col="ember" aria-pressed="false">余烬</button>
+            <button type="button" data-col="ice" aria-pressed="false">冰</button>
+            <button type="button" data-col="spectrum" aria-pressed="false">彩虹</button>
           </div>
-          <p class="hb-hint">Rainbow changes color across the stage and over time.</p>
+          <p class="hb-hint">彩虹色在舞台上和时间中不断变化。</p>
         </div>
       </div>
     </details>
@@ -144,10 +144,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a flow field background to [the section you want it behind]. Fill a canvas with many particles and give every point a direction that changes smoothly from spot to spot (smooth random noise does this). Each frame, move each particle a small step along the direction under it, scaled by the time since the last frame so it runs at the same speed on every screen. Instead of clearing the canvas, cover it with a see-through dark layer once for every 60th of a second that passes, so each particle leaves a fading trail. Let the directions change slowly over time, and use fewer particles on phones. If the visitor has reduced motion turned on, show one still frame of trails. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[想要作为背景的区域]加上流场背景。在画布上放满粒子，给每个点一个方向，这个方向从一处到另一处平滑变化（平滑的随机噪点就能做到）。每一帧，让每个粒子沿着它下方的方向走一小步，按上一帧以来的时间缩放，这样在任何屏幕上速度都一样。不要清空画布，而是每过去六十分之一秒就盖上一层透明的深色，这样每个粒子都会留下一条渐隐的轨迹。让方向随时间慢慢变化，手机上少用一些粒子。如果访客开启了减弱动态效果，就显示一帧静止的轨迹画面。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -167,9 +167,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Art and creative sites</li><li>Hero sections</li><li>Loading screens</li><li>Data art</li></ul>
+      <ul class="hb-tags hb-good"><li>艺术和创意网站</li><li>主视觉区</li><li>加载画面</li><li>数据艺术</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Busy layouts</li><li>Long reading pages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>拥挤的布局</li><li>长文阅读页</li></ul>
     </div>
   </section>
 

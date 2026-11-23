@@ -1,18 +1,18 @@
-# Scanline Effect
+# 扫描线效果
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/scanline/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/scanline/)
 
-## What it is
-Scanlines are the thin dark lines between the rows of light on an old tube television or computer monitor. Laying them over a design as a repeating stripe pattern gives it the look of a retro screen from the 80s or 90s. A soft band of light sweeping slowly down the screen adds movement, and darkened corners suggest the curved glass.
+## 它是什么
+扫描线是老式显像管电视或电脑显示器上光行之间的细深色线条。把它们作为重复条纹图案铺在设计上，就有了 80 或 90 年代复古屏幕的样子。一条柔和的光带慢慢扫过屏幕，增加运动，变暗的角落暗示弯曲的玻璃。
 
-## When to use it
-- Retrowave, cyberpunk, or synthwave themed UIs
-- Gaming HUD overlays and retro arcade aesthetics
-- "Terminal" or "command line" styled interfaces
-- Music visualizers and media player interfaces with an analog vintage feel
+## 什么时候用
+- 复古波、赛博朋克或合成波主题的界面
+- 游戏 HUD 叠加层和复古街机美学
+- “终端”或“命令行”风格的界面
+- 有模拟复古感的音乐可视化和媒体播放器界面
 
-## How it works
-**Static scanlines** — a CSS `repeating-linear-gradient` creates the line pattern without any JavaScript:
+## 工作原理
+**静态扫描线**——CSS `repeating-linear-gradient` 不用任何 JavaScript 就创建线条图案：
 
 ```css
 .scanlines {
@@ -29,9 +29,9 @@ Scanlines are the thin dark lines between the rows of light on an old tube telev
 }
 ```
 
-The demo's Line spacing setting changes this gap (`--line-gap`): `2px` is dense, `4px` is standard CRT density and `8px` is coarser and more stylized.
+演示的线条间距设置改变这个间隔（`--line-gap`）：`2px` 是密集，`4px` 是标准 CRT 密度，`8px` 更粗、更风格化。
 
-**Moving sweep beam** — a tall gradient strip animated with `translateY`:
+**移动的扫过光带**——一条高高的渐变带，用 `translateY` 做动画：
 
 ```css
 .beam {
@@ -56,11 +56,9 @@ The demo's Line spacing setting changes this gap (`--line-gap`): `2px` is dense,
 }
 ```
 
-Animating `transform` rather than `top` keeps the sweep on the compositor —
-the oversized element exists purely so a percentage translate covers the full
-travel without JavaScript measuring the stage.
+给 `transform` 而不是 `top` 做动画，让扫过留在合成器上——超大元素纯粹是为了让百分比平移覆盖全部行程，不用 JavaScript 测量舞台。
 
-**CRT curvature** — a radial vignette overlay darkens the corners, simulating the slight convex curvature of a CRT screen:
+**CRT 曲面**——径向暗角叠加层让角落变暗，模拟 CRT 屏幕轻微的凸面曲率：
 
 ```css
 .vignette {
@@ -70,27 +68,27 @@ travel without JavaScript measuring the stage.
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Line spacing | Medium | The distance between lines: tight is 2px, medium 4px and wide 8px, each line 1px thick; 4px looks like a standard old screen |
-| Line darkness | Medium | How dark the lines are: light is 8% black, medium 15% and dark 30%; darker looks more retro but lowers contrast |
-| Moving beam | on | A soft band of light sweeps down the screen, again and again |
-| Beam speed | Normal | How long the beam takes to cross the screen: slow is 6.4s, normal 4s and fast 2.4s |
-| Beam brightness | Medium | How bright the beam is: faint is 6% white, medium 12% and bright 24% along the middle of the 120px band, fading to nothing at its top and bottom; it should be felt more than seen |
-| Dark corners | off | A soft vignette darkens the corners, like the curved glass of an old screen |
-| Glowing text | off | A soft glow around the letters, like light spreading on an old screen |
+| 线条间距 | 中等 | 线条之间的距离：紧密是 2px，中等 4px，宽松是 8px，每条线 1px 粗；4px 看起来像标准的老屏幕 |
+| 线条深浅 | 中等 | 线条有多深：浅是 8% 黑色，中等 15%，深是 30%；更深看起来更复古，但降低对比度 |
+| 移动光带 | 开 | 一条柔和的光带一次次扫过屏幕 |
+| 光带速度 | 普通 | 光带穿过屏幕需要的时间：慢速 6.4 秒，普通 4 秒，快速 2.4 秒 |
+| 光带亮度 | 中等 | 光带有多亮：微弱是 6% 白色，中等 12%，明亮是 24%，沿 120px 光带的中间，顶部和底部淡到没有；应该感觉到的多于看到的 |
+| 暗角 | 关 | 柔和的暗角让角落变暗，像老屏幕的弯曲玻璃 |
+| 发光文字 | 关 | 字母周围柔和的辉光，像光在老屏幕上扩散 |
 
-## Production notes
-- **Purely CSS**: no JavaScript required for the scanline or beam effects. Only the demo's settings use JavaScript.
-- **`pointer-events: none`**: the scanline overlay must not intercept mouse events. Always add `pointer-events: none` to overlay elements.
-- **Performance**: `repeating-linear-gradient` is composited as a texture on first render and cached. It does not repaint on each frame — it's essentially free. The `translateY` beam animation runs on the compositor thread.
-- **Phosphor glow**: real CRT phosphors emit light that spreads slightly, creating a soft "halo" around bright text. CSS `text-shadow: 0 0 8px currentColor` approximates this. Keep it subtle — heavy glow degrades legibility.
-- **Accessibility**: scanlines reduce contrast. Ensure all text meets WCAG contrast ratios *with* the scanline overlay applied. Test with the overlay at your intended darkness value.
-- **Retrowave aesthetic**: combines well with [Grain Overlay](../grain-overlay/) (for texture), [Chromatic Aberration](../../06-3d-advanced/chromatic-aberration/) (for color fringing), and dark neon color palettes.
-- **Libraries**: none is needed for the CSS version; over a WebGL scene, the postprocessing library for three.js has a `ScanlineEffect` with density and scroll speed settings.
+## 生产注意事项
+- **纯 CSS**：扫描线或光带效果不需要 JavaScript。只有演示的设置用 JavaScript。
+- **`pointer-events: none`**：扫描线叠加层不能拦截鼠标事件。叠加元素一定要加 `pointer-events: none`。
+- **性能**：`repeating-linear-gradient` 在首次渲染时合成为纹理并缓存。每帧不重绘——基本是免费的。`translateY` 光带动画像在合成器线程上运行。
+- **荧光粉辉光**：真实的 CRT 荧光粉发出的光会微微扩散，在明亮文字周围形成柔和的“光晕”。CSS `text-shadow: 0 0 8px currentColor` 近似这个效果。保持微妙——重的辉光会降低易读性。
+- **无障碍**：扫描线降低对比度。确保所有文字在应用扫描线叠加层的情况下都符合 WCAG 对比度。用你打算用的深度值测试叠加层。
+- **复古波美学**：与[颗粒噪点叠加](../grain-overlay/)（质感）、[色差](../../06-3d-advanced/chromatic-aberration/)（色彩镶边）和深色霓虹调色板搭配得很好。
+- **库**：CSS 版本不需要库；在 WebGL 场景上，three.js 的后期处理库有一个带密度和滚动速度设置的 `ScanlineEffect`。
 
-## See also
-- [Grain / Film Noise Overlay](../grain-overlay/) — a flickering texture of fine grain
-- [Light Leak](../light-leak/) — warm light washes in, like a film camera flaw
-- [Chromatic Aberration](../../06-3d-advanced/chromatic-aberration/) — colors split at the edges, like a broken signal
+## 另见
+- [颗粒噪点叠加](../grain-overlay/) — 细腻颗粒闪烁的质感
+- [漏光](../light-leak/) — 暖光漫入，像胶片相机的缺陷
+- [色差](../../06-3d-advanced/chromatic-aberration/) — 颜色在边缘分裂，像坏掉的信号

@@ -1,18 +1,18 @@
-# Starfield / Space Particles
+# 星空
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/starfield/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/starfield/)
 
-## What it is
-A starfield fills a dark background with small stars that stream out from the center, like the view from a spaceship flying through space. Each star's size, brightness and speed depend on how far it is from the middle: near the center stars are small, dim and slow, and they grow, brighten and speed up toward the edge, which is what makes it feel deep. A sideways version drifts stars past, the nearer ones faster, like the view from a window.
+## 它是什么
+星空在深色背景上布满小星星，从中心向外飞流，像从飞船上看太空。每颗星星的大小、亮度和速度取决于它离中间多远：中心附近的星星小、暗、慢，向边缘变大、变亮、变快，这正是它感觉深邃的原因。横向版本让星星飘过，越近的越快，像从窗户看出去。
 
-## When to use it
-- Space, astronomy, or sci-fi themed applications
-- Ambient screensaver-style backgrounds for kiosk displays or focus apps
-- Hero sections on tech products where "infinite scale" or "beyond the horizon" is the message
-- Dark-themed landing pages that need a sense of depth and motion without complexity
+## 什么时候用
+- 太空、天文或科幻主题的应用
+- 自助终端屏幕或专注应用的氛围屏保式背景
+- 科技产品的主视觉区，“无限规模”或“超越地平线”就是信息
+- 需要深度和运动感、又不要复杂的深色主题落地页
 
-## How it works
-Each star tracks its angular position (`angle`), distance from center (`dist`), and speed. On every frame, distance increases by the speed times `k` (explained below) and the star's canvas coordinates are computed from polar coordinates:
+## 工作原理
+每颗星星跟踪它的角位置（`angle`）、离中心的距离（`dist`）和速度。每帧，距离按速度乘以 `k`（下面解释）增加，星星的画布坐标由极坐标算出：
 
 ```js
 class Star {
@@ -51,7 +51,7 @@ class Star {
 }
 ```
 
-**Side-drift variant** — stars have a fixed depth value that determines both size and speed:
+**横向漂移变体**——星星有一个固定的深度值，同时决定大小和速度：
 
 ```js
 class DriftStar {
@@ -65,14 +65,14 @@ class DriftStar {
 }
 ```
 
-`n` is the number of 60 Hz frames since the last drawn frame, so a 30 Hz phone and a 144 Hz monitor show the same speed. The first frame after a start, a pause or a return from a hidden tab adds nothing, and a long gap between frames counts for at most 50 ms. The stars move by `k`, which is `n`, or a third of it in slow motion:
+`n` 是自上一帧绘制以来的 60 Hz 帧数，所以 30 Hz 的手机和 144 Hz 的显示器显示相同速度。开始、暂停或从隐藏标签页返回后的第一帧什么也不加，帧之间的长间隔最多算 50ms。星星按 `k` 移动，`k` 就是 `n`，慢动作里是它的三分之一：
 
 ```js
 const n = Math.min(now - last, 50) / (1000 / 60);   // 60ths of a second since the last drawn frame: 1 at 60 Hz, 2 at 30 Hz
 const k = n * (slow ? 1 / 3 : 1);                    // what update(k) gets
 ```
 
-The short trails come from covering the canvas with a see-through black layer instead of clearing it. The layer is always the 0.85 one of a 60 Hz frame, and it goes on once for every 60th of a second (twice on a 30 Hz frame), so the trails last as long in seconds on every screen. Slow motion does not slow them. An `n` within 5% of a whole number counts as that number for the cover, so a 59.94 or 60.06 Hz screen, or a little noise in the timestamps, still gets exactly one cover per frame, and `fa` carries the fraction that is left over. Rounding leans up by 0.05, so a screen whose frames land exactly half-way between two covers, such as 120 or 240 Hz, keeps a regular draw rhythm instead of one decided by timestamp noise. When no whole cover is due yet, as on the first of two frames of a 120 Hz screen, the frame draws nothing and its time carries to the next one. That keeps drawing at most about 60 frames a second whatever the screen (a 30 Hz screen draws 30, with two covers each), with one cover on every drawn frame:
+短拖尾来自用透明黑色层盖住画布而不是清空它。这层永远是 60 Hz 一帧的 0.85，每六十分之一秒盖一次（30 Hz 的帧盖两次），所以拖尾在每个屏幕上持续的秒数相同。慢动作不会让它们变慢。离整数 5% 以内的 `n` 在覆盖时算作那个整数，所以 59.94 或 60.06 Hz 的屏幕，或时间戳里的一点噪点，每帧仍然恰好盖一次，`fa` 带着剩下的小数部分。四舍五入向上偏 0.05，所以帧正好落在两次覆盖中间的屏幕，比如 120 或 240 Hz，能保持规律的绘制节奏，而不是由时间戳噪点决定。还没有整次覆盖到期时，比如 120 Hz 屏幕两帧中的第一帧，那一帧什么也不画，它的时间带到下一帧。这样无论什么屏幕，绘制最多大约每秒 60 帧（30 Hz 的屏幕画 30 帧，每帧盖两次），每帧绘制都盖一次：
 
 ```js
 const w = Math.max(1, Math.round(n));
@@ -86,29 +86,29 @@ for (let i = 0; i < nf; i++) {
 }
 ```
 
-One stronger cover, `1 - 0.15 ** n`, would fade the same amount in theory, but an 8-bit canvas rounds every cover, so the faint leftovers, such as the haze, would settle to different colors on different screens. Repeating the same cover makes them settle to the same colors everywhere.
+一次更强的覆盖 `1 - 0.15 ** n` 理论上淡出的量相同，但 8 位画布每次覆盖都会四舍五入，所以淡淡的残留，比如薄雾，会在不同屏幕上沉淀成不同颜色。重复同样的覆盖让它们在所有地方沉淀成相同的颜色。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Direction | Outward | Outward streams the stars from the center; sideways drifts them past, the nearer ones faster |
-| Speed | Normal | How fast the stars move: outward, a star near the edge covers 16, 25 and 41 pixels a second at slow, normal and fast, and a little under a third of that near the center; sideways, the nearest stars cover 30, 48 and 78 pixels a second and the farthest a fifth of that; keep it slow for a calm background |
-| Number of stars | Medium | Few is 150, medium 300 and many 600; phones show at most 300 |
-| Star color | White | White, a warm white, or a different pale tint for each star, from pink to yellow |
-| Twinkling | on | Each star gently brightens and dims on its own rhythm |
-| Nebula haze | off | A faint purple and blue haze behind the stars adds depth |
+| 方向 | 向外 | 向外让星星从中心飞流；横向让它们飘过，越近的越快 |
+| 速度 | 普通 | 星星移动的速度：向外时，边缘附近的星星慢速、普通和快速每秒分别覆盖 16、25 和 41 像素，中心附近不到那个数的三分之一；横向时，最近的星星每秒覆盖 30、48 和 78 像素，最远的是那个数的五分之一；想要平静的背景就保持慢速 |
+| 星星数量 | 中等 | 少是 150 颗，中等 300 颗，多是 600 颗；手机上最多显示 300 颗 |
+| 星星颜色 | 白色 | 白色、暖白色，或每颗星星不同的淡色，从粉色到黄色 |
+| 闪烁 | 开 | 每颗星星按自己的节奏轻轻变亮变暗 |
+| 星云薄雾 | 关 | 星星后面淡淡的紫色和蓝色薄雾增加深度 |
 
-## Production notes
-- **Canvas vs DOM**: DOM elements at star counts above 50 cause heavy layout recalculation. Canvas is the right tool for this effect.
-- **Phones**: the demo draws at most 300 stars on phone-sized screens (up to 600px wide, or up to 500px tall for a phone held sideways); each star is a separate fill, so the count is the main cost.
-- **`ctx.fillStyle` caching**: setting `fillStyle` per star is expensive. Group stars by opacity bucket and set fillStyle once per bucket (color batching) to reduce canvas state changes.
-- **Same speed on every screen**: a fixed step per `requestAnimationFrame` frame runs twice as fast on a 120Hz display and half as fast on a 30Hz phone. The demo scales each step by the time since the last drawn frame (in 60ths of a second, capped at 50 ms), so the stars move at the same speed everywhere, and it draws only when a whole 60th of a second is due, at most about 60 times a second on any display, so a fast display does no extra work.
-- **Nebula background pairing**: adding a subtle radial gradient (deep purple in one quadrant, deep blue in another) behind the stars dramatically increases realism with minimal performance cost.
-- **Three.js `Points` geometry**: production starfields use Three.js `BufferGeometry` with `PointsMaterial`. Each star is a vertex; the position buffer is updated each frame. This approach scales to 100,000+ stars.
-- **`prefers-reduced-motion`**: keep stars static (no animation loop) or limit to a very slow drift at 10% of normal speed.
+## 生产注意事项
+- **画布与 DOM**：星星超过 50 颗时 DOM 元素会造成大量布局重算。画布是这个效果的正确工具。
+- **手机**：演示在手机尺寸的屏幕（宽最多 600px，或横持手机时高最多 500px）上最多画 300 颗星星；每颗星星是一次单独填充，所以数量是主要成本。
+- **缓存 `ctx.fillStyle`**：每颗星星都设置 `fillStyle` 很贵。按不透明度分桶给星星分组，每桶设置一次 fillStyle（颜色批量），减少画布状态变化。
+- **每个屏幕上速度相同**：每 `requestAnimationFrame` 帧固定步长，在 120Hz 显示器上跑两倍快，在 30Hz 手机上跑一半快。演示按自上一帧绘制以来的时间（以六十分之一秒计，最多 50ms）缩放每步，所以星星在所有地方以相同速度移动，而且只在整六十分之一秒到期时才画，在任何显示器上最多大约每秒 60 次，所以快速显示器不做额外工作。
+- **搭配星云背景**：在星星后面加一个微妙的径向渐变（一个象限深紫色、另一个深蓝色），以最小的性能代价大幅提升真实感。
+- **Three.js 的 `Points` 几何**：生产环境的星空用 Three.js 的 `BufferGeometry` 加 `PointsMaterial`。每颗星星是一个顶点；位置缓冲每帧更新。这种做法能扩展到 10 万颗以上的星星。
+- **`prefers-reduced-motion`**：星星保持静止（没有动画循环），或限制为正常速度 10% 的非常缓慢的漂移。
 
-## See also
-- [Aurora / Northern Lights](../aurora/) — bands of light that pair with a night sky
-- [Canvas Particle Effect](../../06-3d-advanced/canvas-particle-effect/) — particles that link up and react to the pointer
-- [Floating Elements](../floating-elements/) — shapes that drift slowly on their own paths
-- [Snow / Rain](../snow-rain/) — snow or rain that falls instead of streaming toward you
+## 另见
+- [极光](../aurora/) — 与夜空搭配的光带
+- [Canvas 粒子效果](../../06-3d-advanced/canvas-particle-effect/) — 连起来、对指针有反应的粒子
+- [漂浮元素](../floating-elements/) — 沿自己路径慢慢漂移的图形
+- [雪 / 雨](../snow-rain/) — 落下的雪或雨，而不是向你飞流

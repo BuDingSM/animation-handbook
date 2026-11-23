@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Breathing / Pulsing Glow — 动画手册</title>
-  <meta name="description" content="A soft glow slowly grows and shrinks, like calm breathing. Best for idle states.">
+  <title>呼吸光晕 — 动画手册</title>
+  <meta name="description" content="柔和的光晕缓缓变大变小，如平静的呼吸。最适合闲置状态。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/breathing-glow/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Breathing / Pulsing Glow — 动画手册">
-  <meta property="og:description" content="A soft glow slowly grows and shrinks, like calm breathing. Best for idle states.">
+  <meta property="og:title" content="呼吸光晕 — 动画手册">
+  <meta property="og:description" content="柔和的光晕缓缓变大变小，如平静的呼吸。最适合闲置状态。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/breathing-glow/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Breathing / Pulsing Glow — 动画手册">
-  <meta name="twitter:description" content="A soft glow slowly grows and shrinks, like calm breathing. Best for idle states.">
+  <meta name="twitter:title" content="呼吸光晕 — 动画手册">
+  <meta name="twitter:description" content="柔和的光晕缓缓变大变小，如平静的呼吸。最适合闲置状态。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Breathing / Pulsing Glow", "name": "Breathing / Pulsing Glow", "description": "A soft glow slowly grows and shrinks, like calm breathing. Best for idle states.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/breathing-glow/", "inLanguage": "zh-CN", "articleSection": "Ambient & Background", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Ambient & Background, Breathing / Pulsing Glow"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "呼吸光晕", "name": "呼吸光晕", "description": "柔和的光晕缓缓变大变小，如平静的呼吸。最适合闲置状态。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/breathing-glow/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 呼吸光晕"}</script>
   <style>
     :root{--ui-accent:#ffce5a;--glow-dur:5s;--glow-color:#58a6ff;--glow-min:.6;--glow-max:1.5;--glow-size:260px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -116,20 +116,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../starfield/" rel="prev" aria-label="上一个：Starfield / Space Particles"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Starfield / Space Particles</span></a><a href="../ambient-ripple/" rel="next" aria-label="下一个：Ambient Ripple Effect"><span><span class="hb-dir">下一个：</span>Ambient Ripple Effect</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../starfield/" rel="prev" aria-label="上一个：星空"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>星空</span></a><a href="../ambient-ripple/" rel="next" aria-label="下一个：环境涟漪"><span><span class="hb-dir">下一个：</span>环境涟漪</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">07.08 · Ambient &amp; Background</p>
-    <h1>Breathing / Pulsing Glow</h1>
-    <p class="hb-lede">A soft glow slowly grows and shrinks, like calm breathing. Best for idle states.</p>
+    <p class="hb-cat">07.08 · 氛围与背景</p>
+    <h1>呼吸光晕</h1>
+    <p class="hb-lede">柔和的光晕缓缓变大变小，如平静的呼吸。最适合闲置状态。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。点「暂停」仔细看看，或打开慢动作，看清运动的每个部分。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -143,21 +143,21 @@
       </div>
       <div class="center-el" id="center-el">
         <div class="center-icon" aria-hidden="true">✦</div>
-        <div class="center-title">Rest state</div>
+        <div class="center-title">静止状态</div>
       </div>
-      <p class="cap c-min" data-hb-caption aria-hidden="true">Shrinks to here</p>
-      <p class="cap c-max" data-hb-caption aria-hidden="true">Grows to here, two and a half times as wide</p>
-      <p class="cap c-icon" data-hb-caption aria-hidden="true">The icon swells a tiny bit too</p>
+      <p class="cap c-min" data-hb-caption aria-hidden="true">缩小到这里</p>
+      <p class="cap c-max" data-hb-caption aria-hidden="true">长到这里，宽两个半倍</p>
+      <p class="cap c-icon" data-hb-caption aria-hidden="true">图标也微微胀大一点</p>
       <div class="panel" aria-hidden="true" inert>
         <div class="gwrap">
           <svg viewBox="0 0 100 40" preserveAspectRatio="none"><path class="gaxis" d="M0 39H100"/><path class="gcurve" d="M0 38C21 38 29 2 50 2S79 38 100 38"/></svg>
           <i class="gx"><i class="gy"><i class="gdot"></i></i></i>
         </div>
-        <p class="cap c-graph" data-hb-caption>One breath: <span id="secs-say">5 seconds</span>, easing at both ends</p>
+        <p class="cap c-graph" data-hb-caption>一次呼吸：<span id="secs-say">5 秒</span>，两端轻轻缓动</p>
       </div>
       <div class="ins" aria-hidden="true"><i class="ring ring-min"></i><i class="ring ring-max"></i><i class="ring ring-ride"></i><i class="ring ring-ride2"></i></div>
-      <p class="cap hn hn-a" data-hb-caption aria-hidden="true"><b>Alarming</b><span>a breath every second and a half</span><i></i></p>
-      <p class="cap hn hn-b" data-hb-caption aria-hidden="true"><b>Calm</b><span>a breath every 5 seconds</span><i></i></p>
+      <p class="cap hn hn-a" data-hb-caption aria-hidden="true"><b>令人警觉</b><span>每口气一秒半</span><i></i></p>
+      <p class="cap hn hn-b" data-hb-caption aria-hidden="true"><b>平缓</b><span>每口气 5 秒</span><i></i></p>
       <div class="half-a" aria-hidden="true" inert></div>
       <i class="ghost" aria-hidden="true"></i>
     </div>
@@ -166,66 +166,66 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the glow breathes between the two dashed rings: it grows and brightens, then shrinks and dims. The graph shows one breath, easing gently at both ends.</p>
-      <p data-hb-for="compare" hidden>Alarming swings from tiny to huge in quick breaths, which feels like a warning. Calm, as you set it, breathes more slowly, which feels relaxed.</p>
+      <p data-hb-for="inside" hidden>内部画面里，光晕在两个虚线圆环之间呼吸：变大变亮，再缩小变暗。图表展示一次呼吸，两端都轻轻缓动。</p>
+      <p data-hb-for="compare" hidden>令人警觉在快速呼吸中从极小摆到极大，像警告一样。平缓按你的设置呼吸得更慢，让人放松。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-secs="8" aria-pressed="false">Slow</button>
-          <button type="button" data-secs="5" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-secs="3" aria-pressed="false">Fast</button>
+          <button type="button" data-secs="8" aria-pressed="false">慢</button>
+          <button type="button" data-secs="5" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-secs="3" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Four to six seconds feels like a calm breath.</p>
+        <p class="hb-hint">四到六秒像一次平静的呼吸。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="grow-lbl">How much it grows</p>
+        <p class="hb-setting-name" id="grow-lbl">变大多少</p>
         <div class="seg" id="grow-seg" role="group" aria-labelledby="grow-lbl">
-          <button type="button" data-min="0.8" data-max="1.2" aria-pressed="false">A little</button>
-          <button type="button" data-min="0.6" data-max="1.5" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-min="0.45" data-max="1.8" aria-pressed="false">A lot</button>
+          <button type="button" data-min="0.8" data-max="1.2" aria-pressed="false">一点点</button>
+          <button type="button" data-min="0.6" data-max="1.5" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-min="0.45" data-max="1.8" aria-pressed="false">很多</button>
         </div>
-        <p class="hb-hint">Big swings look alarming rather than calm.</p>
+        <p class="hb-hint">起伏太大看起来令人警觉，而不是平静。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="color-lbl">Glow color</p>
+        <p class="hb-setting-name" id="color-lbl">光晕颜色</p>
         <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-          <button type="button" aria-pressed="false" aria-label="Pink" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-          <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-c="#58a6ff" style="background:#58a6ff"></button>
-          <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
-          <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-          <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
+          <button type="button" aria-pressed="false" aria-label="粉色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+          <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-c="#58a6ff" style="background:#58a6ff"></button>
+          <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+          <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+          <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
         </div>
-        <p class="hb-hint">The color of the glow.</p>
+        <p class="hb-hint">光晕的颜色。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="size-lbl">Glow size</p>
+          <p class="hb-setting-name" id="size-lbl">光晕大小</p>
           <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-            <button type="button" data-px="180" aria-pressed="false">Small</button>
-            <button type="button" data-px="260" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-px="340" aria-pressed="false">Large</button>
+            <button type="button" data-px="180" aria-pressed="false">小</button>
+            <button type="button" data-px="260" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-px="340" aria-pressed="false">大</button>
           </div>
-          <p class="hb-hint">How big the glow is before it grows.</p>
+          <p class="hb-hint">光晕变大之前的大小。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Second glow</span><input class="hb-switch" type="checkbox" role="switch" id="double-tog" autocomplete="off"></label>
-          <p class="hb-hint">A larger, fainter glow breathes out of step.</p>
+          <label class="hb-switch-row"><span>第二层光晕</span><input class="hb-switch" type="checkbox" role="switch" id="double-tog" autocomplete="off"></label>
+          <p class="hb-hint">更大、更淡的一层光晕错开节奏呼吸。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Icon and title breathe too</span><input class="hb-switch" type="checkbox" role="switch" id="el-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">The icon and its title swell very slightly each breath.</p>
+          <label class="hb-switch-row"><span>图标和标题也一起呼吸</span><input class="hb-switch" type="checkbox" role="switch" id="el-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">图标和标题每次呼吸都微微胀大一点。</p>
         </div>
       </div>
     </details>
@@ -234,10 +234,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a breathing glow behind [the icon or element that should look alive but at rest]. Place a soft, round, blurred glow of color behind it, and make it slowly grow and brighten, then shrink and dim, over and over, easing gently at both ends like a calm breath. Four to six seconds a breath feels relaxed; much faster feels anxious. When the settings include it, let the element itself swell very slightly with the glow. If the visitor has reduced motion turned on, keep the glow still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">在[应该看起来有生气但处于静止的图标或元素]后面加上呼吸光晕。在它后面放一团柔和的圆形模糊彩色光晕，让它慢慢变大变亮，再缩小变暗，反反复复，两端都轻轻缓动，像一次平静的呼吸。四到六秒一次呼吸让人放松；快得多会让人焦虑。如果设置里包含，就让元素本身也随着光晕微微胀大一点。如果访客开启了减弱动态效果，就让光晕静止不动。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -257,9 +257,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Idle states</li><li>Voice assistants</li><li>Meditation apps</li><li>Media players</li></ul>
+      <ul class="hb-tags hb-good"><li>闲置状态</li><li>语音助手</li><li>冥想应用</li><li>媒体播放器</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Alerts</li><li>Busy screens</li></ul>
+      <ul class="hb-tags hb-avoid"><li>提醒</li><li>繁忙的界面</li></ul>
     </div>
   </section>
 
@@ -288,11 +288,11 @@
   // A note is rewritten only when its words change, as its box reads changes out loud. Under reduced motion the loop starts paused, so
   // both views are stills and say so: See inside while it is paused, Compare while its pose (the top of a breath) is what shows.
   const notes=[...document.querySelectorAll('[data-hb-for]')],moving=notes.map(n=>n.textContent),still=[
-    'Inside, shown still: the glow breathes between the two dashed rings, and the graph shows one breath, easing gently at both ends.',
-    'Shown still at the top of a breath, each with a dashed ring where it was smallest; the bars show how fast each breathes, Alarming always faster than Calm.'];
+    '内部静止画面：光晕在两个虚线圆环之间呼吸，图表展示一次呼吸，两端都轻轻缓动。',
+    '静止在一次呼吸的顶点，每个光晕都有一个虚线圆环标出它最小的时候；条形表示各自呼吸的速度，令人警觉总比平缓快。'];
   // At A lot, Calm swings as wide as Alarming (the page's own hint calls big swings alarming), so Compare's note says so
-  const wideWords=['Alarming swings from tiny to huge in quick breaths, which feels like a warning. Calm, set to grow a lot, swings just as wide; only its slower pace keeps it calmer.',
-    'Shown still at the top of a breath, each with a dashed ring where it was smallest; set to grow a lot, Calm swings as wide, and the bars show Alarming breathes faster.'];
+  const wideWords=['令人警觉在快速呼吸中从极小摆到极大，像警告一样。平缓设为变大很多时，摆动的幅度一样大；只有更慢的速度让它更平静。',
+    '静止在一次呼吸的顶点，每个光晕都有一个虚线圆环标出它最小的时候；设为变大很多时，平缓摆动的幅度一样大，条形表示令人警觉呼吸得更快。'];
   let mode='normal',paused=reduceMQ.matches,posed=false;
   const saved=new Map();
   function describe(){
@@ -332,15 +332,15 @@
     follow(g,ride.getAnimations()[0]);follow(glow2.getAnimations()[0],ride2.getAnimations()[0]);
     panel.querySelectorAll('.gx,.gy').forEach(d=>follow(g,d.getAnimations()[0]));
   }
-  const times=r=>{const n=Math.round(r*2)/2;return['','one','two','three','four','five'][Math.floor(n)]+(n%1?' and a half':'')};
+  const times=r=>{const n=Math.round(r*2)/2;return['','一','二','三','四','五'][Math.floor(n)]+(n%1?'个半':'')};
   const write=(el,words)=>{if(el.textContent!==words)el.textContent=words};
   // The words and bars that follow Speed, Slow motion and How much it grows
   function say(){
     const k=slowTog.checked?3:1,calm=secs*k,min=parseFloat(root.getPropertyValue('--glow-min')),max=parseFloat(root.getPropertyValue('--glow-max'));
-    write(secsSay,calm+' seconds');
-    write(capMax,'Grows to here, '+times(max/min)+' times as wide');
-    write(lines[0],'a breath every '+(k>1?'4 and a half seconds':'second and a half'));
-    write(lines[1],'a breath every '+calm+' seconds');
+    write(secsSay,calm+' 秒');
+    write(capMax,'长到这里，宽'+times(max/min)+'倍');
+    write(lines[0],'每口气 '+(k>1?'4 秒半':'1 秒半'));
+    write(lines[1],'每口气 '+calm+' 秒');
     names[0].style.setProperty('--bar',1/k);names[1].style.setProperty('--bar',1.5/calm);
   }
   // See inside's labels, from measured sizes: each next to the ring it names (never across it), clear of the icon and title, the graph and

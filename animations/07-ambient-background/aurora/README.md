@@ -1,18 +1,18 @@
-# Aurora / Northern Lights
+# 极光
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/aurora/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/aurora/)
 
-## What it is
-An aurora background imitates the northern lights with a few tall bands of color that sway slowly across a night sky. Each band fades away at the top and bottom and is softly blurred, and each one drifts sideways and leans a little on its own cycle, so the curtains of light never move together. The browser draws it all with no script.
+## 它是什么
+极光背景用几条高高的彩色光带模仿北极光，在夜空中慢慢摇曳。每条光带在上下两端淡出，并轻轻模糊，每条都按自己的周期横向漂移、微微倾斜，所以光的帘幕永远不会一起动。浏览器不用脚本就能画出这一切。
 
-## When to use it
-- Hero sections on apps with a Nordic, atmospheric, or space theme
-- Nature and travel brand backgrounds
-- Dark-theme product pages where the header needs a distinctive ambient identity
-- Music apps, ambient sound apps, or meditation tools where the visual atmosphere is part of the product
+## 什么时候用
+- 北欧、氛围或太空主题应用的主视觉区
+- 自然和旅行品牌的背景
+- 深色主题的产品页，页眉需要独特的氛围标识
+- 音乐应用、环境音应用或冥想工具，视觉氛围本身就是产品的一部分
 
-## How it works
-Each aurora band is an element spanning the full stage width, positioned near the top half of the screen, with a tall linear gradient that fades from transparent at top and bottom through a peak opacity in the middle. A `filter: blur()` softens the hard gradient edges. CSS keyframes animate each band on a unique combination of `translateX`, `skewY`, and `scaleX`:
+## 工作原理
+每条极光带都是一个横跨整个舞台宽度的元素，位于屏幕上半部分附近，带有一个高高的线性渐变，从上下两端的透明渐变到中间的最高不透明度。`filter: blur()` 柔化了生硬的渐变边缘。CSS 关键帧用 `translateX`、`skewY` 和 `scaleX` 的独特组合给每条光带动起来：
 
 ```css
 .band {
@@ -43,32 +43,32 @@ Each aurora band is an element spanning the full stage width, positioned near th
 }
 ```
 
-On phones the demo halves the blur, `@media (max-width: 600px) { .band { filter: blur(18px); } }`, which keeps the bands as soft on the smaller stage.
+手机上演示把模糊减半，`@media (max-width: 600px) { .band { filter: blur(18px); } }`，这样在更小的舞台上光带同样柔和。
 
-**Real aurora color chemistry**:
-- Green — oxygen atoms at ~100km altitude (most common)
-- Blue/purple — nitrogen molecules at lower altitudes
-- Red — oxygen atoms above 200km (rare, only in powerful solar storms)
-- Pink — a mix of red oxygen at top and green oxygen below
+**真实极光的色彩化学**：
+- 绿色——约 100 公里高空的氧原子（最常见）
+- 蓝色/紫色——较低高度的氮分子
+- 红色——200 公里以上的氧原子（罕见，只在强烈的太阳风暴中出现）
+- 粉色——顶部红色氧和下方绿色氧的混合
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Number of bands | 2 | How many bands of light: two look clear, five make a richer, layered sky |
-| Speed | Normal | How long the bands take to sway through their cycle: slow is 48s, normal 30s and fast 18s for the green band; blue takes 1.15 times as long, purple 0.85, pink 1.25 and red 1.1, so the bands drift in and out of step |
-| Colors | Green | Which colors come first: green and blue (the most common aurora), purple and pink, or red and pink (rare); more bands add the other colors |
-| Brightness | Medium | How strongly the bands glow: dim is 50%, medium 75% and bright 100% |
-| Stars in the sky | off | Adds 120 twinkling stars behind the bands |
+| 光带数量 | 2 | 光带有多少条：两条看起来清晰，五条让天空更丰富、更有层次 |
+| 速度 | 普通 | 光带摆过一个周期需要的时间：绿色光带慢速 48 秒，普通 30 秒，快速 18 秒；蓝色是 1.15 倍，紫色 0.85 倍，粉色 1.25 倍，红色 1.1 倍，所以光带时而同步、时而错开 |
+| 颜色 | 绿色 | 哪些颜色先出现：绿色和蓝色（最常见的极光）、紫色和粉色，或红色和粉色（罕见）；更多光带会加入其他颜色 |
+| 亮度 | 中等 | 光带发光的强度：暗是 50%，中等 75%，明亮是 100% |
+| 天空中的星星 | 关 | 在光带后面加上 120 颗闪烁的星星 |
 
-## Production notes
-- **No WebGL needed**: CSS keyframes are sufficient for this effect at desktop resolutions. For smooth animation on mobile, reduce blur and band count.
-- **`overflow: hidden` is mandatory**: bands extend 30% beyond each edge (for drift headroom). Without overflow clipping, they're visible outside the stage.
-- **`animation-delay` offsets**: give each band a unique negative delay so they start at different phases. Without this, all bands drift together, which looks mechanical.
-- **Star layer pairing**: adding a star background behind the aurora dramatically increases realism — the aurora appears to float in front of the night sky. See the demo's Stars in the sky switch.
-- **Performance**: each blurred element creates a GPU compositing layer. 5 blurred bands + a star layer is the practical limit on mid-range mobile.
-- **Three.js approach**: for fully custom aurora with 3D depth and noise-driven shapes, render a plane mesh with a custom GLSL shader that samples 3D noise for the waveform and color distribution.
+## 生产注意事项
+- **不需要 WebGL**：在桌面分辨率下，CSS 关键帧就足以实现这个效果。想要在手机上流畅，就减少模糊和光带数量。
+- **`overflow: hidden` 是必需的**：光带向每边超出 30%（留出漂移空间）。没有溢出裁剪，它们会在舞台外面露出来。
+- **`animation-delay` 偏移**：给每条光带一个独特的负延迟，让它们从不同相位开始。没有它，所有光带会一起漂移，看起来很机械。
+- **搭配星空层**：在极光后面加一个星空背景会大幅提升真实感——极光看起来漂浮在夜空前面。见演示里的「天空中的星星」开关。
+- **性能**：每个模糊元素都会创建一个 GPU 合成层。5 条模糊光带加一个星空层是中端手机的实际上限。
+- **Three.js 做法**：想要完全自定义、有 3D 深度和噪点驱动形状的极光，就用自定义 GLSL 着色器渲染一个平面网格，用 3D 噪点采样波形和颜色分布。
 
-## See also
-- [Mesh Gradient Animation](../mesh-gradient/) — round blobs of color instead of tall bands
-- [Starfield / Space Particles](../starfield/) — stars stream toward you out of the dark
-- [Animated Gradient Background](../animated-gradient-background/) — one gradient that slowly shifts
+## 另见
+- [网格渐变](../mesh-gradient/) — 圆形的彩色色块，而不是高高的光带
+- [星空](../starfield/) — 星星从黑暗中向你飞来
+- [动态渐变背景](../animated-gradient-background/) — 一个慢慢变化的渐变

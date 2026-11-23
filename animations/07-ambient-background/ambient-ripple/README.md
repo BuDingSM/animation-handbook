@@ -1,18 +1,18 @@
-# Ambient Ripple Effect
+# 环境涟漪
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ambient-ripple/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ambient-ripple/)
 
-## What it is
-An ambient ripple sends rings out from a few spots, over and over, like drops falling on a still pond or the ping of a sonar screen. Each ring grows from nothing and fades as it spreads, and the next one starts before it is gone, so the rings overlap into a gentle, steady pulse. It runs on its own rather than answering a click, and hints that something is alive there.
+## 它是什么
+环境涟漪一次次从几个点发出圆环，像水滴落在静水面上，或声呐屏幕的回声。每个圆环从无到有，扩散时淡出，下一个在它消失前就开始了，所以圆环重叠成轻柔、稳定的脉动。它自己运行，不响应点击，暗示那里有东西活着。
 
-## When to use it
-- Behind hero sections where "something is alive here" reinforces the product's value proposition
-- Status indicators for "connected" or "active" states that need visual presence without being alarming
-- Meditation and focus apps where gentle radial pulses guide attention
-- Map or location-based UIs where the pulsing ring indicates a point of interest
+## 什么时候用
+- 主视觉区后面，“这里有东西活着”能强化产品的价值主张
+- “已连接”或“活跃”状态的状态指示，需要有视觉存在感但不惹人警觉
+- 冥想和专注应用，轻柔的径向脉动引导注意力
+- 地图或基于位置的界面，脉动的圆环表示一个兴趣点
 
-## How it works
-Each ripple source has a timer that spawns new `Ring` objects at a configurable interval. Rings are updated and drawn each frame using a 2D canvas:
+## 工作原理
+每个涟漪源都有一个计时器，按可配置的间隔生成新的 `Ring` 对象。圆环每帧用 2D 画布更新和绘制：
 
 ```js
 class Ring {
@@ -42,9 +42,9 @@ class Ring {
 }
 ```
 
-`now` is the page's own clock: each frame adds the time since the last one (a third of it in slow motion), and it stops while the animation is paused, so rings freeze in place and carry on without jumping.
+`now` 是页面自己的时钟：每帧加上自上一帧以来的时间（慢动作里是三分之一），动画暂停时它停住，所以圆环原地定住、继续时不会跳变。
 
-Sources emit rings at irregular intervals to avoid a mechanical clock-like feel:
+涟漪源以不规则的间隔发出圆环，避免机械的时钟感：
 
 ```js
 function scheduleEmit(source) {
@@ -54,7 +54,7 @@ function scheduleEmit(source) {
 }
 ```
 
-**Source drift** — sources slowly wander across the stage for additional organic feel:
+**涟漪源漂移**——涟漪源在舞台上慢慢游走，增加有机的感觉：
 
 ```js
 function updateSource(source) {
@@ -66,28 +66,28 @@ function updateSource(source) {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long each ring takes to spread and fade: slow is 4s, normal 2.5s and fast 1.5s |
-| Time between ripples | Medium | How often each spot sends out a ring: short is every 1.8s, medium 3s and long 5s |
-| Ripple size | Medium | How far each ring spreads: small is 100px, medium 160px and large 250px; big rings look calmer with a slow speed |
-| Number of sources | 3 | One spot feels focused; three spread across the stage; five feel like rain on water |
-| Ring thickness | Medium | The width of each ring: thin is 1px, medium 1.5px and thick 3px |
-| Ring color | Blue | The color of the rings |
-| Uneven timing | on | Each gap is up to 40% longer or shorter, at random, so the rings never tick like a clock |
-| Sources drift | off | The spots slowly wander around the stage |
+| 速度 | 普通 | 每个圆环扩散、淡出需要的时间：慢速 4 秒，普通 2.5 秒，快速 1.5 秒 |
+| 涟漪间隔 | 中等 | 每个点多久发出一个圆环：短是每 1.8 秒，中等 3 秒，长 5 秒 |
+| 涟漪大小 | 中等 | 每个圆环扩散多远：小是 100px，中等 160px，大是 250px；大圆环配慢速看起来更平静 |
+| 涟漪源数量 | 3 | 一个点感觉很专注；三个铺满舞台；五个像水面上的雨 |
+| 圆环粗细 | 中等 | 每个圆环的宽度：细是 1px，中等 1.5px，粗是 3px |
+| 圆环颜色 | 蓝色 | 圆环的颜色 |
+| 时间不均匀 | 开 | 每个间隔随机长出或短掉最多 40%，所以圆环永远不会像时钟一样滴答 |
+| 涟漪源漂移 | 关 | 这些点在舞台上慢慢游走 |
 
-## Production notes
-- **This is not the click ripple**: the click ripple ([Click / Tap Ripple](../../04-micro-interactions/click-ripple/)) responds to user input and confirms an action. The ambient ripple is passive and decorative — it fires automatically and continuously without any user interaction.
-- **Ring density calibration**: with the defaults (three sources, a ring every 3s, each living 2.5s) each source has at most one ring out most of the time, so two or three rings are on screen at once, with short quiet spells. Shorter gaps or longer lives overlap more rings; single, evenly spaced rings look like a clock, too many look frantic.
-- **Canvas vs SVG vs CSS**: canvas is best here because the ring count is variable and positions are dynamic. SVG animation for 15+ simultaneous animated elements creates expensive SMIL calculations. CSS `@keyframes` cannot easily spawn elements dynamically.
-- **IntersectionObserver pause**: these loops run continuously — always pause them when the element is off-screen to avoid draining battery on long pages.
-- **Accessibility**: the animation is purely decorative. Pause on `prefers-reduced-motion` and remove the canvas entirely if needed — no content is lost.
-- **No library needed**: the rings are a few arcs a frame on a 2D canvas; for ripples that bend a picture like water, PixiJS's `DisplacementFilter` or a shader, as in the GPGPU water example of three.js, are the usual tools.
+## 生产注意事项
+- **这不是点击涟漪**：点击涟漪（[点击涟漪](../../04-micro-interactions/click-ripple/)）响应用户输入、确认一次操作。环境涟漪是被动装饰性的——它自动、持续地发出，不需要任何用户交互。
+- **圆环密度校准**：用默认值（三个源，每 3 秒一个圆环，每个存活 2.5 秒），每个源大多数时候最多只有一个圆环在外，所以屏幕上同时有两三个圆环，中间有短暂的安静。间隔更短或寿命更长会重叠更多圆环；单个、均匀间隔的圆环像时钟，太多则像发疯。
+- **Canvas 与 SVG 与 CSS**：这里 canvas 最好，因为圆环数量可变、位置动态。15 个以上同时动态的元素的 SVG 动画会产生昂贵的 SMIL 计算。CSS `@keyframes` 不容易动态生成元素。
+- **用 IntersectionObserver 暂停**：这些循环一直在运行——元素离开屏幕时一定要暂停，避免在长页面上耗电。
+- **无障碍**：这个动画纯粹是装饰性的。在 `prefers-reduced-motion` 下暂停，必要时完全移除画布——不会丢失任何内容。
+- **不需要库**：圆环不过是 2D 画布上每帧几条弧线；想要像水一样弯曲画面的涟漪，PixiJS 的 `DisplacementFilter` 或着色器才是常用工具，就像 three.js 的 GPGPU 水面例子那样。
 
-## See also
-- [Click / Tap Ripple](../../04-micro-interactions/click-ripple/) — a ripple that answers a click instead
-- [Breathing / Pulsing Glow](../breathing-glow/) — one glow that grows and shrinks instead of rings
-- [Abstract Geometric Motion](../abstract-geometric-motion/) — its Rings pattern spreads rings from the center
-- [Water Ripple](../../06-3d-advanced/water-ripple/) — ripples from a finger spread and bend the picture below
+## 另见
+- [点击涟漪](../../04-micro-interactions/click-ripple/) — 响应点击的涟漪
+- [呼吸光晕](../breathing-glow/) — 一个变大变小的光晕，而不是圆环
+- [抽象几何动效](../abstract-geometric-motion/) — 它的圆环图案从中心扩散圆环
+- [水面涟漪](../../06-3d-advanced/water-ripple/) — 手指激起的涟漪扩散开来，弯曲下面的画面

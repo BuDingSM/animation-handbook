@@ -1,18 +1,18 @@
-# Topographic Lines
+# 等高线
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/topographic-lines/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/topographic-lines/)
 
-## What it is
-Topographic lines are the contour lines of a map, drawn over an invisible height map that slowly changes. Each line joins all the points at one height, so the lines crowd together on steep slopes and spread apart on flat ground. As the hills swell, sink and drift, the lines bend, merge and split, like a map of land that is still taking shape.
+## 它是什么
+等高线是地图上的等高线，画在一张慢慢变化的看不见的高程图上。每条线连接所有同一高度的点，所以线条在陡坡上挤在一起、在平地上散开。山丘起伏、沉降、漂移时，线条弯曲、合并、分开，像一张仍在成形的土地的地图。
 
-## When to use it
-- Hero backgrounds for outdoor, hiking, travel and climbing brands
-- Maps, geography and data products that want a quiet, on-theme texture
-- Portfolio and studio sites that want a hand-drawn, cartographic feel
-- Section dividers or footers where a slow pattern fills empty space
+## 什么时候用
+- 户外、徒步、旅行和攀登品牌的主视觉背景
+- 想要安静、贴合主题的质感的地图、地理和数据产品
+- 想要手绘地图感的作品集和工作室网站
+- 慢速图案填补空白的分区隔线或页脚
 
-## How it works
-The height of every point comes from smooth noise (Perlin gradient noise): two layers of it, broad hills plus smaller bumps, each sliding slowly in its own direction, so their sum swells and sinks instead of moving in one piece. The height is sampled on a grid, 7px squares on a computer and 8px on a phone. Each frame, marching squares turns the grid into lines: for every square and every contour level between its lowest and highest corner, the level crosses the square's sides where the height equals it, and a short segment joins the crossings. A square's side is shared with its neighbor, so both find the same crossing and the segments join into continuous lines.
+## 工作原理
+每个点的高度来自平滑噪声（柏林梯度噪声）：两层，一层宽阔的山丘加一层小的隆起，各自沿自己的方向慢慢滑动，所以它们的和起伏而不是整体移动。高度在网格上采样，电脑上 7px 的方格、手机上 8px。每帧，行进方格把网格变成线条：对每个方格和它最低与最高角之间的每个等高线高度，高度等于它时线穿过方格的边，一小段线段连接穿过的点。一个方格的边与邻居共用，所以两者找到同一个穿过点，线段连成连续的线条。
 
 ```js
 for (let m = Math.ceil(lowest / GAP); m * GAP < highest; m++) {
@@ -31,26 +31,26 @@ for (let m = Math.ceil(lowest / GAP); m * GAP < highest; m++) {
 px = x + step * (L - a) / (b - a); py = y;
 ```
 
-The field has its own clock, which grows by the time since the last frame times the speed (a third of it in slow motion), never more than 50 ms at once, so the hills move at the same pace on a 30 Hz phone and a 144 Hz monitor. Every frame clears the canvas and draws the whole picture again, which also makes a setting change show at once while the loop is paused.
+地形有自己的时钟，按自上一帧以来的时间乘以速度增长（慢动作里是三分之一），一次最多 50ms，所以山丘在 30 Hz 的手机和 144 Hz 的显示器上以相同节奏移动。每帧清空画布、重新画整幅图，这也让设置改动在循环暂停时立刻显示。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Line spacing | Medium | How much the height changes between two lines: tight puts about 1.7 times as many lines on the same ground, wide about 0.6 times; with medium hills the lines are on average about 8px apart at tight, 14px at medium and 22px at wide |
-| Speed | Normal | How fast the hills swell and drift: slow is half the normal pace and fast twice it; at normal the broad hills slide about 7px a second with medium hills, 4px with small and 12px with large |
-| Color | Sand | Sand, mint, sky blue or white lines on a dark ground |
-| Hill size | Medium | How wide one hill is: about 130px (small), 220px (medium) or 360px (large) |
-| Bold every fifth line | on | Every fifth line is drawn thicker and brighter, like the index contours of a printed map |
+| 线条间距 | 中等 | 两条线之间高度变化多少：紧密时同一块地面上大约多出 1.7 倍的线条，宽松时约 0.6 倍；中等山丘时，紧密、中等和宽松的线条平均分别相隔约 8px、14px 和 22px |
+| 速度 | 普通 | 山丘起伏漂移的速度：慢速是正常节奏的一半，快速是两倍；正常时，宽阔的山丘在中等山丘下每秒滑动约 7px，小山丘 4px，大山丘 12px |
+| 颜色 | 沙色 | 深色地面上的沙色、薄荷绿、天蓝或白色线条 |
+| 山丘大小 | 中等 | 一座山丘有多宽：约 130px（小）、220px（中）或 360px（大） |
+| 每五条线加粗 | 开 | 每五条线画得更粗更亮，像印刷地图上的加粗等高线 |
 
-## Production notes
-- **Cost**: the work is the noise at every grid point plus one pass of marching squares, under a millisecond a frame on a laptop for a 960 × 380 stage. A coarser grid is the main saving; phones (up to 600px wide, or up to 500px tall for a phone held sideways) sample every 8px instead of 7px.
-- **One stroke per style**: all thin segments go into one path and all bold ones into another, so a frame is two strokes, not thousands.
-- **Smoother lines**: for a print-quality look, join the segments into polylines and draw them as curves, or render the contours in a WebGL fragment shader (the fractional part of height divided by spacing, drawn where it is near zero, with its screen-space derivative for an even line width).
-- **Libraries**: [d3-contour](https://github.com/d3/d3-contour) builds contour polygons from a grid of values with the same marching squares method; [simplex-noise](https://github.com/jwagner/simplex-noise.js) supplies the height field.
-- **Reduced motion**: the demo starts paused with the lines drawn still, until the visitor presses Play.
-- **It is decorative**: keep the canvas `aria-hidden` and place real content above it; keep the lines faint enough that text over them stays readable.
+## 生产注意事项
+- **成本**：工作量是每个网格点的噪声加一遍行进方格，在笔记本上 960 × 380 的舞台每帧不到一毫秒。更粗的网格是主要的节省；手机（宽最多 600px，或横持手机时高最多 500px）每 8px 采样一次而不是 7px。
+- **每种样式一笔**：所有细线段进一条路径，所有粗线段进另一条，所以一帧是两次描画，不是几千次。
+- **更平滑的线条**：想要印刷品质的样子，把线段连成折线、画成曲线，或在 WebGL 片段着色器中渲染等高线（高度除以间距的小数部分，在接近零的地方画，用它的屏幕空间导数保持线宽均匀）。
+- **库**：[d3-contour](https://github.com/d3/d3-contour) 用同样的行进方格方法从数值网格构建等高线多边形；[simplex-noise](https://github.com/jwagner/simplex-noise.js) 提供高程场。
+- **减少动态**：演示开始时暂停，线条静止画出，直到访客按下播放。
+- **它是装饰性的**：保持画布 `aria-hidden`，把真实内容放在它上面；线条保持足够淡，让上面的文字保持可读。
 
-## See also
-- [Flow Field](../flow-field/) — particles follow a noise field instead of tracing its heights
-- [Plasma Field](../plasma/) — a field of waves shown as smooth color instead of lines
-- [Grid / Dot Pattern Parallax](../grid-dot-pattern-parallax/) — a quiet pattern that shifts gently for depth
+## 另见
+- [流场](../flow-field/) — 粒子跟随噪声场，而不是描它的高度
+- [等离子场](../plasma/) — 波场用平滑颜色而不是线条表示
+- [网格 / 圆点图案视差](../grid-dot-pattern-parallax/) — 轻轻移动、营造深度的安静图案

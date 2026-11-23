@@ -1,18 +1,18 @@
-# Snow / Rain
+# 雪 / 雨
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/snow-rain/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/snow-rain/)
 
-## What it is
-A snow or rain effect draws falling particles on a see-through canvas laid over a dark scene. Snowflakes fall slowly and sway from side to side, while raindrops fall fast and are drawn as short streaks that lean with the wind. Every particle has a depth, so near ones are bigger, brighter and faster than far ones, which turns a flat sprinkle of dots into weather you look through.
+## 它是什么
+雪或雨的效果在黑暗场景上铺的透明画布上画落下的粒子。雪花慢慢落下、左右摇摆，雨滴快速落下、画成随风倾斜的短线。每个粒子都有深度，近的比远的大、亮、快，这把扁平的一洒圆点变成你透过看的天气。
 
-## When to use it
-- Winter, holiday and other seasonal campaigns
-- Weather apps and forecast headers
-- Cozy hero sections for cafés, bookshops, travel or games
-- Story and game scenes that need a mood behind the text
+## 什么时候用
+- 冬季、节日和其他季节性活动
+- 天气应用和预报标题
+- 咖啡馆、书店、旅行或游戏的温馨主视觉区
+- 文字后面需要氛围的故事和游戏场景
 
-## How it works
-The town is a still SVG behind the canvas, so the canvas holds only the weather and is cleared and redrawn on every frame. The particles live in three depth layers, far, middle and near, and each layer has its own size, speed, sway or streak length and opacity:
+## 工作原理
+小镇是画布后面静止的 SVG，所以画布里只有天气，每帧清空重画。粒子生活在远、中、近三个深度层，每层有自己的大小、速度、摇摆或线条长度和不透明度：
 
 ```js
 // per 60th of a second: fall speed (vy), sideways speed per unit of wind; r = radius or streak width, a = opacity
@@ -24,7 +24,7 @@ const RAIN = [{ r: .8,  vy: 9,  wind: 1.2, len: 11, a: .3,  share: .4 },
               { r: 1.6, vy: 18, wind: 2.6, len: 22, a: .62, share: .25 }];
 ```
 
-Each frame moves every particle by the time that has passed, counted in 60ths of a second (`k`, at most 50 ms, a third of it in slow motion), so the weather falls at the same speed on a 30, 60 or 120 Hz screen. A particle that leaves the bottom starts again just above the top, and one the wind carries out of a side comes back at the other. New particles are spread over the whole width they wrap around in, the stage and 40 pixels on each side, so the wind never leaves an empty band drifting across:
+每帧按流逝的时间移动每个粒子，以六十分之一秒计（`k`，最多 50ms，慢动作里是三分之一），所以天气在 30、60 或 120 Hz 屏幕上以相同速度落下。离开底部的粒子在顶部正上方重新开始，风从一侧带走的粒子从另一侧回来。新粒子铺在它们绕回的整个宽度上，舞台加上每边 40 像素，所以风永远不会留下一条空白带漂过：
 
 ```js
 function step(k) {
@@ -38,7 +38,7 @@ function step(k) {
 }
 ```
 
-Drawing puts every particle of a layer into one path, so a frame is three fills for snow or three strokes for rain, however many particles there are. A flake is drawn at `x + sin(phase) × sway`; a drop is a line that leans as far as the drop moves sideways while it falls its own length:
+绘制把一层的所有粒子放进一条路径，所以无论有多少粒子，一帧都是雪的三次填充或雨的三次描画。雪花画在 `x + sin(phase) × sway` 处；雨滴是一条线，倾斜程度等于雨滴在落下自身长度的时间里横向移动的距离：
 
 ```js
 const dx = WIND * p.wind / p.vy * p.len;
@@ -46,28 +46,28 @@ for (const q of list) { ctx.moveTo(q.x, q.y); ctx.lineTo(q.x - dx, q.y - p.len);
 ctx.lineWidth = p.r; ctx.stroke();
 ```
 
-The number of particles follows the area they share, so a phone draws about a quarter of what a laptop draws, and phones and short screens (`(max-width: 600px), (max-height: 500px)`) draw 80% of that again.
+粒子数量跟随它们共享的面积，所以手机画的约是笔记本的四分之一，手机和矮屏幕（`(max-width: 600px), (max-height: 500px)`）再画那个数的 80%。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Weather | Snow | Snow drifts down slowly, about 30 to 80px a second from far to near, and sways 4 to 13px to each side; rain falls more than ten times as fast, about 540 to 1,080px a second, drawn as streaks 11 to 22px long |
-| Amount | Medium | How many particles per 100,000 square pixels: light, medium and heavy are 28, 62 and 125 flakes, or 35, 80 and 170 drops; phones draw 80% of that |
-| Wind | Gentle | None, gentle or strong: the wind carries snow sideways and tilts the rain, near particles more than far ones; gentle slants the snow's path about 30° from straight down and the rain about 8°, strong about 55° and 20° |
-| Depth | on | Three layers in which near flakes and drops are bigger, brighter and faster than far ones; off, every particle is the size and speed of the middle layer |
+| 天气 | 雪 | 雪慢慢向下飘，从远到近约每秒 30 到 80px，左右摇摆 4 到 13px；雨落得快十倍以上，约每秒 540 到 1080px，画成 11 到 22px 长的线条 |
+| 数量 | 中等 | 每 100000 平方像素有多少粒子：少、中等和多是 28、62 和 125 片雪花，或 35、80 和 170 滴雨；手机画那个数的 80% |
+| 风 | 微风 | 无、微风或强风：风把雪横向带走、让雨倾斜，近的粒子比远的更明显；微风让雪的路径偏离直下约 30°、雨约 8°，强风约 55° 和 20° |
+| 深度 | 开 | 三层，近的雪花和雨滴比远的大、亮、快；关时每个粒子都是中间层的大小和速度 |
 
-## Production notes
-- **One path per layer**: setting `fillStyle` and calling `fill()` for each flake costs far more than adding every flake of a layer to one path and filling it once. Group by look, not by particle.
-- **Still scene, moving canvas**: the town never changes, so it is an SVG behind the canvas instead of being redrawn every frame.
-- **Rain is a streak**: real drops fall several meters a second, so the eye sees lines, not dots. A streak's length and lean come from the drop's own velocity, so the angle always matches the wind.
-- **CSS-only snow**: a few dozen flakes can be elements moved with `transform`, but past a hundred or so the page has too many animated layers; a canvas holds thousands.
-- **Libraries**: tsParticles has ready snow and rain presets, and Three.js `Points` can do 3D weather with tens of thousands of particles; the depth rule is the same.
-- **Reduced motion**: show one still frame, as the demo does, and keep the weather out from behind long text.
+## 生产注意事项
+- **每层一条路径**：每个雪花都设置 `fillStyle` 并调用 `fill()`，比把一层的所有雪花加进一条路径、一次填充贵得多。按外观分组，而不是按粒子分组。
+- **静止场景、移动画布**：小镇永远不变，所以它是画布后面的 SVG，而不是每帧重画。
+- **雨是线条**：真实雨滴每秒落下几米，所以眼睛看到的是线，不是点。线条的长度和倾斜来自雨滴自己的速度，所以角度永远与风一致。
+- **纯 CSS 的雪**：几十片雪花可以用 `transform` 移动的元素，但超过一百片左右，页面就有太多动画层；画布能容纳几千片。
+- **库**：tsParticles 有现成的雪和雨预设，Three.js 的 `Points` 可以用几万个粒子做 3D 天气；深度规则是一样的。
+- **减少动态**：显示一帧静止画面，就像演示做的那样，天气不要放在长文字后面。
 
-## See also
-- [Starfield / Space Particles](../starfield/) — particles that stream toward you instead of falling
-- [Matrix Rain](../matrix-rain/) — columns of characters that fall and leave trails
-- [Wave Layers](../wave-layers/) — the same near-fast, far-slow depth rule with layers of water
-- [Particle Constellation](../particle-constellation/) — drifting dots that link up when they come close
-- [Fireworks](../fireworks/) — particles over the same kind of dark scene, bursting instead of falling
-- [Lightning](../lightning/) — bolts and a soft flash over the same kind of rainy scene
+## 另见
+- [星空](../starfield/) — 向你飞流而不是落下的粒子
+- [矩阵雨](../matrix-rain/) — 落下、留下轨迹的字符列
+- [波浪层](../wave-layers/) — 同样的近快远慢深度规则，用在水层上
+- [粒子星座](../particle-constellation/) — 靠近时连起来的漂移圆点
+- [烟花](../fireworks/) — 同种黑暗场景上的粒子，爆开而不是落下
+- [闪电](../lightning/) — 同种雨景上的闪电和柔和闪光

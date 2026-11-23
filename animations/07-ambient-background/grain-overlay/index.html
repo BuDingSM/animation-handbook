@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grain / Film Noise Overlay — 动画手册</title>
-  <meta name="description" content="Fine grain flickers over the page, like old film. Best for editorial sites.">
+  <title>颗粒噪点叠加 — 动画手册</title>
+  <meta name="description" content="细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grain-overlay/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Grain / Film Noise Overlay — 动画手册">
-  <meta property="og:description" content="Fine grain flickers over the page, like old film. Best for editorial sites.">
+  <meta property="og:title" content="颗粒噪点叠加 — 动画手册">
+  <meta property="og:description" content="细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grain-overlay/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Grain / Film Noise Overlay — 动画手册">
-  <meta name="twitter:description" content="Fine grain flickers over the page, like old film. Best for editorial sites.">
+  <meta name="twitter:title" content="颗粒噪点叠加 — 动画手册">
+  <meta name="twitter:description" content="细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Grain / Film Noise Overlay", "name": "Grain / Film Noise Overlay", "description": "Fine grain flickers over the page, like old film. Best for editorial sites.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grain-overlay/", "inLanguage": "zh-CN", "articleSection": "Ambient & Background", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Ambient & Background, Grain / Film Noise Overlay"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "颗粒噪点叠加", "name": "颗粒噪点叠加", "description": "细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grain-overlay/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 颗粒噪点叠加"}</script>
   <style>
     :root{--ui-accent:#ffce5a;--grain-op:0.08;--grain-blend:overlay;--pill:rgba(5,6,10,.92);--pill-ink:#f4f4f2;--pill-sub:#c4c8d2;--zoom:4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -73,20 +73,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../aurora/" rel="prev" aria-label="上一个：Aurora / Northern Lights"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Aurora / Northern Lights</span></a><a href="../scanline/" rel="next" aria-label="下一个：Scanline Effect"><span><span class="hb-dir">下一个：</span>Scanline Effect</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../aurora/" rel="prev" aria-label="上一个：极光"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>极光</span></a><a href="../scanline/" rel="next" aria-label="下一个：扫描线效果"><span><span class="hb-dir">下一个：</span>扫描线效果</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">07.04 · Ambient &amp; Background</p>
-    <h1>Grain / Film Noise Overlay</h1>
-    <p class="hb-lede">Fine grain flickers over the page, like old film. Best for editorial sites.</p>
+    <p class="hb-cat">07.04 · 氛围与背景</p>
+    <h1>颗粒噪点叠加</h1>
+    <p class="hb-lede">细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。点「暂停」仔细看看，或打开慢动作，看清运动的每个部分。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -99,8 +99,8 @@
         <div class="scene">
           <div class="hero-mock">
             <div class="hero-label">Atlas Studio</div>
-            <div class="hero-h">Design without compromise</div>
-            <div class="hero-p">We craft digital products that earn attention and keep it. Every pixel, every frame, considered.</div>
+            <div class="hero-h">设计不妥协</div>
+            <div class="hero-p">我们打造能赢得并留住注意力的数字产品。每一个像素，每一帧，都经过考量。</div>
           </div>
         </div>
         <!-- SVG filter grain -->
@@ -111,79 +111,79 @@
       </div></div>
       <div class="band" id="band" aria-hidden="true"><canvas id="band-cvs"></canvas><svg class="bsvg" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain-filter)"/></svg></div>
       <div class="divider" aria-hidden="true"></div>
-      <p class="lbl ib" id="cap-band" aria-hidden="true" data-hb-caption>The grain on its own: random dots, new ones 24 times a second</p>
-      <p class="lbl ia" id="cap-laid" aria-hidden="true" data-hb-caption>Laid over the page at a twelfth of that strength, adding contrast</p>
-      <p class="lbl hn a" aria-hidden="true" data-hb-caption>Without grain<small>Zoomed in and brightened</small></p>
-      <p class="lbl hn b" aria-hidden="true" data-hb-caption>With grain<small>Zoomed in and brightened</small></p>
+      <p class="lbl ib" id="cap-band" aria-hidden="true" data-hb-caption>单独的颗粒：随机圆点，每秒换 24 次</p>
+      <p class="lbl ia" id="cap-laid" aria-hidden="true" data-hb-caption>以该强度的十二分之一铺在页面上，增加对比</p>
+      <p class="lbl hn a" aria-hidden="true" data-hb-caption>无颗粒<small>放大并提亮</small></p>
+      <p class="lbl hn b" aria-hidden="true" data-hb-caption>有颗粒<small>放大并提亮</small></p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the top band shows the grain on its own at full strength: random dots that keep changing. Below, the same grain is laid over the page so faintly you barely see it.</p>
-      <p data-hb-for="compare" hidden>Both halves are zoomed in and brightened on the same spot: Without grain is smooth, while With grain adds faint flickering dots, felt more than seen. Pick Strong in Try it to see them plainly.</p>
+      <p data-hb-for="inside" hidden>内部画面里，上方条带单独展示全强度的颗粒：随机圆点不断变化。下方，同样的颗粒铺在页面上，淡得几乎看不见。</p>
+      <p data-hb-for="compare" hidden>两半都放大并提亮了同一处：无颗粒的一半很平滑，有颗粒的一半多了淡淡的闪烁圆点，感觉得到、看不太见。在「试一试」里选「强烈」，就能清楚看到它们。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="str-lbl">Strength</p>
+        <p class="hb-setting-name" id="str-lbl">强度</p>
         <div class="seg" id="str-seg" role="group" aria-labelledby="str-lbl">
-          <button type="button" data-op="0.04" aria-pressed="false">Faint</button>
-          <button type="button" data-op="0.08" class="on" aria-pressed="true">Light</button>
-          <button type="button" data-op="0.16" aria-pressed="false">Strong</button>
+          <button type="button" data-op="0.04" aria-pressed="false">微弱</button>
+          <button type="button" data-op="0.08" class="on" aria-pressed="true">轻微</button>
+          <button type="button" data-op="0.16" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">Grain works best when it is felt more than seen.</p>
+        <p class="hb-hint">颗粒最好是感觉得到、看不太见。</p>
       </div>
       <div class="hb-setting" id="size-setting">
-        <p class="hb-setting-name" id="size-lbl">Grain size</p>
+        <p class="hb-setting-name" id="size-lbl">颗粒大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-px="1" aria-pressed="false">Fine</button>
-          <button type="button" data-px="2" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="3" aria-pressed="false">Coarse</button>
+          <button type="button" data-px="1" aria-pressed="false">细</button>
+          <button type="button" data-px="2" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="3" aria-pressed="false">粗</button>
         </div>
-        <p class="hb-hint">Coarse grain looks like old film stock.</p>
+        <p class="hb-hint">粗颗粒看起来像老胶片。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="rate-lbl">How often it changes</p>
+        <p class="hb-setting-name" id="rate-lbl">变化频率</p>
         <div class="seg" id="rate-seg" role="group" aria-labelledby="rate-lbl">
-          <button type="button" data-fps="60" aria-pressed="false">Every frame</button>
-          <button type="button" data-fps="24" class="on" aria-pressed="true">Like film</button>
-          <button type="button" data-fps="12" aria-pressed="false">Choppy</button>
-          <button type="button" data-fps="4" aria-pressed="false">Slow</button>
+          <button type="button" data-fps="60" aria-pressed="false">每帧</button>
+          <button type="button" data-fps="24" class="on" aria-pressed="true">像胶片</button>
+          <button type="button" data-fps="12" aria-pressed="false">跳跃</button>
+          <button type="button" data-fps="4" aria-pressed="false">慢</button>
         </div>
-        <p class="hb-hint">Film grain changes 24 times a second; phones cap it there.</p>
+        <p class="hb-hint">胶片颗粒每秒换 24 次；手机上最多也就是这个频率。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="blend-lbl">Blend</p>
+          <p class="hb-setting-name" id="blend-lbl">混合方式</p>
           <div class="seg" id="blend-seg" role="group" aria-labelledby="blend-lbl">
-            <button type="button" data-blend="overlay" class="on" aria-pressed="true">Film</button>
-            <button type="button" data-blend="screen" aria-pressed="false">Lighter</button>
-            <button type="button" data-blend="soft-light" aria-pressed="false">Softer</button>
+            <button type="button" data-blend="overlay" class="on" aria-pressed="true">胶片</button>
+            <button type="button" data-blend="screen" aria-pressed="false">提亮</button>
+            <button type="button" data-blend="soft-light" aria-pressed="false">柔和</button>
           </div>
-          <p class="hb-hint">Film adds contrast, Lighter lifts the darks, Softer is mild.</p>
+          <p class="hb-hint">胶片增加对比度，提亮会提亮暗部，柔和则比较温和。</p>
         </div>
         <div class="hb-setting" id="color-setting">
-          <label class="hb-switch-row"><span>Colored grain</span><input class="hb-switch" type="checkbox" role="switch" id="color-tog" autocomplete="off"></label>
-          <p class="hb-hint">Colored dots instead of gray ones.</p>
+          <label class="hb-switch-row"><span>彩色颗粒</span><input class="hb-switch" type="checkbox" role="switch" id="color-tog" autocomplete="off"></label>
+          <p class="hb-hint">用彩色圆点代替灰色圆点。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="src-lbl">Grain source</p>
+          <p class="hb-setting-name" id="src-lbl">颗粒来源</p>
           <div class="seg" id="src-seg" role="group" aria-labelledby="src-lbl">
-            <button type="button" data-impl="canvas" class="on" aria-pressed="true">Random dots</button>
-            <button type="button" data-impl="svgfilter" aria-pressed="false">Noise filter</button>
+            <button type="button" data-impl="canvas" class="on" aria-pressed="true">随机圆点</button>
+            <button type="button" data-impl="svgfilter" aria-pressed="false">噪点滤镜</button>
           </div>
-          <p class="hb-hint">Dots drawn by a script, or the browser's noise filter.</p>
+          <p class="hb-hint">由脚本画出的圆点，或浏览器的噪点滤镜。</p>
         </div>
       </div>
     </details>
@@ -192,10 +192,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a film grain overlay to [the section or page you want to texture]. Cover it with a see-through layer of random light and dark dots, and draw a new set of dots again and again so the grain flickers like old film; grain works best when it is felt more than seen. Blend the layer into the picture beneath it instead of laying gray on top, and let clicks pass through it. Redraw less often on phones, where drawing every dot is the costly part. If the visitor has reduced motion turned on, show the grain still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[想要增加质感的区域或页面]加上胶片颗粒叠加层。盖上一层由随机明暗圆点组成的透明层，一遍遍画出新的圆点，让颗粒像老电影一样闪烁；颗粒最好是感觉得到、看不太见。把这一层融入下面的画面，而不是在上面铺一层灰色，并且让点击穿透它。手机上少重画几次，因为画每个圆点是最耗性能的部分。如果访客开启了减弱动态效果，就让颗粒静止不动。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -215,9 +215,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Editorial sites</li><li>Portfolios</li><li>Photo and film pages</li><li>Hero sections</li></ul>
+      <ul class="hb-tags hb-good"><li>编辑类网站</li><li>作品集</li><li>照片和电影页面</li><li>主视觉区</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Small text</li><li>Forms</li></ul>
+      <ul class="hb-tags hb-avoid"><li>小字</li><li>表单</li></ul>
     </div>
   </section>
 
@@ -247,8 +247,8 @@
   const capBand=document.getElementById('cap-band'),capLaid=document.getElementById('cap-laid'),nameA=document.querySelector('.hn.a');
   const notes={inside:document.querySelector('[data-hb-for="inside"]'),compare:document.querySelector('[data-hb-for="compare"]')};
   const DASH=2,ZOOM=4; // the band's dashed edge (CSS) and the magnification (CSS --zoom)
-  const OP_WORDS={'0.04':'a twenty-fifth','0.08':'a twelfth','0.16':'a sixth'};
-  const BLEND_WORDS={overlay:'adding contrast',screen:'lifting the darks','soft-light':'mildly'};
+  const OP_WORDS={'0.04':'二十五分之一','0.08':'十二分之一','0.16':'六分之一'};
+  const BLEND_WORDS={overlay:'增加对比',screen:'提亮暗部','soft-light':'比较温和'};
   let mode='normal',paused=false,OP='0.08',BLEND='overlay';
   const copy=world.querySelector('.scene').cloneNode(true); // made once: Compare's first half, the scene without grain
   copy.setAttribute('inert','');copy.setAttribute('aria-hidden','true');worldA.appendChild(copy);
@@ -340,15 +340,15 @@
   function say(el,t){if(el.textContent!==t)el.textContent=t}
   function words(){
     const dots=IMPL==='canvas',strong=OP==='0.16',r=1000/interval();
-    say(capBand,'The grain on its own: '+(dots?'random dots':'a noise texture')+', '+(paused?'held still':r>=59?'new ones every frame':r<1.7?'new ones about once a second':'new ones '+Math.round(r)+' times a second'));
-    say(capLaid,'Laid over the page at '+OP_WORDS[OP]+' of that strength, '+BLEND_WORDS[BLEND]);
-    const laid=strong?'at a sixth of that strength':null,sp=dots?'dots':'noise';
+    say(capBand,'单独的颗粒：'+(dots?'随机圆点':'噪点纹理')+'，'+(paused?'静止不动':r>=59?'每帧换新':r<1.7?'大约每秒换一次':'每秒换 '+Math.round(r)+' 次'));
+    say(capLaid,'以该强度的'+OP_WORDS[OP]+'铺在页面上，'+BLEND_WORDS[BLEND]);
+    const laid=strong?'以六分之一强度':null,sp=dots?'圆点':'噪点';
     say(notes.inside,paused
-      ?'Inside, shown still: the top band is the grain on its own at full strength; below, the same grain laid over the page, '+(laid||'so faint you barely see it')+'.'
-      :'Inside, the top band shows the grain on its own at full strength: '+(dots?'random dots that keep':'a noise texture that keeps')+' changing. Below, the same grain is laid over the page '+(laid||'so faintly you barely see it')+'.');
-    say(notes.compare,(paused?'Shown still, both halves zoomed in and brightened':'Both halves are zoomed in and brightened')+' on the same spot: Without grain is smooth, while With grain'
-      +(strong?', at Strong, shows its '+(paused?'':'flickering ')+sp+' plainly.'
-        :' adds faint '+(paused?'':'flickering ')+sp+', felt more than seen. Pick Strong in Try it to see '+(dots?'them':'it')+' plainly.'));
+      ?'内部静止画面：上方条带是全强度的单独颗粒；下方，同样的颗粒铺在页面上，'+(laid||'淡得几乎看不见')+'。'
+      :'内部画面里，上方条带单独展示全强度的颗粒：'+(dots?'随机圆点不断':'噪点纹理不断')+'变化。下方，同样的颗粒铺在页面上，'+(laid||'淡得几乎看不见')+'。');
+    say(notes.compare,(paused?'静止画面中，两半都放大并提亮了':'两半都放大并提亮了')+'同一处：无颗粒的一半很平滑，有颗粒的一半'
+      +(strong?'，在「强烈」下，它的'+(paused?'':'闪烁')+sp+'清晰可见。'
+        :'多了淡淡的'+(paused?'':'闪烁')+sp+'，感觉得到、看不太见。在「试一试」里选「强烈」，就能清楚看到'+(dots?'它们':'它')+'。'));
     layout();
   }
 

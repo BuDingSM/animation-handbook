@@ -1,30 +1,21 @@
-# Plasma Field
+# 等离子场
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/plasma/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/plasma/)
 
-## What it is
+## 它是什么
 
-Plasma is a classic effect from the demoscene, the 1990s community that made art
-with home computers: a field of color with no hard edges that flows and shifts
-like liquid. It is made from math alone. Each point's color comes from adding up
-a few waves, based on its position and on time, so the field keeps moving
-without any image or video.
+等离子是演示场景的经典效果，演示场景是 1990 年代用家用电脑做艺术的社区：一片没有硬边缘、像液体一样流动变化的色彩。它完全由数学做成。每个点的颜色来自几个波的叠加，基于它的位置和时间，所以这个场在没有任何图片或视频的情况下一直运动。
 
-## When to use it
+## 什么时候用
 
-- Ambient hero or section backgrounds that need motion without competing with foreground content.
-- Loading and idle states where a living surface reads better than a static gradient.
-- Music, creative-coding, or retro-themed sites where the demoscene lineage fits.
-- Any place you want organic movement but cannot ship a video file.
+- 需要运动、又不与前景内容竞争的环境主视觉或部分背景。
+- 加载和闲置状态，有生命的表面比静态渐变读起来更好。
+- 音乐、创意编程或复古主题网站，演示场景的传承很合适。
+- 想要有机运动、又不能发视频文件的任何地方。
 
-## How it works
+## 工作原理
 
-Each pixel gets a scalar value from a sum of sines — some of the position, some
-of time — and that value indexes a color palette. Computing this per pixel at
-full resolution is expensive, so the field is rendered into a small offscreen
-buffer (around 96–200px wide) and then scaled up onto the visible canvas with
-image smoothing on. The upscale blur is free and actually helps the plasma look
-softer.
+每个像素从正弦和得到一个标量值——一部分来自位置，一部分来自时间——那个值索引一个调色板。按全分辨率逐像素计算这个很贵，所以这个场渲染进一个小的离屏缓冲（大约 96–200px 宽），再打开图像平滑放大到可见画布上。放大的模糊是免费的，实际上还让等离子看起来更柔和。
 
 ```js
 // low-res buffer, one pixel at a time
@@ -39,47 +30,31 @@ bctx.putImageData(img, 0, 0);            // write the tiny buffer
 vctx.drawImage(buf, 0, 0, bw, bh, 0, 0, view.width, view.height); // scale up smooth
 ```
 
-The palette is a 256-entry lookup table built once with an Inigo Quilez cosine
-gradient, so changing palettes is just swapping the table — no per-pixel color
-math.
+调色板是一张 256 项查找表，用 Inigo Quilez 余弦渐变一次建成，所以换调色板就是换表——不用逐像素算颜色。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How fast the field flows: slow is 0.6 times the base speed, normal 1 and fast 1.6; at normal each of the four waves rises and falls at any one spot every 5 to 9 seconds |
-| Pattern size | Medium | How big the color shapes are: small packs more waves into the field, large makes broad, soft blobs; at medium detail one full wave spans about 31% of the width at small, 50% at medium and 83% at large |
-| Colors | Neon | The palette: neon, sunset, ocean or rose |
-| Detail | Medium | How wide the small picture is before it is scaled up: low is 96 pixels, medium 140 and high 200; phones use at most 140 |
+| 速度 | 普通 | 场流动的速度：慢速是基础速度的 0.6 倍，普通 1 倍，快速 1.6 倍；正常时四条波每 5 到 9 秒在任何一点起伏一次 |
+| 图案大小 | 中等 | 色彩形状有多大：小把更多波塞进场里，大造出宽阔、柔和的色块；中等细节时，一个完整波在小尺寸约占宽度的 31%，中等 50%，大 83% |
+| 颜色 | 霓虹 | 调色板：霓虹、日落、海洋或玫瑰 |
+| 细节 | 中等 | 放大前小图有多宽：低是 96 像素，中等 140，高是 200；手机上最多用 140 |
 
-## Production notes
+## 生产注意事项
 
-- The low-res buffer is the whole trick. A per-pixel `putImageData` over the full
-  canvas at device resolution will drop frames on mobile; a ~140px buffer upscaled
-  with `drawImage` keeps the work at a few thousand pixels per frame.
-- On phone-sized screens (up to 600px wide, or up to 500px tall for a phone held
-  sideways) the demo caps the buffer at 140 pixels wide; a phone's stage is small
-  enough that it looks the same.
-- Precompute what you can: the radial distance of each pixel only changes with
-  the size, so it is computed once; the row, column and diagonal sines change
-  with time, so they are computed once per frame for each row and column rather
-  than for every pixel, leaving one sine per pixel in the inner loop.
-- Do color through a palette lookup table, not live RGB math per pixel.
-- Pause the `requestAnimationFrame` loop on `visibilitychange` when the tab is
-  hidden so a background tab does no work.
-- Respect `prefers-reduced-motion`: render a single static frame and never start
-  the loop.
-- The effect is decorative — mark the canvas `aria-hidden` and keep real content
-  in the DOM above it.
-- For the real thing, move the sum-of-sines into a WebGL fragment shader. The GPU
-  runs it per pixel at full resolution for free, and you drop the upscale entirely.
-- No library is needed for this canvas version. For the shader version, glslCanvas
-  runs a fragment shader in a `<canvas class="glslCanvas">` from its
-  `data-fragment-url` attribute, and three.js does the same with a
-  `ShaderMaterial` on a full-screen plane.
+- 低分辨率缓冲就是全部诀窍。在设备分辨率下对整个画布逐像素 `putImageData` 会在手机上掉帧；约 140px 的缓冲用 `drawImage` 放大，让工作量保持在每帧几千像素。
+- 手机尺寸的屏幕（宽最多 600px，或横持手机时高最多 500px）上，演示把缓冲限制为 140 像素宽；手机舞台足够小，看起来一样。
+- 能预先算的都预先算：每个像素的径向距离只随尺寸变化，所以只算一次；行、列和对角线的正弦随时间变化，所以每帧每行每列算一次，而不是每个像素都算，内循环里每个像素只剩一个正弦。
+- 颜色走调色板查找表，不要逐像素实时算 RGB。
+- 标签页隐藏时在 `visibilitychange` 上暂停 `requestAnimationFrame` 循环，让后台标签页不做任何工作。
+- 遵守 `prefers-reduced-motion`：渲染一帧静态画面，永远不启动循环。
+- 这个效果是装饰性的——画布标记 `aria-hidden`，真实内容保留在它上面的 DOM 里。
+- 想要真正的实现，把正弦和移到 WebGL 片段着色器里。GPU 按全分辨率逐像素免费运行它，放大完全不需要了。
+- 这个画布版本不需要库。着色器版本里，glslCanvas 从它的 `data-fragment-url` 属性在一个 `<canvas class="glslCanvas">` 里运行片段着色器，three.js 用全屏平面上的 `ShaderMaterial` 做同样的事。
 
-## See also
+## 另见
 
-- [Animated Gradient Background](../animated-gradient-background/) — one gradient that slowly shifts, with no script
-- [Mesh Gradient Animation](../mesh-gradient/) — soft blobs of color drift and blend
-- [Aurora / Northern Lights](../aurora/) — bands of color sway like the northern lights
+- [动态渐变背景](../animated-gradient-background/) — 一个慢慢变化的渐变，不用脚本
+- [网格渐变](../mesh-gradient/) — 柔和的彩色色块漂移、交融
+- [极光](../aurora/) — 彩色光带如北极光般摇曳

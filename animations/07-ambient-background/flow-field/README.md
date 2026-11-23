@@ -1,18 +1,18 @@
-# Flow Field
+# 流场
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/flow-field/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/flow-field/)
 
-## What it is
-A flow field moves thousands of particles across a canvas, each one steering by the direction of an invisible current under it. The directions change smoothly from one spot to the next, so particles near each other curve together, and the whole surface shows gentle, river-like currents. The canvas is dimmed a little each frame instead of cleared, so every particle leaves a fading trail that traces the flow.
+## 它是什么
+流场让成千上万的粒子穿过画布，每个粒子按它下方看不见的水流方向转向。方向从一处到另一处平滑变化，所以彼此靠近的粒子一起弯曲，整个表面呈现出轻柔、河流般的水流。画布每帧只是变暗一点而不是清空，所以每个粒子都留下一条渐隐的轨迹，描出水流。
 
-## When to use it
-- Generative, organic hero backgrounds where every load looks slightly different
-- Data-art and creative-coding pieces
-- Ambient loops behind dark landing pages that want texture, not a subject
-- Transitions or loading screens that benefit from continuous motion
+## 什么时候用
+- 生成式、有机的主视觉背景，每次加载看起来都略有不同
+- 数据艺术和创意编程作品
+- 深色落地页后面的氛围循环，想要质感而不是主体
+- 过渡或加载画面，持续运动对它有好处
 
-## How it works
-There is no stored field — an angle is computed on demand from an inline value-noise function (a hashed lattice, smooth-interpolated). Each particle samples the angle beneath it, steps that direction, and respawns when it leaves the canvas. Trails come from painting a translucent background instead of clearing:
+## 工作原理
+没有存储的场——角度是按需从一个内联值噪点函数（哈希格子，平滑插值）算出的。每个粒子采样它下方的角度，朝那个方向走一步，离开画布时重生。轨迹来自画半透明背景而不是清空：
 
 ```js
 function vnoise(x, y) {
@@ -39,26 +39,26 @@ const a = angleAt(p.x, p.y, t);
 p.x += Math.cos(a) * SPD * k; p.y += Math.sin(a) * SPD * k;
 ```
 
-The step grows with the time since the last drawn frame, and so does the fade, in whole units: the canvas is dimmed once for every 60th of a second, each time by the same `TRAIL` as at 60 Hz, so a 30 Hz frame dims it twice. A step within 5% of a whole number counts as that number for the dim, so a 59.94 or 60.06 Hz screen, or a little noise in the timestamps, still gets exactly one dim per frame, and `fa` carries the fraction that is left over. Rounding leans up by 0.05, so a screen whose frames land exactly half-way between two dims, such as 120 or 240 Hz, keeps a regular draw rhythm instead of one decided by timestamp noise. When no whole dim is due yet, as on the first of two frames of a 120 Hz screen, the frame draws nothing and its time carries to the next one. That keeps drawing at most about 60 frames a second whatever the screen (a 30 Hz screen draws 30, with two dims each), and every drawn frame at one dim, so the trails do not pulse. A 30 Hz phone and a 144 Hz monitor show particles at the same speed with trails of the same length in seconds. One dim of `1 - (1 - TRAIL)^s` would fade the same amount in theory, but an 8-bit canvas rounds every dim, so the faint leftovers would settle to different colors on different screens; repeating the same dim makes them settle to the same colors everywhere. The first frame after a start, a pause or a return from a hidden tab adds nothing, and a long gap counts for at most 50 ms. The still picture drawn on arrival runs 40 steps of `s = 1` with one dim each, so it looks the same on every screen.
+步长随自上一帧绘制以来的时间增长，淡出也是，以整个单位计：画布每六十分之一秒变暗一次，每次都用与 60 Hz 时相同的 `TRAIL`，所以 30 Hz 的一帧变暗两次。离整数 5% 以内的步长在变暗时算作那个整数，所以 59.94 或 60.06 Hz 的屏幕，或时间戳里的一点噪点，每帧仍然恰好变暗一次，`fa` 带着剩下的小数部分。四舍五入向上偏 0.05，所以帧正好落在两次变暗中间的屏幕，比如 120 或 240 Hz，能保持规律的绘制节奏，而不是由时间戳噪点决定。还没有整次变暗到期时，比如 120 Hz 屏幕两帧中的第一帧，那一帧什么也不画，它的时间带到下一帧。这样无论什么屏幕，绘制最多大约每秒 60 帧（30 Hz 的屏幕画 30 帧，每帧变暗两次），每帧绘制都变暗一次，所以轨迹不会脉动。30 Hz 的手机和 144 Hz 的显示器以相同速度显示粒子，轨迹以秒计的长度也相同。一次 `1 - (1 - TRAIL)^s` 的变暗理论上淡出的量相同，但 8 位画布每次变暗都会四舍五入，所以淡淡的残留会在不同屏幕上沉淀成不同颜色；重复同样的变暗让它们在所有地方沉淀成相同的颜色。开始、暂停或从隐藏标签页返回后的第一帧什么也不加，长间隔最多算 50ms。到达时画的静止画面运行 40 步 `s = 1`，每步变暗一次，所以在每个屏幕上看起来都一样。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Swirl size | Medium | How large the currents are: the direction turns over about 20px (small), 34px (medium) or 60px (large); larger looks calm, smaller turbulent |
-| Trail length | Medium | How long trails linger: short fades 12% every 60th of a second, medium 6% and long 4%; below about 4% trails can leave faint marks that never fade |
-| Speed | Normal | How far each particle moves in a 60th of a second: slow is 0.6px, normal 1px and fast 1.6px (36, 60 and 96px a second) |
-| Number of particles | Medium | Few is 400, medium 900 and many 1,500; phones show at most 500 |
-| Color | Mint | Mint, ember or ice, or rainbow, where the color changes across the stage and over time |
+| 漩涡大小 | 中等 | 水流有多大：方向大约在 20px（小）、34px（中等）或 60px（大）内转一圈；越大越平静，越小越湍急 |
+| 轨迹长度 | 中等 | 轨迹留存多久：短是每六十分之一秒淡 12%，中等 6%，长是 4%；低于约 4% 时轨迹会留下永不淡去的淡淡痕迹 |
+| 速度 | 普通 | 每个粒子在六十分之一秒内移动多远：慢速 0.6px，普通 1px，快速 1.6px（每秒 36、60 和 96px） |
+| 粒子数量 | 中等 | 少是 400 个，中等 900 个，多是 1500 个；手机上最多显示 500 个 |
+| 颜色 | 薄荷绿 | 薄荷绿、余烬或冰色，或彩虹色，颜色在舞台上和随时间变化 |
 
-## Production notes
-- **Trail alpha vs. buildup**: because trails rely on incomplete clearing, a very low persistence value can leave permanent residue on some GPUs. Nudge it up (0.04+) if you see ghosting that never fully fades.
-- **Mobile cap**: particle count is limited to 500 on phone-sized screens (up to 600px wide, or up to 500px tall for a phone held sideways). Each particle is a stroked line segment, so fill rate — not math — is the bottleneck on phones.
-- **Deterministic noise**: the `hash` uses `sin(x*127.1 + y*311.7)*43758.5453`, a classic GLSL trick. It is not cryptographic and not true Perlin noise, but it is cheap, dependency-free, and smooth enough for a field.
-- **Reduced motion**: the demo starts paused, showing about 40 frames drawn at once as a still, settled picture, until the visitor presses Play. The same 40 frames are drawn whenever the page opens, so the stage never starts empty.
-- **Library equivalents**: production flow fields usually run on the GPU — [three.js](https://threejs.org) with a fragment/compute shader, or curl-noise in a particle system. [tsParticles](https://github.com/tsparticles/tsparticles) does not do true flow fields, but its path plugins approximate directed motion.
+## 生产注意事项
+- **轨迹透明度与残留**：因为轨迹依赖不完全清空，非常低的留存值会在某些 GPU 上留下永久残留。如果看到永不完全淡去的重影，就把它调高一点（0.04 以上）。
+- **手机上限**：手机尺寸的屏幕（宽最多 600px，或横持手机时高最多 500px）上粒子数量限制为 500 个。每个粒子是一段描画的线段，所以手机上的瓶颈是填充率——不是数学计算。
+- **确定性噪点**：`hash` 用的是 `sin(x*127.1 + y*311.7)*43758.5453`，经典的 GLSL 技巧。它不是加密用的，也不是真正的柏林噪点，但便宜、无依赖，对一个场来说够平滑了。
+- **减少动态**：演示开始时是暂停的，显示约 40 帧一次画成的静止、稳定的画面，直到访客按下播放。每次打开页面都画同样的 40 帧，所以舞台永远不会从空开始。
+- **库的等价实现**：生产环境的流场通常跑在 GPU 上——[three.js](https://threejs.org) 加片段/计算着色器，或粒子系统里的旋度噪点。[tsParticles](https://github.com/tsparticles/tsparticles) 不做真正的流场，但它的路径插件近似有方向的运动。
 
-## See also
-- [Particle Constellation](../particle-constellation/) — particles that link up instead of flowing
-- [Aurora / Northern Lights](../aurora/) — flowing bands of color made with blur
-- [Mesh Gradient Animation](../mesh-gradient/) — smooth drifting color with no particles
-- [Topographic Lines](../topographic-lines/) — the same kind of noise, drawn as map lines instead of trails
+## 另见
+- [粒子星座](../particle-constellation/) — 连起来而不是流动的粒子
+- [极光](../aurora/) — 用模糊做出的流动彩色光带
+- [网格渐变](../mesh-gradient/) — 没有粒子的平滑漂移色彩
+- [等高线](../topographic-lines/) — 同种噪点，画成地图线而不是轨迹

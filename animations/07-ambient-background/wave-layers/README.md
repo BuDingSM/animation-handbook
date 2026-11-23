@@ -1,18 +1,18 @@
-# Wave Layers
+# 波浪层
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wave-layers/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wave-layers/)
 
-## What it is
-Wave layers stack a few strips of water, one in front of the other, each with a wavy top edge. Every strip slides sideways on its own endless loop, and the near strips sit lower, move faster and have bigger waves than the far ones, so a handful of flat shapes reads as deep water. The browser moves it all with no script.
+## 它是什么
+波浪层把几条水带一层层叠起来，每条顶边是波浪形。每条带子沿自己的无尽循环横向滑动，近处的带子位置更低、移动更快、波浪更大，所以几个扁平形状看起来就是深水。浏览器不用脚本就让它们全部动起来。
 
-## When to use it
-- The bottom edge of a hero section, where the waves lead into the page below
-- Footers and section dividers on travel, beach, sailing and outdoor sites
-- Calm intros for wellness, meditation or holiday pages
-- Empty or waiting states that need a quiet sign of life
+## 什么时候用
+- 主视觉区底部边缘，波浪引向下方的页面
+- 旅行、海滩、航海和户外网站的页脚和分区隔线
+- 健康、冥想或度假页面的平静开场
+- 需要安静生命迹象的空白或等待状态
 
-## How it works
-Each layer holds a track twice as wide as the stage. The top of the track is an SVG wave and a plain block of the same color fills the rest. One path serves every layer: it draws ten whole waves, and each layer's `viewBox` shows only the first ten, eight, six or four of them, stretched across its track by `preserveAspectRatio="none"`. Far layers therefore get small, close waves and near layers long ones.
+## 工作原理
+每层放着一条比舞台宽两倍的轨道。轨道顶部是 SVG 波浪，其余部分由同色的纯色块填满。一条路径服务所有层：它画十个完整的波浪，每层的 `viewBox` 只显示其中前十、八、六或四个，用 `preserveAspectRatio="none"` 拉伸到整条轨道。所以远层得到小而密的波浪，近层得到长波浪。
 
 ```html
 <svg class="defs"><defs><path id="wv" d="M0 0C18 0 32 40 50 40S82 0 100 0 … S982 0 1000 0V40H0Z"/></defs></svg>
@@ -23,7 +23,7 @@ Each layer holds a track twice as wide as the stage. The top of the track is an 
 <!-- w2, w3 and w4 show 800, 600 and 400 units of the same path -->
 ```
 
-Every track holds an even number of waves, so after sliding left by half its width it looks exactly as it did at the start, and the jump back to the start cannot be seen. The stage is a size container (`container-type: size`), so heights are written in `cqh`, hundredths of the stage's height. Each layer has its own height on the stage (`--y`), wave size (`--k`), cycle (`--s`) and head start (`--o`); the cycles and head starts are shares of one `--dur`:
+每条轨道放着偶数个波浪，所以向左滑动一半宽度后看起来和开始时完全一样，跳回起点看不出来。舞台是尺寸容器（`container-type: size`），所以高度用 `cqh` 写，是舞台高度的百分之一。每层在舞台上有自己的高度（`--y`）、波浪大小（`--k`）、周期（`--s`）和起跑提前量（`--o`）；周期和提前量都是一份 `--dur` 的份额：
 
 ```css
 .track { width: 200%; animation: drift calc(var(--dur) * var(--s)) linear calc(var(--dur) * var(--s) * var(--o)) infinite; }
@@ -36,31 +36,31 @@ Every track holds an even number of waves, so after sliding left by half its wid
 @keyframes bob { from { transform: translateY(-1.2cqh); } to { transform: translateY(1.2cqh); } }
 ```
 
-A new speed changes `--dur`, which would make every layer jump to another point of its cycle. Scaling each animation's time by the same factor first keeps every wave where it is, moving or paused:
+新的速度会改 `--dur`，这会让每层跳到周期的另一个点。先把每个动画的时间按相同倍数缩放，波浪就能保持在原地，动或暂停都一样：
 
 ```js
 stage.getAnimations({ subtree: true }).forEach(a => { if (a.currentTime != null) a.currentTime = a.currentTime * next / secs; });
 stage.style.setProperty('--dur', next + 's');
 ```
 
-The palettes keep one rule: the sky glows lightest at the horizon and every layer is darker than that glow, the near ones darkest, so each layer stands out against the one behind it and against the sky, however many are shown.
+配色保持一条规则：天空在地平线处最亮，每个层都比那片辉光更暗，近处的最暗，所以无论显示多少层，每层都和后面的层、和天空区分开来。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | The base cycle: slow is 40 seconds, normal 24 and fast 14; the layers take 1.7, 1.35, 1.1 and 0.9 times that, far to near, to slide one stage width |
-| Colors | Ocean | Ocean blues, Sunset pinks and purples under an orange glow, or Night indigo; far layers are the palest, near ones the darkest |
-| Wave height | Medium | How tall the nearest waves are: low is 6%, medium 11% and high 17% of the stage's height; the farther layers get a half to four fifths of that |
-| Number of layers | 4 | Two, three or four layers; with fewer, the far layers go first and the near waves always stay |
+| 速度 | 普通 | 基础周期：慢速 40 秒，正常 24 秒，快速 14 秒；从远到近，各层滑动一个舞台宽度分别需要那个时间的 1.7、1.35、1.1 和 0.9 倍 |
+| 颜色 | 海洋 | 海洋蓝、日落橙光下的粉紫，或夜晚靛蓝；远层最淡，近层最暗 |
+| 波浪高度 | 中等 | 最近的波浪有多高：低是舞台高度的 6%，中等 11%，高 17%；更远的层只有那个数的一半到五分之四 |
+| 层数 | 4 | 两、三或四层；层数较少时，先去掉远层，近处的波浪始终保留 |
 
-## Production notes
-- **Only transforms move**: the tracks slide with `translateX` and the layers bob with `translateY`, which the browser hands to the compositor, so nothing is repainted while it runs, even on phones. Animating the path's shape or a `background-position` would repaint every frame.
-- **Seams**: the block under each wave starts one pixel higher (`margin-top: -1px`), so no hairline shows between it and the SVG at any zoom level.
-- **Mask variant**: the same strips can be single elements with a solid background and a repeated wave `mask-image`; the mask then sets the wave length (`mask-size`) without any SVG markup.
-- **Reduced motion**: the demo holds the waves still where they are. In your own page, a `prefers-reduced-motion: reduce` rule that sets `animation: none` on the tracks does the same.
-- **Libraries**: GSAP can loop each track with `gsap.to(track, { xPercent: -50, duration, ease: 'none', repeat: -1 })`, and Framer Motion with `animate={{ x: '-50%' }}` and `transition={{ repeat: Infinity, ease: 'linear', duration }}`; both only replace the keyframes.
+## 生产注意事项
+- **只有变换在动**：轨道用 `translateX` 滑动，层用 `translateY` 起伏，浏览器交给合成器处理，所以运行时什么都不重绘，手机上也是。给路径形状或 `background-position` 做动画每帧都会重绘。
+- **接缝**：每条波浪下的色块从高一像素处开始（`margin-top: -1px`），所以在任何缩放级别，它和 SVG 之间都不会出现细线。
+- **遮罩变体**：同样的带子也可以是带纯色背景和重复波浪 `mask-image` 的单个元素；遮罩这时设定波长（`mask-size`），不需要任何 SVG 标记。
+- **减少动态**：演示让波浪停在原地。在你自己的页面里，用一条 `prefers-reduced-motion: reduce` 规则把轨道的 `animation` 设为 `none`，效果相同。
+- **库**：GSAP 可以用 `gsap.to(track, { xPercent: -50, duration, ease: 'none', repeat: -1 })` 循环每条轨道，Framer Motion 用 `animate={{ x: '-50%' }}` 和 `transition={{ repeat: Infinity, ease: 'linear', duration }}`；两者都只是替换关键帧。
 
-## See also
-- [Aurora / Northern Lights](../aurora/) — soft bands of light that sway instead of slide
-- [Parallax Scrolling](../../01-scroll-based/parallax-scrolling/) — the same near-fast, far-slow rule, driven by scroll
-- [Marquee / Ticker](../../05-text-typography/marquee-ticker/) — the same seamless half-width loop, with text
+## 另见
+- [极光](../aurora/) — 摇曳而不是滑动的柔和光带
+- [视差滚动](../../01-scroll-based/parallax-scrolling/) — 同样的近快远慢规则，由滚动驱动
+- [跑马灯/滚动条](../../05-text-typography/marquee-ticker/) — 同样的无缝半宽循环，用文字

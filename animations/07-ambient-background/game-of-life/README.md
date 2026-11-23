@@ -1,18 +1,18 @@
-# Game of Life
+# 生命游戏
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/game-of-life/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/game-of-life/)
 
-## What it is
-Conway's Game of Life is a grid of square cells, each alive or dead, that changes one generation at a time by three rules about each cell's eight neighbors: a dead cell with exactly three live neighbors is born, a live cell with two or three lives on, and every other cell dies. Nobody steers it, yet out of these rules come still shapes, shapes that blink, gliders that crawl across the grid and guns that fire gliders forever. The mathematician John Conway devised it in 1970.
+## 它是什么
+康威生命游戏是一张方形细胞网格，每个细胞或生或死，按关于每个细胞八个邻居的三条规则一代一代变化：恰好有三个活邻居的死细胞诞生，有两个或三个邻居的活细胞活下去，其他细胞都死亡。没有人操纵它，但从这些规则中产生了静止的图形、闪烁的图形、在网格上爬行的滑翔机和永远发射滑翔机的枪。数学家约翰·康威在 1970 年设计了它。
 
-## When to use it
-- Backgrounds for tech, science and coding sites, where emergent behavior fits the theme
-- Developer portfolios and about pages, where visitors can draw their own cells
-- Loading, idle and 404 screens that should stay alive without repeating a fixed loop
-- Teaching pages about simulation, cellular automata or complexity
+## 什么时候用
+- 科技、科学和编程网站的背景，涌现行为符合主题
+- 开发者作品集和关于页面，访客可以画自己的细胞
+- 加载、闲置和 404 画面，应该保持生气而不重复固定循环
+- 关于模拟、元胞自动机或复杂性的教学页面
 
-## How it works
-The world is two arrays of cells, one for this generation and one for the next. It reaches past the view by 16 cells on every side, so gliders fly off-screen and settle out of sight, and it has one more ring of cells that always stay dead, so every cell has eight neighbors to count and the loop needs no edge checks:
+## 工作原理
+世界是两个细胞数组，一个是这一代，一个是下一代。它向每边超出视野 16 个细胞，所以滑翔机飞出屏幕、在视野外安定下来，还有一圈永远保持死亡的细胞，这样每个细胞都有八个邻居可数，循环不需要边缘检查：
 
 ```js
 for (let y = 1; y <= rows; y++) for (let i = y * S + 1, end = i + S - 2; i < end; i++) {
@@ -24,31 +24,31 @@ for (let y = 1; y <= rows; y++) for (let i = y * S + 1, end = i + S - 2; i < end
 [cells, next] = [next, cells];
 ```
 
-Generations follow elapsed time, not frames. Each frame adds the time since the last one (at most 50 ms, a third of it in slow motion) to a running total, and a generation is taken for every 1/Speed of a second in it, so the world changes at the same pace on a 30 Hz phone and a 144 Hz monitor. Trails fade by time too: a dead cell's glow halves every 120 ms, `glow *= 0.5 ** (ms / 120)`. Each picture gathers the cells of one brightness into one path, so a frame is a handful of fills however many cells there are.
+世代跟随流逝的时间，而不是帧。每帧把自上一帧以来的时间（最多 50ms，慢动作里是三分之一）加到累计总数里，每 1/Speed 秒取一代，所以世界在 30 Hz 的手机和 144 Hz 的显示器上以相同节奏变化。轨迹也按时间淡出：死细胞的光晕每 120ms 减半，`glow *= 0.5 ** (ms / 120)`。每幅画面把一种亮度的细胞收进一条路径，所以无论有多少细胞，一帧都只是几次填充。
 
-A random world usually settles into still shapes and blinkers within a few hundred to a few thousand generations. The step adds up a hash of the live cells; when a hash comes back within 15 generations, the world is repeating itself, and after 40 such generations it starts again, with the old cells fading out as the new ones begin. The glider gun never repeats that soon (it repeats every 30 generations), so it runs forever.
+随机世界通常在几百到几千代内安定成静止图形和闪烁器。步进会累加活细胞的哈希值；当一个哈希值在 15 代内回来，世界就是在重复自己，40 代这样的重复后它重新开始，旧细胞淡出的同时新细胞开始。滑翔机枪永远不会这么快重复（它每 30 代重复一次），所以它永远运行下去。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How many generations pass each second: slow is 4, normal 10 and fast 20 |
-| Cell size | Medium | Small cells are 6px, medium 9px and large 14px; phones draw small cells 8px wide, so the world has fewer cells to work out and draw |
-| Start pattern | Random | Random fills about 30% of the cells; the glider gun (Gosper's) fires a glider every 30 generations; the acorn is seven cells that grow for over 5,000 generations on an open grid |
-| Color | Mint | Mint, amber, sky blue or pink cells |
-| Fading trails | on | A cell that dies fades out over about half a second instead of vanishing at once |
-| Grid lines | off | Faint lines show the squares the cells live in |
+| 速度 | 普通 | 每秒经过多少代：慢速 4 代，普通 10 代，快速 20 代 |
+| 细胞大小 | 中等 | 小细胞是 6px，中等 9px，大是 14px；手机上小细胞画成 8px 宽，所以世界要算、要画的细胞更少 |
+| 初始图案 | 随机 | 随机填充约 30% 的细胞；滑翔机枪（戈斯珀的）每 30 代发射一架滑翔机；橡子是七个细胞，在开放网格上生长 5000 多代 |
+| 颜色 | 薄荷绿 | 薄荷绿、琥珀色、天蓝或粉色细胞 |
+| 渐隐轨迹 | 开 | 死去的细胞在约半秒内淡出，而不是一下子消失 |
+| 网格线 | 关 | 淡淡的线条显示细胞所在的方格 |
 
-## Production notes
-- **Drawing on it**: Pointer Events cover mouse, touch and pen, and pointer capture keeps a stroke going outside the stage. A stroke fills every cell on the straight line between two pointer positions, so a quick stroke leaves no gaps. `touch-action: none` on the canvas lets a finger draw instead of scrolling the page; keep the stage short enough that the page can still be scrolled around it.
-- **Phones**: on phone-sized screens (up to 600px wide, or up to 500px tall for a phone held sideways) the cells are at least 8px wide.
-- **Bigger worlds**: a grid of a million cells is still fast with typed arrays; beyond that, run the rules on the GPU (two textures, each frame's shader reads one and writes the other), or use HashLife, which skips ahead through repeating regions (Golly does this).
-- **Pattern files**: patterns are shared as run-length code (RLE), as in the demo; LifeWiki and the Golly pattern collection hold thousands.
-- **Reduced motion**: the demo starts paused, showing the world a few generations in, until the visitor presses Play. Drawing still works while paused.
-- **It is decorative**: keep the canvas `aria-hidden`, dim the cells or use large ones behind text, and stop the loop when the section is off-screen.
-- **Libraries**: none is needed for the rules; for the GPU version above, the examples of regl, a WebGL library, include a Game of Life that swaps two framebuffers each step.
+## 生产注意事项
+- **在上面画**：指针事件覆盖鼠标、触摸和触控笔，指针捕获让笔画在舞台外继续。一笔会填满两个指针位置之间直线上的每个细胞，所以快速一笔不会留空。画布上的 `touch-action: none` 让手指画画而不是滚动页面；舞台要保持足够短，页面还能在它周围滚动。
+- **手机**：手机尺寸的屏幕（宽最多 600px，或横持手机时高最多 500px）上，细胞至少 8px 宽。
+- **更大的世界**：一百万个细胞的网格用类型化数组仍然很快；再大就把规则跑在 GPU 上（两张纹理，每帧的着色器读一张、写另一张），或用 HashLife，它会跳过重复区域快进（Golly 就是这么做的）。
+- **图案文件**：图案以行程长度编码（RLE）共享，就像演示里那样；LifeWiki 和 Golly 图案集里有成千上万个。
+- **减少动态**：演示开始时是暂停的，显示几代之后的世界，直到访客按下播放。暂停时仍然可以画。
+- **它是装饰性的**：画布保持 `aria-hidden`，把细胞调暗或在文字后面用大细胞，所在部分离开屏幕时停止循环。
+- **库**：规则不需要任何库；上面的 GPU 版本，WebGL 库 regl 的示例里有一个生命游戏，每步交换两个帧缓冲。
 
-## See also
-- [Matrix Rain](../matrix-rain/) — another canvas grid that changes step by step
-- [Particle Constellation](../particle-constellation/) — dots that link up whenever they come close
-- [Flow Field](../flow-field/) — simple rules steer many particles into a living pattern
-- [Flocking](../../06-3d-advanced/flocking/) — birds that follow a few simple rules about their neighbors
+## 另见
+- [矩阵雨](../matrix-rain/) — 另一个一步步变化的画布网格
+- [粒子星座](../particle-constellation/) — 靠近时就连起来的圆点
+- [流场](../flow-field/) — 简单规则把许多粒子引向有生命的图案
+- [鸟群](../../06-3d-advanced/flocking/) — 遵循关于邻居的几条简单规则的鸟群
