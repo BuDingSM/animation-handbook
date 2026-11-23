@@ -391,9 +391,40 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 03 备注：「View Transitions API」保留英文名（API 专名）；「FLIP 技巧」保留 FLIP 缩写。演示内假网站正文、FLIP 卡片名、pixelate 画布文案、shared-element 项目名属演示内容本身，保留英文；导航按钮名、演示内标签/按钮/说明文字已翻译。行为适配（最小改动）：cube-transition 的 `wordsIn.replace('from above','from '+from)` 改为中文（`from` 值改为 `'上方'`/`'侧面'`，replace 目标改为 `'从上方'`）；portal-zoom 的 `NUM` 数组（一~六）与 cube 的 `about()` 秒数词（`['两','三','四']+' 秒'`）。跨分类 "See also" 保留英文名，待协调人用汇总术语表统一改：dissolve → Shatter Effect；flip-technique → Drag to Reorder；circle-reveal → Clip-Path Reveal、Click / Tap Ripple；overlay-wipe → Curtain Reveal、Section Wipe；page-curl → 3D Flip Card；cube-transition → Scroll-Driven 3D Rotation、3D Flip Card；pixelate-transition → ASCII / Halftone。
 
-### 06 3D 与高级效果（28）
+### 06 3D 与高级效果（28）—— 演示页已翻译（2026-11-23，协调人校验：页面 0 问题）；README 未翻（负责人结束时未交报告，28 个 README 与分类 README 仍是英文，已另派负责人补翻）
 
-（待填）
+| slug | 中文名 | 中文简介 |
+|---|---|---|
+| 2-5d-pseudo-3d | 2.5D / 伪 3D | 平面图层以不同幅度滑动，假装出景深。适合主视觉场景。 |
+| 3d-model-orbit | 3D 模型环绕 | 带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。 |
+| ascii-halftone | ASCII / 半调 | 动态画面用字母或圆点重新画出来。适合复古和科技风格。 |
+| audio-visualizer | 音频可视化 | 音条随音乐起舞，从低音到高音。适合音乐播放器。 |
+| canvas-particle-effect | Canvas 粒子效果 | 圆点漂浮，靠近时连线，还会躲开指针。适合科技类网站。 |
+| carousel-3d | 3D 轮播 | 卡片围成一圈，在 3D 中随拖动旋转。适合图片画廊。 |
+| chromatic-aberration | 色差 | 一个词裂成红、绿、蓝三色边缘。适合醒目的标题。 |
+| cloth-simulation | 布料模拟 | 一块布在风中飘动，还可以拖着玩。适合有趣的页面。 |
+| depth-map-photo | 景深照片 | 平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。 |
+| flip-card-3d | 3D 翻转卡片 | 卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。 |
+| flocking | 鸟群 | 鸟儿成群盘旋、一起转向。适合安静的背景。 |
+| fluid-simulation | 流体模拟 | 色块像液体一样漂移、融化、合在一起。适合主视觉背景。 |
+| glassmorphism-animated | 动态毛玻璃 | 磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。 |
+| gpgpu-particle-system | GPGPU 粒子系统 | 数万个粒子在显卡上流动。适合主视觉特效。 |
+| holographic-card | 全息卡片 | 卡片随指尖倾斜，彩虹箔片随之闪烁。适合收藏品。 |
+| image-distortion-hover | 悬停图片扭曲 | 图片在指针周围起涟漪、弯曲。适合作品集图片。 |
+| infinite-zoom | 无限缩放 | 视野不断放大，进入画中画。适合页面开场。 |
+| liquid-glass | 液态玻璃 | 拖动玻璃面板，身后的画面在边缘弯曲。适合卡片。 |
+| morphing-blob | 变形色块 | 色块融在一起，其中一滴追着你的指针。适合主视觉区域。 |
+| noise-based-motion | 噪声驱动运动 | 平滑噪声让圆点摇摆、色块起伏。适合安静的背景。 |
+| parallax-3d-tilt | 视差 3D 倾斜 | 卡片朝指针倾斜，一道光随之滑过。适合卡片。 |
+| physics-2d | 2D 物理 | 球从你点击的地方落下，弹跳、堆积。适合有趣的开场。 |
+| ray-marching-sdf | 光线步进 / SDF 场景 | 只用公式画出的 3D 场景，镜头绕着它转。适合艺术页面。 |
+| scroll-driven-3d-rotation | 滚动驱动 3D 旋转 | 滚动会让 3D 立方体从一个姿态转到下一个。适合产品导览。 |
+| svg-path-animation | SVG 路径动画 | 线条画一笔一笔自己画出来。适合图标和标志。 |
+| volumetric-smoke | 体积烟雾 / 3D 噪声 | 柔和的烟雾向上盘旋，像真正的 3D 云。适合有氛围的背景。 |
+| water-ripple | 水面涟漪 | 涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。 |
+| webgl-shader-animation | WebGL 着色器动画 | 逐像素计算的流动色彩图案。适合大胆的背景。 |
+
+06 备注：演示页术语表由协调人从已翻 h1/lede 提取（JSON-LD、meta/og 描述、提示词结尾、上一页/下一页均已校验通过）。README 补翻注意事项：28 个 README 的“关键参数”表须与页面中文设置标签逐项对上；"另见"同分类用中文名、跨分类保留英文名并在报告里列出；正文里指向其他动画的链接，跨分类的也先保留英文名（汇总脚本统一改）；分类 README 标题改为 `# 3D 与高级效果`、开头介绍用本文件分类描述、条目用列表 `- [中文名](slug/) — 中文简介` 并以 `## 全部动画` 为标题，其余小节（关键概念、浏览器要求、另见）一并翻译。
 
 ### 07 氛围与背景（26）—— 已翻译（2026-11-23；负责人未交报告，协调人用脚本校验：0 问题）
 
@@ -426,7 +457,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 | topographic-lines | 等高线 | 如徒步地图上的线条，缓缓弯曲漂移。最适合户外品牌。 |
 | wave-layers | 波浪层 | 层层波浪横向漂移，各自速度不同。最适合主视觉区。 |
 
-07 备注：协调人校验 0 问题（JSON-LD、meta/og 描述、提示词结尾、README 标题/章节/参数表、上一页/下一页）。**07 的同分类 "另见"链接名 57 处仍是英文**（如 Aurora / Northern Lights、Starfield / Space Particles、Fireworks、Light Leak 等），汇总时用 h1 映射脚本统一改为中文名。07 的 README "另见"跨分类英文名（汇总时同脚本改）：WebGL Shader Animation、Noise-Based Motion、Audio Visualizer、Click / Tap Ripple、Water Ripple、Cloth / Soft-Body Simulation、Volumetric Smoke / 3D Noise、Success Confetti、Canvas Particle Effect、Flocking、Chromatic Aberration、Parallax 3D Tilt、Infinite Zoom、Zoom Into Image、Glassmorphism Animated、Flash / Light Leak Transition、ASCII / Halftone、Marquee / Ticker、Parallax Scrolling。分类 README 待汇总规范化：开头介绍段仍英文（"Passive, looping effects…"）→ 翻译；条目为表格（`## Animations` + `| Demo | Description |`）→ 转为列表并改标题为 `## 全部动画`；`## 实现概要` 的 `| Approach | Used by |` 表仍英文 → 翻译；`## 另见` 的描述仍英文（06 — "GPU-intensive effects; WebGL shaders and particles"、04 — "the opposite end: brief, triggered, reactive"）→ 翻译。
+07 备注：负责人已报告，术语表与报告完全一致，协调人校验 0 问题（JSON-LD、meta/og 描述、提示词结尾、README 标题/章节/参数表、上一页/下一页）。负责人最后补翻了分类 README（标题 `# 氛围与背景`、开头介绍段、`## 动画` / `| 演示 | 描述 |`、氛围思维 / 实现概要 / 另见 全翻）并清掉了 57 处同分类 "另见"英文名（协调人重扫确认：同分类英文仅剩 03 的 View Transitions API / FLIP 技巧与 01 的“滚动 scrub 动画”共 21 处，均为中文名本身含拉丁字母，不是问题）。行为适配：animated-gradient-background 的 `s.replace('four','three')` 改为 `replace('四','三')`，inside/still 说明措辞保证恰好一个“四”；light-leak 的 `words.inside.replace(...)` 搜索串改为中文对应句；CORNERS 值 → 左上/右上/左下/右下。07 的 README "另见"跨分类英文名（负责人报告与协调人 grep 一致，汇总时用 h1 映射脚本统一改）：WebGL Shader Animation、Noise-Based Motion、Audio Visualizer、Click / Tap Ripple、Water Ripple、Cloth / Soft-Body Simulation、Volumetric Smoke / 3D Noise、Success Confetti、Canvas Particle Effect、Flocking、Chromatic Aberration、2.5D / Pseudo-3D、Parallax 3D Tilt、Infinite Zoom、Zoom Into Image、Glassmorphism Animated、Flash / Light Leak Transition、ASCII / Halftone、Marquee / Ticker、Parallax Scrolling。分类 README 待汇总规范化：条目为表格（`## 动画` + `| 演示 | 描述 |`）→ 转为列表并改标题为 `## 全部动画`；`## 另见` 的分类名仍英文（06 — 3D & Advanced、04 — Micro-Interactions）→ 改中文名。
 
 ## 刻意保留英文的内容
 
@@ -446,8 +477,8 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 03 页面切换（17）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [x] 04 微交互（44）—— 翻译完成（负责人已报告，协调人校验 0 问题；修了 2 处脚本语法错误），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 05 文字与排版（19）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
-- [ ] 06 3D 与高级效果（28）
-- [x] 07 氛围与背景（26）—— 翻译完成（负责人未交报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
+- [x] 06 3D 与高级效果（28）—— 演示页已翻译，术语表已汇总在本文件；README 补翻进行中（另派负责人），待其报告后写入 CATS
+- [x] 07 氛围与背景（26）—— 翻译完成（负责人已报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 根 index.html（CATS + 搜索 placeholder + Popular 搜索词 + 分组 chips 名称）
 - [ ] 根 README.md
 - [ ] llms.txt / sitemap.xml 重新生成
