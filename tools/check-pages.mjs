@@ -1258,49 +1258,46 @@ async function homeViewProblems() {
   v = await view();
   const boxes = await evaluate(`[document.getElementById('q').value, document.getElementById('q2').value]`);
   if (v.title !== '文字' || v.pressed !== 'text' || boxes.join('') !== '') problems.push(`Text tile pressed while the search box has focus: ${JSON.stringify(v)}, the boxes hold ${JSON.stringify(boxes)}`);
-  await type('a button that bounces when clicked');
+  await type('点击时会弹跳的按钮');
   await sleep(300);
-  // Button Press Scale comes first: a Buttons card with "button" in its name that springs back as you press it, and the
-  // search counts "spring" for "bounce" and "press" for "click". Bounce In, the one name with "bounce", must be on the first
-  // page of results (shown before Show all), not at a set place: each new card named for buttons moves it down a place.
+  // 按钮按压缩放 comes first: a 按钮 card with 按钮 in its name that springs back as you press it. 弹跳进入， the one name with
+  // 弹跳， must be on the first page of results (shown before 显示全部）, not at a set place: each new card named for buttons moves it down a place.
   const found = await evaluate(`[...document.querySelectorAll('#cards .card .title a')].map(a => a.textContent)`);
-  if (found[0] !== 'Button Press Scale' || !found.includes('Bounce In')) problems.push(`search order: ${found.join(', ')}`);
+  if (found[0] !== '按钮按压缩放' || !found.includes('弹跳进入')) problems.push(`search order: ${found.join(', ')}`);
   if ((v = await view()).pressed) problems.push(`search: a tile stays pressed: ${JSON.stringify(v)}`);
-  // Word endings: "snapping" and "blurred" find their short forms, "ring" is not cut down to "r" (Ambient Ripple Effect
-  // says "Rings"), "scrolling" finds as many as "scroll", and the first letter typed already finds cards.
-  for (const [word, name] of [['snapping', 'Snap Scrolling'], ['blurred', 'Blur In'], ['ring', 'Ambient Ripple Effect']]) {
+  // A typed word finds the cards whose words start with it: 吸附 finds 滚动吸附， 模糊 finds 模糊渐入， 涟漪 finds the ripples.
+  for (const [word, name] of [['吸附', '滚动吸附'], ['模糊', '模糊渐入'], ['涟漪', '环境涟漪']]) {
     await type(word);
     await sleep(300);
     const got = await results();
     if (!got.names.includes(name)) problems.push(`search "${word}" does not find ${name}: ${got.none ? 'nothing matches' : got.names.join(', ')}`);
   }
-  await type('scroll');
+  await type('滚动');
   await sleep(300);
   const scroll = (await results()).sub;
-  await type('scrolling');
+  await type('滚动的');
   await sleep(300);
   const scrolling = (await results()).sub;
-  if (scrolling !== scroll) problems.push(`search "scrolling": ${scrolling}, "scroll": ${scroll}`);
-  await type('b');
+  if (scrolling !== scroll) problems.push(`search "滚动的": ${scrolling}, "滚动": ${scroll}`);
+  await type('按');
   await sleep(300);
   const letter = await results();
-  if (letter.none || !letter.names.length) problems.push(`search "b": ${letter.none ? 'nothing matches' : 'no cards'}`);
-  // Every description ends "Best for …", so neither "best" nor "for" may count as a card's word: "b" finds only the cards with
-  // a real word starting with b, and a typed "best" is left out like "for".
+  if (letter.none || !letter.names.length) problems.push(`search "按": ${letter.none ? 'nothing matches' : 'no cards'}`);
+  // A single character finds only the cards with a real word starting with it, not all of them: 按 finds 24 of the 176.
   const every = await evaluate(`ALL.length`);
-  if (letter.sub === `${every} 个动画匹配。`) problems.push(`search "b" finds all ${every} animations (the "Best for" of every description counts)`);
-  await type('button');
+  if (letter.sub === `${every} 个动画匹配。`) problems.push(`search "按" finds all ${every} animations`);
+  await type('按钮');
   await sleep(300);
   const button = await results();
-  await type('best button');
+  await type('的 按钮');
   await sleep(300);
   const best = await results();
-  if (best.sub !== button.sub || best.names.join() !== button.names.join()) problems.push(`search "best button": ${best.sub} "button": ${button.sub} (a typed "best" counts)`);
+  if (best.sub !== button.sub || best.names.join() !== button.names.join()) problems.push(`search "的 按钮": ${best.sub} "按钮": ${button.sub} (a typed 的 counts)`);
   const steps = await evaluate(`history.length`);
-  await type('fade in');
+  await type('淡入');
   await sleep(300);
   const address = await evaluate(`({ search: location.search, steps: history.length })`);
-  if (address.search !== '?q=fade%20in' || address.steps !== steps) problems.push(`typing "fade in": the address is ${address.search}${address.steps !== steps ? ' and a history step was added' : ''}`);
+  if (address.search !== '?q=%E6%B7%A1%E5%85%A5' || address.steps !== steps) problems.push(`typing "淡入": the address is ${address.search}${address.steps !== steps ? ' and a history step was added' : ''}`);
   await type('zebra');
   await sleep(300);
   const empty = await evaluate(`!document.getElementById('empty').hidden && document.getElementById('empty-title').textContent`);
@@ -1312,7 +1309,7 @@ async function homeViewProblems() {
   await sleep(300);
   v = await view();
   on = await focused();
-  if (!v.title.startsWith('Results for') || v.cards === 0 || on !== 'results-title') problems.push(`Nothing-found suggestion: ${JSON.stringify(v)}, keyboard focus is on ${on}`);
+  if (!v.title.endsWith('的搜索结果') || v.cards === 0 || on !== 'results-title') problems.push(`Nothing-found suggestion: ${JSON.stringify(v)}, keyboard focus is on ${on}`);
   await type('zebra');
   await sleep(300);
   await press('#more-btn');
@@ -1425,8 +1422,8 @@ async function homeViewProblems() {
 }
 
 // Home page, phone run: a tile press scrolls to the results, and the slim bar sticks to the top with that place pressed.
-// There, and again in All animations, every control in the bar, on the cards and under them is at least 44×44 and nothing
-// overflows sideways. A chip far along the bar's row (Page changes), once pressed, is scrolled fully into the row, and the
+// There, and again in 全部动画， every control in the bar, on the cards and under them is at least 44×44 and nothing
+// overflows sideways. A chip far along the bar's row (页面切换）, once pressed, is scrolled fully into the row, and the
 // page does not move. Emptying the bar's own search box keeps the bar, and the focus in the box, until the box is left. A
 // chip pressed again goes away with the bar, so keyboard focus moves to the results heading. The back arrow goes away too
 // and scrolls to the top, so keyboard focus moves to the first place tile, which is on screen there. The keyboard's Search
@@ -1462,9 +1459,9 @@ async function homePhoneProblems() {
   const v = await evaluate(`(() => { const bar = document.getElementById('pinbar');
     return { title: document.getElementById('results-title').textContent, shown: getComputedStyle(bar).display !== 'none',
       top: Math.round(bar.getBoundingClientRect().top), pressed: [...bar.querySelectorAll('[aria-pressed="true"]')].map(b => b.textContent) }; })()`);
-  const problems = v.title === 'Text' && v.shown && Math.abs(v.top) <= 1 && v.pressed.join() === 'Text' ? [] : [`phone, Text tile: ${JSON.stringify(v)}`];
-  problems.push(...await fit('Text'));
-  // Page changes, the last chip, lies far past the right edge of the row: pressed, it is scrolled fully into the row, and
+  const problems = v.title === '文字' && v.shown && Math.abs(v.top) <= 1 && v.pressed.join() === '文字' ? [] : [`phone, Text tile: ${JSON.stringify(v)}`];
+  problems.push(...await fit('文字'));
+  // 页面切换， the last chip, lies far past the right edge of the row: pressed, it is scrolled fully into the row, and
   // only the row moves (the results heading is on screen here, so the page stays where it is).
   const before = await evaluate(`Math.round(scrollY)`);
   await evaluate(`document.querySelector('.pchip[data-place="page"]').click()`);
@@ -1472,7 +1469,7 @@ async function homePhoneProblems() {
   const chip = await evaluate(`(() => { const c = document.querySelector('.pchip[data-place="page"]'), b = c.getBoundingClientRect(), row = c.parentElement.getBoundingClientRect();
     return { title: document.getElementById('results-title').textContent, pressed: c.getAttribute('aria-pressed'), left: Math.round(b.left), right: Math.round(b.right),
       row: Math.round(row.left) + '-' + Math.round(row.right), inside: b.left >= row.left - .5 && b.right <= row.right + .5, scrolled: Math.round(scrollY) }; })()`);
-  if (chip.title !== 'Page changes' || chip.pressed !== 'true' || !chip.inside || chip.scrolled !== before) {
+  if (chip.title !== '页面切换' || chip.pressed !== 'true' || !chip.inside || chip.scrolled !== before) {
     problems.push(`phone, Page changes chip: ${JSON.stringify(chip)}${chip.inside ? '' : ' (not fully inside the row)'}${chip.scrolled !== before ? ` (the page scrolled from ${before}px)` : ''}`);
   }
   // This headless Chrome never has its page in focus, so a script's focus() and blur() send no focus events, and the bar
@@ -1506,7 +1503,7 @@ async function homePhoneProblems() {
     await sleep(900);
     b = await now();
     if (b.title !== '全部动画' || !b.shown) problems.push(`phone, 浏览全部：${JSON.stringify(b)}`);
-    problems.push(...await fit('All animations'));
+    problems.push(...await fit('全部动画'));
     // The keyboard's Search key (Enter) in the bar's box: keyboard focus leaves the box, so the phone's keyboard closes over
     // the results, and the bar stays while the search is shown.
     await evaluate(`document.getElementById('q2').focus()`);
@@ -1516,7 +1513,7 @@ async function homePhoneProblems() {
     await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
     await sleep(900);
     b = await now();
-    if (b.title !== 'Results for “fade”' || !b.shown || b.focus === 'q2') problems.push(`phone, Search key in the bar's box: ${JSON.stringify(b)}${b.focus === 'q2' ? ' (the box keeps keyboard focus)' : ''}`);
+    if (b.title !== '“fade”的搜索结果' || !b.shown || b.focus === 'q2') problems.push(`phone, Search key in the bar's box: ${JSON.stringify(b)}${b.focus === 'q2' ? ' (the box keeps keyboard focus)' : ''}`);
   } finally {
     await send('Emulation.setFocusEmulationEnabled', { enabled: false });
   }
@@ -1540,7 +1537,7 @@ async function homePhoneProblems() {
       inside: b.left >= r.left - .5 && b.right <= r.right + .5, wide: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1, search: location.search }; })()`);
   await open('', 'the start page');
   let g = await groupChip();
-  if (g.title !== 'Good places to start' || !g.chips || g.pressed !== 'false' || g.inside || g.wide) {
+  if (g.title !== '从这里开始' || !g.chips || g.pressed !== 'false' || g.inside || g.wide) {
     problems.push(`phone, group chips at Start: ${JSON.stringify(g)}${g.inside ? ' (the last chip is expected past the edge of its row, which scrolls)' : ''}`);
   }
   // A bare click, with no focus() before it: focus alone would scroll the chip into its row, and this step checks the page's own scroll.
@@ -1554,7 +1551,7 @@ async function homePhoneProblems() {
   await press(`.spot[data-cat="${g.key}"]`);
   await sleep(300);
   g = await groupChip();
-  if (g.title !== 'Good places to start' || g.pressed !== 'false' || g.search !== '') problems.push(`phone, the picked group chip pressed again: ${JSON.stringify(g)}`);
+  if (g.title !== '从这里开始' || g.pressed !== 'false' || g.search !== '') problems.push(`phone, the picked group chip pressed again: ${JSON.stringify(g)}`);
   // Pressed while the heading is low in the window (70% down), a chip brings the results up: the heading stops a little below
   // the top (a group has no slim bar to sit under), not flush against it.
   await evaluate(`(() => { const t = document.getElementById('results-title'); scrollTo(0, scrollY + t.getBoundingClientRect().top - Math.round(innerHeight * .7)); })()`);
@@ -1712,7 +1709,7 @@ async function finderLayoutProblems(name, setup) {
   return problems;
 }
 
-// The finder, desktop run. ?view=find opens with three questions, nothing chosen, the heading "Your matches", the line asking for
+// The finder, desktop run. ?view=find opens with three questions, nothing chosen, the heading "你的匹配结果", the line asking for
 // an answer and no cards, the tab's title and the Finder link marked as the current page. Real clicks on answers change the cards,
 // replace the address (no history step), never scroll the page and leave keyboard focus on the answer; with A menu or form · When I
 // scrolled · Slid, Hide-on-Scroll Header is among the first six (case 22 of the finder's test set). The Not here? link is the form's

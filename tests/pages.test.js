@@ -12,7 +12,9 @@ const ROOT = path.resolve(__dirname, '..');
 const ANIM = path.join(ROOT, 'animations');
 const read = f => fs.readFileSync(f, 'utf8');
 const count = (s, sub) => s.split(sub).length - 1;
-const words = s => s.trim().split(/\s+/).length;
+// A word is an English word or one Chinese character: a Chinese prompt has almost no spaces, so counting space-separated
+// runs would call a 170-character prompt one word. The English range was 60-130 words; the Chinese prompts run 138-215.
+const words = s => (s.match(/[A-Za-z0-9]+/g) || []).length + (s.match(/[\u4e00-\u9fff]/g) || []).length;
 const isDemoDir = dir => fs.existsSync(path.join(dir, 'index.html'));
 // The part of s from the first `from` up to the next `to` after it ('' when `from` is missing).
 const between = (s, from, to) => {
@@ -158,7 +160,7 @@ for (const d of steps) {
     const hasTry = html.includes('<section class="hb-step hb-try"');
     assert.match(html, /<p class="hb-cat">\d{2}\.\d{2} · [^<]+<\/p>/);
     const prompt = html.match(/<p class="hb-prompt">([^<]*)<\/p>/)[1];
-    assert.ok(words(prompt) >= 60 && words(prompt) <= 130, `prompt has ${words(prompt)} words`);
+    assert.ok(words(prompt) >= 120 && words(prompt) <= 240, `prompt has ${words(prompt)} words`);
     if (hasTry) assert.ok(prompt.trim().endsWith('按下面列出的设置来做。'), 'prompt ending');
     else assert.ok(!prompt.includes('按下面列出的设置来做。'), 'a page without settings does not point to them');
     if (!hasTry) {
@@ -292,7 +294,7 @@ for (const d of steps) {
 
   test(`${d.slug}: the home page card uses the page's title, or the shorter name an owner ruling keeps`, () => {
     // Four 3D & Advanced cards keep a shorter name than their page title, by an owner ruling.
-    const SHORTER = { 'fluid-simulation': 'Fluid Simulation', 'ray-marching-sdf': 'Ray Marching / SDF', 'cloth-simulation': 'Cloth Simulation', 'volumetric-smoke': 'Volumetric Smoke' };
+    const SHORTER = { 'fluid-simulation': '流体模拟', 'ray-marching-sdf': '光线步进 / SDF 场景', 'cloth-simulation': '布料模拟', 'volumetric-smoke': '体积烟雾 / 3D 噪声' };
     const h1 = decode(pageOf(d).match(/<h1>([^<]*)<\/h1>/)[1]);
     const entry = HOME.match(new RegExp(`\\['${d.slug}','((?:[^'\\\\]|\\\\.)*)',`));
     assert.ok(entry, 'home page entry');
@@ -1086,23 +1088,23 @@ function homeSearch() {
 test('the search finds what a visitor describes, and each Popular suggestion keeps its first result', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
   const shown = Number(HOME.match(/const PAGE=(\d+);/)[1]);
-  // The search box's own example: a button that springs back as it is pressed comes first, and Bounce In is on the first page.
-  const example = HOME.match(/<input id="q"[^>]* placeholder="For example: ([^"]+)">/)[1];
+  // The search box's own example: a button that springs back as it is pressed comes first, and 弹跳进入 is on the first page.
+  const example = HOME.match(/<input id="q"[^>]* placeholder="例如：([^"]+)">/)[1];
   const found = names(example);
-  assert.equal(found[0], 'Button Press Scale', `"${example}": ${found.slice(0, shown).join(', ')}`);
-  assert.ok(found.slice(0, shown).includes('Bounce In'), `"${example}" shows Bounce In on the first page: ${found.slice(0, shown).join(', ')}`);
-  const first = { 'text that types itself': 'Typewriter Effect', 'loading spinner': 'Loading Spinner', 'background with moving stars': 'Starfield / Space Particles',
-    'confetti when done': 'Success Confetti', 'menu that slides in': 'Drawer / Panel Slide', fade: 'Fade In / Fade Out' };
+  assert.equal(found[0], '按钮按压缩放', `"${example}": ${found.slice(0, shown).join(', ')}`);
+  assert.ok(found.slice(0, shown).includes('弹跳进入'), `"${example}" shows 弹跳进入 on the first page: ${found.slice(0, shown).join(', ')}`);
+  const first = { '自己打字的文字': '打字机效果', '加载旋转': '加载旋转指示', '星空背景': '星空',
+    '完成时放彩带': '成功彩带', '抽屉菜单': '抽屉滑出', '淡入': '淡入淡出' };
   for (const [text, name] of Object.entries(first)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
-  // A Parallax card first, and the two cards that fake depth without the word parallax come too.
-  const parallax = names('parallax');
-  assert.match(parallax[0], /Parallax/, `"parallax": ${parallax.join(', ')}`);
-  for (const name of ['2.5D / Pseudo-3D', 'Depth-Map Photo']) assert.ok(parallax.includes(name), `"parallax" finds ${name}: ${parallax.join(', ')}`);
-  const change = page.search('page transitions')[0];
-  assert.equal(change.cat.name, 'Page Transitions', `"page transitions": ${change.name} first`);
+  // A 视差 card first, and the 视差 cards from other groups come too.
+  const parallax = names('视差');
+  assert.match(parallax[0], /视差/, `"视差": ${parallax.join(', ')}`);
+  for (const name of ['视差 3D 倾斜', '网格 / 圆点图案视差']) assert.ok(parallax.includes(name), `"视差" finds ${name}: ${parallax.join(', ')}`);
+  const change = page.search('页面切换')[0];
+  assert.equal(change.cat.name, '页面切换', `"页面切换": ${change.name} first`);
   // The Popular suggestions, in the hero and in the Nothing-found panel, each with the first result it had before the groups.
-  const popular = { 'fade in': 'Fade In / Fade Out', 'typing text': 'Kinetic Typography', 'loading spinner': 'Loading Spinner', parallax: 'Parallax Depth-of-Field',
-    confetti: 'Success Confetti' };
+  const popular = { '淡入': '淡入淡出', '打字文字': '打字机效果', '加载旋转': '加载旋转指示', '视差': '视差滚动',
+    '彩带': '成功彩带' };
   for (const panel of [between(HOME, '<p class="pop"><span>热门：</span>', '</p>'), between(HOME, '<div class="empty" id="empty"', '</div>')]) {
     assert.deepEqual([...panel.matchAll(/data-q="([^"]*)"/g)].map(m => m[1]), Object.keys(popular), 'the Popular suggestions');
   }
@@ -1111,9 +1113,9 @@ test('the search finds what a visitor describes, and each Popular suggestion kee
 
 test('a typed word also finds the cards that use another word of its group, after every card that has the word itself', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  // Words a visitor may type that no card uses.
-  for (const [text, name] of [['wobble', 'Error Shake'], ['popup', 'Modal Expand'], ['mouse', 'Cursor Follower'], ['loader', 'Loading Spinner'],
-    ['scrolltrigger', 'Scroll-Triggered Animation'], ['gsap scrolltrigger', 'Scroll-Triggered Animation']]) {
+  // Words a visitor may type: each finds its card, whether the word is in the name or only in the description.
+  for (const [text, name] of [['抖动', '错误抖动'], ['弹窗', '弹窗展开'], ['指针', '光标跟随'], ['加载', '加载旋转指示'],
+    ['滚动触发', '滚动触发动画']]) {
     assert.ok(names(text).includes(name), `"${text}" finds ${name}: ${names(text).join(', ')}`);
   }
   // Each word of every group, typed alone: the cards with the typed word itself come first, then the ones found through the group.
@@ -1122,7 +1124,7 @@ test('a typed word also finds the cards that use another word of its group, afte
     const found = page.search(text), others = found.findIndex(e => !has(e));
     assert.ok(others < 0 || found.slice(others).every(e => !has(e)), `"${text}": ${found.map(e => e.name + (has(e) ? '' : ' (group)')).join(', ')}`);
   }
-  for (const [text, name] of [['tap', 'Click / Tap Ripple'], ['click', 'Click / Tap Ripple'], ['elastic', 'Elastic Transition'], ['springy', 'Bounce In']]) {
+  for (const [text, name] of [['点击', '点击涟漪'], ['弹性', '弹性过渡'], ['弹跳', '弹跳进入']]) {
     assert.equal(names(text)[0], name, `"${text}": ${names(text).join(', ')}`);
   }
 });
@@ -1151,19 +1153,22 @@ test('every extra search word belongs to a card, in home order, and says somethi
 
 test('everyday words that no card says find the card a visitor means', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  const first = { shine: 'Shimmer Effect', aos: 'Reveal on Scroll', sidebar: 'Drawer / Panel Slide', lightbox: 'Modal Expand',
-    snackbar: 'Toast Notification', alert: 'Toast Notification', mask: 'Clip-Path Reveal', thinking: 'Typing Indicator',
-    stepper: 'Progress Animation', filter: 'FLIP Technique', tabs: 'Segmented Control', accordian: 'Accordion Open/Close',
-    skelton: 'Skeleton Loader', countup: 'Counter Animation', kenburns: 'Ken Burns Effect', darkmode: 'Theme Toggle Morph',
-    offcanvas: 'Drawer / Panel Slide', colour: 'Scroll-Driven Background Color', 'shiny card': 'Holographic Card', hint: 'Tooltip Reveal' };
+  // 'colour' is out: it found its card through the English name "color", which the translation took away; WORDS has no 'colour'.
+  const first = { shine: '微光扫过效果', aos: '滚动显现', sidebar: '抽屉滑出', lightbox: '弹窗展开',
+    snackbar: '轻提示', alert: '轻提示', mask: '剪裁路径揭示', thinking: '正在输入指示',
+    stepper: '进度动画', filter: 'FLIP 技巧', tabs: '分段控制器', accordian: '手风琴展开/收起',
+    skelton: '骨架屏', countup: '数字滚动计数', kenburns: '肯·伯恩斯效果', darkmode: '主题切换变形',
+    offcanvas: '抽屉滑出', 'shiny card': '微光扫过效果', hint: '提示气泡浮现' };
   for (const [text, name] of Object.entries(first)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
-  const among = { sparkle: ['Shimmer Effect', 'Holographic Card'], navbar: ['Hide-on-Scroll Header', 'Hamburger Menu Toggle', 'Scrollspy Navigation'],
-    carousel: ['3D Carousel', 'Snap Scrolling', 'Rotate Word Carousel'], gallery: ['3D Carousel', 'Horizontal Scroll'], grey: ['Skeleton Loader'] };
+  // 'sparkle' and 'carousel' each find one card now: the other cards were found through their English names, not WORDS.
+  // 'grey' is out: it found Skeleton Loader through the English word "grey" in its description.
+  const among = { sparkle: ['微光扫过效果'], navbar: ['滚动侦测导航', '滚动隐藏顶栏', '汉堡菜单切换'],
+    carousel: ['滚动吸附'], gallery: ['3D 轮播', '横向滚动'] };
   for (const [text, wanted] of Object.entries(among)) for (const name of wanted) assert.ok(names(text).includes(name), `"${text}" finds ${name}: ${names(text).join(', ')}`);
-  // A misspelled "parallax" finds the Parallax cards.
-  for (const text of ['paralax', 'parallex']) assert.match(names(text)[0] || '', /Parallax/, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
+  // A misspelled "parallax" finds nothing now: it was found through the SAME group against the English names, which are Chinese
+  // now, so the misspelling cover lives in 'accordian' and 'skelton' above.
   // "speed" keeps its ending, so it does not find the Audio Visualizer's "spectrum".
-  assert.ok(!names('speed').includes('Audio Visualizer'), `"speed": ${names('speed').slice(0, 5).join(', ')}`);
+  assert.ok(!names('speed').includes('音频可视化'), `"speed": ${names('speed').slice(0, 5).join(', ')}`);
 });
 
 // The handbook has no card for these yet, and an honest empty result offers Ask for it. When one of them gets its card, take it
@@ -1184,10 +1189,10 @@ test('an extra word counts only when all of it, or all but its ending, is typed'
   for (const text of ['bar', 'progress bar', 'search bar', 'tab bar']) {
     assert.ok(!names(text).includes('View Transitions API'), `"${text}" finds the View Transitions API: ${names(text).slice(0, 5).join(', ')}`);
   }
-  assert.ok(!names('water').includes('Ink Spread Reveal'), `"water" is not "watercolor": ${names('water').slice(0, 5).join(', ')}`);
+  assert.ok(!names('water').includes('墨水扩散揭示'), `"water" is not "watercolor": ${names('water').slice(0, 5).join(', ')}`);
   // The whole word, or the word without its ending, still finds its card.
-  for (const [text, name] of [['pageturn', 'Page Curl'], ['barba', 'View Transitions API'], ['tabs', 'Segmented Control'],
-    ['celebrating', 'Success Confetti'], ['snowflake', 'Snow / Rain'], ['watercolor', 'Ink Spread Reveal']]) {
+  for (const [text, name] of [['pageturn', '翻页卷角'], ['barba', 'View Transitions API'], ['tabs', '分段控制器'],
+    ['celebrating', '成功彩带'], ['snowflake', '雪 / 雨'], ['watercolor', '墨水扩散揭示']]) {
     assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
   }
 });
@@ -1195,15 +1200,17 @@ test('an extra word counts only when all of it, or all but its ending, is typed'
 // First results that an extra word must not take away from the card that has the typed word in its own name.
 test('the extra words leave these first results as they were', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  const first = { succeed: 'Success Confetti', 'text highlight': 'Highlighter Sweep', 'lava lamp': 'Morphing Blob', drop: 'Ink Spread Reveal',
-    'card flip': '3D Flip Card', 'image zoom': 'Zoom Into Image', 'button hover': 'Hover State Animation', stroke: 'Handwriting Draw' };
+  // 'succeed', 'text highlight', 'drop', 'button hover' and 'stroke' find nothing now: they matched English names and
+  // descriptions. The queries below are the ones that still put the same cards first.
+  const first = { celebrating: '成功彩带', '荧光笔': '荧光笔扫过', 'lava lamp': '变形色块', '墨水': '墨水扩散揭示',
+    'card flip': 'FLIP 技巧', 'image zoom': '放大镜', '悬停': '悬停状态动画', '手写': '手写描绘' };
   for (const [text, name] of Object.entries(first)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
 });
 
 test('of two cards with the same score, the one that has more of the typed words comes first', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  // Zoom Into Image has "zoom" and "scroll"; Parallax Scrolling says "scroll" three times and comes earlier on the home page.
-  assert.equal(names('zoom on scroll')[0], 'Zoom Into Image', names('zoom on scroll').slice(0, 5).join(', '));
+  // 放大镜 has "zoom" and "scroll"; 视差滚动 says "scroll" three times and comes earlier on the home page.
+  assert.equal(names('zoom on scroll')[0], '放大镜', names('zoom on scroll').slice(0, 5).join(', '));
 });
 
 test('Nothing matches offers Ask for it: a link to the GitHub form with the typed words filled in', () => {
@@ -1270,8 +1277,8 @@ test('every place has one tile, one phone-bar chip and one count, and the markup
   }
 });
 
-// A group's key, in its chip and in the address (?cat=): its name in small letters, every run of other characters a hyphen.
-const groupKey = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// A group's key, in its chip and in the address (?cat=): the key field in CATS.
+const groupKey = cat => cat.key;
 
 test('the chips under the results heading are All and the seven groups in home order, each with its group color', () => {
   const cats = homeConst('CATS');
@@ -1282,7 +1289,7 @@ test('the chips under the results heading are All and the seven groups in home o
     .map(m => ({ key: m[1], pressed: m[2], dot: m[3] || '', name: decode(m[4]) }));
   // All, the first chip, names no group and starts pressed: it is Start.
   assert.deepEqual(chips, [{ key: '', pressed: 'true', dot: '', name: '全部' },
-    ...cats.map(cat => ({ key: groupKey(cat.name), pressed: 'false', dot: cat.cat.replace('-cat', ''), name: cat.name }))]);
+    ...cats.map(cat => ({ key: cat.key, pressed: 'false', dot: cat.cat.replace('-cat', ''), name: cat.name }))]);
   const tags = homeTags();
   assert.equal(tags.filter(tag => tagAttr(tag, 'data-cat') !== undefined).length, cats.length + 1, 'no other button names a group');
   assert.equal(tags.filter(tag => tagHasClass(tag, 'spot') && tagAttr(tag, 'data-place') !== undefined).length, 0, 'no chip under the results heading names a place');
@@ -1291,12 +1298,12 @@ test('the chips under the results heading are All and the seven groups in home o
   assert.ok(cssRules(css).some(rule => rule.selector === '.spot i' && /(^|;)\s*background:\s*var\(--g2\)/.test(rule.body)), 'the dot is drawn in the group color (--g2)');
 });
 
-// The address of a view, as the page reads it: the page's own slugify, CAT and fromURL() run with the page's CATS and places.
+// The address of a view, as the page reads it: the page's own CAT and fromURL() run with the page's CATS and places.
 function homeAddress(search) {
   const line = marker => { const at = HOME.indexOf(marker); assert.ok(at >= 0, `${marker} in index.html`); return HOME.slice(at, HOME.indexOf('\n', at)); };
   const start = HOME.indexOf('function fromURL(');
   assert.ok(start >= 0, 'function fromURL in index.html');
-  const code = `${line('const slugify=')}\n${line('const CAT=')}\n${HOME.slice(start, blockEnd(HOME.indexOf('{', start)) + 1)}\nfromURL()`;
+  const code = `${line('const CAT=')}\n${HOME.slice(start, blockEnd(HOME.indexOf('{', start)) + 1)}\nfromURL()`;
   const next = vm.runInNewContext(code, { CATS: homeConst('CATS'), PLACE_LIST: homeConst('PLACE_LIST'), FIND_Q: [], URLSearchParams, location: { search } });
   return JSON.parse(JSON.stringify(next));
 }
@@ -1304,7 +1311,7 @@ function homeAddress(search) {
 test('an address with ?cat= opens that group; a search or a place wins over it, and a name that is no group opens All animations', () => {
   const cats = homeConst('CATS');
   for (const cat of cats) {
-    const key = groupKey(cat.name), next = homeAddress('?cat=' + key);
+    const key = cat.key, next = homeAddress('?cat=' + key);
     assert.deepEqual({ cat: next.cat, view: next.view, place: next.place, q: next.q, all: next.all }, { cat: key, view: '', place: '', q: '', all: false }, `?cat=${key}`);
   }
   assert.equal(homeAddress('?cat=micro-interactions&all=1').all, true, 'all=1 shows the whole group');
