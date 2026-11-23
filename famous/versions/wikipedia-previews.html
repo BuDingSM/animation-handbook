@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Our version: Link previews</title>
+<title>我们的版本：链接预览</title>
 <style>
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -56,11 +56,11 @@ a.lk:focus-visible{outline:3px solid #fff;outline-offset:2px;color:#fff}
 </script>
 </head>
 <body>
-<div class="stage" id="stage" role="group" aria-label="A short article about paper planes with four links. Rest the pointer on a link, or reach it with the keyboard, and a small card about it appears; press Escape to hide the card.">
+<div class="stage" id="stage" role="group" aria-label="一篇关于纸飞机的短文，里面有四个链接。把指针停在链接上，或用键盘走到链接处，就会弹出关于它的小卡片；按 Esc 可以藏起卡片。">
   <main class="doc">
-    <h1>Paper planes</h1>
-    <p>A paper plane is a <a class="lk" href="#" data-k="0">glider</a> made from one flat sheet. Its <a class="lk" href="#" data-k="1">wings</a> are creased so air slides under them, and the <a class="lk" href="#" data-k="2">lift</a> that follows keeps it up. Folding one is <a class="lk" href="#" data-k="3">origami</a>.</p>
-    <p>The same sheet, folded two ways, can float far or dive fast. Small bends at the tail decide which.</p>
+    <h1>纸飞机</h1>
+    <p>纸飞机是用一张平整的纸折成的<a class="lk" href="#" data-k="0">滑翔机</a>。它的<a class="lk" href="#" data-k="1">机翼</a>折出折痕，让空气从下面滑过，随之产生的<a class="lk" href="#" data-k="2">升力</a>让它留在空中。折一架纸飞机就是<a class="lk" href="#" data-k="3">折纸</a>。</p>
+    <p>同一张纸，换两种折法，可以飘得很远，也可以俯冲得很快。尾部小小的弯折决定了它是哪一种。</p>
   </main>
   <div class="card" id="tip" role="tooltip"></div>
   <p class="note" id="note" role="status"></p>
@@ -75,10 +75,10 @@ const SHOW = 500, HIDE = 300, KEYS = 300; // the pointer rests half a second bef
 // Our own cards: a title, a few short lines and a picture drawn in shapes on a gradient.
 const W7 = 'fill="#fff" fill-opacity=".95"', SH = 'fill="#0b0b0f" fill-opacity=".22"', AIR = 'fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"';
 const CARDS = [
-  { t: 'Glider', d: 'A craft with no engine that rides the air as it slowly sinks.', a: '#6ea8ff', b: '#b98cff', s: `<path ${W7} d="M12 42 62 16 46 58 38 44Z"/><path ${SH} d="M38 44 62 16 32 48Z"/><path ${AIR} d="M10 24q14-8 26 0M20 14q10-5 20 0"/>` },
-  { t: 'Wings', d: 'The flat surfaces that meet the air. Their shape sets the push.', a: '#3fd6c4', b: '#6ea8ff', s: `<path ${W7} d="M8 46C22 26 50 26 64 42 50 50 24 52 8 46Z"/><path ${AIR} d="M12 20q24-10 48 0M16 12q20-8 40 0"/>` },
-  { t: 'Lift', d: 'The upward push of moving air. It has to beat the weight.', a: '#ff9d5c', b: '#ff6f8b', s: `<path ${W7} d="M36 12 54 34H43v26H29V34H18Z"/><path ${AIR} d="M10 64h52"/>` },
-  { t: 'Origami', d: 'Folding one sheet into a shape, with no cuts and no glue.', a: '#ffce5a', b: '#ff9d5c', s: `<path ${W7} d="M36 10 62 36 36 62 10 36Z"/><path ${SH} d="M36 10 62 36H10Z"/><path fill="none" stroke="#0b0b0f" stroke-opacity=".25" stroke-width="2" d="M10 36 36 62 62 36"/>` }
+  { t: '滑翔机', d: '没有发动机的飞行器，慢慢下降时乘着空气滑行。', a: '#6ea8ff', b: '#b98cff', s: `<path ${W7} d="M12 42 62 16 46 58 38 44Z"/><path ${SH} d="M38 44 62 16 32 48Z"/><path ${AIR} d="M10 24q14-8 26 0M20 14q10-5 20 0"/>` },
+  { t: '机翼', d: '迎着空气的平面。它们的形状决定了推力的大小。', a: '#3fd6c4', b: '#6ea8ff', s: `<path ${W7} d="M8 46C22 26 50 26 64 42 50 50 24 52 8 46Z"/><path ${AIR} d="M12 20q24-10 48 0M16 12q20-8 40 0"/>` },
+  { t: '升力', d: '流动空气向上的推力。它必须胜过重量。', a: '#ff9d5c', b: '#ff6f8b', s: `<path ${W7} d="M36 12 54 34H43v26H29V34H18Z"/><path ${AIR} d="M10 64h52"/>` },
+  { t: '折纸', d: '把一张纸折成一个形状，不剪也不粘。', a: '#ffce5a', b: '#ff9d5c', s: `<path ${W7} d="M36 10 62 36 36 62 10 36Z"/><path ${SH} d="M36 10 62 36H10Z"/><path fill="none" stroke="#0b0b0f" stroke-opacity=".25" stroke-width="2" d="M10 36 36 62 62 36"/>` }
 ];
 
 // The card follows what the live effect does: a pointer must rest on a link for 500 ms (a pass over it shows nothing); the card then
@@ -138,7 +138,7 @@ document.addEventListener('focusout', e => { if (e.target.closest && e.target.cl
 document.addEventListener('click', e => {
   const a = e.target.closest && e.target.closest('a.lk'); if (!a) return;
   e.preventDefault(); if (cur) { dismissed = cur; clearTimeout(showT); clearTimeout(hideT); conceal(); }
-  note.textContent = 'Link opened: ' + CARDS[a.dataset.k].t; note.classList.add('on'); clearTimeout(noteT); noteT = setTimeout(() => note.classList.remove('on'), 1700);
+  note.textContent = '已打开链接：' + CARDS[a.dataset.k].t; note.classList.add('on'); clearTimeout(noteT); noteT = setTimeout(() => note.classList.remove('on'), 1700);
 });
 // Escape hides a card that is shown or waiting, and leaves the pointer and the focus where they are; with none, it passes on (the pop-up closes).
 addEventListener('keydown', e => {

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Our version: The menu that drops in, link by link</title>
+<title>我们的版本：一个接一个落下的菜单</title>
 <style>
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -88,24 +88,24 @@ h1{font-size:clamp(24px,5.2vw,44px);line-height:1.1;font-weight:700;letter-spaci
 <body>
 <div class="stage" id="stage" data-open="">
   <main class="page">
-    <h1>Your page</h1>
-    <p>Press the menu button and its links drop in, one after another, over a blurred page.</p>
+    <h1>你的页面</h1>
+    <p>按下菜单按钮，它的链接会一个接一个地落下来，落在模糊的页面上方。</p>
     <div class="cards" aria-hidden="true"><i></i><i></i><i></i></div>
   </main>
   <div class="veil" aria-hidden="true"></div>
   <header class="bar">
-    <span class="mark"><i aria-hidden="true"></i>Your logo</span>
-    <nav class="top" aria-label="Sections">
-      <div class="grp"><button type="button" class="op" aria-expanded="false" aria-controls="d1">Products</button>
-        <div class="panel drop" id="d1"><ul><li><a href="#">Explore all</a></li><li><a href="#">New arrivals</a></li><li><a href="#">Compare models</a></li><li><a href="#">Accessories</a></li></ul></div></div>
-      <div class="grp"><button type="button" class="op" aria-expanded="false" aria-controls="d2">Learn</button>
-        <div class="panel drop" id="d2"><ul><li><a href="#">Guides</a></li><li><a href="#">Tutorials</a></li><li><a href="#">Webinars</a></li><li><a href="#">Community</a></li></ul></div></div>
-      <div class="grp"><button type="button" class="op" aria-expanded="false" aria-controls="d3">Support</button>
-        <div class="panel drop" id="d3"><ul><li><a href="#">Help center</a></li><li><a href="#">Contact us</a></li><li><a href="#">Service status</a></li><li><a href="#">Downloads</a></li></ul></div></div>
+    <span class="mark"><i aria-hidden="true"></i>你的标志</span>
+    <nav class="top" aria-label="栏目">
+      <div class="grp"><button type="button" class="op" aria-expanded="false" aria-controls="d1">产品</button>
+        <div class="panel drop" id="d1"><ul><li><a href="#">全部浏览</a></li><li><a href="#">新品</a></li><li><a href="#">型号对比</a></li><li><a href="#">配件</a></li></ul></div></div>
+      <div class="grp"><button type="button" class="op" aria-expanded="false" aria-controls="d2">学习</button>
+        <div class="panel drop" id="d2"><ul><li><a href="#">指南</a></li><li><a href="#">教程</a></li><li><a href="#">线上讲座</a></li><li><a href="#">社区</a></li></ul></div></div>
+      <div class="grp"><button type="button" class="op" aria-expanded="false" aria-controls="d3">支持</button>
+        <div class="panel drop" id="d3"><ul><li><a href="#">帮助中心</a></li><li><a href="#">联系我们</a></li><li><a href="#">服务状态</a></li><li><a href="#">下载</a></li></ul></div></div>
     </nav>
-    <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+    <button type="button" class="burger" id="burger" aria-label="菜单" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
   </header>
-  <nav class="panel" id="menu" aria-label="Menu"><ul><li><a href="#">Products</a></li><li><a href="#">Learn</a></li><li><a href="#">Support</a></li><li><a href="#">Stories</a></li><li><a href="#">Contact</a></li></ul></nav>
+  <nav class="panel" id="menu" aria-label="菜单"><ul><li><a href="#">产品</a></li><li><a href="#">学习</a></li><li><a href="#">支持</a></li><li><a href="#">故事</a></li><li><a href="#">联系我们</a></li></ul></nav>
 </div>
 <script>
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];

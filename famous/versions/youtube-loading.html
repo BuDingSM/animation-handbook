@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Our version: Gray shapes while it loads</title>
+<title>我们的版本：加载时的灰色形状</title>
 <style>
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -66,8 +66,8 @@ body{color:#f1f2f6;font:400 13px/1.3 'Schibsted Grotesk',system-ui,-apple-system
 </head>
 <body>
 <main>
-  <ul class="grid" id="grid" role="list" aria-label="Videos" aria-busy="true"></ul>
-  <p class="sr" id="st" role="status">Loading videos</p>
+  <ul class="grid" id="grid" role="list" aria-label="视频列表：先显示灰色占位形状，内容随后出现" aria-busy="true"></ul>
+  <p class="sr" id="st" role="status">正在加载视频，请稍候</p>
 </main>
 <script>
 const root = document.documentElement, grid = document.getElementById('grid'), status = document.getElementById('st');
@@ -75,10 +75,10 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let rm = reduce.matches, timer = 0, started = false;
 const P = n => typeof n === 'number' ? `var(--c${n})` : n;
 // title, channel, picture, and the two colors of its sky
-const CARDS = [['A walk by the river', 'Daybreak Walks', 0, 1, 6], ['Bread from scratch', 'Maple Kitchen', 1, 4, 5], ['Stars over the hills', 'Blue Hour', 2, 3, '#2b2a72'],
-  ['A small garden', 'Garden Hours', 5, 2, 6], ['How bridges work', 'Pebble Lab', 4, 5, 3], ['Calm focus music', 'Paper Moon', 3, 6, 1], ['Fixing a bicycle', 'Workshop 12', 6, 7, 4],
-  ['Sketching shapes', 'Studio North', 7, 1, 3], ['A quiet morning', 'Early Trains', 0, 3, 5], ['Rice, three ways', 'Maple Kitchen', 1, 7, 4], ['A calm sea day', 'Sea Notes', 3, 1, 6],
-  ['Learning to knit', 'Wool Hours', 5, 5, 7]];
+const CARDS = [['沿河散步', '破晓漫步', 0, 1, 6], ['从零开始做面包', '枫叶厨房', 1, 4, 5], ['山丘上的星星', '蓝色时刻', 2, 3, '#2b2a72'],
+  ['一个小花园', '花园时光', 5, 2, 6], ['桥是怎么工作的', '小石实验室', 4, 5, 3], ['平静专注的音乐', '纸月亮', 3, 6, 1], ['修自行车', '12 号工坊', 6, 7, 4],
+  ['画形状速写', '北方工作室', 7, 1, 3], ['一个安静的早晨', '清晨列车', 0, 3, 5], ['米饭的三种做法', '枫叶厨房', 1, 7, 4], ['平静的一天海边', '海边笔记', 3, 1, 6],
+  ['学织毛衣', '毛线时光', 5, 5, 7]];
 grid.innerHTML = CARDS.map(([t, ch, s, a, b], i) => `<li class="card" style="--i:${i};--a:${P(a)};--b:${P(b)}"><div class="pic"><i class="art s${s}"></i></div><div class="meta"><span class="av" aria-hidden="true"><b>${ch[0]}</b></span><div class="tx"><p class="t"><span>${t}</span></p><p class="c"><span>${ch}</span></p></div></div></li>`).join('');
 const cards = [...grid.children];
 // Only as many cards as fit whole: try every grid of up to 4 columns, keep the ones whose pictures stay close to 16 to 9, take the one with the most cards
@@ -103,10 +103,10 @@ function layout() {
 // The shapes come back at once (no fade), then the wait for the content starts again.
 function loading() {
   root.classList.add('snap'); root.classList.remove('ready'); void root.offsetWidth; root.classList.remove('snap');
-  grid.setAttribute('aria-busy', 'true'); status.textContent = 'Loading videos';
+  grid.setAttribute('aria-busy', 'true'); status.textContent = '正在加载视频';
 }
 function arrived() {
-  root.classList.add('ready'); grid.setAttribute('aria-busy', 'false'); status.textContent = 'Videos loaded';
+  root.classList.add('ready'); grid.setAttribute('aria-busy', 'false'); status.textContent = '视频已加载';
 }
 function wait(ms) { started = true; clearTimeout(timer); timer = setTimeout(arrived, ms); }
 // The shapes are on screen from the first paint; the content arrives a moment after the page and its font are ready (a shorter wait on Replay).

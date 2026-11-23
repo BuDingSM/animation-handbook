@@ -203,7 +203,7 @@
 
 ## 知名效果
 
-- [知名效果](https://matinmonshizadeh.github.io/animation-handbook/famous/): Effects people admire on well-known websites, the handbook animations that make something similar, and a prompt to build your own.
+- [知名效果](https://matinmonshizadeh.github.io/animation-handbook/famous/): 人们在知名网站上喜欢的效果、做出类似效果的手册动画，以及帮你自己动手做的提示词。
 
 ## 可选
 

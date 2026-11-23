@@ -483,8 +483,9 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 根 README.md —— 已翻译并提交（0984cd4）：正文 + 完整目录（176 条由 CATS 脚本重新生成；注意 `cat.folder` 无尾斜杠，拼接须加 `/`）；`tools/update-sitemap.mjs` 的 llms.txt 硬编码文案已翻中文并重新生成（llms.txt 176 页、sitemap.xml 178 URL）
 - [x] llms.txt / sitemap.xml 重新生成 —— 已完成（0984cd4）；**注意**：famous 页 meta 描述已改中文后 llms.txt 的知名效果行会变旧，famous 全部做完后须再跑一次 `node tools/update-sitemap.mjs`
 - [x] famous/ 首页 —— 已翻译并提交（4958350）：11 个条目中文标题、tile 一行描述、what、know 三行、提示词（中文提示词，以“给”开头）、卡片名/简介（取自 CATS）、标签；`tools/make-famous.mjs` 已重跑（23 卡片、22 预览）；`tests/famous.test.js` 与 `tools/check-pages.mjs` 的 famous 断言同步为中文；`tests/famous.test.js` 除 11 个版本页标题检查外全过
-- [ ] famous/ 11 个版本页（famous/versions/*.html）—— 子代理翻译中（标题 + 演示文案；约束见下方“famous 版本页”）
-- [ ] 测试全过 + 页面检查
+- [x] famous/ 11 个版本页（famous/versions/*.html）—— 已翻译并提交（子代理 9445ad4c，协调人校验）：标题 `我们的版本：<中文标题>` 与 famous 首页 h2 逐字一致；演示文案翻中文（菜单、歌单、文章、步骤计数 第 N 步，共 4 步、按钮、aria-label）；JS 生成文案两侧同步翻译（spotify `data-t` 与可见名、`播放<名>` aria-label；wikipedia `CARDS` 数组与 `已打开链接：`；youtube `CARDS` 标题/频道与 `正在加载视频 / 视频已加载`；pudding `SAY` 与分组标签）；`data-fx-touch="drag"` 仅 landonorris-reveal 有；noindex 保留；可见文案均 > 40 字、无站点名与 SITE_PHRASES（协调人独立重扫确认；唯一英文词是 wikipedia aria-label 里的按键名 `Esc`，按键名按规则保留英文）；youtube-loading 因 JS 建网格、静态文案不足 40 字，测试曾失败一次，子代理把网格 aria-label 与初始状态文案加长后通过
+- [x] 测试全过 —— `node --test "tests/*.test.js"` 2371/2371 通过；`node tools/update-sitemap.mjs` 已重跑（llms.txt 知名效果行改为中文描述；sitemap.xml 无变化）
+- [ ] 页面检查（Chrome 在本机无法启动，见下）
 
 ## famous 翻译（2026-11-23，协调人；版本页子代理进行中）
 
