@@ -479,11 +479,30 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 05 文字与排版（19）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [x] 06 3D 与高级效果（28）—— 翻译完成（演示页 + README 负责人均已报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
 - [x] 07 氛围与背景（26）—— 翻译完成（负责人已报告，协调人校验 0 问题），术语表已汇总在本文件，待协调人写入 CATS
-- [ ] 根 index.html（CATS + 搜索 placeholder + Popular 搜索词 + 分组 chips 名称）
-- [ ] 根 README.md
-- [ ] llms.txt / sitemap.xml 重新生成
-- [ ] famous/（首页 + 11 个版本页）
+- [x] 根 index.html（CATS + 搜索 placeholder + Popular 搜索词 + 分组 chips 名称）—— 已翻译并提交（2a09a3e）：CATS 176 条中文名/简介 + `key` 字段（英文 slug，解 `?cat=` 冲突）；搜索分词已 CJK 化；`tests/pages.test.js`、`tests/finder.test.js` 的搜索期望改中文并实测
+- [x] 根 README.md —— 已翻译并提交（0984cd4）：正文 + 完整目录（176 条由 CATS 脚本重新生成；注意 `cat.folder` 无尾斜杠，拼接须加 `/`）；`tools/update-sitemap.mjs` 的 llms.txt 硬编码文案已翻中文并重新生成（llms.txt 176 页、sitemap.xml 178 URL）
+- [x] llms.txt / sitemap.xml 重新生成 —— 已完成（0984cd4）；**注意**：famous 页 meta 描述已改中文后 llms.txt 的知名效果行会变旧，famous 全部做完后须再跑一次 `node tools/update-sitemap.mjs`
+- [x] famous/ 首页 —— 已翻译并提交（4958350）：11 个条目中文标题、tile 一行描述、what、know 三行、提示词（中文提示词，以“给”开头）、卡片名/简介（取自 CATS）、标签；`tools/make-famous.mjs` 已重跑（23 卡片、22 预览）；`tests/famous.test.js` 与 `tools/check-pages.mjs` 的 famous 断言同步为中文；`tests/famous.test.js` 除 11 个版本页标题检查外全过
+- [ ] famous/ 11 个版本页（famous/versions/*.html）—— 子代理翻译中（标题 + 演示文案；约束见下方“famous 版本页”）
 - [ ] 测试全过 + 页面检查
+
+## famous 翻译（2026-11-23，协调人；版本页子代理进行中）
+
+- famous/index.html：标题 `知名效果 — 动画手册`；lede/法律行/hero pill（`11 个来自知名网站的效果`）/导航/页脚/弹窗按钮（`上一个效果`/`下一个效果`/`关闭`，均为 aria-label）/dnote 全部翻成中文；11 个条目：h2 中文标题、tile 一行描述（25–27 字，以 。 结尾）、what、know 三行（开始方式/在手机上/减弱动态效果）、提示词（中文，以“给”开头，`[部分]` 包在 `<mark>` 里）、卡片名/简介取自 CATS（脚本按 slug 查表替换）、卡片标签（2–6 字短标签）。
+- 11 个中文标题：扭动的光带 / 随滚动拆开的头显 / 指针下的液态揭示 / 由模糊变清晰的标题 / 一个接一个落下的菜单 / 链接预览 / 扫过标题的色彩 / 升起来的播放按钮 / 加载时的灰色形状 / 读着读着就变的图表 / 读文章时藏起来的顶栏。
+- Seen on 行格式：`见于 <a>host</a>，<time>2026</time>&nbsp;年`（年份与“年”之间不换行空格；原 `in&nbsp;` 结构已无对应物）。CSS 里 `.fx-seen` 的注释已按新格式改写。
+- 复制按钮：静态 aria-label `复制「标题」的提示词`；`copyState` 三种 aria-label（`已复制「标题」的提示词` / `按 ⌘C 复制：「标题」的提示词已选定` / `复制「标题」的提示词`）；播放器按钮 暂停/播放/重播/演示一下/回到顶部；提示（fx-phint）按模式翻成中文（滚动提示原文测试固定为 `按下面的提示词做的。在框里滚动，或者点「播放」。`）。
+- 测试计数改为 CJK 感知：`words()` = 英文词数 + 中文字符数；what 50–120（实测 63–102）、提示词 140–220（实测 158–199）、know 行 2–35（实测 8–27）、卡片标签 1–6 字（实测 2–6）、tile 行 25–90 字（实测 25–27，注意：手工数字数易少 1–2 字，须以脚本实测为准，如 spotify 的 tile 行初版 24 字）。
+- `stems()` 改为英文 5 字母词干 + 中文双字（bigram）；COMMON_STEMS 实测 12 个，全来自减弱动态效果句（如果/访客/开启/了减/减弱/弱动/动态/态效/效果等）；know 行与各自提示词共享非公共词干最少 2 个（实测最低 2 个：apple-scroll 与 landonorris 的第一行），改词时须重测。
+- 提示词规则：以“给”开头；含减弱动态效果句；hover/press 条目须含 触摸/轻点/手指 词；不得出现站点名与 SITE_PHRASES；landonorris 的提示词须在同一句里同时出现 手指 与 拖动（`data-fx-touch="drag"` 的测试要求）。
+- 卡片 chips：`由 N 个动画组成`（测试模板是 `` `由 ${animations(n)}组成` ``，注意 `组成` 前无空格，动画数词后直接接 组成；英文原模板无此问题）。
+- `tools/make-famous.mjs` 已重跑（23 卡片、22 预览写入）；`tools/check-pages.mjs` 的 famous 断言已同步（暂停/播放、复制提示词/已复制/按 Ctrl+C 复制、下一个效果/上一个效果、toast 中文文案）。
+- famous 页 CSS 注释保持英文（开发用描述，不可见）；只有 `.fx-seen` 的换行注释按新格式改写。JSON-LD：famous 页没有 JSON-LD 块。
+- 故意保留英文：`data-fx-site` 属性值（Stripe 等站点名，测试用它派生 siteWords）、seen 链接的 host 文本（stripe.com 等地址本身）、`.github/ISSUE_TEMPLATE/famous_effect.yml`（GitHub 侧表单，测试固定英文）。
+
+### famous 版本页（子代理进行中）
+
+- 11 个文件 `famous/versions/*.html`：`<title>` 改为 `我们的版本：<中文标题>`（标题同上），演示文案翻中文；约束：noindex 保留；无外部引用（仅 `../../assets/fonts/`、`data:`、`#`）；脚本保留 matchMedia 减弱动态检查 + `@media (prefers-reduced-motion: reduce)` 规则 + 只信任 parent 的 message 监听；`FRAME = 1000/60`、`Math.min(ts - lastT, 50)`、`dt / FRAME` 模式不动；滚动版保留 `overscroll-behavior: contain`，非滚动版不得有；`data-fx-touch="drag"` 仅 landonorris-reveal 有；可见文案 > 40 字且不得含站点名与 SITE_PHRASES；spotify-cards 的 `data-t` 属性与可见名、aria-label 须同步翻译。
 
 ## 首页翻译暂缓项（CATS 汇总时一起做）
 
