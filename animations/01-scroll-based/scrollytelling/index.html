@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scrollytelling — 动画手册</title>
-  <meta name="description" content="A picture beside the story changes as you read down. Best for data stories.">
+  <title>滚动叙事 — 动画手册</title>
+  <meta name="description" content="旁边的图片随你往下读而变化。最适合数据故事。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrollytelling/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Scrollytelling — 动画手册">
-  <meta property="og:description" content="A picture beside the story changes as you read down. Best for data stories.">
+  <meta property="og:title" content="滚动叙事 — 动画手册">
+  <meta property="og:description" content="旁边的图片随你往下读而变化。最适合数据故事。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrollytelling/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Scrollytelling — 动画手册">
-  <meta name="twitter:description" content="A picture beside the story changes as you read down. Best for data stories.">
+  <meta name="twitter:title" content="滚动叙事 — 动画手册">
+  <meta name="twitter:description" content="旁边的图片随你往下读而变化。最适合数据故事。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Scrollytelling", "name": "Scrollytelling", "description": "A picture beside the story changes as you read down. Best for data stories.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrollytelling/", "inLanguage": "zh-CN", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Scrollytelling"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滚动叙事", "name": "滚动叙事", "description": "旁边的图片随你往下读而变化。最适合数据故事。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrollytelling/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 滚动叙事"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-border:rgba(255,255,255,.09);--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -122,38 +122,38 @@
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../snap-scrolling/" rel="prev" aria-label="上一个：Snap Scrolling"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Snap Scrolling</span></a><a href="../reveal-on-scroll/" rel="next" aria-label="下一个：Reveal on Scroll"><span><span class="hb-dir">下一个：</span>Reveal on Scroll</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../snap-scrolling/" rel="prev" aria-label="上一个：滚动吸附"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滚动吸附</span></a><a href="../reveal-on-scroll/" rel="next" aria-label="下一个：滚动显现"><span><span class="hb-dir">下一个：</span>滚动显现</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.11 · Scroll-Based</p>
-    <h1>Scrollytelling</h1>
-    <p class="hb-lede">A picture beside the story changes as you read down. Best for data stories.</p>
+    <p class="hb-cat">01.11 · 滚动驱动</p>
+    <h1>滚动叙事</h1>
+    <p class="hb-lede">旁边的图片随你往下读而变化。最适合数据故事。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">滚动试试</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
       <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="Six chapters about the ocean's depths">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="六章关于海洋深度的内容">
       <div class="vis">
         <i class="cm-div" aria-hidden="true"></i>
         <div class="pic cp" aria-hidden="true" inert>
-          <span class="cap pic-n" data-hb-caption><span>Jumps each</span> <span>chapter</span></span>
+          <span class="cap pic-n" data-hb-caption><span>每章</span> <span>跳一下</span></span>
           <div class="cp-ph"><div class="cp-bg"></div><div class="cp-sh"></div></div>
-          <div><div class="cp-dn">0</div><div class="cp-dl">meters depth</div></div>
+          <div><div class="cp-dn">0</div><div class="cp-dl">米深</div></div>
         </div>
         <div class="pic">
-          <span class="cap pic-n" data-hb-caption aria-hidden="true"><span>Blends</span> <span>smoothly</span></span>
+          <span class="cap pic-n" data-hb-caption aria-hidden="true"><span>平滑</span> <span>混合</span></span>
           <div id="porthole" aria-hidden="true"><div id="ph-bg"></div><div id="ph-shimmer"></div></div>
-          <div><div id="depth-num" role="img" aria-label="0 meters deep">0</div><div id="depth-lbl" aria-hidden="true">meters depth</div>
+          <div><div id="depth-num" role="img" aria-label="0 米深">0</div><div id="depth-lbl" aria-hidden="true">米深</div>
             <div class="bl" aria-hidden="true"><div class="bl-trk"><i class="bl-dot"></i></div><div class="bl-lab"><span class="cap bl-a" data-hb-caption></span><span class="cap bl-b" data-hb-caption></span></div></div></div>
         </div>
       </div>
@@ -164,25 +164,25 @@
       <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each chapter's bar fills as the reading line passes through it, and the picture blends toward the next chapter's depth and color by that share. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>Jumps each chapter changes the picture only when a new chapter crosses the reading line; Blends smoothly moves it a little with every bit you scroll. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，每章的条随阅读线穿过它而填满，图片按这个比例向下一章的深度和颜色混合。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>每章跳一下只在新章节越过阅读线时改变图片；平滑混合让你每滚一点它就动一点。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a scrollytelling layout to [your story and the picture that goes with it]. Put the story in a column of chapters that scrolls, and keep the picture in view beside it. Work out which chapter has passed a reading line about 40% down the view and how far it is toward the next, as a fraction, and blend every value in the picture between the two chapters with it, such as colors and a counting number, so the picture changes smoothly as the visitor reads. On phones, pin a short strip of the picture above the text. If the visitor has reduced motion turned on, change the picture without fading.</p>
+      <p class="hb-prompt">给[你的故事和与之搭配的图片]加上滚动叙事布局。把故事放进一列滚动的章节里，图片固定在旁边显示。算出哪一章越过了视野约 40% 处的阅读线、以及它向下一章走了多远（用分数表示），再按这个比例把图片里的每个值在两章之间混合，比如颜色和一个计数的数字，这样访客阅读时图片会平滑变化。在手机上，把图片的一小条固定在文字上方。如果访客开启了减弱动态效果，换图片时不要淡入淡出。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
         <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own story and picture.</p>
+        <p class="hb-hint">把方括号里的词换成你自己的故事和图片。</p>
       </div>
     </div>
     <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
@@ -195,9 +195,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Data stories</li><li>Explainers</li><li>Long reads</li></ul>
+      <ul class="hb-tags hb-good"><li>数据故事</li><li>讲解</li><li>长文</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Short pages</li><li>Quick reference</li></ul>
+      <ul class="hb-tags hb-avoid"><li>短页面</li><li>快速参考</li></ul>
     </div>
   </section>
 
@@ -211,9 +211,9 @@
   // The switch above the box: the page draws the mode at once, from the same numbers the scroll uses
   let mode='normal',inCi=-1,cpCi=-1,blW=0;
   const LABELS={
-    normal:"Six chapters about the ocean's depths",
-    inside:"Six chapters about the ocean's depths, with the reading line and how far the picture has blended toward the next chapter",
-    compare:'The ocean picture twice beside one story: jumping at each chapter, and blending smoothly'
+    normal:'六章关于海洋深度的内容',
+    inside:'六章关于海洋深度的内容，画出阅读线和图片向下一章混合了多少',
+    compare:'海洋图片在同一个故事旁边出现两次：每章跳一下的，以及平滑混合的'
   };
   document.addEventListener('hb:mode',e=>{
     mode=e.detail.mode;
@@ -223,24 +223,24 @@
   });
 
   const CHS=[
-    {depth:0,    head:'The Surface',       eye:'01 · 0 m',         bg:'#1a4a8c',ac:'#40d8ff',
-     body:'Sunlight refracts through wave patterns, scattering blue and gold. This threshold separates two entirely different worlds.',
-     fact:'Light penetrates here at full intensity — photosynthesis sustains nearly all ocean life above this line.'},
-    {depth:200,  head:'The Sunlit Zone',    eye:'02 · 0–200 m',     bg:'#0d2e5c',ac:'#00aadd',
-     body:'The euphotic zone receives enough light for photosynthesis. Plankton, sardines, and sea turtles move through filtered, shifting blue.',
-     fact:'95% of all commercial fish species live in this zone. Below this depth, no plant can survive.'},
-    {depth:1000, head:'The Twilight Zone',  eye:'03 · 200–1000 m',  bg:'#050e20',ac:'#006688',
-     body:'Bioluminescent flashes replace sunlight. Creatures have evolved enormous eyes. Pressure climbs to 100 atmospheres.',
-     fact:'The mesopelagic zone holds more fish biomass than all surface fisheries combined — almost entirely uncounted.'},
-    {depth:4000, head:'The Midnight Zone',  eye:'04 · 1000–4000 m', bg:'#020810',ac:'#003d55',
-     body:'Total darkness. 2–4°C. Marine snow drifts down from the sunlit world above — the only food source for creatures that have never seen light.',
-     fact:'This zone covers more Earth surface area than any other habitat, and remains largely unexplored.'},
-    {depth:6000, head:'The Abyssal Plain',  eye:'05 · 4000–6000 m', bg:'#010508',ac:'#001f30',
-     body:'Sediment plains stretch thousands of kilometers. Pressure exceeds 600 atmospheres. Sea cucumbers and snailfish move through crushing cold.',
-     fact:'Manganese nodules blanket the abyss — each the size of a potato, formed over millions of years.'},
-    {depth:10935,head:'The Hadal Zone',     eye:'06 · 6000–11000 m',bg:'#010204',ac:'#000e18',
-     body:'Challenger Deep. Three vessels have ever visited. More humans have walked on the Moon. The snailfish survives here — the deepest vertebrate on Earth.',
-     fact:'1,100 atmospheres of pressure. Equivalent to 50 jumbo jets stacked on your thumbnail.'},
+    {depth:0,    head:'海面',       eye:'01 · 0 米',         bg:'#1a4a8c',ac:'#40d8ff',
+     body:'阳光透过波纹折射，散开蓝色和金色。这条界线分隔着两个完全不同的世界。',
+     fact:'光线以全部强度穿透到这里——光合作用维持着这条线以上几乎所有的海洋生命。'},
+    {depth:200,  head:'阳光区',    eye:'02 · 0–200 米',     bg:'#0d2e5c',ac:'#00aadd',
+     body:'透光区接收到足够光合作用的光。浮游生物、沙丁鱼和海龟在经过过滤、不断变化的蓝色中游动。',
+     fact:'95% 的商业鱼类生活在这个区域。再往下，没有植物能够生存。'},
+    {depth:1000, head:'暮光区',  eye:'03 · 200–1000 米',  bg:'#050e20',ac:'#006688',
+     body:'生物发光取代了阳光。生物进化出了巨大的眼睛。压力攀升到 100 个大气压。',
+     fact:'中层带的鱼类生物量比所有表层渔业加起来还多——几乎完全没有统计过。'},
+    {depth:4000, head:'午夜区',  eye:'04 · 1000–4000 米', bg:'#020810',ac:'#003d55',
+     body:'一片漆黑。2–4°C。海洋雪从上方阳光普照的世界飘落下来——这是从未见过光的生物唯一的食物来源。',
+     fact:'这个区域覆盖的地球表面积比任何其他栖息地都大，而且大部分仍未被探索。'},
+    {depth:6000, head:'深渊平原',  eye:'05 · 4000–6000 米', bg:'#010508',ac:'#001f30',
+     body:'沉积平原绵延数千公里。压力超过 600 个大气压。海参和狮子鱼在压碎一切的寒冷中移动。',
+     fact:'锰结核覆盖着深渊——每个都有土豆大小，是经过数百万年形成的。'},
+    {depth:10935,head:'超深渊带',     eye:'06 · 6000–11000 米',bg:'#010204',ac:'#000e18',
+     body:'挑战者深渊。只有三艘潜水器到访过。走上月球的人比这还多。狮子鱼在这里生存——地球上最深的脊椎动物。',
+     fact:'1100 个大气压。相当于 50 架大型喷气式飞机叠在你的指甲盖上。'},
   ];
   const stage=document.getElementById('stage'),chs=document.getElementById('chapters');
   const phBg=document.getElementById('ph-bg'),porthole=document.getElementById('porthole');
@@ -259,7 +259,7 @@
   const clamp=(v,a,b)=>Math.min(Math.max(v,a),b),lerp=(a,b,t)=>a+(b-a)*t;
 
   // The three deepest colours are nearly invisible on the dark stage, so a label uses its chapter colour mixed half and half with the text colour
-  chs.innerHTML='<div class="fx" aria-hidden="true"><i class="fx-line"></i><span class="cap fx-cap" data-hb-caption>Reading line</span></div>';
+  chs.innerHTML='<div class="fx" aria-hidden="true"><i class="fx-line"></i><span class="cap fx-cap" data-hb-caption>阅读线</span></div>';
   const els=[],bars=[];
   CHS.forEach((c,i)=>{
     const d=document.createElement('div');d.className=i?'ch':'ch ch0';
@@ -283,7 +283,7 @@
     const c=CHS[ci],cn=CHS[Math.min(ci+1,N-1)];
     const col=lerpCol(c.ac,cn.ac,cf);
     depNum.textContent=Math.round(lerp(c.depth,cn.depth,cf)).toLocaleString();
-    depNum.setAttribute('aria-label',depNum.textContent+(depNum.textContent==='1'?' meter deep':' meters deep'));
+    depNum.setAttribute('aria-label',depNum.textContent+' 米深');
     depNum.style.color=lerpCol(col,'#f4f4f2',0.5);
     phBg.style.background=`radial-gradient(circle at 50% 40%,${lerpCol(c.bg,cn.bg,cf)},#000 80%)`;
     porthole.style.borderColor=col;
@@ -302,8 +302,8 @@
     if(ci!==inCi){
       inCi=ci;
       blTrk.style.background=`linear-gradient(90deg,${c.ac},${cn.ac})`;
-      blA.textContent=c.depth.toLocaleString()+' m';
-      blB.textContent=cn.depth.toLocaleString()+' m';
+      blA.textContent=c.depth.toLocaleString()+' 米';
+      blB.textContent=cn.depth.toLocaleString()+' 米';
       blB.hidden=ci===N-1;
     }
     blDot.style.background=col;

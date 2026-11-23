@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progress Bar — 动画手册</title>
-  <meta name="description" content="A bar fills as you read down the page. Best for long articles.">
+  <title>阅读进度条 — 动画手册</title>
+  <meta name="description" content="往下读，进度条随之填满。最适合长文章。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/progress-bar/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Progress Bar — 动画手册">
-  <meta property="og:description" content="A bar fills as you read down the page. Best for long articles.">
+  <meta property="og:title" content="阅读进度条 — 动画手册">
+  <meta property="og:description" content="往下读，进度条随之填满。最适合长文章。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/progress-bar/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Progress Bar — 动画手册">
-  <meta name="twitter:description" content="A bar fills as you read down the page. Best for long articles.">
+  <meta name="twitter:title" content="阅读进度条 — 动画手册">
+  <meta name="twitter:description" content="往下读，进度条随之填满。最适合长文章。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Progress Bar", "name": "Progress Bar", "description": "A bar fills as you read down the page. Best for long articles.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/progress-bar/", "inLanguage": "zh-CN", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Progress Bar"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "阅读进度条", "name": "阅读进度条", "description": "往下读，进度条随之填满。最适合长文章。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/progress-bar/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 阅读进度条"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--bar-color:#6ea8ff;--bar-thick:3px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -97,20 +97,20 @@
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../counter-animation/" rel="prev" aria-label="上一个：Counter Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Counter Animation</span></a><a href="../section-wipe/" rel="next" aria-label="下一个：Section Wipe"><span><span class="hb-dir">下一个：</span>Section Wipe</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../counter-animation/" rel="prev" aria-label="上一个：数字滚动计数"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>数字滚动计数</span></a><a href="../section-wipe/" rel="next" aria-label="下一个：区域擦除切换"><span><span class="hb-dir">下一个：</span>区域擦除切换</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.17 · Scroll-Based</p>
-    <h1>Progress Bar</h1>
-    <p class="hb-lede">A bar fills as you read down the page. Best for long articles.</p>
+    <p class="hb-cat">01.17 · 滚动驱动</p>
+    <h1>阅读进度条</h1>
+    <p class="hb-lede">往下读，进度条随之填满。最适合长文章。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">滚动试试</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -125,35 +125,35 @@
         <circle class="circ-fg" id="circ-fg" cx="18" cy="18" r="16"/>
         <text class="circ-text" id="circ-txt" x="18" y="18">0%</text>
       </svg>
-      <div class="scroller" id="scroller" data-hb-scroller tabindex="0" role="region" aria-label="An article with a reading progress indicator">
+      <div class="scroller" id="scroller" data-hb-scroller tabindex="0" role="region" aria-label="一篇带阅读进度指示器的文章">
         <div class="article">
-          <h3 class="art-title">How a reading progress bar works</h3>
-          <p class="art-byline">动画手册 · Reference</p>
-          <p class="art-body">A progress bar tells readers how far through an article they are. It fills as they scroll down, and it is full when the last line comes into view.</p>
-          <p class="art-pull">“It answers one question: how much is left?”</p>
-          <p class="art-body">It compares how far the page has scrolled with how far it can scroll in total, so the bar reaches the end exactly when there is nothing left to read.</p>
-          <h4 class="art-h2">Where to put it</h4>
-          <p class="art-body">A bar across the top is the most noticeable choice. It sits in plain sight and tells readers this is a long piece. A thin rail down the side does the same job more quietly, which is why many magazines prefer it.</p>
-          <p class="art-body">A ring in the corner takes the least room. It fills around its edge like a clock face and can show the percentage in the middle.</p>
-          <h4 class="art-h2">How thick to make it</h4>
-          <p class="art-body">A hairline bar is almost invisible until you look for it; a thick one is hard to miss. News sites tend to keep it thin, while documentation often makes it bolder, because readers there want to keep track of their place.</p>
-          <h4 class="art-h2">Keeping it smooth</h4>
-          <p class="art-body">Whatever it looks like, the indicator should move with the scroll and never make the page stutter, especially on phones.</p>
+          <h3 class="art-title">阅读进度条是怎么工作的</h3>
+          <p class="art-byline">动画手册 · 参考</p>
+          <p class="art-body">进度条告诉读者他们读到文章的哪个位置了。它随往下滚动而填满，最后一行进入视野时正好填满。</p>
+          <p class="art-pull">“它只回答一个问题：还剩多少？”</p>
+          <p class="art-body">它把页面已经滚动的距离和总共能滚动的距离比较，所以没有内容可读时，进度条正好走到头。</p>
+          <h4 class="art-h2">放在哪里</h4>
+          <p class="art-body">横贯顶部的条是最显眼的选择。它摆在明处，告诉读者这是一篇长文。侧边的一条细轨更安静地做着同样的工作，这也是很多杂志更喜欢它的原因。</p>
+          <p class="art-body">角落里的圆环占的地方最少。它像表盘一样沿边缘填满，中间还能显示百分比。</p>
+          <h4 class="art-h2">做多粗</h4>
+          <p class="art-body">细如发丝的条不仔细看几乎看不见；粗的则很难错过。新闻网站倾向于做细，文档则常常做粗，因为那里的读者想随时知道自己读到哪里了。</p>
+          <h4 class="art-h2">保持平滑</h4>
+          <p class="art-body">不管长什么样，指示器都应该跟着滚动走，绝不能让页面卡顿，尤其是在手机上。</p>
         </div>
       </div>
       <div class="fx" inert aria-hidden="true">
         <div class="fx-in">
           <div class="mwrap">
-            <div class="map"><i class="mstart"></i><i class="mframe"><span class="cap" data-hb-caption>In the box</span></i></div>
+            <div class="map"><i class="mstart"></i><i class="mframe"><span class="cap" data-hb-caption>在盒子里</span></i></div>
             <div class="brk"><i></i></div>
-            <p class="cap cap-map" data-hb-caption>Whole article</p>
-            <p class="cap cap-sc" data-hb-caption>Scrolled</p>
-            <p class="cap cap-far" data-hb-caption>How far it can scroll</p>
+            <p class="cap cap-map" data-hb-caption>整篇文章</p>
+            <p class="cap cap-sc" data-hb-caption>已滚动</p>
+            <p class="cap cap-far" data-hb-caption>总共能滚多远</p>
           </div>
         </div>
         <div class="fx-cmp">
-          <div class="half h1"><p class="cap" data-hb-caption>No indicator</p></div>
-          <div class="half h2"><p class="cap" data-hb-caption>With a bar</p></div>
+          <div class="half h1"><p class="cap" data-hb-caption>没有指示器</p></div>
+          <div class="half h2"><p class="cap" data-hb-caption>有进度条</p></div>
           <i class="split"></i>
         </div>
       </div>
@@ -163,48 +163,48 @@
       <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the strip is the whole article and the frame is the box; the fill is the distance scrolled out of the distance it can scroll. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>No indicator gives no sign of how much is left; With a bar fills as the same text scrolls, full when the last line shows. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，条带是整篇文章，框是盒子；填充是已滚动距离占总共能滚距离的比例。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>没有指示器时看不出还剩多少；有进度条时，同样的文字滚动，进度条随之填满，最后一行出现时正好填满。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="style-lbl">Indicator</p>
+        <p class="hb-setting-name" id="style-lbl">指示器</p>
         <div class="seg" id="style-seg" role="group" aria-labelledby="style-lbl">
-          <button type="button" data-s="top" class="on" aria-pressed="true">Top bar</button>
-          <button type="button" data-s="circ" aria-pressed="false">Ring</button>
-          <button type="button" data-s="rail" aria-pressed="false">Side rail</button>
+          <button type="button" data-s="top" class="on" aria-pressed="true">顶部条</button>
+          <button type="button" data-s="circ" aria-pressed="false">圆环</button>
+          <button type="button" data-s="rail" aria-pressed="false">侧轨</button>
         </div>
-        <p class="hb-hint">The top bar is the loudest; the side rail the quietest.</p>
+        <p class="hb-hint">顶部条最显眼；侧轨最安静。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="thick-lbl">Thickness</p>
+        <p class="hb-setting-name" id="thick-lbl">粗细</p>
         <div class="seg" id="thick-seg" role="group" aria-labelledby="thick-lbl">
-          <button type="button" data-px="2" aria-pressed="false">Thin</button>
-          <button type="button" data-px="3" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="6" aria-pressed="false">Thick</button>
+          <button type="button" data-px="2" aria-pressed="false">细</button>
+          <button type="button" data-px="3" class="on" aria-pressed="true">中</button>
+          <button type="button" data-px="6" aria-pressed="false">粗</button>
         </div>
-        <p class="hb-hint">Thin is barely there; thick is hard to miss.</p>
+        <p class="hb-hint">细的几乎看不见；粗的很难错过。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-c="#6ea8ff" style="background:#6ea8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-c="#6ea8ff" style="background:#6ea8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
           </div>
-          <p class="hb-hint">The color of the bar, the ring or the rail.</p>
+          <p class="hb-hint">条、圆环或侧轨的颜色。</p>
         </div>
       </div>
     </details>
@@ -213,10 +213,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a reading progress indicator to [your article or long page]. Work out how far the reader has scrolled as a share of the total distance they can scroll, and show it as a bar that fills along the top, a ring that fills in a corner, or a thin rail down the side, so it is full exactly when the last line is in view. Keep the indicator outside the scrolling content so it stays in place, and grow it with a transform rather than by changing its width, so scrolling stays smooth. Hide the indicator from screen readers; it only repeats what scrolling shows. It follows the reader's own scrolling, so reduced motion needs no change. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你的文章或长页面]加一个阅读进度指示器。把读者滚动的距离算作总共能滚距离的一个份额，用顶部填充的条、角落里填充的圆环或侧边的一条细轨来显示，最后一行进入视野时正好填满。把指示器放在滚动内容外面，让它保持在原地，用 transform 让它变长，而不是改变宽度，这样滚动保持平滑。把指示器对屏幕阅读器隐藏；它只是重复滚动已经显示的东西。它跟着读者自己的滚动走，所以减弱动态效果时不需要改变。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -236,9 +236,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Long articles</li><li>Documentation</li><li>Tutorials</li><li>Reports</li></ul>
+      <ul class="hb-tags hb-good"><li>长文章</li><li>文档</li><li>教程</li><li>报告</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Short pages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>短页面</li></ul>
     </div>
   </section>
 
@@ -294,11 +294,11 @@
   const brk=fx.querySelector('.brk'),brkFill=brk.firstElementChild,capSc=fx.querySelector('.cap-sc'),capFar=fx.querySelector('.cap-far');
   const halves=[...fx.querySelectorAll('.half')],capName=halves[1].querySelector('.cap');
   const compareNote=document.querySelector('[data-hb-for="compare"]'),NOTE=compareNote.textContent;
-  const NAMES={top:'With a bar',circ:'With a ring',rail:'With a rail'};
+  const NAMES={top:'有进度条',circ:'有圆环',rail:'有侧轨'};
   const LABELS={
-    normal:'An article with a reading progress indicator',
-    inside:'The article with a map of the whole text, the part in the box framed, and how far it has scrolled out of how far it can',
-    compare:'The article twice, one above the other: with no indicator, and with the reading progress indicator'
+    normal:'一篇带阅读进度指示器的文章',
+    inside:'一篇文章，附带全文地图、框住盒子里的部分，以及已滚动距离占总共能滚距离的比例',
+    compare:'同一篇文章上下出现两次：没有指示器的，以及带阅读进度指示器的'
   };
   // Compare's copies are made once: inert, hidden from screen readers and without ids (the article has none)
   const article=scroller.querySelector('.article');

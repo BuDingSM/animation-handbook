@@ -1,21 +1,21 @@
-# Counter Animation
+# 数字滚动计数
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/counter-animation/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/counter-animation/)
 
-## What it is
+## 它是什么
 
-A counter animation counts numbers up from zero to their totals when they scroll into view, so a row of statistics seems to arrive rather than just sit there. Each number keeps its commas, currency sign or unit the whole way up, and usually slows down as it reaches its total, so it settles into place.
+数字滚动计数动画会在数字滚动进入视野时，把它们从零数到总数，让一排统计数据看起来像是到场了，而不只是摆在那里。每个数字在整个上升过程中都保留逗号、货币符号或单位，接近总数时通常会慢下来，稳稳落定。
 
-## When to use it
+## 什么时候用
 
-- Stats and metrics sections where raw numbers need visual emphasis on first impression
-- Annual reports, dashboards, and SaaS landing pages showing key figures
-- Any context where "the number settling into place" communicates arrival rather than a static display
-- Loading sequences where counters fill in as data resolves
+- 需要第一眼就用视觉强调突出原始数字的统计与指标区
+- 展示关键数据的年度报告、仪表盘和 SaaS 落地页
+- 任何“数字落定”能传达“到场”而不是静态展示的场合
+- 数据逐步到位时计数器随之填满的加载过程
 
-## How it works
+## 工作原理
 
-An IntersectionObserver watches the stats container and fires when it crosses a configurable threshold inside the internal scroll viewport:
+IntersectionObserver 监听统计容器，在它越过内部滚动视口里可配置的阈值时触发：
 
 ```js
 const margin = -(100 - threshold); // e.g. threshold 60 → margin -40
@@ -25,9 +25,9 @@ observer = new IntersectionObserver(entries => {
 observer.observe(document.getElementById('stats'));
 ```
 
-`root: stage` is essential — the stage scrolls internally. Without it, the observer defaults to the document viewport and never fires because the stats element is always "visible" at the page level.
+`root: stage` 很关键——舞台是内部滚动的。没有它，观察器默认以文档视口为准，而统计元素在页面层面一直“可见”，所以永远不会触发。
 
-The rAF loop interpolates from 0 to target using elapsed time and an easing function:
+rAF 循环用经过的时间和缓动函数从 0 插值到目标值：
 
 ```js
 function frame(now) {
@@ -39,15 +39,15 @@ function frame(now) {
 requestAnimationFrame(frame);
 ```
 
-Formatting happens on every frame — not just at the end. This ensures commas, currency symbols, and units appear throughout the animation, not suddenly at the final value.
+格式化发生在每一帧——而不只在最后。这样可以保证逗号、货币符号和单位在整个动画过程中都出现，而不是在最终值处突然跳出来。
 
-Every count starts from zero. The observer decides when the numbers may start; each number then starts once the one before it has (plus the cascade gap) and once half of it is inside the box, so a number that is still below the box when the stats container passes the line is seen counting when it scrolls in. The speed, the curve and the cascade are read when a count starts, so a change shows from the next count. With reduced motion turned on, the numbers jump straight to their totals.
+每次计数都从零开始。观察器决定数字何时可以开始；然后每个数字在前一个开始之后（加上级联间隔）并且自身一半进入盒子后才开始，这样即使统计容器越过触发线时下面一行的数字还在盒子外面，滚动进来时也能看到它在计数。速度、曲线和级联都在计数开始时读取，所以改动从下一次计数开始生效。开启减弱动态效果后，数字直接跳到总数。
 
-The revenue number changes format as it grows, from dollars to thousands to millions, so its widest string is never wider than the final "12,847" and always fits its tile on a phone.
+收入数字在变大过程中会换格式，从美元到千美元再到百万美元，所以它最宽的字符串永远不会比最终的“12,847”更宽，在手机上也始终放得进卡片。
 
-A second observer, shrunk by 8px at the bottom, watches for the stats container leaving the box altogether; it stops any count in progress and puts the numbers back to zero, so after Back to top or Play at the end they scroll in at zero again instead of showing the old totals first. Its margin is smaller than any of the lines a count starts at, so the counting observer has always let go first and a count can start again on the way down.
+第二个观察器在底部缩小了 8px，监听统计容器完全离开盒子的时刻；它会停掉正在进行的计数并把数字归零，这样回到顶部或播放到结尾后再滚进来时，数字从零开始，而不是先显示旧的总数。它的边距比任何一条开始计数的线都小，所以计数观察器总是先松手，往下滚时可以重新开始计数。
 
-The four Feel choices use these curves: Even is `linear`, Smooth is `outCubic`, Slow finish is `outExpo` and Springy is `outBack`:
+四种“感觉”选项用这些曲线：均匀是 `linear`，平滑是 `outCubic`，慢收尾是 `outExpo`，有弹性是 `outBack`：
 
 ```js
 const EASE = {
@@ -58,25 +58,25 @@ const EASE = {
 };
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Starts counting | Middle | The line the top of the tiles must pass before the numbers may count: early is a tenth of the way up the box, middle 40% of the way up and late 70%. Each number then waits until half of it is inside the box, so on a short box early and middle start at almost the same place |
-| Speed | Normal | How long each count takes: slow is 2.9 s, normal 1.8 s and fast 1.1 s |
-| Feel | Smooth | Smooth slows to a stop; Slow finish races to near the total, then creeps through the last digits; Springy goes a little past and settles back; Even counts at one steady pace, which feels mechanical |
-| One after another | on | Each number starts 200ms after the one before, so the four count in a cascade |
+| 开始计数 | 中 | 卡片顶部必须越过、数字才能开始计数的线：早是盒子向上十分之一处，中是向上 40% 处，晚是 70% 处。每个数字还要等自身一半进入盒子，所以在矮盒子里早和中几乎从同一个地方开始 |
+| 速度 | 普通 | 每次计数的时间：慢是 2.9 秒，普通 1.8 秒，快 1.1 秒 |
+| 感觉 | 平滑 | 平滑会减速停下；慢收尾先冲到接近总数，再慢慢走完最后几位；有弹性会稍微超过再落回来；均匀以一个恒定速度计数，感觉很机械 |
+| 一个接一个 | 开 | 每个数字比前一个晚 200ms 开始，所以四个数字级联计数 |
 
-## Production notes
+## 生产注意事项
 
-- **`root` must point to the internal scroll container, not the document.** If the stats section lives inside a custom scroll container, `root: null` (the default) observes against the page viewport — the section appears "in view" immediately and the observer never fires on actual scroll. Always pass `root: stage` (or whichever element has `overflow-y: scroll`).
-- **`rootMargin` percentages are relative to the root's bounding box.** With `root: stage`, `-40%` means 40% of the stage height, not the window. This keeps the threshold position consistent regardless of the window size.
-- **Format every frame, not just at the end.** Formatting only on completion causes a jarring jump from raw decimal to formatted string. A counter running 0 → 12,847 should show commas from the first frame it crosses 1,000.
-- **`easeOutBack` overshoots.** The value briefly exceeds the target before settling. For counters this means the display may show a number higher than the target for a frame or two. Use `outCubic` or `outExpo` when the target value must never be exceeded visually.
-- **GSAP equivalent:** `gsap.to(obj, { val: target, duration: 1.8, ease: "power3.out", onUpdate: () => el.textContent = format(obj.val) })`. CountUp.js is a dedicated library for this pattern with locale-aware formatting built in.
+- **`root` 必须指向内部滚动容器，而不是文档。** 如果统计区在自定义滚动容器里，`root: null`（默认值）会以页面视口为准观察——该区域在页面上立即“可见”，观察器在真正滚动时永远不会触发。一定要传 `root: stage`（或任何带 `overflow-y: scroll` 的元素）。
+- **`rootMargin` 的百分比是相对于根元素的边框盒。** 用 `root: stage` 时，`-40%` 指舞台高度的 40%，而不是窗口。这让阈值位置与窗口大小无关，保持一致。
+- **每一帧都要格式化，而不只在最后。** 只在完成时格式化，会导致从原始小数到格式化字符串的突兀跳变。从 0 数到 12,847 的计数器，应该在第一次越过 1,000 时就显示逗号。
+- **`easeOutBack` 会超调。** 数值在落定前会短暂超过目标值。对计数器来说，显示的数字可能有一两帧高于目标值。目标值在视觉上绝不能被超过时，用 `outCubic` 或 `outExpo`。
+- **GSAP 等价写法：** `gsap.to(obj, { val: target, duration: 1.8, ease: "power3.out", onUpdate: () => el.textContent = format(obj.val) })`。CountUp.js 是专门做这种模式的库，内置了本地化格式化。
 
-## See also
+## 另见
 
-- [Reveal on Scroll](../reveal-on-scroll/) — cards appear as they scroll into view
-- [Stagger Reveal](../stagger-reveal/) — items appear one after another as their group scrolls in
-- [Rolling Numbers](../../04-micro-interactions/rolling-numbers/) — each digit rolls to its new value instead of counting up
+- [滚动显现](../reveal-on-scroll/) — 卡片滚动进入视野时出现
+- [交错显现](../stagger-reveal/) — 一组里的元素随滚动依次出现
+- [数字滚动](../../04-micro-interactions/rolling-numbers/) — 每个数字滚动到新值，而不是从零数起

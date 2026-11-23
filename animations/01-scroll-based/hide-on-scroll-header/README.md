@@ -1,21 +1,21 @@
-# Hide-on-Scroll Header
+# 滚动隐藏顶栏
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/hide-on-scroll-header/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/hide-on-scroll-header/)
 
-## What it is
+## 它是什么
 
-A hide-on-scroll header is a top bar that gets out of the way while you read. Scrolling down slides it up out of view, so the content gets the whole screen; scrolling back up brings it back, so the menu is always one small move away. Near the top of the page it always shows.
+滚动隐藏顶栏是阅读时让路的顶栏。往下滚时它向上滑出视野，内容得到整个屏幕；往上滚时它回来，所以菜单总是一小步之遥。靠近页面顶部时它始终显示。
 
-## When to use it
+## 什么时候用
 
-- Mobile sites, where a bar that stays in place takes a large share of a small screen
-- News sites, blogs and long articles, where readers mostly scroll down and only now and then want the menu
-- Shops and catalogs whose bar holds search and the cart, which visitors want back quickly without scrolling all the way up
-- Any sticky header that covers too much of the content while people read
+- 移动端网站：固定不动的顶栏会占去小屏幕的一大块
+- 新闻网站、博客和长文章：读者大多往下滚，只是偶尔想要菜单
+- 顶栏里放着搜索和购物车的商店和目录，访客想快速找回它们，而不用一路滚回顶部
+- 任何在人们阅读时盖住太多内容的吸顶顶栏
 
-## How it works
+## 工作原理
 
-The bar is placed over the page (in the demo it sits over the scrolling box; on a real page it is fixed or sticky), and the content gets top padding of the bar's height so nothing starts underneath it. The scroll listener does no work of its own: it asks for one update on the next animation frame. The update compares the scroll position with the last one it acted on. A move down hides the bar, a move up shows it, and anywhere near the top it always shows. A move of a few pixels is ignored, and the last position is only updated when a move counts, so a slow scroll still adds up.
+顶栏放在页面上方（演示里它盖在滚动盒子上；在真实页面里它是 fixed 或 sticky），内容获得顶栏高度的顶部内边距，这样没有任何东西从它下面开始。滚动监听器自己不做任何工作：它只要求在下一动画帧做一次更新。更新把滚动位置和上一次起作用的位置比较。往下移动藏起顶栏，往上移动显示它，靠近顶部时始终显示。几像素的移动会被忽略，而且只有移动算数时才更新上一次的位置，所以慢速滚动也能累积。
 
 ```js
 function update() {
@@ -33,7 +33,7 @@ scroller.addEventListener('scroll', () => {
 }, { passive: true });
 ```
 
-`setAway()` only toggles a class. The stylesheet moves the bar with a transform, so the page below never reflows; the shrinking version keeps a slim strip of the bar in view and scales its contents to fit it:
+`setAway()` 只切换一个 class。样式表用 transform 移动顶栏，所以下面的页面永远不会重排；缩小的版本让顶栏留一条细条在视野里，并把内容缩放到能放进去：
 
 ```css
 .topbar { position: absolute; top: 0; left: 0; right: 0; transition: transform var(--dur) var(--ease); }
@@ -47,30 +47,30 @@ scroller.addEventListener('scroll', () => {
 }
 ```
 
-Show me scrolls the box itself, one and a half boxes down and back, with each frame's position worked out from the time since the glide began, so it takes as long on a 120 Hz screen as on a 60 Hz one.
+“演示一下”会滚动盒子本身，往下滚一个半盒子再回来，每帧的位置都根据滑动开始以来的时间算出，所以在 120 Hz 屏幕上和在 60 Hz 屏幕上花的时间一样。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long the slide takes: slow is 700ms, normal 300ms and fast 150ms |
-| Comes back | On any scroll up | On any scroll up brings the bar back at the first move up; Only near the top keeps it away until the page is back within two bar heights of the top |
-| Shrinks instead of hiding | Off | Keeps a slim strip of the bar in view, with smaller contents, instead of sliding it all away |
+| 速度 | 普通 | 滑动花的时间：慢是 700ms，普通 300ms，快 150ms |
+| 回来方式 | 任何往上滚动时 | 任何往上滚动时在第一次往上移动时就把顶栏带回来；只在顶部附近则一直藏着，直到页面回到离顶部两个顶栏高度之内 |
+| 缩小而不是隐藏 | 关 | 留一条细顶栏在视野里，内容更小，而不是把整个顶栏滑走 |
 
-## Production notes
+## 生产注意事项
 
-- **Sticky or fixed**: on a real page use `position: fixed` (with top padding on the page) or `position: sticky`, and set `scroll-padding-top` to the bar's height so links to headings and focused form fields are not hidden under the bar when it is showing.
-- **Keep the threshold**: trackpads and touch screens report many tiny moves and small reversals. Without a few pixels of tolerance the bar flickers in and out.
-- **Clamp the position**: iOS rubber-band scrolling reports negative positions at the top and positions past the end at the bottom. The bounce back from the end would otherwise read as a scroll up and pop the bar back in.
-- **Keyboard users**: show the bar when focus moves into it (`:focus-within`), or a visitor tabbing to the menu ends up on links they cannot see.
-- **Transform only**: never animate `top`, `margin` or `height`. Moving the bar with a transform keeps it on the compositor, and the shrinking version scales the contents instead of changing font sizes.
-- **Reduced motion**: fade the bar out and in, or leave it in place, instead of sliding it.
-- **Do not hide key actions**: a bar that holds the main button of the page (checkout, compose, save) should stay.
-- **Libraries**: Headroom.js does exactly this, with options for the threshold and the offset from the top; in React or Vue a small scroll-direction hook does the same. Newer versions of Chromium add scroll-state container queries that can tell which way a box last scrolled, aimed at exactly this, but CSS alone cannot do it in every browser yet, so the direction check stays in JavaScript here.
+- **吸顶或固定**：在真实页面上用 `position: fixed`（页面加顶部内边距）或 `position: sticky`，并把 `scroll-padding-top` 设为顶栏高度，这样顶栏显示时，指向标题的链接和获得焦点的表单字段就不会被顶栏盖住。
+- **保留阈值**：触控板和触摸屏会报告很多微小的移动和小幅反转。没有几像素的容差，顶栏会闪烁进出。
+- **钳制位置**：iOS 的橡皮筋滚动在顶部报告负位置，在底部报告超出末尾的位置。从末尾弹回来的那一下否则会被读成往上滚动，把顶栏弹回来。
+- **键盘用户**：焦点进入顶栏时显示它（`:focus-within`），否则用 Tab 键走到菜单的访客会落在看不见的链接上。
+- **只用 transform**：绝不要给 `top`、`margin` 或 `height` 做动画。用 transform 移动顶栏可以让它留在合成器上，缩小的版本缩放内容而不是改变字号。
+- **减弱动态**：把顶栏淡出淡入，或者留在原地，而不是滑动它。
+- **不要藏起关键操作**：顶栏里放着页面主按钮（结账、撰写、保存）时，应该留着它。
+- **库**：Headroom.js 正是做这个的，有阈值和离顶部偏移量的选项；在 React 或 Vue 里，一个小的滚动方向 hook 也能做到。较新版本的 Chromium 增加了滚动状态容器查询，可以告诉你盒子上一次往哪个方向滚，正是为这个设计的，但纯 CSS 在每个浏览器里还做不到，所以方向检查留在这里的 JavaScript 里。
 
-## See also
+## 另见
 
-- [Cover Card to Fixed Header](../cover-card-to-fixed-header/) — a tall cover shrinks into a slim header as you scroll
-- [Scrollspy Navigation](../scrollspy-nav/) — a menu highlights the section you are reading
-- [Progress Bar](../progress-bar/) — a bar fills as you read down the page
-- [Smooth (Inertia) Scroll](../smooth-scroll/) — scrolling glides to a stop instead of jumping
+- [封面卡片变固定顶栏](../cover-card-to-fixed-header/) — 高封面滚动时收成细顶栏
+- [滚动侦测导航](../scrollspy-nav/) — 菜单高亮你正在读的章节
+- [阅读进度条](../progress-bar/) — 往下读时进度条填满
+- [平滑（惯性）滚动](../smooth-scroll/) — 滚动滑到停下，而不是一下跳到位

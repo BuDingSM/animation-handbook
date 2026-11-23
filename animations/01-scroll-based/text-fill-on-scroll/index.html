@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Fill on Scroll — 动画手册</title>
-  <meta name="description" content="Words light up one by one as you scroll. Best for key statements.">
+  <title>滚动文字填充 — 动画手册</title>
+  <meta name="description" content="词语随滚动一个接一个亮起来。最适合关键语句。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/text-fill-on-scroll/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Text Fill on Scroll — 动画手册">
-  <meta property="og:description" content="Words light up one by one as you scroll. Best for key statements.">
+  <meta property="og:title" content="滚动文字填充 — 动画手册">
+  <meta property="og:description" content="词语随滚动一个接一个亮起来。最适合关键语句。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/text-fill-on-scroll/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Text Fill on Scroll — 动画手册">
-  <meta name="twitter:description" content="Words light up one by one as you scroll. Best for key statements.">
+  <meta name="twitter:title" content="滚动文字填充 — 动画手册">
+  <meta name="twitter:description" content="词语随滚动一个接一个亮起来。最适合关键语句。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Text Fill on Scroll", "name": "Text Fill on Scroll", "description": "Words light up one by one as you scroll. Best for key statements.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/text-fill-on-scroll/", "inLanguage": "zh-CN", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Text Fill on Scroll"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滚动文字填充", "name": "滚动文字填充", "description": "词语随滚动一个接一个亮起来。最适合关键语句。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/text-fill-on-scroll/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 滚动文字填充"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--dim:#7c7c84}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -83,43 +83,43 @@
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../smooth-scroll/" rel="prev" aria-label="上一个：Smooth (Inertia) Scroll"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Smooth (Inertia) Scroll</span></a><a href="../scroll-velocity-skew/" rel="next" aria-label="下一个：Scroll Velocity Skew"><span><span class="hb-dir">下一个：</span>Scroll Velocity Skew</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../smooth-scroll/" rel="prev" aria-label="上一个：平滑（惯性）滚动"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>平滑（惯性）滚动</span></a><a href="../scroll-velocity-skew/" rel="next" aria-label="下一个：滚动速度倾斜"><span><span class="hb-dir">下一个：</span>滚动速度倾斜</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.22 · Scroll-Based</p>
-    <h1>Text Fill on Scroll</h1>
-    <p class="hb-lede">Words light up one by one as you scroll. Best for key statements.</p>
+    <p class="hb-cat">01.22 · 滚动驱动</p>
+    <h1>滚动文字填充</h1>
+    <p class="hb-lede">词语随滚动一个接一个亮起来。最适合关键语句。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">滚动试试</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
       <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="A paragraph that fills word by word as you scroll">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="一段随滚动逐词填充的文字">
       <div class="track">
         <div class="pinned">
           <p class="fill-text" id="fill-text"></p>
-          <p class="hname hn1" data-hb-caption aria-hidden="true">All lit</p>
-          <p class="hname hn2" data-hb-caption aria-hidden="true">Word by word</p>
+          <p class="hname hn1" data-hb-caption aria-hidden="true">全部点亮</p>
+          <p class="hname hn2" data-hb-caption aria-hidden="true">一个词一个词</p>
           <div class="bar" id="bar" aria-hidden="true">
             <div class="bar-top">
-              <p class="bar-cap bc1" data-hb-caption>One slice of the scroll per word</p>
-              <p class="bar-cap bc2" data-hb-caption>Then all lit, held a moment</p>
+              <p class="bar-cap bc1" data-hb-caption>每个词占滚动的一片</p>
+              <p class="bar-cap bc2" data-hb-caption>然后全部点亮，停留片刻</p>
             </div>
             <div class="rail">
               <div class="slices" id="slices"></div>
               <div class="hold" id="hold"></div>
               <span class="mk" id="mk"></span>
             </div>
-            <div class="bar-under"><p class="bar-cap bc3" id="bc3" data-hb-caption>You are here</p></div>
+            <div class="bar-under"><p class="bar-cap bc3" id="bc3" data-hb-caption>你在这里</p></div>
           </div>
         </div>
       </div>
@@ -129,42 +129,42 @@
       <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each word is a piece, and the bar below is the scroll: each word owns a slice and lights once you pass it. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>All lit shows the whole paragraph at once; Word by word lights it as you scroll, so it is read at your pace. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，每个词是一块，下面的条形就是滚动：每个词占一片，你经过它时它亮起。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>全部点亮一次显示整段；一个词一个词随你滚动点亮，所以按你的节奏阅读。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Highlights the current word</span><input class="hb-switch" type="checkbox" role="switch" id="cursor-tog" checked autocomplete="off"></label>
-        <p class="hb-hint">The next word to fill shows in color, like a cursor.</p>
+        <label class="hb-switch-row"><span>高亮当前词</span><input class="hb-switch" type="checkbox" role="switch" id="cursor-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">下一个要填充的词以颜色显示，像光标一样。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="finish-lbl">Fill finishes</p>
+        <p class="hb-setting-name" id="finish-lbl">填充完成于</p>
         <div class="seg" id="finish-seg" role="group" aria-labelledby="finish-lbl">
-          <button type="button" data-at="0.7" aria-pressed="false">Early</button>
-          <button type="button" data-at="0.9" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-at="1" aria-pressed="false">At the end</button>
+          <button type="button" data-at="0.7" aria-pressed="false">提前</button>
+          <button type="button" data-at="0.9" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-at="1" aria-pressed="false">在结尾</button>
         </div>
-        <p class="hb-hint">Early leaves the whole text lit for a while.</p>
+        <p class="hb-hint">提前完成会让整段文字亮着停留一会儿。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting" id="color-setting">
-          <p class="hb-setting-name" id="color-lbl">Highlight color</p>
+          <p class="hb-setting-name" id="color-lbl">高亮颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-c="#6ea8ff" style="background:#6ea8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-c="#5fd88a" style="background:#5fd88a"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ff9d5c" style="background:#ff9d5c"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-c="#6ea8ff" style="background:#6ea8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-c="#5fd88a" style="background:#5fd88a"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ff9d5c" style="background:#ff9d5c"></button>
           </div>
-          <p class="hb-hint">The color of the word being filled.</p>
+          <p class="hb-hint">正在填充的词的颜色。</p>
         </div>
       </div>
     </details>
@@ -173,10 +173,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a scroll-driven text fill to [the statement or paragraph you want read]. Pin the paragraph in place while the visitor scrolls through a section a few screens tall. Split it into words, show every word in a dim but readable gray, and light the words up one by one in step with the scroll, so how far the reader has scrolled decides how much is lit and scrolling back up un-lights them. When the settings include it, show the next word to fill in a highlight color, like a reading cursor. Keep it real text for screen readers. If the visitor has reduced motion turned on, change each word's color without fading. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想让人读的陈述或段落]加上滚动驱动的文字填充。访客滚动经过几屏高的区域时，把段落固定在原地。把它拆成词，每个词以暗淡但可读的灰色显示，按滚动同步一个接一个点亮，于是读者滚了多远决定亮了多少，往上滚会取消点亮。设置里包含时，把下一个要填充的词以高亮颜色显示，像阅读光标一样。保持它是真正的文字，方便屏幕阅读器。如果访客开启了减弱动态效果，改变每个词的颜色时不要淡入淡出。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -196,9 +196,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Key statements</li><li>Manifestos</li><li>Landing page intros</li></ul>
+      <ul class="hb-tags hb-good"><li>关键语句</li><li>宣言</li><li>落地页开头</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Body text</li><li>Long articles</li></ul>
+      <ul class="hb-tags hb-avoid"><li>正文</li><li>长文章</li></ul>
     </div>
   </section>
 
@@ -216,14 +216,12 @@
   const hold=document.getElementById('hold'),mk=document.getElementById('mk'),bc3=document.getElementById('bc3');
   const LABELS={
     normal:'A paragraph that fills word by word as you scroll',
-    inside:'The paragraph split into words, with a bar of the scroll in which each word owns a slice',
-    compare:'The paragraph twice: all lit at once, and lighting word by word as you scroll'
+    inside:'段落按词拆分，附带一条滚动条，每个词占一片',
+    compare:'段落出现两次：一次全部点亮，以及随滚动一个词一个词点亮'
   };
   let mode='normal';
 
-  const COPY="Scroll is not a play button. It is a position. Every word here watches how far you have read. "+
-    "Words behind that point light up; words ahead wait in the dark. Stop anywhere and the sentence holds still. "+
-    "Scroll back up and it un-reads itself, word by word.";
+  const COPY="滚动 不是 播放 按钮。它 是 一个 位置。这里 的 每个 词 都 在 看 你 读 了 多远。在 那个 点 后面 的 词 会 亮 起来，前面 的 词 在 黑暗 中 等待。在 任何 地方 停下，句子 就 停住。往 上 滚，它 会 一个 词 一个 词 地 把 自己 读 回去。";
 
   // one span per word, built once
   const words=COPY.split(' ').map(w=>{

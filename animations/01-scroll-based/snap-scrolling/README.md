@@ -1,21 +1,21 @@
-# Snap Scrolling
+# 滚动吸附
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/snap-scrolling/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/snap-scrolling/)
 
-## What it is
+## 它是什么
 
-Snap scrolling makes a scrolling area settle on set points instead of stopping anywhere. When you stop scrolling, the browser pulls the view to the nearest section, so each section is shown whole, like turning pages. The browser does the pulling on its own; no script is needed for it.
+滚动吸附让滚动区域停在设定的点上，而不是停在任何地方。停止滚动时，浏览器把视图拉到最近的区域，于是每个区域都完整显示，像翻页一样。拉动由浏览器自己完成，不需要脚本。
 
-## When to use it
+## 什么时候用
 
-- Landing pages where each section is a complete unit of information and partial views are awkward
-- Mobile-first presentations where swipe-based pagination matches native app conventions
-- Slideshows, product galleries, and feature walkthroughs with a defined number of discrete steps
-- Any layout where mid-section scroll positions feel accidental rather than intentional
+- 落地页，其中每个区域都是一块完整的信息单元，局部视图会显得别扭
+- 移动优先的演示，滑动分页符合原生应用的惯例
+- 幻灯片、产品画廊和功能导览，步骤数量明确
+- 任何中途停住的滚动位置感觉像是意外而不是有意的布局
 
-## How it works
+## 工作原理
 
-Three CSS properties implement the entire mechanism:
+三个 CSS 属性实现了整个机制：
 
 ```css
 /* On the scroll container */
@@ -32,37 +32,37 @@ Three CSS properties implement the entire mechanism:
 }
 ```
 
-`mandatory` forces a snap on every scroll-end. `proximity` snaps only when the user is close to a snap point. `none` disables snapping. The Snapping setting switches between the three through a `data-snap` attribute that three CSS rules read. While the Play button scrolls the box, a shared rule turns snapping off on it, and the page's own snapping applies again when it stops.
+`mandatory` 在每次滚动结束时强制吸附。`proximity` 只在用户靠近吸附点时吸附。`none` 禁用吸附。“吸附”设置通过三个 CSS 规则读取的 `data-snap` 属性在三者之间切换。“播放”按钮滚动盒子时，一条共享规则会关掉它的吸附，停下后页面的吸附重新生效。
 
-The dots scroll to their section; leaving out `behavior` lets the box's own `scroll-behavior` decide, so it glides, or jumps under reduced motion:
+圆点滚动到它对应的区域；不写 `behavior` 就让盒子自己的 `scroll-behavior` 决定，于是它滑动，或在减弱动态效果下跳过去：
 
 ```js
 scroller.scrollTo({ top: sectionIndex * scroller.clientHeight });
 ```
 
-Current section is derived from scroll position:
+当前区域由滚动位置推导：
 
 ```js
 const sectionIndex = Math.round(scroller.scrollTop / scroller.clientHeight);
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Snapping | Always | Always settles on a section after every scroll; when close settles only when the box stops near one; off never snaps |
+| 吸附 | 总是 | 每次滚动后都停在一个区域上；靠近时只在盒子停在某个区域附近才停下；关从不吸附 |
 
-## Production notes
+## 生产注意事项
 
-- **CSS is the entire mechanism.** Snap scrolling requires no JavaScript for the snapping itself. JS is only needed for auxiliary UI — pagination indicators, jump buttons, or syncing external state to the current section.
-- **`mandatory` vs. `proximity`.** Use `mandatory` when every section is viewport-height and partial views are never desirable. Use `proximity` when sections have varying heights or when you want snap behavior only on deliberate gestures. `mandatory` with small scroll steps (keyboard arrows) can feel locked and jarring.
-- **Mobile Safari.** iOS Safari has historically had issues with `scroll-snap-type` inside overflow containers. Test on real devices. Workarounds include using `overflow: auto` instead of `scroll`.
-- **No library needed.** Unlike most other entries in this handbook, snap scrolling requires nothing beyond the browser. The feature is native and well-supported across all modern browsers.
-- **Accessibility.** Snap scrolling can frustrate keyboard users who expect continuous scroll. Ensure the `Tab` key navigates between sections, section headings are focusable, and skip-nav links exist.
+- **CSS 就是整个机制。**滚动吸附本身不需要 JavaScript。JS 只用于辅助界面——分页指示器、跳转按钮，或把外部状态同步到当前区域。
+- **`mandatory` 与 `proximity`。**每个区域都是视口高、从不希望出现局部视图时用 `mandatory`。区域高度不一，或只希望在有意的手势下才吸附时用 `proximity`。`mandatory` 配小步滚动（键盘方向键）会感觉卡住、很生硬。
+- **Mobile Safari。**iOS Safari 历史上在溢出容器内使用 `scroll-snap-type` 时有问题。在真机上测试。变通办法包括用 `overflow: auto` 代替 `scroll`。
+- **不需要库。**与本手册大多数其他条目不同，滚动吸附除了浏览器什么都不需要。这个功能是原生的，在所有现代浏览器中都得到良好支持。
+- **无障碍。**滚动吸附可能让期待连续滚动的键盘用户感到困扰。确保 `Tab` 键能在区域之间导航，区域标题可以获得焦点，并且有跳过导航的链接。
 
-## See also
+## 另见
 
-- [Stacking Cards](../stacking-cards/) — cards pile into a deck as you scroll
-- [Section Wipe](../section-wipe/) — each section slides up over the one before
-- [Fly-in Fly-out Contact List](../fly-in-fly-out-contact-list/) — rows fade and slide as they near the edges
-- [3D Carousel](../../06-3d-advanced/carousel-3d/) — cards in a 3D ring that settles on one card at a time
+- [层叠卡片](../stacking-cards/) — 卡片滚动时叠成一摞
+- [区域擦除切换](../section-wipe/) — 每个区域从上一个上面滑过
+- [联系人列表飞入飞出](../fly-in-fly-out-contact-list/) — 行在靠近边缘时淡入淡出、滑入滑出
+- [3D 轮播](../../06-3d-advanced/carousel-3d/) — 卡片排成 3D 圆环，一次停在一张卡片上

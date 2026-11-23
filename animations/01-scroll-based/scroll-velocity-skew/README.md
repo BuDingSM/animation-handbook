@@ -1,21 +1,21 @@
-# Scroll Velocity Skew
+# 滚动速度倾斜
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-velocity-skew/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-velocity-skew/)
 
-## What it is
+## 它是什么
 
-Scroll velocity skew leans content by how fast you scroll, not by where you are. Scroll quickly and the rows tilt in the direction of travel; stop and they spring back straight. It makes scrolling feel physical, as if the content bends under its own momentum.
+滚动速度倾斜按你滚动的速度、而不是位置来倾斜内容。快速滚动，行就朝行进方向倾斜；停下，行就弹回笔直。它让滚动感觉很真实，好像内容在自身动量下弯曲。
 
-## When to use it
+## 什么时候用
 
-- Portfolio and agency sites that want scrolling itself to feel like a physical gesture
-- Image or project grids where a subtle shear adds motion without any choreographed timeline
-- Alongside a smooth-scroll implementation, which already tracks velocity for free
-- Anywhere you want feedback tied to the *energy* of the scroll rather than its location
+- 想让滚动本身感觉像一个物理手势的作品集和代理机构网站
+- 细微的剪切能增加动效、又不需要任何编排时间线的图片或项目网格
+- 搭配平滑滚动实现，它本来就免费跟踪速度
+- 任何想要与滚动的*能量*、而不是位置挂钩的反馈的地方
 
-## How it works
+## 工作原理
 
-Every technique elsewhere in this section maps scroll **position** to animation progress. This one maps scroll **velocity**: the change in `scrollTop` from one frame to the next, counted per sixtieth of a second. The raw delta is noisy and spiky, so it is smoothed with a lerp before being scaled and clamped into a skew angle:
+本节的其他技术都把滚动**位置**映射到动画进度。这一个映射的是滚动**速度**：`scrollTop` 从一帧到下一帧的变化，按每六十分之一秒计数。原始增量又吵又尖，所以先用插值平滑，再缩放并取上下限，变成一个倾斜角度：
 
 ```js
 function tick(now) {
@@ -30,27 +30,27 @@ function tick(now) {
 }
 ```
 
-The smoothing is what makes the effect feel physical. Raw deltas would snap the skew on and off with every wheel notch; the lerp turns them into a value with inertia, so the shear ramps up as you accelerate and eases back down after you stop — a spring-back you get for free, without writing any spring code. The loop only runs while there is motion: when the smoothed velocity falls below a threshold and no new scroll event has arrived, it writes an identity transform and parks itself until the next scroll. Speed is measured per sixtieth of a second (`FRAME` is 1000/60 ms), so a 120Hz screen leans as much as a 60Hz one. Back to top, and Play starting again from the top, move the box in a single frame, and so can a window resize (the browser keeps the list inside its new range); when either button is clicked or the window is resized, the demo takes the box's new position as its starting point, so that jump does not count as speed. A run of scrolling starts the same way, from where the box was before its first move, so even a single notch of the wheel leans the rows.
+平滑是让这个效果感觉真实的关键。原始增量会在每个滚轮刻度上把倾斜一下子打开又关掉；插值把它们变成一个带惯性的值，所以剪切在你加速时逐渐增大，停下后慢慢回落——免费得到回弹，不用写任何弹簧代码。循环只在有运动时运行：平滑后的速度低于阈值、且没有新的滚动事件到来时，它写一个恒等变换，然后停在那里等下一次滚动。速度按每六十分之一秒度量（`FRAME` 是 1000/60 ms），所以 120Hz 的屏幕倾斜得和 60Hz 一样多。回到顶部，以及从顶部重新开始的播放，都让盒子在一帧内移动，窗口调整大小也一样（浏览器会把列表保持在新的范围里）；点任意一个按钮或调整窗口大小时，演示把盒子的新位置当作起点，所以那次跳跃不算速度。一段滚动也是这样开始的，从盒子第一次移动之前的位置算起，所以哪怕滚轮只动一个刻度，行也会倾斜。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Strength | Normal | How far the rows lean for a given scroll speed: subtle is 0.2°, normal 0.35° and strong 0.6° for each pixel scrolled in a sixtieth of a second |
-| Lean | Tilt | Tilt tips each row like a slope, the classic look; Slant leans it sideways like italic text |
-| Spring back | Normal | How quickly the lean follows the scroll speed and fades after you stop: in each sixtieth of a second the lean closes 7% of the gap to the lean the scroll speed calls for when slow, 12% at normal and 20% when quick, so 95% of it is gone about 0.7 s, 0.4 s and 0.2 s after you stop; slow feels heavy, quick feels twitchy |
-| Most it leans | Medium | The largest angle allowed: 6°, 12° or 20°, so a fast flick cannot fold the rows over |
+| 强度 | 普通 | 给定滚动速度下行倾斜多远：每六十分之一秒滚动一像素时，轻微是 0.2°，普通 0.35°，强烈 0.6° |
+| 倾斜 | 倾倒 | 倾倒让每行像斜坡一样倾斜，是经典的样子；斜切让它像斜体文字一样横向倾斜 |
+| 回弹 | 普通 | 倾斜跟随滚动速度、并在你停下后消退的速度有多快：每六十分之一秒，倾斜向滚动速度要求的倾斜靠近：慢时 7%，普通时 12%，快时 20%，所以停下后大约 0.7 秒、0.4 秒和 0.2 秒，95% 就消失了；慢感觉沉重，快感觉紧张 |
+| 最大的倾斜 | 中等 | 允许的最大角度：6°、12° 或 20°，让快速一划也不会把行折过去 |
 
-## Production notes
+## 生产注意事项
 
-- **Velocity vs position mapping is the core distinction.** Position-mapped effects (scrub, parallax, progress bars) are deterministic and reversible: the same scroll offset always produces the same frame, and scrolling back replays it in reverse. Velocity mapping is transient and additive: the same offset can look different depending on how you arrived, and the effect always decays to nothing at rest. Position tells a story; velocity adds feel.
-- Idle the `requestAnimationFrame` loop once velocity settles. A velocity effect spends most of its life at zero, and a loop that runs forever burns battery to write the same transform.
-- Skewing each row individually (with `will-change: transform`) reads as material shearing under momentum; skewing one giant wrapper reads as the whole page tilting, which is usually less convincing and produces larger paint areas.
-- This effect is a genuine vestibular trigger — whole-viewport shearing tied to user input is exactly what `prefers-reduced-motion` exists for. Under `reduce`, hold the skew at 0 permanently while leaving scrolling itself untouched.
-- In production this usually rides on a smooth-scroll library rather than raw `scrollTop` deltas: Locomotive Scroll exposes `speed` on its scroll event, and GSAP's ScrollTrigger provides `self.getVelocity()`, both already smoothed. The mapping from velocity to transform is the same either way.
+- **速度映射与位置映射是核心区别。**位置映射的效果（scrub、视差、进度条）是确定且可逆的：同样的滚动偏移总是产生同样的帧，往回滚就倒放。速度映射是短暂且累加的：同样的偏移看起来可能不一样，取决于你怎么到达的，效果在静止时总会衰减到零。位置讲故事；速度加感觉。
+- 速度稳定后让 `requestAnimationFrame` 循环闲置。速度效果一生中大部分时间都在零，一个永远运行的循环会为了写同一个变换而耗电。
+- 每行各自倾斜（配合 `will-change: transform`）读起来像材料在动量下剪切；倾斜一个巨大的包装器读起来像整个页面在倾斜，通常不那么可信，还会产生更大的绘制区域。
+- 这个效果是真正的前庭触发因素——与用户输入挂钩的整个视口剪切，正是 `prefers-reduced-motion` 存在的意义。在 `reduce` 下，永久把倾斜保持在 0，同时不碰滚动本身。
+- 生产中这通常搭载在平滑滚动库上，而不是原始的 `scrollTop` 增量：Locomotive Scroll 在滚动事件上暴露 `speed`，GSAP 的 ScrollTrigger 提供 `self.getVelocity()`，两者都已经平滑过。从速度到变换的映射都是一样的。
 
-## See also
+## 另见
 
-- [Smooth (Inertia) Scroll](../smooth-scroll/) — scrolling that glides to a stop, often paired with this effect
-- [Scrub Animation](../scrub-animation/) — movement tied to where you are, not how fast you go
-- [Marquee / Ticker](../../05-text-typography/marquee-ticker/) — text that scrolls sideways forever, often sped up by scrolling
+- [平滑（惯性）滚动](../smooth-scroll/) — 滑到停下的滚动，常与这个效果搭配
+- [滚动 scrub 动画](../scrub-animation/) — 与你在哪里、而不是你有多快挂钩的运动
+- [跑马灯/滚动条](../../05-text-typography/marquee-ticker/) — 文字永远横向滚动，滚动常常让它加速

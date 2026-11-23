@@ -1,26 +1,21 @@
-# Reverse-Scrolling Columns
+# 反向滚动列
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reverse-scrolling-columns/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reverse-scrolling-columns/)
 
-## What it is
+## 它是什么
 
-Reverse-scrolling columns put a column that scrolls normally between two
-columns that move the opposite way. The counter-motion makes the layout feel
-deep and lively, the same cue parallax uses, made stronger. Each column holds
-two copies of its cards and wraps around, so the columns never run out.
+反向滚动列把一列正常滚动的列放在两列反向移动的列中间。反向运动让布局显得有深度、有活力，这是视差用到的同一个线索，只是更强了。每列放两份卡片并循环，所以列永远不会跑完。
 
-## When to use it
+## 什么时候用
 
-- Hero layouts where bold visual contrast sets the editorial tone
-- Portfolio or agency showcases that need motion without heavy assets
-- Scroll-driven features where the page scroll remains native and a contained stage drives the effect
-- Anywhere opposing motion is used intentionally to create visual tension
+- 大胆的视觉对比定下编辑基调的主视觉布局
+- 需要动效但不想用重型素材的作品集或代理机构展示
+- 页面滚动保持原生、由一个封闭舞台驱动效果的滚动驱动功能
+- 任何有意用反向运动制造视觉张力的地方
 
-## How it works
+## 工作原理
 
-Each column contains two identical card sets stacked vertically. A single
-`scroll` event listener reads `stage.scrollTop` and feeds it into a
-`requestAnimationFrame` callback that applies `translate3d` to each column:
+每列包含两组相同的卡片，上下叠放。一个 `scroll` 事件监听器读取 `stage.scrollTop`，传给一个 `requestAnimationFrame` 回调，给每列应用 `translate3d`：
 
 ```js
 // Center column — travels up, the direction a normal scroll moves content
@@ -34,39 +29,23 @@ const sideY   = mult >= 0 ? -sideOff : sideOff; // negative = up, positive = dow
 sideInner.style.transform = `translate3d(0, ${sideY}px, 0)`;
 ```
 
-`singleSetH` is the height of one card set (12 cards + gaps), measured from
-the DOM after card generation. Measure it again on `document.fonts.ready` —
-a webfont that swaps in after the first measurement changes card height and
-leaves the loop period a few pixels short, which shows up as a jump at every
-wrap. The modulo keeps the offset in the range `[0, singleSetH)`, producing a
-seamless wrap when the second set aligns exactly with where the first started.
+`singleSetH` 是一组卡片的高度（12 张卡片加间距），在卡片生成后从 DOM 测量。在 `document.fonts.ready` 时再测一次——第一次测量后换入的网络字体会改变卡片高度，让循环周期短了几个像素，每次循环都会跳一下。取模把偏移保持在 `[0, singleSetH)` 范围内，第二组与第一组的起点正好对齐时，就能无缝循环。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Side columns go | Opposite way | Opposite way makes the side columns flow against the scroll; same way moves all three together, so the effect disappears |
-| Side column speed | Same | The side columns' speed compared with the middle one: slower is half, same is equal and faster is one and a half times; above that the motion gets uncomfortable |
+| 两侧列方向 | 反向 | 反向让两侧列逆着滚动流动；同向让三列一起移动，效果就消失了 |
+| 两侧列速度 | 相同 | 两侧列相对于中间列的速度：更慢是一半，相同是相等，更快是一倍半；再快运动就让人不舒服了 |
 
-## Production notes
+## 生产注意事项
 
-- **Infinite loop requires modulo math.** Without wrapping, columns run out
-  of content after one traversal. The two-set structure (one visible, one
-  waiting) ensures there is always content at either end.
-- **Vestibular risk at high speed.** Opposing motion is a known vestibular
-  trigger. In production, keep `|mult|` between 0.3 and 1.0; avoid values
-  above 1.5. Always respect `prefers-reduced-motion` by setting `mult = 0`
-  (side columns freeze) — opposing motion is addressed in WCAG 2.1
-  SC 2.3.3 (Animation from Interactions, Level AAA) as a vestibular hazard.
-- **Library equivalents.** GSAP ScrollTrigger can drive column transforms
-  with `scrub: true` and custom callbacks per column. Locomotive Scroll
-  exposes per-element `data-scroll-speed` attributes that accept negative
-  values for reverse motion. Lenis + a scroll subscriber achieves the same.
-- **Performance.** `translate3d` promotes each column to its own compositor
-  layer. Pair with `will-change: transform` declared in CSS before the first
-  paint. Never animate `top`, `margin-top`, or `height` — those trigger layout.
+- **无限循环需要取模计算。**没有循环，列走完一遍就没内容了。两组的结构（一组可见，一组等待）保证两端始终有内容。
+- **高速有前庭风险。**反向运动是已知的前庭触发因素。生产中把 `|mult|` 保持在 0.3 到 1.0 之间；避免超过 1.5 的值。始终遵循 `prefers-reduced-motion`，把 `mult = 0`（两侧列冻结）——反向运动在 WCAG 2.1 SC 2.3.3（交互动画，AAA 级）中被列为前庭危害。
+- **等效的库。**GSAP ScrollTrigger 可以用 `scrub: true` 和每列自定义回调驱动列变换。Locomotive Scroll 提供每元素的 `data-scroll-speed` 属性，接受负值来做反向运动。Lenis 加一个滚动订阅者也能做到。
+- **性能。**`translate3d` 把每列提升到自己的合成层。配合在首次绘制前于 CSS 中声明的 `will-change: transform` 使用。永远不要给 `top`、`margin-top` 或 `height` 做动画——它们会触发布局。
 
-## See also
+## 另见
 
-- [Parallax Scrolling](../parallax-scrolling/) — layers move at different speeds as you scroll
-- [Parallax Depth-of-Field](../parallax-depth-of-field/) — layers move and blur as the focus shifts
+- [视差滚动](../parallax-scrolling/) — 图层随滚动以不同速度移动
+- [视差景深](../parallax-depth-of-field/) — 图层随焦点移动而移动和模糊

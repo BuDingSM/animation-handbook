@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horizontal Scroll — 动画手册</title>
-  <meta name="description" content="Scroll down and a row of panels slides sideways. Best for portfolios.">
+  <title>横向滚动 — 动画手册</title>
+  <meta name="description" content="往下滚，一行面板横向滑过。最适合作品集。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/horizontal-scroll/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Horizontal Scroll — 动画手册">
-  <meta property="og:description" content="Scroll down and a row of panels slides sideways. Best for portfolios.">
+  <meta property="og:title" content="横向滚动 — 动画手册">
+  <meta property="og:description" content="往下滚，一行面板横向滑过。最适合作品集。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/horizontal-scroll/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Horizontal Scroll — 动画手册">
-  <meta name="twitter:description" content="Scroll down and a row of panels slides sideways. Best for portfolios.">
+  <meta name="twitter:title" content="横向滚动 — 动画手册">
+  <meta name="twitter:description" content="往下滚，一行面板横向滑过。最适合作品集。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Horizontal Scroll", "name": "Horizontal Scroll", "description": "Scroll down and a row of panels slides sideways. Best for portfolios.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/horizontal-scroll/", "inLanguage": "zh-CN", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Horizontal Scroll"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "横向滚动", "name": "横向滚动", "description": "往下滚，一行面板横向滑过。最适合作品集。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/horizontal-scroll/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 横向滚动"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--panels:5}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -87,98 +87,98 @@
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../stagger-reveal/" rel="prev" aria-label="上一个：Stagger Reveal"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Stagger Reveal</span></a><a href="../sticky-section/" rel="next" aria-label="下一个：Sticky Section"><span><span class="hb-dir">下一个：</span>Sticky Section</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../stagger-reveal/" rel="prev" aria-label="上一个：交错显现"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>交错显现</span></a><a href="../sticky-section/" rel="next" aria-label="下一个：吸顶区域"><span><span class="hb-dir">下一个：</span>吸顶区域</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.14 · Scroll-Based</p>
-    <h1>Horizontal Scroll</h1>
-    <p class="hb-lede">Scroll down and a row of panels slides sideways. Best for portfolios.</p>
+    <p class="hb-cat">01.14 · 滚动驱动</p>
+    <h1>横向滚动</h1>
+    <p class="hb-lede">往下滚，一行面板横向滑过。最适合作品集。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">滚动试试</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
       <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="Panels that slide sideways as you scroll">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="随滚动横向滑动的面板">
       <div class="fx">
         <div class="fx-in">
           <div class="bar-wrap"><div class="bar"><span></span><span></span><span></span></div><i class="mk"></i></div>
-          <p class="cap cap-bar" data-hb-caption>You scroll down</p>
-          <p class="cap cap-map" data-hb-caption>The whole strip</p>
-          <div class="map"><i class="mstart"></i><i class="mframe"><b class="cap" data-hb-caption>In the box</b></i></div>
+          <p class="cap cap-bar" data-hb-caption>你往下滚</p>
+          <p class="cap cap-map" data-hb-caption>整个长条</p>
+          <div class="map"><i class="mstart"></i><i class="mframe"><b class="cap" data-hb-caption>在盒子里</b></i></div>
         </div>
         <div class="fx-cmp">
           <i class="split"></i>
-          <p class="cap cap-l" data-hb-caption>Stacked ↑</p>
-          <p class="cap cap-r" data-hb-caption>Slides sideways ←</p>
+          <p class="cap cap-l" data-hb-caption>叠起来 ↑</p>
+          <p class="cap cap-r" data-hb-caption>横向滑动 ←</p>
         </div>
       </div>
-      <p class="spacer">Scroll down ↓</p>
+      <p class="spacer">往下滚动 ↓</p>
       <div id="pin-section">
         <div id="pin-inner">
           <div id="h-track">
             <div class="panel" style="--bg:linear-gradient(135deg,#0d2b3e,#1a3a5c);--ac:#79c0ff">
               <div class="panel-num" aria-hidden="true">01</div>
-              <div class="panel-title">Scroll down, move sideways</div>
-              <div class="panel-body">The panels sit side by side in one long strip. As you scroll down, the strip slides left, one panel at a time.</div>
+              <div class="panel-title">往下滚，横向移动</div>
+              <div class="panel-body">面板并排坐落在一个长条里。往下滚时，长条向左滑动，一次一个面板。</div>
             </div>
             <div class="panel" style="--bg:linear-gradient(135deg,#2d1b3d,#3d2a5c);--ac:#d2a8ff">
               <div class="panel-num" aria-hidden="true">02</div>
-              <div class="panel-title">The box holds still</div>
-              <div class="panel-body">While the strip slides, the section around it stays pinned in place, so the page seems to pause.</div>
+              <div class="panel-title">盒子保持不动</div>
+              <div class="panel-body">长条滑动时，周围的区域固定在原地，页面好像停了下来。</div>
             </div>
             <div class="panel" style="--bg:linear-gradient(135deg,#1e3a1e,#2d5c2d);--ac:#56d364">
               <div class="panel-num" aria-hidden="true">03</div>
-              <div class="panel-title">Your scroll does the work</div>
-              <div class="panel-body">There is no sideways scrolling to learn. The ordinary scroll you already use moves everything.</div>
+              <div class="panel-title">你的滚动来做功</div>
+              <div class="panel-body">不用学横向滚动。你本来就会的普通滚动就能移动一切。</div>
             </div>
             <div class="panel" style="--bg:linear-gradient(135deg,#3d2000,#5c3400);--ac:#ffa657">
               <div class="panel-num" aria-hidden="true">04</div>
-              <div class="panel-title">Scroll back, it slides back</div>
-              <div class="panel-body">The strip follows your scroll exactly, so scrolling up brings the earlier panels back.</div>
+              <div class="panel-title">往回滚，它滑回来</div>
+              <div class="panel-body">长条精确地跟着你的滚动走，所以往上滚会把前面的面板带回来。</div>
             </div>
             <div class="panel" style="--bg:linear-gradient(135deg,#1a3a3a,#2a5c5c);--ac:#a5d6ff">
               <div class="panel-num" aria-hidden="true">05</div>
-              <div class="panel-title">Then the page moves on</div>
-              <div class="panel-body">Once the last panel is in view, the section lets go and the page scrolls on as normal.</div>
+              <div class="panel-title">然后页面继续往下</div>
+              <div class="panel-body">最后一个面板进入视野后，这个区域松开手，页面像平常一样继续滚动。</div>
             </div>
           </div>
         </div>
       </div>
-      <p class="spacer">The page moves on ↓</p>
+      <p class="spacer">页面继续往下 ↓</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
       <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the map is the whole strip of five panels, the bright frame is the box, and the side bar is how far you scrolled. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>Stacked scrolls its panels up the ordinary way; Slides sideways holds the box still and brings each panel in from the right as you scroll down. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，地图是五个面板组成的整个长条，亮框是盒子，侧边条是你滚了多远。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>叠起来的面板按普通方式往上滚；横向滑动的则让盒子不动，往下滚时每个面板从右边进来。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a horizontal scroll section to [the panels or projects you want to show]. Place the panels side by side in one long strip inside a section that is several screens tall. As the visitor scrolls down through that section, pin its inner frame in place and slide the strip to the left in step with the scroll, so scrolling down moves the panels sideways; once the last panel is in view, release the frame and let the page scroll on. Give the strip an explicit width so it can move. Keep the visitor's own scrolling, touch included, so scrolling back up slides the panels back. If the visitor has reduced motion turned on, keep the strip tied exactly to their scrolling, with no easing or snapping added.</p>
+      <p class="hb-prompt">给[你想展示的面板或项目]加一个横向滚动区域。把面板并排放在一个几屏高的区域里的长条中。访客往下滚过这个区域时，把里面的框架固定在原地，让长条随滚动向左滑动，这样往下滚会让面板横向移动；最后一个面板进入视野后，松开框架，让页面继续滚动。给长条一个明确的宽度，它才能移动。保留访客自己的滚动，包括触摸，这样往上滚会把面板滑回来。如果访客开启了减弱动态效果，让长条精确地跟着他们的滚动走，不加缓动或吸附。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
         <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own panels.</p>
+        <p class="hb-hint">把方括号里的词换成你自己的面板。</p>
       </div>
     </div>
     <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
@@ -191,9 +191,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Portfolios</li><li>Timelines</li><li>Product features</li><li>Step-by-step tours</li></ul>
+      <ul class="hb-tags hb-good"><li>作品集</li><li>时间线</li><li>产品功能</li><li>分步导览</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Long text</li><li>Forms</li></ul>
+      <ul class="hb-tags hb-avoid"><li>长文本</li><li>表单</li></ul>
     </div>
   </section>
 
@@ -210,8 +210,8 @@
   const clamp=(v,a,b)=>Math.min(Math.max(v,a),b);
   const LABELS={
     normal:'Panels that slide sideways as you scroll',
-    inside:'Panels that slide sideways as you scroll, with a map of the whole strip and a bar for your scroll',
-    compare:'The panels twice: stacked and scrolling up, and in a strip that slides sideways'
+    inside:'随滚动横向滑动的面板，附带整个长条的地图和你的滚动条',
+    compare:'面板出现两次：叠起来往上滚的，以及排成横条滑动的'
   };
 
   // The views' parts, made once from the panels: the map's tiles and, for Compare, an inert column of copies without ids

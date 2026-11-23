@@ -1,18 +1,18 @@
-# Scroll Image Sequence
+# 滚动图片序列
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-image-sequence/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-image-sequence/)
 
-## What it is
-A scroll image sequence plays a series of still pictures as you scroll, like flipping through a flip-book: each scroll position shows one picture, so scrolling down plays the animation and scrolling up plays it backwards. Product pages use it to turn a pre-rendered animation, such as a phone turning around, into something the reader controls. The demo draws its pictures as it goes, a turning wireframe cube, so it needs no image files.
+## 它是什么
+滚动图片序列在你滚动时播放一串静止图片，就像翻一本翻页书：每个滚动位置显示一张图片，所以往下滚播放动画，往上滚倒放。产品页面用它把一段预渲染的动画（比如一部旋转的手机）变成读者能控制的东西。演示边走边画图片——一个旋转的线框立方体，所以不需要图片文件。
 
-## When to use it
-- Product reveals where a physical object rotates or disassembles as the user scrolls
-- Turning a short pre-rendered 3D animation into an interactive, scroll-scrubbed hero
-- Onboarding or explainer sections where scroll pace equals playback pace
-- Any "cinematic" scroll moment where you want frame-accurate control instead of CSS transitions
+## 什么时候用
+- 用户滚动时，实物旋转或拆解的产品展示
+- 把一段短的预渲染 3D 动画变成可交互、可用滚动 scrub 的主视觉
+- 滚动速度等于播放速度的新手引导或讲解区域
+- 任何想要逐帧精确控制、而不是 CSS 过渡的“电影感”滚动时刻
 
-## How it works
-A tall track element provides the scroll budget; a child pins itself with `position: sticky`. On every scroll event you convert the track's position into a `0 → 1` progress value and multiply it by the frame count; a frame loop draws that frame. This demo has no image assets, so each frame is generated procedurally — but the scrubbing logic is identical to the production version.
+## 工作原理
+一个很高的轨道元素提供滚动预算；一个子元素用 `position: sticky` 把自己固定住。每次滚动事件都把轨道的位置换算成 `0 → 1` 的进度值，再乘以帧数；一个帧循环画出那一帧。这个演示没有图片素材，每帧都是程序生成的——但 scrub 逻辑与生产版本完全相同。
 
 ```js
 function updateTarget(){
@@ -23,7 +23,7 @@ function updateTarget(){
 stage.addEventListener('scroll', updateTarget, {passive:true}); // fires for wheel AND touch
 ```
 
-The render loop either snaps to the target frame or eases toward it (the Glides between frames setting):
+渲染循环要么直接跳到目标帧，要么缓缓滑向它（“在帧之间滑动”设置）：
 
 ```js
 const dt = last ? Math.min(now - last, 50) : FRAME;  // FRAME = 1000 / 60; time since the last frame
@@ -34,26 +34,26 @@ const index = Math.round(shownFrame);
 if (index !== drawn) { drawFrame(index); drawn = index; }         // skip a picture that is already on the canvas
 ```
 
-`EASE` is the share of the distance covered in 1/60 s, and a frame that lasted `dt` covers `1 - Math.pow(1 - EASE, dt / FRAME)` of what is left, so the picture catches up with the scroll in the same time on a 30, 60 or 120Hz screen (a fixed share per frame would take half as long at 120Hz and twice as long at 30Hz). The loop never stops, so `last` is kept from frame to frame; `dt` is capped at 50ms, so a hidden tab does not make the picture jump.
+`EASE` 是 1/60 秒内走过的距离占比，持续了 `dt` 的一帧会走完剩下的 `1 - Math.pow(1 - EASE, dt / FRAME)`，所以在 30、60 或 120Hz 的屏幕上，图片追上滚动用的时间都一样（每帧固定占比的话，120Hz 只用一半时间，30Hz 要两倍时间）。循环永不停歇，所以 `last` 从一帧保留到下一帧；`dt` 上限 50ms，所以隐藏的标签页不会让图片跳一下。
 
-`drawFrame(index)` is a pure function of the index — same index, same picture — which is exactly why reverse scrubbing rewinds cleanly. It is also why the loop can skip a picture that is already on the canvas, which keeps the page cheap on phones. Back to top, and Play starting again from the top, move the box in one jump; a click on either button sets the shown frame to the target at once, so the picture does not play backwards.
+`drawFrame(index)` 是帧号的纯函数——同样的帧号，同样的图片——这正是反向 scrub 能干净倒带的原因。这也是循环可以跳过画布上已有的图片的原因，让页面在手机上很省。回到顶部，以及从顶部重新开始的播放，都让盒子一步跳过去；点任意一个按钮都会立刻把显示的帧设为目标帧，所以图片不会倒放。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Number of frames | Normal | How many pictures the sequence has: few is 24, normal 120 and many 240; more frames scrub more smoothly but are more images to load in production |
-| Glides between frames | on | The picture eases toward the frame the scroll points at instead of jumping to it |
+| 帧数 | 普通 | 序列有多少张图片：少是 24 张，普通 120 张，多是 240 张；帧越多 scrub 越平滑，但生产中要加载的图片也越多 |
+| 在帧之间滑动 | 开 | 图片缓缓滑向滚动指向的帧，而不是跳过去 |
 
-## Production notes
-- **Preload every frame.** The real technique loads an array of `Image` objects (a video exported to a numbered JPG/WebP sequence). Never fetch frames on demand — decode stalls cause visible gaps. Kick off preloading before the section scrolls into view and show a loader until it's ready.
-- **Frame count vs. weight.** 120–300 frames at full width is a lot of bytes. Use WebP/AVIF, cap the longest edge to the display size, and consider a lower frame count on mobile.
-- **Draw the nearest frame, don't animate the canvas.** You are replacing the whole canvas each scroll tick; there is no CSS transition involved. Smoothing is done by easing the *frame index*, not by transitioning pixels.
-- **`will-change` / decode.** Call `img.decode()` after load so the first paint of each frame isn't a jank spike. Keep the canvas sized to device pixels via `devicePixelRatio` (clamped) to avoid over-drawing on high-DPI phones.
-- **Touch scroll works for free** because the effect is driven by the `scroll` event, not `wheel`. Avoid `preventDefault` scroll-hijacking libraries unless you need them.
-- **Library equivalents:** GSAP **ScrollTrigger** with a `scrub` tween over a frame-index object is the canonical implementation; pair it with **Lenis** (or GSAP ScrollSmoother) for inertial smoothing. `<canvas>` + a preloaded frame array is the same idea without dependencies.
+## 生产注意事项
+- **预加载每一帧。**真正的技术加载一个 `Image` 对象数组（视频导出成带编号的 JPG/WebP 序列）。永远不要按需取帧——解码停顿会造成明显的空档。在区域滚入视野之前就开始预加载，准备好之前显示一个加载器。
+- **帧数与体积。**全宽的 120–300 帧是很多字节。用 WebP/AVIF，把最长边限制到显示尺寸，移动端考虑用更少的帧数。
+- **画最近的帧，别给画布做动画。**每次滚动刻度你都在替换整个画布；这里面没有 CSS 过渡。平滑是靠缓和*帧号*实现的，而不是过渡像素。
+- **`will-change` / 解码。**加载后调用 `img.decode()`，让每帧的第一次绘制不会卡顿。把画布按 `devicePixelRatio`（取上限）设为设备像素尺寸，避免在高 DPI 手机上过度绘制。
+- **触摸滚动免费生效**，因为这个效果由 `scroll` 事件驱动，而不是 `wheel`。除非需要，否则避免用 `preventDefault` 劫持滚动的库。
+- **等效的库：**GSAP **ScrollTrigger** 对帧号对象做 `scrub` 补间，是经典实现；搭配 **Lenis**（或 GSAP ScrollSmoother）做惯性平滑。`<canvas>` 加预加载的帧数组是不用依赖的同样思路。
 
-## See also
-- [Scrub Animation](../scrub-animation/) — scroll position moves a plane along its path
-- [Pin Animation](../pin-animation/) — the pinning this effect relies on
-- [Sticky Section](../sticky-section/) — a whole section holds still while its content changes
-- [Zoom Into Image](../zoom-into-image/) — a picture opens up as you scroll
+## 另见
+- [滚动 scrub 动画](../scrub-animation/) — 滚动位置让一架飞机沿路径移动
+- [固定动画](../pin-animation/) — 这个效果依赖的固定
+- [吸顶区域](../sticky-section/) — 整个区域固定不动，内容随之变化
+- [图片缩放进入](../zoom-into-image/) — 图片随滚动打开

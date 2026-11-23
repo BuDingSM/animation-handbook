@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pin Animation — 动画手册</title>
-  <meta name="description" content="One part stays put while its text changes on scroll. Best for feature lists.">
+  <title>固定动画 — 动画手册</title>
+  <meta name="description" content="一部分固定不动，文字随滚动变化。最适合功能列表。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/pin-animation/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Pin Animation — 动画手册">
-  <meta property="og:description" content="One part stays put while its text changes on scroll. Best for feature lists.">
+  <meta property="og:title" content="固定动画 — 动画手册">
+  <meta property="og:description" content="一部分固定不动，文字随滚动变化。最适合功能列表。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/pin-animation/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pin Animation — 动画手册">
-  <meta name="twitter:description" content="One part stays put while its text changes on scroll. Best for feature lists.">
+  <meta name="twitter:title" content="固定动画 — 动画手册">
+  <meta name="twitter:description" content="一部分固定不动，文字随滚动变化。最适合功能列表。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Pin Animation", "name": "Pin Animation", "description": "One part stays put while its text changes on scroll. Best for feature lists.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/pin-animation/", "inLanguage": "zh-CN", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Pin Animation"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "固定动画", "name": "固定动画", "description": "一部分固定不动，文字随滚动变化。最适合功能列表。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/pin-animation/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 固定动画"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-border:rgba(255,255,255,.09);--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -98,43 +98,43 @@
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../scrub-animation/" rel="prev" aria-label="上一个：Scrub Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Scrub Animation</span></a><a href="../snap-scrolling/" rel="next" aria-label="下一个：Snap Scrolling"><span><span class="hb-dir">下一个：</span>Snap Scrolling</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../scrub-animation/" rel="prev" aria-label="上一个：滚动 scrub 动画"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滚动 scrub 动画</span></a><a href="../snap-scrolling/" rel="next" aria-label="下一个：滚动吸附"><span><span class="hb-dir">下一个：</span>滚动吸附</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.09 · Scroll-Based</p>
-    <h1>Pin Animation</h1>
-    <p class="hb-lede">One part stays put while its text changes on scroll. Best for feature lists.</p>
+    <p class="hb-cat">01.09 · 滚动驱动</p>
+    <h1>固定动画</h1>
+    <p class="hb-lede">一部分固定不动，文字随滚动变化。最适合功能列表。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">滚动试试</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
       <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="A phone that holds still while its features change">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="一台固定不动、功能依次变化的手机">
       <div class="fx" aria-hidden="true" inert>
         <div class="fx-box">
           <div class="ruler"><div class="track">
-            <div class="part"><span data-hb-caption>Arrives</span><div class="bar"><i></i></div></div>
-            <div class="part"><span data-hb-caption>Held: four equal steps</span><div class="bar"><i></i><i></i><i></i><i></i></div></div>
-            <div class="part"><span data-hb-caption>Leaves</span><div class="bar"><i></i></div></div>
+            <div class="part"><span data-hb-caption>进入</span><div class="bar"><i></i></div></div>
+            <div class="part"><span data-hb-caption>固定：四个相等的步骤</span><div class="bar"><i></i><i></i><i></i><i></i></div></div>
+            <div class="part"><span data-hb-caption>离开</span><div class="bar"><i></i></div></div>
             <div class="hx"><b></b></div>
           </div></div>
-          <span class="name n1" data-hb-caption>Not pinned</span>
-          <span class="name n2" data-hb-caption>Pinned</span>
-          <p class="gone" data-hb-caption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Went up with the page</p>
+          <span class="name n1" data-hb-caption>没有固定</span>
+          <span class="name n2" data-hb-caption>已固定</span>
+          <p class="gone" data-hb-caption><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>随页面一起上去了</p>
         </div>
       </div>
       <div class="intro">
-        <p class="panel-title">Scroll to begin</p>
-        <p>The phone and its text will stop in the middle of the box and hold still while four features go by.</p>
+        <p class="panel-title">滚动开始</p>
+        <p>手机和它的文字会在盒子中间停住，在四个功能依次经过时保持不动。</p>
       </div>
       <div class="pin-section" id="pin-section">
         <div class="pin-inner">
@@ -155,8 +155,8 @@
         </div>
       </div>
       <div class="outro">
-        <p class="panel-title">Pin released</p>
-        <p>The phone and its text let go and scroll away with the page again.</p>
+        <p class="panel-title">固定已释放</p>
+        <p>手机和它的文字松开手，再次随页面滚走。</p>
       </div>
     </div>
     <div class="hb-player">
@@ -164,25 +164,25 @@
       <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the bar is the whole scroll: the phone arrives, stays put through four equal steps, then leaves, and the line marks where you are. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>Not pinned: the phone leaves with the page and empty space follows; Pinned: it holds still while the features change. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，标尺就是整个滚动：手机进入，经过四个相等的步骤保持不动，然后离开，线条标出你的位置。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>没有固定：手机随页面离开，后面跟着空白；已固定：它保持不动，功能依次变化。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a pinned section to [your product page, and the element that should stay in view]. Make the section several screens tall and pin the element and its text in the middle of the view while the visitor scrolls through it; the extra height is how long it stays. Split that distance into equal parts and show the next feature's text and picture in each part. When the section ends, let the element scroll away with the page. Use the browser's sticky positioning for the pin instead of moving it with a script. If the visitor has reduced motion turned on, change the features without animation.</p>
+      <p class="hb-prompt">给[你的产品页面，以及应该留在视野里的元素]加一个固定区域。把区域做成几屏高，在访客滚动经过它时，把元素和它的文字固定在视野中间；多出来的高度就是它停留的时间。把这段距离分成相等的几份，每份显示下一个功能的文字和图片。区域结束时，让元素随页面滚走。用浏览器的 sticky 定位来做固定，而不是用脚本移动它。如果访客开启了减弱动态效果，切换功能时不要做动画。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
         <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own page and element.</p>
+        <p class="hb-hint">把方括号里的词换成你自己的页面和元素。</p>
       </div>
     </div>
     <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
@@ -195,9 +195,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Feature lists</li><li>Product tours</li><li>Onboarding</li></ul>
+      <ul class="hb-tags hb-good"><li>功能列表</li><li>产品导览</li><li>新手引导</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Short screens</li><li>Long text</li></ul>
+      <ul class="hb-tags hb-avoid"><li>短屏幕</li><li>长文本</li></ul>
     </div>
   </section>
 
@@ -209,10 +209,10 @@
 <footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const FEATURES=[
-    {num:'01',title:'Instant Wake',              desc:'The display responds in under 1ms. Always on, never waiting. The sensor layer never sleeps.',              color:'#0d2b3e',tcolor:'#58a6ff'},
-    {num:'02',title:'Computational Photography', desc:'Every frame processed by neural hardware in real time. Night mode renders before you lift the shutter.',   color:'#1e3a1e',tcolor:'#3fb950'},
-    {num:'03',title:'On-Device Privacy',         desc:'Face recognition, transcription, translation — all local. No data leaves the device.',                     color:'#2d1b3d',tcolor:'#bf91f3'},
-    {num:'04',title:'New Silicon Engine',        desc:'Unified memory architecture. The gap between laptop and phone performance has effectively closed.',         color:'#3d2000',tcolor:'#ffa657'},
+    {num:'01',title:'瞬间唤醒',              desc:'屏幕在 1ms 内响应。始终开启，从不等待。传感器层永不休眠。',              color:'#0d2b3e',tcolor:'#58a6ff'},
+    {num:'02',title:'计算摄影', desc:'每一帧都由神经硬件实时处理。夜景模式在你按下快门前就渲染好了。',   color:'#1e3a1e',tcolor:'#3fb950'},
+    {num:'03',title:'设备端隐私',         desc:'人脸识别、转录、翻译——全部在本地完成。没有任何数据离开设备。',                     color:'#2d1b3d',tcolor:'#bf91f3'},
+    {num:'04',title:'全新芯片引擎',        desc:'统一内存架构。笔记本与手机之间的性能差距实际上已经消失。',         color:'#3d2000',tcolor:'#ffa657'},
   ];
   const stage=document.getElementById('stage'),pinSec=document.getElementById('pin-section');
   const featNum=document.getElementById('feat-num'),featTitle=document.getElementById('feat-title'),featDesc=document.getElementById('feat-desc');
@@ -228,9 +228,9 @@
   twin.classList.add('twin');twin.inert=true;twin.setAttribute('aria-hidden','true');
   frame.before(twin);
   const LABELS={
-    normal:'A phone that holds still while its features change',
-    inside:'A phone that holds still while its features change, with a bar for the whole scroll and where it is held',
-    compare:'The phone twice: scrolling away with the page, and held still while its features change',
+    normal:'一台固定不动、功能依次变化的手机',
+    inside:'手机固定不动、功能依次变化，附带整个滚动的标尺和固定位置',
+    compare:'手机出现两次：随页面滚走的，以及固定不动、功能依次变化的',
   };
   const parts=[...stage.querySelectorAll('.part')],bars=[...stage.querySelectorAll('.bar i')],hx=stage.querySelector('.hx'),gone=stage.querySelector('.gone');
   let mode='normal',lastP=-1,lastGone=null;

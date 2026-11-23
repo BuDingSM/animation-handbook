@@ -1,45 +1,36 @@
-# Parallax Depth-of-Field
+# 视差景深
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/parallax-depth-of-field/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/parallax-depth-of-field/)
 
-## What it is
+## 它是什么
 
-Parallax depth-of-field combines two effects that follow the scroll. Each layer
-of a scene moves by an amount that matches how near it is, and a point of sharp
-focus travels from the farthest layer to the nearest, blurring every other layer
-by how far it sits from that focus. The result looks like a camera pulling focus
-through a landscape as you scroll.
+视差景深把两种跟随滚动的效果结合在一起。场景的每个图层按与它远近相符的幅度移动，一个清晰焦点从最远的图层走到最近的图层，让其他每个图层按离焦点的距离模糊。结果看起来像一台相机在你滚动时穿过风景拉焦。
 
-## When to use it
+## 什么时候用
 
-- Cinematic hero sections where scroll is the narrative driver
-- Storytelling sequences that guide attention through depth layers
-- Portfolio or editorial intros that need more presence than a static image
-- Anywhere you want to make a flat 2D scene feel three-dimensional
+- 滚动是叙事驱动力的电影感主视觉区域
+- 引导注意力穿过深度层次的故事讲述序列
+- 需要比静态图片更有存在感的作品集或编辑类开场
+- 任何想让扁平的 2D 场景感觉有三维感的地方
 
-## How it works
+## 工作原理
 
-Each layer has a fixed depth value `d ∈ [0, 1]` (0 = farthest, 1 = nearest).
-The focal plane is a value `f` that advances from 0 to 1 as the user scrolls.
+每个图层有一个固定的深度值 `d ∈ [0, 1]`（0 = 最远，1 = 最近）。焦平面是一个值 `f`，随用户滚动从 0 走到 1。
 
 ```js
 const blur = MAX_BLUR * Math.abs(layer.depth - f);
 layer.el.style.filter = `blur(${blur}px)`;
 ```
 
-Simultaneously, each layer translates vertically at a speed proportional to its
-depth:
+同时，每个图层以与深度成正比的速度垂直移动：
 
 ```js
 layer.el.style.transform = `translateY(${layer.speed * f * maxOffset}px)`;
 ```
 
-Layers closer to the viewer travel farther, reinforcing the sense of depth.
+离观众越近的图层走得越远，强化了深度感。
 
-Driving `f` straight from `scrollY` is what makes most parallax feel rough: a
-mouse wheel arrives as a single ~100px jump, so the layers jump with it. Instead
-the scroll position is stored as a *target* and the rendered value eases toward
-it a fraction at a time, which turns those discrete steps into continuous motion:
+直接用 `scrollY` 驱动 `f`，就是大多数视差感觉粗糙的原因：鼠标滚轮一次就是约 100px 的跳跃，图层跟着跳。相反，滚动位置被存为一个*目标值*，渲染值一点一点缓动过去，把这些离散的步进变成连续的运动：
 
 ```js
 const dt = last ? Math.min(now - last, 50) : FRAME;                    // FRAME = 1000 / 60; time since the last frame
@@ -47,55 +38,33 @@ last = now;
 current += (target - current) * (1 - Math.pow(1 - EASE, dt / FRAME));  // inside a requestAnimationFrame loop
 ```
 
-`EASE` is the share of the distance covered in 1/60 s, and a frame that lasted
-`dt` covers `1 - Math.pow(1 - EASE, dt / FRAME)` of what is left. The layers
-therefore settle in the same time on a 30, 60 or 120Hz screen; a fixed share per
-frame would settle twice as fast at 120Hz and half as fast at 30Hz. The first
-frame after the loop restarts counts as 1/60 s, and `dt` is capped at 50ms so a
-hidden tab does not make the layers jump.
+`EASE` 是 1/60 秒内走完的剩余距离份额，持续 `dt` 的一帧走完剩余部分的 `1 - Math.pow(1 - EASE, dt / FRAME)`。于是图层在 30、60 或 120Hz 屏幕上都在相同时间内落定；每帧固定份额的话，在 120Hz 会快一倍落定，在 30Hz 会慢一半。循环重启后的第一帧算作 1/60 秒，`dt` 上限 50ms，这样隐藏的标签页不会让图层跳动。
 
-The loop only runs while the two values differ, so an idle page costs nothing.
+循环只在两个值不同时运行，所以空闲页面不花任何成本。
 
-Back to top, and Play starting again from the top, move the box in one jump; a
-click on either button sets the eased value to the new position at once, so the
-layers do not rewind through the whole focus pull.
+回到顶部，以及从顶部重新播放，会让盒子一次跳到位；点击任一按钮都会把缓动值立刻设到新位置，这样图层就不会倒着走完整个拉焦过程。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Focus | Follows the scroll | Sharp on the sky at the top of the scroll and on the front ridge at the end; each layer blurs by its distance from it |
-| Strongest blur | 14px (8px on phones) | The blur of a layer as far from the focus as a layer can be |
-| Layer travel | 19% of the box's height (12.5% on phones) | What the layers' sinking is measured against: over the whole scroll the front ridge sinks 70% of it, the hills 45%, the mountains 25%, the far peaks 10% and the sky not at all |
-| Easing | 14% per sixtieth of a second | How much of the remaining distance the layers cover in a sixtieth of a second; a longer frame covers more, so the layers settle in the same time on every screen; lower is smoother but lags more |
-| Pinned scene | Three box heights of scrolling | How much scrolling the whole focus pull takes |
+| 焦点 | 跟随滚动 | 滚动顶部时天空清晰，结尾时前面的山脊清晰；每个图层按离它的距离模糊 |
+| 最强模糊 | 14px（手机上 8px） | 一个图层离焦点最远时的模糊程度 |
+| 图层移动 | 盒子高度的 19%（手机上 12.5%） | 图层下沉的衡量基准：整个滚动过程中，前面的山脊下沉它的 70%，山丘 45%，群山 25%，远峰 10%，天空完全不动 |
+| 缓动 | 每六十分之一秒 14% | 图层在六十分之一秒内走完的剩余距离；更长的帧走得更多，所以图层在每个屏幕上都在相同时间内落定；越小越平滑，但滞后越多 |
+| 固定场景 | 三个盒子高的滚动量 | 整个拉焦过程需要多少滚动 |
 
-## Production notes
+## 生产注意事项
 
-- Never read layout inside a scroll handler. `stage.offsetHeight` or
-  `window.innerHeight` there forces a synchronous reflow on every event, and
-  writing styles immediately after produces layout thrashing. Measure once, cache
-  the result, and refresh it on `resize`.
-- Scroll events fire more often than frames. Store the position in the handler
-  and do all DOM writing inside one `requestAnimationFrame` callback, otherwise
-  the same frame is styled several times over.
-- `will-change: filter` is a trap here. It promotes the layer but does nothing
-  about the real cost: a changing blur radius forces the GPU to re-rasterize the
-  whole surface. Hint `will-change: transform` only, and quantize the radius so
-  it holds still across most frames. Skipping writes when the value is unchanged
-  matters more than any hint.
-- Blurring large SVGs is GPU-friendly; blurring large raster images is not —
-  test on mobile before shipping.
-- Reduce motion by zeroing the parallax offset rather than disabling the whole
-  effect. The layer translation is the vestibular trigger; the focal-plane blur
-  is not, and keeping it leaves the interface intact instead of inert.
-- For production scroll choreography, GSAP ScrollTrigger with `scrub: true`
-  gives smoother performance and easing control. Framer Motion's `useScroll` +
-  `useTransform` is the React equivalent.
-- The focal plane concept maps directly to any animation driven by a 0–1
-  progress value — it is not scroll-specific.
+- 绝不要在滚动处理函数里读布局。`stage.offsetHeight` 或 `window.innerHeight` 在那里会在每个事件上强制同步重排，紧接着写样式会产生布局抖动。测量一次，缓存结果，在 `resize` 时刷新。
+- 滚动事件比帧触发得更频繁。把位置存在处理函数里，所有 DOM 写入都放在一个 `requestAnimationFrame` 回调里做，否则同一帧会被反复设置样式。
+- `will-change: filter` 在这里是个陷阱。它提升了图层，但对真正的成本毫无办法：变化的模糊半径会迫使 GPU 重新光栅化整个表面。只提示 `will-change: transform`，并把半径量化，让它在大多数帧里保持不动。跳过值没变的写入，比任何提示都重要。
+- 模糊大 SVG 对 GPU 友好；模糊大光栅图片则不然——发布前在手机上测试。
+- 把视差偏移归零来减弱动态，而不是禁用整个效果。图层平移才是前庭触发因素；焦平面模糊不是，保留它能让界面保持完整而不是静止不动。
+- 在生产环境的滚动编排里，GSAP ScrollTrigger 用 `scrub: true` 能带来更平滑的性能和缓动控制。Framer Motion 的 `useScroll` + `useTransform` 是 React 里的等价写法。
+- 焦平面的概念可以直接对应任何由 0–1 进度值驱动的动画——它不是滚动专属的。
 
-## See also
+## 另见
 
-- [Parallax Scrolling](../parallax-scrolling/) — the same layered depth, without the blur
-- [Reverse-Scrolling Columns](../reverse-scrolling-columns/) — columns move against each other as you scroll
+- [视差滚动](../parallax-scrolling/) — 同样的分层深度，没有模糊
+- [反向滚动列](../reverse-scrolling-columns/) — 列随滚动朝相反方向移动

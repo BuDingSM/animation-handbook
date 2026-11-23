@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scrub Animation — 动画手册</title>
-  <meta name="description" content="Scroll plays it forward and back, like dragging a video. Best for product tours.">
+  <title>滚动 scrub 动画 — 动画手册</title>
+  <meta name="description" content="滚动像拖视频进度条一样正放倒放。最适合产品演示。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrub-animation/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Scrub Animation — 动画手册">
-  <meta property="og:description" content="Scroll plays it forward and back, like dragging a video. Best for product tours.">
+  <meta property="og:title" content="滚动 scrub 动画 — 动画手册">
+  <meta property="og:description" content="滚动像拖视频进度条一样正放倒放。最适合产品演示。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrub-animation/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Scrub Animation — 动画手册">
-  <meta name="twitter:description" content="Scroll plays it forward and back, like dragging a video. Best for product tours.">
+  <meta name="twitter:title" content="滚动 scrub 动画 — 动画手册">
+  <meta name="twitter:description" content="滚动像拖视频进度条一样正放倒放。最适合产品演示。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Scrub Animation", "name": "Scrub Animation", "description": "Scroll plays it forward and back, like dragging a video. Best for product tours.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrub-animation/", "inLanguage": "zh-CN", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Scrub Animation"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滚动 scrub 动画", "name": "滚动 scrub 动画", "description": "滚动像拖视频进度条一样正放倒放。最适合产品演示。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrub-animation/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 滚动 scrub 动画"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#6ea8ff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -111,31 +111,31 @@
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../scroll-trigger/" rel="prev" aria-label="上一个：Scroll-Triggered Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Scroll-Triggered Animation</span></a><a href="../pin-animation/" rel="next" aria-label="下一个：Pin Animation"><span><span class="hb-dir">下一个：</span>Pin Animation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../scroll-trigger/" rel="prev" aria-label="上一个：滚动触发动画"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滚动触发动画</span></a><a href="../pin-animation/" rel="next" aria-label="下一个：固定动画"><span><span class="hb-dir">下一个：</span>固定动画</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.08 · Scroll-Based</p>
-    <h1>Scrub Animation</h1>
-    <p class="hb-lede">Scroll plays it forward and back, like dragging a video. Best for product tours.</p>
+    <p class="hb-cat">01.08 · 滚动驱动</p>
+    <h1>滚动 scrub 动画</h1>
+    <p class="hb-lede">滚动像拖视频进度条一样正放倒放。最适合产品演示。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">滚动试试</h2><p>Scroll inside the box, down and back up, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，往下再往上，或按「播放」，它会替你滚动。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
       <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="A plane on a flight route">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="航线上的飞机">
       <div class="track">
         <div class="pinned">
 
-          <div class="routes"><div class="half main" id="half-main"><span class="half-name" data-hb-caption aria-hidden="true">Follows the scroll</span>
+          <div class="routes"><div class="half main" id="half-main"><span class="half-name" data-hb-caption aria-hidden="true">跟随滚动</span>
           <svg class="flight" viewBox="0 0 620 250" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             <!-- The curve IS the timeline. Drawing the whole route up front means you can
                  always see where the current frame sits inside the animation. -->
@@ -150,11 +150,11 @@
 
           <div class="player">
             <div class="player-top">
-              <div class="frame" id="frame" role="img" aria-label="Frame 0 of 120">000<span> / 120</span></div>
-              <div class="dir" id="dir" aria-hidden="true">Still</div>
+              <div class="frame" id="frame" role="img" aria-label="第 0 帧，共 120 帧">000<span> / 120</span></div>
+              <div class="dir" id="dir" aria-hidden="true">静止</div>
             </div>
             <div class="graph" aria-hidden="true">
-              <div class="g-caps"><span class="g-cap" data-hb-caption>How far it has flown</span><span class="g-cap g-feel" id="g-feel" data-hb-caption>Even: matches the scroll</span></div>
+              <div class="g-caps"><span class="g-cap" data-hb-caption>已经飞了多远</span><span class="g-cap g-feel" id="g-feel" data-hb-caption>均匀：与滚动一致</span></div>
               <div class="g-plot">
                 <svg viewBox="0 0 100 100" preserveAspectRatio="none"><path class="g-guide" d="M25 0V100M50 0V100M75 0V100M0 25H100M0 50H100M0 75H100"/><path class="g-diag" d="M0 100L100 0"/><path class="g-axis" d="M0 0V100H100"/><path class="g-curve" id="g-curve" d=""/></svg>
                 <i class="g-line" id="g-line"></i><i class="g-dot" id="g-dot"></i>
@@ -164,7 +164,7 @@
               <div class="seek-clip"><div class="seek-fill" id="seek-fill"></div></div>
               <div class="seek-head" id="seek-head"></div>
             </div>
-            <div class="ticks"><span>0%</span><span class="mid">25%</span><span class="mid">50%</span><span class="mid">75%</span><span class="cap-scr" data-hb-caption>How far you scrolled</span><span>100%</span></div>
+            <div class="ticks"><span>0%</span><span class="mid">25%</span><span class="mid">50%</span><span class="mid">75%</span><span class="cap-scr" data-hb-caption>你滚动了多远</span><span>100%</span></div>
           </div>
 
         </div>
@@ -175,26 +175,26 @@
       <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dot on the graph shows how far the plane has flown for how far you scrolled; with Even the line is straight. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>Plays by itself flies the whole route on its own once you start scrolling; Follows the scroll goes only as far as you scroll, and back. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，图表上的点显示你滚动了多远、飞机飞了多远；用均匀时线是直的。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>自己播放一旦开始滚动就自己飞完整条航线；跟随滚动只飞到你滚动的地方，再飞回来。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">感觉</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="linear" class="on" aria-pressed="true">Even</button>
-          <button type="button" data-ease="inOut" aria-pressed="false">Gentle</button>
-          <button type="button" data-ease="out" aria-pressed="false">Smooth</button>
-          <button type="button" data-ease="in" aria-pressed="false">Slow start</button>
+          <button type="button" data-ease="linear" class="on" aria-pressed="true">均匀</button>
+          <button type="button" data-ease="inOut" aria-pressed="false">轻柔</button>
+          <button type="button" data-ease="out" aria-pressed="false">平滑</button>
+          <button type="button" data-ease="in" aria-pressed="false">慢启动</button>
         </div>
-        <p class="hb-hint">Even follows the scroll exactly; the others reshape it.</p>
+        <p class="hb-hint">均匀完全跟随滚动；其他的会改变它。</p>
       </div>
     </div>
   </section>
@@ -202,10 +202,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a scroll-scrubbed animation to [your illustration or product explainer]. Hold the scene in view while the visitor scrolls through a taller section, and turn how far they have scrolled into a progress value from 0 to 1. Draw the whole route up front, place the moving object at the point on it that matches the progress, facing along the path, and fill in the part already traveled. Nothing plays on a timer: scrolling back simply moves it back. Shape the progress with the easing given in the settings. If the visitor has reduced motion turned on, drop decorative effects but keep the object following the scroll. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你的插图或产品讲解]加上滚动 scrub 动画。访客滚动经过一个更高的区域时，把场景固定在视野里，把他们滚动了多远换算成 0 到 1 的进度值。预先画出整条路线，把移动的物体放在与进度相符的路线上的点，朝向沿着路径的方向，填满已经走过的部分。没有任何东西按计时器播放：往回滚动只是让它往回走。按设置给出的缓动塑造进度。如果访客开启了减弱动态效果，去掉装饰效果，但让物体继续跟随滚动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -225,9 +225,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Product tours</li><li>Explainers</li><li>Step-by-step diagrams</li></ul>
+      <ul class="hb-tags hb-good"><li>产品演示</li><li>讲解</li><li>分步图解</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Short sections</li><li>Key information</li></ul>
+      <ul class="hb-tags hb-avoid"><li>短区域</li><li>关键信息</li></ul>
     </div>
   </section>
 
@@ -259,7 +259,7 @@
   twinHalf.classList.replace('main', 'twin');
   twinHalf.querySelectorAll('[id]').forEach(n => n.removeAttribute('id'));
   twinHalf.removeAttribute('id'); twinHalf.inert = true; twinHalf.setAttribute('aria-hidden', 'true');
-  twinHalf.querySelector('.half-name').textContent = 'Plays by itself';
+  twinHalf.querySelector('.half-name').textContent = '自己播放';
   mainHalf.before(twinHalf);
   const twinParts = twinHalf.querySelectorAll('svg > g');
   const MAIN = { pre: 'm', rail, trail, marks, flyer };
@@ -342,24 +342,24 @@
   // See inside's graph: the Feel's own curve, drawn once per Feel from the same easing functions
   const curveEl = $('g-curve'), feelEl = $('g-feel'), dotEl = $('g-dot'), lineEl = $('g-line');
   const FEEL = {
-    linear: ['Even: matches the scroll', 'with Even the line is straight'],
-    inOut:  ['Gentle: slow, fast, slow', 'with Gentle it starts and ends slowly'],
-    out:    ['Smooth: fast, then slow', 'with Smooth it rushes, then slows'],
-    in:     ['Slow start: slow, then fast', 'with Slow start it creeps, then rushes'] };
+    linear: ['均匀：与滚动一致', '用均匀时线是直的'],
+    inOut:  ['轻柔：慢、快、慢', '用轻柔时开头和结尾都慢'],
+    out:    ['平滑：快，然后慢', '用平滑时先冲刺、然后放慢'],
+    in:     ['慢启动：慢，然后快', '用慢启动时先爬行、然后冲刺'] };
   const insideNote = document.querySelector('[data-hb-for="inside"]'), compareNote = document.querySelector('[data-hb-for="compare"]');
   const NAMES = { normal: stage.getAttribute('aria-label'),
-    inside: 'A plane on a flight route, with a graph of how far it has flown for how far you scrolled',
-    compare: 'The flight twice: a plane that plays by itself, and one that follows the scroll' };
+    inside: '航线上的飞机，附带你滚动了多远、飞机飞了多远的图表',
+    compare: '飞行出现两次：自己播放的飞机，以及跟随滚动的飞机' };
   function describe() {
     let d = '';
     for (let i = 0; i <= 48; i++) d += (i ? 'L' : 'M') + (i * 100 / 48).toFixed(1) + ' ' + (100 - EASES[ease](i / 48) * 100).toFixed(1);
     curveEl.setAttribute('d', d);
     feelEl.textContent = FEEL[ease][0];
-    insideNote.textContent = 'Inside, the dot on the graph shows how far the plane has flown for how far you scrolled; ' + FEEL[ease][1] +
-      '. Scroll the box or press Play to watch.';
+    insideNote.textContent = '在内部，图表上的点显示你滚动了多远、飞机飞了多远；' + FEEL[ease][1] +
+      '。滚动盒子或按「播放」观看。';
     compareNote.textContent = reduced()
-      ? 'Shown without the flight: Plays by itself jumps to the end once you start scrolling; Follows the scroll goes only as far as you scroll, and back. Scroll the box to see.'
-      : 'Plays by itself flies the whole route on its own once you start scrolling; Follows the scroll goes only as far as you scroll, and back. Scroll the box or press Play to watch.';
+      ? '不飞行动画时显示：自己播放一旦开始滚动就跳到终点；跟随滚动只飞到你滚动的地方，再飞回来。滚动盒子看看。'
+      : '自己播放一旦开始滚动就自己飞完整条航线；跟随滚动只飞到你滚动的地方，再飞回来。滚动盒子或按「播放」观看。';
   }
 
   let lastScroll = 0, idleTimer = null, ticking = false;
@@ -371,7 +371,7 @@
     // The number changes on almost every frame, so it is an image with a label, not a live region
     set('frame', frame, v => {
       frameEl.firstChild.nodeValue = String(v).padStart(3, '0');
-      frameEl.setAttribute('aria-label', `Frame ${v} of ${FRAMES}`);
+      frameEl.setAttribute('aria-label', `第 ${v} 帧，共 ${FRAMES} 帧`);
     });
     set('pct', pct, v => { seekFill.style.transform = `translateX(${v - 100}%)`; seekHead.style.transform = `translateX(${v}cqw)`; });
     if (mode === 'inside') {   // the dot stands above the handle (same percent) at the plane's height
@@ -385,7 +385,7 @@
 
   function setDir(d) {
     set('dir', d, v => {
-      dirEl.textContent = v === 'fwd' ? 'Forward' : v === 'rev' ? 'Backward' : 'Still';
+      dirEl.textContent = v === 'fwd' ? '前进' : v === 'rev' ? '后退' : '静止';
       dirEl.className = 'dir' + (v === 'idle' ? '' : ' ' + v);
     });
   }

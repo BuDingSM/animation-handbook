@@ -1,33 +1,33 @@
-# Scroll-Based Animations
+# 滚动驱动
 
-Animations driven by scroll position — parallax, sticky, scrub, snap, and storytelling.
+由滚动位置驱动的动画——视差、吸顶、擦除、吸附和滚动叙事。
 
-## Entries
+## 全部动画
 
-- [Parallax Depth-of-Field](parallax-depth-of-field/) — Layers move at their own speed as the focus shifts. Best for cinematic intros.
-- [Parallax Scrolling](parallax-scrolling/) — Far layers move slower than near ones as you scroll. Best for hero scenes.
-- [Reverse-Scrolling Columns](reverse-scrolling-columns/) — Side columns run the opposite way to the middle one. Best for portfolios.
-- [Cover Card to Fixed Header](cover-card-to-fixed-header/) — A tall cover shrinks into a slim header as you scroll. Best for articles.
-- [Fly-in Fly-out Contact List](fly-in-fly-out-contact-list/) — Rows fade and slide as they near the top or bottom edge. Best for long lists.
-- [Stacking Cards](stacking-cards/) — Cards stick at the top and pile into a deck. Best for step-by-step stories.
-- [Scroll-Triggered Animation](scroll-trigger/) — Animations start, follow and pin at set scroll points. Best for landing pages.
-- [Scrub Animation](scrub-animation/) — Scroll plays it forward and back, like dragging a video. Best for product tours.
-- [Pin Animation](pin-animation/) — One part stays put while its text changes on scroll. Best for feature lists.
-- [Snap Scrolling](snap-scrolling/) — The box settles on one whole section at a time. Best for slides and galleries.
-- [Scrollytelling](scrollytelling/) — A picture beside the story changes as you read down. Best for data stories.
-- [Reveal on Scroll](reveal-on-scroll/) — Cards appear as they cross a line in the box. Best for long landing pages.
-- [Stagger Reveal](stagger-reveal/) — Items in a group appear one after another as it scrolls in. Best for card grids.
-- [Horizontal Scroll](horizontal-scroll/) — Scroll down and a row of panels slides sideways. Best for portfolios.
-- [Sticky Section](sticky-section/) — A section holds still while its content changes. Best for feature tours.
-- [Counter Animation](counter-animation/) — Numbers count up when they scroll into view. Best for stats.
-- [Progress Bar](progress-bar/) — A bar fills as you read down the page. Best for long articles.
-- [Section Wipe](section-wipe/) — Each section slides up over the one before. Best for full-screen stories.
-- [Zoom Into Image](zoom-into-image/) — A small window opens up to fill the box as you scroll. Best for hero images.
-- [Scroll Image Sequence](scroll-image-sequence/) — Scrolling plays a series of pictures like a flip-book. Best for products.
-- [Smooth (Inertia) Scroll](smooth-scroll/) — Scrolling glides to a stop instead of jumping. Best for portfolio sites.
-- [Text Fill on Scroll](text-fill-on-scroll/) — Words light up one by one as you scroll. Best for key statements.
-- [Scroll Velocity Skew](scroll-velocity-skew/) — Rows lean when you scroll fast and straighten when you stop. Best for galleries.
-- [SVG Line Draw on Scroll](svg-line-draw/) — A line draws itself along a route as you scroll. Best for timelines.
-- [Scrollspy Navigation](scrollspy-nav/) — A menu highlights the section you are reading. Best for long docs.
-- [Scroll-Driven Background Color](scroll-background-color/) — The background color changes as you scroll through sections. Best for stories.
-- [Hide-on-Scroll Header](hide-on-scroll-header/) — Scrolling down hides the top bar; scrolling up shows it. Best for mobile pages.
+- [视差景深](parallax-depth-of-field/) — 各图层随焦点变化以各自的速度移动。最适合电影感开场。
+- [视差滚动](parallax-scrolling/) — 远处的图层比近处的移动得更慢。最适合主视觉场景。
+- [反向滚动列](reverse-scrolling-columns/) — 两侧的列与中间一列朝相反方向滚动。最适合作品集。
+- [封面卡片变固定顶栏](cover-card-to-fixed-header/) — 高封面滚动时收成细顶栏。最适合文章页。
+- [联系人列表飞入飞出](fly-in-fly-out-contact-list/) — 行在靠近顶部或底部边缘时淡入淡出、滑入滑出。最适合长列表。
+- [层叠卡片](stacking-cards/) — 卡片吸顶并叠成一摞。最适合分步讲述。
+- [滚动触发动画](scroll-trigger/) — 动画在设定的滚动点开始、跟随并固定。最适合落地页。
+- [滚动 scrub 动画](scrub-animation/) — 滚动像拖视频进度条一样正放倒放。最适合产品演示。
+- [固定动画](pin-animation/) — 一部分固定不动，文字随滚动变化。最适合功能列表。
+- [滚动吸附](snap-scrolling/) — 盒子一次停在一个完整区域上。最适合幻灯片和画廊。
+- [滚动叙事](scrollytelling/) — 旁边的图片随你往下读而变化。最适合数据故事。
+- [滚动显现](reveal-on-scroll/) — 卡片越过盒子里的一条线时出现。最适合长落地页。
+- [交错显现](stagger-reveal/) — 一组里的元素随滚动依次出现。最适合卡片网格。
+- [横向滚动](horizontal-scroll/) — 往下滚，一行面板横向滑过。最适合作品集。
+- [吸顶区域](sticky-section/) — 一个区域固定不动，内容随之变化。最适合功能导览。
+- [数字滚动计数](counter-animation/) — 数字滚动进入视野时开始累加。最适合统计数据。
+- [阅读进度条](progress-bar/) — 往下读，进度条随之填满。最适合长文章。
+- [区域擦除切换](section-wipe/) — 每个区域从上一个上面滑过。最适合全屏故事。
+- [图片缩放进入](zoom-into-image/) — 小窗口随滚动放大填满整个盒子。最适合主视觉图片。
+- [滚动图片序列](scroll-image-sequence/) — 滚动像翻书一样播放一串图片。最适合产品展示。
+- [平滑（惯性）滚动](smooth-scroll/) — 滚动滑到停下，而不是一下跳到位。最适合作品集网站。
+- [滚动文字填充](text-fill-on-scroll/) — 词语随滚动一个接一个亮起来。最适合关键语句。
+- [滚动速度倾斜](scroll-velocity-skew/) — 滚得快时行会倾斜，停下时回正。最适合画廊。
+- [SVG 线条滚动描绘](svg-line-draw/) — 线条随滚动沿路线自己画出来。最适合时间线。
+- [滚动侦测导航](scrollspy-nav/) — 菜单高亮你正在读的章节。最适合长文档。
+- [滚动驱动背景色](scroll-background-color/) — 背景色随滚动经过的区域而变化。最适合故事讲述。
+- [滚动隐藏顶栏](hide-on-scroll-header/) — 往下滚隐藏顶栏，往上滚显示出来。最适合移动端页面。
