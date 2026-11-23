@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Famous effects — Animation Handbook</title>
-<meta name="description" content="Effects people admire on well-known websites, the handbook animations that make something similar, and a prompt to build your own.">
+<title>知名效果 — 动画手册</title>
+<meta name="description" content="人们在知名网站上喜欢的效果、做出类似效果的手册动画，以及帮你自己动手做的提示词。">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#f8f7f4">
 <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/famous/">
@@ -14,9 +14,9 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Animation Handbook">
-<meta property="og:title" content="Famous effects — Animation Handbook">
-<meta property="og:description" content="Effects people admire on well-known websites, the handbook animations that make something similar, and a prompt to build your own.">
+<meta property="og:site_name" content="动画手册">
+<meta property="og:title" content="知名效果 — 动画手册">
+<meta property="og:description" content="人们在知名网站上喜欢的效果、做出类似效果的手册动画，以及帮你自己动手做的提示词。">
 <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/famous/">
 <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,8 +24,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Famous effects — Animation Handbook">
-<meta name="twitter:description" content="Effects people admire on well-known websites, the handbook animations that make something similar, and a prompt to build your own.">
+<meta name="twitter:title" content="知名效果 — 动画手册">
+<meta name="twitter:description" content="人们在知名网站上喜欢的效果、做出类似效果的手册动画，以及帮你自己动手做的提示词。">
 <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
 <script>
 // The theme is the visitor's own pick (ah-theme), else the system's, as on the home page.
@@ -95,7 +95,7 @@ button{font:inherit;color:inherit}
 
 /* an entry: seen on, the title, what you see, the cards, the prompt and Copy prompt */
 .fx{margin-top:clamp(36px,5vw,56px);padding-top:clamp(36px,5vw,56px);border-top:1px solid var(--line);scroll-margin-top:16px}
-.fx-seen{font-size:15px;color:var(--muted)} /* a line breaks before the link or before "in", never before the year: a no-break space joins them */
+.fx-seen{font-size:15px;color:var(--muted)} /* 换行可以在链接前或年份前，但年份和“年”之间不断开：中间是不换行空格 */
 .fx-seen a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:5px}
 .fx h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;line-height:1.1;letter-spacing:-.025em}
 .fx-what{margin-top:14px;max-width:68ch;font-size:17px;line-height:1.65;color:var(--ink-2)}
@@ -593,7 +593,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv *{will-change:transform}
 .card:not(.playing) .pv .anim,.card:not(.playing) .pv .anim::before,.card:not(.playing) .pv .anim::after{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){.pv .anim,.pv .anim::before,.pv .anim::after{animation-play-state:paused!important}}
-/* aurora: Aurora / Northern Lights */
+/* aurora: 极光 */
 .pv-aurora{background:var(--cp-dusk)}
 .pv-aurora .st{position:absolute;inset:0;background:radial-gradient(circle at 12% 18%,#fff 0 .35cqh,transparent .6cqh),radial-gradient(circle at 27% 8%,#fff 0 .3cqh,transparent .55cqh),radial-gradient(circle at 46% 22%,#fff 0 .3cqh,transparent .55cqh),radial-gradient(circle at 64% 10%,#fff 0 .4cqh,transparent .65cqh),radial-gradient(circle at 81% 26%,#fff 0 .3cqh,transparent .55cqh),radial-gradient(circle at 90% 9%,#fff 0 .35cqh,transparent .6cqh),radial-gradient(circle at 36% 38%,#fff 0 .25cqh,transparent .5cqh),radial-gradient(circle at 73% 42%,#fff 0 .25cqh,transparent .5cqh);animation:k-aurora-tw 3.6s ease-in-out infinite}
 .pv-aurora .rb{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:blur(1.1cqw)}
@@ -604,7 +604,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-aurora .hz{position:absolute;left:0;right:0;bottom:0;height:27%;background:var(--cp-ink);clip-path:polygon(0 58%,8% 40%,16% 54%,26% 22%,36% 46%,47% 30%,57% 52%,67% 34%,77% 54%,86% 26%,94% 44%,100% 32%,100% 100%,0 100%)}
 @keyframes k-aurora-rib{0%,100%{transform:translateX(-7%) scaleY(.8)}50%{transform:translateX(7%) scaleY(1.2)}}
 @keyframes k-aurora-tw{0%,100%{opacity:.85}50%{opacity:.35}}
-/* grain2: Grain / Film Noise Overlay */
+/* grain2: 颗粒噪点叠加 */
 .pv-grain2 .fs{position:absolute;left:-3cqw;right:-3cqw;top:25cqh;height:66cqh;background:var(--cp-ink);box-shadow:0 3.6cqh 6cqh color-mix(in srgb,var(--cp-sh) 45%,transparent)}
 .pv-grain2 .row{position:absolute;left:0;right:0;top:3cqh;display:flex;justify-content:space-between;padding:0 1.2cqw}
 .pv-grain2 .row.rb{top:auto;bottom:3cqh}
@@ -622,12 +622,12 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes fl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(14deg)}}
 @keyframes k-grain2-jump{0%{transform:translate(0,0)}20%{transform:translate(-9.4cqh,5.7cqh)}40%{transform:translate(4.3cqh,-11.1cqh)}60%{transform:translate(-6.1cqh,-3.9cqh)}80%{transform:translate(10.3cqh,8.3cqh)}}
 @keyframes k-grain2-flick{0%{opacity:0}14%{opacity:.1}26%{opacity:.03}40%{opacity:.14}52%{opacity:0}66%{opacity:.08}80%{opacity:.02}90%{opacity:.12}}
-/* shader: WebGL Shader Animation */
+/* shader: WebGL 着色器动画 */
 .pv-shader .fw{position:absolute;inset:0;animation:k-shader-flow 3s linear infinite}
 .pv-shader .cl{position:absolute;top:-30cqh;height:160cqh;left:calc(var(--i) * 3.125%);width:3.25%;background:repeating-linear-gradient(180deg,#fff 0 5cqh,transparent 0 11cqh,var(--cp-ink) 0 13.5cqh,transparent 0 20cqh);animation:k-shader-wave 3s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -.27s)}
 @keyframes k-shader-flow{from{transform:translateY(-20cqh)}to{transform:translateY(0)}}
 @keyframes k-shader-wave{from{transform:translateY(-7cqh)}to{transform:translateY(7cqh)}}
-/* scrub: Scrub Animation */
+/* scrub: 滚动 scrub 动画 */
 .pv-scrub .rail{position:absolute;z-index:5;right:3cqw;top:20cqh;bottom:20cqh;width:1.8cqh;border-radius:1cqh;background:rgba(28,26,36,.2)}
 .pv-scrub .rail i{position:absolute;left:0;right:0;top:0;height:20cqh;border-radius:1cqh;background:#fff;box-shadow:0 .5cqh 0 var(--cp-lip)}
 .pv-scrub .rt{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -645,7 +645,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-scrub .bar i{position:absolute;left:-4.2cqh;top:50%;width:8.4cqh;height:8.4cqh;margin-top:-4.2cqh;border-radius:50%;background:radial-gradient(circle,var(--cp-ink) 0 1.6cqh,#fff 1.8cqh);box-shadow:0 .8cqh 0 var(--cp-lip);--t0:translateX(0);--t1:translateX(48cqw);animation:k-scrub-go 5.4s var(--cp-inout) infinite}
 .pv-scrub .rail i{--t0:translateY(0);--t1:translateY(40cqh);animation:k-scrub-go 5.4s var(--cp-inout) infinite}
 @keyframes k-scrub-go{0%,10%{transform:var(--t0)}46%,58%{transform:var(--t1)}94%,100%{transform:var(--t0)}}
-/* pin: Pin Animation */
+/* pin: 固定动画 */
 .pv-pin .rail{position:absolute;z-index:5;right:3cqw;top:20cqh;bottom:20cqh;width:1.8cqh;border-radius:1cqh;background:rgba(28,26,36,.2)}
 .pv-pin .rail i{position:absolute;left:0;right:0;top:0;height:20cqh;border-radius:1cqh;background:#fff;box-shadow:0 .5cqh 0 var(--cp-lip)}
 .pv-pin .bg{position:absolute;left:8cqw;right:10cqw;top:4cqh;display:flex;flex-direction:column;gap:5cqh;--t0:translateY(0);--t1:translateY(-64cqh);animation:k-pin-go 6s linear infinite}
@@ -680,7 +680,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-pin-f2{0%,26%{opacity:0;transform:translateY(4cqh)}32%,56%{opacity:1;transform:translateY(0)}62%,100%{opacity:0;transform:translateY(-4cqh)}}
 @keyframes k-pin-f3{0%,56%{opacity:0;transform:translateY(4cqh)}62%,86%{opacity:1;transform:translateY(0)}92%,100%{opacity:0;transform:translateY(-4cqh)}}
 @keyframes k-pin-dot{0%,26%{transform:translateX(0)}32%,56%{transform:translateX(4.6cqw)}62%,86%{transform:translateX(9.2cqw)}94%,100%{transform:translateX(0)}}
-/* cursor: Cursor Follower */
+/* cursor: 光标跟随 */
 .pv-cursor .w,.pv-cursor .fo i{position:absolute;translate:-50% -50%;font:900 17cqh/1 var(--disp);font-style:normal;letter-spacing:-.045em;white-space:nowrap}
 .pv-cursor .w{left:50cqw;top:55cqh;color:#fff;text-shadow:var(--cp-word)}
 .pv-cursor .fo{position:absolute;left:calc(50cqw - 15cqh);top:40cqh;width:30cqh;height:30cqh;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 1cqh 3cqh color-mix(in srgb,var(--cp-sh) 35%,transparent);animation:k-cursor-path 4.8s linear infinite -4.48s}
@@ -688,7 +688,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-cursor .tip{position:absolute;left:50cqw;top:55cqh;width:7.2cqh;height:7.2cqh;margin:-3.6cqh 0 0 -3.6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:var(--cp-tip);animation:k-cursor-path 4.8s linear infinite}
 @keyframes k-cursor-path{0%,100%{transform:translate(0,0)}6.25%{transform:translate(9.18cqw,7.07cqh)}12.5%{transform:translate(16.97cqw,10cqh)}18.75%{transform:translate(22.17cqw,7.07cqh)}25%{transform:translate(24cqw,0)}31.25%{transform:translate(22.17cqw,-7.07cqh)}37.5%{transform:translate(16.97cqw,-10cqh)}43.75%{transform:translate(9.18cqw,-7.07cqh)}50%{transform:translate(0,0)}56.25%{transform:translate(-9.18cqw,7.07cqh)}62.5%{transform:translate(-16.97cqw,10cqh)}68.75%{transform:translate(-22.17cqw,7.07cqh)}75%{transform:translate(-24cqw,0)}81.25%{transform:translate(-22.17cqw,-7.07cqh)}87.5%{transform:translate(-16.97cqw,-10cqh)}93.75%{transform:translate(-9.18cqw,-7.07cqh)}}
 @keyframes k-cursor-back{0%,100%{transform:translate(0,0)}6.25%{transform:translate(-9.18cqw,-7.07cqh)}12.5%{transform:translate(-16.97cqw,-10cqh)}18.75%{transform:translate(-22.17cqw,-7.07cqh)}25%{transform:translate(-24cqw,0)}31.25%{transform:translate(-22.17cqw,7.07cqh)}37.5%{transform:translate(-16.97cqw,10cqh)}43.75%{transform:translate(-9.18cqw,7.07cqh)}50%{transform:translate(0,0)}56.25%{transform:translate(9.18cqw,-7.07cqh)}62.5%{transform:translate(16.97cqw,-10cqh)}68.75%{transform:translate(22.17cqw,-7.07cqh)}75%{transform:translate(24cqw,0)}81.25%{transform:translate(22.17cqw,7.07cqh)}87.5%{transform:translate(16.97cqw,10cqh)}93.75%{transform:translate(9.18cqw,7.07cqh)}}
-/* morphblob: Morphing Blob */
+/* morphblob: 变形色块 */
 .pv-morphblob .gf{position:absolute;width:0;height:0}
 .pv-morphblob .gw{position:absolute;inset:0;filter:url(#pv-morphblob-goo) drop-shadow(0 1.3cqh 0 #000) drop-shadow(0 3cqh 3.6cqh color-mix(in srgb,var(--cp-sh) 40%,transparent))}
 .pv-morphblob .gw i{position:absolute;border-radius:50%;background:var(--cp-ink)}
@@ -703,7 +703,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-morphblob-b3{0%,100%{transform:translate(0,0)}40%{transform:translate(-5cqw,5cqh)}70%{transform:translate(2cqw,-3cqh)}}
 @keyframes k-morphblob-drop{0%,24%{transform:translate(0,0)}30%{transform:translate(13cqw,2cqh)}38%{transform:translate(21cqw,-7cqh)}46%{transform:translate(28cqw,-14cqh)}52%{transform:translate(32cqw,-9cqh)}60%{transform:translate(33cqw,-5cqh)}66%{transform:translate(26cqw,-3cqh)}72%{transform:translate(14cqw,0)}78%,100%{transform:translate(0,0)}}
 @keyframes k-morphblob-tip{0%{transform:translate(88cqw,98cqh) scale(1);opacity:0}12%{transform:translate(84cqw,86cqh) scale(1);opacity:1}24%{transform:translate(69cqw,60cqh) scale(1)}38%{transform:translate(80cqw,36cqh) scale(1)}52%{transform:translate(88cqw,56cqh) scale(1)}60%{transform:translate(88cqw,60cqh) scale(1);opacity:1}72%,100%{transform:translate(92cqw,100cqh) scale(1);opacity:0}}
-/* clipreveal: Clip-Path Reveal */
+/* clipreveal: 剪裁路径揭示 */
 .pv-clipreveal .ph{position:absolute;left:18cqw;top:27cqh;width:64cqw;height:56cqh;border-radius:5cqh;background:#fff;box-shadow:var(--cp-lift)}
 .pv-clipreveal .ar{position:absolute;inset:1.8cqh;overflow:hidden;border-radius:3.4cqh;background:color-mix(in srgb,var(--cp-lip) 55%,#fff)}
 .pv-clipreveal .win{position:absolute;left:50%;top:50%;width:72cqw;height:72cqw;margin:-36cqw 0 0 -36cqw;overflow:hidden;border-radius:50%;opacity:0;transform:scale(.18);animation:k-clipreveal-win 4.4s linear infinite}
@@ -713,12 +713,12 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-clipreveal .hw{position:absolute;left:42%;right:-30%;bottom:-72%;height:112%;border-radius:50%;background:rgba(255,255,255,.6)}
 @keyframes k-clipreveal-win{0%,6.5%{transform:scale(.18);opacity:0}8%{transform:scale(.18)}8.4%{transform:scale(.21)}8.8%{transform:scale(.24)}9.6%{transform:scale(.297);opacity:1}10.4%{transform:scale(.351)}11.2%{transform:scale(.402)}12.8%{transform:scale(.496)}14.4%{transform:scale(.58)}17.6%{transform:scale(.719)}20.8%{transform:scale(.823)}24%{transform:scale(.897)}27.2%{transform:scale(.948)}30.4%{transform:scale(.978)}33.6%{transform:scale(.993)}40%,78%{transform:scale(1);opacity:1}90%,100%{transform:scale(1);opacity:0}}
 @keyframes k-clipreveal-pic{0%,8%{transform:scale(5.556)}8.4%{transform:scale(4.754)}8.8%{transform:scale(4.167)}9.6%{transform:scale(3.368)}10.4%{transform:scale(2.849)}11.2%{transform:scale(2.486)}12.8%{transform:scale(2.014)}14.4%{transform:scale(1.724)}17.6%{transform:scale(1.391)}20.8%{transform:scale(1.215)}24%{transform:scale(1.114)}27.2%{transform:scale(1.055)}30.4%{transform:scale(1.023)}33.6%{transform:scale(1.007)}40%,100%{transform:scale(1)}}
-/* split: Split Text Reveal */
+/* split: 拆字揭示 */
 .pv-split .hd{position:absolute;left:50%;top:53%;translate:-50% -50%;display:flex;gap:.24em;font:900 16cqh/1.1 var(--disp);letter-spacing:-.045em;white-space:nowrap;perspective:42cqw}
 .pv-split .hd b{display:block;color:#fff;text-shadow:var(--cp-word);opacity:0;transform:rotateY(90deg);animation:k-split-turn 4.4s infinite;animation-delay:calc(var(--i) * .22s)}
 .pv-split .hd b:nth-child(2){color:var(--cp-ink);text-shadow:none}
 @keyframes k-split-turn{0%,8%{opacity:0;transform:rotateY(90deg);animation-timing-function:cubic-bezier(.3,1.4,.5,1)}12%{opacity:1}30%,64%{opacity:1;transform:rotateY(0);animation-timing-function:cubic-bezier(.6,0,.8,.4)}76%,100%{opacity:0;transform:rotateY(-90deg)}}
-/* blurin: Blur In */
+/* blurin: 模糊渐入 */
 .pv-blurin .vf{position:absolute;left:30cqw;top:26cqh;width:40cqw;height:58cqh}
 .pv-blurin .vf i{position:absolute;width:6cqh;height:6cqh;border:0 solid #fff}
 .pv-blurin .vf i:nth-child(1){left:0;top:0;border-width:1.1cqh 0 0 1.1cqh;border-top-left-radius:2.4cqh}
@@ -734,7 +734,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-blurin-drift{0%,6%{transform:translateY(5cqh)}34%,100%{transform:translateY(0)}}
 @keyframes k-blurin-soft{0%,6%{opacity:0}16%,30%{opacity:1}40%,74%{opacity:0}82%{opacity:1}92%,100%{opacity:0}}
 @keyframes k-blurin-sharp{0%,14%{opacity:0}34%,74%{opacity:1}82%,100%{opacity:0}}
-/* stagger: Stagger Reveal */
+/* stagger: 交错显现 */
 .pv-stagger .rail{position:absolute;z-index:5;right:3cqw;top:20cqh;bottom:20cqh;width:1.8cqh;border-radius:1cqh;background:rgba(28,26,36,.2)}
 .pv-stagger .rail i{position:absolute;left:0;right:0;top:0;height:20cqh;border-radius:1cqh;background:#fff;box-shadow:0 .5cqh 0 var(--cp-lip)}
 .pv-stagger .gp{position:absolute;left:23cqw;top:27cqh;width:54cqw;height:50cqh;--t0:translateY(30cqh);--t1:translateY(0);animation:k-stagger-go 7s var(--cp-inout) infinite}
@@ -746,7 +746,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-stagger .rail i{--t0:translateY(0);--t1:translateY(24cqh);animation:k-stagger-go 7s var(--cp-inout) infinite}
 @keyframes k-stagger-go{0%,4%{transform:var(--t0)}20%,84%{transform:var(--t1)}98%,100%{transform:var(--t0)}}
 @keyframes k-stagger-pop{0%,20%{opacity:0;transform:scale(.4);animation-timing-function:cubic-bezier(.34,1.56,.64,1)}28%,72%{opacity:1;transform:scale(1);animation-timing-function:cubic-bezier(.55,0,1,.45)}76%,100%{opacity:0;transform:scale(.6)}}
-/* hamb: Hamburger Menu Toggle */
+/* hamb: 汉堡菜单切换 */
 .pv-hamb .lip,.pv-hamb .hb{position:absolute;left:17cqw;top:35cqh;width:30cqh;height:30cqh;border-radius:8cqh}
 .pv-hamb .lip{background:var(--cp-lip);transform:translateY(2cqh);box-shadow:0 3.6cqh 6cqh color-mix(in srgb,var(--cp-sh) 42%,transparent)}
 .pv-hamb .hb{background:#fff;animation:k-hamb-btn 3.6s var(--cp-ease) infinite}
@@ -768,7 +768,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-hamb-menu{0%,25%{opacity:0;transform:scale(.4);animation-timing-function:cubic-bezier(.3,1.5,.5,1)}38%,74%{opacity:1;transform:scale(1);animation-timing-function:cubic-bezier(.6,0,.8,.4)}84%,100%{opacity:0;transform:scale(.4)}}
 @keyframes k-hamb-item{0%,32%{opacity:0;transform:translateX(-3cqw)}44%,74%{opacity:1;transform:translateX(0)}80%,100%{opacity:0;transform:translateX(0)}}
 @keyframes k-hamb-tip{0%{transform:translate(22cqw,26cqh);opacity:0}8%{opacity:1}19%{transform:translate(0,0) scale(1)}23%{transform:translate(0,2cqh) scale(.8)}28%{transform:translate(0,0) scale(1)}38%,62%{transform:translate(10cqw,14cqh) scale(1)}70%{transform:translate(0,0) scale(1)}74%{transform:translate(0,2cqh) scale(.8)}79%{transform:translate(0,0) scale(1)}86%{opacity:1}100%{transform:translate(22cqw,26cqh) scale(1);opacity:0}}
-/* glass: Glassmorphism Animated */
+/* glass: 动态毛玻璃 */
 .pv-glass .dt{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.4) 0 .5cqh,transparent .7cqh) 0 0/5.4cqh 5.4cqh}
 .pv-glass .o1{position:absolute;left:calc(27cqw - 17cqh);top:24cqh;width:34cqh;height:34cqh;border-radius:50%;background:#fff;animation:k-glass-o1 6s var(--cp-inout) infinite}
 .pv-glass .o2{position:absolute;left:calc(72cqw - 14cqh);top:54cqh;width:28cqh;height:28cqh;border-radius:50%;background:var(--cp-ink);animation:k-glass-o2 6s var(--cp-inout) infinite}
@@ -781,7 +781,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-glass-o1{0%,100%{transform:translate(0,0)}50%{transform:translate(3cqw,30cqh)}}
 @keyframes k-glass-o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-4cqw,-28cqh)}}
 @keyframes k-glass-o3{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-17cqw,2cqh) rotate(90deg)}}
-/* tooltip: Tooltip Reveal */
+/* tooltip: 提示气泡浮现 */
 .pv-tooltip .bt{position:absolute;left:50%;top:65%;width:26cqh;height:26cqh;margin:-13cqh 0 0 -13cqh;border-radius:50%;background:#fff;box-shadow:var(--cp-lift)}
 .pv-tooltip .bt svg{position:absolute;left:50%;top:50%;width:15cqh;height:15cqh;margin:-7.5cqh 0 0 -7.5cqh;fill:none;stroke:var(--cp-ink)}
 .pv-tooltip .tt{position:absolute;left:50%;top:29cqh;padding:3cqh 4.4cqh;border-radius:4cqh;background:var(--cp-ink);font:900 7.4cqh/1 var(--disp);letter-spacing:-.02em;color:#fff;white-space:nowrap;translate:-50% 0;transform-origin:50% 100%;opacity:0;animation:k-tooltip-in 4.4s infinite}
@@ -789,7 +789,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-tooltip .tip{position:absolute;left:56cqw;top:72cqh;width:7.2cqh;height:7.2cqh;margin:-3.6cqh 0 0 -3.6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:var(--cp-tip);animation:k-tooltip-tip 4.4s var(--cp-inout) infinite}
 @keyframes k-tooltip-in{0%,40%{opacity:0;transform:translateY(2cqh) scale(.86);animation-timing-function:cubic-bezier(.34,1.56,.64,1)}48%,72%{opacity:1;transform:translateY(0) scale(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}80%,100%{opacity:0;transform:translateY(0) scale(.96)}}
 @keyframes k-tooltip-tip{0%{transform:translate(24cqw,30cqh);opacity:0}8%{opacity:1}22%,62%{transform:translate(0,0);opacity:1}82%,100%{transform:translate(22cqw,30cqh);opacity:0}}
-/* fade: Fade In / Fade Out */
+/* fade: 淡入淡出 */
 .pv-fade .dlg{position:absolute;left:31cqw;top:27cqh;width:38cqw;height:54cqh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.6cqh;border-radius:5cqh;background:#fff;box-shadow:var(--cp-lift);opacity:0;animation:k-fade-io 4s ease-in-out infinite}
 .pv-fade .ic{position:relative;width:14cqh;height:14cqh;flex:none;margin-bottom:.8cqh;border-radius:50%;background:linear-gradient(150deg,var(--g1),var(--g2))}
 .pv-fade .ic::before,.pv-fade .ic::after{content:"";position:absolute;left:50%;width:2.4cqh;margin-left:-1.2cqh;border-radius:2cqh;background:#fff}
@@ -800,13 +800,13 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-fade .l2{width:44%;background:var(--cp-lip)}
 .pv-fade .bt{display:grid;place-items:center;flex:none;width:58%;height:10.5cqh;margin-top:1.2cqh;border-radius:99cqh;background:var(--cp-ink);font:900 6.4cqh/1 var(--disp);letter-spacing:-.02em;color:#fff}
 @keyframes k-fade-io{0%,8%{opacity:0}34%,68%{opacity:1}94%,100%{opacity:0}}
-/* gtext: Text Gradient Animation */
+/* gtext: 文字渐变动画 */
 .pv-gtext svg{position:absolute;inset:0;width:100%;height:100%}
 .pv-gtext text{font-family:var(--disp);font-weight:900;letter-spacing:-.045em}
 .pv-gtext .lp{fill:color-mix(in srgb,var(--g2) 62%,#000 38%)}
 .pv-gtext .bd{transform-box:fill-box;animation:k-gtext-flow 4s linear infinite}
 @keyframes k-gtext-flow{0%{transform:translateX(0)}100%{transform:translateX(-33.3333%)}}
-/* hoverbtn: Hover State Animation */
+/* hoverbtn: 悬停状态动画 */
 .pv-hoverbtn .sh{position:absolute;left:30cqw;top:66cqh;width:40cqw;height:18cqh;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--cp-sh) 60%,transparent),transparent);opacity:0;animation:k-hoverbtn-sh 4s var(--cp-inout) infinite}
 .pv-hoverbtn .cd{position:absolute;left:29cqw;top:27cqh;width:42cqw;height:50cqh;border-radius:4.4cqh;background:#fff;box-shadow:var(--cp-lift);animation:k-hoverbtn-lift 4s infinite}
 .pv-hoverbtn .ti,.pv-hoverbtn .ul,.pv-hoverbtn .l1,.pv-hoverbtn .l2{position:absolute;left:3.6cqw;border-radius:2cqh}
@@ -824,7 +824,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-hoverbtn-ul{0%,26%{transform:scaleX(0)}40%,66%{transform:scaleX(1)}78%,100%{transform:scaleX(0)}}
 @keyframes k-hoverbtn-ar{0%,28%{transform:translateX(0)}38%{transform:translateX(2.4cqw)}46%,66%{transform:translateX(1.6cqw)}78%,100%{transform:translateX(0)}}
 @keyframes k-hoverbtn-tip{0%{transform:translate(26cqw,30cqh);opacity:0}8%{opacity:1}26%{transform:translate(0,0)}46%{transform:translate(-3cqw,-1cqh)}66%{transform:translate(-1.5cqw,0);opacity:1}86%,100%{transform:translate(24cqw,32cqh);opacity:0}}
-/* slidein: Slide In */
+/* slidein: 滑入 */
 .pv-slidein .msg{position:absolute;left:21cqw;top:38cqh;width:58cqw;height:30cqh;display:flex;align-items:center;gap:3.2cqw;padding:0 4cqw 0 2.6cqw;border-radius:5cqh;background:#fff;box-shadow:var(--cp-lift);opacity:0;animation:k-slidein-go 4s infinite}
 .pv-slidein .av{position:relative;width:21cqh;height:21cqh;flex:none;overflow:hidden;border-radius:3.4cqh;background:linear-gradient(170deg,var(--g1),var(--g2))}
 .pv-slidein .av::before{content:"";position:absolute;right:16%;top:14%;width:30%;aspect-ratio:1;border-radius:50%;background:#fff}
@@ -844,7 +844,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-slidein-go{0%,6%{transform:translateX(-84cqw);opacity:0;animation-timing-function:cubic-bezier(.3,1.32,.5,1)}14%{opacity:1}32%,66%{transform:translateX(0);opacity:1;animation-timing-function:cubic-bezier(.6,0,.85,.35)}78%{opacity:1}86%,100%{transform:translateX(-84cqw);opacity:0}}
 @keyframes k-slidein-s1{0%,7%{opacity:0;transform:scaleX(1)}12%,19%{opacity:1;transform:scaleX(1)}30%,100%{opacity:0;transform:scaleX(.2)}}
 @keyframes k-slidein-s2{0%,68%{opacity:0;transform:scaleX(.4)}75%,82%{opacity:1;transform:scaleX(1)}86%,100%{opacity:0;transform:scaleX(1)}}
-/* skeleton: Skeleton Loader */
+/* skeleton: 骨架屏 */
 .pv-skeleton{--sk:color-mix(in srgb,var(--cp-lip),var(--cp-sh) 18%)}
 .pv-skeleton .cd{position:absolute;left:29cqw;top:26cqh;width:42cqw;height:58cqh;border-radius:4cqh;overflow:hidden;background:#fff;box-shadow:var(--cp-lift)}
 .pv-skeleton .ly{position:absolute;inset:0}
@@ -865,7 +865,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 .pv-skeleton .ct .pc::after{content:"";position:absolute;left:-20%;right:-20%;bottom:-56%;height:100%;border-radius:50%;background:var(--cp-ink)}
 @keyframes k-skeleton-pulse{0%,37.5%,100%{opacity:1}18.75%{opacity:.5}}
 @keyframes k-skeleton-in{0%,44%{opacity:0;transform:translateY(2cqh)}56%,88%{opacity:1;transform:translateY(0)}96%,100%{opacity:0;transform:translateY(0)}}
-/* story: Scrollytelling */
+/* story: 滚动叙事 */
 .pv-story .rail{position:absolute;z-index:5;right:3cqw;top:20cqh;bottom:20cqh;width:1.8cqh;border-radius:1cqh;background:rgba(28,26,36,.2)}
 .pv-story .rail i{position:absolute;left:0;right:0;top:0;height:20cqh;border-radius:1cqh;background:#fff;box-shadow:0 .5cqh 0 var(--cp-lip)}
 .pv-story .po{position:absolute;left:calc(29cqw - 25cqh);top:32cqh;width:50cqh;height:50cqh;border-radius:50%;overflow:hidden;background:linear-gradient(180deg,#fff -25%,var(--g1) 62%);box-shadow:0 0 0 2.6cqh #fff,0 1.3cqh 0 2.6cqh var(--cp-lip),0 4cqh 7cqh 2cqh color-mix(in srgb,var(--cp-sh) 40%,transparent)}
@@ -892,7 +892,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-story-go{0%,14%{transform:translateY(0)}30%,46%{transform:translateY(var(--s))}62%,80%{transform:translateY(calc(var(--s) * 2))}96%,100%{transform:translateY(0)}}
 @keyframes k-story-on{0%,14%{opacity:var(--o0)}30%,46%{opacity:var(--o1)}62%,80%{opacity:var(--o2)}96%,100%{opacity:var(--o0)}}
 @keyframes k-story-fish{0%,100%{transform:translateX(-4cqh)}50%{transform:translateX(4cqh)}}
-/* sticky: Sticky Section */
+/* sticky: 吸顶区域 */
 .pv-sticky .rail{position:absolute;right:3cqw;top:20cqh;bottom:20cqh;width:1.8cqh;border-radius:1cqh;background:rgba(28,26,36,.2)}
 .pv-sticky .rail i{position:absolute;left:0;right:0;top:0;height:20cqh;border-radius:1cqh;background:#fff;box-shadow:0 .5cqh 0 var(--cp-lip)}
 .pv-sticky .intro{position:absolute;left:26cqw;right:30cqw;top:42cqh;display:flex;flex-direction:column;align-items:center;gap:3cqh;animation:k-sticky-intro 6s linear infinite}
@@ -927,7 +927,7 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 @keyframes k-sticky-s3{0%,52%{transform:translateY(6cqh);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}57%,87%{transform:translateY(0);opacity:1}87.1%,100%{transform:translateY(6cqh);opacity:0}}
 @keyframes k-sticky-dot{0%,33%{transform:translateX(0)}37%,52%{transform:translateX(5.8cqh)}56%,87%{transform:translateX(11.6cqh)}87.1%,100%{transform:translateX(0)}}
 @keyframes k-sticky-thumb{0%,5%{transform:translateY(0)}87%{transform:translateY(40cqh);animation-timing-function:cubic-bezier(.65,0,.35,1)}97%,100%{transform:translateY(0)}}
-/* hideheader: Hide-on-Scroll Header */
+/* hideheader: 滚动隐藏顶栏 */
 .pv-hideheader .rail{position:absolute;right:3cqw;top:20cqh;bottom:20cqh;width:1.8cqh;border-radius:1cqh;background:rgba(28,26,36,.2)}
 .pv-hideheader .rail i{position:absolute;left:0;right:0;top:0;height:20cqh;border-radius:1cqh;background:#fff;box-shadow:0 .5cqh 0 var(--cp-lip)}
 .pv-hideheader .ph{position:absolute;left:31cqw;width:36cqw;top:24cqh;bottom:-8cqh;overflow:hidden;border-radius:5cqh;background:#fff;box-shadow:var(--cp-lift)}
@@ -948,13 +948,13 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 </style>
 </head>
 <body>
-<a class="skip" href="#fx-gallery">Skip to the effects</a>
+<a class="skip" href="#fx-gallery">跳到效果列表</a>
 <header class="wrap top" id="top">
-  <a class="brand" href="../"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle class="ring" cx="11.16" cy="20.84" r="6.1"/><circle class="ring" cx="15.12" cy="16.88" r="6.1"/><circle class="ring" cx="18.51" cy="13.49" r="6.1"/><circle class="ball" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <nav class="nav" aria-label="Site">
-    <a class="lnk" href="../?view=all">Browse all</a>
-    <a class="lnk" href="./" aria-current="page">Famous effects</a>
-    <button type="button" class="icon-btn theme-btn" id="theme-toggle" aria-label="Switch between light and dark">
+  <a class="brand" href="../"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle class="ring" cx="11.16" cy="20.84" r="6.1"/><circle class="ring" cx="15.12" cy="16.88" r="6.1"/><circle class="ring" cx="18.51" cy="13.49" r="6.1"/><circle class="ball" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <nav class="nav" aria-label="网站">
+    <a class="lnk" href="../?view=all">浏览全部</a>
+    <a class="lnk" href="./" aria-current="page">知名效果</a>
+    <button type="button" class="icon-btn theme-btn" id="theme-toggle" aria-label="切换浅色与深色">
       <svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="i sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
     </button>
@@ -964,527 +964,527 @@ html.fx-open{overflow:hidden;padding-right:var(--fx-gap,0px)} /* the page does n
 
 <main class="fx-page">
   <div class="fx-head">
-    <p class="pill">11 effects from well-known websites</p>
-    <h1 class="h1">Famous effects</h1>
-    <p class="fx-lede">Effects people admire on well-known websites, the handbook animations that make something similar, and a prompt to build your own.</p>
-    <p class="fx-legal">The Animation Handbook is not connected to any of these sites or their owners, and none of them has reviewed or approved this page. Each effect is described in our own words and shown only with the handbook's own demos.</p>
+    <p class="pill">11 个来自知名网站的效果</p>
+    <h1 class="h1">知名效果</h1>
+    <p class="fx-lede">人们在知名网站上喜欢的效果、做出类似效果的手册动画，以及帮你自己动手做的提示词。</p>
+    <p class="fx-legal">动画手册与这些网站及其所有者没有任何关联，也没有哪个网站审阅或认可过这个页面。每个效果都用我们自己的话描述，只用手册自己的演示来展示。</p>
   </div>
   <section class="fx-gallery" id="fx-gallery" aria-labelledby="fx-gallery-t">
-    <h2 class="sr" id="fx-gallery-t">All effects</h2>
+    <h2 class="sr" id="fx-gallery-t">全部效果</h2>
     <ul class="fx-grid" role="list">
       <li class="tile" data-fx-tile="stripe-ribbon">
         <div class="t-stage">
           <div class="gp gp-ribbon" aria-hidden="true"><i class="rb rb1"></i><i class="rb rb2"></i><i class="rb rb3"></i><div class="rw"><svg class="la" viewBox="0 0 160 100"><path class="a" d="M-30 15C10 9 50 43.4 80 47.8"/><path class="a" d="M-30 19.1C10 13.8 50 43.7 80 48.1"/><path class="a" d="M-30 23.3C10 23.8 50 44.1 80 48.4"/><path class="b" d="M-30 27.5C10 28.6 50 44.4 80 48.7"/><path class="b" d="M-30 37C10 33.3 50 44.7 80 49.1"/><path class="b" d="M-30 41.2C10 38.1 50 45 80 49.4"/><path class="b" d="M-30 45.3C10 42.8 50 50.6 80 49.7"/><path class="c" d="M-30 49.5C10 47.6 50 51 80 50"/><path class="c" d="M-30 53.7C10 57.6 50 51.3 80 50.3"/><path class="c" d="M-30 57.9C10 62.4 50 51.6 80 50.6"/><path class="c" d="M-30 67.3C10 67.1 50 51.9 80 50.9"/><path class="c" d="M-30 71.5C10 71.9 50 57.5 80 51.3"/><path class="c" d="M-30 75.7C10 76.7 50 57.9 80 51.6"/><path class="d" d="M-30 79.9C10 86.7 50 58.2 80 51.9"/><path class="d" d="M-30 84.1C10 91.4 50 58.5 80 52.2"/></svg><svg class="ra" viewBox="0 0 160 100"><path class="a" d="M80 47.8C110 57.5 150 72.6 190 81.9"/><path class="a" d="M80 48.1C110 55.5 150 68.2 190 76.7"/><path class="a" d="M80 48.4C110 53.6 150 69.1 190 71.4"/><path class="b" d="M80 48.7C110 51.6 150 64.7 190 66.2"/><path class="b" d="M80 49.1C110 54.9 150 60.3 190 60.9"/><path class="b" d="M80 49.4C110 53 150 55.9 190 61"/><path class="b" d="M80 49.7C110 51 150 51.5 190 55.7"/><path class="c" d="M80 50C110 49 150 52.4 190 50.5"/><path class="c" d="M80 50.3C110 47.1 150 48 190 45.2"/><path class="c" d="M80 50.6C110 50.4 150 43.6 190 40"/><path class="c" d="M80 50.9C110 48.4 150 39.2 190 34.7"/><path class="c" d="M80 51.3C110 46.5 150 34.8 190 34.8"/><path class="c" d="M80 51.6C110 44.5 150 30.5 190 29.5"/><path class="d" d="M80 51.9C110 42.6 150 31.3 190 24.3"/><path class="d" d="M80 52.2C110 40.6 150 27 190 19"/></svg><i class="rp"></i></div></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">Loops</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">循环</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#stripe-ribbon">The twisting ribbon of light</a></h3>
-          <p class="t-desc">A ribbon of glowing strands slowly twists behind the headline.</p>
-          <p class="t-foot"><a class="t-site" href="https://stripe.com/" target="_blank" rel="noopener">Seen on stripe.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">3 animations</span></p>
+          <h3 class="t-title"><a href="#stripe-ribbon">扭动的光带</a></h3>
+          <p class="t-desc">标题后面，一条由发光细丝组成的宽丝带在缓缓扭动着。</p>
+          <p class="t-foot"><a class="t-site" href="https://stripe.com/" target="_blank" rel="noopener">见于 stripe.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">3 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="apple-scroll">
         <div class="t-stage">
           <div class="gp gp-visor" aria-hidden="true"><div class="vz"><i class="v-band"></i><i class="v-lens"><span class="fa"><i></i><i></i></span><span class="fb"><i></i><i></i></span></i><i class="v-frame"></i><i class="v-glass"></i></div></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On scroll</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">滚动时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#apple-scroll">The headset that comes apart as you scroll</a></h3>
-          <p class="t-desc">Its parts rise apart and drift off the top as the body turns to face you.</p>
-          <p class="t-foot"><a class="t-site" href="https://www.apple.com/apple-vision-pro/" target="_blank" rel="noopener">Seen on apple.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">2 animations</span></p>
+          <h3 class="t-title"><a href="#apple-scroll">随滚动拆开的头显</a></h3>
+          <p class="t-desc">它的零件一个个升起、散开，机身转向你，再从顶部飘走。</p>
+          <p class="t-foot"><a class="t-site" href="https://www.apple.com/apple-vision-pro/" target="_blank" rel="noopener">见于 apple.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">2 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="landonorris-reveal">
         <div class="t-stage">
           <div class="gp gp-reveal" aria-hidden="true"><div class="rv-a"><i class="rv-o"></i><i class="rv-f"></i><i class="rv-g"></i><i class="rv-t t1"></i><i class="rv-t t2"></i><i class="rv-t t3"></i><i class="rv-n"></i></div><div class="rv-blob"><div class="rv-b"><i class="rv-o"></i><i class="rv-f"></i><i class="rv-g"></i><i class="rv-t t1"></i><i class="rv-t t2"></i><i class="rv-t t3"></i><i class="rv-n"></i></div></div></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On hover</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">悬停时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#landonorris-reveal">The liquid reveal under the pointer</a></h3>
-          <p class="t-desc">A soft liquid shape follows the pointer and shows a second picture.</p>
-          <p class="t-foot"><a class="t-site" href="https://landonorris.com/" target="_blank" rel="noopener">Seen on landonorris.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">3 animations</span></p>
+          <h3 class="t-title"><a href="#landonorris-reveal">指针下的液态揭示</a></h3>
+          <p class="t-desc">一个柔软的液态形状跟着指针走，露出底下的第二张图片。</p>
+          <p class="t-foot"><a class="t-site" href="https://landonorris.com/" target="_blank" rel="noopener">见于 landonorris.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">3 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="linear-intro">
         <div class="t-stage">
           <div class="gp gp-intro" aria-hidden="true"><i class="n7"></i><i class="t n1"></i><i class="t n2"></i><i class="t n3"></i><i class="n4"></i><i class="n5"></i><i class="n6"><b style="--l:2.4cqw;--y:5.2cqh;--w:10cqw;--bar:rgba(110,168,255,.5)"></b><b style="--l:2.4cqw;--y:10cqh;--w:7cqw"></b><b style="--l:17cqw;--y:5.2cqh;--w:20cqw;--h:2.6cqh;--bar:rgba(233,235,243,.9)"></b><b style="--l:17cqw;--y:10.6cqh;--w:40cqw"></b><b style="--l:17cqw;--y:14cqh;--w:28cqw"></b><b style="--l:17cqw;--y:19cqh;--w:13cqw;--h:9cqh;--bar:rgba(110,168,255,.3)"></b><b style="--l:32cqw;--y:19cqh;--w:13cqw;--h:9cqh;--bar:rgba(185,140,255,.3)"></b><b style="--l:47cqw;--y:19cqh;--w:13cqw;--h:9cqh;--bar:rgba(63,214,196,.3)"></b></i></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On load</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">打开时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#linear-intro">The headline that comes into focus</a></h3>
-          <p class="t-desc">The headline sharpens out of a soft blur, then the line under it and a picture follow.</p>
-          <p class="t-foot"><a class="t-site" href="https://linear.app/" target="_blank" rel="noopener">Seen on linear.app <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">3 animations</span></p>
+          <h3 class="t-title"><a href="#linear-intro">由模糊变清晰的标题</a></h3>
+          <p class="t-desc">标题从柔和的模糊里变清晰，底下的线和图片也跟着来。</p>
+          <p class="t-foot"><a class="t-site" href="https://linear.app/" target="_blank" rel="noopener">见于 linear.app <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">3 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="apple-menu">
         <div class="t-stage">
           <div class="gp gp-menu" aria-hidden="true"><div class="mn-pg"><i></i><i></i><i></i></div><div class="mn-bar"><i class="mn-dot"></i><div class="mn-btn"><i></i><i></i><i></i></div></div><div class="mn-panel"><i></i><i></i><i></i><i></i><i></i></div></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On press</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">按下时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#apple-menu">The menu that drops in, link by link</a></h3>
-          <p class="t-desc">Press the menu button and the links drop in one after another.</p>
-          <p class="t-foot"><a class="t-site" href="https://www.apple.com/" target="_blank" rel="noopener">Seen on apple.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">3 animations</span></p>
+          <h3 class="t-title"><a href="#apple-menu">一个接一个落下的菜单</a></h3>
+          <p class="t-desc">点一下菜单按钮，链接一个接一个落下来，铺满整个屏幕。</p>
+          <p class="t-foot"><a class="t-site" href="https://www.apple.com/" target="_blank" rel="noopener">见于 apple.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">3 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="wikipedia-previews">
         <div class="t-stage">
           <div class="gp gp-wiki" aria-hidden="true"><i class="tx tx1"></i><i class="tx tx2"></i><i class="tx tx3"></i><i class="tx tx4"></i><i class="tx tx5"></i><i class="tx tx6"></i><i class="tx tx7"></i><div class="wk-card"><i class="im"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i></div><i class="wk-ptr"></i></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On hover</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">悬停时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#wikipedia-previews">Link previews</a></h3>
-          <p class="t-desc">Rest the pointer on a link and a small card with the article's first lines appears.</p>
-          <p class="t-foot"><a class="t-site" href="https://en.wikipedia.org/wiki/Animation" target="_blank" rel="noopener">Seen on en.wikipedia.org <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">2 animations</span></p>
+          <h3 class="t-title"><a href="#wikipedia-previews">链接预览</a></h3>
+          <p class="t-desc">把指针放在链接上，一张带着文章开头的小卡片会出现。</p>
+          <p class="t-foot"><a class="t-site" href="https://en.wikipedia.org/wiki/Animation" target="_blank" rel="noopener">见于 en.wikipedia.org <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">2 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="apple-sweep">
         <div class="t-stage">
           <div class="gp gp-sweep" aria-hidden="true"><i class="sw w1"><i></i></i><i class="sw w2"><i></i></i></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On scroll</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">滚动时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#apple-sweep">The color that sweeps across the headline</a></h3>
-          <p class="t-desc">A band of color sweeps across the headline as it comes into view.</p>
-          <p class="t-foot"><a class="t-site" href="https://www.apple.com/iphone-18-pro/" target="_blank" rel="noopener">Seen on apple.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">1 animation</span></p>
+          <h3 class="t-title"><a href="#apple-sweep">扫过标题的色彩</a></h3>
+          <p class="t-desc">一带色彩扫过标题，标题随着它进入视野、慢慢显现出来。</p>
+          <p class="t-foot"><a class="t-site" href="https://www.apple.com/iphone-18-pro/" target="_blank" rel="noopener">见于 apple.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">1 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="spotify-cards">
         <div class="t-stage">
           <div class="gp gp-cards" aria-hidden="true"><div class="cd ca"><i class="ov"></i><i class="cv"><i class="play"></i></i><i class="t1"></i><i class="t2"></i></div><div class="cd cb"><i class="ov"></i><i class="cv"><i class="play"></i></i><i class="t1"></i><i class="t2"></i></div><div class="cd cc"><i class="cv"></i><i class="t1"></i><i class="t2"></i></div><i class="ptr"></i></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On hover</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">悬停时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#spotify-cards">The play button that rises</a></h3>
-          <p class="t-desc">Point at a card and it lightens while a round play button rises into view.</p>
-          <p class="t-foot"><a class="t-site" href="https://open.spotify.com/" target="_blank" rel="noopener">Seen on open.spotify.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">2 animations</span></p>
+          <h3 class="t-title"><a href="#spotify-cards">升起来的播放按钮</a></h3>
+          <p class="t-desc">指着一张卡片，卡片变亮，一个圆圆的播放按钮升起来。</p>
+          <p class="t-foot"><a class="t-site" href="https://open.spotify.com/" target="_blank" rel="noopener">见于 open.spotify.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">2 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="youtube-loading">
         <div class="t-stage">
           <div class="gp gp-load" aria-hidden="true"><div class="ld l-a"><i class="th"><b></b></i><i class="av"><b></b></i><i class="m1"><b></b></i><i class="m2"><b></b></i></div><div class="ld l-b"><i class="th"><b></b></i><i class="av"><b></b></i><i class="m1"><b></b></i><i class="m2"><b></b></i></div><div class="ld l-c"><i class="th"><b></b></i><i class="av"><b></b></i><i class="m1"><b></b></i><i class="m2"><b></b></i></div></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On load</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">打开时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#youtube-loading">Gray shapes while it loads</a></h3>
-          <p class="t-desc">Still gray boxes hold each video's place until the real thing swaps in.</p>
-          <p class="t-foot"><a class="t-site" href="https://www.youtube.com/" target="_blank" rel="noopener">Seen on youtube.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">1 animation</span></p>
+          <h3 class="t-title"><a href="#youtube-loading">加载时的灰色形状</a></h3>
+          <p class="t-desc">灰色的方块和横条占着每个视频的位置，等真的内容换进来。</p>
+          <p class="t-foot"><a class="t-site" href="https://www.youtube.com/" target="_blank" rel="noopener">见于 youtube.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">1 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="pudding-chart">
         <div class="t-stage">
           <div class="gp gp-chart" aria-hidden="true"><i class="tl tl1"></i><i class="tl tl2"></i><i class="tl tl3"></i><i class="tl tl4"></i><i class="tl tl5"></i><i class="mk"></i><i class="bar k1"><i class="mv"><i class="g"></i></i></i><i class="bar k2"><i class="mv"><i class="g"></i></i></i><i class="bar k3"><i class="mv"><i class="g"></i></i></i><i class="bar k4"><i class="mv"><i class="g"></i></i></i><i class="bar k5"><i class="mv"><i class="g"></i></i></i><i class="bar k6"><i class="mv"><i class="g"></i></i></i></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On scroll</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">滚动时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#pudding-chart">The chart that changes as you read</a></h3>
-          <p class="t-desc">As you read on, the chart stays in view and changes step by step.</p>
-          <p class="t-foot"><a class="t-site" href="https://pudding.cool/2025/11/democracy/" target="_blank" rel="noopener">Seen on pudding.cool <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">2 animations</span></p>
+          <h3 class="t-title"><a href="#pudding-chart">读着读着就变的图表</a></h3>
+          <p class="t-desc">读下去，图表一直留在视野里，一步一步跟着故事变化。</p>
+          <p class="t-foot"><a class="t-site" href="https://pudding.cool/2025/11/democracy/" target="_blank" rel="noopener">见于 pudding.cool <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">2 个动画</span></p>
         </div>
       </li>
       <li class="tile" data-fx-tile="medium-top-bar">
         <div class="t-stage">
           <div class="gp gp-bar" aria-hidden="true"><div class="tb-frame"><div class="tb-page"><i class="k"></i><i class="h"></i><i class="h s"></i><i class="au"><b></b><b></b></i><i class="im"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="tb-bar"><i class="d"></i><i class="t"></i><i class="a"></i><i class="f"></i></div></div></div>
-          <div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">On scroll</span></div>
+          <div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">滚动时</span></div>
         </div>
         <div class="t-meta">
-          <h3 class="t-title"><a href="#medium-top-bar">The top bar that hides while you read</a></h3>
-          <p class="t-desc">Scroll down and the top bar rides up with the text; scroll up and it comes back.</p>
-          <p class="t-foot"><a class="t-site" href="https://medium.com/" target="_blank" rel="noopener">Seen on medium.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">1 animation</span></p>
+          <h3 class="t-title"><a href="#medium-top-bar">读文章时藏起来的顶栏</a></h3>
+          <p class="t-desc">往下滚，顶栏跟着文字升上去；往上滚一点，它又回来了。</p>
+          <p class="t-foot"><a class="t-site" href="https://medium.com/" target="_blank" rel="noopener">见于 medium.com <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">1 个动画</span></p>
         </div>
       </li>
       <li class="tile tile-more">
-        <h3 id="fx-more-t">Seen one we should add?</h3>
-        <p>Seen an effect on a well-known site that you want explained?</p>
-        <a class="fx-suggest" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=famous_effect.yml" target="_blank" rel="noopener">Suggest it on GitHub<span class="sr"> (opens in a new tab)</span></a>
-        <p class="fx-note">Each entry was checked on its live site in the year shown; a site may have changed since.</p>
+        <h3 id="fx-more-t">见过一个我们该加上的效果？</h3>
+        <p>在知名网站上看到一个想让人讲明白的效果？</p>
+        <a class="fx-suggest" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=famous_effect.yml" target="_blank" rel="noopener">在 GitHub 上推荐<span class="sr">（在新标签页中打开）</span></a>
+        <p class="fx-note">每一条都是在它显示的年份里，在它的在线网站上核对过的；网站可能已经变了。</p>
       </li>
     </ul>
   </section>
 
   <div class="fx-list">
   <section class="fx" id="stripe-ribbon" aria-labelledby="stripe-ribbon-t" data-fx-site="Stripe" data-fx-start="loop">
-    <p class="fx-seen">Seen on <a href="https://stripe.com/" target="_blank" rel="noopener">stripe.com<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="stripe-ribbon-t" tabindex="-1">The twisting ribbon of light</h2>
-    <p class="fx-chips"><span class="fx-chip">Loops</span><span class="fx-chip">Made from 3 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://stripe.com/" target="_blank" rel="noopener">stripe.com<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="stripe-ribbon-t" tabindex="-1">扭动的光带</h2>
+    <p class="fx-chips"><span class="fx-chip">循环</span><span class="fx-chip">由 3 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The twisting ribbon of light" data-src="versions/stripe-ribbon.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：扭动的光带" data-src="versions/stripe-ribbon.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="pause">Pause</button>
-        <p class="fx-phint">Built from the prompt below. It moves by itself.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="pause">暂停</button>
+        <p class="fx-phint">按下面的提示词做的。它自己动。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">Behind the headline, a wide ribbon made of fine strands of glowing color slowly twists in depth, some strands sharp and others soft, as if filmed by a camera, under a fine grain. Before 2026 the same place held a flat band of blended colors that flowed like slow paint, the look <a href="../animations/07-ambient-background/mesh-gradient/">Mesh Gradient Animation</a> makes.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">标题后面，一条由细细的发光彩色丝线组成的宽丝带在纵深里慢慢扭动，有的丝线清晰，有的柔和，像是用相机拍下来的一样，上面还有一层细腻的颗粒。2026 年之前，同一个位置是一条平坦的混合色彩带，像缓慢流动的颜料，就是<a href="../animations/07-ambient-background/mesh-gradient/">网格渐变</a>做出来的样子。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>It moves on its own, and pauses when it is off screen.</dd></div>
-      <div><dt>On phones</dt><dd>A lighter version is drawn.</dd></div>
-      <div><dt>Reduced motion</dt><dd>A still picture of the ribbon is shown.</dd></div>
+      <div><dt>开始方式</dt><dd>它自己动，离开屏幕时暂停。</dd></div>
+      <div><dt>在手机上</dt><dd>手机上画的是更轻的版本。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>减弱动态效果时显示丝带的静止画面。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c7" data-slug="aurora"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The soft light</span></div><div class="meta"><h4 class="title"><a href="../animations/07-ambient-background/aurora/">Aurora / Northern Lights</a></h4><p class="desc">Blurred bands of light sway like the northern lights. Best for dark backgrounds.</p></div></article>
-      <article class="card c7" data-slug="grain-overlay"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The grain</span></div><div class="meta"><h4 class="title"><a href="../animations/07-ambient-background/grain-overlay/">Grain / Film Noise Overlay</a></h4><p class="desc">Fine grain flickers over the page, like old film. Best for editorial sites.</p></div></article>
-      <article class="card c6" data-slug="webgl-shader-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">On the chip</span></div><div class="meta"><h4 class="title"><a href="../animations/06-3d-advanced/webgl-shader-animation/">WebGL Shader Animation</a></h4><p class="desc">Moving color patterns computed for every pixel. Best for bold backgrounds.</p></div></article>
+      <article class="card c7" data-slug="aurora"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">柔和的光</span></div><div class="meta"><h4 class="title"><a href="../animations/07-ambient-background/aurora/">极光</a></h4><p class="desc">模糊的光带如北极光般摇曳。最适合深色背景。</p></div></article>
+      <article class="card c7" data-slug="grain-overlay"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">颗粒</span></div><div class="meta"><h4 class="title"><a href="../animations/07-ambient-background/grain-overlay/">颗粒噪点叠加</a></h4><p class="desc">细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。</p></div></article>
+      <article class="card c6" data-slug="webgl-shader-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">在芯片上</span></div><div class="meta"><h4 class="title"><a href="../animations/06-3d-advanced/webgl-shader-animation/">WebGL 着色器动画</a></h4><p class="desc">逐像素计算的流动色彩图案。适合大胆的背景。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a slowly twisting ribbon of colored light behind <mark>[the heading at the top of your page]</mark>. Draw one wide ribbon of fine strands in three or four of your own colors that drifts and turns in depth, so some strands come into sharp focus while others blur, like a camera with a shallow focus, and lay a fine grain over it so the colors feel printed rather than flat. Keep the movement slow and the heading readable on every color it passes. Draw it on the graphics chip, show a still picture of it until it is ready, and pause it when it is off screen. On phones, draw a lighter version. If the visitor has reduced motion turned on, show the still picture.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The twisting ribbon of light"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://stripe.com/" target="_blank" rel="noopener">Watch the real one on stripe.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[页面顶部的标题]</mark>后面加一条慢慢扭动的光带。用三四种你自己的颜色，画一条由细丝组成的宽丝带，让它在纵深里漂移、转动，有的丝线变得清晰，有的变模糊，像浅景深的相机拍出来的一样，再铺上一层细腻的颗粒，让颜色像印上去的，而不是平平的一片。动作要慢，标题在任何颜色经过时都要能看清。在图形芯片上画，先显示一张静止画面，等准备好了再动，离开屏幕时暂停。手机上画一个更轻的版本。如果访客开启了减弱动态效果，就显示那张静止画面。</p></div>
+    <button type="button" class="copy" aria-label="复制「扭动的光带」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://stripe.com/" target="_blank" rel="noopener">在 stripe.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="apple-scroll" aria-labelledby="apple-scroll-t" data-fx-site="Apple" data-fx-start="scroll">
-    <p class="fx-seen">Seen on <a href="https://www.apple.com/apple-vision-pro/" target="_blank" rel="noopener">apple.com/apple-vision-pro<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="apple-scroll-t" tabindex="-1">The headset that comes apart as you scroll</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on scroll</span><span class="fx-chip">Made from 2 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://www.apple.com/apple-vision-pro/" target="_blank" rel="noopener">apple.com/apple-vision-pro<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="apple-scroll-t" tabindex="-1">随滚动拆开的头显</h2>
+    <p class="fx-chips"><span class="fx-chip">滚动时开始</span><span class="fx-chip">由 2 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The headset that comes apart as you scroll" data-src="versions/apple-scroll.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：随滚动拆开的头显" data-src="versions/apple-scroll.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="play">Play</button>
-        <button type="button" class="fx-pbtn" data-fx-cmd="top">Back to top</button>
-        <p class="fx-phint">Built from the prompt below. Scroll inside the box, or press Play.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="play">播放</button>
+        <button type="button" class="fx-pbtn" data-fx-cmd="top">回到顶部</button>
+        <p class="fx-phint">按下面的提示词做的。在框里滚动，或者点「播放」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">About two thirds of the way down the page, the headset comes up from below as a stack of its parts. As you scroll, the parts rise apart and drift off the top while the body swings up behind them and turns to face you, its two lenses in the middle, with a short caption underneath. Scrolling back reverses it.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">页面大约三分之二的地方，头显从下面升起来，是一摞叠好的零件。滚动时，零件一个个升起、散开，从顶部飘走，机身在后面摆上来、转向你，中间是两个镜片，下面有一行简短的说明。往回滚，整个过程倒着来。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>Scrolling through the section plays it, forward and back.</dd></div>
-      <div><dt>On phones</dt><dd>Touch scrolling drives it the same way.</dd></div>
-      <div><dt>Reduced motion</dt><dd>A few still pictures with their text are shown instead.</dd></div>
+      <div><dt>开始方式</dt><dd>滚过这个区块时播放，正放倒放都行。</dd></div>
+      <div><dt>在手机上</dt><dd>触摸滚动也一样能驱动它。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>改成放几张静止图片，配上文字。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c1" data-slug="scrub-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">Scroll plays it</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/scrub-animation/">Scrub Animation</a></h4><p class="desc">Scroll plays it forward and back, like dragging a video. Best for product tours.</p></div></article>
-      <article class="card c1" data-slug="pin-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">It stays put</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/pin-animation/">Pin Animation</a></h4><p class="desc">One part stays put while its text changes on scroll. Best for feature lists.</p></div></article>
+      <article class="card c1" data-slug="scrub-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">滚动播放</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/scrub-animation/">滚动 scrub 动画</a></h4><p class="desc">滚动像拖视频进度条一样正放倒放。最适合产品演示。</p></div></article>
+      <article class="card c1" data-slug="pin-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">固定不动</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/pin-animation/">固定动画</a></h4><p class="desc">一部分固定不动，文字随滚动变化。最适合功能列表。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a scroll-driven product reveal to <mark>[your product section]</mark>. In a section a few screens tall, bring the product up from below as a stack of its parts, and let the scroll lift the parts apart and carry them off the top while the body swings up behind them and turns to face the visitor, ending in the middle with a short headline and paragraph under it. Move it slightly slower than the page, and tie it to the scroll position so scrolling up plays it backward. Show a still picture until it is ready, and give the product a text description for screen readers. Touch scrolling drives it the same way. If the visitor has reduced motion turned on, show a few still pictures with their text instead.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The headset that comes apart as you scroll"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://www.apple.com/apple-vision-pro/" target="_blank" rel="noopener">Watch the real one on apple.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[你的产品区块]</mark>加上滚动驱动的产品揭示。在一个几屏高的区块里，让产品从下面升起来，是一摞叠好的零件；滚动时，零件一个个分开、升起，从顶部飘走，机身在后面摆上来、转向访客，最后停在中间，底下有一行简短的标题和一段文字。让它比页面动得稍慢一点，位置和滚动绑定，往上滚就倒着播放。先显示一张静止画面，等准备好了再动，也给产品写一段文字说明，方便屏幕阅读器。触摸滚动也一样能驱动它。如果访客开启了减弱动态效果，就放几张静止图片，配上文字。</p></div>
+    <button type="button" class="copy" aria-label="复制「随滚动拆开的头显」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://www.apple.com/apple-vision-pro/" target="_blank" rel="noopener">在 apple.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="landonorris-reveal" aria-labelledby="landonorris-reveal-t" data-fx-site="Lando Norris" data-fx-start="hover">
-    <p class="fx-seen">Seen on <a href="https://landonorris.com/" target="_blank" rel="noopener">landonorris.com<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="landonorris-reveal-t" tabindex="-1">The liquid reveal under the pointer</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on hover</span><span class="fx-chip">Made from 3 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://landonorris.com/" target="_blank" rel="noopener">landonorris.com<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="landonorris-reveal-t" tabindex="-1">指针下的液态揭示</h2>
+    <p class="fx-chips"><span class="fx-chip">悬停时开始</span><span class="fx-chip">由 3 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The liquid reveal under the pointer" data-src="versions/landonorris-reveal.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：指针下的液态揭示" data-src="versions/landonorris-reveal.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="show">Show me</button>
-        <p class="fx-phint">Built from the prompt below. Point at it, or press Show me.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="show">演示一下</button>
+        <p class="fx-phint">按下面的提示词做的。指着它，或者点「演示一下」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">A large portrait stands in the middle of the screen. Wherever the pointer moves across his head, a soft, liquid-looking blob shows a second picture through it, his racing helmet, as if the portrait were being wiped away.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">屏幕中间立着一张大幅肖像。指针划过他的头部时，一个柔软的液态小团跟着走，透过它能看到第二张图片——他的赛车头盔，就像肖像被一点点擦掉了一样。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>Moving the pointer over the picture.</dd></div>
-      <div><dt>On phones</dt><dd>A finger dragged across the picture does the same.</dd></div>
-      <div><dt>Reduced motion</dt><dd>A plain circle shows at the pointer, without the wobble or the lag.</dd></div>
+      <div><dt>开始方式</dt><dd>指针划过图片时开始。</dd></div>
+      <div><dt>在手机上</dt><dd>手指在图片上拖动也一样。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>指针处只显示一个普通的圆圈，没有晃动和延迟。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c4" data-slug="cursor-follower"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">Follows the pointer</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/cursor-follower/">Cursor Follower</a></h4><p class="desc">A dot trails your pointer and flips the colors under it. Best for portfolios.</p></div></article>
-      <article class="card c6" data-slug="morphing-blob"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The liquid shape</span></div><div class="meta"><h4 class="title"><a href="../animations/06-3d-advanced/morphing-blob/">Morphing Blob</a></h4><p class="desc">Blobs melt together, and one drop chases your pointer. Best for hero sections.</p></div></article>
-      <article class="card c2" data-slug="clip-path-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The hidden picture</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/clip-path-reveal/">Clip-Path Reveal</a></h4><p class="desc">A growing shape uncovers it while it stays still. Best for images and banners.</p></div></article>
+      <article class="card c4" data-slug="cursor-follower"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">跟着指针</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/cursor-follower/">光标跟随</a></h4><p class="desc">一个圆点跟随指针，并反转下方颜色。适合用在作品集上。</p></div></article>
+      <article class="card c6" data-slug="morphing-blob"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">液态形状</span></div><div class="meta"><h4 class="title"><a href="../animations/06-3d-advanced/morphing-blob/">变形色块</a></h4><p class="desc">色块融在一起，其中一滴追着你的指针。适合主视觉区域。</p></div></article>
+      <article class="card c2" data-slug="clip-path-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">藏着的图片</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/clip-path-reveal/">剪裁路径揭示</a></h4><p class="desc">一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a liquid reveal to <mark>[the picture at the top of your page, with a second picture hidden under it]</mark>. Stack the two pictures exactly. Wherever the pointer goes, a soft, round blob follows a little behind it, wobbling and stretching with its speed, and the hidden picture shows through the blob, as if the top picture were being wiped away. Let the blob shrink away when the pointer stops or leaves. Draw the mask on the graphics chip or with a clip, never by resizing the pictures, so it stays smooth. On touch screens, let a finger dragged across the picture do the same. If the visitor has reduced motion turned on, show a plain circle at the pointer, without the wobble or the lag.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The liquid reveal under the pointer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://landonorris.com/" target="_blank" rel="noopener">Watch the real one on landonorris.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[页面顶部那张图片，底下还藏着第二张]</mark>加上液态揭示。把两张图片完全叠在一起。指针走到哪里，一个柔软的圆形小团就跟到哪里，稍微落后一点，随着速度晃动、拉长，透过小团能看到底下那张图片，就像上面的图片被擦掉了一样。指针停下或离开时，小团缩回去。用图形芯片或裁剪来画遮罩，别去改图片的大小，这样才顺滑。在触摸屏上，让手指在图片上拖动也能做到同样的事。如果访客开启了减弱动态效果，就在指针处显示一个普通的圆圈，没有晃动和延迟。</p></div>
+    <button type="button" class="copy" aria-label="复制「指针下的液态揭示」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://landonorris.com/" target="_blank" rel="noopener">在 landonorris.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="linear-intro" aria-labelledby="linear-intro-t" data-fx-site="Linear" data-fx-start="load">
-    <p class="fx-seen">Seen on <a href="https://linear.app/" target="_blank" rel="noopener">linear.app<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="linear-intro-t" tabindex="-1">The headline that comes into focus</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on load</span><span class="fx-chip">Made from 3 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://linear.app/" target="_blank" rel="noopener">linear.app<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="linear-intro-t" tabindex="-1">由模糊变清晰的标题</h2>
+    <p class="fx-chips"><span class="fx-chip">打开时开始</span><span class="fx-chip">由 3 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The headline that comes into focus" data-src="versions/linear-intro.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：由模糊变清晰的标题" data-src="versions/linear-intro.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="replay">Replay</button>
-        <p class="fx-phint">Built from the prompt below. Press Replay to see it again.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="replay">重播</button>
+        <p class="fx-phint">按下面的提示词做的。点「重播」可以再看一遍。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">As the page opens, the headline fades in while it rises a little and sharpens out of a soft blur, its second line a moment after the first. The line under it follows, then a small link and a large flat picture of the app come in the same way, the picture slowest. On a phone the headline wraps onto more lines, which arrive together.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">页面打开时，标题一边淡入、一边微微上升，同时从柔和的模糊里变清晰，第二行比第一行晚一点。接着是标题下的那行字，然后是一个小链接和一张应用的大幅平铺图，也是同样的方式，图片最慢。手机上标题会换成更多行，一起来。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>As the page opens. The headline is clear within a second; everything ends in about two and a half seconds.</dd></div>
-      <div><dt>On phones</dt><dd>Use less blur on phones, where it costs more.</dd></div>
-      <div><dt>Reduced motion</dt><dd>The opening is skipped: everything shows at once.</dd></div>
+      <div><dt>开始方式</dt><dd>页面打开时开始。一秒内标题变清晰，整个过程大约两秒半。</dd></div>
+      <div><dt>在手机上</dt><dd>手机上少用一点模糊，模糊在手机上更费性能。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>跳过开场：所有东西一次显示。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c2" data-slug="split-text-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">Lines in turn</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/split-text-reveal/">Split Text Reveal</a></h4><p class="desc">Text breaks into pieces that appear one after another. Best for headlines.</p></div></article>
-      <article class="card c2" data-slug="blur-in"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">Blur to sharp</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/blur-in/">Blur In</a></h4><p class="desc">Comes into focus from a blur, like a camera. Best for featured cards and photos.</p></div></article>
-      <article class="card c1" data-slug="stagger-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">Part after part</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/stagger-reveal/">Stagger Reveal</a></h4><p class="desc">Items in a group appear one after another as it scrolls in. Best for card grids.</p></div></article>
+      <article class="card c2" data-slug="split-text-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">一行接一行</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/split-text-reveal/">拆字揭示</a></h4><p class="desc">文字拆成碎片，依次出现。适合标题。</p></div></article>
+      <article class="card c2" data-slug="blur-in"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">从模糊到清晰</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/blur-in/">模糊渐入</a></h4><p class="desc">像相机对焦一样从模糊中变得清晰。适合精选卡片和照片。</p></div></article>
+      <article class="card c1" data-slug="stagger-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">一个接一个</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/stagger-reveal/">交错显现</a></h4><p class="desc">一组里的元素随滚动依次出现。最适合卡片网格。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a focus-in opening to <mark>[the headline, the line under it, the buttons and the picture at the top of your page]</mark>. As the page opens, bring in the headline, each line fading in while it rises a little and sharpens out of a soft blur, the second a moment after the first. Then bring in the line under it, the buttons and the picture the same way, each a little later and slower. Let every part start fast and settle gently: the headline is clear within a second and everything ends in about two and a half seconds. Animate only fading, blur and small moves, and use less blur on phones, where it costs more. If the visitor has reduced motion turned on, show everything at once.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The headline that comes into focus"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://linear.app/" target="_blank" rel="noopener">Watch the real one on linear.app <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[页面顶部的标题、标题下的文字、按钮和图片]</mark>加上一个由模糊变清晰的开场。页面打开时，标题的每一行一边淡入、一边微微上升，同时从柔和的模糊里变清晰，第二行比第一行晚一点。再用同样的方式，稍晚一点、稍慢一点，依次带入标题下的文字、按钮和图片。每个部分开始快、落定稳：标题一秒内变清晰，整个过程大约两秒半。只做淡入、模糊和小幅移动，手机上少用一点模糊，那里更费性能。如果访客开启了减弱动态效果，就一次显示所有东西。</p></div>
+    <button type="button" class="copy" aria-label="复制「由模糊变清晰的标题」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://linear.app/" target="_blank" rel="noopener">在 linear.app 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="apple-menu" aria-labelledby="apple-menu-t" data-fx-site="Apple" data-fx-start="press">
-    <p class="fx-seen">Seen on <a href="https://www.apple.com/" target="_blank" rel="noopener">apple.com<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="apple-menu-t" tabindex="-1">The menu that drops in, link by link</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on press</span><span class="fx-chip">Made from 3 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://www.apple.com/" target="_blank" rel="noopener">apple.com<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="apple-menu-t" tabindex="-1">一个接一个落下的菜单</h2>
+    <p class="fx-chips"><span class="fx-chip">按下时开始</span><span class="fx-chip">由 3 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The menu that drops in, link by link" data-src="versions/apple-menu.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：一个接一个落下的菜单" data-src="versions/apple-menu.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="show">Show me</button>
-        <p class="fx-phint">Built from the prompt below. Press it, or press Show me.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="show">演示一下</button>
+        <p class="fx-phint">按下面的提示词做的。点它，或者点「演示一下」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">On a phone, the two-line menu button folds into an X while the menu fills the screen and its links drop into place one after another. On a computer, pointing at a top item opens a panel that grows down from the bar, its links appearing in turn, while the page behind blurs.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">手机上，两道线的菜单按钮折成一个 X，菜单铺满整个屏幕，链接一个接一个落到位。电脑上，指着顶部的项目会打开一个面板，从顶栏向下展开，链接依次出现，身后的页面变模糊。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>A tap on the menu button. On computers, pointing at a top item or reaching it with the keyboard.</dd></div>
-      <div><dt>On phones</dt><dd>A tap on the menu button opens the menu over the whole screen.</dd></div>
-      <div><dt>Reduced motion</dt><dd>The menus show and hide at once, without opening in steps.</dd></div>
+      <div><dt>开始方式</dt><dd>轻点菜单按钮。电脑上指着顶部项目，或者用键盘走到它那里也行。</dd></div>
+      <div><dt>在手机上</dt><dd>轻点菜单按钮，菜单在整个屏幕上打开。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>菜单直接出现和消失，不再分步打开。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c4" data-slug="hamburger-menu-toggle"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The button</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/hamburger-menu-toggle/">Hamburger Menu Toggle</a></h4><p class="desc">Three lines turn into an X as the menu opens. Best for mobile menus.</p></div></article>
-      <article class="card c1" data-slug="stagger-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">Links in turn</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/stagger-reveal/">Stagger Reveal</a></h4><p class="desc">Items in a group appear one after another as it scrolls in. Best for card grids.</p></div></article>
-      <article class="card c6" data-slug="glassmorphism-animated"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The blurred page</span></div><div class="meta"><h4 class="title"><a href="../animations/06-3d-advanced/glassmorphism-animated/">Glassmorphism Animated</a></h4><p class="desc">Frosted glass cards blur the colors behind them. Best for cards and panels.</p></div></article>
+      <article class="card c4" data-slug="hamburger-menu-toggle"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">那个按钮</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/hamburger-menu-toggle/">汉堡菜单切换</a></h4><p class="desc">三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。</p></div></article>
+      <article class="card c1" data-slug="stagger-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">链接依次出现</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/stagger-reveal/">交错显现</a></h4><p class="desc">一组里的元素随滚动依次出现。最适合卡片网格。</p></div></article>
+      <article class="card c6" data-slug="glassmorphism-animated"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">模糊的页面</span></div><div class="meta"><h4 class="title"><a href="../animations/06-3d-advanced/glassmorphism-animated/">动态毛玻璃</a></h4><p class="desc">磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a menu that opens in steps to <mark>[the main menu in your site's header]</mark>. On phones, a tap on the menu button folds its lines into an X while the menu opens to fill the screen, and its links drop a few pixels into place one after another. On computers, pointing at a top item, or reaching it with the keyboard, opens a panel below it the same way while the page behind blurs. Keep the wait between links tiny, so the whole menu is there in about half a second, and close it faster than it opens. Make every opener a real button that tells screen readers whether its menu is open. If the visitor has reduced motion turned on, show and hide the menus at once.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The menu that drops in, link by link"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://www.apple.com/" target="_blank" rel="noopener">Watch the real one on apple.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[网站页眉里的主菜单]</mark>加上一个分步打开的菜单。手机上，轻点菜单按钮，它的线条折成一个 X，同时菜单打开、铺满屏幕，链接一个接一个往下掉几像素、落到位。电脑上，指着顶部项目，或者用键盘走到它那里，会在下面打开一个面板，也是同样的方式，身后的页面变模糊。链接之间的间隔要小，整个菜单大约半秒内全部出现，关闭要比打开更快。每个打开菜单的按钮都要是真正的按钮，还要告诉屏幕阅读器它的菜单是不是开着的。如果访客开启了减弱动态效果，就让菜单直接出现和消失。</p></div>
+    <button type="button" class="copy" aria-label="复制「一个接一个落下的菜单」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://www.apple.com/" target="_blank" rel="noopener">在 apple.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="wikipedia-previews" aria-labelledby="wikipedia-previews-t" data-fx-site="Wikipedia" data-fx-start="hover">
-    <p class="fx-seen">Seen on <a href="https://en.wikipedia.org/wiki/Animation" target="_blank" rel="noopener">en.wikipedia.org/wiki/Animation<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="wikipedia-previews-t" tabindex="-1">Link previews</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on hover</span><span class="fx-chip">Made from 2 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://en.wikipedia.org/wiki/Animation" target="_blank" rel="noopener">en.wikipedia.org/wiki/Animation<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="wikipedia-previews-t" tabindex="-1">链接预览</h2>
+    <p class="fx-chips"><span class="fx-chip">悬停时开始</span><span class="fx-chip">由 2 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: Link previews" data-src="versions/wikipedia-previews.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：链接预览" data-src="versions/wikipedia-previews.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="show">Show me</button>
-        <p class="fx-phint">Built from the prompt below. Point at it, or press Show me.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="show">演示一下</button>
+        <p class="fx-phint">按下面的提示词做的。指着它，或者点「演示一下」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">On any article, rest the pointer on a link and, after about half a second, a small card with the linked article's first lines and picture fades in under the link, rising slightly into place. It stays while the pointer is on it and fades out a moment after the pointer leaves.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">在任何一篇文章里，把指针放在链接上停大约半秒，链接下面就会淡入一张小卡片，带着所指文章的开头几行和图片，微微上升、落到位。指针一直放在上面，卡片就一直显示；指针离开一会儿，卡片淡出。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>Resting the pointer on a link for a moment, or reaching it with the keyboard.</dd></div>
-      <div><dt>On phones</dt><dd>There is no hover, so a tap opens the link as usual.</dd></div>
-      <div><dt>Reduced motion</dt><dd>The card shows and hides without movement.</dd></div>
+      <div><dt>开始方式</dt><dd>把指针放在链接上停一会儿，或者用键盘走到它那里。</dd></div>
+      <div><dt>在手机上</dt><dd>没有悬停，所以轻点还是照常打开链接。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>卡片直接出现和消失，没有移动。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c4" data-slug="tooltip-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The pause</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/tooltip-reveal/">Tooltip Reveal</a></h4><p class="desc">A small label fades in after a short pause. Best for icon buttons.</p></div></article>
-      <article class="card c2" data-slug="fade-in-out"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The fade</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/fade-in-out/">Fade In / Fade Out</a></h4><p class="desc">Fades in to appear and fades out to leave. Best for pop-ups and tooltips.</p></div></article>
+      <article class="card c4" data-slug="tooltip-reveal"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">那一下停顿</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/tooltip-reveal/">提示气泡浮现</a></h4><p class="desc">停顿片刻后，小标签淡入出现。适合用在图标按钮上。</p></div></article>
+      <article class="card c2" data-slug="fade-in-out"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">淡入淡出</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/fade-in-out/">淡入淡出</a></h4><p class="desc">淡入出现，淡出离开。适合弹窗和提示框。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add link previews to <mark>[the links in your articles that point to other pages]</mark>. When the pointer rests on a link for half a second, a small card with the page's title, first sentences and picture fades in below the link, rising into place. It stays while the pointer is on it and fades a moment after the pointer leaves. The wait keeps cards from flashing as the pointer passes by; a card with no room below opens above the link. Animate only the fade and a small rise. Show the same card when keyboard focus reaches the link. On touch screens, which have no hover, let a tap open the link as usual. If the visitor has reduced motion turned on, show and hide the card without movement.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for Link previews"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://en.wikipedia.org/wiki/Animation" target="_blank" rel="noopener">Watch the real one on en.wikipedia.org <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[文章里指向其他页面的链接]</mark>加上链接预览。指针在链接上停半秒，一张带着页面标题、开头几句话和图片的小卡片在链接下面淡入，微微上升、落到位。指针一直放在上面，卡片就一直显示；指针离开一会儿，卡片淡出。半秒的等待能避免指针划过时卡片乱闪；下面没地方的卡片改在链接上面打开。只做淡入和微微上升。键盘焦点走到链接上时也显示同一张卡片。在没有悬停的触摸屏上，轻点还是照常打开链接。如果访客开启了减弱动态效果，就让卡片直接出现和消失，没有移动。</p></div>
+    <button type="button" class="copy" aria-label="复制「链接预览」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://en.wikipedia.org/wiki/Animation" target="_blank" rel="noopener">在 en.wikipedia.org 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="apple-sweep" aria-labelledby="apple-sweep-t" data-fx-site="Apple" data-fx-start="scroll">
-    <p class="fx-seen">Seen on <a href="https://www.apple.com/iphone-18-pro/" target="_blank" rel="noopener">apple.com/iphone-18-pro<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="apple-sweep-t" tabindex="-1">The color that sweeps across the headline</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on scroll</span><span class="fx-chip">Made from 1 animation</span></p>
+    <p class="fx-seen">见于 <a href="https://www.apple.com/iphone-18-pro/" target="_blank" rel="noopener">apple.com/iphone-18-pro<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="apple-sweep-t" tabindex="-1">扫过标题的色彩</h2>
+    <p class="fx-chips"><span class="fx-chip">滚动时开始</span><span class="fx-chip">由 1 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The color that sweeps across the headline" data-src="versions/apple-sweep.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：扫过标题的色彩" data-src="versions/apple-sweep.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="play">Play</button>
-        <button type="button" class="fx-pbtn" data-fx-cmd="top">Back to top</button>
-        <p class="fx-phint">Built from the prompt below. Scroll inside the box, or press Play.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="play">播放</button>
+        <button type="button" class="fx-pbtn" data-fx-cmd="top">回到顶部</button>
+        <p class="fx-phint">按下面的提示词做的。在框里滚动，或者点「播放」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">Far down the page, a large headline stays hidden until it rises into the window. Then a soft band of pale blue and aqua travels along both lines from left to right, bringing the letters in as it passes, and fades to plain white. It takes about three seconds, plays once and does not replay when you scroll back.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">页面很靠下的地方，一个大标题藏着，直到升进窗口才出现。接着一条淡蓝和水绿的柔和色带沿着两行字从左扫到右，字母随着它一个个显现，最后变成普通的白色。整个过程大约三秒，只播一次，往回滚也不会重播。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>When the headline rises into view. It plays once, in about three seconds.</dd></div>
-      <div><dt>On phones</dt><dd>Touch scrolling brings it into view the same way.</dd></div>
-      <div><dt>Reduced motion</dt><dd>The headline shows in its plain color, with no sweep.</dd></div>
+      <div><dt>开始方式</dt><dd>标题升进视野时开始。只播一次，大约三秒。</dd></div>
+      <div><dt>在手机上</dt><dd>触摸滚动把它带进视野，也是一样。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>标题直接用本来的颜色显示，没有扫过。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c5" data-slug="text-gradient-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The color sweep</span></div><div class="meta"><h4 class="title"><a href="../animations/05-text-typography/text-gradient-animation/">Text Gradient Animation</a></h4><p class="desc">Colors flow through the letters while the text stays still. Best for headlines.</p></div></article>
+      <article class="card c5" data-slug="text-gradient-animation"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">色彩扫过</span></div><div class="meta"><h4 class="title"><a href="../animations/05-text-typography/text-gradient-animation/">文字渐变动画</a></h4><p class="desc">颜色在静止的文字中流动。最适合标题。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a one-time color sweep to <mark>[the main headline of a section]</mark>. Keep the headline hidden until it rises into the window. Then let a soft-edged band of a few of your own colors travel along its letters from left to right at a steady pace, bringing each letter in as it passes, and fading to the headline's plain color within about three seconds. Paint the band inside the letters and move only the band, so the words never shift or blur. Play it once, never again while the visitor reads. Keep the real text for screen readers. Touch scrolling brings it into view the same way. If the visitor has reduced motion turned on, show the headline in its plain color with no sweep.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The color that sweeps across the headline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://www.apple.com/iphone-18-pro/" target="_blank" rel="noopener">Watch the real one on apple.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[某个区块的主标题]</mark>加上一次性的色彩扫过。标题先藏起来，直到升进窗口。再让一条边缘柔和的色带用几种你自己的颜色，沿着字母从左到右匀速扫过，经过的字母一个个显现，最后在大约三秒内淡成标题本来的颜色。色带画在字母里面，只动色带，文字本身不移位、不模糊。只播一次，访客读下去的时候不再重播。给屏幕阅读器保留真正的文字。触摸滚动把它带进视野，也是一样。如果访客开启了减弱动态效果，就直接用本来的颜色显示标题，没有扫过。</p></div>
+    <button type="button" class="copy" aria-label="复制「扫过标题的色彩」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://www.apple.com/iphone-18-pro/" target="_blank" rel="noopener">在 apple.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="spotify-cards" aria-labelledby="spotify-cards-t" data-fx-site="Spotify" data-fx-start="hover">
-    <p class="fx-seen">Seen on <a href="https://open.spotify.com/" target="_blank" rel="noopener">open.spotify.com<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="spotify-cards-t" tabindex="-1">The play button that rises</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on hover</span><span class="fx-chip">Made from 2 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://open.spotify.com/" target="_blank" rel="noopener">open.spotify.com<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="spotify-cards-t" tabindex="-1">升起来的播放按钮</h2>
+    <p class="fx-chips"><span class="fx-chip">悬停时开始</span><span class="fx-chip">由 2 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The play button that rises" data-src="versions/spotify-cards.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：升起来的播放按钮" data-src="versions/spotify-cards.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="show">Show me</button>
-        <p class="fx-phint">Built from the prompt below. Point at it, or press Show me.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="show">演示一下</button>
+        <p class="fx-phint">按下面的提示词做的。指着它，或者点「演示一下」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">Point at an album or playlist card and the card lightens a shade while a round play button fades in, rising a few pixels into the cover's bottom corner. It starts the moment the pointer arrives and passes from card to card with no pause. Pointing at the button itself makes it grow slightly and brighten.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">指着一张专辑或歌单卡片，卡片亮了一点，一个圆圆的播放按钮淡入，上升几像素、停在封面的一角。指针一到就开始，从一张卡片移到另一张卡片没有停顿。指着按钮本身，它会微微变大、变亮。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>Pointing at a card, or reaching it with the keyboard.</dd></div>
-      <div><dt>On phones</dt><dd>There is no hover, so the play button is always shown.</dd></div>
-      <div><dt>Reduced motion</dt><dd>The button shows and hides without movement.</dd></div>
+      <div><dt>开始方式</dt><dd>指着一张卡片，或者用键盘走到它那里。</dd></div>
+      <div><dt>在手机上</dt><dd>没有悬停，所以播放按钮一直显示。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>按钮直接出现和消失，没有移动。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c4" data-slug="hover-state"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The card lightens</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/hover-state/">Hover State Animation</a></h4><p class="desc">Six ways a card can react when you point at it. Best for buttons and cards.</p></div></article>
-      <article class="card c2" data-slug="slide-in"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The button rises</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/slide-in/">Slide In</a></h4><p class="desc">Travels into place from one edge. Best for side panels and notifications.</p></div></article>
+      <article class="card c4" data-slug="hover-state"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">卡片变亮</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/hover-state/">悬停状态动画</a></h4><p class="desc">指向卡片时，它有六种反应方式。适合用在按钮和卡片上。</p></div></article>
+      <article class="card c2" data-slug="slide-in"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">按钮升起来</span></div><div class="meta"><h4 class="title"><a href="../animations/02-entrance-and-exit/slide-in/">滑入</a></h4><p class="desc">从一边滑入到位。适合侧边面板和通知。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a hover effect to <mark>[the album or playlist cards in your grid]</mark>. When the pointer enters a card, its background lightens a little and a round play button fades in at the bottom corner of the picture, rising about eight pixels into place within a fifth of a second; when the pointer leaves, both go back. React at once, so moving across the grid feels light, and animate only fading and movement. The button grows slightly and brightens when the pointer is on it. Show the button on keyboard focus too, and always on touch screens, where there is no hover. Name the button for what it plays. If the visitor has reduced motion turned on, show and hide the button without movement.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The play button that rises"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://open.spotify.com/" target="_blank" rel="noopener">Watch the real one on open.spotify.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[网格里的专辑或歌单卡片]</mark>加上悬停效果。指针进入卡片，背景亮一点，一个圆圆的播放按钮在图片的角落淡入，上升大约八像素、落到位，整个过程在五分之一秒内；指针离开，两者都回去。反应要快，划过整个网格感觉轻盈，只做淡入和移动。指针放在按钮上时，按钮微微变大、变亮。键盘焦点走到卡片上时也要显示按钮；在没有悬停的触摸屏上，按钮一直显示。给按钮起个名字，说清楚它播的是什么。如果访客开启了减弱动态效果，就让按钮直接出现和消失，没有移动。</p></div>
+    <button type="button" class="copy" aria-label="复制「升起来的播放按钮」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://open.spotify.com/" target="_blank" rel="noopener">在 open.spotify.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="youtube-loading" aria-labelledby="youtube-loading-t" data-fx-site="YouTube" data-fx-start="load">
-    <p class="fx-seen">Seen on <a href="https://www.youtube.com/" target="_blank" rel="noopener">youtube.com<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="youtube-loading-t" tabindex="-1">Gray shapes while it loads</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on load</span><span class="fx-chip">Made from 1 animation</span></p>
+    <p class="fx-seen">见于 <a href="https://www.youtube.com/" target="_blank" rel="noopener">youtube.com<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="youtube-loading-t" tabindex="-1">加载时的灰色形状</h2>
+    <p class="fx-chips"><span class="fx-chip">打开时开始</span><span class="fx-chip">由 1 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: Gray shapes while it loads" data-src="versions/youtube-loading.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：加载时的灰色形状" data-src="versions/youtube-loading.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="replay">Replay</button>
-        <p class="fx-phint">Built from the prompt below. Press Replay to see it again.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="replay">重播</button>
+        <p class="fx-phint">按下面的提示词做的。点「重播」可以再看一遍。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">Before the videos appear, gray boxes and bars in the shapes of pictures, round channel icons and titles fill the page, and they sit perfectly still. When the videos arrive, the whole grid of shapes gives way to the real cards in the same places: the text at once, then the pictures one by one as each finishes loading.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">视频出现之前，灰色的方块和横条按图片、圆形频道头像和标题的形状填满页面，一动不动。视频到了，整片灰色形状在原地换成真正的卡片：文字立刻出现，图片一张接一张、每张加载完就换进来。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>While the content loads. The shapes leave as the content arrives.</dd></div>
-      <div><dt>On phones</dt><dd>Fewer shapes are shown, so they fit the screen.</dd></div>
-      <div><dt>Reduced motion</dt><dd>Everything appears at once, the pictures together with the text.</dd></div>
+      <div><dt>开始方式</dt><dd>内容加载时开始。内容到了，形状就让位。</dd></div>
+      <div><dt>在手机上</dt><dd>形状少一点，好装进屏幕。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>所有东西一次出现，图片和文字一起。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c4" data-slug="skeleton-loader"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">Gray shapes</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/skeleton-loader/">Skeleton Loader</a></h4><p class="desc">Gray shapes hold the place of content while it loads. Best for feeds and cards.</p></div></article>
+      <article class="card c4" data-slug="skeleton-loader"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">灰色形状</span></div><div class="meta"><h4 class="title"><a href="../animations/04-micro-interactions/skeleton-loader/">骨架屏</a></h4><p class="desc">灰色色块在内容加载时占位。适合用在信息流和卡片上。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a loading state to <mark>[the grid or feed whose content loads]</mark>. While the content loads, show still gray shapes where each item will go, in the sizes of what is coming: a picture box, a round avatar and two lines of text. When the content arrives, swap it in for the shapes in exactly the same places, so nothing on the page jumps: the text and avatars at once, then each picture a moment later, one after another, with no fade. Show only as many shapes as fit the screen, fewer on phones. Tell screen readers that the content is loading. If the visitor has reduced motion turned on, show everything at once, the pictures together with the text.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for Gray shapes while it loads"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://www.youtube.com/" target="_blank" rel="noopener">Watch the real one on youtube.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[内容会加载的网格或信息流]</mark>加上加载状态。内容加载时，在每个条目要去的位置显示静止的灰色形状，按要来的东西的大小来画：一个图片框、一个圆形头像和两行文字。内容到了，在完全相同的位置把形状换成内容，页面什么都不跳动：文字和头像立刻出现，每张图片晚一点、一张接一张换进来，没有淡入。只显示屏幕装得下的形状，手机上更少。告诉屏幕阅读器内容正在加载。如果访客开启了减弱动态效果，就一次显示所有东西，图片和文字一起。</p></div>
+    <button type="button" class="copy" aria-label="复制「加载时的灰色形状」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://www.youtube.com/" target="_blank" rel="noopener">在 youtube.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="pudding-chart" aria-labelledby="pudding-chart-t" data-fx-site="The Pudding" data-fx-start="scroll">
-    <p class="fx-seen">Seen on <a href="https://pudding.cool/2025/11/democracy/" target="_blank" rel="noopener">pudding.cool/2025/11/democracy<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="pudding-chart-t" tabindex="-1">The chart that changes as you read</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on scroll</span><span class="fx-chip">Made from 2 animations</span></p>
+    <p class="fx-seen">见于 <a href="https://pudding.cool/2025/11/democracy/" target="_blank" rel="noopener">pudding.cool/2025/11/democracy<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="pudding-chart-t" tabindex="-1">读着读着就变的图表</h2>
+    <p class="fx-chips"><span class="fx-chip">滚动时开始</span><span class="fx-chip">由 2 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The chart that changes as you read" data-src="versions/pudding-chart.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：读着读着就变的图表" data-src="versions/pudding-chart.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="play">Play</button>
-        <button type="button" class="fx-pbtn" data-fx-cmd="top">Back to top</button>
-        <p class="fx-phint">Built from the prompt below. Scroll inside the box, or press Play.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="play">播放</button>
+        <button type="button" class="fx-pbtn" data-fx-cmd="top">回到顶部</button>
+        <p class="fx-phint">按下面的提示词做的。在框里滚动，或者点「播放」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">A chart of dots stays on screen while short paragraphs scroll past. As you scroll, the years go by and each year's dots pile up into the chart, the ones the story is about in bright color, and at some paragraphs the dots slide into a new chart; scrolling back undoes each step.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">一张圆点图表留在屏幕上，短段落从旁边滚过去。滚动时，年份一年年过去，每年的圆点堆进图表，故事讲到的那些用亮色标出来；有的段落里，圆点滑进一张新图表；往回滚，每一步都撤销。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>Each time a new block of text reaches the middle of the screen.</dd></div>
-      <div><dt>On phones</dt><dd>The chart stays at the top and each block of text slides up below it on a card.</dd></div>
-      <div><dt>Reduced motion</dt><dd>The steps switch without animating.</dd></div>
+      <div><dt>开始方式</dt><dd>每段新文字到达屏幕中间时开始。</dd></div>
+      <div><dt>在手机上</dt><dd>图表留在顶部，每段文字在下面的卡片里滑上来。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>步骤之间直接切换，没有动画。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c1" data-slug="scrollytelling"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The steps</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/scrollytelling/">Scrollytelling</a></h4><p class="desc">A picture beside the story changes as you read down. Best for data stories.</p></div></article>
-      <article class="card c1" data-slug="sticky-section"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The chart stays</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/sticky-section/">Sticky Section</a></h4><p class="desc">A section holds still while its content changes. Best for feature tours.</p></div></article>
+      <article class="card c1" data-slug="scrollytelling"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">那些步骤</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/scrollytelling/">滚动叙事</a></h4><p class="desc">旁边的图片随你往下读而变化。最适合数据故事。</p></div></article>
+      <article class="card c1" data-slug="sticky-section"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">图表留着</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/sticky-section/">吸顶区域</a></h4><p class="desc">一个区域固定不动，内容随之变化。最适合功能导览。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a scrollytelling layout to <mark>[your story or data article]</mark>. Keep a chart or picture fixed on the screen while short blocks of text scroll past it, and change the chart each time a new block reaches the middle of the screen: light up the dots or bars the text talks about and fade the rest, so the words and the chart tell the story together. Change it smoothly, and let scrolling back undo each step. On phones, keep the chart at the top and let each block of text slide up below it on a wide card. Keep every step readable without the chart for screen readers. If the visitor has reduced motion turned on, switch between the steps without animating.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The chart that changes as you read"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://pudding.cool/2025/11/democracy/" target="_blank" rel="noopener">Watch the real one on pudding.cool <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[你的故事或数据文章]</mark>加上滚动叙事布局。让一张图表或图片固定在屏幕上，短段落从旁边滚过去；每段新文字到达屏幕中间，图表就变一次：把文字讲到的圆点或柱子点亮，其余的淡下去，让文字和图表一起讲故事。变化要平滑，往回滚就撤销每一步。手机上，图表留在顶部，每段文字在下面一张宽卡片里滑上来。每个步骤不用图表也能读出来，方便屏幕阅读器。如果访客开启了减弱动态效果，就让步骤之间直接切换，没有动画。</p></div>
+    <button type="button" class="copy" aria-label="复制「读着读着就变的图表」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://pudding.cool/2025/11/democracy/" target="_blank" rel="noopener">在 pudding.cool 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
 
   <section class="fx" id="medium-top-bar" aria-labelledby="medium-top-bar-t" data-fx-site="Medium" data-fx-start="scroll">
-    <p class="fx-seen">Seen on <a href="https://medium.com/" target="_blank" rel="noopener">medium.com<span class="sr"> (opens in a new tab)</span></a> in&nbsp;<time datetime="2026-10-22">2026</time></p>
-    <h2 id="medium-top-bar-t" tabindex="-1">The top bar that hides while you read</h2>
-    <p class="fx-chips"><span class="fx-chip">Starts on scroll</span><span class="fx-chip">Made from 1 animation</span></p>
+    <p class="fx-seen">见于 <a href="https://medium.com/" target="_blank" rel="noopener">medium.com<span class="sr">（在新标签页中打开）</span></a>，<time datetime="2026-10-22">2026</time>&nbsp;年</p>
+    <h2 id="medium-top-bar-t" tabindex="-1">读文章时藏起来的顶栏</h2>
+    <p class="fx-chips"><span class="fx-chip">滚动时开始</span><span class="fx-chip">由 1 个动画组成</span></p>
     <div class="fx-version">
       <div class="fx-stage">
-        <iframe title="Our version: The top bar that hides while you read" data-src="versions/medium-top-bar.html"></iframe>
-        <span class="fx-vlabel" aria-hidden="true">Our version</span>
+        <iframe title="我们的版本：读文章时藏起来的顶栏" data-src="versions/medium-top-bar.html"></iframe>
+        <span class="fx-vlabel" aria-hidden="true">我们的版本</span>
       </div>
       <div class="fx-player">
-        <button type="button" class="fx-pbtn" data-fx-cmd="play">Play</button>
-        <button type="button" class="fx-pbtn" data-fx-cmd="top">Back to top</button>
-        <p class="fx-phint">Built from the prompt below. Scroll inside the box, or press Play.</p>
+        <button type="button" class="fx-pbtn" data-fx-cmd="play">播放</button>
+        <button type="button" class="fx-pbtn" data-fx-cmd="top">回到顶部</button>
+        <p class="fx-phint">按下面的提示词做的。在框里滚动，或者点「播放」。</p>
       </div>
     </div>
-    <h3 class="fx-sub">What you see</h3>
-    <p class="fx-what">On a phone, the top bar moves with your finger. Scroll down into an article and it rides up with the text until it is out of sight; scroll back up, even a little, and it slides down again by the same distance, fully back after a short scroll. On a wide screen the bar just stays where it is.</p>
-    <h3 class="fx-sub">Good to know</h3>
+    <h3 class="fx-sub">你看到的</h3>
+    <p class="fx-what">手机上，顶栏跟着你的手指走。往下滚进文章，顶栏跟着文字升上去，直到看不见；往上滚，哪怕只滚一点点，它也按同样的距离滑下来，滚一小段就完全回来。宽屏幕上顶栏一直待在原地。</p>
+    <h3 class="fx-sub">要知道的事</h3>
     <dl class="fx-know">
-      <div><dt>Starts</dt><dd>Scrolling down moves the bar out of sight; scrolling up brings it back by the same amount.</dd></div>
-      <div><dt>On phones</dt><dd>Touch scrolling works the same way.</dd></div>
-      <div><dt>Reduced motion</dt><dd>The bar fades out and in instead of moving.</dd></div>
+      <div><dt>开始方式</dt><dd>往下滚，顶栏移出视野；往上滚，它按同样的距离回来。</dd></div>
+      <div><dt>在手机上</dt><dd>触摸滚动也是一样。</dd></div>
+      <div><dt>减弱动态效果</dt><dd>顶栏淡出淡入，而不是移动。</dd></div>
     </dl>
-    <h3 class="fx-sub">Build it with these animations</h3>
+    <h3 class="fx-sub">用这些动画来做</h3>
     <div class="fx-cards">
-      <article class="card c1" data-slug="hide-on-scroll-header"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">The whole effect</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/hide-on-scroll-header/">Hide-on-Scroll Header</a></h4><p class="desc">Scrolling down hides the top bar; scrolling up shows it. Best for mobile pages.</p></div></article>
+      <article class="card c1" data-slug="hide-on-scroll-header"><div class="stage"><div class="pv" aria-hidden="true"></div><span class="tag">整个效果</span></div><div class="meta"><h4 class="title"><a href="../animations/01-scroll-based/hide-on-scroll-header/">滚动隐藏顶栏</a></h4><p class="desc">往下滚隐藏顶栏，往上滚显示出来。最适合移动端页面。</p></div></article>
     </div>
-    <h3 class="fx-sub">A prompt to build something similar</h3>
-    <div class="fx-pbox"><p class="fx-prompt">Add a top bar that moves with the scroll to <mark>[the header of your article pages]</mark>. Scrolling down, move the bar up by exactly as far as the page moved, until it is out of sight; the moment the reader scrolls up, move it back down by the same amount, so a short scroll brings it fully back. Do this on every scroll step, not after scrolling stops, and never past fully hidden or fully shown. Move it without pushing the text around. Touch scrolling works the same way, and keyboard focus moving into the bar brings it back. If the visitor has reduced motion turned on, fade the bar out and in instead of moving it.</p></div>
-    <button type="button" class="copy" aria-label="Copy prompt for The top bar that hides while you read"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">Copy prompt</span></button>
-    <a class="fx-real" href="https://medium.com/" target="_blank" rel="noopener">Watch the real one on medium.com <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+    <h3 class="fx-sub">做个类似效果的提示词</h3>
+    <div class="fx-pbox"><p class="fx-prompt">给<mark>[文章页的页眉]</mark>加上一个随滚动移动的顶栏。往下滚，顶栏按页面移动的距离往上升，直到完全看不见；读者一往上滚，就按同样的距离往下降，滚一小段就完全回来。每滚一步就动一次，不要等滚动停了再动，也不要超过完全藏起或完全出现。移动时别把文字顶来顶去。触摸滚动也是一样，键盘焦点进到顶栏里时把它带回来。如果访客开启了减弱动态效果，就让顶栏淡出淡入，而不是移动。</p></div>
+    <button type="button" class="copy" aria-label="复制「读文章时藏起来的顶栏」的提示词"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy-l" aria-live="polite">复制提示词</span></button>
+    <a class="fx-real" href="https://medium.com/" target="_blank" rel="noopener">在 medium.com 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>
   </section>
   </div>
 </main>
 
 <footer class="wrap foot">
-  <a class="brand" href="../"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle class="ring" cx="11.16" cy="20.84" r="6.1"/><circle class="ring" cx="15.12" cy="16.88" r="6.1"/><circle class="ring" cx="18.51" cy="13.49" r="6.1"/><circle class="ball" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <p class="foot-t">Web animations with live demos and copyable prompts.</p>
-  <nav class="nav" aria-label="Footer"><a class="lnk" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub</a><a class="lnk" href="#top">Back to top</a></nav>
+  <a class="brand" href="../"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle class="ring" cx="11.16" cy="20.84" r="6.1"/><circle class="ring" cx="15.12" cy="16.88" r="6.1"/><circle class="ring" cx="18.51" cy="13.49" r="6.1"/><circle class="ball" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <p class="foot-t">带在线演示和可复制提示词的网页动画。</p>
+  <nav class="nav" aria-label="页脚"><a class="lnk" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub</a><a class="lnk" href="#top">回到顶部</a></nav>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"><span class="ok" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="toast-t"></span></div>
 <dialog class="fx-dlg" id="fx-dlg">
   <div class="fx-dbar">
-    <button type="button" class="icon-btn fx-dbtn" data-fx-nav="prev" aria-label="Previous effect"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <button type="button" class="icon-btn fx-dbtn" data-fx-nav="next" aria-label="Next effect"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-    <p class="fx-dnote">Not connected to the site. Everything shown is our own version.</p>
-    <button type="button" class="icon-btn fx-dbtn fx-dclose" data-fx-close aria-label="Close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button type="button" class="icon-btn fx-dbtn" data-fx-nav="prev" aria-label="上一个效果"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" class="icon-btn fx-dbtn" data-fx-nav="next" aria-label="下一个效果"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    <p class="fx-dnote">与这个网站没有关联。展示的全部是我们自己的版本。</p>
+    <button type="button" class="icon-btn fx-dbtn fx-dclose" data-fx-close aria-label="关闭"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <div class="fx-dbody"></div>
 </dialog>
@@ -1583,7 +1583,7 @@ document.querySelectorAll('.fx-prompt').forEach(p=>{
   p.after(more);
 });
 
-// Copy prompt copies the prompt as shown, brackets included. It reads "Copied" for about two seconds and the home page's
+// 复制提示词会按显示的样子复制提示词, brackets included. 它显示「已复制」约两秒 and the home page's
 // message shows. Where the browser refuses the clipboard or has none, a hidden text box copies it, as on the animation pages;
 // only when that fails too is the prompt selected and the button asks for the copy keys.
 // Only the icon and the label's words change: the label is a live region, so a screen reader announces the change, and the
@@ -1605,7 +1605,7 @@ function copyState(btn,kind){
   btn.querySelector('.i').outerHTML=kind==='done'?ICON_DONE:ICON_COPY;
   const label=kind==='done'?'已复制':kind==='keys'?KEYS:'复制提示词';
   btn.querySelector('.copy-l').textContent=label;
-  btn.setAttribute('aria-label',kind==='done'?'Copied the prompt for '+title:kind==='keys'?KEYS+': the prompt for '+title+' is selected':'Copy prompt for '+title);
+  btn.setAttribute('aria-label',kind==='done'?'已复制「'+title+'」的提示词':kind==='keys'?KEYS+'：「'+title+'」的提示词已选定':'复制「'+title+'」的提示词');
   if(kind)btn._timer=setTimeout(()=>copyState(btn,''),kind==='done'?2000:4000);
 }
 // The hidden text box of the animation pages' shared script: it holds the text, is selected and copied, then goes, and
@@ -1675,7 +1675,7 @@ function popup(){
     if(frame.dataset.ready==='1')post(frame,cmd);
     else if(frame.hasAttribute('src'))frame._queued=cmd;
   }
-  function setToggle(btn,cmd){btn.dataset.fxCmd=cmd;btn.textContent=cmd==='pause'?'Pause':'Play';}
+  function setToggle(btn,cmd){btn.dataset.fxCmd=cmd;btn.textContent=cmd==='pause'?'暂停':'播放';}
   function startVersion(entry){
     const frame=entry.querySelector('.fx-version iframe');
     if(!frame)return;

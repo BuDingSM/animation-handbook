@@ -19,14 +19,14 @@
 //   its stage (a finger dragged over it on the phones) scrolls the pop-up; then Escape closes it and focus is back on the
 //   tile's link, with the tile in view, the address plain again and the frame unloaded. The desktop run does this for every entry
 //   in turn and adds: the tile pictures behind the pop-up hold still; the frame logs no console error or warning (the console
-//   listener below hears a frame of this site); each player button visibly changes the stage (a loop's Pause holds it still and
-//   Play sets it moving again); each recipe card's preview moves; Copy prompt, pressed for real, puts exactly that entry's prompt
+//   listener below hears a frame of this site); each player button visibly changes the stage (a loop's 暂停 holds it still and
+//   播放 sets it moving again); each recipe card's preview moves; 复制提示词， pressed for real, puts exactly that entry's prompt
 //   on the clipboard (the first entry again with the clipboard refused and the second with none: the hidden text box copies, or
-//   the prompt is selected and Ctrl+C is asked for); Next and Previous replace the address and put focus on the heading; Close
+//   the prompt is selected and Ctrl+C is asked for); 下一个效果 and 上一个效果 replace the address and put focus on the heading; 关闭
 //   returns focus to the tile. It also watches each tile's picture move while it is on screen, opens famous/#<id> as a new visit
 //   and presses the browser's Back on a pop-up that a tile opened. The reduced-motion phone run (every entry's pop-up too)
 //   checks that nothing in the gallery moves, that every tile picture and recipe card preview holds a still frame that shows
-//   something, that the stage of Our version holds still (two pictures 1.5 s apart are equal) and that Copy prompt shows its
+//   something, that the stage of Our version holds still (two pictures 1.5 s apart are equal) and that 复制提示词 shows its
 //   message without a slide. Like home, it stores a star count first.
 // A folder with no index.html of its own stands for the page folders inside it. Each page is loaded at six screen
 // setups and prints one line for each (ok or FAIL); problems are printed and screenshots saved, by default into
@@ -2109,9 +2109,9 @@ async function famousScrollProblems(id, touch) {
 // Famous effects, desktop run: plays Our version in an entry's open pop-up and presses each player button for real. Each button
 // visibly changes the stage: the picture of the stage differs within 3.5 s of the press from the one before it, taken once the
 // stage is at rest (the run that Our version makes on arrival ends first, and so does the run of the press before; a stage that
-// does not come to rest within 14 s is judged by the press alone). Play comes before Back to top, so Back to top starts from a
-// stage that has scrolled. A loop moves on its own, Pause holds it (it comes to rest within 4 s), Play moves it again, and the
-// one button reads Pause, then Play, then Pause.
+// does not come to rest within 14 s is judged by the press alone). 播放 comes before 回到顶部， so 回到顶部 starts from a
+// stage that has scrolled. A loop moves on its own, 暂停 holds it (it comes to rest within 4 s), 播放 moves it again, and the
+// one button reads 暂停， then 播放， then 暂停。
 async function famousVersionProblems(id, start) {
   const problems = [];
   const stage = `document.querySelector('#${id} .fx-version .fx-stage')`;
@@ -2123,16 +2123,16 @@ async function famousVersionProblems(id, start) {
   if (start === 'loop') {
     const toggle = `#${id} .fx-player [data-fx-cmd]`;
     if (!await famousMoves(stage, 3000)) return ['the loop does not move on its own'];
-    if (await label(toggle) !== 'Pause') problems.push(`the button reads "${await label(toggle)}" while the loop runs, not "Pause"`);
+    if (await label(toggle) !== '暂停') problems.push(`the button reads "${await label(toggle)}" while the loop runs, not "暂停"`);
     let trouble = await famousClick(toggle, 'nearest');
     if (trouble) return [...problems, trouble];
     const held = await famousRest(stage, 4000);
-    if (!held.still) problems.push('Pause does not hold the stage still');
-    if (await label(toggle) !== 'Play') problems.push(`after Pause the button reads "${await label(toggle)}", not "Play"`);
+    if (!held.still) problems.push('暂停 does not hold the stage still');
+    if (await label(toggle) !== '播放') problems.push(`after 暂停 the button reads "${await label(toggle)}", not "播放"`);
     trouble = await famousClick(toggle, 'nearest');
     if (trouble) return [...problems, trouble];
-    if (!await famousMoves(stage, 3000, held.shot)) problems.push('Play does not set the stage moving again');
-    if (await label(toggle) !== 'Pause') problems.push(`after Play the button reads "${await label(toggle)}", not "Pause"`);
+    if (!await famousMoves(stage, 3000, held.shot)) problems.push('播放 does not set the stage moving again');
+    if (await label(toggle) !== '暂停') problems.push(`after 播放 the button reads "${await label(toggle)}", not "暂停"`);
     return problems;
   }
   const order = ['replay', 'show', 'play', 'top'];
@@ -2171,10 +2171,10 @@ async function famousCardProblems(id) {
   return problems;
 }
 
-// Famous effects, desktop run: an entry's Copy prompt, pressed for real in its pop-up, puts exactly that entry's prompt on the
-// clipboard (stubbed: a headless run cannot grant it), reads "Copied", says so in its name and shows the message. With extra
+// Famous effects, desktop run: an entry's 复制提示词， pressed for real in its pop-up, puts exactly that entry's prompt on the
+// clipboard (stubbed: a headless run cannot grant it), reads "已复制", says so in its name and shows the message. With extra
 // 'refused' the browser refuses the clipboard next: the press copies through the hidden text box (its copy command stubbed to
-// report what is selected), so the button reads "Copied" with the message, the text box is gone and keyboard focus is back on
+// report what is selected), so the button reads "已复制" with the message, the text box is gone and keyboard focus is back on
 // the button. With extra 'missing' there is no clipboard at all and the copy command fails: the press selects the prompt and
 // asks for Ctrl+C.
 async function famousCopyProblems(id, extra) {
@@ -2182,11 +2182,11 @@ async function famousCopyProblems(id, extra) {
   const copy = `#${id} .copy`;
   const prompt = `document.querySelector('#${id} .fx-prompt').textContent.replace(/\\s+/g, ' ').trim()`;
   const title = `document.querySelector('#${id} h2').textContent`;
-  const message = `document.getElementById('toast').classList.contains('show') && document.querySelector('#toast .toast-t').textContent === 'Prompt copied. Paste it into your AI assistant.'`;
-  // Before a press the button reads Copy prompt again (its Copied lasts about two seconds), the message of the press before is put
+  const message = `document.getElementById('toast').classList.contains('show') && document.querySelector('#toast .toast-t').textContent === '提示词已复制，粘贴到你的 AI 助手里就能用。'`;
+  // Before a press the button reads 复制提示词 again (its 已复制 lasts about two seconds), the message of the press before is put
   // away and nothing is selected, so the press has to bring its own.
   const idle = () => evaluate(`(async () => { const btn = document.querySelector('${copy}');
-    for (let i = 0; i < 100 && btn.textContent.trim() !== 'Copy prompt'; i++) await new Promise(r => setTimeout(r, 50));
+    for (let i = 0; i < 100 && btn.textContent.trim() !== '复制提示词'; i++) await new Promise(r => setTimeout(r, 50));
     window.__clipboardGot = null; window.__boxGot = null;
     const t = document.getElementById('toast'); t.classList.remove('show'); t.querySelector('.toast-t').textContent = ''; getSelection().removeAllRanges(); })()`);
   const press = async what => {
@@ -2195,48 +2195,48 @@ async function famousCopyProblems(id, extra) {
     if (trouble) problems.push(`${what}: ${trouble}`);
     return !trouble;
   };
-  // What a press must leave: the copied text is this entry's prompt, the button reads Copied and names the entry, the message shows.
+  // What a press must leave: the copied text is this entry's prompt, the button reads 已复制 and names the entry, the message shows.
   const verdict = (what, got, more = []) => {
     const wrong = [...more];
     if (!got.same) wrong.push(got.got === null ? 'nothing was copied' : 'the copied text is not this entry\'s prompt');
-    if (got.label !== 'Copied') wrong.push(`the button reads "${got.label}", not "Copied"`);
-    if (!got.named) wrong.push('the button\'s name does not say Copied the prompt for the entry');
+    if (got.label !== '已复制') wrong.push(`the button reads "${got.label}", not "已复制"`);
+    if (!got.named) wrong.push('the button\'s name does not say 已复制「…」的提示词 for the entry');
     if (!got.shown) wrong.push('the message did not show');
     if (wrong.length) problems.push(`${what}: ${wrong.join('; ')}`);
   };
   await evaluate(`(() => { Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => { window.__clipboardGot = text; } }, configurable: true }); })()`);
-  if (await press('Copy prompt')) {
+  if (await press('复制提示词')) {
     const got = await evaluate(`(async () => {
       for (let i = 0; i < 60 && window.__clipboardGot === null; i++) await new Promise(r => setTimeout(r, 50));
       await new Promise(r => setTimeout(r, 50));
       const btn = document.querySelector('${copy}');
       return { got: window.__clipboardGot, same: window.__clipboardGot === ${prompt}, label: btn.textContent.trim(),
-        named: (btn.getAttribute('aria-label') || '') === 'Copied the prompt for ' + ${title}, shown: ${message} };
+        named: (btn.getAttribute('aria-label') || '') === '已复制「' + ${title} + '」的提示词', shown: ${message} };
     })()`);
-    verdict('Copy prompt', got);
+    verdict('复制提示词', got);
   }
   if (extra === 'refused') {
     await evaluate(`(() => { Object.defineProperty(navigator, 'clipboard', { value: { writeText: async () => { throw new DOMException('denied', 'NotAllowedError'); } }, configurable: true });
       document.execCommand = command => { const el = document.activeElement;
         if (command === 'copy' && el && el.tagName === 'TEXTAREA') window.__boxGot = el.value.slice(el.selectionStart, el.selectionEnd);
         return command === 'copy'; }; })()`);
-    if (await press('Copy prompt, clipboard refused')) {
+    if (await press('复制提示词， clipboard refused')) {
       const got = await evaluate(`(async () => { const btn = document.querySelector('${copy}');
         for (let i = 0; i < 60 && window.__boxGot === null; i++) await new Promise(r => setTimeout(r, 50));
         await new Promise(r => setTimeout(r, 50));
         return { got: window.__boxGot, same: window.__boxGot === ${prompt}, label: btn.textContent.trim(),
-          named: (btn.getAttribute('aria-label') || '') === 'Copied the prompt for ' + ${title}, shown: ${message},
+          named: (btn.getAttribute('aria-label') || '') === '已复制「' + ${title} + '」的提示词', shown: ${message},
           boxGone: !document.querySelector('textarea'), focus: document.activeElement === btn }; })()`);
-      verdict('Copy prompt, clipboard refused', got, [...got.boxGone ? [] : ['the hidden text box is still there'], ...got.focus ? [] : ['keyboard focus is not back on the button']]);
+      verdict('复制提示词， clipboard refused', got, [...got.boxGone ? [] : ['the hidden text box is still there'], ...got.focus ? [] : ['keyboard focus is not back on the button']]);
     }
   }
   if (extra === 'missing') {
     await evaluate(`(() => { Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true }); document.execCommand = () => false; })()`);
-    if (await press('Copy prompt, no clipboard')) {
+    if (await press('复制提示词， no clipboard')) {
       const keys = await evaluate(`(async () => { const btn = document.querySelector('${copy}');
         for (let i = 0; i < 60 && !btn.textContent.includes('Ctrl+C'); i++) await new Promise(r => setTimeout(r, 50));
         return { label: btn.textContent.trim(), selected: getSelection().toString().replace(/\\s+/g, ' ').trim() === ${prompt} }; })()`);
-      if (keys.label !== 'Press Ctrl+C to copy' || !keys.selected) problems.push(`Copy prompt, no clipboard and the text box failing: ${JSON.stringify(keys)} (expected "Press Ctrl+C to copy" and the prompt selected)`);
+      if (keys.label !== '按 Ctrl+C 复制' || !keys.selected) problems.push(`复制提示词， no clipboard and the text box failing: ${JSON.stringify(keys)} (expected "按 Ctrl+C 复制" and the prompt selected)`);
     }
   }
   return problems;
@@ -2247,7 +2247,7 @@ async function famousCopyProblems(id, extra) {
 async function famousStepProblems(id, ids) {
   const problems = [];
   const steps = await evaluate(`history.length`);
-  for (const [name, dir, to] of [['Next', 'next', ids[(ids.indexOf(id) + 1) % ids.length]], ['Previous', 'prev', id]]) {
+  for (const [name, dir, to] of [['下一个效果', 'next', ids[(ids.indexOf(id) + 1) % ids.length]], ['上一个效果', 'prev', id]]) {
     const trouble = await famousClick(`#fx-dlg [data-fx-nav="${dir}"]`, '');
     if (trouble) { problems.push(`${name}: ${trouble}`); break; }
     await famousWait(`location.hash === '#${to}'`, 2000);
