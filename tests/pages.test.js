@@ -534,7 +534,7 @@ test('every guided-steps page and the home page link the same version of the sha
 // the mark and presses it there. The home page reads the page without running it, and on a phone the shared script counts the
 // marked choice instead of the pressed one, so a card's Copy prompt copies what the page copies on the same screen.
 test('a setting that starts lower on phones marks that choice data-hb-phone, and the page script starts there from the mark', () => {
-  const PHONE_DEFAULTS = { 'gpgpu-particle-system': ['count-seg', '16,000'], 'cloth-simulation': ['detail-seg', 'Low'], 'audio-visualizer': ['bars-seg', 'Some'] };
+  const PHONE_DEFAULTS = { 'gpgpu-particle-system': ['count-seg', '16,000'], 'cloth-simulation': ['detail-seg', '低'], 'audio-visualizer': ['bars-seg', '一些'] };
   for (const slug of Object.keys(PHONE_DEFAULTS)) assert.ok(steps.some(d => d.slug === slug), `${slug} is a guided-steps page`);
   for (const d of steps) {
     const html = pageOf(d), where = `${d.cat}/${d.slug}`;
@@ -786,8 +786,8 @@ test('the home page uses Schibsted Grotesk and asks what to animate', () => {
   assert.ok(HOME.includes("url('assets/fonts/schibsted-latin.woff2')"), 'Latin font file');
   assert.ok(HOME.includes("url('assets/fonts/schibsted-latin-ext.woff2')"), 'Latin Extended font file');
   for (const old of ['Bricolage', 'PlexMono', 'var(--mono)', '--mono:']) assert.ok(!HOME.includes(old), `still uses ${old}`);
-  assert.ok(HOME.includes('<h1 class="h1" id="hero-title">What do you want to animate?</h1>'), 'heading');
-  assert.ok(HOME.includes('Pick a place, or describe it in your own words. Every animation plays live, and each one comes with a ready-made prompt for your AI assistant.'), 'intro line');
+  assert.ok(HOME.includes('<h1 class="h1" id="hero-title">你想做什么动画？</h1>'), 'heading');
+  assert.ok(HOME.includes('选一个位置，或者用自己的话描述。每个动画都能在线播放，还附带可直接复制给 AI 助手的提示词。'), 'intro line');
 });
 
 // Every place the number of animations is written is compared with the cards in CATS: the home page (its head too), the root
@@ -799,10 +799,10 @@ const numberIn = (text, pattern) => { const m = String(text).match(pattern); ret
 
 test('the counts written on the home page match its cards', () => {
   const cards = totalCards();
-  assert.ok(HOME.includes(`${cards} free animations · no coding needed`), 'hero pill');
-  assert.ok(HOME.includes(`<span id="more-label">Browse all ${cards} animations</span>`), 'Browse all button');
-  assert.ok(HOME.includes(`<p class="foot-t">${cards} web animations with live demos and copyable prompts.</p>`), 'footer');
-  assert.ok(between(HOME, '<noscript>', '</noscript>').includes(`All ${cards} are still easy to reach`), 'no-JavaScript note');
+  assert.ok(HOME.includes(`${cards} 个免费动画 · 不用写代码`), 'hero pill');
+  assert.ok(HOME.includes(`<span id="more-label">浏览全部 ${cards} 个动画</span>`), 'Browse all button');
+  assert.ok(HOME.includes(`<p class="foot-t">${cards} 个网页动画，带在线演示和可复制提示词。</p>`), 'footer');
+  assert.ok(between(HOME, '<noscript>', '</noscript>').includes(`全部 ${cards} 个动画仍然很容易找到`), 'no-JavaScript note');
   // The head: what search engines and social sites show.
   const head = between(HOME, '<head>', '</head>');
   const meta = attr => (head.match(new RegExp(`<meta ${attr} content="([^"]*)">`)) || [])[1];
@@ -818,7 +818,7 @@ test('the counts written on the home page match its cards', () => {
   };
   for (const [where, text] of Object.entries(texts)) {
     assert.ok(text, `the home page has its ${where}`);
-    assert.equal(numberIn(text, /(\d+) web animation techniques/i), cards, `${where}: ${text}`);
+    assert.equal(numberIn(text, /(\d+) 个网页动画效果/), cards, `${where}: ${text}`);
   }
 });
 
@@ -1098,12 +1098,12 @@ test('the search finds what a visitor describes, and each Popular suggestion kee
   const parallax = names('parallax');
   assert.match(parallax[0], /Parallax/, `"parallax": ${parallax.join(', ')}`);
   for (const name of ['2.5D / Pseudo-3D', 'Depth-Map Photo']) assert.ok(parallax.includes(name), `"parallax" finds ${name}: ${parallax.join(', ')}`);
-  const change = page.search('page change animation')[0];
-  assert.equal(change.cat.name, 'Page Transitions', `"page change animation": ${change.name} first`);
+  const change = page.search('page transitions')[0];
+  assert.equal(change.cat.name, 'Page Transitions', `"page transitions": ${change.name} first`);
   // The Popular suggestions, in the hero and in the Nothing-found panel, each with the first result it had before the groups.
   const popular = { 'fade in': 'Fade In / Fade Out', 'typing text': 'Kinetic Typography', 'loading spinner': 'Loading Spinner', parallax: 'Parallax Depth-of-Field',
     confetti: 'Success Confetti' };
-  for (const panel of [between(HOME, '<p class="pop"><span>Popular:</span>', '</p>'), between(HOME, '<div class="empty" id="empty"', '</div>')]) {
+  for (const panel of [between(HOME, '<p class="pop"><span>热门：</span>', '</p>'), between(HOME, '<div class="empty" id="empty"', '</div>')]) {
     assert.deepEqual([...panel.matchAll(/data-q="([^"]*)"/g)].map(m => m[1]), Object.keys(popular), 'the Popular suggestions');
   }
   for (const [text, name] of Object.entries(popular)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
@@ -1208,7 +1208,7 @@ test('of two cards with the same score, the one that has more of the typed words
 
 test('Nothing matches offers Ask for it: a link to the GitHub form with the typed words filled in', () => {
   const panel = between(HOME, '<div class="empty" id="empty" hidden>', '</div>');
-  assert.ok(panel.includes('<p class="empty-ask">Not in the handbook yet? <a class="pillbtn" id="empty-gh" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">Ask for it on GitHub</a></p>'), panel);
+  assert.ok(panel.includes('<p class="empty-ask">手册里还没有？ <a class="pillbtn" id="empty-gh" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">去 GitHub 提需求</a></p>'), panel);
   const url = new URL(homeSearch().askURL('dock that grows & shrinks #1'));
   assert.equal(url.origin + url.pathname, 'https://github.com/matinmonshizadeh/animation-handbook/issues/new');
   assert.deepEqual([...url.searchParams.keys()], ['template', 'title', 'answers']);
@@ -1243,7 +1243,7 @@ test('the home page head gives search engines and social sites one title, one de
   for (const attr of ['property="og:title"', 'name="twitter:title"']) assert.equal(meta(attr), title, attr);
   const description = meta('name="description"');
   assert.ok(description && description.length <= 160, `the description has at most 160 characters (${description && description.length}): ${description}`);
-  assert.match(description, /ready-made prompt for your AI assistant/, 'the description names the prompt');
+  assert.match(description, /可复制的提示词/, 'the description names the prompt');
   for (const attr of ['property="og:description"', 'name="twitter:description"']) assert.equal(meta(attr), description, attr);
   assert.equal(ld.description, description, 'JSON-LD description');
   const holder = read(path.join(ROOT, 'LICENSE')).match(/^Copyright \(c\) \d{4} (.+)$/m)[1].trim();
@@ -1276,12 +1276,12 @@ const groupKey = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
 test('the chips under the results heading are All and the seven groups in home order, each with its group color', () => {
   const cats = homeConst('CATS');
   const row = between(HOME, '<div class="spots" id="spots"', '</div>');
-  assert.match(row, /^<div class="spots" id="spots" role="group" aria-label="Groups">/, 'the row is a group named Groups');
+  assert.match(row, /^<div class="spots" id="spots" role="group" aria-label="分组">/, 'the row is a group named Groups');
   assert.equal(count(row, '<button'), cats.length + 1, 'All and one chip for each group, nothing else');
   const chips = [...row.matchAll(/<button type="button" class="spot" data-cat="([^"]*)" aria-pressed="(true|false)">(?:<i class="(c\d)" aria-hidden="true"><\/i>)?([^<]*)<\/button>/g)]
     .map(m => ({ key: m[1], pressed: m[2], dot: m[3] || '', name: decode(m[4]) }));
   // All, the first chip, names no group and starts pressed: it is Start.
-  assert.deepEqual(chips, [{ key: '', pressed: 'true', dot: '', name: 'All' },
+  assert.deepEqual(chips, [{ key: '', pressed: 'true', dot: '', name: '全部' },
     ...cats.map(cat => ({ key: groupKey(cat.name), pressed: 'false', dot: cat.cat.replace('-cat', ''), name: cat.name }))]);
   const tags = homeTags();
   assert.equal(tags.filter(tag => tagAttr(tag, 'data-cat') !== undefined).length, cats.length + 1, 'no other button names a group');
@@ -1324,7 +1324,7 @@ test('the home page shows a group by the same paging, heading and address rules 
   const script = HOME.slice(HOME.indexOf('const state={'), HOME.indexOf('// ---------- The finder (?view=find) ----------'));
   assert.ok(script.includes("const state={q:'',place:'',cat:'',view:'',all:false,what:'',when:'',how:''};"), 'the view names its group (cat)');
   assert.ok(script.includes('const isFiltered=()=>!!(state.q||state.place||state.cat||state.view);'), 'a group counts as a picked view (Clear shows, the first eight cards)');
-  assert.ok(script.includes("list=ALL.filter(e=>e.cat===CAT[state.cat]);title=CAT[state.cat].name;sub=list.length+' animations';"), 'its cards, its name as the heading, its count');
+  assert.ok(script.includes("list=ALL.filter(e=>e.cat===CAT[state.cat]);title=CAT[state.cat].name;sub=list.length+' 个动画';"), 'its cards, its name as the heading, its count');
   assert.ok(script.includes('spotsEl.hidden=!!(state.q||state.place||state.view);'), 'the chips show at Start and on a group only');
   assert.ok(script.includes("else if(state.cat)p.push('cat='+state.cat);"), 'the address names the group');
   assert.ok(script.includes("if(state.all&&(state.q||state.place||state.cat||state.view==='find'))p.push('all=1');"), 'and Show all adds all=1');
@@ -1356,7 +1356,7 @@ test('the home page keeps its GitHub button on phones as a round star, and leave
 // cards name their pages' index.html. With three links the footer's row wraps on the narrowest phones.
 test('the home page footer links the Famous effects page', () => {
   const footer = between(HOME, '<footer class="wrap foot">', '</footer>');
-  assert.equal(count(footer, '<a class="lnk" href="famous/">Famous effects</a>'), 1, 'one Famous effects link in the footer');
+  assert.equal(count(footer, '<a class="lnk" href="famous/">知名效果</a>'), 1, 'one Famous effects link in the footer');
   assert.ok(HOME.includes(`if(FROM_DISK)document.querySelectorAll('a[href="famous/"]').forEach(a=>a.setAttribute('href','famous/index.html'));`),
     'opened from disk, the link opens famous/index.html');
   assert.ok(cssRules(between(HOME, '<style>', '</style>')).some(rule => rule.selector === '.foot .nav' && /(^|;)\s*flex-wrap:\s*wrap/.test(rule.body)),

@@ -5,7 +5,7 @@
 //   e.g. node tools/check-pages.mjs animations/02-entrance-and-exit
 //   node tools/check-pages.mjs home   checks the home page at the same six setups: overflow, small targets on phones,
 //   the search box and the place tiles on the first screen, the tile counts and the eight Start cards. The desktop run
-//   also tries the tiles, the search and Show all and compares Copy prompt with every page's own; the phone run tries a
+//   also tries the tiles, the search and Show all and compares 复制提示词 with every page's own; the phone run tries a
 //   tile, the slim bar and long words; the reduced-motion run checks that nothing moves.
 //   node tools/check-pages.mjs famous   checks the Famous effects page (famous/), a gallery of tiles whose entries open one at a
 //   time in a pop-up (a native dialog), at the same six setups. Every setup checks overflow, small targets on phones (the top bar,
@@ -67,7 +67,7 @@
 // of Compare (Normal's is the setup's own screenshot); a
 // mode button the page lacks is named. At the desktop and reduced-motion setups, with the stage at rest (a scroll page with its
 // box at the middle of its range, a loop paused), the box does not scroll either (read before the run a press starts, which may
-// scroll it), See inside and Compare must each change the stage and differ from each other, Normal must bring the first
+// scroll it), 看内部和对比 must each change the stage and differ from each other, 普通 must bring the first
 // picture back, and on a scroll page Play must keep scrolling through a mode change. Each mode's screenshot is taken after
 // that mode's own picture checks, by scrolling the page until the step shows and taking it with plain clips (in parts, joined,
 // where it is taller than the window), so the window is not resized and no scroll box moves: the Normal check that follows sees
@@ -154,11 +154,11 @@ const CHECK = `(() => {
   const chips = document.querySelectorAll('.hb-chips li').length;
   if (chips !== controls) problems.push('chips ' + chips + ' vs settings ' + controls);
   const what = document.querySelector('.hb-what-text');
-  if (!what || !what.querySelector('p')) problems.push('What it is is missing');
-  else if (what.querySelector('a[href="README.md"]')) problems.push('What it is did not load from the README');
+  if (!what || !what.querySelector('p')) problems.push('“它是什么” is missing');
+  else if (what.querySelector('a[href="README.md"]')) problems.push('“它是什么” did not load from the README');
   const loop = document.querySelector('[data-hb-loop]');
   const switches = [...document.querySelectorAll('[data-hb-loop], [data-hb-slowmo]')].map(s =>
-    ({ name: s.matches('[data-hb-loop]') ? 'Loop' : 'Slow motion', checked: s.checked, disabled: s.disabled }));
+    ({ name: s.matches('[data-hb-loop]') ? '循环' : '慢动作', checked: s.checked, disabled: s.disabled }));
   return { kind: document.body.dataset.hbKind || '', loop: loop ? loop.checked : null, switches, problems };
 })()`;
 
@@ -424,12 +424,12 @@ async function movementProblems() {
     if (loop && loop.checked) loop.click();
     return !!document.querySelector('.hb-page .stage') && !!document.querySelector('[data-hb-replay]');
   })()`);
-  if (!ready) return ['no stage or Replay button to check'];
+  if (!ready) return ['no stage or 重播 button to check'];
   const problems = [];
   const settled = (await restShot(3000)).shot;
   await evaluate(`document.querySelector('[data-hb-replay]').click()`);
   await sleep(120);
-  if (await heldShot() === settled) problems.push('Replay does not visibly move the stage');
+  if (await heldShot() === settled) problems.push('重播 does not visibly move the stage');
   const settledAgain = (await restShot(3000)).shot;
   const clicked = await evaluate(`(() => {
     const choice = [...document.querySelectorAll('.hb-try .seg button')]
@@ -673,7 +673,7 @@ async function modeProblems(name, setup, kind) {
   // go of: blurred, and moved nowhere else.
   await evaluate(`(() => { const s = document.querySelector('.hb-page .stage'), a = document.activeElement; if (s && a && s.contains(a) && a.blur) a.blur(); })()`);
   const problems = [];
-  const labels = { normal: 'Normal', inside: 'See inside', compare: 'Compare' };
+  const labels = { normal: '普通', inside: '看内部', compare: '对比' };
   const missing = new Set();
   // Presses a mode's button and says whether the page has it. A page without it gets a problem of its own, said once, in place
   // of a later check that fails for no clear reason. Just before the press it notes where the page and the box are scrolled and
@@ -751,7 +751,7 @@ async function modeProblems(name, setup, kind) {
   // A press of See inside or Compare on a plays-once or do-it page also plays the demo once (the shared script presses Replay or
   // Show me), except under reduced motion: at every setup the check then waits for that run to end and for the stage to rest.
   const runs = (kind === 'once' || kind === 'do') && !setup.reduce;
-  // The pictures are compared at the deep setups, except for a scroll page with no Back to top button: its box cannot be
+  // The pictures are compared at the deep setups, except for a scroll page with 没有回到顶部按钮: its box cannot be
   // brought to the top, so nothing is compared there (the Play check below names the missing button).
   let pictures = deep;
   if (deep) {
@@ -822,23 +822,23 @@ async function modeProblems(name, setup, kind) {
     named[mode] = await pictureName();
     await capture(mode, shots[mode]);
   }
-  if (shots.inside && shots.compare && await samePicture(shots.inside, shots.compare)) problems.push('See inside and Compare show the same picture');
+  if (shots.inside && shots.compare && await samePicture(shots.inside, shots.compare)) problems.push('看内部和对比 show the same picture');
   await settleBox();
   if (await press('normal')) {
     // Only the pictures need the wait; the marks, the notes and the overflow are there at once.
     if (pictures) await sleep(700);
     const now = await look();
-    if (now.mode !== 'normal') problems.push('Normal: the stage is not marked data-hb-mode="normal"');
-    if (now.overflow) problems.push('Normal: horizontal overflow');
-    if (now.notes.length) problems.push('Normal: a note is still shown');
-    unmoved('Normal', now);
-    sized('Normal', now);
+    if (now.mode !== 'normal') problems.push('普通： the stage is not marked data-hb-mode="normal"');
+    if (now.overflow) problems.push('普通： horizontal overflow');
+    if (now.notes.length) problems.push('普通： a note is still shown');
+    unmoved('普通', now);
+    sized('普通', now);
     if (pictures) {
       const rest = await restShot(0, { calm: settles && allEnded });
-      if (!rest.still) problems.push('the stage does not come to rest in Normal');
-      else if (first && !(await samePicture(rest.shot, first))) problems.push('Normal does not bring the first picture back');
+      if (!rest.still) problems.push('the stage does not come to rest in 普通');
+      else if (first && !(await samePicture(rest.shot, first))) problems.push('普通 does not bring the first picture back');
     }
-    problems.push(...await captionProblems('Normal'));
+    problems.push(...await captionProblems('普通'));
     named.normal = await pictureName();
   }
   // Where the page names its picture, each mode names it differently, so a screen reader hears what each one shows.
@@ -850,8 +850,8 @@ async function modeProblems(name, setup, kind) {
   // Play keeps scrolling when the mode changes (Play still works under reduced motion, so this runs there too).
   if (deep && kind === 'scroll') {
     const have = await evaluate(`({ play: !!document.querySelector('[data-hb-autoscroll]'), top: !!document.querySelector('[data-hb-top]') })`);
-    if (!have.play) problems.push('no Play button');
-    if (!have.top) problems.push('no Back to top button');
+    if (!have.play) problems.push('没有播放按钮');
+    if (!have.top) problems.push('没有回到顶部按钮');
     if (have.play && have.top) {
       // From the top, so that Play has its whole run ahead of it while the mode changes.
       await evaluate(`document.querySelector('[data-hb-top]').click()`);
@@ -957,11 +957,11 @@ async function stageInShot(shot, stage, at, ratio) {
 // changes at once and goes back after a hold of about 1.2 s, which a busy machine can let pass before a capture that
 // waited first); more follow every 200 ms for 1.6 s.
 async function demoProblems(reduced) {
-  if (!(await evaluate(`!!document.querySelector('[data-hb-demo]')`))) return ['no Show me button to check'];
+  if (!(await evaluate(`!!document.querySelector('[data-hb-demo]')`))) return ['no 演示一下 button to check'];
   const problems = [];
   const presses = await evaluate(`(window.__hbShowMe || []).length`);
-  if (reduced && presses) problems.push('Show me is pressed on arrival under reduced motion');
-  if (!reduced && presses !== 1) problems.push(presses ? `Show me is pressed ${presses} times on arrival, not once` : 'Show me is not pressed on arrival');
+  if (reduced && presses) problems.push('演示一下 is pressed on arrival under reduced motion');
+  if (!reduced && presses !== 1) problems.push(presses ? `演示一下 is pressed ${presses} times on arrival, not once` : '演示一下 is not pressed on arrival');
   if (!reduced) await sleep(5000);
   if (await stageChanges(reduced ? 1500 : 800)) {
     problems.push(reduced ? 'the stage moves by itself under reduced motion' : 'the stage is not at rest after the run on arrival (it keeps moving by itself)');
@@ -971,7 +971,7 @@ async function demoProblems(reduced) {
   await evaluate(`document.querySelector('[data-hb-demo]').click()`);
   let moved = false;
   for (let i = 0; i < 9 && !moved; i++) { if (i) await sleep(200); moved = (await stageShot()) !== rest; }
-  if (!moved) { problems.push('Show me does not visibly move the stage'); return problems; }
+  if (!moved) { problems.push('演示一下 does not visibly move the stage'); return problems; }
   let back = false;
   for (let i = 0; i < 32 && !back; i++) { await sleep(250); back = await samePicture(await stageShot(), rest); }
   if (!back) problems.push('the run does not bring the stage back to rest');
@@ -1014,7 +1014,7 @@ async function scrollProblems(reduced) {
   await sleep(500);
   const atTop = await pos() === 0;
   await sleep(600);
-  if (!atTop || await pos() !== 0) problems.push('Back to top does not return the box to the top and stop it');
+  if (!atTop || await pos() !== 0) problems.push('回到顶部 does not return the box to the top and stop it');
   // The page's own snap type: read before anything ran (reduced motion), else with the run stopped (a mark left behind
   // would show as "none" here, but the reduced-motion run sees it)
   const snaps = reduced ? startSnap : await snap();
@@ -1058,9 +1058,9 @@ async function pressCopyButton(index) {
   return '';
 }
 
-// Home page, desktop run: the Copy prompt button, pressed for real, puts a page's text on the clipboard and says so (the
-// clipboard is stubbed: a headless run cannot grant it); when the clipboard refuses, it says "Open to copy" and its name says
-// which animation; then, for every page, the home page's text equals what the page's own Copy prompt gives before any change.
+// Home page, desktop run: the 复制提示词 button, pressed for real, puts a page's text on the clipboard and says so (the
+// clipboard is stubbed: a headless run cannot grant it); when the clipboard refuses, it says "打开页面复制" and its name says
+// which animation; then, for every page, the home page's text equals what the page's own 复制提示词 gives before any change.
 // Leaves the home page.
 async function homeCopyProblems() {
   const problems = [];
@@ -1070,7 +1070,7 @@ async function homeCopyProblems() {
     navigator.clipboard.writeText = async text => { window.__clipboardGot = text; };
   })()`);
   const covered = await pressCopyButton(0);
-  if (covered) problems.push(`Copy prompt button is covered by ${covered} at its center`);
+  if (covered) problems.push(`复制提示词 button is covered by ${covered} at its center`);
   else {
     const wiring = await evaluate(`(async () => {
       for (let i = 0; i < 60 && window.__clipboardGot === null; i++) await new Promise(r => setTimeout(r, 50));
@@ -1078,7 +1078,7 @@ async function homeCopyProblems() {
       const btn = document.querySelector('#cards .card .copy'), url = btn.closest('.card').querySelector('.title a').getAttribute('href');
       return { same: window.__clipboardGot === await promptFor(url), label: btn.textContent.trim(), toast: document.getElementById('toast').classList.contains('show') };
     })()`);
-    if (!wiring.same || wiring.label !== 'Copied' || !wiring.toast) problems.push(`Copy prompt button: ${JSON.stringify(wiring)}`);
+    if (!wiring.same || wiring.label !== '已复制' || !wiring.toast) problems.push(`复制提示词 button: ${JSON.stringify(wiring)}`);
   }
   // Second pass, on the second card: the browser refuses the clipboard. The button offers to open the page, and its name starts
   // with what it shows and says which animation it belongs to.
@@ -1088,15 +1088,15 @@ async function homeCopyProblems() {
     navigator.clipboard.writeText = refuse;
   })()`);
   const coveredAgain = await pressCopyButton(1);
-  if (coveredAgain) problems.push(`Copy prompt button of the second card is covered by ${coveredAgain} at its center`);
+  if (coveredAgain) problems.push(`复制提示词 button of the second card is covered by ${coveredAgain} at its center`);
   else {
     const refused = await evaluate(`(async () => {
       const btn = document.querySelectorAll('#cards .card .copy')[1];
-      for (let i = 0; i < 60 && btn.textContent.trim() === 'Copy prompt'; i++) await new Promise(r => setTimeout(r, 50));
+      for (let i = 0; i < 60 && btn.textContent.trim() === '复制提示词'; i++) await new Promise(r => setTimeout(r, 50));
       return { label: btn.textContent.trim(), name: btn.getAttribute('aria-label') || '', animation: btn.closest('.card').querySelector('.title a').textContent.trim() };
     })()`);
-    if (refused.label !== 'Open to copy' || !refused.name.startsWith(refused.label) || !refused.name.includes(refused.animation)) {
-      problems.push(`Copy prompt with the clipboard refused: ${JSON.stringify(refused)} (expected "Open to copy" and a name that starts with it and names the animation)`);
+    if (refused.label !== '打开页面复制' || !refused.name.startsWith(refused.label) || !refused.name.includes(refused.animation)) {
+      problems.push(`复制提示词 with the clipboard refused: ${JSON.stringify(refused)} (expected "打开页面复制" and a name that starts with it and names the animation)`);
     }
   }
   // Every page's text as the home page gives it, read six at a time: Python's stock server refuses connections when many
@@ -1140,16 +1140,16 @@ async function homeCopyProblems() {
 // all shows the rest, Back returns to the start, a plain sentence finds the right animations, a typed word finds the other
 // forms of its word and one letter already finds cards (but not every card: "best" and "for" are no card's words, and a
 // typed "best" is left out), typing only replaces the address (spaces as %20), a word with no match says so, All
-// animations lists every card under its group headings with the card titles a level below them, Browse all pressed there
+// animations lists every card under its group headings with the card titles a level below them, 浏览全部 pressed there
 // adds no history step, an address opened directly shows its view, "/" puts keyboard focus in the search box and Escape on
 // the empty box keeps the picked place, a tile or Popular suggestion press brings the results heading into view with
 // keyboard focus (the picked tile pressed again does not scroll), and the old ?q= and ?cat= links still work. A group chip
-// under the heading shows its group with the chip pressed, its first eight cards, Show all and its own address (?cat=); the
+// under the heading shows its group with the chip pressed, its first eight cards, 显示全部 and its own address (?cat=); the
 // picked chip pressed again and All go back to Start; a place hides the chips and Clear brings them back. Keyboard
-// focus is not dropped or left behind when a pressed button hides or the page scrolls away: Show all puts it on the first
-// new card; Clear, a suggestion in the Nothing-found panel, Browse all (the button and the link) and Back after Show all
+// focus is not dropped or left behind when a pressed button hides or the page scrolls away: 显示全部 puts it on the first
+// new card; 清除， a suggestion in the Nothing-found panel, 浏览全部 (the button and the link) and Back after 显示全部
 // put it on the results heading. A tile pressed while a search box keeps focus (a tap on iOS leaves it there) empties both
-// boxes. Leaves the home page in All animations (?cat=nothing).
+// boxes. Leaves the home page in 全部动画 (?cat=nothing).
 async function homeViewProblems() {
   const problems = [];
   const view = () => evaluate(`({ title: document.getElementById('results-title').textContent, cards: document.querySelectorAll('#cards .card').length,
@@ -1178,34 +1178,34 @@ async function homeViewProblems() {
     listeners.delete(onLoad);
     await sleep(300);
   };
-  // The totals come from the page's data (every entry in CATS, its groups, the cards PLACES puts in Buttons), not from the list
+  // The totals come from the page's data (every entry in CATS, its groups, the cards PLACES puts in 按钮), not from the list
   // the page builds from it (ALL), so a card lost on the way shows up as a missing card below. Adding an animation needs no
   // edit here; the tests compare the counts written in the page with the same data.
   const total = await evaluate(`({ cards: CATS.reduce((n, c) => n + c.entries.length, 0), groups: CATS.length, buttons: Object.values(PLACES).filter(p => p.includes('btn')).length })`);
-  if (!total.cards || !total.groups || total.buttons <= 8) problems.push(`the page's own data: ${JSON.stringify(total)} (the Buttons steps below need more than one page of Buttons cards)`);
+  if (!total.cards || !total.groups || total.buttons <= 8) problems.push(`the page's own data: ${JSON.stringify(total)} (the 按钮 steps below need more than one page of 按钮 cards)`);
   await evaluate(`document.querySelector('.place[data-place="btn"]').click()`);
   await sleep(300);
   let v = await view();
-  if (v.title !== 'Buttons' || v.cards !== 8 || v.more !== `Show all ${total.buttons}` || v.search !== '?place=buttons' || v.pressed !== 'btn') problems.push(`Buttons tile: ${JSON.stringify(v)}`);
+  if (v.title !== '按钮' || v.cards !== 8 || v.more !== `显示全部 ${total.buttons} 个` || v.search !== '?place=buttons' || v.pressed !== 'btn') problems.push(`Buttons tile: ${JSON.stringify(v)}`);
   await press('#more-btn');
   await sleep(300);
   v = await view();
-  if (v.cards !== total.buttons || v.more !== '' || v.search !== '?place=buttons&all=1') problems.push(`Show all: ${JSON.stringify(v)}`);
+  if (v.cards !== total.buttons || v.more !== '' || v.search !== '?place=buttons&all=1') problems.push(`显示全部：${JSON.stringify(v)}`);
   let on = await focused();
-  if (on !== 'card link 9') problems.push(`Show all: keyboard focus is on ${on}, not on the ninth card's link`);
+  if (on !== 'card link 9') problems.push(`显示全部：keyboard focus is on ${on}, not on the ninth card's link`);
   await evaluate(`history.back()`);
   await sleep(500);
   v = await view();
-  if (v.title !== 'Good places to start' || v.cards !== 8 || v.search !== '' || v.pressed !== '') problems.push(`Back: ${JSON.stringify(v)}`);
+  if (v.title !== '从这里开始' || v.cards !== 8 || v.search !== '' || v.pressed !== '') problems.push(`Back: ${JSON.stringify(v)}`);
   on = await focused();
-  if (on !== 'results-title') problems.push(`Back after Show all: keyboard focus is on ${on}, not on the results heading`);
+  if (on !== 'results-title') problems.push(`Back after 显示全部：keyboard focus is on ${on}, not on the results heading`);
   await evaluate(`document.querySelector('.place[data-place="text"]').click()`);
   await sleep(300);
   await press('#clear-view');
   await sleep(300);
   v = await view();
   on = await focused();
-  if (v.title !== 'Good places to start' || v.cards !== 8 || on !== 'results-title') problems.push(`Clear: ${JSON.stringify(v)}, keyboard focus is on ${on}`);
+  if (v.title !== '从这里开始' || v.cards !== 8 || on !== 'results-title') problems.push(`清除：${JSON.stringify(v)}, keyboard focus is on ${on}`);
   // The group chips under the heading. The group pressed is the biggest one (more than a page of cards, for Show all); the
   // other is the first group that is not it. Both come from the page's data, as the totals do.
   const chips = () => evaluate(`(() => { const row = document.getElementById('spots');
@@ -1214,11 +1214,11 @@ async function homeViewProblems() {
     return [big, next].map(c => ({ key: slugify(c.name), name: c.name, cards: c.entries.length })); })()`);
   if (group.cards <= 8) problems.push(`the page's own data: the biggest group has ${group.cards} cards (the group steps need more than one page of cards)`);
   let c = await chips();
-  if (!c.shown || c.pressed !== 'All') problems.push(`group chips at Start: ${JSON.stringify(c)}`);
+  if (!c.shown || c.pressed !== '全部') problems.push(`group chips at Start: ${JSON.stringify(c)}`);
   await press(`.spot[data-cat="${group.key}"]`);
   await sleep(300);
   v = await view(); c = await chips(); on = await focused();
-  if (v.title !== group.name || v.cards !== 8 || v.more !== `Show all ${group.cards}` || v.search !== `?cat=${group.key}` || v.pressed || !c.shown || c.pressed !== group.key || on === 'body') {
+  if (v.title !== group.name || v.cards !== 8 || v.more !== `显示全部 ${group.cards} 个` || v.search !== `?cat=${group.key}` || v.pressed || !c.shown || c.pressed !== group.key || on === 'body') {
     problems.push(`${group.name} chip: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}, keyboard focus is on ${on}`);
   }
   const groupCards = await evaluate(`({ here: [...document.querySelectorAll('#cards .card')].map(card => card.dataset.slug).join(), want: CAT[${JSON.stringify(group.key)}].entries.slice(0, 8).map(e => e[0]).join(),
@@ -1227,11 +1227,11 @@ async function homeViewProblems() {
   await press('#more-btn');
   await sleep(300);
   v = await view(); on = await focused();
-  if (v.cards !== group.cards || v.more !== '' || v.search !== `?cat=${group.key}&all=1` || on !== 'card link 9') problems.push(`${group.name} chip, Show all: ${JSON.stringify(v)}, keyboard focus is on ${on}`);
+  if (v.cards !== group.cards || v.more !== '' || v.search !== `?cat=${group.key}&all=1` || on !== 'card link 9') problems.push(`${group.name} chip, 显示全部：${JSON.stringify(v)}, keyboard focus is on ${on}`);
   await press(`.spot[data-cat="${group.key}"]`);
   await sleep(300);
   v = await view(); c = await chips();
-  if (v.title !== 'Good places to start' || v.cards !== 8 || v.search !== '' || c.pressed !== 'All') problems.push(`the picked group chip pressed again: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
+  if (v.title !== '从这里开始' || v.cards !== 8 || v.search !== '' || c.pressed !== '全部') problems.push(`the picked group chip pressed again: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
   await press(`.spot[data-cat="${other.key}"]`);
   await sleep(300);
   v = await view(); c = await chips();
@@ -1239,17 +1239,17 @@ async function homeViewProblems() {
   await press('.spot[data-cat=""]');
   await sleep(300);
   v = await view(); c = await chips();
-  if (v.title !== 'Good places to start' || v.search !== '' || c.pressed !== 'All') problems.push(`All chip: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
+  if (v.title !== '从这里开始' || v.search !== '' || c.pressed !== '全部') problems.push(`All chip: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
   await press(`.spot[data-cat="${group.key}"]`);
   await sleep(300);
   await evaluate(`document.querySelector('.place[data-place="btn"]').click()`);
   await sleep(300);
   v = await view(); c = await chips();
-  if (v.title !== 'Buttons' || v.pressed !== 'btn' || c.shown || c.pressed) problems.push(`a place picked on a group: ${JSON.stringify(v)}, chips ${JSON.stringify(c)} (the chips hide on a place)`);
+  if (v.title !== '按钮' || v.pressed !== 'btn' || c.shown || c.pressed) problems.push(`a place picked on a group: ${JSON.stringify(v)}, chips ${JSON.stringify(c)} (the chips hide on a place)`);
   await press('#clear-view');
   await sleep(300);
   v = await view(); c = await chips();
-  if (v.title !== 'Good places to start' || !c.shown || c.pressed !== 'All') problems.push(`Clear after a place: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
+  if (v.title !== '从这里开始' || !c.shown || c.pressed !== '全部') problems.push(`Clear after a place: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
   await evaluate(`document.getElementById('q').focus()`);
   await type('fade');
   await sleep(300);
@@ -1257,7 +1257,7 @@ async function homeViewProblems() {
   await sleep(300);
   v = await view();
   const boxes = await evaluate(`[document.getElementById('q').value, document.getElementById('q2').value]`);
-  if (v.title !== 'Text' || v.pressed !== 'text' || boxes.join('') !== '') problems.push(`Text tile pressed while the search box has focus: ${JSON.stringify(v)}, the boxes hold ${JSON.stringify(boxes)}`);
+  if (v.title !== '文字' || v.pressed !== 'text' || boxes.join('') !== '') problems.push(`Text tile pressed while the search box has focus: ${JSON.stringify(v)}, the boxes hold ${JSON.stringify(boxes)}`);
   await type('a button that bounces when clicked');
   await sleep(300);
   // Button Press Scale comes first: a Buttons card with "button" in its name that springs back as you press it, and the
@@ -1288,7 +1288,7 @@ async function homeViewProblems() {
   // Every description ends "Best for …", so neither "best" nor "for" may count as a card's word: "b" finds only the cards with
   // a real word starting with b, and a typed "best" is left out like "for".
   const every = await evaluate(`ALL.length`);
-  if (letter.sub === `${every} animations match.`) problems.push(`search "b" finds all ${every} animations (the "Best for" of every description counts)`);
+  if (letter.sub === `${every} 个动画匹配。`) problems.push(`search "b" finds all ${every} animations (the "Best for" of every description counts)`);
   await type('button');
   await sleep(300);
   const button = await results();
@@ -1304,7 +1304,7 @@ async function homeViewProblems() {
   await type('zebra');
   await sleep(300);
   const empty = await evaluate(`!document.getElementById('empty').hidden && document.getElementById('empty-title').textContent`);
-  if (empty !== 'Nothing matches “zebra” yet') problems.push(`nothing found: ${empty}`);
+  if (empty !== '还没有符合“zebra”的动画') problems.push(`nothing found: ${empty}`);
   // Ask for it: the link under the suggestions opens the GitHub form in a new tab with the typed words filled in.
   const ask = await evaluate(`(() => { const a = document.getElementById('empty-gh'); return a && { href: a.href, want: askURL('zebra'), target: a.target, shown: a.getClientRects().length > 0 }; })()`);
   if (!ask || !ask.shown || ask.href !== ask.want || ask.target !== '_blank') problems.push(`nothing found, Ask for it: ${JSON.stringify(ask)}`);
@@ -1319,7 +1319,7 @@ async function homeViewProblems() {
   await sleep(500);
   v = await view();
   on = await focused();
-  if (v.title !== 'All animations' || on !== 'results-title') problems.push(`Browse all button: ${JSON.stringify(v)}, keyboard focus is on ${on}`);
+  if (v.title !== '全部动画' || on !== 'results-title') problems.push(`浏览全部按钮：${JSON.stringify(v)}, keyboard focus is on ${on}`);
   const stepsBefore = await evaluate(`history.length`);
   await press('#nav-all');
   await sleep(500);
@@ -1327,10 +1327,10 @@ async function homeViewProblems() {
     steps: history.length, level4: document.querySelectorAll('#cards .card .title[aria-level="4"]').length, named: document.querySelectorAll('#cards .group[aria-labelledby]').length,
     pressed: document.querySelectorAll('#places .place[aria-pressed="true"]').length })`);
   if (all.groups !== total.groups || all.cards !== total.cards || all.search !== '?view=all' || all.pressed) problems.push(`All animations: ${JSON.stringify(all)}`);
-  if (all.steps !== stepsBefore) problems.push('Browse all pressed in All animations adds a history step');
+  if (all.steps !== stepsBefore) problems.push('浏览全部 pressed in 全部动画 adds a history step');
   if (all.level4 !== total.cards || all.named) problems.push(`All animations: ${all.level4} card titles at level 4, not ${total.cards}, and ${all.named} group sections named, not 0`);
   on = await focused();
-  if (on !== 'results-title') problems.push(`Browse all link: keyboard focus is on ${on}, not on the results heading`);
+  if (on !== 'results-title') problems.push(`浏览全部链接：keyboard focus is on ${on}, not on the results heading`);
   await type('fade');
   await sleep(300);
   const levels = await evaluate(`document.querySelectorAll('#cards .card .title[aria-level]').length`);
@@ -1339,7 +1339,7 @@ async function homeViewProblems() {
   // box only leaves the box: the place and its address stay.
   await load('?place=buttons');
   v = await view();
-  if (v.title !== 'Buttons' || v.cards !== 8 || v.more !== `Show all ${total.buttons}` || v.pressed !== 'btn') problems.push(`?place=buttons: ${JSON.stringify(v)}`);
+  if (v.title !== '按钮' || v.cards !== 8 || v.more !== `显示全部 ${total.buttons} 个` || v.pressed !== 'btn') problems.push(`?place=buttons: ${JSON.stringify(v)}`);
   await key('/', 'Slash', 191, '/');
   await sleep(100);
   on = await focused();
@@ -1348,10 +1348,10 @@ async function homeViewProblems() {
   await sleep(300);
   v = await view();
   on = await focused();
-  if (v.title !== 'Buttons' || v.search !== '?place=buttons' || v.pressed !== 'btn' || on === 'q') problems.push(`Escape in the empty search box: ${JSON.stringify(v)}, keyboard focus is on ${on}`);
-  for (const [query, want] of [['?view=all', { title: 'All animations', groups: total.groups, cards: total.cards, pressed: '' }],
-    ['?place=buttons&all=1', { title: 'Buttons', cards: total.buttons, more: '', pressed: 'btn' }],
-    [`?cat=${group.key}`, { title: group.name, cards: 8, more: `Show all ${group.cards}`, pressed: '' }],
+  if (v.title !== '按钮' || v.search !== '?place=buttons' || v.pressed !== 'btn' || on === 'q') problems.push(`Escape in the empty search box: ${JSON.stringify(v)}, keyboard focus is on ${on}`);
+  for (const [query, want] of [['?view=all', { title: '全部动画', groups: total.groups, cards: total.cards, pressed: '' }],
+    ['?place=buttons&all=1', { title: '按钮', cards: total.buttons, more: '', pressed: 'btn' }],
+    [`?cat=${group.key}`, { title: group.name, cards: 8, more: `显示全部 ${group.cards} 个`, pressed: '' }],
     [`?cat=${group.key}&all=1`, { title: group.name, cards: group.cards, more: '', pressed: '' }]]) {
     await load(query);
     v = await view();
@@ -1371,7 +1371,7 @@ async function homeViewProblems() {
   await evaluate(`history.back()`);
   await sleep(500);
   v = await view(); c = await chips();
-  if (v.title !== 'Good places to start' || v.search !== '' || c.pressed !== 'All') problems.push(`Back from ${group.name} to Start: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
+  if (v.title !== '从这里开始' || v.search !== '' || c.pressed !== '全部') problems.push(`Back from ${group.name} to Start: ${JSON.stringify(v)}, chips ${JSON.stringify(c)}`);
   await evaluate(`history.forward()`);
   await sleep(500);
   v = await view(); c = await chips();
@@ -1395,7 +1395,7 @@ async function homeViewProblems() {
       await evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
       await still();
       const again = await heading();
-      if (again.title !== 'Good places to start' || Math.abs(again.scrolled - seen.scrolled) > 1) problems.push(`the picked tile pressed again: heading "${again.title}", the page scrolled from ${seen.scrolled}px to ${again.scrolled}px`);
+      if (again.title !== '从这里开始' || Math.abs(again.scrolled - seen.scrolled) > 1) problems.push(`the picked tile pressed again: heading "${again.title}", the page scrolled from ${seen.scrolled}px to ${again.scrolled}px`);
     }
   }
   // A group chip pressed while the heading is just above the window: the results come into view (the heading in the top 60%)
@@ -1416,7 +1416,7 @@ async function homeViewProblems() {
   if (seenGroup.title !== group.name || !seenGroup.shown) problems.push(`?cat=${group.key}: the heading is at ${seenGroup.top}px, not in the top 60% of the first screen`);
   // Old links keep working: ?q= opens the search; ?cat= with a group's name opens that group (above), and with a name that is
   // no group All animations, as every ?cat= link once did.
-  for (const [query, want] of [['?q=fade', 'Results for “fade”'], ['?cat=nothing', 'All animations']]) {
+  for (const [query, want] of [['?q=fade', '“fade”的搜索结果'], ['?cat=nothing', '全部动画']]) {
     await load(query);
     const got = await evaluate(`document.getElementById('results-title').textContent`);
     if (got !== want) problems.push(`${query}: heading "${got}"`);
@@ -1485,7 +1485,7 @@ async function homePhoneProblems() {
     await typeInBar('');
     await sleep(200);
     let b = await now();
-    if (b.title !== 'Good places to start' || !b.shown || b.focus !== 'q2') problems.push(`phone, search box in the bar emptied: ${JSON.stringify(b)}`);
+    if (b.title !== '从这里开始' || !b.shown || b.focus !== 'q2') problems.push(`phone, search box in the bar emptied: ${JSON.stringify(b)}`);
     await evaluate(`document.getElementById('q2').blur()`);
     await sleep(200);
     b = await now();
@@ -1495,17 +1495,17 @@ async function homePhoneProblems() {
     await press('.pchip[data-place="text"]');
     await sleep(300);
     b = await now();
-    if (b.title !== 'Good places to start' || b.shown || b.focus !== 'results-title') problems.push(`phone, pressed chip pressed again: ${JSON.stringify(b)}`);
+    if (b.title !== '从这里开始' || b.shown || b.focus !== 'results-title') problems.push(`phone, pressed chip pressed again: ${JSON.stringify(b)}`);
     await evaluate(`document.querySelector('.place[data-place="text"]').click()`);
     await sleep(900);
     await press('#pin-back');
     await sleep(1300);
     b = await now();
-    if (b.title !== 'Good places to start' || b.shown || b.focus !== 'tile btn' || b.scrolled > 1) problems.push(`phone, back arrow: ${JSON.stringify(b)}`);
+    if (b.title !== '从这里开始' || b.shown || b.focus !== 'tile btn' || b.scrolled > 1) problems.push(`phone, back arrow: ${JSON.stringify(b)}`);
     await press('#more-btn');
     await sleep(900);
     b = await now();
-    if (b.title !== 'All animations' || !b.shown) problems.push(`phone, Browse all: ${JSON.stringify(b)}`);
+    if (b.title !== '全部动画' || !b.shown) problems.push(`phone, 浏览全部：${JSON.stringify(b)}`);
     problems.push(...await fit('All animations'));
     // The keyboard's Search key (Enter) in the bar's box: keyboard focus leaves the box, so the phone's keyboard closes over
     // the results, and the bar stays while the search is shown.
@@ -1725,11 +1725,11 @@ async function finderLayoutProblems(name, setup) {
 // with keyboard focus in the search box.
 async function finderViewProblems() {
   const problems = [];
-  const FIND_TITLE = 'Find an animation you saw — Animation Handbook', ASK = 'Answer a question above, and the animations that match show here.';
-  // See N matches and the results line once something matches, each number with its own word ("See 1 match", "1 best match and
-  // 9 close matches."), never "See 1 matches"; tests/finder.test.js holds both to the page's own lines.
-  const FIND_SEE = /^See (?:1 match|(?!1 )\d+ matches)$/;
-  const FIND_LINE = /^(?:1 best match|(?!1 )\d+ best matches)(?: and (?:1 close match|(?!1 )\d+ close matches))?\.$|^No animation fits all your answers\. These come close\.$/;
+  const FIND_TITLE = '找到你见过的动画 — 动画手册', ASK = '在上面回答一个问题，匹配的动画就会显示在这里。';
+  // 查看 N 个匹配 and the results line once something matches ("查看 1 个匹配", "1 个最匹配，9 个接近的匹配。");
+  // tests/finder.test.js holds both to the page's own lines.
+  const FIND_SEE = /^查看 \d+ 个匹配$/;
+  const FIND_LINE = /^\d+ 个最匹配(?:，\d+ 个接近的匹配)?。$|^没有动画完全符合你的答案。这些比较接近。$/;
   const look = () => evaluate(`(() => {
     const $ = id => document.getElementById(id), shown = el => !!el && !!el.getClientRects().length;
     const links = [...document.querySelectorAll('#cards .card .title a')], a = document.activeElement;
@@ -1766,7 +1766,7 @@ async function finderViewProblems() {
   await clearHistory();
   await openHome('?view=find', problems);
   let s = await look();
-  if (s.hero || s.tiles || !s.finder || s.questions !== 3 || s.checked || s.names.length || s.title !== 'Your matches' || s.sub !== ASK ||
+  if (s.hero || s.tiles || !s.finder || s.questions !== 3 || s.checked || s.names.length || s.title !== '你的匹配结果' || s.sub !== ASK ||
     s.tab !== FIND_TITLE || s.current !== 'page' || s.see || s.notHere) problems.push(`finder, ?view=find: ${JSON.stringify(s)}`);
   const steps = s.steps;
   for (const [question, key] of [['what', 'menu'], ['when', 'scroll'], ['how', 'slide']]) await pick(question, key);
@@ -1774,38 +1774,38 @@ async function finderViewProblems() {
   if (s.checked !== 'what=menu&when=scroll&how=slide' || s.search !== '?view=find&what=menu&when=scroll&how=slide' || s.steps !== steps) {
     problems.push(`finder, three answers: chosen ${s.checked}, the address ${s.search}, ${s.steps - steps} history steps added`);
   }
-  if (!s.names.slice(0, 6).includes('Hide-on-Scroll Header')) problems.push(`finder: A menu or form · When I scrolled · Slid shows ${s.names.slice(0, 6).join(', ') || 'no cards'} first, not Hide-on-Scroll Header`);
-  if (!FIND_SEE.test(s.see) || !s.notHere) problems.push(`finder: See N matches reads "${s.see}", Not here? is ${s.notHere ? 'shown' : 'hidden'}`);
+  if (!s.names.slice(0, 6).includes('Hide-on-Scroll Header')) problems.push(`finder: 菜单或表单 · 滚动时 · 滑动 shows ${s.names.slice(0, 6).join(', ') || 'no cards'} first, not Hide-on-Scroll Header`);
+  if (!FIND_SEE.test(s.see) || !s.notHere) problems.push(`finder: 查看 N 个匹配 reads "${s.see}", Not here? is ${s.notHere ? 'shown' : 'hidden'}`);
   if (!FIND_LINE.test(s.sub)) problems.push(`finder: the results line "${s.sub}"`);
   const link = await evaluate(`(() => { const a = document.getElementById('find-gh');
     return a ? { href: new URL(a.href).href, want: new URL(findIssueURL({ what: 'menu', when: 'scroll', how: 'slide' })).href, target: a.target, rel: a.rel } : null; })()`);
   if (!link || link.href !== link.want || !link.href.startsWith('https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml&') ||
-    link.target !== '_blank' || link.rel !== 'noopener') problems.push(`finder: the Not here? link ${JSON.stringify(link)}`);
+    link.target !== '_blank' || link.rel !== 'noopener') problems.push(`finder: the “不在这里？” link ${JSON.stringify(link)}`);
   const picked = s.names;
   await press('#find-see');
   await still();
   const seen = await evaluate(`(() => { const t = document.getElementById('results-title'), top = Math.round(t.getBoundingClientRect().top);
     return { top, shown: top >= 0 && top <= innerHeight * .6, focus: document.activeElement === t }; })()`);
-  if (!seen.shown || !seen.focus) problems.push(`finder: after See N matches the results heading is at ${seen.top}px${seen.focus ? '' : ', without keyboard focus'}`);
+  if (!seen.shown || !seen.focus) problems.push(`finder: after 查看 N 个匹配 the results heading is at ${seen.top}px${seen.focus ? '' : ', without keyboard focus'}`);
   await press('#find-reset');
   await still();
   await sleep(500);
   s = await look();
   if (s.checked || s.names.length || s.search !== '?view=find' || s.sub !== ASK || s.focus !== 'find-title' || s.see || s.notHere || s.steps !== steps || s.scrolled > 1) {
-    problems.push(`finder, Start over: ${JSON.stringify(s)}${s.scrolled > 1 ? ` (the page is ${s.scrolled}px down, not at the top)` : ''}`);
+    problems.push(`finder, 重新开始: ${JSON.stringify(s)}${s.scrolled > 1 ? ` (the page is ${s.scrolled}px down, not at the top)` : ''}`);
   }
   // More than twelve matches: twelve cards, then Show all shows every one and puts keyboard focus on the thirteenth.
   await openHome('?view=find&what=background', problems);
   s = await look();
-  const total = Number((s.more.match(/^Show all (\d+) matches$/) || [])[1]);
-  if (!(total > 12) || s.names.length !== 12) problems.push(`finder, The background: ${s.names.length} cards and the button "${s.more}" (twelve cards, then Show all for the rest)`);
+  const total = Number((s.more.match(/^显示全部 (\d+) 个匹配$/) || [])[1]);
+  if (!(total > 12) || s.names.length !== 12) problems.push(`finder, 背景: ${s.names.length} cards and the button "${s.more}" (twelve cards, then Show all for the rest)`);
   else {
     const opened = s.steps;
     await press('#more-btn');
     await sleep(400);
     s = await look();
     if (s.names.length !== total || s.search !== '?view=find&what=background&all=1' || s.focus !== 'card link 13' || s.more || s.steps !== opened) {
-      problems.push(`finder, Show all: ${s.names.length} of ${total} cards, the address ${s.search}, keyboard focus on ${s.focus}, ${s.steps - opened} history steps added (it only replaces the address), ${s.more ? `the button still reads "${s.more}"` : 'the button is gone'}`);
+      problems.push(`finder, 显示全部: ${s.names.length} of ${total} cards, the address ${s.search}, keyboard focus on ${s.focus}, ${s.steps - opened} history steps added (it only replaces the address), ${s.more ? `the button still reads "${s.more}"` : 'the button is gone'}`);
     }
   }
   // An address opened directly shows the same answers and cards as the clicks did.
@@ -1813,7 +1813,7 @@ async function finderViewProblems() {
   s = await look();
   if (s.checked !== 'what=menu&when=scroll&how=slide' || s.names.join() !== picked.join()) problems.push(`finder, the address opened directly: chosen ${s.checked}, cards ${s.names.join(', ')}; after the clicks: ${picked.join(', ')}`);
   // The ways in: one history step, keyboard focus on the finder's heading; after an answer, Back returns to the start in one press.
-  for (const [what, selector] of [['Find button', '.find-cta'], ['Finder link', '#nav-find']]) {
+  for (const [what, selector] of [['查找按钮', '.find-cta'], ['查找链接', '#nav-find']]) {
     await openHome('', problems);
     await clearHistory();
     const before = await evaluate('history.length');
@@ -1825,7 +1825,7 @@ async function finderViewProblems() {
     await evaluate('history.back()');
     await sleep(700);
     s = await look();
-    if (s.search !== '' || !s.hero || s.finder || s.title !== 'Good places to start' || s.tab === FIND_TITLE || s.current !== null || s.focus !== 'results-title') {
+    if (s.search !== '' || !s.hero || s.finder || s.title !== '从这里开始' || s.tab === FIND_TITLE || s.current !== null || s.focus !== 'results-title') {
       problems.push(`finder, Back after the ${what} and an answer: ${JSON.stringify(s)}${s.focus !== 'results-title' ? ` (keyboard focus is on ${s.focus}, not on the results heading)` : ''}`);
     }
   }
@@ -1833,11 +1833,11 @@ async function finderViewProblems() {
   await openHome('?view=find&what=text', problems);
   await clearHistory();
   const before = await evaluate('history.length');
-  if (!(await press('#find-words'))) problems.push('finder: no Describe it in words');
+  if (!(await press('#find-words'))) problems.push('finder: no 用文字描述');
   else {
     await still();
     s = await look();
-    if (s.search !== '' || !s.hero || s.focus !== 'q' || s.steps !== before + 1) problems.push(`finder, Describe it in words: ${JSON.stringify(s)}`);
+    if (s.search !== '' || !s.hero || s.focus !== 'q' || s.steps !== before + 1) problems.push(`finder, 用文字描述: ${JSON.stringify(s)}`);
   }
   return problems;
 }

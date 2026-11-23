@@ -242,10 +242,6 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 （待填）
 
-### 03 页面切换（17）
-
-（待填）
-
 ### 04 微交互（44）
 
 （待填）
@@ -253,6 +249,30 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 ### 05 文字与排版（19）
 
 （待填）
+
+### 03 页面切换（17）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
+
+| slug | 中文名 | 中文简介 |
+|---|---|---|
+| view-transitions-api | View Transitions API | 浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。 |
+| shared-element-transition | 共享元素过渡 | 图片从列表放大，进入下一页的页眉。最适合图库。 |
+| morph-transition | 变形过渡 | Logo 随你访问的每个页面变换形状。最适合品牌标志。 |
+| crossfade | 交叉淡入淡出过渡 | 旧页面淡出，新页面同时淡入。最适合平静的页面切换。 |
+| slide-transition | 滑动过渡 | 页面横向滑入，返回时反向滑出。最适合分步流程。 |
+| zoom-transition | 缩放过渡 | 页面切换时缩放，仿佛在纵深中移动。最适合打开详情。 |
+| flash-transition | 闪光 / 漏光过渡 | 一道闪光遮住页面切换的瞬间。最适合大胆活泼的网站。 |
+| blur-transition | 模糊过渡 | 旧页面模糊淡出，新页面逐渐清晰。最适合摄影网站。 |
+| elastic-transition | 弹性过渡 | 新页面滑入时冲过头再弹回来。最适合趣味应用。 |
+| portal-zoom | 传送门 / 隧道缩放 | 下一页从你点击的圆圈中展开。最适合重大揭示。 |
+| dissolve | 溶解过渡 | 页面碎成小块，让位给下一页。最适合图片画廊。 |
+| flip-technique | FLIP 技巧 | 布局变化时卡片滑到新位置。最适合排序列表。 |
+| circle-reveal | 圆形揭示 | 页面从你点击的任意位置展开，收回时缩回该处。最适合应用导航。 |
+| overlay-wipe | 覆盖擦除 | 一块彩色面板扫过页面完成切换。最适合作品集网站。 |
+| page-curl | 翻页卷角 | 页面像纸一样从角落卷起。最适合数字杂志。 |
+| cube-transition | 立方体过渡 | 页面贴在立方体上，旋转展示下一页。最适合图片故事。 |
+| pixelate-transition | 像素化过渡 | 页面碎成大像素，再清晰成下一页。最适合画廊。 |
+
+03 备注：「View Transitions API」保留英文名（API 专名）；「FLIP 技巧」保留 FLIP 缩写。演示内假网站正文、FLIP 卡片名、pixelate 画布文案、shared-element 项目名属演示内容本身，保留英文；导航按钮名、演示内标签/按钮/说明文字已翻译。行为适配（最小改动）：cube-transition 的 `wordsIn.replace('from above','from '+from)` 改为中文（`from` 值改为 `'上方'`/`'侧面'`，replace 目标改为 `'从上方'`）；portal-zoom 的 `NUM` 数组（一~六）与 cube 的 `about()` 秒数词（`['两','三','四']+' 秒'`）。跨分类 "See also" 保留英文名，待协调人用汇总术语表统一改：dissolve → Shatter Effect；flip-technique → Drag to Reorder；circle-reveal → Clip-Path Reveal、Click / Tap Ripple；overlay-wipe → Curtain Reveal、Section Wipe；page-curl → 3D Flip Card；cube-transition → Scroll-Driven 3D Rotation、3D Flip Card；pixelate-transition → ASCII / Halftone。
 
 ### 06 3D 与高级效果（28）
 
@@ -274,21 +294,41 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 - [x] 术语表与规则（本文件）
 - [x] 共享界面机械替换（176 页模板文案 + demo-page.js + demo-page.css 注释 + 404.html + 测试同步；`node --test "tests/*.test.js"` 2371/2371 通过）
+- [x] 首页（根 index.html）UI 翻译：head/title/JSON-LD、导航、hero、PLACES、FIND_Q、结果区、知名效果、怎么用、页脚、noscript、render/findLine/showFound/showFinder/findWords；搜索分词 CJK 化（`wordsOf`：英文词 + 中文词组 + 单字；STOP 增加中文虚词）；`tools/check-pages.mjs` 的首页/演示页断言同步为中文；`tests/pages.test.js`、`tests/finder.test.js` 同步。首页测试全过；其余失败全部是分类页与未翻译 CATS 之间的逐页一致性检查，待 CATS 汇总后消除。
 - [ ] 01 滚动驱动（27）
 - [ ] 02 入场与退场（15）
-- [ ] 03 页面切换（17）
+- [x] 03 页面切换（17）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 04 微交互（44）
 - [ ] 05 文字与排版（19）
 - [ ] 06 3D 与高级效果（28）
 - [ ] 07 氛围与背景（26）
-- [ ] 根 index.html（CATS + 首页文案 + 搜索分词）
+- [ ] 根 index.html（CATS + 搜索 placeholder + Popular 搜索词 + 分组 chips 名称）
 - [ ] 根 README.md
 - [ ] llms.txt / sitemap.xml 重新生成
 - [ ] famous/（首页 + 11 个版本页）
 - [ ] 测试全过 + 页面检查
 
+## 首页翻译暂缓项（CATS 汇总时一起做）
+
+- 搜索框 placeholder（`例如：点击时会弹跳的按钮`）：`tests/pages.test.js:1090` 会读它去搜并期望 Button Press Scale 首位、Bounce In 在第一页——须等 CATS 翻译后，把 placeholder 换成中文例句并把期望改成中文名。
+- Popular 搜索词（hero 与空面板的 5 个 `data-q` + 可见词）：须等 CATS 翻译后换成中文查询并验证首位结果；`tests/pages.test.js` 的 `popular` 映射同步改中文。
+- 分组 chips 的 7 个分类名（spots 区）：须等 CATS 翻译后改为 `cat.name` 中文名。
+- CATS 本身未动：`name`/`desc` 仍是英文；plain-links（noscript 列表）与 llms.txt 仍是英文，随 sitemap 重新生成一起更新。
+
+## 首页搜索行为变化（已验证）
+
+- `placeW` 现在是中文位置名（按钮/文字/图片与卡片/背景/菜单与表单/加载与提示/页面开场/滚动/页面切换），英文查询 `page change animation` 不再首位返回页面切换卡片——测试已临时改为查询 `page transitions`（仍首位返回页面切换卡片，期望分类名仍为英文 `Page Transitions`）；CATS 汇总时把该行改为中文查询 + 中文分类名 `页面切换`。
+- 中文查询目前只能通过位置名匹配（如 `页面切换动画` 能找到页面切换位置的卡片，但首位按 home 顺序，未必是页面切换分类）；`淡入` 目前返回空——CATS 翻译后中文名/简介进索引即恢复。不要为此加中文 SAME 组（会动 `tests/pages.test.js` 的 SAME 遍历测试）；CATS 汇总时再实测决定。
+- `wordsOf` 不再用 `[^a-z0-9]+` 切分，改为 `matchAll(/[a-z0-9]+|[\u4e00-\u9fff]+/g)`：英文行为不变；中文词组同时产生整词与单字 token。`WORDS` 保持英文（测试要求 `/^[a-z0-9]+$/`）。
+
 ## 待协调人统一做的事（不要由分类负责人改）
 
+- **CATS 的 `key` 字段**：`const CAT=Object.fromEntries(CATS.map(c=>[slugify(c.name),c]))` 用分类名做 `?cat=` 的 key——中文名经 `slugify` 全变空串，7 个分类冲突。CATS 每项加 `key` 字段（英文 slug：scroll-based、entrance-exit、page-transitions、micro-interactions、text-typography、3d-advanced、ambient-background），CAT 行改为用 `c.key`；同步改 `tests/pages.test.js` 的 chips 测试（`key: cat.key`）、`?cat=` 测试与 `homeAddress`（不再取 `const slugify=` 行）、spots 的 `data-cat` 不用动（已是英文 slug）。
+- **搜索测试改中文**（`tests/pages.test.js:1086` 起与 `tests/finder.test.js` 的 CASES 28 条）：placeholder 例句、`first` 映射、parallax 断言、`page transitions` 行、Popular 映射、CASES 的英文卡片名，全部改为中文查询 + 中文期望名；`parallax` 的 SAME 组如需中文对应（视差/深度）须先实测 `tests/pages.test.js:1120` 的 SAME 遍历（直接匹配须排在组匹配前面）。
+- **famous**：CATS 翻译汇总后再跑 `node tools/make-famous.mjs` 重新生成 famous 页的生成块。
+- **check-pages 的 famous 部分未动**：`tools/check-pages.mjs` 里 famous 页的断言仍是英文（Pause/Play、Copy prompt/Copied、Press Ctrl+C to copy、Next/Previous），随 famous 翻译一起改。
+- **llms.txt 的 Famous effects 标题**：`tests/pages.test.js:917` 固定 `'## Famous effects'`——跑 `update-sitemap.mjs` 翻译其硬编码串时同步改测试。
+- **页面检查跑不通（环境问题，待父代理另行安排）**：本机 `/opt/meta-chromium/chrome` 启动即报错 `Hatch WebGL domain policy is required for browser startup`（直接启动与 Playwright 启动均失败，与翻译无关）；`node tools/check-pages.mjs home` 因此无法运行，首页只做了单元测试 + 脚本编译 + JSON-LD 校验。须在能启动 Chrome 的环境补跑 `home` 与抽查分类。
 - **README 章节标题翻转**：各分类把动画 README 的章节标题翻成中文（它是什么 / 什么时候用 / 工作原理 / 关键参数 / 生产注意事项 / 另见）后，协调人把 `assets/js/demo-page.js` 里 `loadReadme()` 的 `s['What it is']` / `s['See also']` 改成中文 key，同时改 `tests/pages.test.js` 的 `keyParameters()`、`sections()` 查找与章节要求列表，并翻译 demo-page.js 文件头注释（第 1–13 行）里提到的章节名。
 - **motion-note 正则**：`tests/pages.test.js:143` 的 `/^[A-Z][^.]*[^.\s]$/` 在 01 分类把 `data-hb-motion-note` 翻成中文后，改成中文规则 `/^[^。.]*[^。.\s]$/`（一句中文，无句号，结尾不是标点或空白）。
 - **首页与根 README**：CATS 翻译汇总后由协调人统一用脚本写入根 index.html，再跑 `node tools/update-sitemap.mjs` 重新生成 llms.txt、sitemap.xml 与首页 no-JS plain-links；`tools/update-sitemap.mjs` 里的 llms.txt 开头硬编码英文要先翻成中文。

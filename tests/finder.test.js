@@ -64,22 +64,22 @@ const slugs = list => Array.from(list, e => e.slug);
 // ── The questions, the answers and the matching ──
 
 const QUESTIONS = [
-  ['what', 'What moved?', 2, [['text', 'Text or numbers'], ['card', 'A picture or card'], ['button', 'A button or icon'], ['menu', 'A menu or form'],
-    ['loader', 'A loading sign or message'], ['shape', 'A line or shape'], ['particles', 'Dots or particles'], ['background', 'The background'],
-    ['page', 'The whole page']]],
-  ['when', 'When did it move?', 1, [['scroll', 'When I scrolled'], ['hover', 'When I pointed at it'], ['click', 'When I clicked or tapped'],
-    ['drag', 'When I dragged or swiped'], ['load', 'When the page opened'], ['newpage', 'When I went to another page'], ['loop', 'By itself, again and again']]],
-  ['how', 'How did it move?', 3, [['fade', 'Faded or blurred'], ['slide', 'Slid'], ['grow', 'Grew or shrank'], ['turn', 'Turned or flipped'],
-    ['bounce', 'Bounced or shook'], ['stagger', 'One after another'], ['pieces', 'Broke into pieces'], ['follow', 'Followed my pointer'],
-    ['color', 'Changed color or glowed'], ['morph', 'Changed into something else'], ['draw', 'Drew or typed itself'], ['reveal', 'Got uncovered'],
-    ['layers', 'Moved in layers'], ['pin', 'Stayed in place while I scrolled'], ['drift', 'Drifted or floated'], ['wave', 'Rippled or waved'],
-    ['glitch', 'Glitched or flickered']]]
+  ['what', '什么在动？', 2, [['text', '文字或数字'], ['card', '图片或卡片'], ['button', '按钮或图标'], ['menu', '菜单或表单'],
+    ['loader', '加载标志或提示'], ['shape', '线条或形状'], ['particles', '圆点或粒子'], ['background', '背景'],
+    ['page', '整个页面']]],
+  ['when', '什么时候动的？', 1, [['scroll', '滚动时'], ['hover', '指着它时'], ['click', '点击或轻点时'],
+    ['drag', '拖动或滑动时'], ['load', '页面打开时'], ['newpage', '去了另一个页面时'], ['loop', '自己动，一遍又一遍']]],
+  ['how', '它是怎么动的？', 3, [['fade', '淡出或变模糊'], ['slide', '滑动'], ['grow', '变大或缩小'], ['turn', '转动或翻转'],
+    ['bounce', '弹跳或抖动'], ['stagger', '一个接一个'], ['pieces', '碎成一片片'], ['follow', '跟着我的指针'],
+    ['color', '变色或发光'], ['morph', '变成了别的东西'], ['draw', '自己画出来或打出来'], ['reveal', '被揭开了'],
+    ['layers', '分层移动'], ['pin', '滚动时停在原地'], ['drift', '漂浮'], ['wave', '起伏或波动'],
+    ['glitch', '故障或闪烁']]]
 ];
 
 test('FIND_Q holds the three questions in order, with the answers of the spec in their exact words', () => {
   const questions = homeConst('FIND_Q');
   assert.deepEqual(questions.map(q => [q.key, q.title, q.weight, q.answers.map(a => [a.key, a.words])]), QUESTIONS);
-  assert.equal(questions[2].hint, 'Pick the picture closest to what you saw.');
+  assert.equal(questions[2].hint, '选一张最接近你看到的图。');
   for (const q of questions.slice(0, 2)) {
     for (const a of q.answers) assert.match(a.icon || '', /^(<(path|rect|circle) [^<>]*\/>)+$/, `${a.key}: a still icon in the site's line style`);
   }
@@ -164,7 +164,7 @@ test('the finder part of an address and the answers in words', () => {
   assert.equal(page.findQuery({ what: 'text', when: 'scroll', how: 'draw' }), '?view=find&what=text&when=scroll&how=draw');
   assert.equal(page.findQuery({ what: 'unsure', when: 'zebra', how: 'draw' }), '?view=find&how=draw');
   assert.equal(page.findQuery({}), '?view=find');
-  assert.equal(page.findWords({ what: 'text', when: 'unsure', how: 'draw' }), 'Text or numbers · Not sure · Drew or typed itself');
+  assert.equal(page.findWords({ what: 'text', when: 'unsure', how: 'draw' }), '文字或数字 · 不确定 · 自己画出来或打出来');
 });
 
 test('the Not here? address opens the form animation_not_here.yml with its title and its answers field filled in', () => {
@@ -172,15 +172,15 @@ test('the Not here? address opens the form animation_not_here.yml with its title
   assert.equal(url.origin + url.pathname, 'https://github.com/matinmonshizadeh/animation-handbook/issues/new');
   assert.deepEqual([...url.searchParams.keys()], ['template', 'title', 'answers']);
   assert.equal(url.searchParams.get('template'), 'animation_not_here.yml');
-  assert.equal(url.searchParams.get('title'), '[not here] Text or numbers · When I scrolled · Drew or typed itself');
+  assert.equal(url.searchParams.get('title'), '[not here] 文字或数字 · 滚动时 · 自己画出来或打出来');
   assert.equal(url.searchParams.get('answers'),
-    'Text or numbers · When I scrolled · Drew or typed itself — https://matinmonshizadeh.github.io/animation-handbook/?view=find&what=text&when=scroll&how=draw');
+    '文字或数字 · 滚动时 · 自己画出来或打出来 — https://matinmonshizadeh.github.io/animation-handbook/?view=find&what=text&when=scroll&how=draw');
 });
 
 test('the Not here? title and answers are encoded whole, so an answer with &, #, + or % reaches the form as written', () => {
   const questions = homeConst('FIND_Q');
   questions[0].answers[0].words = 'Fish & chips #1 + 50%';
-  const page = finder({ FIND_Q: questions }), answers = { what: questions[0].answers[0].key }, words = 'Fish & chips #1 + 50% · Not sure · Not sure';
+  const page = finder({ FIND_Q: questions }), answers = { what: questions[0].answers[0].key }, words = 'Fish & chips #1 + 50% · 不确定 · 不确定';
   const href = page.findIssueURL(answers);
   assert.ok(href.includes('&title=' + encodeURIComponent('[not here] ' + words) + '&answers='), 'the title as encodeURIComponent writes it');
   const url = new URL(href);
@@ -223,14 +223,14 @@ test('with reduced motion the How pictures hold still', () => {
 test('the finder takes the place of the hero and the tiles: its section, heading, line, questions box and buttons', () => {
   const section = between(HOME, '<section class="wrap finder" id="finder"', '</section>');
   assert.ok(section.startsWith('<section class="wrap finder" id="finder" aria-labelledby="find-title" hidden>'), 'section.finder, hidden until its view opens');
-  for (const part of ['<h1 class="h1 fd-h" id="find-title" tabindex="-1">Find an animation you saw</h1>',
-    "<p class=\"sub\">Saw an animation on a website and don't know its name? Answer three short questions. The animations that match play below, with their names.</p>",
+  for (const part of ['<h1 class="h1 fd-h" id="find-title" tabindex="-1">找到你见过的动画</h1>',
+    "<p class=\"sub\">在某个网站上看到一个动画，不知道叫什么名字？回答三个简短的问题，下面会播出匹配的动画，并写上它们的名字。</p>",
     '<div class="fd-qs" id="find-qs"></div>',
-    '<button type="button" class="fd-btn" id="find-see" hidden>See 0 matches</button>',
-    '<button type="button" class="pillbtn" id="find-reset">Start over</button>']) assert.ok(section.includes(part), part);
+    '<button type="button" class="fd-btn" id="find-see" hidden>查看 0 个匹配</button>',
+    '<button type="button" class="pillbtn" id="find-reset">重新开始</button>']) assert.ok(section.includes(part), part);
   const order = ['id="places"', 'id="finder"', 'id="results"'].map(at);
   assert.deepEqual([...order].sort((a, b) => a - b), order, 'the finder comes after the place tiles and before the results');
-  assert.ok(HOME.includes("FIND_TITLE='Find an animation you saw — Animation Handbook'"), "the finder's tab title");
+  assert.ok(HOME.includes("FIND_TITLE='找到你见过的动画 — 动画手册'"), "the finder's tab title");
 });
 
 test('the address keeps the finder and its answers: ?view=find, then what, when and how; an unknown value is Not sure; ?q= still wins', () => {
@@ -275,11 +275,11 @@ test("a step that changes only the fragment (How it works, Back to top, the skip
 });
 
 test('the ways into the finder: the Find button under the Popular line, Finder right before Browse all, both left out of the social picture', () => {
-  assert.equal(count(HOME, `<a class="find-cta" href="?view=find">Don't know the name? Find it</a>`), 1, 'one Find button');
+  assert.equal(count(HOME, `<a class="find-cta" href="?view=find">不知道名字？找一找</a>`), 1, 'one Find button');
   assert.match(between(HOME, '<section class="wrap home-hero"', '</section>'),
-    /<p class="pop"><span>Popular:<\/span>.*<\/p>\s*<a class="find-cta" href="\?view=find">Don't know the name\? Find it<\/a>\s*$/, 'the Find button ends the hero, right under the Popular line');
-  assert.match(between(HOME, '<nav class="nav" aria-label="Site">', '</nav>'),
-    /<a class="lnk" id="nav-find" href="\?view=find">Finder<\/a>\s*<a class="lnk" id="nav-all" href="\?view=all">Browse all<\/a>/, 'Finder right before Browse all');
+    /<p class="pop"><span>热门：<\/span>.*<\/p>\s*<a class="find-cta" href="\?view=find">不知道名字？找一找<\/a>\s*$/, 'the Find button ends the hero, right under the Popular line');
+  assert.match(between(HOME, '<nav class="nav" aria-label="网站">', '</nav>'),
+    /<a class="lnk" id="nav-find" href="\?view=find">查找<\/a>\s*<a class="lnk" id="nav-all" href="\?view=all">浏览全部<\/a>/, 'Finder right before Browse all');
   const css = [...HOME.matchAll(/<style>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n');
   assert.ok(css.includes('@media(max-width:999px){.top .nav .lnk[href="#how"]{display:none}}'), 'How it works leaves the bar where the four links no longer fit');
   assert.ok(read(path.join(ROOT, 'tools', 'make-social-image.mjs')).includes('.find-cta, #nav-find { display: none }'), 'the social picture leaves both out');
@@ -299,11 +299,11 @@ const FORM = path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'animation_not_here.ym
 test('Not here? sits under the cards with its words, its GitHub link in a new tab and Describe it in words', () => {
   const panel = between(HOME, '<div class="fd-not" id="find-not" hidden>', '</div>');
   assert.ok(panel, 'the Not here? panel, hidden until an answer is picked');
-  for (const part of ['<h3 class="fd-not-t">Not here?</h3>',
-    '<p class="fd-not-s" id="find-not-s">Tell us what you saw. We use it to add the animation or to fix the finder.</p>',
-    '<a class="fd-btn" id="find-gh" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">Tell us on GitHub</a>',
-    '<button type="button" class="pillbtn" id="find-words">Describe it in words</button>',
-    '<p class="fd-fine">The form is on GitHub and needs a free account.</p>']) assert.ok(panel.includes(part), part);
+  for (const part of ['<h3 class="fd-not-t">不在这里？</h3>',
+    '<p class="fd-not-s" id="find-not-s">告诉我们你看到了什么。我们会用它来补上这个动画，或修正查找器。</p>',
+    '<a class="fd-btn" id="find-gh" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">去 GitHub 告诉我们</a>',
+    '<button type="button" class="pillbtn" id="find-words">用文字描述</button>',
+    '<p class="fd-fine">表单在 GitHub 上，需要一个免费账号。</p>']) assert.ok(panel.includes(part), part);
   assert.ok(at('id="find-not"') > at('id="more"') && at('id="find-not"') < at('id="how"'), 'under the cards, before How it works');
 });
 
@@ -374,26 +374,26 @@ function finderView() {
 test("the finder's results line, See N matches, the Best and Close groups and Not here? say what the contract says", () => {
   assert.match(statement('const finderEl='), /navFind=\$\('nav-find'\)/, "the Finder link is found with the finder's other elements, before the code that reads it");
   const { page, els, radios } = finderView();
-  const ASK = 'Answer a question above, and the animations that match show here.';
+  const ASK = '在上面回答一个问题，匹配的动画就会显示在这里。';
   const line = (answers, best, close) => { page.state = { ...NONE, view: 'find', ...answers }; return page.findLine(someMatches(best, close)); };
   assert.equal(line({}, 0, 0), ASK, 'no answer');
   assert.equal(line({ what: 'unsure', when: 'unsure', how: 'unsure' }, 0, 0), ASK, 'only Not sure');
-  assert.equal(line({ what: 'text', how: 'fade' }, 5, 9), '5 best matches and 9 close matches.');
-  assert.equal(line({ what: 'text', how: 'fade' }, 1, 1), '1 best match and 1 close match.');
-  assert.equal(line({ what: 'text' }, 5, 0), '5 best matches.');
-  assert.equal(line({ what: 'text' }, 1, 0), '1 best match.');
-  assert.equal(line({ what: 'text', how: 'fade' }, 0, 9), 'No animation fits all your answers. These come close.');
-  assert.equal(line({ what: 'text', how: 'fade' }, 0, 0), 'No animation fits these answers yet.');
+  assert.equal(line({ what: 'text', how: 'fade' }, 5, 9), '5 个最匹配，9 个接近的匹配。');
+  assert.equal(line({ what: 'text', how: 'fade' }, 1, 1), '1 个最匹配，1 个接近的匹配。');
+  assert.equal(line({ what: 'text' }, 5, 0), '5 个最匹配。');
+  assert.equal(line({ what: 'text' }, 1, 0), '1 个最匹配。');
+  assert.equal(line({ what: 'text', how: 'fade' }, 0, 9), '没有动画完全符合你的答案。这些比较接近。');
+  assert.equal(line({ what: 'text', how: 'fade' }, 0, 0), '还没有动画符合这些答案。');
 
   // The finder in place of the hero and the tiles, its answers chosen as the state says; See N matches, hidden while nothing matches.
   page.state = { ...NONE, view: 'find', what: 'text', when: 'unsure' };
   const see = () => [els['find-see'].hidden, els['find-see'].textContent];
   page.showFinder(true, someMatches(1, 0));
-  assert.deepEqual(see(), [false, 'See 1 match']);
+  assert.deepEqual(see(), [false, '查看 1 个匹配']);
   page.showFinder(true, someMatches(5, 9));
-  assert.deepEqual(see(), [false, 'See 14 matches']);
+  assert.deepEqual(see(), [false, '查看 14 个匹配']);
   assert.deepEqual([els.hero.hidden, els.placesSection.hidden, els.finder.hidden, page.document.title, els['nav-find'].attrs['aria-current']],
-    [true, true, false, 'Find an animation you saw — Animation Handbook', 'page']);
+    [true, true, false, '找到你见过的动画 — 动画手册', 'page']);
   assert.deepEqual(radios.filter(r => r.checked).map(r => r.name + '=' + r.value), ['fd-what=text', 'fd-when=unsure']);
   page.showFinder(true, someMatches(0, 0));
   assert.equal(els['find-see'].hidden, true, 'See N matches is hidden while nothing matches');
@@ -406,16 +406,16 @@ test("the finder's results line, See N matches, the Best and Close groups and No
   const groups = () => els.cards.children.map(box => [box.className, box.innerHTML, box.children[0].children.length]);
   page.showFound(someMatches(5, 9));
   assert.deepEqual(groups(), [
-    ['group fd-group', '<h3 class="ghead"><span class="gname">Best matches</span><span class="gcount">5 animations</span></h3>', 5],
-    ['group fd-group', '<h3 class="ghead"><span class="gname">Close matches</span><span class="gcount">9 animations</span></h3><p class="fd-gline">They fit all but one of your answers.</p>', 7]]);
+    ['group fd-group', '<h3 class="ghead"><span class="gname">最匹配</span><span class="gcount">5 个动画</span></h3>', 5],
+    ['group fd-group', '<h3 class="ghead"><span class="gname">接近的匹配</span><span class="gcount">9 个动画</span></h3><p class="fd-gline">只差一个答案就完全符合。</p>', 7]]);
   assert.ok(els.cards.children.every(box => box.children[0].children.every(card => card.title.attrs['aria-level'] === '4')), 'card titles at level 4');
   page.state.all = true;
   page.showFound(someMatches(5, 9));
   assert.deepEqual(groups().map(g => g[2]), [5, 9], 'Show all shows every card');
   page.showFound(someMatches(1, 1));
-  assert.deepEqual(groups().map(g => g[1].match(/"gcount">([^<]*)</)[1]), ['1 animation', '1 animation']);
+  assert.deepEqual(groups().map(g => g[1].match(/"gcount">([^<]*)</)[1]), ['1 个动画', '1 个动画']);
   page.showFound(someMatches(0, 3));
-  assert.deepEqual(groups().map(g => g[1].match(/"gname">([^<]*)</)[1]), ['Close matches'], 'no Best group when no card fits every answer');
+  assert.deepEqual(groups().map(g => g[1].match(/"gname">([^<]*)</)[1]), ['接近的匹配'], 'no Best group when no card fits every answer');
 
   // Not here? shows once a question has a real answer, with its own sentence when nothing fits, and links to the form.
   const notHere = (answers, best, close) => {
@@ -425,9 +425,9 @@ test("the finder's results line, See N matches, the Best and Close groups and No
   };
   assert.equal(notHere({}, 0, 0), 'hidden', 'no answer');
   assert.equal(notHere({ what: 'unsure', how: 'unsure' }, 0, 0), 'hidden', 'only Not sure');
-  assert.equal(notHere({ what: 'text', when: 'scroll' }, 3, 2), 'Tell us what you saw. We use it to add the animation or to fix the finder.');
+  assert.equal(notHere({ what: 'text', when: 'scroll' }, 3, 2), '告诉我们你看到了什么。我们会用它来补上这个动画，或修正查找器。');
   assert.equal(els['find-gh'].href, page.findIssueURL({ what: 'text', when: 'scroll' }));
-  assert.equal(notHere({ what: 'text', when: 'scroll', how: 'pin' }, 0, 0), 'Nothing fits these answers yet. Try Not sure on one question, or tell us what you saw.');
+  assert.equal(notHere({ what: 'text', when: 'scroll', how: 'pin' }, 0, 0), '还没有符合这些答案的动画。试试在一个问题上选“不确定”，或者告诉我们你看到了什么。');
   page.showNotHere(false, null);
   assert.equal(els['find-not'].hidden, true, 'hidden outside the finder');
 });
@@ -517,8 +517,8 @@ test("the page check's patterns for See N matches and the results line take each
     assert.ok(see.test(els['find-see'].textContent), els['find-see'].textContent);
     assert.ok(results.test(said), said);
   }
-  for (const wrong of ['See 1 matches', 'See 2 match', 'See 21 match']) assert.ok(!see.test(wrong), wrong);
-  for (const wrong of ['1 best matches.', '2 best match.', '5 best matches and 1 close matches.', '1 best match and 2 close match.']) assert.ok(!results.test(wrong), wrong);
+  for (const wrong of ['查看 1 个匹配。', '查看 1 匹配', '查看 1 个匹配 ']) assert.ok(!see.test(wrong), wrong);
+  for (const wrong of ['1 个最匹配', '1 个最匹配，9 个接近的匹配', '1 个最匹配。9 个接近的匹配。', '没有动画完全符合你的答案。这些比较接近']) assert.ok(!results.test(wrong), wrong);
 });
 
 test('the phone bar never shows in the finder, even while its own search box has keyboard focus', () => {
@@ -582,7 +582,7 @@ test('the questions are native radios in fieldsets with legends, each named by i
     const q = questions[i];
     const labels = [...m[4].matchAll(/<label class="fd-a( fd-unsure)?"><input class="fd-r" type="radio" name="fd-(\w+)" value="(\w+)" autocomplete="off">(<span class="fd-pic (fd-\w+)" aria-hidden="true"><i><\/i><i><\/i><i><\/i><i><\/i><\/span>|<svg class="i fd-icon" viewBox="0 0 24 24" aria-hidden="true">.*?<\/svg>|)<span class="fd-w">([^<]+)<\/span><\/label>/g)];
     assert.equal(labels.map(l => l[0]).join(''), m[4], `${q.key}: only labels around radios`);
-    assert.deepEqual(labels.map(l => [l[2], l[3], l[6], !!l[1]]), [...q.answers.map(a => [q.key, a.key, a.words, false]), [q.key, 'unsure', 'Not sure', true]]);
+    assert.deepEqual(labels.map(l => [l[2], l[3], l[6], !!l[1]]), [...q.answers.map(a => [q.key, a.key, a.words, false]), [q.key, 'unsure', '不确定', true]]);
     labels.slice(0, -1).forEach((l, j) => assert.ok(q.key === 'how' ? l[5] === q.answers[j].pic : l[4].startsWith('<svg'), `${q.key} ${l[3]}: its picture or icon`));
   });
 });
@@ -617,8 +617,8 @@ test('the results heading reads Your matches, its line comes 400 ms after the la
   assert.deepEqual([sub.textContent, !!timers[2].fn], ['four', false], 'any other change writes at once and drops the wait');
   const render = source('render');
   assert.match(render, /say\(sub,finding&&answered\)/, 'render waits only after an answer in the finder');
-  assert.match(render, /title='Your matches'/, 'the results heading in the finder');
-  assert.match(render, /moreLabel\.textContent='Show all '\+matched\+' matches'/, 'Show all N matches');
+  assert.match(render, /title='你的匹配结果'/, 'the results heading in the finder');
+  assert.match(render, /moreLabel\.textContent='显示全部 '\+matched\+' 个匹配'/, 'Show all N matches');
 });
 
 // ── Every card's answers and the test set ──
