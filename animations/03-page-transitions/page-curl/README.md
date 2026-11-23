@@ -1,18 +1,18 @@
-# Page Curl
+# 翻页卷角
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/page-curl/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/page-curl/)
 
-## What it is
-A page curl turns a page over like a sheet of paper. Its bottom corner lifts and travels to the left, the part that has lifted lies folded over the page as the back of the sheet, and the next page shows underneath until the whole sheet has turned away. Going back runs it in reverse: the earlier page comes over from the left and lays itself down.
+## 它是什么
+翻页卷角像翻一张纸一样翻过一页。它的底角掀起并向左移动，掀起的部分作为纸的背面折在页面上，下一页在下面显示，直到整张纸翻走。返回时反向运行：更早的页面从左侧过来、盖在当前页面上。
 
-## When to use it
-- Digital magazines, catalogs and picture books, where the page itself is the content
-- Restaurant menus, brochures and photo albums that imitate a printed original
-- Story or onboarding screens that are read one page at a time
-- Any reader where the visitor should feel they are moving through a book rather than between screens
+## 什么时候用
+- 数字杂志、目录和图画书，页面本身就是内容
+- 模仿印刷原稿的餐厅菜单、宣传册和相册
+- 一次读一页的故事或新手引导屏幕
+- 任何访客应该感觉自己在翻一本书、而不是在屏幕之间切换的阅读器
 
-## How it works
-The page that turns sits on top of the next one. On every frame, its bottom-right corner is placed on a path that runs to the left and rises on the way. The fold is the line halfway between where the corner started and where it is now: the part of the page before the fold stays flat, and the part past it is mirrored over the fold to make the flap. All three shapes are polygons for `clip-path`, cut from the page's rectangle with one Sutherland-Hodgman step:
+## 工作原理
+翻动的页面位于下一页上面。每一帧，它的右下角被放在一条向左并向上升起的路径上。折痕是角的起点和它现在位置之间中点的连线：折痕之前的部分保持平坦，折痕之后的部分沿折痕镜像，构成翻起的部分。三个形状都是 `clip-path` 的多边形，用一次 Sutherland-Hodgman 步骤从页面的矩形上切下来：
 
 ```js
 const w=area.clientWidth,h=area.clientHeight,c={x:w-2*w*p,y:h-.8*h*Math.sin(Math.PI*p)};
@@ -24,25 +24,25 @@ flap.style.clipPath=poly(lifted.map(q=>({x:q.x-2*past(q)*n.x,y:q.y-2*past(q)*n.y
 shade.style.clipPath=poly(lifted);                           // the shadow on the page underneath
 ```
 
-The flap is a box the color of the back of the sheet. Its shading is a `linear-gradient` turned to the fold's angle, with its stops measured in pixels from the fold: dark where the paper bends, a light band where it faces the light. The shadow box lies between the two pages and darkens the page underneath next to the fold. The progress `p` comes from the time since the turn began, eased in and out, so the turn takes the same time at any frame rate; a turn back runs `p` from 1 down to 0 with the earlier page as the sheet.
+翻起的部分是一个纸背面颜色的盒子。它的阴影是一个 `linear-gradient`，转向折痕的角度，色标按离折痕的像素距离来量：纸弯曲处深，面向光的一侧有一条亮带。阴影盒位于两个页面之间，在折痕旁边加深下面的页面。进度 `p` 来自翻页开始后经过的时间，经过先慢后快再慢的缓动，所以翻页在任何帧率下都用同样的时间；向后翻时 `p` 从 1 跑到 0，更早的页面作为翻动的纸。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Turn speed | Normal | How long one page takes to turn over: slow is 1500ms, normal 1000ms and fast 650ms |
-| Which way it turns | Forward and back | Forward and back turns the page away for a later page and lays an earlier page back down; the other two always turn one way |
-| Paper shading | Soft | How strongly the fold is shaded and how dark the shadow on the page below is: soft darkens the shadow to 42% black at mid-turn and the turned-over paper to 30% black along the fold, strong to 70% and 50%; off leaves a flat paper back |
+| 翻页速度 | 普通 | 翻一页需要多长时间：慢是 1500ms，普通 1000ms，快 650ms |
+| 翻页方向 | 前进和后退 | 前进和后退时，翻走当前页去往更晚的页面，盖回更早的页面；另外两种总是朝一个方向翻 |
+| 纸张阴影 | 柔和 | 折痕的阴影有多强、下面页面上的阴影有多暗：柔和在翻页中途把阴影加深到 42% 黑、翻过来的纸沿折痕加深到 30% 黑，强烈到 70% 和 50%；关时留下一个平坦的纸背面 |
 
-## Production notes
-- **A straight fold is a good fake.** Real paper bends in a curve, which needs a mesh in WebGL or many thin strips. A straight fold with a gradient across the flap reads as a curl at a fraction of the cost.
-- **`clip-path` repaints.** The three polygons change every frame, so the browser repaints the turning page; keep it to a few layers and avoid heavy filters on them. Measure the box on every frame (or on resize), never once at load.
-- **Move by elapsed time.** The progress is the time since the turn began divided by its length, never a fixed step per frame, so the turn is as long on a 120 Hz screen as on a 30 Hz phone.
-- **Let people drag it.** In a reader, tie `p` to a pointer drag from the corner (Pointer Events, so touch works too) and let go to finish or undo the turn.
-- **Reduced motion** fades the new page in over 300ms instead; nothing turns.
-- **Library equivalents.** turn.js and StPageFlip build book-style page turns from CSS transforms or a canvas; Three.js page-curl shaders bend the page in real 3D. All of them use the same corner-and-fold idea.
+## 生产注意事项
+- **直折痕是很好的假象。**真纸弯成曲线，需要 WebGL 里的网格或许多细条。带渐变的直折痕在翻起的部分上以一小部分成本读起来就像卷曲。
+- **`clip-path` 会重绘。**三个多边形每一帧都在变，所以浏览器会重绘翻动的页面；保持在少数几个图层，避免在它们上面用重的滤镜。每一帧（或调整尺寸时）都量一下盒子，永远不要在加载时量一次。
+- **按经过的时间移动。**进度是自翻页开始以来的时间除以它的长度，永远不是每帧固定一步，所以翻页在 120 Hz 屏幕上和 30 Hz 手机上一样长。
+- **让人拖动它。**在阅读器里，把 `p` 绑到从角落开始的指针拖动上（用 Pointer Events，这样触摸也能用），松手完成或撤销翻页。
+- **减弱动态效果**改为在 300ms 内淡入新页面；什么都不翻。
+- **等价的库。**turn.js 和 StPageFlip 用 CSS 变换或画布构建书本风格的翻页；Three.js 的翻页卷角着色器在真实 3D 里弯曲页面。它们都用同样的角与折痕思路。
 
-## See also
-- [3D Flip Card](../../06-3d-advanced/flip-card-3d/) — a card turns over in 3D to show its back
-- [Slide Transition](../slide-transition/) — pages move sideways instead
-- [Overlay Wipe](../overlay-wipe/) — a colored panel hides the change instead
-- [Crossfade Transition](../crossfade/) — the plain fade it falls back to
+## 另见
+- [3D 翻转卡片](../../06-3d-advanced/flip-card-3d/) — 一张卡片在 3D 里翻过来显示背面
+- [滑动过渡](../slide-transition/) — 页面横向移动而不是翻页
+- [覆盖擦除](../overlay-wipe/) — 一块彩色面板藏住切换
+- [交叉淡入淡出过渡](../crossfade/) — 它回退到的普通淡入淡出

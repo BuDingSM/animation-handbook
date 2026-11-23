@@ -1,18 +1,18 @@
-# Zoom Transition
+# 缩放过渡
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/zoom-transition/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/zoom-transition/)
 
-## What it is
-A zoom transition scales the pages as they fade, so the change seems to move through depth rather than across the screen. The direction carries meaning: zooming in feels like arriving or going deeper, zooming out like backing away, and a pull-through — where the new page rushes in from larger and settles — feels like traveling forward.
+## 它是什么
+缩放过渡在淡入淡出的同时缩放页面，所以切换看起来像是在纵深中移动，而不是横着滑过屏幕。方向本身带有含义：放大感觉像抵达或深入，缩小像后退，而穿过——新页面从更大处冲进来再落定——感觉像在向前行进。
 
-## When to use it
-- Drilling into detail from an overview, where zoom-in reinforces "going deeper"
-- Dismissing or backing out of a view, where zoom-out signals departure
-- Hero or splash moments where a pull-through adds a sense of momentum
-- Modal and lightbox reveals that should feel like the content comes forward
+## 什么时候用
+- 从总览深入到详情，放大能强化「深入」的感觉
+- 关闭或退出一个视图，缩小表示离开
+- 英雄区或开场时刻，穿过能增加动势
+- 弹窗和灯箱的出现，应该感觉像内容向前走来
 
-## How it works
-Each variant is a set of four scale values — `[oldStart, oldEnd, newStart, newEnd]`. The pages start at their "start" scales with the new one transparent, then both transition their `transform` and `opacity` to the "end" state simultaneously:
+## 工作原理
+每个变体是一组四个缩放值——`[oldStart, oldEnd, newStart, newEnd]`。页面从「起始」缩放开始，新页面透明，然后两者同时把 `transform` 和 `opacity` 过渡到「结束」状态：
 
 ```js
 const V={
@@ -30,25 +30,25 @@ o.style.opacity='0'; o.style.transform=`scale(${V[1]})`;
 n.style.opacity='1'; n.style.transform=`scale(${V[3]})`;
 ```
 
-Because the incoming and outgoing scales differ per variant, the same code path produces three distinct spatial feelings. The opacity cross-fade runs alongside the scale so neither page ever appears hard-edged over the other, and reading `offsetWidth` makes the browser apply the start scale before the transition begins.
+因为进入和离开的缩放值因变体而异，同一条代码路径能做出三种不同的空间感受。不透明度的交叉淡入淡出与缩放并行，所以两个页面重叠时都不会出现硬边；读一下 `offsetWidth` 会让浏览器在过渡开始前先应用起始缩放。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Zoom style | Zoom in | Zoom in grows the new page from 75% as the old one shrinks to 90%; Zoom out grows the old page past the frame, to 120%, as it fades, while the new one fades in at full size; Pull through shrinks the old page to 70% while the new one settles from 130% |
-| Speed | Normal | How long the zoom and the fade take: slow is 900ms, normal 550ms and fast 330ms |
-| Feel | Smooth | Smooth slows to a stop; Springy grows a little past full size and settles; Gentle eases in and out |
+| 缩放方式 | 放大 | 放大让新页面从 75% 长大，旧页面缩小到 90%；缩小让旧页面在淡出时放大到超过画面（120%），新页面以完整尺寸淡入；穿过让旧页面缩小到 70%，同时新页面从 130% 落定 |
+| 速度 | 普通 | 缩放和淡入淡出需要多长时间：慢是 900ms，普通 550ms，快 330ms |
+| 感觉 | 平滑 | 平滑减速到停；弹性会长得比完整尺寸稍大一点再回落；轻柔先慢后快再慢 |
 
-## Production notes
-- **Animate `transform: scale`, not `width`/`height`.** Scale is composited and cheap; animating dimensions relays out the page every frame and drops frames.
-- **Set `transform-origin` deliberately.** The demo scales from center; a zoom that should originate from a tapped card needs its origin set to that point, otherwise the growth feels detached from the trigger.
-- **Fade alongside the scale.** Scaling without the opacity cross-fade leaves a hard edge where the two pages overlap; the paired fade hides the seam.
-- **Springy easing can overshoot past scale 1** and momentarily clip content at the stage edge — keep overshoot modest or add padding.
-- **Reduced motion** swaps the pages at once, with no fade and no zoom.
-- **Library equivalents**: the View Transitions API can zoom with `scale` keyframes on `::view-transition-old`/`-new` (the Zoom style of the View Transitions API demo). Framer Motion's `scale` variants in `AnimatePresence` and GSAP's `scale` tweens express the same scale-plus-fade.
+## 生产注意事项
+- **用 `transform: scale` 做动画，不要用 `width`/`height`。**缩放是合成的、便宜的；给尺寸做动画会让页面每一帧都重新布局、掉帧。
+- **有意识地设置 `transform-origin`。**演示从中心缩放；一次应该从被点击的卡片开始的缩放，需要把原点设在那个点上，否则生长会感觉与触发脱节。
+- **缩放的同时淡入淡出。**没有不透明度交叉淡入淡出的缩放会在两个页面重叠处留下一条硬边；成对的淡入淡出藏住了接缝。
+- **弹性缓动可能冲过缩放 1**，在舞台边缘短暂裁掉内容——把过冲控制得小一点，或加上内边距。
+- **减弱动态效果**会一下子换页，没有淡入淡出也没有缩放。
+- **等价的库**：View Transitions API 可以用 `::view-transition-old`/`-new` 上的 `scale` 关键帧做缩放（View Transitions API 演示里的缩放样式）。Framer Motion 在 `AnimatePresence` 里的 `scale` 变体和 GSAP 的 `scale` 补间表达了同样的缩放加淡入淡出。
 
-## See also
-- [View Transitions API](../view-transitions-api/) — the browser can zoom pages too
-- [Portal / Tunnel Zoom](../portal-zoom/) — the next page opens out of a clicked circle
-- [Slide Transition](../slide-transition/) — pages move sideways instead
-- [Shared Element Transition](../shared-element-transition/) — one picture grows into the next page
+## 另见
+- [View Transitions API](../view-transitions-api/) — 浏览器也能缩放页面
+- [传送门 / 隧道缩放](../portal-zoom/) — 下一页从点击的圆圈里打开
+- [滑动过渡](../slide-transition/) — 页面横向移动而不是缩放
+- [共享元素过渡](../shared-element-transition/) — 一张图片长进下一页

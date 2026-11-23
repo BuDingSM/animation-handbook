@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slide Transition — 动画手册</title>
-  <meta name="description" content="Pages slide across, and going back slides the other way. Best for step flows.">
+  <title>滑动过渡 — 动画手册</title>
+  <meta name="description" content="页面横向滑入，返回时反向滑出。最适合分步流程。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/slide-transition/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Slide Transition — 动画手册">
-  <meta property="og:description" content="Pages slide across, and going back slides the other way. Best for step flows.">
+  <meta property="og:title" content="滑动过渡 — 动画手册">
+  <meta property="og:description" content="页面横向滑入，返回时反向滑出。最适合分步流程。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/slide-transition/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Slide Transition — 动画手册">
-  <meta name="twitter:description" content="Pages slide across, and going back slides the other way. Best for step flows.">
+  <meta name="twitter:title" content="滑动过渡 — 动画手册">
+  <meta name="twitter:description" content="页面横向滑入，返回时反向滑出。最适合分步流程。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Slide Transition", "name": "Slide Transition", "description": "Pages slide across, and going back slides the other way. Best for step flows.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/slide-transition/", "inLanguage": "zh-CN", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Slide Transition"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滑动过渡", "name": "滑动过渡", "description": "页面横向滑入，返回时反向滑出。最适合分步流程。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/slide-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 滑动过渡"}</script>
   <style>
     :root{--zoom:.3;--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -101,20 +101,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../crossfade/" rel="prev" aria-label="上一个：Crossfade Transition"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Crossfade Transition</span></a><a href="../zoom-transition/" rel="next" aria-label="下一个：Zoom Transition"><span><span class="hb-dir">下一个：</span>Zoom Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../crossfade/" rel="prev" aria-label="上一个：交叉淡入淡出过渡"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>交叉淡入淡出过渡</span></a><a href="../zoom-transition/" rel="next" aria-label="下一个：缩放过渡"><span><span class="hb-dir">下一个：</span>缩放过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.05 · Page Transitions</p>
-    <h1>Slide Transition</h1>
-    <p class="hb-lede">Pages slide across, and going back slides the other way. Best for step flows.</p>
+    <p class="hb-cat">03.05 · 页面切换</p>
+    <h1>滑动过渡</h1>
+    <p class="hb-lede">页面横向滑入，返回时反向滑出。最适合分步流程。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click Work or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「工作」或「关于」，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -123,20 +123,20 @@
     </div>
     <div class="stage">
       <div class="box" id="box">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"></nav>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
         <div class="page-area" id="page-area"></div>
         <div class="zv" id="zv" aria-hidden="true">
           <span class="zwin" id="zwin"></span><span class="zstart" id="zstart"></span><span class="zar" id="zar"></span>
-          <p class="lbl zl zbox" id="l-box" data-hb-caption>The box</p>
-          <p class="lbl zl" id="l-old" data-hb-caption>Old page<br>slides out</p>
-          <p class="lbl zl" id="l-new" data-hb-caption>New page<br>slides in</p>
-          <p class="lbl zl zlen" id="l-len" data-hb-caption>Each slide takes half a second</p>
-          <p class="lbl zl" id="l-start" data-hb-caption>Started here</p>
-          <p class="lbl zl" id="l-gap" data-hb-caption>Gap: the new<br>page starts later</p>
+          <p class="lbl zl zbox" id="l-box" data-hb-caption>方框</p>
+          <p class="lbl zl" id="l-old" data-hb-caption>旧页面<br>slides out</p>
+          <p class="lbl zl" id="l-new" data-hb-caption>新页面<br>slides in</p>
+          <p class="lbl zl zlen" id="l-len" data-hb-caption>每次滑动耗时半秒</p>
+          <p class="lbl zl" id="l-start" data-hb-caption>从这里开始</p>
+          <p class="lbl zl" id="l-gap" data-hb-caption>间隔：新页面<br>稍后开始</p>
         </div>
       </div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Switches at once</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Slides across</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>立即切换</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>横向滑动</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
@@ -144,57 +144,57 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the view is zoomed out: the box is a window, and the old and new page slide past it together, like panels on a track. Click Work or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Switches at once simply changes page; Slides across moves the old page out one way as the new one comes in from the other end. Click Work or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，画面被缩小：方框是一扇窗，旧页面和新页面像轨道上的面板一样一起从窗前滑过。点「工作」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「立即切换」只是换页；「横向滑动」把旧页面从一端滑出，同时新页面从另一端滑入。点「工作」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="dir-lbl">Direction</p>
+        <p class="hb-setting-name" id="dir-lbl">方向</p>
         <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
-          <button type="button" data-dir="auto" class="on" aria-pressed="true">Forward and back</button>
-          <button type="button" data-dir="ltr" aria-pressed="false">Left to right</button>
-          <button type="button" data-dir="rtl" aria-pressed="false">Right to left</button>
-          <button type="button" data-dir="vertical" aria-pressed="false">Top to bottom</button>
+          <button type="button" data-dir="auto" class="on" aria-pressed="true">前进和后退</button>
+          <button type="button" data-dir="ltr" aria-pressed="false">从左到右</button>
+          <button type="button" data-dir="rtl" aria-pressed="false">从右到左</button>
+          <button type="button" data-dir="vertical" aria-pressed="false">从上到下</button>
         </div>
-        <p class="hb-hint">Forward and back reverses the slide when you go back.</p>
+        <p class="hb-hint">「前进和后退」在返回时反向滑动。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="500" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="300" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="500" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="300" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long each slide takes.</p>
+        <p class="hb-hint">每次滑动需要多长时间。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">感觉</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">Smooth</button>
-            <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">Springy</button>
-            <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+            <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">平滑</button>
+            <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">弹性</button>
+            <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
           </div>
-          <p class="hb-hint">Springy goes a little past, then settles.</p>
+          <p class="hb-hint">「弹性」会滑过头一点，再回落到位。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="gap-lbl">Gap between pages</p>
+          <p class="hb-setting-name" id="gap-lbl">页面之间的间隔</p>
           <div class="seg" id="gap-seg" role="group" aria-labelledby="gap-lbl">
-            <button type="button" data-ms="0" class="on" aria-pressed="true">None</button>
-            <button type="button" data-ms="80" aria-pressed="false">Small</button>
-            <button type="button" data-ms="160" aria-pressed="false">Large</button>
+            <button type="button" data-ms="0" class="on" aria-pressed="true">无</button>
+            <button type="button" data-ms="80" aria-pressed="false">小</button>
+            <button type="button" data-ms="160" aria-pressed="false">大</button>
           </div>
-          <p class="hb-hint">The new page starts a moment later, leaving a gap.</p>
+          <p class="hb-hint">新页面晚一点开始，留出一段间隔。</p>
         </div>
       </div>
     </details>
@@ -203,10 +203,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add slide transitions to [the pages or steps you want to move between]. When the visitor changes page, move the old page out of one side while the new page comes in from the other, like panels on a track. When the direction follows the navigation, going forward slides to the left and going back slides to the right, as phone apps do. Move the pages with transforms only, never by changing their position or size, and keep pages that are off screen from catching taps. If the visitor has reduced motion turned on, switch pages without sliding. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想切换的页面或步骤]加上滑动过渡。访客切换页面时，把旧页面从一侧滑出，同时新页面从另一侧滑入，像轨道上的面板一样。方向跟着导航走时，前进向左滑、后退向右滑，和手机应用一样。只用 transform 移动页面，不要改位置或尺寸，并且让滑出屏幕的页面接不到点击。如果访客开启了减弱动态效果，换页时不要滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -226,9 +226,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Step-by-step flows</li><li>Checkout</li><li>Onboarding</li><li>Carousels</li></ul>
+      <ul class="hb-tags hb-good"><li>分步流程</li><li>结账</li><li>新手引导</li><li>轮播</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Unrelated pages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>不相关的页面</li></ul>
     </div>
   </section>
 
@@ -240,9 +240,9 @@
 <footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PAGES=[
-    {name:'Home',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it. Every pixel considered.</p></div>`},
-    {name:'Work',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div><div><b>3</b><span>Continents</span></div></div></div>`},
+    {name:'首页',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it. Every pixel considered.</p></div>`},
+    {name:'工作',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div><div><b>3</b><span>Continents</span></div></div></div>`},
   ];
   const box=document.getElementById('box'),stage=box.parentElement;
   const nav=document.getElementById('nav'),area=document.getElementById('page-area'),slowTog=document.getElementById('slow-tog');
@@ -381,13 +381,13 @@
   const Z=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--zoom'));
   const zv=$('zv'),zwin=$('zwin'),zstart=$('zstart'),zar=$('zar'),phone=matchMedia('(max-width:600px),(max-height:500px)');
   const L={};['box','old','new','len','start','gap'].forEach(k=>{L[k]=$('l-'+k)});
-  const LEN={300:'about a third of a second',500:'half a second',800:'nearly a second',900:'nearly a second',1500:'a second and a half',2400:'two and a half seconds'};
+  const LEN={300:'约三分之一秒',500:'半秒',800:'将近一秒',900:'将近一秒',1500:'一秒半',2400:'两秒半'};
   // Under reduced motion the notes say what the still shows, and change with whether the pose is up
   const STILL={
-    inside:['Shown still and zoomed out: the box is a window over a track of pages. Press Reset to see the old page part way out and the new one part way in.',
-      'Shown still and zoomed out: the box is a window, with the old page part way out of it and the new one part way in from the other end.'],
-    compare:['Shown still: both halves show the same page. Press Reset to see Slides across caught part way, the old page sliding out as the new one slides in.',
-      'Shown still: Switches at once has already changed page; Slides across is caught part way, the old page sliding out as the new one slides in.']};
+    inside:['静止画面，缩小显示：方框是一扇开在页面轨道上的窗。按「重置」可以看到旧页面滑出一半、新页面滑入一半。',
+      '静止画面，缩小显示：方框是一扇窗，旧页面滑出一半，新页面从另一端滑入一半。'],
+    compare:['静止画面：两边显示的是同一个页面。按「重置」可以看到「横向滑动」停在半途，旧页面正在滑出，新页面正在滑入。',
+      '静止画面：「立即切换」已经换好页了；「横向滑动」停在半途，旧页面正在滑出，新页面正在滑入。']};
 
   function axis(prev,next){const d=getDir(prev,next);return{dir:Math.abs(d)===2?'Y':'X',sign:d<0?-1:1}}
   // The change a mode shows: the one under way, else the one Show me would make next (or its way back)
@@ -416,7 +416,7 @@
     words();layout();
   }
   function words(){
-    const t='Each slide takes '+LEN[dur*(slowTog.checked?3:1)];
+    const t='每次滑动耗时'+LEN[dur*(slowTog.checked?3:1)];
     if(L.len.textContent!==t)L.len.textContent=t;
     if(motionOk||mode==='normal')return;
     const note=document.querySelector(`[data-hb-for="${mode}"]`),txt=STILL[mode][poses.length?1:0];

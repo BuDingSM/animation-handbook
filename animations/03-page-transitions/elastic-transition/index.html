@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elastic Transition — 动画手册</title>
-  <meta name="description" content="The new page slides in, goes too far and springs back. Best for playful apps.">
+  <title>弹性过渡 — 动画手册</title>
+  <meta name="description" content="新页面滑入时冲过头再弹回来。最适合趣味应用。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/elastic-transition/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Elastic Transition — 动画手册">
-  <meta property="og:description" content="The new page slides in, goes too far and springs back. Best for playful apps.">
+  <meta property="og:title" content="弹性过渡 — 动画手册">
+  <meta property="og:description" content="新页面滑入时冲过头再弹回来。最适合趣味应用。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/elastic-transition/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Elastic Transition — 动画手册">
-  <meta name="twitter:description" content="The new page slides in, goes too far and springs back. Best for playful apps.">
+  <meta name="twitter:title" content="弹性过渡 — 动画手册">
+  <meta name="twitter:description" content="新页面滑入时冲过头再弹回来。最适合趣味应用。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Elastic Transition", "name": "Elastic Transition", "description": "The new page slides in, goes too far and springs back. Best for playful apps.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/elastic-transition/", "inLanguage": "zh-CN", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Elastic Transition"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "弹性过渡", "name": "弹性过渡", "description": "新页面滑入时冲过头再弹回来。最适合趣味应用。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/elastic-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 弹性过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -84,20 +84,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../blur-transition/" rel="prev" aria-label="上一个：Blur Transition"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Blur Transition</span></a><a href="../portal-zoom/" rel="next" aria-label="下一个：Portal / Tunnel Zoom"><span><span class="hb-dir">下一个：</span>Portal / Tunnel Zoom</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../blur-transition/" rel="prev" aria-label="上一个：模糊过渡"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>模糊过渡</span></a><a href="../portal-zoom/" rel="next" aria-label="下一个：传送门 / 隧道缩放"><span><span class="hb-dir">下一个：</span>传送门 / 隧道缩放</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.09 · Page Transitions</p>
-    <h1>Elastic Transition</h1>
-    <p class="hb-lede">The new page slides in, goes too far and springs back. Best for playful apps.</p>
+    <p class="hb-cat">03.09 · 页面切换</p>
+    <h1>弹性过渡</h1>
+    <p class="hb-lede">新页面滑入时冲过头再弹回来。最适合趣味应用。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click Work or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「工作」或「关于」，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -106,12 +106,12 @@
     </div>
     <div class="stage">
       <div class="box" id="box">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"></nav>
-        <div class="page-area" id="page-area"><span class="lbl past" aria-hidden="true" data-hb-caption>Past its place</span></div>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
+        <div class="page-area" id="page-area"><span class="lbl past" aria-hidden="true" data-hb-caption>过了它的位置</span></div>
       </div>
-      <div class="trace" aria-hidden="true"><svg><path class="place"/><path class="curve"/><path class="tip" d="M-6 -5L6 0L-6 5Z"/><circle class="dot" r="5"/></svg><span class="lbl way" data-hb-caption>A planned path</span><span class="lbl here" data-hb-caption>Its place</span><span class="lbl ends" data-hb-caption>Settles</span></div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Stops dead</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Springs back</p>
+      <div class="trace" aria-hidden="true"><svg><path class="place"/><path class="curve"/><path class="tip" d="M-6 -5L6 0L-6 5Z"/><circle class="dot" r="5"/></svg><span class="lbl way" data-hb-caption>预设路径</span><span class="lbl here" data-hb-caption>它的位置</span><span class="lbl ends" data-hb-caption>落定</span></div>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>戛然而止</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>回弹</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
@@ -119,42 +119,42 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the graph traces the new page's place over time: it comes in from the side, goes past its place, springs back and settles. Click Work or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Stops dead slides the new page in and stops at its place; Springs back goes a little past and bounces back before settling. Click Work or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，曲线描出新页面位置随时间的变化：它从侧面进来，冲过自己的位置，弹回来，再落定。点「工作」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「戛然而止」把新页面滑进来就停在原地；「回弹」则滑过头一点，弹回来再落定。点「工作」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="mode-lbl">How it bounces</p>
+        <p class="hb-setting-name" id="mode-lbl">弹跳方式</p>
         <div class="seg" id="mode-seg" role="group" aria-labelledby="mode-lbl">
-          <button type="button" data-mode="css" class="on" aria-pressed="true">Planned path</button>
-          <button type="button" data-mode="spring" aria-pressed="false">Live spring</button>
+          <button type="button" data-mode="css" class="on" aria-pressed="true">预设路径</button>
+          <button type="button" data-mode="spring" aria-pressed="false">实时弹簧</button>
         </div>
-        <p class="hb-hint">A planned path is cheap; a live spring feels more physical.</p>
+        <p class="hb-hint">「预设路径」成本低；「实时弹簧」感觉更真实。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Bounce size</p>
+        <p class="hb-setting-name" id="size-lbl">弹跳幅度</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-size="0" aria-pressed="false">Small</button>
-          <button type="button" data-size="1" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-size="2" aria-pressed="false">Large</button>
+          <button type="button" data-size="0" aria-pressed="false">小</button>
+          <button type="button" data-size="1" class="on" aria-pressed="true">中</button>
+          <button type="button" data-size="2" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">How far the page goes past its place before settling.</p>
+        <p class="hb-hint">页面在落定前会冲过自己的位置多远。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-speed="0" aria-pressed="false">Slow</button>
-          <button type="button" data-speed="1" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-speed="2" aria-pressed="false">Fast</button>
+          <button type="button" data-speed="0" aria-pressed="false">慢</button>
+          <button type="button" data-speed="1" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-speed="2" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly the page springs into place.</p>
+        <p class="hb-hint">页面弹到位的速度。</p>
       </div>
     </div>
   </section>
@@ -162,10 +162,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add an elastic transition to [the pages or panels you want to move between]. The new page should slide in from the side, go a little past its place and spring back before settling, as if pulled by a rubber band, while the old page slides away. The bounce can be planned ahead as a fixed path, which is cheap, or worked out live with a simple spring, which can react if the visitor interrupts it; with a live spring, advance it in small fixed time steps so it moves the same on every screen, and limit the time one frame adds so a slow frame cannot throw it off. If the visitor has reduced motion turned on, switch pages without movement. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想切换的页面或面板]加上弹性过渡。新页面应该从侧面滑进来，滑过自己的位置一点，再弹回来落定，像被橡皮筋拉着一样，同时旧页面滑走。弹跳可以提前规划成一条固定路径，成本低；也可以用一个简单的弹簧实时算出来，访客中途打断时它能做出反应；用实时弹簧时，要以小的固定时间步推进，让它在每块屏幕上都一样，并限制一帧增加的时间，避免慢帧把它带偏。如果访客开启了减弱动态效果，换页时不要移动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -185,9 +185,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Playful apps</li><li>Panels and drawers</li><li>Games</li></ul>
+      <ul class="hb-tags hb-good"><li>趣味应用</li><li>面板和抽屉</li><li>游戏</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Formal sites</li></ul>
+      <ul class="hb-tags hb-avoid"><li>正式的网站</li></ul>
     </div>
   </section>
 
@@ -199,9 +199,9 @@
 <footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PAGES=[
-    {name:'Home',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
-    {name:'Work',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
+    {name:'首页',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
+    {name:'工作',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
   ];
   const nav=document.getElementById('nav'),area=document.getElementById('page-area'),slowTog=document.getElementById('slow-tog');
   const kfStyle=document.getElementById('kf-style');
@@ -224,7 +224,7 @@
   const box=document.getElementById('box'),stage=box.parentElement,twin=document.createElement('div');
   twin.className='box twin';twin.inert=true;twin.setAttribute('aria-hidden','true');
   twin.innerHTML=`<div class="mini-nav">${PAGES.map(p=>`<span class="nav-btn">${p.name}</span>`).join('')}</div>`+
-    `<div class="page-area">${PAGES.map(p=>`<div class="page" style="background:${p.bg}">${p.html}</div>`).join('')}<span class="lbl at" data-hb-caption>At its place</span></div>`;
+    `<div class="page-area">${PAGES.map(p=>`<div class="page" style="background:${p.bg}">${p.html}</div>`).join('')}<span class="lbl at" data-hb-caption>已到位</span></div>`;
   box.before(twin);
   const tp=[...twin.querySelectorAll('.page')],tn=[...twin.querySelectorAll('.nav-btn')],atLbl=twin.querySelector('.at');
   // See inside's graph: 1.6 s across (slow motion aside); up and down, from 8% of the width short of its place to 16% past it; 26px down
@@ -233,8 +233,8 @@
   // look: the mode on show; posed: held at the farthest point (pose); run: the change under way, as drawn; tw: the copy's spring
   let look='normal',posed=false,run=null,tw=null,dotRaf=0,G={W:0,k:0};
   if(!motionOk){ // under reduced motion both views are still pictures, and their notes say so
-    document.querySelector('[data-hb-for="inside"]').textContent='Shown still at its farthest point: the new page has gone past its place, and the graph traces how it comes in, overshoots and settles.';
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still at the moment Springs back is furthest past its place: Stops dead has not gone past it.';
+    document.querySelector('[data-hb-for="inside"]').textContent='静止画面，停在最远处：新页面已经冲过了自己的位置，曲线描出它如何进来、冲过头再落定。';
+    document.querySelector('[data-hb-for="compare"]').textContent='静止画面，停在「回弹」冲得最远的瞬间：「戛然而止」还没有冲过头。';
   }
 
   // Drops a timer's id once it fires, so `timers` only holds the ones still waiting.
@@ -391,14 +391,14 @@
   const gx=t=>8+(G.W-16)*t/SPAN,gy=v=>(TOP-v)*G.k;
   function dotAt(t,v){dot.style.transform=`translate(${gx(t).toFixed(1)}px,${gy(v).toFixed(1)}px)`}
   // The graph in the strip's own pixels: across is time, down is past its place; an arrow 10px down the slide coming in from the top.
-  // Its words keep off the curve: the way it bounces in the top row, "Its place" over the line's right end, "Settles" under it.
+  // Its words keep off the curve: the way it bounces in the top row, "它的位置" over the line's right end, "落定" under it.
   function drawTrace(){
     const W=trace.clientWidth,H=trace.clientHeight-SVG_TOP-6;if(!W)return;
     const p=plan(),pt=([t,v])=>gx(t).toFixed(1)+' '+gy(v).toFixed(1);G={W,k:H/(TOP-BOTTOM)};
     svg.setAttribute('viewBox',`0 0 ${W} ${H}`);placeEl.setAttribute('d',`M0 ${gy(0).toFixed(1)}H${W}`);curveEl.setAttribute('d','M'+p.pts.map(pt).join('L')+'H'+W);
     const vA=TOP-10/G.k,i=p.pts.findIndex(([,v])=>v<vA),[t1,v1]=p.pts[i-1],[t2,v2]=p.pts[i],a=Math.atan2(gy(v2)-gy(v1),gx(t2)-gx(t1));
     tipEl.setAttribute('transform',`translate(${gx(t1+(t2-t1)*(v1-vA)/(v1-v2)).toFixed(1)} 10) rotate(${(a*180/Math.PI).toFixed(1)})`);
-    wayLbl.textContent=(run||{way:mode}).way==='css'?'A planned path':'A live spring';
+    wayLbl.textContent=(run||{way:mode}).way==='css'?'预设路径':'实时弹簧';
     const put=(el,l,t)=>{el.style.left=Math.max(4,Math.min(l,W-el.offsetWidth-4))+'px';el.style.top=t.toFixed(1)+'px'},line=SVG_TOP+gy(0);
     put(wayLbl,4,3);put(hereLbl,W,line-hereLbl.offsetHeight-4);put(endsLbl,gx(p.ends)+4,line+4);if(posed)dotAt(p.at,p.dip);
   }
@@ -435,7 +435,7 @@
   function pose(){
     if(look==='normal'||animating||wayBack){unpose();return}const p=plan();
     pages[current].style.transform=`translateX(${p.dip.toFixed(2)}%)`;tp[current].style.transform=`translateX(${p.twin.toFixed(2)}%)`;
-    stage.style.setProperty('--past',(-p.dip).toFixed(2)+'%');atLbl.textContent=p.twin>0.5?'Not there yet':'At its place';
+    stage.style.setProperty('--past',(-p.dip).toFixed(2)+'%');atLbl.textContent=p.twin>0.5?'还没到':'已到位';
     stage.classList.add('posed');posed=true;dotAt(p.at,p.dip);
   }
   function unpose(){if(posed){posed=false;stage.classList.remove('posed');pages[current].style.transform=tp[current].style.transform='';void stage.offsetWidth}}

@@ -1,18 +1,18 @@
-# Dissolve Transition
+# 溶解过渡
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/dissolve/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/dissolve/)
 
-## What it is
-A dissolve breaks a page change into a grid of tiles. Each tile fades in over the old page at a slightly different moment, so the old page seems to break up into grain or blocks rather than fading evenly. The order of the tiles — random, a diagonal sweep or rings from the middle — gives the dissolve its texture.
+## 它是什么
+溶解把一次页面切换打碎成一格瓷砖。每块瓷砖在略有不同的时刻淡入、盖住旧页面，所以旧页面看起来像是碎成颗粒或方块，而不是均匀淡出。瓷砖的顺序——随机、对角线扫过或从中间向外成环——决定了溶解的质感。
 
-## When to use it
-- Transitions that want more texture than a plain crossfade but less drama than a slide or zoom
-- Photo and video contexts where a film-style dissolve matches the medium
-- Retro or glitch aesthetics, where a coarse tile grid evokes pixel-era screen wipes
-- Directional reveals (diagonal, radial) that hint at where the eye should travel next
+## 什么时候用
+- 想要比普通交叉淡入淡出更有质感、但比滑动或缩放不那么夸张的过渡
+- 照片和视频场景，电影风格的溶解与媒介相符
+- 复古或故障美学，粗瓷砖网格让人想起像素时代的屏幕擦除
+- 方向性揭示（对角线、放射状），暗示眼睛接下来该往哪里走
 
-## How it works
-A grid overlay of `n × n` empty tiles is built over the outgoing page. Each tile gets a per-tile `transition-delay` from a pattern function, then all tiles are faded to opaque at once — the staggered delays produce the dissolve. The page swap happens partway through, hidden under the tiles, and the overlay is cleared (or optionally faded back out for a symmetric dissolve-in).
+## 工作原理
+在离开的页面上方建一个 `n × n` 空瓷砖的网格覆盖层。每块瓷砖从一个图案函数得到各自的 `transition-delay`，然后所有瓷砖同时淡到不透明——错开的延迟产生了溶解。页面切换发生在中途，藏在瓷砖下面，覆盖层被清除（或者可选地以对称的溶解淡出，露出新页面）：
 
 ```js
 function getDelays(n, style) {
@@ -35,26 +35,26 @@ function getDelays(n, style) {
 }
 ```
 
-Each tile's inline style bakes the normalized delay into a real transition: `transition: opacity <fadeDur>ms ease <delay>ms`. The delays are computed in pure JS and applied per element, so the browser handles all the actual animation — no per-frame loop.
+每块瓷砖的内联样式把归一化的延迟烤进一次真实的过渡：`transition: opacity <fadeDur>ms ease <delay>ms`。延迟用纯 JS 算出来、逐个元素应用，所以浏览器处理所有实际的动画——没有逐帧循环。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Pattern | Random | The order the tiles appear in: random looks like grain, diagonal sweeps from one corner, and from the middle spreads out in rings |
-| Tile size | Medium | How big the tiles are: small is a 16 by 16 grid (10 by 10 on phones), medium 8 by 8 and large 4 by 4; small tiles come close to a smooth fade |
-| Speed | Normal | How long the tiles take: slow is 1300ms, normal 800ms and fast 500ms; the page swaps at 60% of it, under the tiles |
-| Dissolves both ways | off | Also fades the tiles away in the same pattern to reveal the new page, instead of removing them at once |
+| 图案 | 随机 | 瓷砖出现的顺序：随机看起来像颗粒，对角线从一个角扫过，从中间向外扩散成环 |
+| 瓷砖大小 | 中 | 瓷砖有多大：小是 16×16 网格（手机上 10×10），中 8×8，大 4×4；小瓷砖接近平滑的淡入淡出 |
+| 速度 | 普通 | 瓷砖需要多长时间：慢是 1300ms，普通 800ms，快 500ms；页面在 60% 处、在瓷砖下面换掉 |
+| 双向溶解 | 关 | 也按同样的图案把瓷砖淡出，露出新页面，而不是一下子去掉它们 |
 
-## Production notes
-- **Random needs a stable order.** Shuffling the tile order once and mapping each tile to its rank keeps the pattern coherent; re-randomizing per frame would flicker. This demo shuffles a single order array and reuses it.
-- **Tile count is a cost knob.** A 16×16 grid is 256 animated elements. The fades themselves are cheap, because each tile only transitions `opacity`, but creating and styling that many elements makes the frame that starts the dissolve slow on phones, so the demo draws Small as 10×10 there. Much finer grids also cost layout and memory; beyond ~24×24 a canvas or a noise-texture mask is a better tool.
-- **Swap timing.** The page underneath is swapped while enough tiles are opaque to hide it (here at ~60% of the duration). Swap too early and the incoming page shows through gaps; too late and the reveal feels delayed.
-- **Library equivalents.** The View Transitions API can dissolve with a masked `::view-transition-old` but does not offer per-tile stagger out of the box — a generated mask image is the native route. GSAP's `stagger` with a `grid` and `from: 'random'` reproduces this directly. Shader-based dissolves sample a noise texture against a rising threshold, which is the same idea at pixel granularity.
+## 生产注意事项
+- **随机需要一个稳定的顺序。**洗一次瓷砖顺序、把每块瓷砖映射到它的名次，能让图案保持连贯；每帧重新随机就会闪烁。这个演示洗一个顺序数组并重复使用它。
+- **瓷砖数量是一个成本旋钮。**16×16 网格是 256 个动画元素。淡入淡出本身很便宜，因为每块瓷砖只过渡 `opacity`，但创建和设置这么多元素的样式会让开始溶解的那一帧在手机上变慢，所以演示在手机上把小画成 10×10。更细的网格还消耗布局和内存；超过约 24×24 后，画布或噪点纹理遮罩是更好的工具。
+- **换页时机。**下面的页面在足够多的瓷砖不透明、能遮住它的时候换掉（这里是时长的约 60%）。换太早，进入的页面会透过缝隙显示；换太晚，揭示感觉迟缓。
+- **等价的库。**View Transitions API 可以用带遮罩的 `::view-transition-old` 做溶解，但开箱即用不提供逐瓷砖错开——生成一张遮罩图片是原生的做法。GSAP 的 `stagger`（带 `grid` 和 `from: 'random'`）直接复现了这一点。基于着色器的溶解对一个上升的阈值采样噪点纹理，像素粒度上是同一个思路。
 
-## See also
-- [Crossfade Transition](../crossfade/) — an even fade with no tiles
-- [Flash / Light Leak Transition](../flash-transition/) — a burst of light hides the change
-- [Blur Transition](../blur-transition/) — a blur hides the change
-- [Slide Transition](../slide-transition/) — pages move instead of dissolving
-- [Shatter Effect](../../02-entrance-and-exit/shatter-effect/) — a card breaks into pieces that fly apart and fade
-- [Pixelate Transition](../pixelate-transition/) — the page breaks into big pixels, then sharpens into the next
+## 另见
+- [交叉淡入淡出过渡](../crossfade/) — 没有瓷砖的均匀淡入淡出
+- [闪光 / 漏光过渡](../flash-transition/) — 一道闪光藏住切换
+- [模糊过渡](../blur-transition/) — 模糊藏住切换
+- [滑动过渡](../slide-transition/) — 页面移动而不是溶解
+- [碎裂效果](../../02-entrance-and-exit/shatter-effect/) — 一张卡片碎成飞散淡出的碎片
+- [像素化过渡](../pixelate-transition/) — 页面碎成大像素，再变清晰成下一页

@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shared Element Transition — 动画手册</title>
-  <meta name="description" content="A picture grows from the list into the next page's header. Best for galleries.">
+  <title>共享元素过渡 — 动画手册</title>
+  <meta name="description" content="图片从列表放大，进入下一页的页眉。最适合图库。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Shared Element Transition — 动画手册">
-  <meta property="og:description" content="A picture grows from the list into the next page's header. Best for galleries.">
+  <meta property="og:title" content="共享元素过渡 — 动画手册">
+  <meta property="og:description" content="图片从列表放大，进入下一页的页眉。最适合图库。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Shared Element Transition — 动画手册">
-  <meta name="twitter:description" content="A picture grows from the list into the next page's header. Best for galleries.">
+  <meta name="twitter:title" content="共享元素过渡 — 动画手册">
+  <meta name="twitter:description" content="图片从列表放大，进入下一页的页眉。最适合图库。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Shared Element Transition", "name": "Shared Element Transition", "description": "A picture grows from the list into the next page's header. Best for galleries.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/", "inLanguage": "zh-CN", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Shared Element Transition"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "共享元素过渡", "name": "共享元素过渡", "description": "图片从列表放大，进入下一页的页眉。最适合图库。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 共享元素过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -92,20 +92,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../view-transitions-api/" rel="prev" aria-label="上一个：View Transitions API"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>View Transitions API</span></a><a href="../morph-transition/" rel="next" aria-label="下一个：Morph Transition"><span><span class="hb-dir">下一个：</span>Morph Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../view-transitions-api/" rel="prev" aria-label="上一个：View Transitions API"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>View Transitions API</span></a><a href="../morph-transition/" rel="next" aria-label="下一个：变形过渡"><span><span class="hb-dir">下一个：</span>变形过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.02 · Page Transitions</p>
-    <h1>Shared Element Transition</h1>
-    <p class="hb-lede">A picture grows from the list into the next page's header. Best for galleries.</p>
+    <p class="hb-cat">03.02 · 页面切换</p>
+    <h1>共享元素过渡</h1>
+    <p class="hb-lede">图片从列表放大，进入下一页的页眉。最适合图库。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click a project to open it, then Back, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点一个项目打开它，再点「返回」，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -115,7 +115,7 @@
     <div class="stage">
       <div class="box" id="box">
         <div class="mini-nav">
-          <button type="button" class="nav-back" id="nav-back">← Back</button>
+          <button type="button" class="nav-back" id="nav-back">← 返回</button>
           <div class="nav-title" id="nav-title">Projects</div>
         </div>
         <div class="page-area" id="page-area">
@@ -132,11 +132,11 @@
           <div class="ins" id="ins" aria-hidden="true">
             <div class="pose" id="pose"></div>
             <svg><rect id="rs"/><g id="route"><rect id="re"/><line id="la"/><line id="lb"/></g></svg>
-            <span class="lbl cap" data-hb-caption>Starts here: the thumbnail</span>
-            <span class="lbl cap" data-hb-caption>Ends here: the header</span>
-            <span class="lbl cap" data-hb-caption>One copy grows along these lines</span>
+            <span class="lbl cap" data-hb-caption>起点：缩略图</span>
+            <span class="lbl cap" data-hb-caption>终点：页眉</span>
+            <span class="lbl cap" data-hb-caption>一个副本沿着这些线条放大</span>
             <span class="lbl cap" data-hb-caption id="cap-len"></span>
-            <span class="lbl side" data-hb-caption>Picture travels</span>
+            <span class="lbl side" data-hb-caption>图片移动</span>
           </div>
         </div>
       </div>
@@ -147,33 +147,33 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed boxes are where the picture starts and ends: one copy of it grows along the lines between them while the pages fade. Click a project, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Just fades swaps the list for the project with fades only; Picture travels does the same while the picture grows from the list into the header. Click a project, then Back, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，虚线框是图片的起点和终点：图片的一个副本沿着两者之间的线条放大，同时页面淡入淡出。点一个项目，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「只淡入淡出」只用淡入淡出把列表换成项目；「图片移动」在同样切换的同时，让图片从列表放大进入页眉。点一个项目，再点「返回」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="500" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="300" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="500" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="300" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the picture takes to grow into place.</p>
+        <p class="hb-hint">图片放大到位需要多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">感觉</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">Smooth</button>
-          <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">Springy</button>
+          <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">平滑</button>
+          <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">弹性</button>
         </div>
-        <p class="hb-hint">Springy grows a little past the header, then settles.</p>
+        <p class="hb-hint">「弹性」会长得比页眉稍大一点，再回落到位。</p>
       </div>
     </div>
   </section>
@@ -181,10 +181,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a shared element transition to [your list of items and their detail pages]. When a visitor opens an item, its picture should grow from its place in the list into the large header of the detail page, while the list fades away and the detail text fades in just after the picture lands. Measure where the picture starts and where it ends, then move a copy from one to the other with a transform only, never by changing its position or size, so it reads as one continuous element. Going back fades the detail page out and the list back in. If the visitor has reduced motion turned on, open and close the detail page without the movement. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你的条目列表和它们的详情页]加上共享元素过渡。访客打开一个条目时，它的图片从列表中的位置放大，进入详情页的大页眉，同时列表淡出，详情文字在图片落定后稍晚淡入。先量出图片的起点和终点，再只用 transform 把一个副本从一处移到另一处，不要改它的位置或尺寸，这样看起来就是同一个连续的元素。返回时详情页淡出，列表淡入。如果访客开启了减弱动态效果，打开和关闭详情页时不要做移动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -204,9 +204,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Galleries</li><li>Product grids</li><li>Card lists</li><li>Media libraries</li></ul>
+      <ul class="hb-tags hb-good"><li>图库</li><li>商品网格</li><li>卡片列表</li><li>媒体库</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Unrelated pages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>不相关的页面</li></ul>
     </div>
   </section>
 
@@ -278,7 +278,7 @@
     settle();
     detail.classList.remove('active');detail.inert=true;detail.style.opacity='';detail.style.transition='';
     grid.style.opacity='';grid.style.transition='';grid.style.pointerEvents='';grid.inert=false;
-    navBack.classList.remove('show');navTitle.textContent='Projects';currentView='grid';
+    navBack.classList.remove('show');navTitle.textContent='项目';currentView='grid';
     [grid,detail,navBack].forEach(el=>el.getAnimations().forEach(a=>a.cancel()));
     mirror();draw();
   }
@@ -337,7 +337,7 @@
     if(animating||currentView!=='detail')return;
     animating=true;afterMove=null;
     const d=scaled();
-    navBack.classList.remove('show');navTitle.textContent='Projects';
+    navBack.classList.remove('show');navTitle.textContent='项目';
     if(!motionOk){
       detail.classList.remove('active');detail.inert=true;detail.style.opacity='0';grid.style.opacity='1';grid.style.pointerEvents='auto';
       showGrid(byVisitor);currentView='grid';finish();return;
@@ -369,9 +369,9 @@
   // step, so it opens and closes with the same fades but has no traveling picture
   const twin=Object.assign(document.createElement('div'),{className:'box twin',inert:true});
   twin.setAttribute('aria-hidden','true');
-  twin.innerHTML='<div class="mini-nav"><span class="nav-back">← Back</span><div class="nav-title"></div></div><div class="page-area"><div class="cg">'+
+  twin.innerHTML='<div class="mini-nav"><span class="nav-back">← 返回</span><div class="nav-title"></div></div><div class="page-area"><div class="cg">'+
     PROJECTS.map(p=>`<span class="thumb" style="background:${p.bg}"><span class="thumb-label" style="color:${p.ac}">${p.name}</span><span class="thumb-sub">${p.sub}</span></span>`).join('')+
-    '</div><div class="cd"><div class="ch"></div><div class="cb"><div class="ct"></div><div class="cs"></div><div class="cx"></div></div></div><span class="lbl side" data-hb-caption>Just fades</span></div>';
+    '</div><div class="cd"><div class="ch"></div><div class="cb"><div class="ct"></div><div class="cs"></div><div class="cx"></div></div></div><span class="lbl side" data-hb-caption>只淡入淡出</span></div>';
   document.getElementById('box').before(twin);
   const mirrored=[[grid,'.cg'],[detail,'.cd'],[detailHero,'.ch'],[detailTitle,'.ct'],[detailSub,'.cs'],[detailDesc,'.cx'],[navBack,'.nav-back'],[navTitle,'.nav-title']]
     .map(([real,sel])=>[real,twin.querySelector(sel)]);
@@ -380,14 +380,14 @@
   }
   // Under reduced motion a click opens the project at once, so the notes speak of the list
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent='While the list shows, one copy of the picture is held part way along the lines between the dashed boxes, where it starts and where it ends.';
-    document.querySelector('[data-hb-for="compare"]').textContent='While the list shows, both halves are held a moment into opening: Just fades has only faded its list; Picture travels has its picture part way to the header. After a click, press Back.';
+    document.querySelector('[data-hb-for="inside"]').textContent='显示列表时，图片的一个副本停在虚线框之间的线条半途，也就是它的起点和终点之间。';
+    document.querySelector('[data-hb-for="compare"]').textContent='显示列表时，两边都停在打开后的一瞬间：「只淡入淡出」只淡出了列表；「图片移动」的图片已在去往页眉的半途。点开后，按「返回」。';
   }
 
   // The share of a movement done at time t (0 to 1), from the browser's own curve for the easing
   const clock=document.createElement('i').animate({opacity:[0,1]},{duration:1000,fill:'both'});clock.pause();
   function easeAt(t,easing){clock.effect.updateTiming({easing});clock.currentTime=t*1000;return clock.effect.getComputedTiming().progress}
-  const words=ms=>ms<400?'about a third of a second':ms<700?'half a second':ms<1000?'nearly a second':ms<2000?'a second and a half':'about two and a half seconds';
+  const words=ms=>ms<400?'约三分之一秒':ms<700?'半秒':ms<1000?'将近一秒':ms<2000?'一秒半':'约两秒半';
   const $=id=>document.getElementById(id),caps=[...document.querySelectorAll('.cap')],capLen=$('cap-len'),pose=$('pose');
   const set=(el,o)=>{for(const k in o)el.setAttribute(k,o[k])};
   const ext=el=>{const r=document.createRange();r.selectNodeContents(el);const b=r.getBoundingClientRect(),a=area.getBoundingClientRect();return{x:b.left-a.left,y:b.top-a.top,w:b.width,h:b.height}};
@@ -410,7 +410,7 @@
       stage.style.setProperty('--fade',(1-easeAt(.625,'ease')).toFixed(3));
     }
     stage.classList.toggle('posed',posed);
-    if(mode==='inside'){capLen.textContent='Travels in '+words(scaled());place(s,e,px)}
+    if(mode==='inside'){capLen.textContent='移动耗时'+words(scaled());place(s,e,px)}
   }
   // Each caption goes to the free spot nearest the part it names: clear of the words on screen, the held picture and the other captions,
   // and off the lines where it can. Measured again whenever a size, the view or a word changes.

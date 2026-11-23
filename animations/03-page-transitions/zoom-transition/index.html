@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zoom Transition — 动画手册</title>
-  <meta name="description" content="The pages zoom as they swap, as if moving in depth. Best for opening details.">
+  <title>缩放过渡 — 动画手册</title>
+  <meta name="description" content="页面切换时缩放，仿佛在纵深中移动。最适合打开详情。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/zoom-transition/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Zoom Transition — 动画手册">
-  <meta property="og:description" content="The pages zoom as they swap, as if moving in depth. Best for opening details.">
+  <meta property="og:title" content="缩放过渡 — 动画手册">
+  <meta property="og:description" content="页面切换时缩放，仿佛在纵深中移动。最适合打开详情。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/zoom-transition/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Zoom Transition — 动画手册">
-  <meta name="twitter:description" content="The pages zoom as they swap, as if moving in depth. Best for opening details.">
+  <meta name="twitter:title" content="缩放过渡 — 动画手册">
+  <meta name="twitter:description" content="页面切换时缩放，仿佛在纵深中移动。最适合打开详情。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Zoom Transition", "name": "Zoom Transition", "description": "The pages zoom as they swap, as if moving in depth. Best for opening details.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/zoom-transition/", "inLanguage": "zh-CN", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Zoom Transition"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "缩放过渡", "name": "缩放过渡", "description": "页面切换时缩放，仿佛在纵深中移动。最适合打开详情。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/zoom-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 缩放过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -108,20 +108,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../slide-transition/" rel="prev" aria-label="上一个：Slide Transition"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Slide Transition</span></a><a href="../flash-transition/" rel="next" aria-label="下一个：Flash / Light Leak Transition"><span><span class="hb-dir">下一个：</span>Flash / Light Leak Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../slide-transition/" rel="prev" aria-label="上一个：滑动过渡"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滑动过渡</span></a><a href="../flash-transition/" rel="next" aria-label="下一个：闪光 / 漏光过渡"><span><span class="hb-dir">下一个：</span>闪光 / 漏光过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.06 · Page Transitions</p>
-    <h1>Zoom Transition</h1>
-    <p class="hb-lede">The pages zoom as they swap, as if moving in depth. Best for opening details.</p>
+    <p class="hb-cat">03.06 · 页面切换</p>
+    <h1>缩放过渡</h1>
+    <p class="hb-lede">页面切换时缩放，仿佛在纵深中移动。最适合打开详情。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click Work or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「工作」或「关于」，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -130,19 +130,19 @@
     </div>
     <div class="stage">
       <div class="box" id="box">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"></nav>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
         <div class="page-area" id="page-area">
           <div class="pages" id="pages"></div>
           <div class="zv" aria-hidden="true">
             <span class="zr zbox"></span><span class="zr zold"></span><span class="zr znew"></span>
-            <div class="zb zbt"><span class="lbl zl zw" data-hb-caption>The box</span><span class="lbl zl zo" id="l-old" data-hb-caption></span></div>
+            <div class="zb zbt"><span class="lbl zl zw" data-hb-caption>方框</span><span class="lbl zl zo" id="l-old" data-hb-caption></span></div>
             <div class="zb zbb"><span class="lbl zl zn" id="l-new" data-hb-caption></span><span class="lbl zl" id="l-len" data-hb-caption></span></div>
           </div>
           <span class="zg" aria-hidden="true" hidden></span>
         </div>
       </div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Fade only</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Fade and zoom</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>只有淡入淡出</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>淡入淡出加缩放</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
@@ -150,47 +150,47 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the view is zoomed out so every size fits: the outlines are the sizes each page starts and ends at while it fades. Click Work or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Fade only crossfades the pages; Fade and zoom does the same fade while the pages change size, as if moving in depth. Click Work or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，画面被缩小以便放下所有尺寸：轮廓线是每页在淡入淡出时的起始和结束尺寸。点「工作」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「只有淡入淡出」只交叉淡入淡出页面；「淡入淡出加缩放」在同样淡入淡出的同时改变页面尺寸，仿佛在纵深中移动。点「工作」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="zoom-lbl">Zoom style</p>
+        <p class="hb-setting-name" id="zoom-lbl">缩放方式</p>
         <div class="seg" id="zoom-seg" role="group" aria-labelledby="zoom-lbl">
-          <button type="button" data-v="zoom-in" class="on" aria-pressed="true">Zoom in</button>
-          <button type="button" data-v="zoom-out" aria-pressed="false">Zoom out</button>
-          <button type="button" data-v="pull" aria-pressed="false">Pull through</button>
+          <button type="button" data-v="zoom-in" class="on" aria-pressed="true">放大</button>
+          <button type="button" data-v="zoom-out" aria-pressed="false">缩小</button>
+          <button type="button" data-v="pull" aria-pressed="false">穿过</button>
         </div>
-        <p class="hb-hint">Zoom in feels like arriving, zoom out like leaving.</p>
+        <p class="hb-hint">「放大」像抵达，「缩小」像离开。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="900" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="550" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="330" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="900" aria-pressed="false">慢</button>
+          <button type="button" data-ms="550" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="330" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the zoom takes.</p>
+        <p class="hb-hint">缩放需要多长时间。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">感觉</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">Smooth</button>
-            <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">Springy</button>
-            <button type="button" data-ease="ease-in-out" aria-pressed="false">Gentle</button>
+            <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">平滑</button>
+            <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">弹性</button>
+            <button type="button" data-ease="ease-in-out" aria-pressed="false">轻柔</button>
           </div>
-          <p class="hb-hint">Springy grows a little past full size, then settles.</p>
+          <p class="hb-hint">「弹性」会长得比完整尺寸稍大一点，再回落到位。</p>
         </div>
       </div>
     </details>
@@ -199,10 +199,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a zoom transition to [the pages or views you want to move between]. When the page changes, scale the old and the new page while one fades out and the other fades in, so the change seems to move through depth rather than across the screen. Zooming in, where the new page grows into place, feels like going deeper; zooming out feels like stepping back; a pull-through, where the new page rushes in from larger, feels like traveling forward. Scale with transforms only, and keep the fade so no hard edge shows. If the visitor has reduced motion turned on, swap pages without scaling. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想切换的页面或视图]加上缩放过渡。页面切换时，一边缩放旧页面和新页面，一边让一个淡出、一个淡入，这样切换看起来像是在纵深中移动，而不是横着滑过屏幕。放大时新页面长到位，感觉像在深入；缩小感觉像后退；穿过时新页面从更大处冲进来，感觉像在向前行进。只用 transform 缩放，并保留淡入淡出，以免出现硬边。如果访客开启了减弱动态效果，换页时不要缩放。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -222,9 +222,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Opening details</li><li>Galleries</li><li>Lightboxes</li></ul>
+      <ul class="hb-tags hb-good"><li>打开详情</li><li>图库</li><li>灯箱</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Step-by-step flows</li></ul>
+      <ul class="hb-tags hb-avoid"><li>分步流程</li></ul>
     </div>
   </section>
 
@@ -236,9 +236,9 @@
 <footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PAGES=[
-    {name:'Home',tint:'#7db4ff',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
-    {name:'Work',tint:'#6fe0a0',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',tint:'#d1a3ff',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
+    {name:'首页',tint:'#7db4ff',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
+    {name:'工作',tint:'#6fe0a0',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',tint:'#d1a3ff',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
   ];
   // Each style's four sizes: [oldStartScale,oldEndScale,newStartScale,newEndScale]. The change and both views read this table.
   const SIZES={
@@ -246,8 +246,8 @@
     'zoom-out':[1,1.2,1,1],
     'pull':    [1,0.7,1.3,1],
   };
-  const OLD_WORDS={'zoom-in':'Old page shrinks to here','zoom-out':'Old page grows past the edge to here','pull':'Old page shrinks to here'};
-  const NEW_WORDS={'zoom-in':'New page grows from here','zoom-out':'New page fades in at full size','pull':'New page shrinks into place from here'};
+  const OLD_WORDS={'zoom-in':'旧页面缩小到这里','zoom-out':'旧页面放大到边缘之外','pull':'旧页面缩小到这里'};
+  const NEW_WORDS={'zoom-in':'新页面从这里放大','zoom-out':'新页面以完整尺寸淡入','pull':'新页面从这里缩小到位'};
   const SHARE=.3; // at rest the views hold the next change at this share of its time
   const box=document.getElementById('box'),stage=box.parentElement;
   const nav=document.getElementById('nav'),pagesEl=document.getElementById('pages'),slowTog=document.getElementById('slow-tog');
@@ -274,8 +274,8 @@
   const lOld=document.getElementById('l-old'),lNew=document.getElementById('l-new'),lLen=document.getElementById('l-len');
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent='Shown still and zoomed out: both pages caught part way through the change, part see-through, at sizes between the outlines.';
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still, part way through a change: Fade only is a flat blend of the two pages; Fade and zoom is the same blend with the pages changing size.';
+    document.querySelector('[data-hb-for="inside"]').textContent='静止画面，缩小显示：两个页面都停在切换半途，半透明，尺寸在轮廓线之间。';
+    document.querySelector('[data-hb-for="compare"]').textContent='静止画面，停在切换半途：「只有淡入淡出」是两个页面的平面混合；「淡入淡出加缩放」是同样的混合，只是页面尺寸在变。';
   }
 
   // Drops a timer's id once it fires, so `timers` only holds the ones still waiting.
@@ -392,7 +392,7 @@
     for(let i=0;i<24;i++){const m=(lo+hi)/2;if(f(m,c[0],c[2])<x)lo=m;else hi=m}
     return f((lo+hi)/2,c[1],c[3]);
   }
-  const lengthWords=ms=>ms<400?'about a third of a second':ms<700?'about half a second':ms<1300?'about a second':ms<2000?'about a second and a half':'almost three seconds';
+  const lengthWords=ms=>ms<400?'约三分之一秒':ms<700?'约半秒':ms<1300?'约一秒':ms<2000?'约一秒半':'将近三秒';
   const setText=(el,t)=>{if(el.textContent!==t)el.textContent=t};
   // The outlines, their tints and the four labels, for the change in `view` (the next one at rest, the running one while it plays)
   function drawView(){
@@ -402,7 +402,7 @@
     stage.style.setProperty('--kg',V[2]);
     zv.style.setProperty('--ko',V[1]);zv.style.setProperty('--kn',V[2]);
     zv.classList.toggle('same',V[2]===1);
-    setText(lOld,OLD_WORDS[st]);setText(lNew,NEW_WORDS[st]);setText(lLen,(motionOk?'The zoom takes ':'A zoom would take ')+lengthWords(ms));
+    setText(lOld,OLD_WORDS[st]);setText(lNew,NEW_WORDS[st]);setText(lLen,(motionOk?'缩放耗时':'缩放需要')+lengthWords(ms));
     ghost.hidden=!(posedNow&&V[2]<1);
   }
   // Takes the pose off: the pages go back to their resting look (only when a pose is on, so a run is never cut short)

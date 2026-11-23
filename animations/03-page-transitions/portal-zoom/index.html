@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal / Tunnel Zoom — 动画手册</title>
-  <meta name="description" content="The next page opens out of a circle you click. Best for big reveals.">
+  <title>传送门 / 隧道缩放 — 动画手册</title>
+  <meta name="description" content="下一页从你点击的圆圈中展开。最适合重大揭示。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/portal-zoom/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Portal / Tunnel Zoom — 动画手册">
-  <meta property="og:description" content="The next page opens out of a circle you click. Best for big reveals.">
+  <meta property="og:title" content="传送门 / 隧道缩放 — 动画手册">
+  <meta property="og:description" content="下一页从你点击的圆圈中展开。最适合重大揭示。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/portal-zoom/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portal / Tunnel Zoom — 动画手册">
-  <meta name="twitter:description" content="The next page opens out of a circle you click. Best for big reveals.">
+  <meta name="twitter:title" content="传送门 / 隧道缩放 — 动画手册">
+  <meta name="twitter:description" content="下一页从你点击的圆圈中展开。最适合重大揭示。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Portal / Tunnel Zoom", "name": "Portal / Tunnel Zoom", "description": "The next page opens out of a circle you click. Best for big reveals.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/portal-zoom/", "inLanguage": "zh-CN", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Portal / Tunnel Zoom"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "传送门 / 隧道缩放", "name": "传送门 / 隧道缩放", "description": "下一页从你点击的圆圈中展开。最适合重大揭示。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/portal-zoom/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 传送门 / 隧道缩放"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--mark:#ffd84d;--hb-stage-h-phone:360px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -113,20 +113,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../elastic-transition/" rel="prev" aria-label="上一个：Elastic Transition"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Elastic Transition</span></a><a href="../dissolve/" rel="next" aria-label="下一个：Dissolve Transition"><span><span class="hb-dir">下一个：</span>Dissolve Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../elastic-transition/" rel="prev" aria-label="上一个：弹性过渡"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>弹性过渡</span></a><a href="../dissolve/" rel="next" aria-label="下一个：溶解过渡"><span><span class="hb-dir">下一个：</span>溶解过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.10 · Page Transitions</p>
-    <h1>Portal / Tunnel Zoom</h1>
-    <p class="hb-lede">The next page opens out of a circle you click. Best for big reveals.</p>
+    <p class="hb-cat">03.10 · 页面切换</p>
+    <h1>传送门 / 隧道缩放</h1>
+    <p class="hb-lede">下一页从你点击的圆圈中展开。最适合重大揭示。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click the round portal or a page name, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点圆形传送门或一个页面名，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -135,17 +135,17 @@
     </div>
     <div class="stage">
       <div class="box" id="box">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"></nav>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
         <div class="page-area" id="page-area">
           <svg class="rings" id="rings" aria-hidden="true"></svg>
-          <p class="cap in" aria-hidden="true" data-hb-caption>Starts as a point here</p>
-          <p class="cap in wide" aria-hidden="true" data-hb-caption>The whole next page, cut to the opening</p>
-          <p class="cap in" aria-hidden="true" data-hb-caption>Its edge every tenth of the time</p>
-          <p class="cap in" aria-hidden="true" data-hb-caption>The opening takes about a second</p>
+          <p class="cap in" aria-hidden="true" data-hb-caption>从这里的一个点开始</p>
+          <p class="cap in wide" aria-hidden="true" data-hb-caption>整个下一页，被裁成开口的样子</p>
+          <p class="cap in" aria-hidden="true" data-hb-caption>每隔十分之一的时间标出它的边缘</p>
+          <p class="cap in" aria-hidden="true" data-hb-caption>开口耗时约一秒</p>
         </div>
       </div>
-      <p class="cap side first" aria-hidden="true" data-hb-caption>Switches at once</p>
-      <p class="cap side second" aria-hidden="true" data-hb-caption>Opens from portal</p>
+      <p class="cap side first" aria-hidden="true" data-hb-caption>立即切换</p>
+      <p class="cap side second" aria-hidden="true" data-hb-caption>从传送门打开</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
@@ -153,47 +153,47 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the next page sits on top, cut to an opening growing from a point at the portal; dashed lines mark its edge every tenth of the time. Click the portal or press Show me.</p>
-      <p data-hb-for="compare" hidden>Switches at once simply changes page; Opens from portal grows the next page out of the portal you click. Click the portal or a page name, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，下一页在上面，被裁成一个从传送门处一点开始变大的开口；虚线每隔十分之一的时间标出它的边缘。点传送门，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「立即切换」只是换页；「从传送门打开」让下一页从你点击的传送门里长出来。点传送门或一个页面名，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="shape-lbl">Portal shape</p>
+        <p class="hb-setting-name" id="shape-lbl">传送门形状</p>
         <div class="seg" id="shape-seg" role="group" aria-labelledby="shape-lbl">
-          <button type="button" data-shape="circle" class="on" aria-pressed="true">Circle</button>
-          <button type="button" data-shape="square" aria-pressed="false">Square</button>
+          <button type="button" data-shape="circle" class="on" aria-pressed="true">圆形</button>
+          <button type="button" data-shape="square" aria-pressed="false">方形</button>
         </div>
-        <p class="hb-hint">A circle feels like a tunnel; a square like a window.</p>
+        <p class="hb-hint">圆形像隧道；方形像窗户。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1900" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="1200" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="700" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1900" aria-pressed="false">慢</button>
+          <button type="button" data-ms="1200" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="700" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Slower reads as travel; too fast looks like a wipe.</p>
+        <p class="hb-hint">慢一点像在旅行；太快就像擦除了。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">感觉</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="ease-in" class="on" aria-pressed="true">Speeds up</button>
-            <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-            <button type="button" data-ease="ease-in-out" aria-pressed="false">Gentle</button>
-            <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+            <button type="button" data-ease="ease-in" class="on" aria-pressed="true">加速</button>
+            <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+            <button type="button" data-ease="ease-in-out" aria-pressed="false">轻柔</button>
+            <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
           </div>
-          <p class="hb-hint">Speeding up feels like diving in.</p>
+          <p class="hb-hint">「加速」感觉像潜入其中。</p>
         </div>
       </div>
     </details>
@@ -202,10 +202,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a portal transition to [the element that should open into the next page]. When the visitor clicks it, show the next page through an opening that starts as a point at the element's center and grows until the new page fills the view, as if diving through a window. Put the new page underneath first and only grow the visible opening, measuring the element's position at the moment of the click so the opening starts exactly there. Make the opening big enough at the end to reach the corners. If the visitor has reduced motion turned on, show the new page at once. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[应该打开进入下一页的元素]加上一个传送门过渡。访客点击它时，通过一个开口展示下一页：开口从元素中心的一个点开始变大，直到新页面填满整个视图，就像潜入一扇窗户。先把新页面放在下面，只让可见的开口变大；在点击的那一刻量出元素的位置，让开口正好从那里开始。最后开口要足够大，能到达角落。如果访客开启了减弱动态效果，就直接显示新页面。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -225,9 +225,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Big reveals</li><li>Galleries</li><li>Story chapters</li><li>Calls to action</li></ul>
+      <ul class="hb-tags hb-good"><li>重大揭示</li><li>图库</li><li>故事章节</li><li>行动号召</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Everyday navigation</li></ul>
+      <ul class="hb-tags hb-avoid"><li>日常导航</li></ul>
     </div>
   </section>
 
@@ -239,11 +239,11 @@
 <footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PAGES=[
-    {name:'Home',bg:'linear-gradient(135deg,#0d1a2e,#192640)',portalBg:'#1a3060',portalLabel:'Enter gallery',
+    {name:'首页',bg:'linear-gradient(135deg,#0d1a2e,#192640)',portalBg:'#1a3060',portalLabel:'进入画廊',
      html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">Click the portal to travel to the gallery.</p></div>`},
-    {name:'Gallery',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',portalBg:'#2a5040',portalLabel:'View about',
+    {name:'画廊',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',portalBg:'#2a5040',portalLabel:'查看关于',
      html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',portalBg:'#402060',portalLabel:'Return home',
+    {name:'关于',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',portalBg:'#402060',portalLabel:'返回首页',
      html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
   ];
   const box=document.getElementById('box'),stage=box.parentElement;
@@ -401,18 +401,18 @@
   const tickEls=[45,135,225,315].map(a=>{const l=make('line','tick');l.dataset.a=a;return l});
   const dot=make('circle','dot');dot.setAttribute('r','5');
   const caps=[...area.querySelectorAll('.cap.in')];
-  const NUM=['one','two','three','four','five','six'];
+  const NUM=['一','二','三','四','五','六'];
   // A length as a beginner says it
   function words(ms){
     const s=ms/1000;
-    if(s<.85)return'about two thirds of a second';
-    if(s<1.5)return'about a second';
-    return`about ${NUM[Math.round(s)-1]} seconds`;
+    if(s<.85)return'约三分之二秒';
+    if(s<1.5)return'约一秒';
+    return`约${NUM[Math.round(s)-1]}秒`;
   }
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent='Shown still: the next page on top, cut to an opening caught part way out of the portal, and dashed lines marking its edge every tenth of the time.';
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still: Switches at once simply changes page; Opens from portal is caught part way, the next page showing in the opening.';
+    document.querySelector('[data-hb-for="inside"]').textContent='静止画面：下一页在上面，被裁成一个正从传送门里出来的开口，虚线每隔十分之一的时间标出它的边缘。';
+    document.querySelector('[data-hb-for="compare"]').textContent='静止画面：「立即切换」只是换页；「从传送门打开」停在半途，下一页正在开口里出现。';
   }
   const setBox=(el,x,y,w,h,r)=>{el.setAttribute('x',x.toFixed(1));el.setAttribute('y',y.toFixed(1));el.setAttribute('width',w.toFixed(1));el.setAttribute('height',h.toFixed(1));el.setAttribute('rx',r.toFixed(1))};
   // The rings, ticks, outline and labels, from the numbers the change itself uses: where it starts, the page area's size, the
@@ -436,7 +436,7 @@
     dot.setAttribute('cx',ox.toFixed(1));dot.setAttribute('cy',oy.toFixed(1));dot.classList.toggle('off',!!o.pr);
     // Labels: the first beside the start, the second inside the opening below it, the third on a ring and the length at the bottom
     const [c1,c2,c3,c4]=caps,g=8;
-    c4.textContent=`The opening ${motionOk?'takes':'would take'} ${words(dur*(slowTog.checked?3:1))}`;
+    c4.textContent=`开口${motionOk?'耗时':'需要'}${words(dur*(slowTog.checked?3:1))}`;
     const put=(el,x,y)=>{el.style.transform=`translate(${Math.round(Math.max(g,Math.min(x,W-g-el.offsetWidth)))}px,${Math.round(Math.max(g,Math.min(y,H-g-el.offsetHeight)))}px)`};
     put(c1,ox-(o.pr||6)-g-c1.offsetWidth,oy-c1.offsetHeight/2);
     put(c2,ox-c2.offsetWidth/2,oy+o.pr+14);

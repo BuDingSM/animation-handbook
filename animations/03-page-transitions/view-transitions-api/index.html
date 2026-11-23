@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Transitions API — 动画手册</title>
-  <meta name="description" content="The browser animates the change between two pages for you. Best for web apps.">
+  <meta name="description" content="浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/view-transitions-api/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
@@ -12,14 +12,14 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="View Transitions API — 动画手册">
-  <meta property="og:description" content="The browser animates the change between two pages for you. Best for web apps.">
+  <meta property="og:description" content="浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/view-transitions-api/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="View Transitions API — 动画手册">
-  <meta name="twitter:description" content="The browser animates the change between two pages for you. Best for web apps.">
+  <meta name="twitter:description" content="浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "View Transitions API", "name": "View Transitions API", "description": "The browser animates the change between two pages for you. Best for web apps.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/view-transitions-api/", "inLanguage": "zh-CN", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, View Transitions API"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "View Transitions API", "name": "View Transitions API", "description": "浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/view-transitions-api/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, View Transitions API"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--vt-dur:0.5s;--vt-ease:ease-in-out;--c-page:#e6e6ea;--c-old:#ffb86b;--c-new:#b98cff}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -147,20 +147,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../shared-element-transition/" rel="next" aria-label="下一个：Shared Element Transition"><span><span class="hb-dir">下一个：</span>Shared Element Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../shared-element-transition/" rel="next" aria-label="下一个：共享元素过渡"><span><span class="hb-dir">下一个：</span>共享元素过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.01 · Page Transitions</p>
+    <p class="hb-cat">03.01 · 页面切换</p>
     <h1>View Transitions API</h1>
-    <p class="hb-lede">The browser animates the change between two pages for you. Best for web apps.</p>
+    <p class="hb-lede">浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click Work or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「工作」或「关于」，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -169,25 +169,25 @@
     </div>
     <div class="stage">
       <div class="box" id="box">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"></nav>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
         <div class="body">
           <div class="page-area" id="page-area"></div>
           <div class="fan" aria-hidden="true" inert>
             <div class="frame f-old" id="f-old"></div>
             <div class="frame f-new" id="f-new"></div>
             <div class="zone top">
-              <p class="lbl l-page" data-hb-caption><b>Page:</b> switches at once</p>
-              <p class="lbl l-old" data-hb-caption><b>Old picture:</b> <span id="w-old">fades out</span></p>
+              <p class="lbl l-page" data-hb-caption><b>页面：</b>立即切换</p>
+              <p class="lbl l-old" data-hb-caption><b>旧图：</b><span id="w-old">淡出</span></p>
             </div>
             <div class="zone bot">
-              <p class="lbl l-new" data-hb-caption><b>New picture:</b> <span id="w-new">fades in</span></p>
-              <p class="lbl l-time" data-hb-caption><b>Both move for</b><span id="w-len">half a second</span></p>
+              <p class="lbl l-new" data-hb-caption><b>新图：</b><span id="w-new">淡入</span></p>
+              <p class="lbl l-time" data-hb-caption><b>两者共移动</b><span id="w-len">半秒</span></p>
             </div>
           </div>
         </div>
       </div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Switches at once</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Browser animates it</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>立即切换</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>浏览器来做动画</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
@@ -195,48 +195,48 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, a drawing of the browser's work: it pictures the old and new page, switches the page underneath at once, then moves the two pictures. Click Work or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Switches at once simply changes page; Browser animates it moves pictures of the old and new page in the style you chose. Click Work or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，画的是浏览器的工作：它给旧页面和新页面各拍一张照，先一下子换掉下面的页面，再移动这两张照片。点「工作」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「立即切换」只是换页；「浏览器来做动画」则按你选的样式移动旧页面和新页面的照片。点「工作」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="style-lbl">Transition style</p>
+        <p class="hb-setting-name" id="style-lbl">切换样式</p>
         <div class="seg" id="style-seg" role="group" aria-labelledby="style-lbl">
-          <button type="button" data-style="crossfade" class="on" aria-pressed="true">Fade</button>
-          <button type="button" data-style="slide" aria-pressed="false">Slide</button>
-          <button type="button" data-style="zoom" aria-pressed="false">Zoom</button>
-          <button type="button" data-style="custom" aria-pressed="false">Tilt</button>
+          <button type="button" data-style="crossfade" class="on" aria-pressed="true">淡入淡出</button>
+          <button type="button" data-style="slide" aria-pressed="false">滑动</button>
+          <button type="button" data-style="zoom" aria-pressed="false">缩放</button>
+          <button type="button" data-style="custom" aria-pressed="false">倾斜</button>
         </div>
-        <p class="hb-hint">The same click, animated four different ways.</p>
+        <p class="hb-hint">同一次点击，四种不同的动画方式。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="500" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="300" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="500" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="300" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the change from page to page takes.</p>
+        <p class="hb-hint">页面之间切换需要多长时间。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">感觉</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-            <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">Gentle</button>
-            <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+            <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+            <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">轻柔</button>
+            <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
           </div>
-          <p class="hb-hint">Gentle eases in and out; Even keeps one steady pace.</p>
+          <p class="hb-hint">「轻柔」先慢后快再慢；「均匀」保持一个稳定的速度。</p>
         </div>
       </div>
     </details>
@@ -245,10 +245,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add page transitions to [your site's pages or views] with the browser's View Transitions API. Wrap each page change in a view transition: the browser takes a picture of the page before and after the change and animates between the two pictures. Name the content area so that only it animates, and turn off the default animation of the whole page. Style how the old and new pictures move with CSS, for example a fade, a slide or a zoom. Check that the browser supports the API, and simply swap the content when it does not. If the visitor has reduced motion turned on, swap the content with no animation. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">用浏览器的 View Transitions API 给[你网站的页面或视图]加上页面切换。把每次页面切换包进一个视图过渡：浏览器会在切换前后各给页面拍一张照，并在两张照片之间做动画。给内容区域起个名字，让只有它动起来，并关掉整页的默认动画。用 CSS 决定旧图和新图怎么动，比如淡入淡出、滑动或缩放。先检查浏览器是否支持这个 API，不支持就直接换内容。如果访客开启了减弱动态效果，就直接换内容，不做动画。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -268,9 +268,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Web apps</li><li>Page changes</li><li>Tabs and filters</li><li>Galleries</li></ul>
+      <ul class="hb-tags hb-good"><li>Web 应用</li><li>页面切换</li><li>标签页和筛选</li><li>图库</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Frequent updates</li></ul>
+      <ul class="hb-tags hb-avoid"><li>频繁更新</li></ul>
     </div>
   </section>
 
@@ -282,9 +282,9 @@
 <footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PAGES=[
-    {name:'Home',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
-    {name:'Work',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
+    {name:'首页',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
+    {name:'工作',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
   ];
   const root=document.documentElement,stage=document.querySelector('.stage');
   const nav=document.getElementById('nav'),area=document.getElementById('page-area'),slowTog=document.getElementById('slow-tog');
@@ -317,8 +317,8 @@
   }
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent="Shown still, a drawing of the browser's work: pictures of the old and new page caught part way, over the page, which has already switched.";
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still: Switches at once simply changes page; Browser animates it is caught part way between pictures of the old and the new page.';
+    document.querySelector('[data-hb-for="inside"]').textContent="静止画面，画的是浏览器的工作：旧页面和新页面的照片停在半途，盖在已经换好的页面上。";
+    document.querySelector('[data-hb-for="compare"]').textContent='静止画面：「立即切换」只是换页；「浏览器来做动画」停在旧页面和新页面照片之间的半途。';
   }
 
   // Drops a timer's id once it fires, so `timers` only holds the ones still waiting.
@@ -455,9 +455,9 @@
     stage.classList.add('posed');
     if(c.from+'-'+c.to!==posedKey){setPics(c.from,c.to,true);posedKey=c.from+'-'+c.to}
   }
-  const OUT={crossfade:'fades out',slide:'slides out',zoom:'shrinks away',custom:'tilts away'};
-  const IN={crossfade:'fades in',slide:'slides in',zoom:'settles in',custom:'tilts in'};
-  const LEN={300:'about a third of a second',500:'half a second',800:'almost a second',900:'about a second',1500:'a second and a half',2400:'over two seconds'};
+  const OUT={crossfade:'淡出',slide:'滑出',zoom:'缩小消失',custom:'倾斜消失'};
+  const IN={crossfade:'淡入',slide:'滑入',zoom:'落定',custom:'倾斜进入'};
+  const LEN={300:'约三分之一秒',500:'半秒',800:'将近一秒',900:'约一秒',1500:'一秒半',2400:'两秒多'};
   function words(){
     [['w-old',OUT[style]],['w-new',IN[style]],['w-len',LEN[dur*(slowTog.checked?3:1)]]].forEach(([id,t])=>{
       const el=document.getElementById(id);

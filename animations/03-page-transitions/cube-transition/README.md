@@ -1,18 +1,18 @@
-# Cube Transition
+# 立方体过渡
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/cube-transition/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/cube-transition/)
 
-## What it is
-A cube transition treats two pages as neighboring sides of a cube. When the page changes, the cube makes a quarter turn: the old page swings away around the cube's middle and the new one swings in from the side to take its place. Going back turns the cube the other way, so the visitor always knows which way they went.
+## 它是什么
+立方体过渡把两个页面当作立方体相邻的两个面。页面切换时，立方体转四分之一圈：旧页面绕立方体的中线转走，新页面从侧面转进来，取代它的位置。返回时立方体朝反方向转，所以访客总能知道自己往哪个方向走了。
 
-## When to use it
-- Photo stories and product tours, where each page is a large picture and the turn adds a sense of moving through space
-- Slides and onboarding steps that have a clear order
-- Story formats on phones, where a sideways cube turn between stories is already familiar
-- Short sequences of pages; the effect is strong, so it suits a few changes rather than every click of an app
+## 什么时候用
+- 照片故事和产品导览，每页是一张大图，旋转增加穿过空间的感觉
+- 有明确顺序的幻灯片和新手引导步骤
+- 手机上的故事格式，故事之间横向的立方体旋转已经很熟悉
+- 短序列的页面；效果很强，所以适合少数几次切换，而不是应用里的每次点击
 
-## How it works
-No real cube is built. Each of the two pages gets the same 3D transform during the turn: move back to the cube's middle (half a side behind the screen), rotate, and move forward again. The old page goes from 0 to 90 degrees, the new one from 90 degrees to 0, so the two always meet at the cube's edge. The page area gives the scene its perspective, and each page darkens through a black layer whose opacity follows the turn:
+## 工作原理
+没有真正建一个立方体。旋转期间，两个页面得到同样的 3D 变换：后移到立方体的中线（屏幕后半个边长），旋转，再前移回来。旧页面从 0 转到 90 度，新页面从 90 度转到 0，所以两者总是在立方体的边上相接。页面区域给场景提供透视，每个页面通过一个黑色图层变暗，图层的不透明度跟随旋转：
 
 ```js
 const side=axis==='Y',size=side?area.clientWidth:area.clientHeight,half=(size/2).toFixed(1),d=dur*(slowTog.checked?3:1);
@@ -26,24 +26,24 @@ dims[prev].animate([{opacity:0},{opacity:.65}],how);
 dims[next].animate([{opacity:.65},{opacity:0}],how);
 ```
 
-Both pages have `backface-visibility: hidden`. Near the start and end of a turn one side faces away from the viewer, and a real cube would not show it; without the rule its mirrored back could be drawn over the other page. The page area clips its content (`overflow: hidden`), which keeps it flat: the two pages are drawn in page order, not sorted by depth. Only `transform` and `opacity` change, so the browser can run the whole turn on the graphics chip.
+两个页面都有 `backface-visibility: hidden`。旋转开始和结束附近，一个面背对观众，真实的立方体不会显示它；没有这条规则，它的镜像背面可能被画在另一个页面上面。页面区域裁剪内容（`overflow: hidden`），让它保持平坦：两个页面按页面顺序绘制，不按深度排序。只有 `transform` 和 `opacity` 在变，所以浏览器可以在图形芯片上跑完整次旋转。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Turn direction | Sideways | Sideways turns around a vertical line, a later page coming in from the right; up and down turns around a horizontal line, a later page coming in from below |
-| Speed | Normal | How long the cube takes to turn: slow is 1100ms, normal 750ms and fast 500ms |
-| Depth | Normal | How close the viewer is to the cube: shallow puts them 3.2 sides away, normal 1.6 and deep 0.9, so the near edge looms larger |
+| 旋转方向 | 横向 | 横向绕一条竖线旋转，更晚的页面从右侧进来；上下绕一条横线旋转，更晚的页面从下面进来 |
+| 速度 | 普通 | 立方体旋转需要多长时间：慢是 1100ms，普通 750ms，快 500ms |
+| 深度 | 普通 | 观众离立方体有多近：浅让他们离 3.2 个边长，普通 1.6，深 0.9，所以近边看起来更大 |
 
-## Production notes
-- **Size the cube from the page.** The cube is as deep as the side it turns across, so read the page's width (or height) when the turn starts; a fixed depth makes the two pages part or overlap at the edge on other screen sizes.
-- **Hide the back sides.** Without `backface-visibility: hidden`, a side that has turned past the viewer shows its mirrored back, and with no depth sorting it can be drawn over the page in front.
-- **Shade, do not blur.** A black layer whose opacity follows the turn sells the light falling off; a blur or a box shadow would repaint every frame.
-- **Mind motion sickness.** A large 3D turn is a lot of movement. Reduced motion fades the new page in over 300ms instead, and the turn should stay short.
-- **Library equivalents.** Swiper's cube effect, the View Transitions API with 3D keyframes on `::view-transition-old` and `::view-transition-new` (inside a group with perspective), and GSAP `rotationY` tweens with `transformPerspective` all build the same quarter turn.
+## 生产注意事项
+- **按页面尺寸定立方体。**立方体的深度与它转过的边一样，所以在旋转开始时读页面的宽（或高）；固定深度会让两个页面在其他屏幕尺寸上在边缘处分开或重叠。
+- **藏起背面。**没有 `backface-visibility: hidden`，一个转过观众的面会显示它的镜像背面，没有深度排序时它可能被画在前面的页面上面。
+- **用阴影，不要用模糊。**一个不透明度跟随旋转的黑色图层能卖出光线衰减的感觉；模糊或盒阴影会每一帧都重绘。
+- **注意晕动。**一次大的 3D 旋转是很多运动。减弱动态效果改为在 300ms 内淡入新页面，旋转应该保持短暂。
+- **等价的库。**Swiper 的立方体效果、View Transitions API（在带透视的组里给 `::view-transition-old` 和 `::view-transition-new` 用 3D 关键帧）以及 GSAP 带 `transformPerspective` 的 `rotationY` 补间，都构建了同样的四分之一圈旋转。
 
-## See also
-- [Scroll-Driven 3D Rotation](../../06-3d-advanced/scroll-driven-3d-rotation/) — a 3D cube turned by scrolling
-- [3D Flip Card](../../06-3d-advanced/flip-card-3d/) — one card turns over to show its back
-- [Slide Transition](../slide-transition/) — the flat version: pages slide across
-- [Page Curl](../page-curl/) — the page turns over like paper instead
+## 另见
+- [滚动驱动 3D 旋转](../../06-3d-advanced/scroll-driven-3d-rotation/) — 一个由滚动旋转的 3D 立方体
+- [3D 翻转卡片](../../06-3d-advanced/flip-card-3d/) — 一张卡片翻过来显示背面
+- [滑动过渡](../slide-transition/) — 扁平版本：页面横向滑动
+- [翻页卷角](../page-curl/) — 页面像纸一样翻过去

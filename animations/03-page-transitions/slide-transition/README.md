@@ -1,18 +1,18 @@
-# Slide Transition
+# 滑动过渡
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/slide-transition/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/slide-transition/)
 
-## What it is
-A slide transition moves the old page out of one side while the new page comes in from the other, like panels on a track. When the direction follows the navigation — forward slides to the left, back slides to the right — it gives visitors a sense of where they are, as phone apps do. The demo can also always slide the same way, or slide down.
+## 它是什么
+滑动过渡把旧页面从一侧滑出，同时新页面从另一侧滑入，像轨道上的面板一样。当方向跟着导航走——前进向左滑、后退向右滑——它会给访客一种位置感，就像手机应用那样。演示也可以总是朝同一个方向滑，或向下滑动。
 
-## When to use it
-- Multi-step flows: onboarding, checkout, wizards where "next" and "back" have a clear direction
-- Mobile-style navigation stacks where pushing and popping screens should feel spatial
-- Carousels and paged content with an inherent left-to-right order
-- Anywhere the direction of motion should reinforce the direction of navigation
+## 什么时候用
+- 多步骤流程：新手引导、结账、向导，「下一步」和「返回」有明确的方向
+- 移动风格的导航栈，推入和弹出屏幕时应该有空间感
+- 轮播和分页内容，有内在的从左到右顺序
+- 任何运动方向应该强化导航方向的地方
 
-## How it works
-Direction is derived from whether the target index is greater or less than the current one; forward returns `-1` (slide left), back returns `+1` (slide right). The new page is parked off-screen on the opposite side, then both pages transition their `transform` together in the same direction:
+## 工作原理
+方向由目标索引大于还是小于当前索引得出；前进返回 `-1`（向左滑），后退返回 `+1`（向右滑）。新页面先停在对侧的屏幕外，然后两个页面沿同一个方向一起过渡它们的 `transform`：
 
 ```js
 function getDir(prev,next){
@@ -33,26 +33,26 @@ function doTransition(prev,next,dur,stagger,ease){
 }
 ```
 
-Because both pages animate `transform` in the same direction and by the same 100%, they stay locked edge-to-edge as they move — the compositor handles it entirely, which is why `will-change:transform` is set on every page. The Gap between pages setting adds an optional delay on the incoming page so it trails the outgoing one.
+因为两个页面沿同一个方向、按同样的 100% 做 `transform` 动画，它们在移动时始终边对边锁在一起——合成器全权处理，这就是为什么每个页面都设置了 `will-change:transform`。「页面之间的间隔」设置给进入的页面加一个可选的延迟，让它跟在离开的页面后面。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Direction | Forward and back | Forward and back slides left for the next page and right for the previous one; the other choices always slide the same way |
-| Speed | Normal | How long each slide takes: slow is 800ms, normal 500ms and fast 300ms; 300 to 500ms matches phone apps, longer drags |
-| Feel | Smooth | Smooth slows to a stop; Springy goes a little past and settles back; Even keeps one steady pace |
-| Gap between pages | None | How much later the new page starts: none, small (80ms) or large (160ms); a delay leaves a gap between the pages |
+| 方向 | 前进和后退 | 前进和后退时，下一页向左滑、上一页向右滑；其他选择总是朝同一个方向滑 |
+| 速度 | 普通 | 每次滑动需要多长时间：慢是 800ms，普通 500ms，快 300ms；300 到 500ms 符合手机应用，时间再长就拖沓 |
+| 感觉 | 平滑 | 平滑减速到停；弹性会滑过头一点再回来；均匀保持一个稳定的速度 |
+| 页面之间的间隔 | 无 | 新页面晚开始多久：无、小（80ms）或大（160ms）；延迟会在页面之间留出一段间隔 |
 
-## Production notes
-- **Animate `transform: translate`, never `left`/`right`** — translate runs on the compositor and stays at 60fps; positional properties trigger layout on every frame.
-- **Commit the parked position.** Reading `offsetWidth` after parking the new page off-screen makes the browser apply that position before the transition is switched on; without it the two writes merge and the new page jumps straight in with no slide.
-- **Off-screen pages keep `pointer-events` disabled** until active, so parked panels don't intercept taps.
-- **Match direction to platform expectation.** On mobile, forward-left / back-right is muscle memory; inverting it disorients users. The Forward and back setting encodes this.
-- **Reduced motion** toggles the `.active` class and clears transforms with no slide.
-- **Library equivalents**: the View Transitions API expresses this with slide keyframes on `::view-transition-old/new`. Framer Motion's `AnimatePresence` with `x` variants, React Router transition libraries, and GSAP's `xPercent` tweens all implement the same paired-translate.
+## 生产注意事项
+- **用 `transform: translate` 做动画，永远不要用 `left`/`right`**——translate 在合成器上运行，能保持 60fps；位置属性每一帧都会触发布局。
+- **确认停放位置。**把新页面停在屏幕外之后读一下 `offsetWidth`，会让浏览器在过渡开启前先应用那个位置；没有这一步，两次写入会合并，新页面会直接跳进来，没有滑动。
+- **屏幕外的页面保持 `pointer-events` 禁用**，直到激活为止，这样停放的面板不会拦截点击。
+- **方向要符合平台预期。**在移动端，前进向左、后退向右是肌肉记忆；反过来会让人迷失方向。「前进和后退」这个设置就是这么编码的。
+- **减弱动态效果**会切换 `.active` 类并清除 transform，不做滑动。
+- **等价的库**：View Transitions API 用 `::view-transition-old/new` 上的滑动关键帧表达这一点。Framer Motion 的 `AnimatePresence`（用 `x` 变体）、React Router 的过渡库和 GSAP 的 `xPercent` 补间都实现了同样的成对平移。
 
-## See also
-- [View Transitions API](../view-transitions-api/) — the browser can slide pages too
-- [Zoom Transition](../zoom-transition/) — pages move in depth instead
-- [Crossfade Transition](../crossfade/) — pages fade instead of moving
-- [Elastic Transition](../elastic-transition/) — the slide with a springy finish
+## 另见
+- [View Transitions API](../view-transitions-api/) — 浏览器也能滑动页面
+- [缩放过渡](../zoom-transition/) — 页面在纵深中移动而不是横向移动
+- [交叉淡入淡出过渡](../crossfade/) — 页面淡入淡出而不是移动
+- [弹性过渡](../elastic-transition/) — 带弹簧收尾的滑动
