@@ -835,7 +835,7 @@ test('the Full catalog in the root README lists every card once, in home order, 
   const cards = new Map(cats.flatMap(cat => cat.entries.map(([slug, name, desc]) => [`${cat.folder}/${slug}/`, { cat, name, desc }])));
   const problems = [], listed = [];
   let heading = null; // the category whose "### NN · Name · N techniques" heading the line is under
-  for (const line of sections(read(path.join(ROOT, 'README.md')))['Full catalog'].split('\n')) {
+  for (const line of sections(read(path.join(ROOT, 'README.md')))['完整目录'].split('\n')) {
     const h = line.match(/^### (\d{2}) · /);
     if (h) { heading = cats.find(cat => cat.n === h[1]); continue; }
     if (!line.startsWith('- ')) continue;
@@ -863,29 +863,29 @@ test('the Full catalog in the root README lists every card once, in home order, 
 test('the counts written in the root README match the cards', () => {
   const cats = homeConst('CATS'), cards = totalCards();
   const readme = read(path.join(ROOT, 'README.md'));
-  assert.equal(numberIn(readme, /<img src="docs\/hero\.webp" alt="[^"]*?(\d+) web animation techniques/), cards, "README: the picture's alt text");
+  assert.equal(numberIn(readme, /<img src="docs\/hero\.webp" alt="[^"]*?(\d+) 个网页动画效果/), cards, "README: the picture's alt text");
   // Every picture the README shows (img src and source srcset) is in the repository.
   for (const [, file] of readme.matchAll(/\s(?:src|srcset)="(docs\/[^"]+)"/g)) assert.ok(fs.existsSync(path.join(ROOT, file)), `README: ${file} is in the repository`);
-  assert.equal(numberIn(readme, /^\*\*A visual reference of (\d+) web animation techniques/m), cards, 'README: the intro line');
+  assert.equal(numberIn(readme, /^\*\*(\d+) 个网页动画效果的可视化参考/m), cards, 'README: the intro line');
   assert.equal(numberIn(readme, /badge\/techniques-(\d+)-/), cards, 'README: the techniques badge');
-  assert.equal(numberIn(readme, /^All (\d+) techniques, each linked to its live demo\.$/m), cards, 'README: the Full catalog line');
-  for (const [said] of readme.matchAll(/\d+ web animation techniques/gi)) assert.equal(numberIn(said, /(\d+)/), cards, `README: "${said}"`);
+  assert.equal(numberIn(readme, /^全部 (\d+) 个动画，每个都链接到在线演示。$/m), cards, 'README: the Full catalog line');
+  for (const [said] of readme.matchAll(/\d+ 个网页动画效果/g)) assert.equal(numberIn(said, /(\d+)/), cards, `README: "${said}"`);
   // Each category's count, in the Categories table, in its heading in the Full catalog and in the summary that opens its list.
-  const rows = table(sections(readme)['Categories']);
-  const headings = [...readme.matchAll(/^### (\d{2}) · (.+?) · (\d+) techniques$/gm)];
-  const summaries = [...readme.matchAll(/^<details><summary>Browse all (\d+) techniques in (.+?)<\/summary>$/gm)];
+  const rows = table(sections(readme)['分类']);
+  const headings = [...readme.matchAll(/^### (\d{2}) · (.+?) · (\d+) 个动画$/gm)];
+  const summaries = [...readme.matchAll(/^<details><summary>浏览「(.+?)」的全部 (\d+) 个动画<\/summary>$/gm)];
   assert.equal(rows.length, cats.length, 'README: one Categories row per category');
   assert.equal(headings.length, cats.length, 'README: one Full catalog heading per category');
-  assert.equal(summaries.length, cats.length, 'README: one "Browse all N techniques in …" summary per category');
+  assert.equal(summaries.length, cats.length, 'README: one "浏览「…」的全部 N 个动画" summary per category');
   for (const cat of cats) {
     const row = rows.find(r => r[0] === cat.n), heading = headings.find(h => h[1] === cat.n);
-    const summary = summaries.find(s => decode(s[2]) === cat.name);
+    const summary = summaries.find(s => decode(s[1]) === cat.name);
     assert.ok(row && row[1].startsWith(`[${cat.name}]`), `README: a Categories row for ${cat.n} ${cat.name}`);
     assert.equal(Number(row[2]), cat.entries.length, `README: the Categories count of ${cat.n} ${cat.name}`);
     assert.ok(heading && heading[2] === cat.name, `README: a Full catalog heading for ${cat.n} ${cat.name}`);
     assert.equal(Number(heading[3]), cat.entries.length, `README: the heading "${heading[0]}"`);
-    assert.ok(summary, `README: a "Browse all N techniques in ${cat.name}" summary`);
-    assert.equal(Number(summary[1]), cat.entries.length, `README: the summary "${summary[0]}"`);
+    assert.ok(summary, `README: a "浏览「${cat.name}」的全部 N 个动画" summary`);
+    assert.equal(Number(summary[2]), cat.entries.length, `README: the summary "${summary[0]}"`);
     // The line under each heading is the category's description on the home page.
     const line = between(readme, heading[0], '<details>').match(/<sub>([^<]*)<\/sub>/);
     assert.ok(line && decode(line[1]) === cat.desc, `README: the line under "${heading[0]}" is the home page's description of ${cat.name}`);
@@ -910,16 +910,16 @@ test('llms.txt lists every card once, in the order of CATS under its group, with
   const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
   const text = read(path.join(ROOT, 'llms.txt')).replace(/\r\n/g, '\n');
   const cats = homeConst('CATS'), cards = cats.flatMap(cat => cat.entries.map(([slug, name, desc]) => ({ name, address: `${LIVE}${cat.folder}/${slug}/`, desc })));
-  assert.ok(text.startsWith('# Animation Handbook\n'), 'llms.txt starts with the title');
+  assert.ok(text.startsWith('# 动画手册\n'), 'llms.txt starts with the title');
   assert.match(text, new RegExp(`^> .*\\b${cards.length}\\b`, 'm'), 'the summary under the title gives the count');
   const lines = text.split('\n').filter(line => line.startsWith('- [') && line.includes(`](${LIVE}animations/`));
   assert.equal(lines.length, cards.length, 'one line per card');
   cards.forEach((card, i) => assert.equal(lines[i], `- [${card.name}](${card.address}): ${card.desc}`, `line ${i + 1}`));
   const headings = text.split('\n').filter(line => line.startsWith('## '));
-  assert.deepEqual(headings, [...cats.map(cat => `## ${cat.name}`), '## Famous effects', '## Optional'], 'the groups in home order, then Famous effects and Optional');
+  assert.deepEqual(headings, [...cats.map(cat => `## ${cat.name}`), '## 知名效果', '## 可选'], 'the groups in home order, then 知名效果 and 可选');
   // The Famous effects page with its own description (white space squeezed), after the last card.
   const lede = decode(read(path.join(ROOT, 'famous', 'index.html')).match(/<meta name="description" content="([^"]+)">/)[1]).replace(/\s+/g, ' ').trim();
-  assert.ok(text.includes(`## Famous effects\n\n- [Famous effects](${LIVE}famous/): ${lede}\n`), 'the Famous effects line under its own heading');
+  assert.ok(text.includes(`## 知名效果\n\n- [知名效果](${LIVE}famous/): ${lede}\n`), 'the 知名效果 line under its own heading');
   assert.doesNotMatch(text, /skill/i, 'llms.txt says nothing of the AI skill, which is gone');
 });
 

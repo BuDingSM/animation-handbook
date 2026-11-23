@@ -74,8 +74,8 @@ if (outAt < 0) {
 }
 
 // llms.txt, at the root: the handbook as one plain list for AI tools that read a site without running its scripts. The title, a
-// summary with the count, every card under its group in home order with its live address and its line, then the Famous
-// effects page with its own description (white space squeezed). Written with the line endings it had. Not with --out.
+// summary with the count, every card under its group in home order with its live address and its line, then the 知名效果
+// page with its own description (white space squeezed). Written with the line endings it had. Not with --out.
 const REPO = 'https://github.com/matinmonshizadeh/animation-handbook';
 const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
 const decode = s => s.replace(/&(?:#(\d+)|#[xX]([0-9a-fA-F]+)|([A-Za-z][A-Za-z0-9]*));/g, (all, dec, hex, name) => {
@@ -87,13 +87,13 @@ const decode = s => s.replace(/&(?:#(\d+)|#[xX]([0-9a-fA-F]+)|([A-Za-z][A-Za-z0-
 const famousLede = (readFileSync(join(ROOT, FAMOUS, 'index.html'), 'utf8').match(/<meta name="description" content="([^"]+)">/) || [])[1];
 if (!famousLede) { console.error('famous/index.html has no description (<meta name="description" content="…">)'); process.exit(1); }
 const LLMS = join(ROOT, 'llms.txt');
-const llms = ['# Animation Handbook', '',
-  `> A visual reference of ${pages.length} web animation techniques, each with a live demo and a plain-words prompt for building it with an AI assistant.`, '',
-  "Each page plays one technique live and gives a ready-made prompt that describes it in plain words, with no code. Most pages also have a few plain settings, such as speed or direction, and the prompt you copy lists your choices. Each technique's folder on GitHub has a README on how it works, the values that matter and production notes.", '',
+const llms = ['# 动画手册', '',
+  `> ${pages.length} 个网页动画效果的可视化参考，每个动画都有在线演示和一句大白话提示词，粘贴到 AI 助手里就能做出来。`, '',
+  "每个页面都会在线播放一个动画，并给出一句现成的提示词，用简单的话描述它，不带代码。大多数页面还有几个简单的设置，比如速度或方向，复制的提示词会列出你的选择。每个动画在 GitHub 上的文件夹里都有一篇 README，讲它是怎么做的、哪些参数重要，还有生产中的注意事项。", '',
   ...CATS.flatMap(cat => [`## ${cat.name}`, '',
     ...cat.entries.map(([slug, name, desc]) => `- [${name}](${BASE}${cat.folder.replace(/\/$/, '')}/${slug}/): ${desc}`), '']),
-  '## Famous effects', '', `- [Famous effects](${BASE}${FAMOUS}): ${decode(famousLede).replace(/\s+/g, ' ').trim()}`, '',
-  '## Optional', '', `- [Source on GitHub](${REPO}): every demo's code and each technique's README`, ''].join('\n');
+  '## 知名效果', '', `- [知名效果](${BASE}${FAMOUS}): ${decode(famousLede).replace(/\s+/g, ' ').trim()}`, '',
+  '## 可选', '', `- [GitHub 上的源码](${REPO}): 每个演示的代码和每个动画的 README`, ''].join('\n');
 if (outAt < 0) {
   const oldLlms = existsSync(LLMS) ? readFileSync(LLMS, 'utf8') : '';
   const text = oldLlms.includes('\r\n') ? llms.replace(/\n/g, '\r\n') : llms;
