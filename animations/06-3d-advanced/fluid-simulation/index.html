@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluid / Liquid Simulation — 动画手册</title>
-  <meta name="description" content="Blobs drift and melt into each other like liquid. Best for hero backgrounds.">
+  <title>流体模拟 — 动画手册</title>
+  <meta name="description" content="色块像液体一样漂移、融化、合在一起。适合主视觉背景。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Fluid / Liquid Simulation — 动画手册">
-  <meta property="og:description" content="Blobs drift and melt into each other like liquid. Best for hero backgrounds.">
+  <meta property="og:title" content="流体模拟 — 动画手册">
+  <meta property="og:description" content="色块像液体一样漂移、融化、合在一起。适合主视觉背景。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fluid / Liquid Simulation — 动画手册">
-  <meta name="twitter:description" content="Blobs drift and melt into each other like liquid. Best for hero backgrounds.">
+  <meta name="twitter:title" content="流体模拟 — 动画手册">
+  <meta name="twitter:description" content="色块像液体一样漂移、融化、合在一起。适合主视觉背景。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Fluid / Liquid Simulation", "name": "Fluid / Liquid Simulation", "description": "Blobs drift and melt into each other like liquid. Best for hero backgrounds.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/", "inLanguage": "zh-CN", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, Fluid / Liquid Simulation"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "流体模拟", "name": "流体模拟", "description": "色块像液体一样漂移、融化、合在一起。适合主视觉背景。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 流体模拟"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -44,20 +44,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../canvas-particle-effect/" rel="prev" aria-label="上一个：Canvas Particle Effect"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Canvas Particle Effect</span></a><a href="../glassmorphism-animated/" rel="next" aria-label="下一个：Glassmorphism Animated"><span><span class="hb-dir">下一个：</span>Glassmorphism Animated</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../canvas-particle-effect/" rel="prev" aria-label="上一个：Canvas 粒子效果"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Canvas 粒子效果</span></a><a href="../glassmorphism-animated/" rel="next" aria-label="下一个：动态毛玻璃"><span><span class="hb-dir">下一个：</span>动态毛玻璃</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.05 · 3D &amp; Advanced</p>
-    <h1>Fluid / Liquid Simulation</h1>
-    <p class="hb-lede">Blobs drift and melt into each other like liquid. Best for hero backgrounds.</p>
+    <p class="hb-cat">06.05 · 3D 与高级效果</p>
+    <h1>流体模拟</h1>
+    <p class="hb-lede">色块像液体一样漂移、融化、合在一起。适合主视觉背景。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself, and one blob follows your pointer or finger. Pause it to look closely, or turn on slow motion.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动，其中一个色块会跟着你的指针或手指。暂停可以仔细看，或打开慢动作。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -65,87 +65,87 @@
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <canvas id="cvs" role="img" aria-label="Soft blobs drifting and melting into each other on a dark background"></canvas>
-      <div class="no-webgl" id="no-webgl">WebGL not available in this browser.</div>
-      <div class="key" aria-hidden="true"><span class="lbl k" data-hb-caption>White: each blob's circle</span><span class="lbl k" data-hb-caption>Gold: where two melt</span></div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Circles</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Melting</p>
+      <canvas id="cvs" role="img" aria-label="深色背景上漂移、融化到一起的柔和色块"></canvas>
+      <div class="no-webgl" id="no-webgl">这个浏览器不支持 WebGL。</div>
+      <div class="key" aria-hidden="true"><span class="lbl k" data-hb-caption>白色：每个色块的圆圈</span><span class="lbl k" data-hb-caption>金色：两个融化的地方</span></div>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>圆圈</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>融化</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each blob is a plain circle, outlined in white; where two come close, the melting adds liquid between them, shaded gold.</p>
-      <p data-hb-for="compare" hidden>On the left, Circles: the blobs only overlap, with sharp corners where they meet. On the right, Melting: they flow into one shape with soft necks between them.</p>
+      <p data-hb-for="inside" hidden>看内部：每个色块都是一个普通的圆圈，用白线描边；两个靠得近时，融化会在它们之间加上液体，涂成金色。</p>
+      <p data-hb-for="compare" hidden>左边是「圆圈」：色块只是重叠，相接的地方有尖角。右边是「融化」：它们流成一个形状，中间有柔和的颈部相连。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="melt-lbl">Melting</p>
+        <p class="hb-setting-name" id="melt-lbl">融化程度</p>
         <div class="seg" id="melt-seg" role="group" aria-labelledby="melt-lbl">
-          <button type="button" data-smooth="0.03" aria-pressed="false">A little</button>
-          <button type="button" data-smooth="0.08" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-smooth="0.15" aria-pressed="false">A lot</button>
+          <button type="button" data-smooth="0.03" aria-pressed="false">一点</button>
+          <button type="button" data-smooth="0.08" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-smooth="0.15" aria-pressed="false">很多</button>
         </div>
-        <p class="hb-hint">How far apart two blobs start to melt together.</p>
+        <p class="hb-hint">两个色块相隔多远时开始融化到一起。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="count-lbl">Number of blobs</p>
+        <p class="hb-setting-name" id="count-lbl">色块数量</p>
         <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
-          <button type="button" data-balls="3" aria-pressed="false">Few</button>
-          <button type="button" data-balls="5" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-balls="8" aria-pressed="false">Many</button>
+          <button type="button" data-balls="3" aria-pressed="false">少</button>
+          <button type="button" data-balls="5" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-balls="8" aria-pressed="false">多</button>
         </div>
-        <p class="hb-hint">More blobs meet and merge more often.</p>
+        <p class="hb-hint">色块越多，相遇、融合得越频繁。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-spd="0.5" aria-pressed="false">Slow</button>
-          <button type="button" data-spd="0.8" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-spd="1.3" aria-pressed="false">Fast</button>
+          <button type="button" data-spd="0.5" aria-pressed="false">慢</button>
+          <button type="button" data-spd="0.8" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-spd="1.3" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Slow feels calm, like a lava lamp.</p>
+        <p class="hb-hint">慢下来感觉安静，像熔岩灯一样。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="size-lbl">Blob size</p>
+          <p class="hb-setting-name" id="size-lbl">色块大小</p>
           <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-            <button type="button" data-rad="0.09" aria-pressed="false">Small</button>
-            <button type="button" data-rad="0.14" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-rad="0.2" aria-pressed="false">Large</button>
+            <button type="button" data-rad="0.09" aria-pressed="false">小</button>
+            <button type="button" data-rad="0.14" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-rad="0.2" aria-pressed="false">大</button>
           </div>
-          <p class="hb-hint">Bigger blobs touch and merge more.</p>
+          <p class="hb-hint">色块越大，越容易碰到一起、融化到一起。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" aria-pressed="false" aria-label="Pink" data-color="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-color="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-color="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-color="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-color="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-color="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-color="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-color="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-color="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-color="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-color="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-color="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The color of the liquid.</p>
+          <p class="hb-hint">液体的颜色。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Glow</span><input class="hb-switch" type="checkbox" role="switch" id="glow-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">A soft halo around the liquid.</p>
+          <label class="hb-switch-row"><span>辉光</span><input class="hb-switch" type="checkbox" role="switch" id="glow-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">液体周围一圈柔和的光晕。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>One blob follows the pointer</span><input class="hb-switch" type="checkbox" role="switch" id="mouse-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">Moves one blob to your pointer or finger.</p>
+          <label class="hb-switch-row"><span>一个色块跟随指针</span><input class="hb-switch" type="checkbox" role="switch" id="mouse-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">把一个色块移到你的指针或手指处。</p>
         </div>
       </div>
     </details>
@@ -154,10 +154,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add liquid blobs to [the section you want them in]. In a WebGL fragment shader, work out for every pixel its distance to each of a few moving circles, and blend those distances with a smooth minimum so circles that come close melt into one shape with soft necks between them, like drops of mercury. Move the circles on looping paths so they keep merging and separating; one can follow the pointer or a finger. Every pixel is checked against every circle, so draw fewer pixels on phones. If the visitor has reduced motion turned on, show the blobs still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想放它们的版块]加一些液态色块。在 WebGL 片段着色器里，算出每个像素到几个移动圆圈的距离，再用平滑最小值把这些距离融合起来，靠得近的圆圈就会融成一个形状，中间有柔和的颈部相连，像水银滴一样。让圆圈沿着循环路径移动，不断合并、分离；其中一个可以跟随指针或手指。每个像素都要和每个圆圈比对，所以手机上画的像素要少一些。如果访客打开了减弱动态效果，就让色块静止不动。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -177,9 +177,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Hero backgrounds</li><li>Wellness brands</li><li>Creative studios</li><li>Splash screens</li></ul>
+      <ul class="hb-tags hb-good"><li>主视觉背景</li><li>健康品牌</li><li>创意工作室</li><li>启动画面</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Behind text</li><li>Small elements</li></ul>
+      <ul class="hb-tags hb-avoid"><li>文字后面</li><li>小元素</li></ul>
     </div>
   </section>
 
@@ -212,7 +212,7 @@ const FS=`
 precision mediump float;
 uniform vec2 uRes,uOrigin;uniform float uT;uniform int uBalls,uView;
 uniform float uSmooth,uRad;uniform vec2 uMouse;uniform bool uGlow,uMouseBall;
-uniform vec3 uColor,uBG;
+uniform vec3 u颜色,uBG;
 
 float smin(float a,float b,float k){
   float h=clamp(.5+.5*(b-a)/k,0.,1.);
@@ -241,9 +241,9 @@ void main(){
   // Compare's first picture: the plain circles, with no melting between them
   if(uView==2)d=hard;
   float inside=smoothstep(.01,-.01,d);
-  vec3 rim=uColor*pow(clamp(1.-abs(d)/.05,0.,1.),3.);
+  vec3 rim=u颜色*pow(clamp(1.-abs(d)/.05,0.,1.),3.);
   float glow=uGlow?exp(-max(d,0.)/.08)*.4:0.;
-  vec3 col=mix(uBG,uColor,inside)+rim*.5+uColor*glow;
+  vec3 col=mix(uBG,u颜色,inside)+rim*.5+u颜色*glow;
   // See inside: the liquid dimmed; where the melting adds liquid outside every plain circle, gold; each plain circle outlined
   if(uView==1){
     col*=.45;
@@ -251,7 +251,7 @@ void main(){
     col=mix(col,vec3(1.,.82,.36),melt*.95);
     col=mix(col,vec3(1.),1.-smoothstep(.002,.007,edge));
   }
-  gl_FragColor=vec4(col,1.);
+  gl_Frag颜色=vec4(col,1.);
 }`;
 
 // A failed shader is otherwise a silent black canvas — say so instead.
@@ -260,20 +260,20 @@ function fail(msg){stage.classList.add('no-gl');gl=null;cvs.style.display='none'
 
 function init(){
   gl=cvs.getContext('webgl');
-  if(!gl){fail('WebGL is unavailable in this browser, so there is nothing to render.');return false;}
+  if(!gl){fail('这个浏览器不支持 WebGL，所以没什么可渲染的。');return false;}
   function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
     if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(s));return null;}
     return s;}
   const vs=sh(gl.VERTEX_SHADER,VS),fs=sh(gl.FRAGMENT_SHADER,FS);
-  if(!vs||!fs){fail('Shader compilation failed — the log is in the browser console.');return false;}
+  if(!vs||!fs){fail('着色器编译失败——日志在浏览器控制台里。');return false;}
   prog=gl.createProgram();
   gl.attachShader(prog,vs);
   gl.attachShader(prog,fs);
   gl.linkProgram(prog);
   if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(prog));
-    fail('Shader program failed to link — the log is in the browser console.');return false;}
+    fail('着色器程序链接失败——日志在浏览器控制台里。');return false;}
   gl.useProgram(prog);
-  U={};'uRes uOrigin uT uBalls uView uSmooth uRad uMouse uGlow uMouseBall uColor uBG'.split(' ')
+  U={};'uRes uOrigin uT uBalls uView uSmooth uRad uMouse uGlow uMouseBall u颜色 uBG'.split(' ')
     .forEach(n=>{U[n]=gl.getUniformLocation(prog,n);});
   const buf=gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER,buf);
@@ -310,13 +310,13 @@ function render(ts){
   gl.uniform1f(U.uRad,RAD);
   gl.uniform2f(U.uMouse,shownX,shownY);
   gl.uniform1i(U.uGlow,GLOW?1:0);
-  gl.uniform3fv(U.uColor,COLOR);
+  gl.uniform3fv(U.u颜色,COLOR);
   gl.uniform3fv(U.uBG,BG);
   // Compare: one context, two pictures side by side with a thin line between them, the plain circles on the left and the melting
   // blobs on the right; the pointer, read over the right half only, moves the same blob in both, so the blobs match.
   if(mode==='compare'){
     const half=Math.floor(W/2),gap=Math.max(1,Math.round(W/400));
-    gl.viewport(0,0,W,H);gl.clearColor(.17,.17,.2,1);gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.viewport(0,0,W,H);gl.clear颜色(.17,.17,.2,1);gl.clear(gl.COLOR_BUFFER_BIT);
     view(0,half-gap,2,MOUSE_BALL);
     view(half+gap,W-half-gap,0,MOUSE_BALL);
   }else view(0,W,mode==='inside'?1:0,MOUSE_BALL);

@@ -1,18 +1,18 @@
-# Liquid Glass
+# 液态玻璃
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/liquid-glass/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/liquid-glass/)
 
-## What it is
-Liquid glass makes a panel look like a slab of thick, clear glass lying on the page. Near its rounded edges the picture behind it is bent and magnified, the way the curved rim of a lens bends light, while the middle stays almost clear, and a thin highlight runs along the rim. In Chromium browsers the bend is a displacement filter applied to whatever is behind the panel; other browsers show the same panel as frosted glass.
+## 它是什么
+液态玻璃让一块面板看起来像躺在页面上的一块厚厚的透明玻璃。靠近圆角边缘的地方，身后的画面会弯曲放大，就像透镜弯曲的边缘弯折光线，中间几乎保持透明，边缘上还有一条细细的高光。在 Chromium 浏览器里，弯曲是施加在面板身后东西上的位移滤镜；其他浏览器把同一块面板显示为磨砂玻璃。
 
-## When to use it
-- Floating menus and tab bars that sit over photos or scrolling content
-- Media controls and small cards laid over a hero image or a video
-- A lens you can drag over a map, a chart or a product photo
-- One tactile, eye-catching control on a product page or a portfolio
+## 什么时候用
+- 浮在照片或滚动内容上的悬浮菜单和标签栏
+- 放在主视觉图片或视频上的媒体控件和小卡片
+- 可以拖过地图、图表或产品照片的放大镜
+- 产品页或作品集上一个触感十足、引人注目的控件
 
-## How it works
-**The filter.** An SVG filter moves every pixel by an amount it reads from a second picture, the displacement map: the map's red channel is the sideways shift and its green channel the shift up or down, with 128 meaning no shift. Referenced from `backdrop-filter`, the filter bends what lies behind the panel instead of the panel's own content:
+## 工作原理
+**滤镜。**SVG 滤镜按第二张图片（位移图）读取的量移动每个像素：图的红色通道是横向位移，绿色通道是上下位移，128 表示没有位移。从 `backdrop-filter` 引用它，滤镜弯曲的是面板身后的东西，而不是面板自己的内容：
 
 ```html
 <svg width="0" height="0" style="position:absolute">
@@ -27,9 +27,9 @@ Liquid glass makes a panel look like a slab of thick, clear glass lying on the p
 .lg-refract .lg-glass { backdrop-filter: url(#lg-filter) blur(var(--lg-blur)) saturate(1.3); }
 ```
 
-The filter region and the map are the panel's own size in pixels, so the map lines up with the panel, and the script sets both whenever the panel changes size. `color-interpolation-filters="sRGB"` keeps 128 in the middle: in the default linear color space the filter reads that gray as about 0.22 and shifts everything.
+滤镜区域和位移图都是面板自己的像素尺寸，所以图与面板对齐，面板尺寸变化时脚本会同时设置两者。`color-interpolation-filters="sRGB"` 让 128 保持在中间：默认的线性色彩空间里滤镜会把那个灰色读成约 0.22，让一切都位移。
 
-**The map.** The demo draws the map on a canvas, one pixel for each CSS pixel of the panel. For every pixel it finds `e`, the distance in from the rounded edge, and `(nx, ny)`, the direction out of it. Inside the rim, which is 70% of the panel's half height, the pixel is told to read the picture from further in, most at the very edge, so the rim magnifies what is behind it; a small pull toward the middle everywhere magnifies the whole panel a little. Outside the rounded corners the map stays at 128:
+**位移图。**演示在画布上画出位移图，面板每个 CSS 像素对应一个像素。对每个像素，它找出 `e`（离圆角边缘的距离）和 `(nx, ny)`（向外的方向）。在边缘内侧（面板半高的 70%），像素被告知从更靠里的地方读取画面，越靠近边缘越靠里，所以边缘放大了身后的东西；处处向中间的一点拉力让整块面板也稍微放大一点。圆角之外的位移图保持在 128：
 
 ```js
 const m = e < 0 ? 0 : (1 - Math.min(1, e / B)) ** 2, z = e < 0 ? 0 : MAG;   // B: the rim's width, MAG = 0.15
@@ -37,9 +37,9 @@ d[k]     = 128 - 127 * (nx * m + z * X / hw) / (1 + MAG);                  // re
 d[k + 1] = 128 - 127 * (ny * m + z * Y / hh) / (1 + MAG);                  // green: up and down
 ```
 
-The filter shifts a pixel by up to half its `scale`, so How much it bends only changes `scale` (twice the bend times the rim's width, times 1.15 for the pull toward the middle); the map is drawn again only when the panel changes size or shape.
+滤镜最多把一个像素移动它 `scale` 的一半，所以「弯曲程度」只改变 `scale`（弯曲的两倍乘以边缘宽度，再乘以 1.15 的向中间拉力）；位移图只在面板改变尺寸或形状时重画。
 
-**Which browsers bend.** Chromium-based browsers, such as Chrome, Edge and Opera, draw an SVG filter in `backdrop-filter` (the demo was checked in Chrome and Edge). Safari and Firefox do not draw it, and a feature test cannot tell: `CSS.supports()` checks only that the rule is valid, not that the bend appears. The demo gives the bend to browsers that list Chromium among their brands in `navigator.userAgentData`, which only Chromium-based browsers have, and shows everyone else frosted glass: a blur of the backdrop with the same tint, rim and shadow, and a glow inside the rim that grows with How much it bends. There the help line above the stage adds "Frosted here: the bend shows in Chrome or Edge on a computer or Android." On iPhone and iPad every browser, Chrome and Edge too, is built on Safari's engine and shows the frosted glass. `navigator.userAgentData` exists only on secure pages (https, or localhost), so Chrome opening the page over plain http at a network address gets the frosted glass too.
+**哪些浏览器会弯曲。**Chrome、Edge 和 Opera 等基于 Chromium 的浏览器会在 `backdrop-filter` 里画 SVG 滤镜（演示在 Chrome 和 Edge 里检查过）。Safari 和 Firefox 不画，特性检测也测不出来：`CSS.supports()` 只检查规则是否有效，不检查弯曲是否出现。演示把弯曲交给在 `navigator.userAgentData` 里把 Chromium 列为品牌的浏览器——只有基于 Chromium 的浏览器才有——其他浏览器一律显示磨砂玻璃：背景的模糊配上同样的着色、边缘和阴影，边缘里还有一道随「弯曲程度」变强的光晕。那里舞台上方的帮助行会加上“这里是磨砂玻璃：弯曲效果只在电脑或安卓上的 Chrome 或 Edge 里显示。”iPhone 和 iPad 上所有浏览器，包括 Chrome 和 Edge，都是基于 Safari 的引擎，显示的都是磨砂玻璃。`navigator.userAgentData` 只在安全页面（https 或 localhost）上存在，所以通过普通 http 在网络地址上打开页面的 Chrome 得到的也是磨砂玻璃。
 
 ```js
 const REFRACT = !!(navigator.userAgentData && navigator.userAgentData.brands.some(b => b.brand === 'Chromium'))
@@ -47,7 +47,7 @@ const REFRACT = !!(navigator.userAgentData && navigator.userAgentData.brands.som
 stage.classList.toggle('lg-refract', REFRACT);
 ```
 
-**The liquid stretch.** The panel moves by `transform` only. Its speed, measured from one drawn frame to the next and smoothed over a few frames, sets how far it should stretch along the motion: about 6% for every width of the panel it covers in a second, at most 12%. A spring that takes fixed steps of 1/60 s follows that target, so the stretch lags a little, and when the panel stops it overshoots into a short wobble. The stretch keeps the area: longer along the motion, shorter across it, as one matrix around the panel's center:
+**液体的拉伸。**面板只靠 `transform` 移动。它的速度从一个绘制帧到下一个测量，再经过几帧平滑，决定它沿运动方向应该拉伸多远：每秒走过一个面板宽度约 6%，最多 12%。一个按 1/60 秒固定步长走的弹簧跟随这个目标，所以拉伸会滞后一点，面板停下时会冲过头、短暂地晃动。拉伸保持面积：沿运动方向变长，横向变短，作为围绕面板中心的一个矩阵：
 
 ```js
 const ta = e * (ux * ux - uy * uy), tb = e * 2 * ux * uy;          // the target for the motion's direction (ux, uy)
@@ -57,28 +57,28 @@ for (acc += dt * f; acc >= FRAME; acc -= FRAME) {                     // f is 1/
 glass.style.transform = `translate(${x - gw / 2}px, ${y - gh / 2}px) matrix(${1 + a}, ${b}, ${b}, ${1 - a}, 0, 0)`;
 ```
 
-Show me glides along three legs (to the left end, across to the right end and back where it started), each eased in and out and timed by its length, 3.6 s in all. When the stage changes size (a resize, or a phone turned sideways), the glass, the end of a glide, every point of a run and the place a held Show me returns to keep their shares of the stage; one that was at the rest place goes to the new rest place. The arrow keys move a target a step at a time (8% of the stage's shorter side, three steps with Shift), and the panel glides toward it by a share of the gap per 1/60 s, the same on any screen.
+「演示一下」沿三段滑行（到左端、横穿到右端、再回到出发的地方），每段按长度缓入缓出，总共 3.6 秒。舞台尺寸变化时（调整大小，或手机横过来），玻璃、滑行的终点、每次运行的每个点和一次按住的「演示一下」要回去的地方都保持它们在舞台上的占比；原来在静止位置的会去新的静止位置。方向键一次移动一个目标（舞台较短边的 8%，按住 Shift 是三步），面板按每六十分之一秒弥合一段差距滑向它，在任何屏幕上都一样。
 
-**Reduced motion.** The panel still follows the pointer or finger while it is dragged, but it never stretches, wobbles or glides: the arrow keys, a tap and Reset move it at once, and Show me puts it at the right end for 1.2 s and back. Every frame under reduced motion sets the stretch and its speed to zero, and turning reduced motion on while the glass moves stops a run where it is and ends a glide at its target, so nothing is left stretched or moving.
+**减弱动态。**面板在拖动时仍然跟随指针或手指，但绝不拉伸、晃动或滑行：方向键、轻触和「重置」会立刻移动它，「演示一下」把它放到右端 1.2 秒再回来。减弱动态下的每一帧都把拉伸和它的速度设为零，玻璃移动时打开减弱动态会让一次运行停在原地、一次滑行在目标处结束，所以什么也不会留下来拉伸或移动。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How much it bends | Medium | The rim's deepest shift, at the very edge, as a share of the rim's width (35% of the panel's height): subtle 25%, medium 42% and strong 60%, and a slight pull toward the middle, which magnifies the whole panel a little, adds 15% to it. Past half the rim folds into a thin mirrored band, as the edge of thick glass does. Other browsers show a faint white glow inside the rim instead, blurred over 12, 23 or 36px |
-| Frost | Clear | How much the backdrop is blurred: clear none, light 1.5 and frosted 4 pixels where the glass bends; 3, 8 and 16 pixels for the frosted glass of other browsers |
-| Tint | White | The color the glass adds, mixed in at 9% for white and 20% for the other colors |
-| Shape | Card | Card: 1.6 times as wide as tall, corners a third of its height; pill: 2.7 times as wide as tall with round ends; circle: a round lens. The card is 30% of the stage's width, from 150 to 280 pixels (the pill 1.12 times as wide and the circle 0.68 times), and no shape is taller than 55% of the stage |
-| Shows the bend map | off | Lays the displacement map over the glass: red is the sideways shift, green the shift up or down, gray none |
+| 弯曲程度 | 中等 | 边缘最深处的位移，在最边缘，作为边缘宽度（面板高度的 35%）的占比：轻微 25%，中等 42%，强烈 60%，再加向中间的一点拉力，让整块面板稍微放大，额外增加 15%。超过一半时，边缘会折成一条细细的镜像带，就像厚玻璃的边缘那样。其他浏览器则在边缘里显示一道淡淡的白光，分别模糊 12、23 或 36px |
+| 磨砂程度 | 透明 | 背景模糊多少：透明不模糊，轻微 1.5px，磨砂 4px（在玻璃会弯曲的地方）；其他浏览器的磨砂玻璃是 3、8 和 16px |
+| 着色 | 白色 | 玻璃加上的颜色，白色按 9% 混合，其他颜色按 20% 混合 |
+| 形状 | 卡片 | 卡片：宽是高的 1.6 倍，圆角是高度的三分之一；胶囊：宽是高的 2.7 倍，两端是圆的；圆形：圆形的放大镜。卡片是舞台宽度的 30%，从 150 到 280px（胶囊宽 1.12 倍，圆形宽 0.68 倍），任何形状都不高于舞台的 55% |
+| 显示弯曲图 | 关 | 把位移图铺在玻璃上：红色是横向位移，绿色是上下位移，灰色是没有位移 |
 
-## Production notes
-- **Chromium only, for now**: `backdrop-filter: url()` bends the backdrop in Chromium; Safari and Firefox need the fallback, so check the page in both. A way that reaches more browsers is to put a copy of the background inside the panel and apply the same filter to that copy with `filter: url()`, which also works on ordinary elements; it only works where you control what is behind the panel.
-- **Detection**: `CSS.supports()` only checks the syntax, so pair it with a check for Chromium, as the demo does, and keep the fallback good enough to be the whole effect.
-- **Cost**: the browser filters the backdrop again on every frame the panel moves, and the work grows with the panel's area. Keep glass to menus, controls and small cards, not full-screen sheets. The displacement is one texture lookup per pixel; the blur is the expensive part, so keep frost light. The demo's panel is a share of the stage, so it is smaller on phones.
-- **Keep the map in step with the panel**: a map drawn for another size moves the bend away from the rim. Redraw it on resize and when the shape changes; changing only `scale` is cheap.
-- **Text on glass**: text over refracted, moving color can drop below 4.5:1. Give it a dark see-through layer or a solid backing, as Glassmorphism Animated does.
-- **Libraries**: no library is needed for the filter. The drag and the wobble can come from GSAP's Draggable with an elastic ease or Framer Motion's drag with a spring; several open-source React and Vue components wrap the same SVG displacement technique. In native apps, Apple's Liquid Glass (iOS and macOS 26) is a system material.
+## 生产注意事项
+- **目前只有 Chromium**：`backdrop-filter: url()` 在 Chromium 里弯曲背景；Safari 和 Firefox 需要回退方案，所以两种浏览器里都要检查页面。覆盖更多浏览器的办法是把背景的副本放进面板，再用 `filter: url()` 对那个副本应用同样的滤镜，普通元素上也能用；只在你能控制面板身后是什么的地方才行。
+- **检测**：`CSS.supports()` 只检查语法，所以像演示那样再加一个 Chromium 检查，并把回退方案做得足够好，能当作整个效果。
+- **成本**：面板移动的每一帧，浏览器都会重新过滤背景，工作量随面板面积增长。玻璃只用在菜单、控件和小卡片上，不要用在全屏的薄片上。位移是每像素一次纹理查找；模糊才是贵的部分，所以磨砂保持轻微。演示的面板是舞台的一个占比，所以手机上更小。
+- **让位移图跟上面板走**：为另一个尺寸画的位移图会把弯曲移离边缘。调整大小和改变形状时重画；只改变 `scale` 很便宜。
+- **玻璃上的文字**：折射的、移动的颜色上的文字可能掉到 4.5:1 以下。给它一层深色半透明层或实心底衬，像动态毛玻璃那样。
+- **库**：滤镜不需要库。拖动和晃动可以用 GSAP 的 Draggable 加弹性缓动，或 Framer Motion 带弹簧的拖动；几个开源 React 和 Vue 组件包装了同样的 SVG 位移技术。原生应用里，苹果的 Liquid Glass（iOS 和 macOS 26）是一种系统材质。
 
-## See also
-- [Glassmorphism Animated](../glassmorphism-animated/) — frosted glass that blurs what is behind it instead of bending it
-- [Image Distortion on Hover](../image-distortion-hover/) — a picture bent around the pointer, drawn with a shader
-- [Parallax 3D Tilt](../parallax-3d-tilt/) — a card tilts toward the pointer while a light slides over it
+## 另见
+- [动态毛玻璃](../glassmorphism-animated/) — 磨砂玻璃，模糊身后的东西而不是弯曲它
+- [悬停图片扭曲](../image-distortion-hover/) — 用着色器画出的、在指针周围弯曲的图片
+- [视差 3D 倾斜](../parallax-3d-tilt/) — 一张卡片朝指针倾斜，同时一道光滑过

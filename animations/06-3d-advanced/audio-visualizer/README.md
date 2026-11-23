@@ -1,18 +1,18 @@
-# Audio Visualizer
+# 音频可视化
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/audio-visualizer/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/audio-visualizer/)
 
-## What it is
-An audio visualizer turns sound into moving shapes: a row of bars from bass on the left to treble on the right, each as tall as its band of pitches is loud right now. The bars jump up when a sound starts and sink back as it fades, so a kick drum makes the low bars leap and the hi-hats flicker at the top. The same loudness can be drawn as bars, as a ring of bars around a circle, or as the wave the sound itself makes.
+## 它是什么
+音频可视化把声音变成动的图形：一排音条，左边是低音，右边是高音，每根的高度就是它那个音高段此刻的响度。声音一响音条就跳起来，声音一弱就沉回去，所以底鼓会让低音条跃起，踩镲在顶部闪烁。同样的响度可以画成音条、围成圆环的音条，或者声音本身的波形。
 
-## When to use it
-- Music players, from a site's own player to a band's page
-- Podcast and audiobook cards, to show that something is playing
-- Radio, DJ and event sites, as a lively header
-- Voice notes and recorders, as a sign that sound is coming in
+## 什么时候用
+- 音乐播放器，从网站自己的播放器到乐队主页
+- 播客和有声书卡片，表明有东西在播放
+- 电台、DJ 和活动网站，作为生动的页眉
+- 语音留言和录音机，作为声音正在输入的标志
 
-## How it works
-In a real player the page connects the playing audio to the Web Audio API's `AnalyserNode`, which reports many times a second how loud each slice of pitches is (`getByteFrequencyData`) or the shape of the sound (`getByteTimeDomainData`):
+## 工作原理
+在真正的播放器里，页面把正在播放的音频接到 Web Audio API 的 `AnalyserNode` 上，它每秒多次报告每个音高切片有多响（`getByteFrequencyData`），或声音的形状（`getByteTimeDomainData`）：
 
 ```js
 const ctx = new AudioContext(), source = ctx.createMediaElementSource(audioElement), analyser = ctx.createAnalyser();
@@ -22,33 +22,33 @@ const freq = new Uint8Array(analyser.frequencyBinCount);
 analyser.getByteFrequencyData(freq);   // 0 to 255 for each slice of about 22 Hz
 ```
 
-The analyzer's slices are all the same width in hertz, but hearing works in octaves: 40 to 80 Hz is as wide a step for the ear as 4,000 to 8,000 Hz. So the bars group the slices by octave, from 40 Hz to 16 kHz, each band wider than the one before, and each bar shows the average of its slices. With equal slices instead (the demo's Compare), the bass and the tune crowd into the first few bars and the rest only flicker.
+分析器的切片在赫兹上宽度都一样，但听觉是按八度工作的：40 到 80 Hz 对耳朵来说和 4000 到 8000 Hz 一样宽。所以音条按八度把切片分组，从 40 Hz 到 16 kHz，每个频段都比前一个宽，每根音条显示它那些切片的平均值。用等宽切片的话（演示的「对比」模式），低音和旋律会挤进前几根音条，剩下的只会闪烁。
 
 ```js
 const edges = [...Array(n + 1)].map((_, i) => 40 * Math.pow(400, i / n));   // 40 Hz × 400 = 16 kHz
 ```
 
-Each frame a bar jumps straight to a louder value and otherwise sinks by How bars fall, measured in bar heights a second, so it falls at the same speed on every screen; a peak mark holds the highest point for 0.4 seconds, then sinks slowly. The palette's two colors are drawn once into a strip one pixel wide, and each bar copies the part of the strip it reaches with `drawImage`, which costs far less than filling every bar with a gradient each frame.
+每帧，音条遇到更响的值就直接跳上去，否则按「音条下落方式」沉下去，以每秒几个音条高度计，所以在任何屏幕上落下的速度都一样；峰值标记把最高点留住 0.4 秒，然后慢慢沉下去。调色板的两种颜色一次画进一条一像素宽的色带，每根音条用 `drawImage` 复制它够到的那一段，比每帧给每根音条填渐变便宜得多。
 
-The demo plays no file and uses no microphone. Its tune is written in the page as notes (kick, snare, hi-hats, bass and a short melody, four bars at 100 beats a minute), and every frame the page works out how loud each band would be from the notes playing at that moment, so the bars move in silence, offline and on a muted phone. Hear it plays the same notes through the browser's own oscillators and a burst of generated noise, scheduled a tenth of a second ahead on the audio clock; only then do the bars read a real analyzer. The sound is made on that press and never before (browsers block sound that starts by itself); Pause and a hidden tab suspend it, and Slow motion plays the tune at a third of the tempo.
+演示不播任何文件，也不用麦克风。它的曲子以音符写在页面里（底鼓、军鼓、踩镲、低音和一段短旋律，每分钟 100 拍，共四小节），每帧页面按此刻正在演奏的音符算出每个频段该有多响，所以音条在无声中跳动，离线、在静音的手机上也一样。「听听看」用浏览器自己的振荡器和一段生成的噪声播放同样的音符，在音频时钟上提前十分之一秒调度；只有这时音条才读真正的分析器。声音只在按下时才产生，绝不提前（浏览器会拦截自己开始的声音）；「暂停」和隐藏的标签页会挂起它，「慢动作」以三分之一的速度播放曲子。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Style | Bars | Bars stand in a row from bass to treble; wave draws the sound's shape over a few hundredths of a second instead of its pitches; circle sets the bars around a ring that swells with the bass |
-| Number of bars | Many | With Bars or Circle: few is 16 bars, some 32 and many 64; phones start at some, and each row of Compare holds half as many bars on phones; Wave has no bars and hides this setting |
-| How bars fall | Gently | With Bars or Circle, how fast a bar sinks after it jumps: quickly is 2.6 bar heights a second, gently 1.2 and slowly 0.45, like an old stereo; Wave hides this setting |
-| Peak marks | on | With Bars or Circle, a thin mark (a dot in the ring) holds each bar's highest point for 0.4 seconds, then sinks slowly; off, only the bars show; Wave hides this setting |
-| Colors | Sunset | The colors from the bottom of each bar to its top, or from left to right along the wave: sunset runs from coral to gold, ocean from deep blue to cyan, neon from pink to cyan; See inside lays the colors of the tune's parts over them |
+| 样式 | 音条 | 音条从低音到高音排成一排；波形画的是声音在几百分之一秒内的形状，而不是音高；环形把音条围成一圈，随低音胀大 |
+| 音条数量 | 多 | 音条或环形时：少是 16 根，一些是 32 根，多是 64 根；手机从“一些”开始，「对比」模式的每排在手机上只有一半；波形没有音条，会隐藏这个设置 |
+| 音条下落方式 | 轻缓 | 音条或环形时，音条跳起来后沉下去的速度：快速是每秒 2.6 个音条高度，轻缓 1.2，缓慢 0.45，像老式音响；波形会隐藏这个设置 |
+| 峰值标记 | 开 | 音条或环形时，一条细标记（环形里是一个圆点）把每根音条的最高点留住 0.4 秒，然后慢慢沉下去；关掉就只显示音条；波形会隐藏这个设置 |
+| 颜色 | 日落 | 每根音条从底部到顶部的颜色，或沿波形从左到右的颜色：日落从珊瑚色到金色，海洋从深蓝到青色，霓虹从粉色到青色；「看内部」会在上面叠加曲子各声部的颜色 |
 
-## Production notes
-- **Ask before sound.** Create the `AudioContext` inside the visitor's own press of play: browsers keep a context made earlier suspended and warn in the console. Never open the microphone without a clear reason and the visitor's yes.
-- **Group by octave.** Average the analyzer's slices into bands that widen with pitch, or most bars show only hiss. `smoothingTimeConstant` (0 to 1) smooths the analyzer's own values; the jump-and-fall of the bars is better done in your own code, by time.
-- **Light drawing.** One canvas and a few dozen copied rectangles a frame are cheap; a gradient filled over every bar each frame is not. Draw fewer bars on phones and stop the loop when the player is paused or out of view.
-- **Cross-origin audio.** An `<audio>` element playing a file from another site needs `crossorigin="anonymous"` and the right CORS headers, or the analyzer reads only zeros.
-- **Reduced motion.** Keep the bars still until the visitor presses play, and let them turn the movement off while the music plays.
-- **Libraries.** Wavesurfer.js draws waveforms and plays files; Tone.js schedules notes and synths on the Web Audio clock; audioMotion-analyzer is a ready-made bar analyzer with octave bands and peaks.
+## 生产注意事项
+- **先问再出声。**在用户自己按下播放的那一刻创建 `AudioContext`：提前创建的上下文会被浏览器挂起，还会在控制台里警告。没有明确的理由和用户的同意，绝不要打开麦克风。
+- **按八度分组。**把分析器的切片平均成随音高变宽的频段，否则大多数音条只会显示嘶嘶声。`smoothingTimeConstant`（0 到 1）平滑的是分析器自己的数值；音条的跳起和回落最好在自己的代码里按时间做。
+- **轻量绘制。**一帧一个画布加几十个复制的矩形很便宜；每帧给每根音条填渐变就不便宜。手机上画少一点，播放器暂停或不在视野里时停掉循环。
+- **跨域音频。**播放其他网站文件的 `<audio>` 元素需要 `crossorigin="anonymous"` 和正确的 CORS 头，否则分析器只能读到零。
+- **减弱动态。**音条保持静止，直到用户按下播放，并让他们能在音乐播放时关掉动效。
+- **库。**Wavesurfer.js 画波形并播放文件；Tone.js 在 Web Audio 时钟上调度音符和合成器；audioMotion-analyzer 是现成的音条分析器，带八度频段和峰值。
 
-## See also
-- [Starfield / Space Particles](../../07-ambient-background/starfield/) — a loop drawn by JavaScript every frame
-- [Abstract Geometric Motion](../../07-ambient-background/abstract-geometric-motion/) — a pattern for music players that ignores the sound
+## 另见
+- [星空](../../07-ambient-background/starfield/) — 每帧由 JavaScript 画出的循环
+- [抽象几何动效](../../07-ambient-background/abstract-geometric-motion/) — 给音乐播放器用的图案，与声音无关

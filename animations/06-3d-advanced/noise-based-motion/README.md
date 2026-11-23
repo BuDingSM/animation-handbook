@@ -1,18 +1,18 @@
-# Noise-Based Motion
+# 噪声驱动运动
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/noise-based-motion/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/noise-based-motion/)
 
-## What it is
-Noise-based motion uses smooth noise, a random value that changes gradually from place to place, to move things naturally. Plain random numbers jump about; noise drifts, so neighboring dots move alike and nothing jerks. The demo turns it into a field of dots swaying like grass in the wind, and into a blob whose edge ripples.
+## 它是什么
+噪声驱动运动用平滑噪声（一个随位置逐渐变化的随机值）让东西自然地动。普通的随机数会乱跳；噪声是漂移的，所以相邻的圆点动得相似，什么都不会猛地一抖。演示把它做成一片像风中草一样摇摆的圆点，和一个边缘起伏的色块。
 
-## When to use it
-- Organic background elements: floating dots, undulating blobs, rippling grids
-- Character animations that need subtle non-mechanical life (idle breathing, hair flutter)
-- Procedurally animated terrain and water in canvas or WebGL scenes
-- Any motion that should feel natural rather than mechanical or random
+## 什么时候用
+- 有机背景元素：漂浮的圆点、起伏的色块、波动的网格
+- 需要微妙的、非机械生命感的角色动画（待机呼吸、头发飘动）
+- Canvas 或 WebGL 场景里程序化生成的地形和水面
+- 任何应该感觉自然、而不是机械或随机的运动
 
-## How it works
-Simplex noise (by Stefan Gustavson, public domain) returns a value in [-1, 1] for any 2D or 3D coordinate. Sampling noise at `(x * scale, y * scale + time)` gives a smooth "wind direction" at each grid point:
+## 工作原理
+Simplex 噪声（Stefan Gustavson，公共领域）对任何 2D 或 3D 坐标返回 [-1, 1] 里的一个值。在 `(x * scale, y * scale + time)` 处采样噪声，就得到每个网格点上平滑的“风向”：
 
 ```js
 function drawWindField() {
@@ -36,11 +36,11 @@ function drawWindField() {
 }
 ```
 
-`dt` is the time in milliseconds since the last drawn frame (capped at 50), and `FRAME` is 1000 / 60, the length of one frame on a 60 Hz screen. The noise therefore moves the same distance in a second on a 30, 60 or 144 Hz screen; a fixed `time += speed * 0.01` on every frame would move it twice as fast on a 120 Hz screen and half as fast on a 30 Hz phone.
+`dt` 是自上次绘制以来的时间（毫秒，封顶 50），`FRAME` 是 1000 / 60，即 60 Hz 屏幕上一帧的长度。所以噪声在 30、60 或 144 Hz 的屏幕上每秒移动同样的距离；每帧固定 `time += speed * 0.01` 的话，在 120 Hz 的屏幕上会移动两倍快，在 30 Hz 的手机上慢一半。
 
-The demo sets `step` as a spacing in pixels rather than a number of columns, so a phone's smaller stage draws fewer dots at the same spacing.
+演示把 `step` 设为像素间距而不是列数，所以手机更小的舞台以同样的间距画更少的圆点。
 
-**Blob** — each vertex's radius is offset by noise sampled at its angle:
+**色块**——每个顶点的半径按它角度处采样的噪声偏移：
 
 ```js
 ctx.beginPath();
@@ -56,26 +56,26 @@ for (let i = 0; i <= vertices; i++) {
 ctx.closePath();
 ```
 
-The noise is read along a circle of radius `48 * SCALE`. A tiny circle would see almost one value, so the whole edge would only swell and shrink together; this one spans about three bumps of noise at the default size, so the edge ripples.
+噪声沿半径为 `48 * SCALE` 的圆读取。很小的圆几乎只看到一个值，整条边缘只会一起胀大缩小；这个圆在默认尺寸下横跨约三个噪声凸起，所以边缘会起伏。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Shape | Field of dots | A field of dots that sway, or one blob whose outline ripples |
-| Pattern size | Medium | How big the noise's patterns are: one swirl of the noise is about 250px across at large, 125px at medium and 60px at small, and the blob's edge has about two, three or five ripples; large moves big areas together, small looks busy and fine |
-| Speed | Normal | How fast the noise moves along: the pattern drifts one swirl's width in about 5.6 seconds at slow, 3.3 at normal and 2.1 at fast, which with medium patterns is about 22px, 38px and 60px a second |
-| Wobble | Medium | How far each dot, or the blob's edge, moves: small is 6px, medium 12px and large 20px from each dot's place, and the blob's edge moves in and out by up to twice that |
-| Space between dots | Medium | The distance between dots in the field: wide is 64px, medium 48px and tight 32px; smaller stages draw fewer dots |
-| Color | Blue | The color of the dots or the blob |
+| 形状 | 圆点阵 | 一片摇摆的圆点，或一个轮廓起伏的色块 |
+| 图案大小 | 中等 | 噪声的图案有多大：噪声的一个漩涡在大时约 250px 宽，中等 125px，小 60px，色块边缘大约有两、三或五个起伏；大图案让大片区域一起摇摆，小图案显得热闹细腻 |
+| 速度 | 普通 | 噪声移动的速度：图案漂过一个漩涡的宽度，慢约 5.6 秒，普通 3.3 秒，快 2.1 秒，中等图案下就是每秒约 22px、38px 和 60px |
+| 晃动幅度 | 中等 | 每个圆点或色块边缘移动多远：小是 6px，中等 12px，大是 20px（离每个圆点的位置），色块边缘进出最多两倍 |
+| 圆点间距 | 中等 | 圆点阵里圆点之间的距离：宽松是 64px，中等 48px，紧密 32px；更小的舞台画更少的圆点 |
+| 颜色 | 蓝色 | 圆点或色块的颜色 |
 
-## Production notes
-- **Simplex vs Perlin**: Simplex noise (Gustavson 2005) is faster and has fewer directional artifacts than classic Perlin noise. Use Simplex for new projects.
-- **3D noise for time**: sample noise at `(x, y, time)` in 3D for perfectly seamless temporal animation — the pattern never "resets." 2D noise with time as an offset (as in this demo) is simpler but can have slight discontinuities at the spatial edges.
-- **`glsl-noise` / `open-simplex-noise`**: for WebGL shaders, include a GLSL noise implementation inline. For JavaScript, `open-simplex-noise` (npm) is the modern standard.
-- **Time, not frames**: move through the noise by the time since the last frame, because a fixed step per frame follows the screen's refresh rate. Cap that time (this demo uses 50 ms), or a tab that comes back after a minute would jump ahead by a minute of motion, and let a returning tab start from its next frame.
-- **Flow fields**: the wind-field variant is a "flow field" — a classic technique in generative art (Daniel Shiffman's Coding Train). Particles follow the noise field like leaves on a stream.
+## 生产注意事项
+- **Simplex 与 Perlin**：Simplex 噪声（Gustavson 2005）比经典 Perlin 噪声更快，方向性瑕疵更少。新项目用 Simplex。
+- **用 3D 噪声表示时间**：在 3D 里按 `(x, y, time)` 采样噪声，得到完全无缝的时间动画——图案永远不会“重置”。像演示这样用时间做偏移的 2D 噪声更简单，但在空间边缘可能有轻微的不连续。
+- **`glsl-noise` / `open-simplex-noise`**：WebGL 着色器里内联一个 GLSL 噪声实现。JavaScript 里 `open-simplex-noise`（npm）是现代标准。
+- **按时间，不按帧**：按自上一帧以来的时间穿过噪声，因为每帧固定一步会跟着屏幕的刷新率走。封顶这个时间（演示用 50ms），否则离开一分钟后回来的标签页会向前跳一分钟的运动，并让回来的标签页从下一帧开始。
+- **流场**：风场变体就是“流场”——生成艺术里的经典手法（Daniel Shiffman 的 Coding Train）。粒子像溪流上的叶子一样跟随噪声场。
 
-## See also
-- [Canvas Particle Effect](../canvas-particle-effect/) — dots moved by simple physics instead of noise
-- [Flow Field](../../07-ambient-background/flow-field/) — particles follow a noise field and leave trails
-- [Volumetric Smoke / 3D Noise](../volumetric-smoke/) — the same kind of noise, in 3D, drawn as smoke
+## 另见
+- [Canvas 粒子效果](../canvas-particle-effect/) — 由简单物理而不是噪声移动的圆点
+- [流场](../../07-ambient-background/flow-field/) — 粒子跟随噪声场并留下拖影
+- [体积烟雾 / 3D 噪声](../volumetric-smoke/) — 同一种噪声，在 3D 里画成烟雾

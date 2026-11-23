@@ -1,60 +1,58 @@
-# 06 — 3D & Advanced
+# 3D 与高级效果
 
-WebGL, shaders, particles, 3D transforms, simulations, and other heavier effects. The demos that move by themselves have Pause (SVG Path Animation has Replay and Loop); the ones you hover, click, drag or scroll have Show me or Play.
+WebGL、着色器、粒子、3D 变换、模拟和其他较重的效果。自己动的演示有「暂停」（SVG 路径动画有「重播」和「循环」）；悬停、点击、拖动或滚动的那些有「演示一下」或「播放」。
 
-## Animations
+## 全部动画
 
-| Demo | Description |
+- [2.5D / 伪 3D](2-5d-pseudo-3d/) — 平面图层以不同幅度滑动，假装出景深。适合主视觉场景。
+- [3D 模型环绕](3d-model-orbit/) — 带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。
+- [ASCII / 半调](ascii-halftone/) — 动态画面用字母或圆点重新画出来。适合复古和科技风格。
+- [音频可视化](audio-visualizer/) — 音条随音乐起舞，从低音到高音。适合音乐播放器。
+- [Canvas 粒子效果](canvas-particle-effect/) — 圆点漂浮，靠近时连线，还会躲开指针。适合科技类网站。
+- [3D 轮播](carousel-3d/) — 卡片围成一圈，在 3D 中随拖动旋转。适合图片画廊。
+- [色差](chromatic-aberration/) — 一个词裂成红、绿、蓝三色边缘。适合醒目的标题。
+- [布料模拟](cloth-simulation/) — 一块布在风中飘动，还可以拖着玩。适合有趣的页面。
+- [景深照片](depth-map-photo/) — 平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。
+- [3D 翻转卡片](flip-card-3d/) — 卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。
+- [鸟群](flocking/) — 鸟儿成群盘旋、一起转向。适合安静的背景。
+- [流体模拟](fluid-simulation/) — 色块像液体一样漂移、融化、合在一起。适合主视觉背景。
+- [动态毛玻璃](glassmorphism-animated/) — 磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。
+- [GPGPU 粒子系统](gpgpu-particle-system/) — 数万个粒子在显卡上流动。适合主视觉特效。
+- [全息卡片](holographic-card/) — 卡片随指尖倾斜，彩虹箔片随之闪烁。适合收藏品。
+- [悬停图片扭曲](image-distortion-hover/) — 图片在指针周围起涟漪、弯曲。适合作品集图片。
+- [无限缩放](infinite-zoom/) — 视野不断放大，进入画中画。适合页面开场。
+- [液态玻璃](liquid-glass/) — 拖动玻璃面板，身后的画面在边缘弯曲。适合卡片。
+- [变形色块](morphing-blob/) — 色块融在一起，其中一滴追着你的指针。适合主视觉区域。
+- [噪声驱动运动](noise-based-motion/) — 平滑噪声让圆点摇摆、色块起伏。适合安静的背景。
+- [视差 3D 倾斜](parallax-3d-tilt/) — 卡片朝指针倾斜，一道光随之滑过。适合卡片。
+- [2D 物理](physics-2d/) — 球从你点击的地方落下，弹跳、堆积。适合有趣的开场。
+- [光线步进 / SDF 场景](ray-marching-sdf/) — 只用公式画出的 3D 场景，镜头绕着它转。适合艺术页面。
+- [滚动驱动 3D 旋转](scroll-driven-3d-rotation/) — 滚动会让 3D 立方体从一个姿态转到下一个。适合产品导览。
+- [SVG 路径动画](svg-path-animation/) — 线条画一笔一画自己画出来。适合图标和标志。
+- [体积烟雾 / 3D 噪声](volumetric-smoke/) — 柔和的烟雾向上盘旋，像真正的 3D 云。适合有氛围的背景。
+- [水面涟漪](water-ripple/) — 涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。
+- [WebGL 着色器动画](webgl-shader-animation/) — 逐像素计算的流动色彩图案。适合大胆的背景。
+
+## 关键概念
+
+**WebGL 样板总是一样的。**顶点着色器（全屏四边形着色器里很简单）、片元着色器（所有工作发生的地方）、缓冲设置、uniform 绑定、渲染循环。这个分类里的每个着色器演示都共用这个骨架。
+
+**全屏四边形模式。**对于 2D 着色器效果（等离子、元球、光线步进、体积烟雾），渲染一个盖住整个画布的四边形。片元着色器每像素运行一次。不需要网格几何。
+
+**性能缩放方式不同。**Canvas 2D 随粒子数量缩放（O(n) 到 O(n²)）。WebGL 着色器随像素数量缩放。光线步进随场景复杂度 × 像素数量缩放。GPGPU 随纹理大小 × 物理通道复杂度缩放。
+
+**减弱动态。**设置了 `prefers-reduced-motion: reduce` 时，什么都不会自己开始动：循环演示开始时处于暂停状态，「演示一下」和「播放」等着被按下，SVG 路径动画直接显示画完的图。没有这项检查，绝不要自动播放耗 GPU 的动画。
+
+## 浏览器要求
+
+| 演示 | 要求 |
 |------|-------------|
-| [3D Model Orbit](3d-model-orbit/) | A lit 3D shape spins, or turns to face your pointer. Best for product views. |
-| [Scroll-Driven 3D Rotation](scroll-driven-3d-rotation/) | Scrolling turns a 3D cube from pose to pose. Best for product tours. |
-| [Parallax 3D Tilt](parallax-3d-tilt/) | A card tilts toward your pointer, and a light slides over it. Best for cards. |
-| [Canvas Particle Effect](canvas-particle-effect/) | Dots drift, link up when close, and dodge your pointer. Best for tech sites. |
-| [Fluid Simulation](fluid-simulation/) | Blobs drift and melt into each other like liquid. Best for hero backgrounds. |
-| [Glassmorphism Animated](glassmorphism-animated/) | Frosted glass cards blur the colors behind them. Best for cards and panels. |
-| [WebGL Shader Animation](webgl-shader-animation/) | Moving color patterns computed for every pixel. Best for bold backgrounds. |
-| [Noise-Based Motion](noise-based-motion/) | Smooth noise makes dots sway and a blob ripple. Best for calm backgrounds. |
-| [SVG Path Animation](svg-path-animation/) | A line drawing draws itself, stroke by stroke. Best for icons and logos. |
-| [Chromatic Aberration](chromatic-aberration/) | A word splits into red, green and blue fringes. Best for bold titles. |
-| [2.5D / Pseudo-3D](2-5d-pseudo-3d/) | Flat layers slide by different amounts, faking depth. Best for hero scenes. |
-| [Ray Marching / SDF](ray-marching-sdf/) | A 3D scene drawn only from formulas, circled by a camera. Best for art pages. |
-| [GPGPU Particle System](gpgpu-particle-system/) | Tens of thousands of particles flow on the graphics chip. Best for hero effects. |
-| [Image Distortion on Hover](image-distortion-hover/) | The picture ripples and bends around your pointer. Best for portfolio images. |
-| [Cloth Simulation](cloth-simulation/) | A cloth sways in the wind, and you can drag it around. Best for playful pages. |
-| [Volumetric Smoke](volumetric-smoke/) | Soft smoke curls upward, drawn as a real 3D cloud. Best for moody backgrounds. |
-| [Morphing Blob](morphing-blob/) | Blobs melt together, and one drop chases your pointer. Best for hero sections. |
-| [3D Flip Card](flip-card-3d/) | A card turns over in 3D to show its back. Best for profile and product cards. |
-| [3D Carousel](carousel-3d/) | Cards stand in a ring that spins in 3D as you drag it. Best for image galleries. |
-| [Depth-Map Photo](depth-map-photo/) | A flat photo turns 3D as you point: near parts shift more. Best for hero images. |
-| [Flocking](flocking/) | Birds swirl and turn together as one flock. Best for calm backgrounds. |
-| [ASCII / Halftone](ascii-halftone/) | A moving picture is redrawn with letters or dots. Best for retro and tech looks. |
-| [2D Physics](physics-2d/) | Balls drop where you click, bounce and pile up. Best for playful intros. |
-| [Liquid Glass](liquid-glass/) | Drag a glass panel and the picture behind it bends at the edges. Best for cards. |
-| [Holographic Card](holographic-card/) | A card tilts as you point, and its rainbow foil shimmers. Best for collectibles. |
-| [Infinite Zoom](infinite-zoom/) | The view keeps zooming into pictures inside pictures. Best for page intros. |
-| [Water Ripple](water-ripple/) | Ripples spread from your finger and bend the picture below. Best for hero images. |
-| [Audio Visualizer](audio-visualizer/) | Bars dance to the music, from bass to treble. Best for music players. |
+| 所有 WebGL 演示 | WebGL 1.0（所有现代浏览器） |
+| GPGPU 粒子系统 | WebGL2（Chrome 56+、Firefox 51+、Safari 15+） |
+| backdrop-filter（动态毛玻璃） | Chrome、Edge、Safari；Firefox 103+ |
+| Web Audio（音频可视化） | 所有现代浏览器；声音只有在按下「听听看」后才开始，音条没有声音也会动 |
+| backdrop-filter 中的 SVG 滤镜（液态玻璃） | 电脑或安卓上的 Chromium 浏览器（Chrome、Edge、Opera）；Safari、Firefox 以及 iPhone 和 iPad 上的所有浏览器显示的都是磨砂玻璃 |
 
-## Key concepts
-
-**WebGL boilerplate is always the same.** Vertex shader (trivial for fullscreen-quad shaders), fragment shader (where all the work happens), buffer setup, uniform binding, render loop. Every shader demo in this category shares that skeleton.
-
-**Fullscreen quad pattern.** For 2D shader effects (plasma, metaballs, ray marching, volumetric smoke), render a single quad covering the entire canvas. The fragment shader runs once per pixel. No mesh geometry required.
-
-**Performance scales differently.** Canvas 2D scales with particle count (O(n) to O(n²)). WebGL shaders scale with pixel count. Ray marching scales with scene complexity × pixel count. GPGPU scales with texture size × physics pass complexity.
-
-**Reduce motion.** When `prefers-reduced-motion: reduce` is set, nothing starts moving by itself: the looping demos start paused, Show me and Play wait to be pressed, and SVG Path Animation shows its drawing complete. Never autoplay GPU-intensive animations without this check.
-
-## Browser requirements
-
-| Demo | Requirement |
-|------|-------------|
-| All WebGL demos | WebGL 1.0 (all modern browsers) |
-| GPGPU Particle System | WebGL2 (Chrome 56+, Firefox 51+, Safari 15+) |
-| backdrop-filter (Glassmorphism) | Chrome, Edge, Safari; Firefox 103+ |
-| Web Audio (Audio Visualizer) | Every modern browser; the sound starts only after Hear it is pressed, and the bars move without it |
-| SVG filter in backdrop-filter (Liquid Glass) | Chromium browsers on a computer or Android (Chrome, Edge, Opera); Safari, Firefox and every browser on iPhone and iPad show frosted glass instead |
-
-## See also
-- [04 — Micro-Interactions](../04-micro-interactions/) — lighter-weight interactive animations
-- [05 — Text & Typography](../05-text-typography/) — text-specific GPU effects (gradient, scramble, variable font)
+## 另见
+- [04 — 微交互](../04-micro-interactions/) — 更轻量的互动动画
+- [05 — 文字与排版](../05-text-typography/) — 针对文字的 GPU 效果（渐变、乱码、可变字体）

@@ -1,18 +1,18 @@
-# Morphing Blob
+# 变形色块
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/morphing-blob/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/morphing-blob/)
 
-## What it is
-A morphing blob is a soft, liquid shape made from plain circles. The circles are blurred and then their edges are sharpened again, so wherever two come close they melt into one shape, like drops of mercury. As they drift, the blob stretches, splits and joins, and one drop follows the pointer.
+## 它是什么
+变形色块是由普通圆圈做成的柔软液体形状。圆圈先模糊，再把边缘重新锐化，所以两个圆圈一靠近就会融成一个形状，像水银滴。随着它们漂移，色块拉伸、分裂、汇合，其中一滴跟随指针。
 
-## When to use it
-- Playful hero backgrounds and landing-page focal points
-- Loading and idle states that need to feel alive without being distracting
-- Cursor-reactive accents where a shape follows or "grabs" the pointer
-- Logo and brand moments that want an organic, non-geometric personality
+## 什么时候用
+- 俏皮的主视觉背景和落地页焦点
+- 需要感觉活着、又不分散注意力的加载和闲置状态
+- 形状跟随或“抓住”指针的光标反应点缀
+- 想要有机、非几何个性的 Logo 和品牌时刻
 
-## How it works
-Each blob is a normal SVG `<circle>`. The whole group is passed through a "goo" filter: a Gaussian blur spreads every circle's edge, then a `feColorMatrix` drives the alpha channel through a steep contrast curve, snapping the soft blur back into a hard edge. Where two blurred circles overlap, their combined alpha crosses the threshold and they read as one connected shape.
+## 工作原理
+每个色块都是一个普通的 SVG `<circle>`。整个组经过一个“粘液”滤镜：高斯模糊扩散每个圆圈的边缘，然后 `feColorMatrix` 把 alpha 通道推过一条陡峭的对比曲线，把柔和的模糊重新收成硬边缘。两个模糊圆圈重叠的地方，合并的 alpha 越过阈值，它们就读作一个连通的形状。
 
 ```html
 <filter id="goo">
@@ -24,7 +24,7 @@ Each blob is a normal SVG `<circle>`. The whole group is passed through a "goo" 
 <g filter="url(#goo)" fill="url(#fill)"><!-- circles --></g>
 ```
 
-The last row of the matrix (`0 0 0 20 -9`) is the trick: it multiplies alpha by 20 and subtracts 9, so mid-range (blurred) alpha collapses to 0 or 1 — a hard silhouette. A requestAnimationFrame loop runs two small functions every frame. `step(dt)` moves time on: it advances the drift phase and eases one "droplet" circle toward the pointer. `place()` then works out where every circle is (the background circles ride sine paths driven by the phase) and writes it to the circle's attributes:
+矩阵的最后一行（`0 0 0 20 -9`）是关键：它把 alpha 乘以 20 再减 9，于是中间范围（模糊的）alpha 塌到 0 或 1——一个硬轮廓。一个 requestAnimationFrame 循环每帧运行两个小函数。`step(dt)` 推进时间：它推进漂移相位，并让一个“水滴”圆圈缓动着靠近指针。`place()` 再算出每个圆圈的位置（背景圆圈沿着由相位驱动的正弦路径走），写进圆圈的属性：
 
 ```js
 const FRAME = 1000 / 60;                  // one frame on a 60 Hz screen, in milliseconds
@@ -45,51 +45,32 @@ function place(){
 }
 ```
 
-The drift phase is integrated (`phase += dt / 1000 * speed`) rather than computed from
-absolute time. Multiplying the elapsed time by the speed makes every blob jump to
-a new point on its sine path the moment the speed changes; accumulating the phase
-changes the rate and leaves the positions continuous.
+漂移相位是累加出来的（`phase += dt / 1000 * speed`），而不是由绝对时间算出来的。把流逝的时间乘以速度，会让每个色块在速度一改的瞬间跳到正弦路径上的一个新点；累加相位只改变速率，位置保持连续。
 
-The drop closes 0.09 of its distance to the pointer in every 1/60 s. For a frame of
-another length, `1 - Math.pow(1 - 0.09, dt / FRAME)` is the share to close: 0.09 at
-60 Hz, about 0.17 at 30 Hz and about 0.04 at 144 Hz. The drop therefore arrives in
-the same time on every screen; a fixed 0.09 a frame would take twice as long on a
-30 Hz phone and half as long at 120 Hz.
+水滴每六十分之一秒弥合与指针之间 9% 的距离。其他长度的帧，要弥合的占比是 `1 - Math.pow(1 - 0.09, dt / FRAME)`：60 Hz 时是 0.09，30 Hz 时约 0.17，144 Hz 时约 0.04。所以水滴在任何屏幕上到达的时间都相同；每帧固定 0.09 的话，在 30 Hz 的手机上要两倍久，在 120 Hz 下只要一半。
 
-Because a drifting circle's position depends only on the phase, `place()` can also
-draw the blob without moving anything. The demo calls it once at load, so the first
-picture is already a blob and Play carries on from exactly there, and again when the
-number of blobs changes while it is paused. Pausing cancels the pending frame; Play
-forgets the time of the last frame, so the first frame after it adds nothing, and so
-does a tab that comes back to the front. Slow motion adds a third of the phase and
-lets the droplet close 0.03 of the gap in every 1/60 s instead of 0.09.
+因为漂移圆圈的位置只取决于相位，`place()` 也可以在什么都不动的情况下画出色块。演示在加载时调用一次，所以第一张图已经是色块，「播放」恰好从那里继续；暂停时改变色块数量也会再调用一次。暂停取消待处理的帧；「播放」忘记上一帧的时间，所以它之后的第一帧什么也不加，从后台回来的标签页也一样。慢动作只加三分之一的相位，让水滴每六十分之一秒弥合 0.03 的差距而不是 0.09。
 
-The pointer's position is turned into the drawing's own units with the SVG's screen
-matrix (`svg.getScreenCTM().inverse()`), so the droplet stays under the pointer
-however the SVG is scaled and centered, also beside the drawing on a wide stage. The
-`viewBox` is a 360-unit box around the blob's middle (`20 20 360 360`) with
-`preserveAspectRatio="xMidYMid meet"`: the circles wander up to about 190 units from
-the middle, so the box shows them almost always, and the whole box fits whatever the
-shape of the stage.
+指针的位置用 SVG 的屏幕矩阵（`svg.getScreenCTM().inverse()`）换算成绘图自己的单位，所以无论 SVG 怎样缩放和居中，水滴都停在指针下面，宽舞台上绘图旁边也一样。`viewBox` 是色块中间周围一个 360 单位的盒子（`20 20 360 360`），`preserveAspectRatio="xMidYMid meet"`：圆圈最多离中间约 190 单位，所以盒子几乎总是能装下它们，整个盒子适配舞台的任何形状。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Gooeyness | Medium | How much the circles are blurred before the edge is sharpened again: low is 6, medium 10 and high 16, measured in a drawing 360 units across whose circles are 26 to 52 units in radius; higher melts circles from farther apart |
-| Number of blobs | Medium | Few is 4, medium 6 and many 9 circles, counting the drop that follows the pointer |
-| Speed | Normal | How fast the circles drift: slow is 0.6, normal 1 and fast 1.6 times; each circle sways side to side and up and down at the same time, each sway at its own rate (at normal, one sway takes 6 to 16 seconds), so it wanders in loops that never quite repeat rather than back and forth along one line |
+| 黏糊程度 | 中等 | 边缘重新锐化之前，圆圈被模糊多少：低是 6，中等 10，高是 16，以一幅 360 单位宽、圆圈半径 26 到 52 单位的绘图计量；越高，圆圈隔得越远就开始融化 |
+| 色块数量 | 中等 | 少是 4 个，中等 6 个，多是 9 个圆圈，算上跟随指针的那滴 |
+| 速度 | 普通 | 圆圈漂移的速度：慢是 0.6 倍，普通 1 倍，快是 1.6 倍；每个圆圈同时左右和上下摆动，每次摆动的速率各不相同（普通时一次摆动要 6 到 16 秒），所以它在几乎不重复的环路里游荡，而不是沿一条线来回走 |
 
-## Production notes
-- **Filter performance is the gotcha.** SVG filters rasterize the filter region every frame on the CPU/GPU compositor; a large blurred area over a big viewport can drop frames on mobile. Keep the filtered `<g>` region as small as the design allows, cap `stdDeviation`, and reduce blob count on small screens. Test on a mid-range phone, not just desktop.
-- **Safari and blur units.** `stdDeviation` is in user (viewBox) units, not pixels — the visual blur scales with your `viewBox`, so pin the viewBox size and let CSS scale the SVG rather than resizing the viewBox.
-- **Time, not frames**: easing that closes a fixed share of the gap on every frame follows the screen's refresh rate. Scale the share by the time since the last frame, as above, and cap that time (this demo uses 50 ms) so a tab that comes back does not lurch.
-- **`will-change: transform`** on the SVG element can promote it to its own layer and smooth things out, but watch memory on low-end devices.
-- **Reduced motion.** Under `prefers-reduced-motion: reduce` the demo starts paused, showing the blob still, until the visitor presses Play. In production, never leave an autonomous churning shape running for users who opted out: show one settled arrangement.
-- **Alternatives / library equivalents:** for a single animated outline instead of metaballs, interpolate an SVG `<path>`'s control points (the approach tools like **blobmaker** / **Haikei** export). For heavy, truly 3D goo, **three.js** MarchingCubes (metaballs) or a ray-marched SDF in a fragment shader gives real volume at GPU cost. **Framer Motion** can tween a `path`'s `d` attribute for path-based blobs.
+## 生产注意事项
+- **滤镜性能才是坑。**SVG 滤镜每帧在 CPU/GPU 合成器上光栅化滤镜区域；大视口上的大片模糊区域会让手机掉帧。把过滤的 `<g>` 区域保持在设计允许的最小范围，封顶 `stdDeviation`，小屏幕上减少色块数量。不要只在桌面上测，要在中端手机上测。
+- **Safari 和模糊单位。**`stdDeviation` 用的是用户（viewBox）单位，不是像素——视觉模糊随 `viewBox` 缩放，所以固定 viewBox 大小，让 CSS 缩放 SVG，而不是调整 viewBox。
+- **按时间，不按帧**：每帧弥合固定占比的缓动会跟着屏幕的刷新率走。像上面那样按自上一帧以来的时间缩放占比，并封顶这个时间（演示用 50ms），让回来的标签页不至于猛地一跳。
+- **SVG 元素上的 `will-change: transform`** 可以把它提升到自己的图层、变得更平滑，但要留意低端设备的内存。
+- **减弱动态。**在 `prefers-reduced-motion: reduce` 下，演示开始时处于暂停状态，显示静止的色块，直到用户按下「播放」。生产环境里，绝不要让自主翻腾的形状在选择退出的用户面前一直跑：展示一个安顿好的排列。
+- **替代方案 / 库等价物：**单个动态轮廓而不是元球时，插值 SVG `<path>` 的控制点（**blobmaker** / **Haikei** 这类工具导出的做法）。重型的真正 3D 粘液，**three.js** 的 MarchingCubes（元球）或片元着色器里的光线步进 SDF 能以 GPU 成本给出真正的体积。**Framer Motion** 可以补间 `path` 的 `d` 属性，做出基于路径的色块。
 
-## See also
-- [Fluid / Liquid Simulation](../fluid-simulation/) — the same melting, drawn by a WebGL shader
-- [Noise-Based Motion](../noise-based-motion/) — smooth noise ripples a blob's outline
-- [SVG Path Animation](../svg-path-animation/) — lines that draw themselves
-- [Ray Marching / SDF Scene](../ray-marching-sdf/) — shapes that melt together in 3D
-- [Gooey Menu](../../04-micro-interactions/gooey-menu/) — the same goo on buttons that ooze out of a round button
+## 另见
+- [流体模拟](../fluid-simulation/) — 同样的融化，用 WebGL 着色器画出
+- [噪声驱动运动](../noise-based-motion/) — 平滑噪声让色块的轮廓起伏
+- [SVG 路径动画](../svg-path-animation/) — 自己画出来的线条
+- [光线步进 / SDF 场景](../ray-marching-sdf/) — 在 3D 里融在一起的形状
+- [粘性菜单](../../04-micro-interactions/gooey-menu/) — 同样的粘液，用在从圆形按钮里渗出来的按钮上

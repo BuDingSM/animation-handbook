@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glassmorphism Animated — 动画手册</title>
-  <meta name="description" content="Frosted glass cards blur the colors behind them. Best for cards and panels.">
+  <title>动态毛玻璃 — 动画手册</title>
+  <meta name="description" content="磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/glassmorphism-animated/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Glassmorphism Animated — 动画手册">
-  <meta property="og:description" content="Frosted glass cards blur the colors behind them. Best for cards and panels.">
+  <meta property="og:title" content="动态毛玻璃 — 动画手册">
+  <meta property="og:description" content="磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/glassmorphism-animated/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Glassmorphism Animated — 动画手册">
-  <meta name="twitter:description" content="Frosted glass cards blur the colors behind them. Best for cards and panels.">
+  <meta name="twitter:title" content="动态毛玻璃 — 动画手册">
+  <meta name="twitter:description" content="磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Glassmorphism Animated", "name": "Glassmorphism Animated", "description": "Frosted glass cards blur the colors behind them. Best for cards and panels.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/glassmorphism-animated/", "inLanguage": "zh-CN", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, Glassmorphism Animated"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "动态毛玻璃", "name": "动态毛玻璃", "description": "磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/glassmorphism-animated/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 动态毛玻璃"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--blur:12px;--glass-op:0.12;--blob-spd:8s;--tint:rgba(88,166,255,var(--glass-op))}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -52,7 +52,7 @@
     .glass-card::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(6,8,14,.54);z-index:-1}
     .glass-card.g2{animation:blur-breath 4s ease-in-out infinite}
     .glass-card.g3{animation:tint-cycle 8s linear infinite}
-    /* !important so Frost's Off also beats the blur-breath keyframes on card 2 */
+    /* !important so 磨砂程度's Off also beats the blur-breath keyframes on card 2 */
     .stage.no-bf .glass-card{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
     @keyframes blur-breath{
       0%,100%{backdrop-filter:blur(8px) saturate(1.8);-webkit-backdrop-filter:blur(8px) saturate(1.8)}
@@ -118,20 +118,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../fluid-simulation/" rel="prev" aria-label="上一个：Fluid / Liquid Simulation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Fluid / Liquid Simulation</span></a><a href="../webgl-shader-animation/" rel="next" aria-label="下一个：WebGL Shader Animation"><span><span class="hb-dir">下一个：</span>WebGL Shader Animation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../fluid-simulation/" rel="prev" aria-label="上一个：流体模拟"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>流体模拟</span></a><a href="../webgl-shader-animation/" rel="next" aria-label="下一个：WebGL 着色器动画"><span><span class="hb-dir">下一个：</span>WebGL 着色器动画</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.06 · 3D &amp; Advanced</p>
-    <h1>Glassmorphism Animated</h1>
-    <p class="hb-lede">Frosted glass cards blur the colors behind them. Best for cards and panels.</p>
+    <p class="hb-cat">06.06 · 3D 与高级效果</p>
+    <h1>动态毛玻璃</h1>
+    <p class="hb-lede">磨砂玻璃卡片模糊了身后的颜色。适合卡片和面板。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。暂停可以仔细看，打开慢动作能看清每一步。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -144,94 +144,94 @@
       <div class="blob b3" aria-hidden="true"></div>
       <div class="blob b4" aria-hidden="true"></div>
       <div class="glass-card g1">
-        <div class="card-tag">Still</div>
-        <div class="card-title">Fixed frost</div>
-        <div class="card-body">The blur stays the same.</div>
+        <div class="card-tag">静止</div>
+        <div class="card-title">固定磨砂</div>
+        <div class="card-body">模糊程度不变。</div>
       </div>
       <div class="glass-card g2">
-        <div class="card-tag">Animated</div>
-        <div class="card-title">Breathing frost</div>
-        <div class="card-body">The blur grows and fades.</div>
+        <div class="card-tag">动态</div>
+        <div class="card-title">呼吸磨砂</div>
+        <div class="card-body">模糊程度时大时小。</div>
       </div>
       <div class="glass-card g3">
-        <div class="card-tag">Shifting</div>
-        <div class="card-title">Shifting tint</div>
-        <div class="card-body">The tint keeps changing.</div>
+        <div class="card-tag">变色</div>
+        <div class="card-title">着色变化</div>
+        <div class="card-body">颜色一直在变。</div>
       </div>
       <div class="clear" id="clear" aria-hidden="true" inert></div>
-      <p class="cap c-a" aria-hidden="true" data-hb-caption>Behind: plain color circles and dots</p>
-      <p class="cap c-b" aria-hidden="true" data-hb-caption>The glass blurs what is behind it</p>
-      <p class="cap c-c" aria-hidden="true" data-hb-caption>Tint and light edge finish the glass</p>
-      <p class="cap h-a" aria-hidden="true" data-hb-caption>Clear glass</p>
-      <p class="cap h-b" aria-hidden="true" data-hb-caption>Frosted glass</p>
+      <p class="cap c-a" aria-hidden="true" data-hb-caption>身后：普通的彩色圆圈和圆点</p>
+      <p class="cap c-b" aria-hidden="true" data-hb-caption>玻璃会模糊它身后的东西</p>
+      <p class="cap c-c" aria-hidden="true" data-hb-caption>颜色和亮边让玻璃完整</p>
+      <p class="cap h-a" aria-hidden="true" data-hb-caption>透明玻璃</p>
+      <p class="cap h-b" aria-hidden="true" data-hb-caption>磨砂玻璃</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-pause" data-hb-pause="css" data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the soft colors are plain circles, shown here without their own blur, drifting behind a dot pattern. The glass blurs whatever passes behind it, so they soften only through the cards.</p>
-      <p data-hb-for="compare" hidden>Clear glass has the tint and the light edge but no blur, so the dots behind it show sharp. Frosted glass blurs them into a soft glow.</p>
+      <p data-hb-for="inside" hidden>看内部：柔和的颜色是普通的圆圈，这里没有它们自己的模糊，在圆点图案后面漂移。玻璃会模糊从它后面经过的东西，所以它们只有透过卡片才会变柔和。</p>
+      <p data-hb-for="compare" hidden>透明玻璃有颜色和亮边，但没有模糊，所以身后的圆点显示得很清晰。磨砂玻璃把它们模糊成柔和的光晕。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="frost-lbl">Frost</p>
+        <p class="hb-setting-name" id="frost-lbl">磨砂程度</p>
         <div class="seg" id="frost-seg" role="group" aria-labelledby="frost-lbl">
-          <button type="button" data-blur="off" aria-pressed="false">Off</button>
-          <button type="button" data-blur="6px" aria-pressed="false">Light</button>
-          <button type="button" data-blur="12px" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-blur="20px" aria-pressed="false">Heavy</button>
+          <button type="button" data-blur="off" aria-pressed="false">关</button>
+          <button type="button" data-blur="6px" aria-pressed="false">轻</button>
+          <button type="button" data-blur="12px" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-blur="20px" aria-pressed="false">重</button>
         </div>
-        <p class="hb-hint">How strongly the glass blurs what is behind it.</p>
+        <p class="hb-hint">玻璃把身后的东西模糊到什么程度。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="op-lbl">Tint strength</p>
+        <p class="hb-setting-name" id="op-lbl">着色强度</p>
         <div class="seg" id="op-seg" role="group" aria-labelledby="op-lbl">
-          <button type="button" data-op="0.06" aria-pressed="false">Faint</button>
-          <button type="button" data-op="0.12" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-op="0.25" aria-pressed="false">Strong</button>
+          <button type="button" data-op="0.06" aria-pressed="false">淡淡</button>
+          <button type="button" data-op="0.12" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-op="0.25" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">How much color the glass adds.</p>
+        <p class="hb-hint">玻璃加了多少颜色。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-spd="13s" aria-pressed="false">Slow</button>
-          <button type="button" data-spd="8s" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-spd="5s" aria-pressed="false">Fast</button>
+          <button type="button" data-spd="13s" aria-pressed="false">慢</button>
+          <button type="button" data-spd="8s" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-spd="5s" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How fast the colors drift behind the glass.</p>
+        <p class="hb-hint">玻璃后面的颜色漂移得有多快。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="tint-lbl">Tint color</p>
+          <p class="hb-setting-name" id="tint-lbl">玻璃颜色</p>
           <div class="swatches" id="tint-sw" role="group" aria-labelledby="tint-lbl">
-            <button type="button" aria-pressed="false" aria-label="Pink" data-color="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-color="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-color="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-color="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-color="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-color="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-color="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-color="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-color="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-color="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-color="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-color="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The color of the glass.</p>
+          <p class="hb-hint">玻璃的颜色。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Breathing frost</span><input class="hb-switch" type="checkbox" role="switch" id="breath-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">The middle card's blur grows and fades.</p>
+          <label class="hb-switch-row"><span>呼吸磨砂</span><input class="hb-switch" type="checkbox" role="switch" id="breath-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">中间卡片的模糊程度会变大、变小。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Shifting tint</span><input class="hb-switch" type="checkbox" role="switch" id="shift-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">The right card slowly changes color.</p>
+          <label class="hb-switch-row"><span>变色</span><input class="hb-switch" type="checkbox" role="switch" id="shift-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">右边的卡片会慢慢变色。</p>
         </div>
       </div>
     </details>
@@ -240,10 +240,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add frosted glass to [the cards or panels you want to style]. Give each card a see-through tinted background, blur whatever sits behind it, and add a thin light edge. Put colorful shapes that drift slowly behind the cards, with a faint pattern of dots over them, because glass over plain color looks gray and shows no frost. Put a see-through dark layer inside each card under its text so the words stay readable. A card can also breathe, its blur growing and fading, or slowly change its tint. Blurring costs a lot, so keep the glass to small cards and blur the shapes less on phones. If the visitor has reduced motion turned on, keep everything still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想装饰的卡片或面板]加上磨砂玻璃效果。每张卡片用半透明的有色背景，模糊它身后的东西，再加一条细细的亮边。在卡片后面放一些慢慢漂移的彩色形状，上面再盖一层淡淡的圆点图案，因为纯色上的玻璃看起来发灰、看不出磨砂感。在每张卡片里文字下面加一层半透明的深色，让文字保持清晰。卡片也可以呼吸，模糊程度时大时小，或慢慢改变颜色。模糊很耗性能，所以玻璃只用在小卡片上，手机上把身后的形状模糊得少一些。如果访客打开了减弱动态效果，就让一切保持静止。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -263,9 +263,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Cards and panels</li><li>Dashboards</li><li>Modals</li><li>Navigation bars</li></ul>
+      <ul class="hb-tags hb-good"><li>卡片和面板</li><li>仪表盘</li><li>弹窗</li><li>导航栏</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Plain backgrounds</li><li>Large surfaces</li></ul>
+      <ul class="hb-tags hb-avoid"><li>纯色背景</li><li>大面积区域</li></ul>
     </div>
   </section>
 
@@ -278,18 +278,18 @@
 <script>
   const root=document.documentElement.style;
   const stage=document.getElementById('stage');
-  // The notes: Frost Off, and a picture held still under reduced motion (the loop starts paused), say so. The markup holds the usual
+  // The notes: 磨砂程度 Off, and a picture held still under reduced motion (the loop starts paused), say so. The markup holds the usual
   // words, and a note is rewritten only when its words change.
   const reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
   const notes=[...document.querySelectorAll('[data-hb-for]')],usual=notes.map(n=>n.textContent);
-  const inside=['Shown still: inside, the soft colors are plain circles, drawn here without their own blur, behind a dot pattern.',
-    ' The glass blurs whatever is behind it, so they soften only through the cards.',' Frost is Off, so the glass does not blur them.'];
+  const inside=['静止时：看内部，柔和的颜色是普通的圆圈，这里没有它们自己的模糊，在圆点图案后面。',
+    ' 玻璃会模糊它身后的东西，所以它们只有透过卡片才会变柔和。',' 磨砂关了，所以玻璃不会模糊它们。'];
   let paused=reduceMQ.matches,frostOff=false;
   function describe(){
     const still=reduceMQ.matches&&paused;
     const words=[
       still?inside[0]+inside[frostOff?2:1]:frostOff?usual[0].slice(0,usual[0].indexOf('. ')+1)+inside[2]:usual[0],
-      frostOff?'Frost is Off, so Clear glass and Frosted glass look the same. Pick a frost in Try it to see the difference.':usual[1]];
+      frostOff?'磨砂关了，所以「透明玻璃」和「磨砂玻璃」看起来一样。在「试一试」里选一个磨砂程度，就能看到区别。':usual[1]];
     notes.forEach((n,i)=>{if(n.textContent!==words[i])n.textContent=words[i]});
   }
   describe();
@@ -299,7 +299,7 @@
   // and after the Shifting tint switch changes.
   const real=[...stage.querySelectorAll(':scope > .glass-card')],caps=['a','b','c'].map(k=>stage.querySelector('.c-'+k));
   real.forEach(c=>{const k=c.cloneNode(true);k.classList.remove('g2');document.getElementById('clear').appendChild(k)});
-  function syncTint(){
+  function sync着色(){
     const r=real[2].getAnimations()[0],c=stage.querySelector('.clear .g3').getAnimations()[0];
     if(r&&c&&r.currentTime!=null)c.currentTime=r.currentTime;
   }
@@ -319,7 +319,7 @@
   }
   document.addEventListener('hb:mode',e=>{
     if(e.detail.mode==='inside')place();
-    if(e.detail.mode==='compare')syncTint();
+    if(e.detail.mode==='compare')sync着色();
   });
   addEventListener('resize',place);
   if(document.fonts)document.fonts.ready.then(place);
@@ -336,7 +336,7 @@
     stage.classList.toggle('no-bf',d.blur==='off');
     frostOff=d.blur==='off';describe();
     if(d.blur!=='off')root.setProperty('--blur',d.blur);
-    caps[1].textContent=frostOff?'Frost is Off, so nothing blurs':'The glass blurs what is behind it';place();
+    caps[1].textContent=frostOff?'磨砂关了，所以什么都不模糊':'玻璃会模糊它身后的东西';place();
   });
   choices('op-seg',d=>{root.setProperty('--glass-op',d.op)});
   // The blobs' clocks are rescaled with the new length (their delays are fractions of it), so each blob stays where it is;
@@ -353,13 +353,13 @@
     const b=parseInt(d.color.slice(5,7),16);
     root.setProperty('--tint',`rgba(${r},${g},${b},var(--glass-op))`);
   });
-  /* 'none' (not 'paused') so the card falls back to the Frost and Tint settings while off */
+  /* 'none' (not 'paused') so the card falls back to the 磨砂程度 and 着色 settings while off */
   document.getElementById('breath-tog').addEventListener('change',e=>{
     document.querySelector('.g2').style.animation=e.target.checked?'':'none';
   });
   document.getElementById('shift-tog').addEventListener('change',e=>{
     document.querySelectorAll('.g3').forEach(g=>{g.style.animation=e.target.checked?'':'none'});
-    syncTint();
+    sync着色();
   });
 </script>
 </body>

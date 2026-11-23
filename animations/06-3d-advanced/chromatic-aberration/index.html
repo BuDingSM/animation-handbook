@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chromatic Aberration — 动画手册</title>
-  <meta name="description" content="A word splits into red, green and blue fringes. Best for bold titles.">
+  <title>色差 — 动画手册</title>
+  <meta name="description" content="一个词裂成红、绿、蓝三色边缘。适合醒目的标题。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Chromatic Aberration — 动画手册">
-  <meta property="og:description" content="A word splits into red, green and blue fringes. Best for bold titles.">
+  <meta property="og:title" content="色差 — 动画手册">
+  <meta property="og:description" content="一个词裂成红、绿、蓝三色边缘。适合醒目的标题。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chromatic Aberration — 动画手册">
-  <meta name="twitter:description" content="A word splits into red, green and blue fringes. Best for bold titles.">
+  <meta name="twitter:title" content="色差 — 动画手册">
+  <meta name="twitter:description" content="一个词裂成红、绿、蓝三色边缘。适合醒目的标题。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Chromatic Aberration", "name": "Chromatic Aberration", "description": "A word splits into red, green and blue fringes. Best for bold titles.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/", "inLanguage": "zh-CN", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, Chromatic Aberration"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "色差", "name": "色差", "description": "一个词裂成红、绿、蓝三色边缘。适合醒目的标题。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 色差"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--ca-amt:4px;--ca-angle:30deg;--ca-blur:0px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -34,7 +34,7 @@
     .ca-b .ca-text{color:#2060ff;filter:blur(var(--ca-blur))}
     /* The base copy is invisible: it only gives the wrapper its size */
     .ca-layer.base .ca-text{color:transparent;-webkit-text-stroke:0}
-    /* Movement: the red and blue copies breathe (Pulse) or jump near the end of each 4s cycle (Glitch) */
+    /* 运动方式: the red and blue copies breathe (Pulse) or jump near the end of each 4s cycle (Glitch) */
     .ca-wrap.pulse .ca-r{animation:ca-pulse-r 2s ease-in-out infinite}
     .ca-wrap.pulse .ca-b{animation:ca-pulse-b 2s ease-in-out infinite}
     .ca-wrap.glitch .ca-r{animation:ca-glitch-r 4s step-end infinite}
@@ -106,20 +106,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../svg-path-animation/" rel="prev" aria-label="上一个：SVG Path Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>SVG Path Animation</span></a><a href="../2-5d-pseudo-3d/" rel="next" aria-label="下一个：2.5D / Pseudo-3D"><span><span class="hb-dir">下一个：</span>2.5D / Pseudo-3D</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../svg-path-animation/" rel="prev" aria-label="上一个：SVG 路径动画"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>SVG 路径动画</span></a><a href="../2-5d-pseudo-3d/" rel="next" aria-label="下一个：2.5D / 伪 3D"><span><span class="hb-dir">下一个：</span>2.5D / 伪 3D</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.10 · 3D &amp; Advanced</p>
-    <h1>Chromatic Aberration</h1>
-    <p class="hb-lede">A word splits into red, green and blue fringes. Best for bold titles.</p>
+    <p class="hb-cat">06.10 · 3D 与高级效果</p>
+    <h1>色差</h1>
+    <p class="hb-lede">一个词裂成红、绿、蓝三色边缘。适合醒目的标题。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。暂停可以仔细看，打开慢动作能看清每一步。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -141,56 +141,56 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the word is three copies, shown apart: red shifted one way, blue the other, green in place. Their light adds up, so where all three meet it is white.</p>
-      <p data-hb-for="compare" hidden>Copies cover just stacks the three copies, so the blue one on top hides the rest. Copies add up adds their light: white where they meet, color at the edges.</p>
+      <p data-hb-for="inside" hidden>看内部：这个词是三个副本，分开显示：红色朝一边移，蓝色朝另一边移，绿色留在原地。它们的光加起来，所以三个重叠的地方是白色。</p>
+      <p data-hb-for="compare" hidden>只叠副本会把三个副本叠在一起，上面那个蓝色的会盖住其余的。光叠加起来会把它们的光加起来：重叠的地方是白色，边缘是彩色。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="move-lbl">Movement</p>
+        <p class="hb-setting-name" id="move-lbl">运动方式</p>
         <div class="seg" id="move-seg" role="group" aria-labelledby="move-lbl">
-          <button type="button" data-move="pulse" class="on" aria-pressed="true">Pulse</button>
-          <button type="button" data-move="glitch" aria-pressed="false">Glitch</button>
-          <button type="button" data-move="none" aria-pressed="false">None</button>
+          <button type="button" data-move="pulse" class="on" aria-pressed="true">脉冲</button>
+          <button type="button" data-move="glitch" aria-pressed="false">故障</button>
+          <button type="button" data-move="none" aria-pressed="false">无</button>
         </div>
-        <p class="hb-hint">Pulse breathes in and out; Glitch jumps now and then.</p>
+        <p class="hb-hint">脉冲一呼一吸；故障会时不时跳一下。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="amt-lbl">Color split</p>
+        <p class="hb-setting-name" id="amt-lbl">颜色分离</p>
         <div class="seg" id="amt-seg" role="group" aria-labelledby="amt-lbl">
-          <button type="button" data-amt="2" aria-pressed="false">Small</button>
-          <button type="button" data-amt="4" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-amt="8" aria-pressed="false">Large</button>
+          <button type="button" data-amt="2" aria-pressed="false">小</button>
+          <button type="button" data-amt="4" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-amt="8" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">How far the red and blue copies sit from the word.</p>
+        <p class="hb-hint">红、蓝两个副本离原词有多远。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="angle-lbl">Direction</p>
+        <p class="hb-setting-name" id="angle-lbl">方向</p>
         <div class="seg" id="angle-seg" role="group" aria-labelledby="angle-lbl">
-          <button type="button" data-angle="0" aria-pressed="false">Sideways</button>
-          <button type="button" data-angle="30" class="on" aria-pressed="true">Slanted</button>
-          <button type="button" data-angle="90" aria-pressed="false">Up and down</button>
+          <button type="button" data-angle="0" aria-pressed="false">横向</button>
+          <button type="button" data-angle="30" class="on" aria-pressed="true">斜向</button>
+          <button type="button" data-angle="90" aria-pressed="false">上下</button>
         </div>
-        <p class="hb-hint">Which way the red and blue copies move apart.</p>
+        <p class="hb-hint">红、蓝两个副本朝哪个方向分开。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Soft color edges</span><input class="hb-switch" type="checkbox" role="switch" id="blur-tog" autocomplete="off"></label>
-          <p class="hb-hint">Blurs the colored copies, like a real lens.</p>
+          <label class="hb-switch-row"><span>柔和的彩色边缘</span><input class="hb-switch" type="checkbox" role="switch" id="blur-tog" autocomplete="off"></label>
+          <p class="hb-hint">把彩色副本模糊一下，像真正的镜头一样。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-setting-name" for="text-inp">Your text</label>
+          <label class="hb-setting-name" for="text-inp">你的文字</label>
           <input class="hb-text" type="text" id="text-inp" value="PRISM" autocomplete="off">
-          <p class="hb-hint">Short words work best.</p>
+          <p class="hb-hint">短词效果最好。</p>
         </div>
       </div>
     </details>
@@ -199,10 +199,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a chromatic aberration effect to [your headline or short word]. Stack three copies of the text in pure red, green and blue, blend them so that where they overlap they add up to white, and shift the red and blue copies in opposite directions so colored fringes appear at the letters' edges, like a cheap camera lens. The split can breathe in and out, or jump now and then like a glitch. It only works on a dark background. Screen readers should read the text once, not three times. If the visitor has reduced motion turned on, keep the copies still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你的标题或短词]加一个色差效果。把文字叠三份，分别是纯红、纯绿、纯蓝，用叠加方式混合，三个重叠的地方加起来变成白色，再把红色和蓝色的副本朝相反方向移开，字母边缘就会出现彩色边，像便宜的相机镜头一样。分离可以一呼一吸，也可以像故障一样时不时跳一下。它只在深色背景上有效。屏幕阅读器应该只读一次文字，而不是读三遍。如果访客打开了减弱动态效果，就让副本保持静止。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -222,9 +222,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Bold titles</li><li>Music and games</li><li>Error pages</li></ul>
+      <ul class="hb-tags hb-good"><li>醒目的标题</li><li>音乐和游戏</li><li>错误页面</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Body text</li><li>Light backgrounds</li></ul>
+      <ul class="hb-tags hb-avoid"><li>正文</li><li>浅色背景</li></ul>
     </div>
   </section>
 
@@ -259,7 +259,7 @@
     document.querySelectorAll('.ca-text').forEach(n=>{n.textContent=t});
     fit();
   }
-  // Movement is one class on the wrap of the real word and of each copy
+  // 运动方式 is one class on the wrap of the real word and of each copy
   function setMove(m){
     wraps.forEach(w=>{w.classList.remove('pulse','glitch');if(m!=='none')w.classList.add(m)});
   }
@@ -317,16 +317,16 @@
   const rulerBase=make('div','ca-layer base',make('div','ca-wrap',ruler));
   const rulerText=make('div','ca-text',rulerBase,document.getElementById('ca-base-text').textContent);
   const minis=hide(make('div','ca-minis',stage));
-  [['r','Red copy, shifted one way','Red'],['g','Green copy, in place','Green'],['b','Blue copy, shifted the other way','Blue']].forEach(([k,long,short])=>{
+  [['r','红色副本，朝一边移','红色'],['g','绿色副本，留在原地','绿色'],['b','蓝色副本，朝另一边移','蓝色']].forEach(([k,long,short])=>{
     const row=make('div','ca-mini',minis);
     row.appendChild(copyWord(k));
     caption('',row,long,short);
   });
   const first=hide(make('div','ca-first',stage));
-  caption('ca-name',first,'Copies cover');
+  caption('ca-name',first,'只叠副本');
   first.appendChild(copyWord());
-  realBox.insertBefore(caption('ca-name',null,'Copies add up'),realBox.firstChild);
-  caption('ca-sum',realBox,'Added together: white where all three meet, color at the edges');
+  realBox.insertBefore(caption('ca-name',null,'光叠加起来'),realBox.firstChild);
+  caption('ca-sum',realBox,'加起来：三个重叠的地方是白色，边缘是彩色');
 
   // A copy starts from zero when it is first shown, so it takes the time and speed of the real red or blue layer
   function syncCopies(){
@@ -357,7 +357,7 @@
   function fit(){
     if(mode==='normal')return;
     const boxes=mode==='inside'?[minis,realBox]:[first,realBox];
-    let s=parseFloat(getComputedStyle(rulerText).fontSize)*(mode==="compare"?.85:1);
+    let s=parseFloat(getComputed样式(rulerText).font大小)*(mode==="compare"?.85:1);
     for(let i=0;i<30;i++){
       stage.style.setProperty('--ca-fs',s.toFixed(1)+'px');
       if(s<6||boxes.every(fits))break;

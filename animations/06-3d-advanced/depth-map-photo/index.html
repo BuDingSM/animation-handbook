@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Depth-Map Photo — 动画手册</title>
-  <meta name="description" content="A flat photo turns 3D as you point: near parts shift more. Best for hero images.">
+  <title>景深照片 — 动画手册</title>
+  <meta name="description" content="平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Depth-Map Photo — 动画手册">
-  <meta property="og:description" content="A flat photo turns 3D as you point: near parts shift more. Best for hero images.">
+  <meta property="og:title" content="景深照片 — 动画手册">
+  <meta property="og:description" content="平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Depth-Map Photo — 动画手册">
-  <meta name="twitter:description" content="A flat photo turns 3D as you point: near parts shift more. Best for hero images.">
+  <meta name="twitter:title" content="景深照片 — 动画手册">
+  <meta name="twitter:description" content="平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Depth-Map Photo", "name": "Depth-Map Photo", "description": "A flat photo turns 3D as you point: near parts shift more. Best for hero images.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/", "inLanguage": "zh-CN", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, Depth-Map Photo"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "景深照片", "name": "景深照片", "description": "平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 景深照片"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -47,20 +47,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../carousel-3d/" rel="prev" aria-label="上一个：3D Carousel"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>3D Carousel</span></a><a href="../flocking/" rel="next" aria-label="下一个：Flocking"><span><span class="hb-dir">下一个：</span>Flocking</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../carousel-3d/" rel="prev" aria-label="上一个：3D 轮播"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>3D 轮播</span></a><a href="../flocking/" rel="next" aria-label="下一个：鸟群"><span><span class="hb-dir">下一个：</span>鸟群</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.20 · 3D &amp; Advanced</p>
-    <h1>Depth-Map Photo</h1>
-    <p class="hb-lede">A flat photo turns 3D as you point: near parts shift more. Best for hero images.</p>
+    <p class="hb-cat">06.20 · 3D 与高级效果</p>
+    <h1>景深照片</h1>
+    <p class="hb-lede">平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">悬停试试</h2><p>Move your pointer over the picture, drag a finger across it (or Tab to it and use the arrow keys), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">悬停试试</h2><p>把指针移到图片上，拖动手指划过它（或按 Tab 聚焦后用方向键），或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -68,15 +68,15 @@
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <canvas id="cvs" role="img" tabindex="0" aria-label="A drawn sunset landscape: a low sun, far mountains, hills, a meadow, and a tree and a rock in front. As the pointer moves, the near parts shift more than the far ones. The arrow keys do what the pointer does."></canvas>
+      <canvas id="cvs" role="img" tabindex="0" aria-label="画出来的日落风景：低垂的太阳、远山、丘陵、草地，前面还有一棵树和一块石头。指针移动时，近处比远处移动得多。方向键的作用和指针一样。"></canvas>
       <div class="ovl" aria-hidden="true">
-        <p class="cap in" data-k="map" data-hb-caption>Depth map: white is near, black is far</p>
-        <p class="cap in" data-k="near" data-hb-caption>Near: shifts most</p>
-        <p class="cap in nw" data-k="far" data-hb-caption>Far: shifts the other way</p>
-        <p class="cap in" data-k="hold" data-hb-caption>This depth holds still</p>
-        <p class="cap in" data-k="lines" data-hb-caption>Faint lines: where it stood facing straight on</p>
-        <p class="cap half" data-hb-caption>One flat sheet</p>
-        <p class="cap half" data-hb-caption>With depth</p>
+        <p class="cap in" data-k="map" data-hb-caption>景深图：白色是近处，黑色是远处</p>
+        <p class="cap in" data-k="near" data-hb-caption>近处：移动最多</p>
+        <p class="cap in nw" data-k="far" data-hb-caption>远处：朝反方向移动</p>
+        <p class="cap in" data-k="hold" data-hb-caption>这个景深保持不动</p>
+        <p class="cap in" data-k="lines" data-hb-caption>淡淡的线：正对着时的位置</p>
+        <p class="cap half" data-hb-caption>一张平片</p>
+        <p class="cap half" data-hb-caption>带景深</p>
         <i class="ring you"></i><i class="ring ghost"></i>
       </div>
     </div>
@@ -84,29 +84,29 @@
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the left part shows the depth map (white near, black far); each spot shifts by its gray, so near parts move most. Faint lines show where everything stood facing straight on.</p>
-      <p data-hb-for="compare" hidden>One flat sheet slides the whole picture the same amount, so it stays flat; With depth shifts each part by its gray, so it looks deep. Point at With depth or press Show me.</p>
+      <p data-hb-for="inside" hidden>看内部：左边显示的是景深图（白色是近处，黑色是远处）；每个位置按它的灰度移动，近处移动最多。淡淡的线表示所有东西正对着时的位置。</p>
+      <p data-hb-for="compare" hidden>一张平片会把整张图片移动同样的量，所以还是平的；带景深会按每个位置的灰度移动，看起来就有了深度。指着「带景深」那一边，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="str-lbl">Depth strength</p>
+        <p class="hb-setting-name" id="str-lbl">景深强度</p>
         <div class="seg" id="str-seg" role="group" aria-labelledby="str-lbl">
-          <button type="button" data-str=".02" aria-pressed="false">Subtle</button>
-          <button type="button" data-str=".035" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-str=".05" aria-pressed="false">Strong</button>
+          <button type="button" data-str=".02" aria-pressed="false">轻微</button>
+          <button type="button" data-str=".035" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-str=".05" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">How far the near parts slide against the far ones.</p>
+        <p class="hb-hint">近处相对远处滑动多远。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Shows the depth map</span><input class="hb-switch" type="checkbox" role="switch" id="map-tog" autocomplete="off"></label>
-        <p class="hb-hint">The gray picture behind the effect: white is near, black is far.</p>
+        <label class="hb-switch-row"><span>显示景深图</span><input class="hb-switch" type="checkbox" role="switch" id="map-tog" autocomplete="off"></label>
+        <p class="hb-hint">效果背后的灰度图：白色是近处，黑色是远处。</p>
       </div>
     </div>
   </section>
@@ -114,10 +114,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a depth effect to [the photo you want to bring to life]. Make a grayscale depth map the same size as the photo, white for near parts and black for far ones, and blur it slightly. Draw the photo with a WebGL shader that reads each pixel from a spot shifted by the pointer's position times that pixel's depth, so near parts move more than far ones and the flat photo looks three-dimensional. Zoom in a little so the edges never show, and let the view glide toward the pointer and back to the middle when it leaves. On touch screens, dragging a finger should do the same. If the visitor has reduced motion turned on, keep the photo still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想让它活起来的照片]加一个景深效果。做一张和照片一样大的灰度景深图，白色是近处，黑色是远处，再把它稍微模糊。用 WebGL 着色器画这张照片，按指针位置乘以每个像素的景深，把每个像素从偏移后的位置读取，这样近处比远处移动得多，平面的照片看起来就有了立体感。稍微放大一点，这样边缘永远不会露出来；指针离开时，画面会滑向指针、再滑回中间。触屏上，拖动手指也要能做到同样效果。如果访客打开了减弱动态效果，就让照片保持静止。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -137,9 +137,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Hero images</li><li>Portfolio photos</li><li>Travel stories</li><li>Album art</li></ul>
+      <ul class="hb-tags hb-good"><li>主视觉图片</li><li>作品集照片</li><li>旅行故事</li><li>专辑封面</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Photos with text</li><li>Small thumbnails</li></ul>
+      <ul class="hb-tags hb-avoid"><li>带文字的照片</li><li>小缩略图</li></ul>
     </div>
   </section>
 
@@ -172,14 +172,14 @@ void main(){
     c=mix(c,vec3(mix(1.,.03,smoothstep(.4,.6,dot(c,vec3(.3,.59,.11))))),e*.9);
     if(uSplit>0.)c=mix(c,vec3(1.),step(abs(v.x-uSplit)*uVw,.75));
   }
-  gl_FragColor=vec4(c,1.);
+  gl_Frag颜色=vec4(c,1.);
 }`;
 const stage=document.getElementById('stage');
 let cvs=document.getElementById('cvs');
 const reduce=matchMedia('(prefers-reduced-motion:reduce)');
 const PHONE=matchMedia('(max-width:600px),(max-height:500px)'); // phones: up to 600px wide, or 500px tall when held sideways
 const FRAME=1000/60,K=.1,RUN_MS=3000,FOCUS=.4,MAXSTR=.05,VY=.3; // FOCUS: the depth that holds still; VY: share of up and down
-// See inside and Compare: PARK is where the aim rests (the right edge), FLAT the one depth "One flat sheet" moves by, GRAY the share
+// See inside and Compare: PARK is where the aim rests (the right edge), FLAT the one depth "一张平片" moves by, GRAY the share
 // of See inside drawn as the depth map, STRIP the room above a half for its name, and the halves stack below STACK pixels wide
 const PARK=1,FLAT=.65,GRAY=.45,STRIP=34,GAP=6,STACK=480;
 let gl=null,g2=null,U={},W=0,H=0,SW=0,SH=0,cs=1,sizeTimer=0,mode='normal',pointerAim=false,V=[],shape='',lineCv=null;
@@ -194,28 +194,28 @@ function hill(g,w,h,y0,amp,f,ph){g.beginPath();g.moveTo(0,h);for(let i=0;i<=48;i
 const LAYERS=[
   [0,(g,w,h,c,m,dm)=>{   // sky and sun (m, the shorter side, keeps round things round)
     const s=g.createLinearGradient(0,0,0,h*.68);
-    [[0,'#1b2452'],[.45,'#4c3a7a'],[.78,'#c96a78'],[1,'#f4b16c']].forEach(([t,col])=>s.addColorStop(t,c(col)));
-    g.fillStyle=s;g.fillRect(0,0,w,h);
-    if(!dm){const r=g.createRadialGradient(w*.7,h*.32,0,w*.7,h*.32,m*.32);r.addColorStop(0,'rgba(255,224,170,.5)');r.addColorStop(1,'rgba(255,224,170,0)');g.fillStyle=r;g.fillRect(0,0,w,h);}
-    g.fillStyle=c('#fff1cf');dot(g,w*.7,h*.32,m*.065);
+    [[0,'#1b2452'],[.45,'#4c3a7a'],[.78,'#c96a78'],[1,'#f4b16c']].forEach(([t,col])=>s.add颜色Stop(t,c(col)));
+    g.fill样式=s;g.fillRect(0,0,w,h);
+    if(!dm){const r=g.createRadialGradient(w*.7,h*.32,0,w*.7,h*.32,m*.32);r.add颜色Stop(0,'rgba(255,224,170,.5)');r.add颜色Stop(1,'rgba(255,224,170,0)');g.fill样式=r;g.fillRect(0,0,w,h);}
+    g.fill样式=c('#fff1cf');dot(g,w*.7,h*.32,m*.065);
   }],
   [.2,(g,w,h,c)=>{       // far mountains
-    g.fillStyle=c('#6d5a96');g.beginPath();g.moveTo(0,h);
+    g.fill样式=c('#6d5a96');g.beginPath();g.moveTo(0,h);
     [[0,.55],[.07,.47],[.14,.52],[.24,.38],[.33,.49],[.42,.43],[.5,.5],[.6,.4],[.7,.49],[.79,.42],[.88,.5],[.95,.46],[1,.52]].forEach(([x,y])=>g.lineTo(x*w,y*h));
     g.lineTo(w,h);g.fill();
   }],
-  [.45,(g,w,h,c)=>{g.fillStyle=c('#3f5f86');hill(g,w,h,.62,.035,7,.6);}],   // hills
-  [.65,(g,w,h,c)=>{g.fillStyle=c('#2f6150');hill(g,w,h,.72,.03,5,2.2);}],   // meadow
+  [.45,(g,w,h,c)=>{g.fill样式=c('#3f5f86');hill(g,w,h,.62,.035,7,.6);}],   // hills
+  [.65,(g,w,h,c)=>{g.fill样式=c('#2f6150');hill(g,w,h,.72,.03,5,2.2);}],   // meadow
   [.9,(g,w,h,c,m)=>{     // tree, as near as the ground it stands on
-    const x=w*.25;g.fillStyle=c('#3b2a22');g.fillRect(x-m*.016,h*.55,m*.032,h*.33);
-    g.fillStyle=c('#23503f');dot(g,x,h*.47,m*.13);dot(g,x-m*.1,h*.54,m*.1);dot(g,x+m*.1,h*.54,m*.1);
-    g.fillStyle=c('#2f6a52');dot(g,x-m*.035,h*.43,m*.07);
+    const x=w*.25;g.fill样式=c('#3b2a22');g.fillRect(x-m*.016,h*.55,m*.032,h*.33);
+    g.fill样式=c('#23503f');dot(g,x,h*.47,m*.13);dot(g,x-m*.1,h*.54,m*.1);dot(g,x+m*.1,h*.54,m*.1);
+    g.fill样式=c('#2f6a52');dot(g,x-m*.035,h*.43,m*.07);
   }],
   [.92,(g,w,h,c,m,dm)=>{ // ground, nearer toward the bottom, and a rock
-    const s=g.createLinearGradient(0,h*.82,0,h);s.addColorStop(0,dm?gray(.9):'#1f3e2c');s.addColorStop(1,dm?gray(1):'#0d1f15');
-    g.fillStyle=s;hill(g,w,h,.84,.012,9,1);
-    g.fillStyle=c('#4a4658',1);g.beginPath();g.ellipse(w*.76,h*.91,m*.11,m*.06,0,0,7);g.fill();
-    g.fillStyle=c('#615b70',1);g.beginPath();g.ellipse(w*.75,h*.89,m*.07,m*.03,0,0,7);g.fill();
+    const s=g.createLinearGradient(0,h*.82,0,h);s.add颜色Stop(0,dm?gray(.9):'#1f3e2c');s.add颜色Stop(1,dm?gray(1):'#0d1f15');
+    g.fill样式=s;hill(g,w,h,.84,.012,9,1);
+    g.fill样式=c('#4a4658',1);g.beginPath();g.ellipse(w*.76,h*.91,m*.11,m*.06,0,0,7);g.fill();
+    g.fill样式=c('#615b70',1);g.beginPath();g.ellipse(w*.75,h*.89,m*.07,m*.03,0,0,7);g.fill();
   }]
 ];
 const colorOf=(d,dm)=>(col,dd)=>dm?gray(dd??d):col;
@@ -266,7 +266,7 @@ function edges(){
   const c=document.createElement('canvas');c.width=SW;c.height=SH;c.getContext('2d').putImageData(o,0,0);return c;
 }
 // The pictures drawn, in canvas pixels (c: the same in page pixels). Normal and See inside draw one over the whole stage.
-// Compare draws two of the same size, "One flat sheet" first, each below its name; they stack on a narrow stage.
+// Compare draws two of the same size, "一张平片" first, each below its name; they stack on a narrow stage.
 function views(){
   cs=W/Math.max(1,stage.clientWidth);
   const mk=(x,y,w,h,flat,lines,split)=>({x,y,w,h,flat,lines,split,c:{x:x/cs,y:y/cs,w:w/cs,h:h/cs}});
@@ -295,7 +295,7 @@ function layout(){
 function draw(){
   if(gl){
     gl.uniform1f(U.uFocus,FOCUS);gl.uniform1f(U.uMap,MAP);gl.uniform2f(U.uPx,.75*cs/SW,.75*cs/SH);
-    if(mode==='compare'){gl.clearColor(.043,.043,.051,1);gl.clear(gl.COLOR_BUFFER_BIT);}
+    if(mode==='compare'){gl.clear颜色(.043,.043,.051,1);gl.clear(gl.COLOR_BUFFER_BIT);}
     V.forEach(v=>{
       const O=STR*v.w;
       gl.viewport(v.x,H-v.y-v.h,v.w,v.h);
@@ -305,7 +305,7 @@ function draw(){
     });
   }else{
     const m=Math.min(SW,SH);
-    if(mode==='compare'){g2.setTransform(1,0,0,1,0,0);g2.fillStyle='#0b0b0d';g2.fillRect(0,0,W,H);}
+    if(mode==='compare'){g2.setTransform(1,0,0,1,0,0);g2.fill样式='#0b0b0d';g2.fillRect(0,0,W,H);}
     V.forEach(v=>{
       const O=STR*v.w,ox=v.x+(v.w-SW)/2,oy=v.y+(v.h-SH)/2;
       const pass=(dm,w)=>{
@@ -318,7 +318,7 @@ function draw(){
       if(v.lines){
         g2.setTransform(1,0,0,1,0,0);g2.save();g2.beginPath();g2.rect(v.x,v.y,v.w,v.h);g2.clip();
         g2.drawImage(lineCv||(lineCv=edges()),ox,oy);
-        if(v.split){g2.fillStyle='#fff';g2.fillRect(v.x+v.w*v.split-.75*cs,v.y,1.5*cs,v.h);}
+        if(v.split){g2.fill样式='#fff';g2.fillRect(v.x+v.w*v.split-.75*cs,v.y,1.5*cs,v.h);}
         g2.restore();
       }
     });
@@ -361,7 +361,7 @@ document.addEventListener('hb:input',()=>{
 });
 
 // A mouse, pen or finger aims the view; a real hover ends a run. A mouse that leaves or a finger that lifts sends it back home.
-// In Compare only "With depth" is aimed: a pointer over "One flat sheet" aims nothing, and the view rests at home.
+// In Compare only "带景深" is aimed: a pointer over "一张平片" aims nothing, and the view rests at home.
 const clamp=v=>Math.max(-1,Math.min(1,v));
 function aim(e){if(reduce.matches)return;const r=stage.getBoundingClientRect();
   if(mode==='compare'){
@@ -373,7 +373,7 @@ function aim(e){if(reduce.matches)return;const r=stage.getBoundingClientRect();
   ax=clamp((e.clientX-r.left)/r.width*2-1);ay=clamp((e.clientY-r.top)/r.height*2-1);wake();}
 const toMiddle=()=>{pointerAim=false;if(!run&&!reduce.matches){aimHome();wake();}};
 stage.addEventListener('pointerdown',aim);
-// In Compare a pointer off "With depth" aims nothing, so it leaves a run playing too
+// In Compare a pointer off "带景深" aims nothing, so it leaves a run playing too
 const offDeep=e=>{if(mode!=='compare')return false;const r=stage.getBoundingClientRect(),c=V[1].c,x=e.clientX-r.left-stage.clientLeft-c.x,y=e.clientY-r.top-stage.clientTop-c.y;return x<0||x>c.w||y<-STRIP||y>c.h;};
 stage.addEventListener('pointermove',e=>{if(e.isTrusted&&run&&!reduce.matches&&!offDeep(e)){run=null;wake();}aim(e);});
 ['pointerleave','pointercancel'].forEach(t=>stage.addEventListener(t,toMiddle));
@@ -394,18 +394,18 @@ stage.addEventListener('focusout',()=>{if(keys){keys=false;toMiddle();}});
 // See inside and Compare. The pose: with nothing aiming the view (no pointer, key or Show me run) it rests at the park, so a still
 // picture shows the shift, and a ring marks the pretend pointer. Leaving a mode puts a view that rests at the park back in the middle.
 const NAMES={
-  normal:['A drawn sunset landscape: a low sun, far mountains, hills, a meadow, and a tree and a rock in front. As the pointer moves, the near parts shift more than the far ones. The arrow keys do what the pointer does.',
-    'The depth map of the landscape in gray: the sky is black, and the mountains, hills, meadow, tree and ground get lighter the nearer they are. The arrow keys do what the pointer does.'],
-  inside:['The sunset landscape in color on the right and its depth map in gray on the left, aimed from the right, with faint lines where each part stands facing straight on: the tree has moved far from its line, the hills hardly, the mountains and sky a little the other way. The arrow keys do what the pointer does.',
-    'The depth map of the landscape in gray, aimed from the right, with faint lines where each layer stands facing straight on: the tree has moved far from its line, the hills hardly, the mountains a little the other way. The arrow keys do what the pointer does.'],
-  compare:['Two copies of the sunset landscape, aimed from the right, each with faint lines where its parts stand facing straight on: first One flat sheet, where every part has moved the same, then With depth, where each part has moved its own amount. The arrow keys move both.',
-    'Two copies of the landscape\'s depth map in gray, aimed from the right, each with faint lines where its parts stand facing straight on: first One flat sheet, where every part has moved the same, then With depth, where each part has moved its own amount. The arrow keys move both.']
+  normal:['画出来的日落风景：低垂的太阳、远山、丘陵、草地，前面还有一棵树和一块石头。指针移动时，近处比远处移动得多。方向键的作用和指针一样。',
+    '风景的灰度景深图：天空是黑色的，山、丘陵、草地、树和地面越近越亮。方向键的作用和指针一样。'],
+  inside:['右边是彩色的日落风景，左边是灰度的景深图，从右边看，淡淡的线表示每个部分正对着时的位置：树离它的线最远，丘陵几乎没动，山和天空朝反方向移动了一点。方向键的作用和指针一样。',
+    '风景的灰度景深图，从右边看，淡淡的线表示每一层正对着时的位置：树离它的线最远，丘陵几乎没动，山朝反方向移动了一点。方向键的作用和指针一样。'],
+  compare:['日落风景的两个副本，从右边看，每个都有淡淡的线表示各部分正对着时的位置：先是「一张平片」，每个部分都移动了同样的量；然后是「带景深」，每个部分都移动了自己的量。方向键可以同时移动两者。',
+    '风景灰度景深图的两个副本，从右边看，每个都有淡淡的线表示各部分正对着时的位置：先是「一张平片」，每个部分都移动了同样的量；然后是「带景深」，每个部分都移动了自己的量。方向键可以同时移动两者。']
 };
 const setName=()=>cvs.setAttribute('aria-label',NAMES[mode][MAP]);
 const NOTES=[...document.querySelectorAll('[data-hb-for]')],WORDS=NOTES.map(n=>n.textContent);
 const STILL={
-  inside:'Shown still, aimed from the right: the left part shows the depth map (white near, black far); near parts have shifted most, and faint lines show where everything stood facing straight on.',
-  compare:'Shown still, aimed from the right: in One flat sheet every part has moved the same from its faint line; in With depth each part has moved its own amount.'
+  inside:'静止时，从右边看：左边显示的是景深图（白色是近处，黑色是远处）；近处移动最多，淡淡的线表示所有东西正对着时的位置。',
+  compare:'静止时，从右边看：在「一张平片」里，每个部分都从它的淡线移动了同样的量；在「带景深」里，每个部分都移动了自己的量。'
 };
 function words(){NOTES.forEach((n,i)=>{const t=reduce.matches?STILL[n.dataset.hbFor]:WORDS[i];if(n.textContent!==t)n.textContent=t;});}
 words();reduce.addEventListener('change',words);
@@ -413,7 +413,7 @@ words();reduce.addEventListener('change',words);
 const ring=stage.querySelector('.ring.you'),ghost=stage.querySelector('.ring.ghost');
 const CAPS=[...stage.querySelectorAll('.cap.in')],PILLS=[...stage.querySelectorAll('.cap.half')];
 const move=(el,x,y)=>{el.style.transform=`translate(${x}px,${y}px)`;};
-// The ring marks the pretend pointer, kept whole inside the picture; the ghost stands in the same place of "One flat sheet"
+// The ring marks the pretend pointer, kept whole inside the picture; the ghost stands in the same place of "一张平片"
 function marks(){
   if(mode==='normal')return;
   const R=16,at=(el,c)=>move(el,c.x+R+(sx+1)/2*(c.w-2*R),c.y+R+(sy+1)/2*(c.h-2*R));

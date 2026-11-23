@@ -1,20 +1,20 @@
-# GPGPU Particle System
+# GPGPU 粒子系统
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/)
 
-## What it is
-A GPU particle system moves tens of thousands of particles on the graphics chip instead of in JavaScript. Every particle's position and speed is stored as one pixel of a texture, and a shader reads last frame's texture and writes the next one, all at once. A second step draws each particle as a tiny point.
+## 它是什么
+GPU 粒子系统把数万个粒子放在显卡上移动，而不是在 JavaScript 里。每个粒子的位置和速度存为纹理的一个像素，着色器读取上一帧的纹理、同时写出下一帧。第二步把每个粒子画成一个小点。
 
-## When to use it
-- Large-scale particle effects: galaxy simulations, fluid flow, fire systems, crowd simulations
-- Any particle system where JavaScript particle count is the performance bottleneck
-- Creative coding contexts where particle count itself is the aesthetic (100k points forming a shape)
-- Technical demonstrations of GPGPU principles in the browser
+## 什么时候用
+- 大规模粒子效果：星系模拟、流体流动、火焰系统、人群模拟
+- 任何 JavaScript 粒子数量成为性能瓶颈的粒子系统
+- 粒子数量本身就是美学的创意编码场景（10 万个点拼成一个形状）
+- 浏览器里 GPGPU 原理的技术演示
 
-## How it works
-**Data layout**: a 256×256 texture of RGBA32F pixels stores 65,536 particles. Each pixel = one particle's `(x, y, vx, vy)`.
+## 工作原理
+**数据布局**：一张 256×256 的 RGBA32F 像素纹理存储 65536 个粒子。每个像素 = 一个粒子的 `(x, y, vx, vy)`。
 
-**Physics shader** (WebGL2 fragment shader, renders to offscreen texture):
+**物理着色器**（WebGL2 片元着色器，渲染到离屏纹理）：
 
 ```glsl
 #version 300 es
@@ -52,9 +52,9 @@ void main() {
 }
 ```
 
-**Time step** — every physics pass moves the particles by exactly one 60 Hz step: `uStep` is 1 (a third of that in slow motion), on every screen. The page looks at every frame the screen offers and measures the time since the last drawn one in steps of 1/60 s (a gap counts for at most 50 ms, and a value within 0.05 of a whole number of steps counts as that number, so a screen a little off 60 Hz, such as 59.94 or 119.88 Hz, still runs exactly one pass a frame). It runs one pass for every whole step it has added up (allowing 1 ms of slack, and at most three passes a frame) and carries the rest over: one pass a frame on a 60 Hz screen, two on a 30 Hz one, and none on a frame that comes too soon, which changes nothing and draws nothing, so the drawing stays near 60 pictures a second on a faster screen. The particles move at the same speed on every screen, and the attractor, which pulls hard near the middle and settles differently for a longer or a shorter step, looks the same too. A drawn frame lays the trail fade over the picture once for every pass it ran, after the passes, each time 12% of the old picture; slow motion still runs 60 passes a second, so it slows the particles but not the fade. One smaller fade would fade the same amount, but an 8-bit canvas rounds it differently, and the faint leftovers of a trail would end up another color.
+**时间步长**——每次物理通道都让粒子恰好移动一个 60 Hz 步长：`uStep` 是 1（慢动作里是它的三分之一），在任何屏幕上都一样。页面查看屏幕提供的每一帧，按六十分之一秒的步数测量自上次绘制以来的时间（一个间隔最多算 50ms，与整数步数相差 0.05 以内的值算作那个整数，所以略微偏离 60 Hz 的屏幕，比如 59.94 或 119.88 Hz，每帧仍然恰好跑一次通道）。它为累加起来的每个完整步数跑一次通道（留 1ms 宽限，每帧最多三次），剩下的带到下一帧：60 Hz 的屏幕每帧一次，30 Hz 的两次，来得太早的一帧一次也不跑，什么也不改、什么也不画，所以更快的屏幕上绘制保持在每秒 60 张图附近。粒子在任何屏幕上移动的速度都一样，吸引器（在中间附近拉得狠，长步和短步的落点不同）看起来也一样。绘制的一帧在通道之后为跑过的每个通道在画面上铺一次拖影淡出，每次是旧画面的 12%；慢动作每秒仍然跑 60 次通道，所以它让粒子变慢，但不让淡出变慢。一次更小的淡出淡掉的量理论上相同，但 8 位画布每次覆盖都会四舍五入，拖影淡淡的残留最后会变成另一个颜色。
 
-**Texture ping-pong** — alternate which texture is the read source each pass:
+**纹理乒乓**——每次通道交替把哪张纹理作为读取源：
 
 ```js
 // Physics pass: read tex0, write to fbo1 (which wraps tex1)
@@ -67,7 +67,7 @@ gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 [fbo0, fbo1] = [fbo1, fbo0];
 ```
 
-**Render pass** — vertex shader reads position texture to set `gl_Position`:
+**渲染通道**——顶点着色器读取位置纹理来设置 `gl_Position`：
 
 ```glsl
 #version 300 es
@@ -85,27 +85,27 @@ void main() {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Movement | Flow | Flow follows a shifting field of currents; Swirl circles the middle; Attract pulls everything toward the middle; Orbit sweeps the particles round in rings |
-| Number of particles | 65,000 | 16,000, 65,000 or 100,000 particles, one pixel each of a texture 128, 256 or 320 pixels square; phones start with 16,000 |
-| Speed | Normal | How hard the rule pushes for every sixtieth of a second: slow pushes 0.35 times as hard as fast and normal 0.6 times; under Flow a typical particle then crosses about 11%, 16% or 22% of the stage a second |
-| Color | One color | One blue, a color from each particle's speed, or colors that slowly shift |
-| Trails | off | Fades the last picture instead of clearing it, so each particle leaves a streak |
+| 运动方式 | 流动 | 流动跟随一片变化的水流；漩涡绕着中间转；吸引把一切拉向中间；环绕让粒子成圈扫过 |
+| 粒子数量 | 65,000 | 16000、65000 或 100000 个粒子，各是一张 128、256 或 320 像素见方纹理的一个像素；手机从 16000 个开始 |
+| 速度 | 普通 | 每六十分之一秒规则推的力度：慢是快的 0.35 倍，普通是 0.6 倍；流动时一个典型的粒子每秒横穿舞台约 11%、16% 或 22% |
+| 颜色 | 单色 | 一种蓝色、按每个粒子速度着色，或慢慢变化的颜色 |
+| 拖影 | 关 | 淡出上一张画面而不是清除它，让每个粒子留下一道拖影 |
 
-## Production notes
-- **WebGL2 required**: `RGBA32F` float framebuffer targets require WebGL2 (or the `WEBGL_color_buffer_float` extension in WebGL1, which is less reliably available). WebGL2 is supported in all modern browsers (Chrome 56+, Firefox 51+, Safari 15+).
-- **Time, not frames**: a fixed step per frame would move the particles twice as fast on a 120 Hz screen and half as fast on a 30 Hz phone, and fade the trails at the same wrong rate. Step by a fixed 1/60 s from an accumulator, as above, and cap the time of one frame (this demo uses 50 ms) and the passes per frame, so a strong pull near a point settles the same on every screen. Fade once per physics pass, always by the same amount.
-- **Three.js `GPUComputationRenderer`**: Three.js includes `GPUComputationRenderer` (in the `three/examples/jsm` path) which encapsulates the entire ping-pong texture pattern. It's the idiomatic production approach.
-- **WebGPU compute shaders**: WebGPU provides proper `@compute` shader stages for GPGPU, eliminating the "fragment shader as compute" workaround. As of 2024, WebGPU is available in Chrome 113+ but not yet in Firefox stable or Safari.
-- **Wrap only survives a divergence-free field**: this demo's flow field pushes particles away from the x-axis, so it has a net outward drift. An earlier version wrapped at ±1.2 while only ±1.0 is visible; particles drifted into that invisible ring faster than they came back and the canvas faded to black after about ten seconds. Tightening the wrap to ±1.0 only moved the symptom — a divergent field teleports the escapee straight back to the edge it just left, so the particles crust along the top and bottom instead. Respawning escapees at a random point near the middle is the fix, and it is what keeps the population steady here. Nothing throws in either failure, and the first second looks correct in all three versions, so this class of bug is only visible if you leave the demo running.
-- **Point size is in device pixels**: the canvas backing store is sized `clientWidth * devicePixelRatio` (capped at 2 here) and `gl.viewport` uses those same numbers. `gl_PointSize` is measured in device pixels too, so it has to be multiplied by the same ratio or the points shrink on a retina screen.
-- **Context loss**: a GPU reset, a tab restore, or too many live WebGL contexts will fire `webglcontextlost`. Without a listener that calls `preventDefault()`, the context never comes back and the demo stays black forever. On `webglcontextrestored` every program, buffer, texture and framebuffer has to be recreated — GPU objects do not survive the loss.
-- **Mobile budget**: 65k additively blended points cover a phone screen several times over and are both slow and visually mushy. This demo drops to a 128x128 texture (16k particles) on phones (screens 600px wide or less, or 500px tall or less); a production system should scale the texture size to the pixel count it actually has to fill.
-- **Memory**: 256×256 × 4 channels × 4 bytes (float32) = 1MB per texture. Two textures = 2MB — trivial. At 512×512 (262k particles): 4MB × 2 = 8MB.
+## 生产注意事项
+- **需要 WebGL2**：`RGBA32F` 浮点帧缓冲目标需要 WebGL2（或 WebGL1 里的 `WEBGL_color_buffer_float` 扩展，可靠性较差）。所有现代浏览器都支持 WebGL2（Chrome 56+、Firefox 51+、Safari 15+）。
+- **按时间，不按帧**：每帧固定一步会让粒子在 120 Hz 的屏幕上移动两倍快，在 30 Hz 的手机上慢一半，拖影也以同样错误的速率淡出。像上面那样从累加器里按固定 1/60 秒走步，封顶一帧的时间（演示用 50ms）和每帧的通道数，让靠近一点的强拉力在任何屏幕上落点相同。每物理通道淡出一次，始终淡出同样的量。
+- **Three.js 的 `GPUComputationRenderer`**：Three.js 自带 `GPUComputationRenderer`（在 `three/examples/jsm` 路径下），把整个乒乓纹理模式封装起来。这是惯用的生产做法。
+- **WebGPU 计算着色器**：WebGPU 提供真正的 `@compute` 着色器阶段给 GPGPU 用，省掉了“用片元着色器做计算”这个变通办法。截至 2024 年，WebGPU 在 Chrome 113+ 里可用，Firefox 正式版和 Safari 里还没有。
+- **只有无散场才能用环绕**：演示的流场把粒子从 x 轴向外推，所以有个向外的净漂移。早期版本在 ±1.2 处环绕，而可见的只有 ±1.0；粒子漂进那个看不见的环的速度比回来快，画布约十秒后就淡成黑色。把环绕收紧到 ±1.0 只是挪了症状——有散度的场会把逃出去的粒子直接传送回它刚离开的边缘，于是粒子反而沿着顶部和底部结壳。把逃出去的粒子在中间附近的随机点重生才是修复办法，也是这里让数量保持稳定的原因。两种失败都不会抛错，头一秒看起来也都正确，所以这类 bug 只有让演示一直跑着才能看见。
+- **点的大小以设备像素计**：画布后备存储按 `clientWidth * devicePixelRatio`（这里封顶 2）设置，`gl.viewport` 用同样的数字。`gl_PointSize` 也是以设备像素计的，所以也要乘以同样的比例，否则点在视网膜屏上会变小。
+- **上下文丢失**：GPU 重置、标签页恢复或太多活动的 WebGL 上下文都会触发 `webglcontextlost`。没有调用 `preventDefault()` 的监听器，上下文永远回不来，演示会一直黑下去。在 `webglcontextrestored` 里每个程序、缓冲、纹理和帧缓冲都必须重建——GPU 对象在丢失后无法存活。
+- **手机预算**：65000 个加色混合的点能把手机屏幕盖好几遍，又慢、视觉上又糊。演示在手机（宽 600px 及以下，或高 500px 及以下）上降到 128×128 纹理（16000 个粒子）；生产系统应该按实际要填充的像素数缩放纹理大小。
+- **内存**：256×256 × 4 通道 × 4 字节（float32）= 每张纹理 1MB。两张纹理 = 2MB——微不足道。512×512（262k 个粒子）时：4MB × 2 = 8MB。
 
-## See also
-- [Canvas Particle Effect](../canvas-particle-effect/) — hundreds of particles moved in JavaScript
-- [Fluid / Liquid Simulation](../fluid-simulation/) — a shader that melts blobs together
-- [WebGL Shader Animation](../webgl-shader-animation/) — shaders that paint every pixel
+## 另见
+- [Canvas 粒子效果](../canvas-particle-effect/) — 在 JavaScript 里移动的几百个粒子
+- [流体模拟](../fluid-simulation/) — 把色块融在一起的着色器
+- [WebGL 着色器动画](../webgl-shader-animation/) — 逐像素作画的着色器

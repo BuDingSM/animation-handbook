@@ -1,18 +1,18 @@
-# Water Ripple
+# 水面涟漪
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/water-ripple/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/water-ripple/)
 
-## What it is
-A water ripple effect makes a picture look as if it lies under clear water: a drag leaves a wake, a tap drops a pebble, and the ripples spread, cross, bounce off the edges and fade, bending the picture beneath them as they pass. It is a real little wave simulation, not rings drawn by formula, which is why two ripples cross and add up the way water does.
+## 它是什么
+水面涟漪让一张图片看起来像躺在清水下面：拖动留下一道尾迹，轻触丢下一颗石子，涟漪扩散、交错、撞到边缘反弹再消失，经过之处把下面的图片弯曲。这是一个真正的微型波浪模拟，而不是按公式画的圆环，所以两道涟漪相交时会像水一样叠加。
 
-## When to use it
-- Hero pictures on pool, spa, travel and seaside sites
-- Playful backgrounds that invite people to touch them
-- Landing pages for games or kids' products
-- Photography sites, as a calm hover effect on one featured picture
+## 什么时候用
+- 泳池、水疗、旅行和海滨网站的主视觉图片
+- 邀请人来触摸的俏皮背景
+- 游戏或儿童产品的落地页
+- 摄影网站，一张精选图片上的安静悬停效果
 
-## How it works
-The water is two grids of heights, about one point per four pixels of the box (at most 200 across, 128 on phones): the heights now and one step earlier. At 60 fixed steps a second, every point becomes half the total of its four neighbors minus its own earlier height, then loses a little, so ripples spread outward, cross and fade; the edges stay flat, so waves bounce off them. The new heights are written over the earlier grid, and the two swap:
+## 工作原理
+水是两张高度网格，盒子大约每四个像素一个点（横向最多 200 个，手机上 128 个）：现在的高度和上一步的高度。每秒 60 个固定步，每一点变成四个邻居总和的一半减去自己之前的高度，再损失一点，涟漪就向外扩散、交错、消失；边缘保持平坦，所以波浪会从边缘反弹。新的高度写在旧网格上，两者交换：
 
 ```js
 for (let y = 1; y < gh - 1; y++) for (let x = 1, i = y * gw + 1; x < gw - 1; x++, i++)
@@ -20,7 +20,7 @@ for (let y = 1; y < gh - 1; y++) for (let x = 1, i = y * gw + 1; x < gw - 1; x++
 [cur, prev] = [prev, cur];
 ```
 
-A touch pushes a small round dip into the grid (a tap drops a pebble, a wider and deeper dip). A drag's pushes are scaled by the time since the last pointer event, so a 120 Hz screen leaves the same wake as a 60 Hz one. To draw the water, each picture pixel shows the picture read from a spot shifted by the slope of the water there, so the picture bends under every wave; slopes that face the light get a lighter copy of the picture, which makes the glints:
+一次触摸把一个小的圆形凹陷压进网格（轻触丢下一颗石子，一个更宽更深的凹陷）。拖动的推动按自上次指针事件以来的时间缩放，所以 120 Hz 的屏幕留下的尾迹和 60 Hz 的一样。要画出水面，每个图片像素显示的是按那里水面斜率偏移后读取的图片，所以图片在每个波浪下面弯曲；朝向光的斜坡得到一份更亮的图片副本，做出闪光：
 
 ```js
 const dx = cur[i + 1] - cur[i - 1], dy = cur[i + gw] - cur[i - gw];   // i: the grid point under this pixel
@@ -28,25 +28,25 @@ const qx = clamp(X + Math.round(dx * b)), qy = clamp(Y + Math.round(dy * b));   
 pixels[o] = lighter[glint(dx, dy)][qy * rw + qx];   // glint: 0 to 3, how much the slope faces the light
 ```
 
-The pond is drawn once with canvas commands at twice the grid's size each way (two picture pixels for each grid point), so its pixels can be read, and three lighter copies of it are made for the glints. The result is written into that small canvas, which the browser stretches over the box. The steps come from an accumulator (at most three a frame, a third as many in slow motion), so the waves move at the same speed on every screen; once the water has stayed calm for a third of a second the loop stops and the plain picture is drawn, so the box is exactly at rest. Under reduced motion nothing moves: a tap or a drag shows still rings that fade within a second.
+池塘用 Canvas 命令画一次，纵横都是网格的两倍大（每个网格点两个图片像素），这样它的像素可以读取，再为闪光做三个更亮的副本。结果写进那块小画布，浏览器把它拉伸到盒子上。步数来自累加器（每帧最多三步，慢动作里是三分之一），所以波浪在任何屏幕上速度都一样；水面平静三分之一秒后循环停下，画出原来的图片，盒子恰好静止。减弱动态下什么也不动：轻触或拖动显示一秒内淡出的静止圆环。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Ripple size | Medium | How wide each push is, in grid points of a full-size grid: small is 2, medium 3.5 and large 5.5 (a tap's pebble is half as wide again) |
-| How long ripples last | Medium | How much height the water loses each step: short is 5%, which fades a pebble's rings within a second; medium 2.2%, about three seconds; long 0.9%, long enough for rings to bounce off the edges and cross |
-| Bend | Medium | How far the picture under a slope is shifted: subtle is 5 grid points for a full slope, medium 12 and strong 22 |
-| Light on the waves | on | Slopes that face the light show a lighter picture, in three steps of brightness; off, only the bending shows |
+| 涟漪大小 | 中等 | 每次推动有多宽，以满尺寸网格的网格点计：小是 2，中等 3.5，大是 5.5（轻触的石子还要宽一半） |
+| 涟漪持续时间 | 中等 | 水面每步损失多少高度：短是 5%，一颗石子的涟漪在一秒内消失；中等 2.2%，约三秒；长是 0.9%，足够让涟漪撞到边缘反弹、互相交错 |
+| 弯曲程度 | 中等 | 斜坡下的图片被移动多远：轻微是完整斜坡 5 个网格点，中等 12 个，强烈 22 个 |
+| 波光 | 开 | 朝向光的斜坡显示更亮的图片，分三档亮度；关掉就只显示弯曲 |
 
-## Production notes
-- **A coarse grid is enough.** The ripples are smooth, so a grid of one point per three to four pixels, drawn on a small canvas stretched over the box, looks as good as one point per pixel at a tenth of the cost. Use typed arrays and swap the two grids instead of copying them.
-- **Fixed steps, then stop.** The wave rule needs equal steps: take them from an accumulator at a fixed rate, and stop the loop when the largest height is tiny, so a calm picture costs nothing.
-- **Read the pixels once.** Draw the picture into the small canvas once and keep its pixels (`getImageData`); a picture from another site needs CORS headers, or the canvas cannot be read.
-- **WebGL for full screen.** For a full-screen hero on a large display, the same two-grid rule runs in a fragment shader on ping-pong textures (as in the jQuery Ripples plugin or a Three.js render target), and the bending is a second shader that offsets the texture lookup.
-- **Touch and keyboard.** Use Pointer Events with `touch-action: none` on the water only, so a finger that starts on the water draws a wake and the page still scrolls around it; scale each push by the time since the last pointer event, so a fast screen does not leave a stronger wake. Let the arrow keys move a ring that leaves a wake, and Enter or Space drop a pebble there.
-- **Reduced motion.** Do not run the waves; a still ring that fades shows where the touch landed.
+## 生产注意事项
+- **粗网格就够了。**涟漪是平滑的，所以每三到四个像素一个点的网格，画在拉伸到盒子上的小画布里，看起来和每像素一个点一样好，成本只有十分之一。用类型化数组，交换两张网格而不是复制它们。
+- **固定步长，然后停下。**波浪规则需要等步：按固定速率从累加器里取步，最大高度很小时停掉循环，这样平静的图片不花成本。
+- **像素只读一次。**把图片画进小画布一次并保留它的像素（`getImageData`）；来自其他网站的图片需要 CORS 头，否则画布无法读取。
+- **全屏用 WebGL。**大显示器上的全屏主视觉，同样的双网格规则在乒乓纹理上的片元着色器里跑（像 jQuery Ripples 插件或 Three.js 渲染目标那样），弯曲是第二个偏移纹理查找的着色器。
+- **触摸和键盘。**只在水面上用带 `touch-action: none` 的 Pointer Events，这样从水面上开始的手指画出尾迹，页面仍然能从水面周围滚动；按自上次指针事件以来的时间缩放每次推动，快的屏幕不会留下更强的尾迹。让方向键移动一个留下尾迹的圆环，Enter 或 Space 在那里丢下一颗石子。
+- **减弱动态。**不要跑波浪；一个淡出的静止圆环显示触摸落在哪里。
 
-## See also
-- [Cloth / Soft-Body Simulation](../cloth-simulation/) — fixed steps and a drag move a cloth
-- [Image Distortion on Hover](../image-distortion-hover/) — rings worked out by formula warp a picture near the pointer
-- [Ambient Ripple Effect](../../07-ambient-background/ambient-ripple/) — rings spread on their own, with no water
+## 另见
+- [布料模拟](../cloth-simulation/) — 固定步长，拖动移动一块布
+- [悬停图片扭曲](../image-distortion-hover/) — 按公式算出的圆环在指针附近扭曲图片
+- [环境涟漪](../../07-ambient-background/ambient-ripple/) — 圆环自己扩散，没有水

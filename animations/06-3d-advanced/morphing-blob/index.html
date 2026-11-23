@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morphing Blob — 动画手册</title>
-  <meta name="description" content="Blobs melt together, and one drop chases your pointer. Best for hero sections.">
+  <title>变形色块 — 动画手册</title>
+  <meta name="description" content="色块融在一起，其中一滴追着你的指针。适合主视觉区域。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/morphing-blob/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Morphing Blob — 动画手册">
-  <meta property="og:description" content="Blobs melt together, and one drop chases your pointer. Best for hero sections.">
+  <meta property="og:title" content="变形色块 — 动画手册">
+  <meta property="og:description" content="色块融在一起，其中一滴追着你的指针。适合主视觉区域。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/morphing-blob/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Morphing Blob — 动画手册">
-  <meta name="twitter:description" content="Blobs melt together, and one drop chases your pointer. Best for hero sections.">
+  <meta name="twitter:title" content="变形色块 — 动画手册">
+  <meta name="twitter:description" content="色块融在一起，其中一滴追着你的指针。适合主视觉区域。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Morphing Blob", "name": "Morphing Blob", "description": "Blobs melt together, and one drop chases your pointer. Best for hero sections.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/morphing-blob/", "inLanguage": "zh-CN", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, Morphing Blob"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "变形色块", "name": "变形色块", "description": "色块融在一起，其中一滴追着你的指针。适合主视觉区域。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/morphing-blob/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 变形色块"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--stage:#08060e;--gold:#ffc94d;--glow:#b9c6ff}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -68,20 +68,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../volumetric-smoke/" rel="prev" aria-label="上一个：Volumetric Smoke / 3D Noise"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Volumetric Smoke / 3D Noise</span></a><a href="../flip-card-3d/" rel="next" aria-label="下一个：3D Flip Card"><span><span class="hb-dir">下一个：</span>3D Flip Card</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../volumetric-smoke/" rel="prev" aria-label="上一个：体积烟雾 / 3D 噪声"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>体积烟雾 / 3D 噪声</span></a><a href="../flip-card-3d/" rel="next" aria-label="下一个：3D 翻转卡片"><span><span class="hb-dir">下一个：</span>3D 翻转卡片</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.17 · 3D &amp; Advanced</p>
-    <h1>Morphing Blob</h1>
-    <p class="hb-lede">Blobs melt together, and one drop chases your pointer. Best for hero sections.</p>
+    <p class="hb-cat">06.17 · 3D 与高级效果</p>
+    <h1>变形色块</h1>
+    <p class="hb-lede">色块融在一起，其中一滴追着你的指针。适合主视觉区域。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself, and one drop follows your pointer or finger. Pause it to look closely, or turn on slow motion.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动，其中一滴会跟着你的指针或手指。暂停可以仔细看，或打开慢动作。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -91,14 +91,14 @@
     <div class="stage" id="stage">
       <!-- The circles wander up to about 190 units from the middle (200, 200); this 360-unit box holds them almost always,
            and "meet" fits the whole box into any stage, so the blob is almost never cut. Beside the box the stage is still drawn. -->
-      <svg id="svg" viewBox="20 20 360 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Soft purple and blue circles drifting and melting into one liquid shape, with one drop that follows the pointer">
+      <svg id="svg" viewBox="20 20 360 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="柔和的紫色和蓝色圆圈漂移、融化成一个液态形状，其中一滴跟着指针走">
         <defs>
           <!-- The "goo": blur spreads the circles, then the alpha channel is
                pushed through a steep contrast curve so soft edges snap back to a
                hard silhouette — overlapping circles fuse into one liquid shape. -->
           <filter id="goo">
             <feGaussianBlur in="SourceGraphic" stdDeviation="10" id="blur" result="blur"/>
-            <feColorMatrix in="blur" mode="matrix"
+            <fe颜色Matrix in="blur" mode="matrix"
               values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="goo"/>
             <feBlend in="SourceGraphic" in2="goo"/>
           </filter>
@@ -114,56 +114,56 @@
       </svg>
       <svg class="cp" viewBox="20 20 360 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true" inert><g fill="url(#fill)"></g></svg>
       <div class="keys" aria-hidden="true">
-        <p class="key" data-hb-caption><i class="sw s1"></i>Plain circles</p>
-        <p class="key" data-hb-caption><i class="sw s2"></i><span class="w">Blurred: each edge spreads into a glow</span><span class="n">Blurred: edges glow</span></p>
-        <p class="key" data-hb-caption><i class="sw s3"></i><span class="w">Sharpened again: where glows add up, liquid joins them (gold)</span><span class="n">Gold: liquid joins</span></p>
-        <p class="key" data-hb-caption><i class="sw s4"></i><span class="w">This drop chases your pointer</span><span class="n">Drop chases pointer</span></p>
+        <p class="key" data-hb-caption><i class="sw s1"></i>普通圆圈</p>
+        <p class="key" data-hb-caption><i class="sw s2"></i><span class="w">模糊：每条边缘散成光晕</span><span class="n">模糊：边缘发光</span></p>
+        <p class="key" data-hb-caption><i class="sw s3"></i><span class="w">再锐化：光晕相加的地方，液体把它们连起来（金色）</span><span class="n">金色：液体相连</span></p>
+        <p class="key" data-hb-caption><i class="sw s4"></i><span class="w">这滴追着你的指针</span><span class="n">水滴追着指针</span></p>
       </div>
-      <p class="nm first" aria-hidden="true" data-hb-caption>Plain circles</p>
-      <p class="nm second" aria-hidden="true" data-hb-caption>Gooey</p>
+      <p class="nm first" aria-hidden="true" data-hb-caption>普通圆圈</p>
+      <p class="nm second" aria-hidden="true" data-hb-caption>黏糊糊</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the blob is plain circles: the filter blurs each one (the soft glow), then sharpens the edge again, and where two glows add up, liquid joins them (gold).</p>
-      <p data-hb-for="compare" hidden>Plain circles: the same circles with no filter, which only overlap with hard edges. Gooey: blurred and sharpened again, they melt into one liquid shape.</p>
+      <p data-hb-for="inside" hidden>看内部：色块是普通的圆圈：滤镜先把每个圆圈模糊（柔和的光晕），再把边缘重新锐化，两个光晕相加的地方，液体就把它们连起来（金色）。</p>
+      <p data-hb-for="compare" hidden>普通圆圈：同样的圆圈，没有滤镜，只会重叠，边缘很硬。黏糊糊：模糊后再锐化，它们融成一个液态形状。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="goo-lbl">Gooeyness</p>
+        <p class="hb-setting-name" id="goo-lbl">黏糊程度</p>
         <div class="seg" id="goo-seg" role="group" aria-labelledby="goo-lbl">
-          <button type="button" data-goo="6" aria-pressed="false">Low</button>
-          <button type="button" data-goo="10" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-goo="16" aria-pressed="false">High</button>
+          <button type="button" data-goo="6" aria-pressed="false">低</button>
+          <button type="button" data-goo="10" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-goo="16" aria-pressed="false">高</button>
         </div>
-        <p class="hb-hint">How far apart the circles start to melt together.</p>
+        <p class="hb-hint">圆圈相隔多远时开始融化到一起。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="count-lbl">Number of blobs</p>
+        <p class="hb-setting-name" id="count-lbl">色块数量</p>
         <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
-          <button type="button" data-count="4" aria-pressed="false">Few</button>
-          <button type="button" data-count="6" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-count="9" aria-pressed="false">Many</button>
+          <button type="button" data-count="4" aria-pressed="false">少</button>
+          <button type="button" data-count="6" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-count="9" aria-pressed="false">多</button>
         </div>
-        <p class="hb-hint">More circles make a lumpier blob.</p>
+        <p class="hb-hint">圆圈越多，色块越疙疙瘩瘩。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-speed="0.6" aria-pressed="false">Slow</button>
-          <button type="button" data-speed="1" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-speed="1.6" aria-pressed="false">Fast</button>
+          <button type="button" data-speed="0.6" aria-pressed="false">慢</button>
+          <button type="button" data-speed="1" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-speed="1.6" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How fast the circles drift.</p>
+        <p class="hb-hint">圆圈漂移得有多快。</p>
       </div>
     </div>
   </section>
@@ -171,10 +171,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a gooey blob to [the section you want it in]. Draw several plain circles that drift on looping paths, and run them through a filter that blurs them and then sharpens the blurred edge again, so circles that come close melt into one liquid shape and pull apart again. One drop follows the pointer, or a finger on touch screens, and merges with the rest when it comes near. Keep the blurred area small on phones. If the visitor has reduced motion turned on, show the blob still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想放它的版块]加一个黏糊糊的色块。画几个沿着循环路径漂移的普通圆圈，再让它们经过一个滤镜：先模糊，再把模糊的边缘重新锐化，这样靠得近的圆圈会融成一个液态形状，靠近又分开。其中一滴会跟随指针，或触屏上的手指，靠近时和其余部分融在一起。手机上把模糊区域弄小一点。如果访客打开了减弱动态效果，就让色块静止不动。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -194,9 +194,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Hero sections</li><li>Playful brands</li><li>Loading states</li><li>Cursor effects</li></ul>
+      <ul class="hb-tags hb-good"><li>主视觉区域</li><li>有趣的品牌</li><li>加载状态</li><li>指针效果</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Serious content</li><li>Busy layouts</li></ul>
+      <ul class="hb-tags hb-avoid"><li>严肃内容</li><li>拥挤的布局</li></ul>
     </div>
   </section>
 
@@ -217,8 +217,8 @@ const ring=svg.querySelector('.ring'),lead=svg.querySelector('.lead'),cross=svg.
 const reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
 let mode='normal',paused=reduceMQ.matches,held=null;
 const LABELS={normal:svg.getAttribute('aria-label'),
-  inside:'The blob\'s plain circles, each with a soft glow, with the liquid that joins close circles shown in gold and the drop that chases the pointer ringed',
-  compare:'Two copies of the blob side by side: plain circles that only overlap on the left, circles that melt into one liquid shape on the right'};
+  inside:'色块的普通圆圈，每个都带着柔和的光晕，靠得近的圆圈之间的液体涂成金色，追着指针的那滴被圈出来',
+  compare:'色块的两个副本并排：左边是只会重叠的普通圆圈，右边是融成一个液态形状的圆圈'};
 
 const CX=200,CY=200;                  // viewBox centre
 let blobs=[],drop=null,speed=1,phase=0; // phase accumulates so a speed change never jumps
@@ -359,8 +359,8 @@ document.addEventListener('hb:pause',e=>{
 // Under reduced motion the blob starts paused, so both views are still pictures and their notes say so; after Play they
 // say the markup's own words again, and after Pause the still words. A note is written only when its words change.
 const notes=[...document.querySelectorAll('[data-hb-for]')],moving=notes.map(n=>n.textContent),still=[
-  'Shown still: the blob is plain circles; the filter blurs each one (the soft glow), then sharpens the edge again, and where two glows add up, liquid joins them (gold).',
-  'Shown still: Plain circles only overlap, with hard edges; Gooey, blurred and sharpened again, melts them into one liquid shape.'];
+  '静止时：色块是普通的圆圈；滤镜先把每个圆圈模糊（柔和的光晕），再把边缘重新锐化，两个光晕相加的地方，液体就把它们连起来（金色）。',
+  '静止时：普通圆圈只会重叠，边缘很硬；黏糊糊的，模糊后再锐化，融成一个液态形状。'];
 function describe(){
   const shown=reduceMQ.matches&&paused;
   notes.forEach((n,i)=>{const words=shown?still[i]:moving[i];if(n.textContent!==words)n.textContent=words;});
