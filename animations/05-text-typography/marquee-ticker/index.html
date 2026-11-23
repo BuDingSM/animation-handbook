@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marquee / Ticker — 动画手册</title>
-  <meta name="description" content="Text scrolls sideways in an endless loop, with no seam. Best for news tickers.">
+  <title>跑马灯/滚动条 — 动画手册</title>
+  <meta name="description" content="文字横向无缝无限滚动。最适合新闻滚动条。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/marquee-ticker/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Marquee / Ticker — 动画手册">
-  <meta property="og:description" content="Text scrolls sideways in an endless loop, with no seam. Best for news tickers.">
+  <meta property="og:title" content="跑马灯/滚动条 — 动画手册">
+  <meta property="og:description" content="文字横向无缝无限滚动。最适合新闻滚动条。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/marquee-ticker/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Marquee / Ticker — 动画手册">
-  <meta name="twitter:description" content="Text scrolls sideways in an endless loop, with no seam. Best for news tickers.">
+  <meta name="twitter:title" content="跑马灯/滚动条 — 动画手册">
+  <meta name="twitter:description" content="文字横向无缝无限滚动。最适合新闻滚动条。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Marquee / Ticker", "name": "Marquee / Ticker", "description": "Text scrolls sideways in an endless loop, with no seam. Best for news tickers.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/marquee-ticker/", "inLanguage": "zh-CN", "articleSection": "Text & Typography", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Text & Typography, Marquee / Ticker"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "跑马灯/滚动条", "name": "跑马灯/滚动条", "description": "文字横向无缝无限滚动。最适合新闻滚动条。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/marquee-ticker/", "inLanguage": "zh-CN", "articleSection": "文字与排版", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画、CSS 动画、文字与排版、跑马灯/滚动条"}</script>
   <style>
     :root{--ui-accent:#ff6f8b;--marq-size:48px;--marq-gap:48px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -87,20 +87,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../text-clip-path-reveal/" rel="prev" aria-label="上一个：Text Clip-Path Reveal"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Text Clip-Path Reveal</span></a><a href="../text-morphing/" rel="next" aria-label="下一个：Text Morphing"><span><span class="hb-dir">下一个：</span>Text Morphing</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../text-clip-path-reveal/" rel="prev" aria-label="上一个：裁剪揭示文字"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>裁剪揭示文字</span></a><a href="../text-morphing/" rel="next" aria-label="下一个：文字变形"><span><span class="hb-dir">下一个：</span>文字变形</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">05.06 · Text &amp; Typography</p>
-    <h1>Marquee / Ticker</h1>
-    <p class="hb-lede">Text scrolls sideways in an endless loop, with no seam. Best for news tickers.</p>
+    <p class="hb-cat">05.06 · 文字与排版</p>
+    <h1>跑马灯/滚动条</h1>
+    <p class="hb-lede">文字横向无缝无限滚动。最适合新闻滚动条。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Pause it, or point at a row (tap it on a phone) to stop just that row.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己在动。暂停它，或指向某一行（手机上轻触）只停住那一行。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -111,70 +111,70 @@
       <div class="rows" id="rows"></div>
       <div class="zoom" id="zoom" aria-hidden="true" inert></div>
       <div class="solo" id="solo" aria-hidden="true" inert></div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>One copy</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Two copies</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>一个副本</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>两个副本</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-pause" data-hb-pause="css" data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the strip is two identical copies end to end and the box is a window sliding over them; it jumps back at the second copy, which looks the same, so the jump never shows.</p>
-      <p data-hb-for="compare" hidden>On top, One copy: the text slides out, leaves a gap and jumps back. Below, Two copies: a second copy fills the gap, so the loop has no seam.</p>
+      <p data-hb-for="inside" hidden>内部是这样的：这条带子是首尾相接的两个相同副本，盒子是滑过它们的窗口；它在第二个副本处跳回起点，而第二个副本看起来一模一样，所以跳动永远不会被看到。</p>
+      <p data-hb-for="compare" hidden>上面是「一个副本」：文字滑出去、留下一段空白，再跳回来。下面是「两个副本」：第二个副本填补了空白，所以循环没有接缝。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，边动边看有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-spd="50" aria-pressed="false">Slow</button>
-          <button type="button" data-spd="80" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-spd="130" aria-pressed="false">Fast</button>
+          <button type="button" data-spd="50" aria-pressed="false">慢</button>
+          <button type="button" data-spd="80" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-spd="130" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How fast the text travels.</p>
+        <p class="hb-hint">文字移动的速度。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Text size</p>
+        <p class="hb-setting-name" id="size-lbl">文字大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-size="32" aria-pressed="false">Small</button>
-          <button type="button" data-size="48" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-size="64" aria-pressed="false">Large</button>
+          <button type="button" data-size="32" aria-pressed="false">小</button>
+          <button type="button" data-size="48" class="on" aria-pressed="true">中</button>
+          <button type="button" data-size="64" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Large type is the usual choice for brand strips.</p>
+        <p class="hb-hint">大号字是品牌条带的常见选择。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="gap-lbl">Space between items</p>
+        <p class="hb-setting-name" id="gap-lbl">项目间距</p>
         <div class="seg" id="gap-seg" role="group" aria-labelledby="gap-lbl">
-          <button type="button" data-gap="24" aria-pressed="false">Tight</button>
-          <button type="button" data-gap="48" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-gap="80" aria-pressed="false">Wide</button>
+          <button type="button" data-gap="24" aria-pressed="false">紧凑</button>
+          <button type="button" data-gap="48" class="on" aria-pressed="true">中</button>
+          <button type="button" data-gap="80" aria-pressed="false">宽松</button>
         </div>
-        <p class="hb-hint">The space around the text and the separator.</p>
+        <p class="hb-hint">文字和分隔符周围的空间。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="sep-lbl">Separator</p>
+          <p class="hb-setting-name" id="sep-lbl">分隔符</p>
           <div class="seg" id="sep-seg" role="group" aria-labelledby="sep-lbl">
-            <button type="button" data-sep="·" aria-pressed="false">Dot ·</button>
-            <button type="button" data-sep="★" aria-pressed="false">Star ★</button>
-            <button type="button" data-sep="—" aria-pressed="false">Dash —</button>
-            <button type="button" data-sep="✦" class="on" aria-pressed="true">Sparkle ✦</button>
+            <button type="button" data-sep="·" aria-pressed="false">圆点 ·</button>
+            <button type="button" data-sep="★" aria-pressed="false">星星 ★</button>
+            <button type="button" data-sep="—" aria-pressed="false">破折号 —</button>
+            <button type="button" data-sep="✦" class="on" aria-pressed="true">闪光 ✦</button>
           </div>
-          <p class="hb-hint">The mark between repeats of the text.</p>
+          <p class="hb-hint">文字重复之间的标记。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-setting-name" for="text-inp">Your text</label>
+          <label class="hb-setting-name" for="text-inp">你的文字</label>
           <input class="hb-text" type="text" id="text-inp" value="动画手册" autocomplete="off">
-          <p class="hb-hint">Type your own words to see them scroll.</p>
+          <p class="hb-hint">输入你自己的文字，看它们滚动起来。</p>
         </div>
       </div>
     </details>
@@ -183,10 +183,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a marquee to [the text or items you want to scroll]. The text should scroll sideways in an endless loop with no visible jump: place two identical copies side by side, each at least as wide as the space it scrolls through, and move them by exactly one copy's width before starting over. Put a small mark between the repeats. Rows can run in opposite directions for a decorative band. Pointing at a row should stop it so people can read it, and a tap should do the same on touch screens. Screen readers should not announce the moving text again and again. If the visitor has reduced motion turned on, keep the text still. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想滚动的文字或内容]加一个跑马灯。文字应该横向无限循环滚动，看不出跳动：并排放置两个相同的副本，每个至少和它滚动经过的空间一样宽，移动恰好一个副本的宽度后重新开始。在重复内容之间放一个小标记。几行可以朝相反方向滚动，做成装饰带。指向某一行应该让它停下来方便阅读，触屏上轻触也一样。屏幕阅读器不应该一遍遍播报滚动的文字。如果访客开启了减弱动态效果，让文字保持静止。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -206,9 +206,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>News tickers</li><li>Brand strips</li><li>Client lists</li></ul>
+      <ul class="hb-tags hb-good"><li>新闻滚动条</li><li>品牌条带</li><li>客户名单</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Important messages</li><li>Long sentences</li></ul>
+      <ul class="hb-tags hb-avoid"><li>重要消息</li><li>长句子</li></ul>
     </div>
   </section>
 
@@ -227,8 +227,8 @@
   // a rebuild poses the one copy anew. The shared script sends hb:pause on every press of Pause or Play, and once at boot under
   // reduced motion, when it pauses the loop. A note is rewritten only when its words change, as its box reads changes out loud.
   const notes=[...document.querySelectorAll('[data-hb-for]')],moving=notes.map(n=>n.textContent),still=[
-    'Inside, shown still: the strip is two identical copies end to end, and the arrow shows how far the box slides before it jumps back to the start.',
-    'Shown still: on top, One copy, the text has slid most of the way out and left a gap; below, Two copies, the second copy fills it.'];
+    '内部静止显示：这条带子是首尾相接的两个相同副本，箭头显示盒子在跳回起点之前滑了多远。',
+    '静止显示：上面是「一个副本」，文字已经滑出去大半，留下了一段空白；下面是「两个副本」，第二个副本填补了它。'];
   let paused=reduceMQ.matches,posed=true;
   function describe(){
     const shown=reduceMQ.matches&&paused&&posed;
@@ -319,15 +319,15 @@
     box.appendChild(strip);
     add('zcopy',{left:'0px',top:'30px',width:cw+'px',height:h+8+'px'});
     add('zcopy',{left:cw+'px',top:'30px',width:cw+'px',height:h+8+'px'});
-    add('lbl zcap',{left:'0px',top:'0px'},'Copy 1');
-    add('lbl zcap',{left:cw+4+'px',top:'0px'},'Copy 2, the same');
+    add('lbl zcap',{left:'0px',top:'0px'},'副本 1');
+    add('lbl zcap',{left:cw+4+'px',top:'0px'},'副本 2，相同');
     // where the second copy starts the window jumps back; the arrow under it is as long as the slide
     add('zjump',{left:cw-1+'px',top:'22px',height:h+59+'px'});
     // the box as a window over the strip, named under it: it slides one copy's width, as long as the row takes, then starts over
     const win=add('zwin',{top:'26px',width:rowW*k+'px',height:h+16+'px','--zgo':cw+'px','animation-duration':track.durMs+'ms'});
-    add('lbl zcap',{},'In the box',win);
+    add('lbl zcap',{},'在盒子里',win);
     add('zarrow',{top:h+74+'px',width:cw+'px'});
-    add('lbl zcap zback',{left:cw+'px',top:h+93+'px'},'Jumps back here');
+    add('lbl zcap zback',{left:cw+'px',top:h+93+'px'},'在这里跳回');
     // Compare's mistake: the same strip as Copy 1 (the first row's own first copy), but only that one copy, sliding by its own
     // width in the time the row takes, then starting over. The two halves differ only by the second copy.
     solo.innerHTML='';

@@ -1,18 +1,18 @@
-# Text Particles
+# 文字粒子
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-particles/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-particles/)
 
-## What it is
-Text particles draw a word as many small dots instead of solid letters. Each dot remembers its place in the word: the pointer pushes the nearby dots away and a spring pulls each one back, so the letters open up wherever you point and close again behind you.
+## 它是什么
+文字粒子把一个词画成许多小圆点，而不是实心字母。每个圆点都记得它在词里的位置：指针把附近的圆点推开，弹簧把每个圆点拉回去，所以字母在你指的地方张开，在你身后又合上。
 
-## When to use it
-- Hero titles and landing page headlines that reward the first hover
-- Page intros and splash screens, where a visitor can play with a name before reading on
-- Studio, portfolio and product names on a dark background
-- Event and launch pages where one short word carries the page
+## 什么时候用
+- 主视觉标题和落地页标题，奖励第一次悬停
+- 页面开场和启动画面，访客可以在读之前先玩一下名字
+- 深色背景上的工作室、作品集和产品名
+- 活动和发布页面，一个短词承载整个页面
 
-## How it works
-The word is drawn once, in white, on a hidden canvas the size of the stage, in the site font and as large as fits. `getImageData` reads the pixels back, and a dot is kept wherever a letter covers a point of a grid whose rows are offset by half a step, so the dots pack like a honeycomb. The grid is walked in half-step columns, so the dots come out in order from left to right:
+## 工作原理
+词先在舞台大小的隐藏画布上用白色画一次，用网站字体，画到尽可能大。`getImageData` 把像素读回来，在行错开半步的网格点上，字母盖住的地方保留一个圆点，这样圆点像蜂窝一样排布。网格按半步的列走，所以圆点从左到右依次出来：
 
 ```js
 g.font = '900 ' + fs + 'px "Schibsted Grotesk"';
@@ -23,7 +23,7 @@ for (let c = 0, x = bx + gap / 2; x < bx + bw; c++, x += gap / 2)
     if (data[(((y | 0) - by) * bw + (x | 0) - bx) * 4 + 3] > 128) homes.push(x, y);
 ```
 
-Every dot then has a home, a position and a speed. One step of 1/60 s pushes the dots inside the pointer's reach `R` away from it, harder the closer they are, while a spring pulls each dot home and it keeps only part of its speed:
+每个圆点于是都有一个家、一个位置和一个速度。六十分之一秒的一步，把指针范围 `R` 内的圆点推离它，越近推得越狠，同时弹簧把每个圆点拉回家，它只保留一部分速度：
 
 ```js
 const P = 2.4 * K * R;                       // the push grows with the spring and the reach
@@ -34,33 +34,33 @@ vx = (vx + ax) * D; vy = (vy + ay) * D;      // D: the share of its speed a dot 
 x += vx; y += vy;
 ```
 
-Because the push grows with the spring `K`, a pointer that holds still opens a gap of the same size at every return speed, its radius about 0.7 of the reach; `K` and `D` only set how quickly the dots come back. A spring changes with the length of its step, so the frame loop adds up the time that has passed (a third of it in slow motion), takes one fixed step per 60th of a second and draws each dot between its last two steps. The motion is then the same on a 60 Hz and a 120 Hz screen, and slow motion stays smooth. A dot that is out of reach, nearly still and within a third of a pixel of home is put there, and a dot at home and out of reach is skipped, so the work follows the dots that move. Once every dot is home the loop stops, so a word at rest costs nothing. Under a pointer that holds still, the spring alone settles slowly: a dot whose home sits near the pointer can land on the far side of the gap and creep around its rim for many seconds. So half a second after the pointer stops, each dot whose home lies inside the reach, and that is itself within 1.3 times the reach of the pointer, moves to its resting place on the line from the pointer through its home, where push and spring balance (at (2.4R + h) / 3.4 from the pointer, for a home h from it). Each step it slides around the pointer by 12% of the angle left, at most 3 px sideways, and closes 12% of the distance left toward or away from the pointer; measured at the far reach, that came to at most about 6 px a step toward or away and about 7 px in all. A dot that has arrived is skipped until the pointer moves again, and the other dots finish springing home. The gap then holds its shape, every other dot is exactly home and the loop stops, within about 3 seconds of the pointer stopping. Show me, a setting and a new word start that half second over, so the dots still spring back first.
+因为推力随着弹簧 `K` 变大，静止的指针在每个回弹速度下打开的缺口大小都一样，半径大约是范围的 0.7 倍；`K` 和 `D` 只决定圆点回来多快。弹簧随步长变化，所以帧循环把过去的时间累加起来（慢动作下是三分之一），每六十分之一秒走一个固定步，并在最后两步之间画每个圆点。动作在 60 Hz 和 120 Hz 的屏幕上于是是一样的，慢动作也保持平滑。超出范围、几乎静止、离家在三分之一个像素内的圆点会被放回家，在家又超出范围的圆点会被跳过，所以工作跟着在动的圆点走。一旦每个圆点都回家，循环就停下来，所以静止的词不花任何成本。在静止的指针下，只有弹簧的安定很慢：家在指针附近的圆点可能落在缺口的另一边，沿着它的边缘爬很多秒。所以指针停下半秒后，每个家在范围内的圆点，并且它自己离指针在 1.3 倍范围内的，会移到它在指针穿过它家的直线上的静止位置，推力和弹簧在那里平衡（离指针 (2.4R + h) / 3.4，h 是它家离指针的距离）。每一步，它沿着指针滑动剩下角度的 12%，横向最多 3 px，并向着或背离指针合上剩下距离的 12%；在最远范围处量出来，每步向着或背离大约最多 6 px，总共大约 7 px。已经到达的圆点会被跳过，直到指针再次移动，其他圆点完成回家的弹簧。缺口于是保持形状，每个其他圆点都正好在家，循环在指针停下大约 3 秒内停下来。演示一下、一个设置和一个新词都会让这半秒重新开始，所以圆点还是先弹回去。
 
-The palette is spread across the word as 32 colors, and each dot takes the color at its home, so it keeps its color as it flies. Each dot is filled as a circle of its own (`beginPath`, `arc`, `fill`): Chrome draws a lone circle with a fast special case on the graphics chip, while one path holding thousands of circles has to be cut into triangles again on every frame. Measured in Chrome, one path per color ran Show me at 43 to 60 frames a second on 2× screens, depending on the run; one circle at a time holds 60. Other browsers take their own fast and slow paths, so measure both ways in the browsers you target. The fast circle has a softer edge, which on a 1× screen fills the gaps between small dots with a haze, so each circle is drawn 0.12 device pixels smaller. A dot that is away from home is drawn brighter and a little larger, in three steps the further it was pushed, so it glows in its own color. On a phone, a dot whose radius is under 1.25 CSS pixels (2.5 pixels of a phone's canvas, which holds two to one; usually the small size, with the phone held upright) is drawn as a square with `fillRect`, which costs even less to paint and still reads as a dot at that size: in Chrome, with the processor slowed four times, circles there ran Show me at about 52 frames a second and squares at 60. Larger dots stay round, as squares that big look like bricks. A new word or dot size samples the word again, and each new dot starts where an old one stands (both taken from left to right), so the dots flow into the new letters. Show me moves a pretend pointer through the word along a wavy path, drawn as a small light with a ring for its reach.
+配色以 32 种颜色铺满整个词，每个圆点取它家位置的颜色，所以它飞的时候保持自己的颜色。每个圆点都作为自己的圆来填充（`beginPath`、`arc`、`fill`）：Chrome 在图形芯片上用快速特例画单个圆，而一个装着几千个圆的路径，每一帧都要重新切成三角形。在 Chrome 里实测，一个颜色一条路径在 2× 屏幕上演示一下跑 43 到 60 帧每秒，取决于那次运行；一次一个圆保持 60 帧。其他浏览器有自己的快慢路径，所以在你目标的浏览器里两种都测一下。快速的圆边缘更柔和，在 1× 屏幕上会用雾填满小圆点之间的缝隙，所以每个圆画得比实际小 0.12 个设备像素。离家的圆点画得更亮、稍大一点，按它被推开的远近分三档，所以它以自己的颜色发光。在手机上，半径小于 1.25 CSS 像素的圆点（手机画布的 2.5 像素，画布是二比一；通常是小尺寸，手机竖着拿）用 `fillRect` 画成方形，绘制成本更低，在那个尺寸下仍然读作圆点：在 Chrome 里，处理器放慢四倍时，那里的圆跑演示一下大约每秒 52 帧，方形是 60 帧。更大的圆点保持圆形，因为那么大的方形看起来像砖块。新词或新圆点尺寸会重新采样词，每个新圆点从一个旧圆点站着的地方开始（两者都是从左到右取的），所以圆点流入新的字母。演示一下让一个假指针沿着波浪路径穿过词，画成一个带范围环的小光点。
 
-The keyboard pushes the dots too: Tab focuses a see-through layer over the stage, which puts an invisible pointer on the middle of the word (or where the keys last left it), and the arrow keys move that pointer a step at a time (6% of the stage's shorter side, three steps with Shift), so the dots scatter, spring back and settle around it as they do around a mouse. Escape, or a Tab out of the stage, lets them go home as the pointer leaving does.
+键盘也能推圆点：Tab 聚焦舞台上的一层透明层，在词中间（或按键最后离开的地方）放一个看不见的指针，方向键一步一步移动那个指针（步长是舞台较短边的 6%，按住 Shift 是三步），所以圆点散开、弹回、安定，就像在鼠标周围一样。Escape，或者 Tab 离开舞台，会像指针离开一样让它们回家。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Dot size | Medium | How far apart the dots sit: small is 3 px, medium 4.2 and large 6 for a 180 px font, scaled with the word between 0.75 and 1.25 times; each dot is about three quarters of that step wide, so neighbors never touch. The dots are counted at the small size: past 2,000 on a phone or 6,000 on a larger screen, every size is spread out by the same factor, so the three stay apart |
-| How far they scatter | Medium | The pointer's reach: short is 0.28 of the font size, medium 0.42 and far 0.65, counting the font as at least 120 px; a still pointer opens a gap whose radius is about 0.7 of the reach |
-| Colors | Sunset | The colors across the word, in 32 steps: Sunset runs from pink to gold, Cool from teal to purple, Rainbow through seven colors and White from white to pale gray; the glow behind the word matches |
-| How fast they come back | Normal | The spring and the share of its speed a dot keeps each step: slow is 0.022 and 0.87, normal 0.045 and 0.82, fast 0.09 and 0.76. A dot pushed 100 px away is home in about 1.4, 1 or 0.8 seconds, after swinging about a sixth of the way past it |
-| Your text | HELLO | The word, up to 10 letters, drawn as large as fits 86% of the stage's width and 42% of its height; an emptied field goes back to HELLO |
+| 圆点大小 | 中 | 圆点之间的距离：180 px 的字，小是 3 px，中 4.2，大 6，随着词在 0.75 到 1.25 倍之间缩放；每个圆点大约是那个步长的四分之三宽，所以邻居永远碰不到。圆点按小尺寸计数：手机上超过 2,000 个或大屏幕上超过 6,000 个时，每个尺寸都按同样的系数拉开，这样三个尺寸保持分开 |
+| 散开距离 | 中 | 指针的范围：短是字体大小的 0.28 倍，中 0.42，远 0.65，字体按至少 120 px 算；静止的指针打开的缺口半径大约是范围的 0.7 倍 |
+| 配色 | 日落 | 词上的颜色，按 32 步铺开：日落从粉色到金色，冷色从青色到紫色，彩虹经过七种颜色，白色从白色到浅灰；词后面的辉光会匹配 |
+| 回弹速度 | 普通 | 弹簧和每个圆点每步保留的速度份额：慢速是 0.022 和 0.87，普通 0.045 和 0.82，快速 0.09 和 0.76。被推出 100 px 的圆点大约在 1.4、1 或 0.8 秒后回家，途中摆过大约六分之一 |
+| 你的文字 | HELLO | 词，最多 10 个字母，画到尽可能大，占舞台宽度的 86% 和高度的 42%；清空输入框会回到 HELLO |
 
-## Production notes
-- **Wait for the font**: canvas text is drawn in whatever font is ready, so sampling before a web font loads gives the fallback letters. Call `document.fonts.load()` for the weight and the text first; the demo waits up to 1.5 seconds, and if the font arrives later the dots flow into it.
-- **The dot count is the cost**: every frame moves and paints the dots, so keep them to a few thousand, skip the ones at rest and stop the loop when all are home. In Chrome, fill each circle on its own: a path that holds thousands of circles looks like one call but is the slow part, because it is cut into triangles again on every frame. Other browsers draw paths and circles their own way, so measure both in the browsers you target. On phones, tiny squares cost less still, which is why the demo draws its smallest dots as squares there. For tens of thousands of dots, move them on the graphics chip with WebGL points instead (see GPGPU Particle System).
-- **Fixed steps**: scaling one spring step by the frame time makes the spring stiffer or looser on faster screens. Take fixed steps from an accumulator and interpolate the drawing, as the demo does.
-- **Sharp dots**: size the canvas backing store by `devicePixelRatio` (the demo caps it at 2) and keep the positions in CSS pixels with `setTransform`.
-- **Touch**: `touch-action: none` on the canvas lets a finger drag through the word without scrolling the page. Keep the canvas from filling a phone screen, so the page can still be scrolled past it.
-- **Accessibility**: a canvas is not text. Give it `role="img"` and an `aria-label` that holds the word, and keep a real heading in the page for screen readers and search engines.
-- **Reduced motion**: the demo leaves every dot at home and only brightens the dots near the pointer. Switched on while the dots move, it puts every dot home at once. Check the setting in the frame loop: in Chrome, reading `matchMedia(...).matches` every frame can swallow its change event.
-- **Libraries**: tsParticles has a canvas mask plugin that places its particles inside text; PixiJS (a ParticleContainer) and three.js (Points) draw many thousands of dots with WebGL. GSAP can tween the dots to new homes when the word changes, while the push and the spring are simplest in your own frame loop.
+## 生产注意事项
+- **等字体加载好**：画布文字画出来的是当时准备好的字体，所以在 web 字体加载前采样会得到 fallback 的字母。先为字重和文字调用 `document.fonts.load()`；演示最多等 1.5 秒，如果字体后来才到，圆点会流入它。
+- **圆点数量就是成本**：每一帧都要移动和绘制圆点，所以保持在几千个，跳过静止的，全部回家时停掉循环。在 Chrome 里，每个圆单独填充：一条装着几千个圆的路径看起来像一次调用，但却是慢的部分，因为它每一帧都要重新切成三角形。其他浏览器画路径和圆各有自己的方式，所以在你目标的浏览器里两种都测一下。在手机上，小方形成本更低，这就是演示把最小的圆点在那里画成方形的原因。几万个圆点时，改用 WebGL 点在图形芯片上移动它们（见 GPGPU Particle System）。
+- **固定步长**：按帧时间缩放一个弹簧步，会让弹簧在更快的屏幕上更硬或更松。用累加器取固定步长，再插值绘制，就像演示做的那样。
+- **清晰的圆点**：按 `devicePixelRatio` 设定画布后备存储的大小（演示上限是 2），位置保持 CSS 像素，用 `setTransform`。
+- **触摸**：画布上的 `touch-action: none` 让手指可以拖过词而不滚动页面。别让画布占满手机屏幕，这样页面仍然可以滚动过去。
+- **无障碍**：画布不是文字。给它 `role="img"` 和一个放着词的 `aria-label`，并在页面里保留一个真实的标题，供屏幕阅读器和搜索引擎使用。
+- **减弱动态效果**：演示让每个圆点留在家里，只让指针附近的圆点变亮。在圆点移动时打开，会让每个圆点立刻回家。在帧循环里检查这个设置：在 Chrome 里，每帧读取 `matchMedia(...).matches` 可能会吞掉它的变化事件。
+- **库**：tsParticles 有一个画布遮罩插件，把粒子放在文字里面；PixiJS（ParticleContainer）和 three.js（Points）用 WebGL 画几万个圆点。词变化时，GSAP 可以把圆点补间到新家，而推和弹簧用自己的帧循环最简单。
 
-## See also
-- [Canvas Particle Effect](../../06-3d-advanced/canvas-particle-effect/) — dots drift, link up and dodge your pointer
-- [Image Distortion on Hover](../../06-3d-advanced/image-distortion-hover/) — a picture bends and ripples around your pointer
-- [Scramble / Glitch Text](../scramble-text/) — random symbols lock into the real text
-- [GPGPU Particle System](../../06-3d-advanced/gpgpu-particle-system/) — tens of thousands of particles on the graphics chip
+## 另见
+- [Canvas 粒子效果](../../06-3d-advanced/canvas-particle-effect/) — 圆点漂移、连线、躲开你的指针
+- [悬停图片扭曲](../../06-3d-advanced/image-distortion-hover/) — 图片在你的指针周围弯曲、起涟漪
+- [乱码/故障文字](../scramble-text/) — 随机符号逐个锁定为真实文字
+- [GPGPU 粒子系统](../../06-3d-advanced/gpgpu-particle-system/) — 图形芯片上的几万个粒子

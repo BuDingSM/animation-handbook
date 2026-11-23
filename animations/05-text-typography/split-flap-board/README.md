@@ -1,18 +1,18 @@
-# Split-Flap Board
+# 翻牌器
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/split-flap-board/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/split-flap-board/)
 
-## What it is
-A split-flap board shows each letter on a tile that is cut across the middle, like the departure boards of old airports and train stations. To change a letter, the tile flips through the alphabet: the top half of the old letter falls forward over the hinge and the bottom half of the next letter lands under it, again and again, until the tile shows its new letter. Tiles whose letters come later in the alphabet keep flipping longer, so the word settles tile by tile.
+## 它是什么
+翻牌器让每个字母显示在一块中间断开的翻牌上，就像老机场和火车站的出发牌。要换一个字母，翻牌就逐个字母翻过字母表：旧字母的上半部分向前翻过铰链，下一个字母的下半部分落在它下面，一次又一次，直到翻牌显示新字母。字母在字母表中越靠后，翻牌翻得越久，所以词是一块翻牌一块翻牌地定下来的。
 
-## When to use it
-- Hero titles and intros with a travel, transport or retro theme
-- Gate, status and arrival boards, or a "now showing" line that changes now and then
-- Short words that change: a destination, a status, a score (with digits added to the run of letters)
-- Moments that should feel mechanical and a little playful
+## 什么时候用
+- 旅行、交通或复古主题的主视觉标题和开场
+- 登机口、状态和到达牌，或者一条时不时变化的“正在放映”文字
+- 会变的短词：一个目的地、一个状态、一个分数（在字母序列里加上数字）
+- 应该感觉机械、又有点俏皮的时刻
 
-## How it works
-Each tile is four layers of the same size and color. Two still halves fill the tile; two flaps sit over them and turn on the hinge in the middle. Every half is a box of half the tile's height with its overflow hidden, holding a letter box as tall as the whole tile, pinned to the top or the bottom, so a top half shows the top of its letter and a bottom half the bottom of it:
+## 工作原理
+每块翻牌是四个同样大小和颜色的层。两个静止的半块填满翻牌；两个翻页盖在上面，绕着中间的铰链转动。每个半块是一个翻牌一半高的盒子，溢出被藏起来，里面放着一个和整块翻牌一样高的字母盒，固定在顶部或底部，所以上半块显示字母的上半部分，下半块显示字母的下半部分：
 
 ```css
 .tile { position: relative; width: var(--tw); height: calc(var(--tw) * 1.4); perspective: calc(var(--tw) * 5); line-height: 1; }
@@ -24,9 +24,9 @@ Each tile is four layers of the same size and color. Two still halves fill the t
 .flap.down { transform-origin: 50% 0; }     /* turns on its top edge: the hinge */
 ```
 
-During a flip from one letter to the next, the still top half already shows the next letter and the still bottom half still shows the old one. The top flap, showing the old letter's top, falls from upright to edge-on, speeding up; then the bottom flap, showing the next letter's bottom, swings from edge-on down into place, slowing down. A dark layer on each flap gets stronger the further it turns, as if it turned away from the light. The letters are written only when a tile starts a new flip; between those moments only the two `rotateX()` transforms change.
+从一个字母翻到下一个字母时，静止的上半块已经显示下一个字母，静止的下半块仍然显示旧字母。显示旧字母上半部分的上面翻页从竖直加速翻到边对边；然后显示下一个字母下半部分的下面翻页从边对边减速摆进原位。每个翻页上的暗层转得越远就越强，就像它转离了光线。字母只在翻牌开始新一翻时才写；在那之间，只有两个 `rotateX()` 变换在变。
 
-One frame loop runs every tile. A clock moves on by the time since the last frame (at most 50ms, and a third as fast in Slow motion), and from it each tile works out which flip it is on and how far through it, so the board flips at the same pace on a 60 Hz and a 120 Hz screen:
+一个帧循环驱动所有翻牌。时钟按上一帧以来的时间推进（最多 50ms，慢动作下是三分之一的速度），每块翻牌由此算出自己在第几翻、翻到多远，所以在 60 Hz 和 120 Hz 的屏幕上，翻牌的速度是一样的：
 
 ```js
 const local = clock - i * STAGGER;                 // each tile starts a moment after the one on its left
@@ -37,26 +37,26 @@ if (p < .5) { const q = p * 2; turn(t.f1, t.s1, -90 * q * q); }          // the 
 else { const q = (p - .5) * 2; turn(t.f2, t.s2, 90 * (1 - q) * (1 - q)); } // the next letter's bottom lands
 ```
 
-Each tile's run of letters is the drum from a blank to its letter (" ABC…" up to it), so a tile showing A flips once and a tile showing Z flips 26 times. Under reduced motion nothing turns: the letters fade in, tile after tile.
+每块翻牌的字母序列是从空白到它字母的转盘（“ ABC…”一直到它），所以显示 A 的翻牌翻一次，显示 Z 的翻牌翻 26 次。减弱动态效果下什么都不转：字母一块一块淡入。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Word | BOARDING | The word on the board: up to 10 letters from A to Z, and a space leaves a blank tile |
-| Flip speed | Normal | How long one flip takes: slow is 150ms, normal 85ms and fast 45ms; each tile starts 40ms after the one on its left |
-| Tile color | Black | The color of the tiles: black, blue, red or green with light letters, or cream with dark letters |
+| 词语 | BOARDING | 牌上的词：最多 10 个 A 到 Z 的字母，空格会留出一块空白翻牌 |
+| 翻牌速度 | 普通 | 一翻需要的时间：慢速 150ms，普通 85ms，快速 45ms；每块翻牌比它左边的晚 40ms 开始 |
+| 翻牌颜色 | 黑色 | 翻牌的颜色：黑色、蓝色、红色或绿色配浅色字母，或者奶油色配深色字母 |
 
-## Production notes
-- **The drum**: real boards only flip forward, so going from Z back to A passes every letter. Add digits and symbols to the run of letters for times, gates and scores; the order decides how long each change takes. For a change from one word to another, start each tile from the letter it shows now instead of from a blank.
-- **Transforms only**: the flaps turn with `rotateX()` and the shade is an opacity, so nothing is laid out again while the board flips. The letters are written once per flip, never every frame.
-- **Exact halves**: the two halves of a letter must meet at the hinge. Use `line-height: 1`, a letter box exactly twice the height of a half, and check the font's capitals: some sit a little high or low and need a small nudge.
-- **Accessibility**: the row is one image named with the final word, and the tiles are hidden from screen readers, so the word is read once rather than every letter it passes through.
-- **Sound**: a soft clatter makes the board feel real, but play it only after the visitor has interacted, and give them a way to mute it.
-- **Libraries**: GSAP can sequence the `rotationX` tweens per tile; there are also small split-flap web components. A CSS-only version works too: give each tile a column of letters and move it with `steps()`, as the card on the handbook's home page does, so each tile stops on its own letter. The catch is that the keyframes and the number of steps have to be generated for every word.
+## 生产注意事项
+- **转盘**：真正的牌只向前翻，所以从 Z 回到 A 要经过每个字母。给时间和登机口、分数用的字母序列加上数字和符号；顺序决定每次变化需要的时间。从一个词换到另一个词时，让每块翻牌从它现在显示的字母开始，而不是从空白开始。
+- **只用变换**：翻页用 `rotateX()` 转动，阴影是一个透明度，所以翻牌转动时什么都不用重新布局。字母每翻写一次，绝不是每帧都写。
+- **精确的对半**：字母的两半必须在铰链处接合。用 `line-height: 1`、一个正好是半块两倍高的字母盒，并检查字体的大写字母：有些坐得稍高或稍低，需要小小的调整。
+- **无障碍**：整行是一个用最终词命名的图片，翻牌对屏幕阅读器隐藏，所以词只读一次，而不是读它经过的每个字母。
+- **声音**：柔和的咔哒声让牌感觉真实，但只在访客互动之后播放，并给他们一个静音的办法。
+- **库**：GSAP 可以按翻牌排列 `rotationX` 补间；也有小的翻牌 web 组件。纯 CSS 版本也行：给每块翻牌一列字母，用 `steps()` 移动它，就像手册首页上的卡片那样，这样每块翻牌停在自己的字母上。要注意的是，关键帧和步数必须为每个词生成。
 
-## See also
-- [Scramble / Glitch Text](../scramble-text/) — random symbols lock into the real text, left to right
-- [Text Morphing](../text-morphing/) — one word changes into the next, letter by letter
-- [Flip In](../../02-entrance-and-exit/flip-in/) — swings into view in 3D, like a card turning over
-- [3D Flip Card](../../06-3d-advanced/flip-card-3d/) — a card turns over in 3D to show its back
-- [Rolling Numbers](../../04-micro-interactions/rolling-numbers/) — digits roll to their new values, like a mileage counter
+## 另见
+- [乱码/故障文字](../scramble-text/) — 随机符号从左到右逐个锁定为真实文字
+- [文字变形](../text-morphing/) — 一个词逐字变成下一个词
+- [翻转进入](../../02-entrance-and-exit/flip-in/) — 像卡片翻过来一样用 3D 摆进视野
+- [3D 翻转卡片](../../06-3d-advanced/flip-card-3d/) — 一张卡片在 3D 里翻过来，露出背面
+- [数字滚动](../../04-micro-interactions/rolling-numbers/) — 数字滚到新值，像里程表

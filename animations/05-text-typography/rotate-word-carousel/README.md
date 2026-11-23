@@ -1,18 +1,18 @@
-# Rotate Word Carousel
+# 轮换词轮播
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/rotate-word-carousel/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/rotate-word-carousel/)
 
-## What it is
-A rotating word keeps a sentence still while one word in it keeps changing: "We craft for Designers" becomes "We craft for Developers", then "We craft for Humans". The current word slides out of sight and the next one slides in from the other side, so each change is easy to notice while the rest of the line stays readable. It is a common headline on the home pages of studios and software products.
+## 它是什么
+轮换词让句子保持静止，只有一个词不停地换：“We craft for Designers”变成“We craft for Developers”，再变成“We craft for Humans”。当前的词滑出视野，下一个从另一边滑进来，所以每次变化都容易注意到，而句子的其余部分仍然可读。这是工作室和软件产品首页上常见的主视觉标题。
 
-## When to use it
-- Hero headlines that address multiple audiences: "Built for [Designers / Developers / Teams]"
-- Value proposition cycling: "Faster / Simpler / Smarter"
-- Service lists: "We build [Websites / Mobile Apps / Design Systems]"
-- Any headline where a single dimension varies while the surrounding context is stable
+## 什么时候用
+- 面向多个受众的主视觉标题：“Built for [Designers / Developers / Teams]”
+- 价值主张轮换：“Faster / Simpler / Smarter”
+- 服务列表：“We build [Websites / Mobile Apps / Design Systems]”
+- 任何只有一个维度在变、周围语境稳定的标题
 
-## How it works
-The rotating word lives in a container with `overflow: hidden`. The current word slides out in one direction while the next slides in from the opposite:
+## 工作原理
+轮换词放在一个 `overflow: hidden` 的容器里。当前的词向一个方向滑出，下一个从相反方向滑进来：
 
 ```html
 <h1>
@@ -63,7 +63,7 @@ function transitionWord(container, nextWord) {
 }
 ```
 
-The auto-cycle:
+自动循环：
 ```js
 let i = 0;
 const words = ['Designers', 'Developers', 'Humans', 'Teams'];
@@ -72,25 +72,25 @@ setInterval(() => {
 }, holdDuration + transitionDuration * 2);
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Slide direction | Up | Up and down move the word like a slot machine; left and right slide it sideways; each slide moves the word 110% of its own height or width while it fades out or in |
-| Speed | Normal | How long each slide takes, once for the word going out and again for the next one coming in: slow is 650ms, normal 400ms and fast 250ms |
-| Time on each word | Medium | How long each word stays: short is 1200ms, medium 2000ms and long 3200ms; 1.5 to 3 seconds is the readable range |
-| Different color per word | on | A new color for each word draws attention to the change; one color is calmer |
-| Your sentence | We craft for | The part of the headline that stays still |
-| Your words, one per line | Designers, Developers, Humans, Teams, Startups | The words that take turns |
+| 滑动方向 | 上 | 上下移动词的方式像老虎机；左右是横向滑动；每次滑动都让词移动自身高度或宽度的 110%，同时淡出或淡入 |
+| 速度 | 普通 | 每次滑动需要的时间，出去的词一次，进来的下一个词又一次：慢速 650ms，普通 400ms，快速 250ms |
+| 每个词的停留时间 | 中 | 每个词停留的时间：短 1200ms，中 2000ms，长 3200ms；1.5 到 3 秒是可读的范围 |
+| 每个词不同颜色 | 开 | 每个词换一个新颜色，会把注意力引到变化上；一个颜色更平静 |
+| 你的句子 | We craft for | 标题里保持静止的部分 |
+| 你的词语，每行一个 | Designers, Developers, Humans, Teams, Startups | 轮流出现的词 |
 
-## Production notes
-- **Only one word should rotate**: multiple cycling sections in a single headline create chaos. The static context is what makes the rotating word legible — "We build for [X]" works because "We build for" never changes.
-- **Word length variance causes layout shift**: if words have different lengths, the headline reflows on each transition. Solutions: (1) set a fixed `min-width` on the container based on the longest word, (2) use `position: absolute` on the word and manually set container width to the longest word, or (3) choose words of similar length.
-- **`aria-live="polite"`**: screen readers will announce each word change after the current utterance completes. Set on the rotating word container, not the entire headline.
-- **Keep the word list short**: 4–6 words maximum. Beyond that, users rarely see the full cycle and the repetition becomes numbing. Randomizing the order slightly reduces predictability.
-- **GSAP**: `gsap.to(word, { yPercent: -110, opacity: 0, duration: 0.4 })` for exit, then set new text and `gsap.fromTo(word, { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.4 })` for entry.
-- **Typed.js, Motion One**: both have built-in word cycling APIs. Typed.js (`strings: [...]` with `backSpeed`) is the most widely used.
+## 生产注意事项
+- **只能有一个词轮换**：一个标题里多个循环的部分会造成混乱。静态语境正是让轮换词可读的原因——“We build for [X]”之所以成立，是因为“We build for”从来不变。
+- **词长不一会导致布局位移**：如果词的长度不同，标题每次过渡都会重排。解决办法：（1）按最长的词给容器设一个固定的 `min-width`，（2）在词上用 `position: absolute`，手动把容器宽度设为最长词的宽度，或者（3）选长度相近的词。
+- **`aria-live="polite"`**：屏幕阅读器会在当前播报完成后播报每次词的变化。设在轮换词容器上，而不是整个标题上。
+- **词表保持简短**：最多 4–6 个词。再多，用户很少能看完整个循环，重复会变得麻木。稍微随机化顺序可以降低可预测性。
+- **GSAP**：退场用 `gsap.to(word, { yPercent: -110, opacity: 0, duration: 0.4 })`，然后换新文字，进场用 `gsap.fromTo(word, { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.4 })`。
+- **Typed.js、Motion One**：两者都有内置的词轮换 API。Typed.js（`strings: [...]` 加 `backSpeed`）用得最广。
 
-## See also
-- [Text Morphing](../text-morphing/) — one word changes into the next, letter by letter
-- [Enter/Exit Typography](../enter-exit-typography/) — whole phrases come in, hold and leave
-- [Typewriter Effect](../typewriter-effect/) — text typed one character at a time
+## 另见
+- [文字变形](../text-morphing/) — 一个词逐字变成下一个词
+- [入场退场排版](../enter-exit-typography/) — 整句短语进来、停留、再离开
+- [打字机效果](../typewriter-effect/) — 文字逐字打出

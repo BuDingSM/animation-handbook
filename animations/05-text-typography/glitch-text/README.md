@@ -1,18 +1,18 @@
-# Glitch Text
+# 故障文字
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/glitch-text/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/glitch-text/)
 
-## What it is
-Glitch text makes a headline look like a broken video signal. A red copy and a cyan copy of the word sit just to either side of it, and only thin horizontal strips of each copy show, changing all the time, so strips of color seem to tear away from the letters. It reads as a digital fault: a signal losing sync, or a tape dropping out.
+## 它是什么
+故障文字让标题看起来像坏掉的视频信号。一个红色副本和一个青色副本的词紧贴在它两边，只有每个副本薄薄的横向条带会显示出来，而且一直在变，所以颜色条带看起来像从字母上撕下来一样。读起来像数字故障：信号失去同步，或者磁带掉了信号。
 
-## When to use it
-- Hero headlines for cyberpunk, hacker, or music/streetwear brands
-- Error and 404 states where a "broken signal" metaphor fits the tone
-- Hover accents on nav or buttons for a brief burst of instability
-- Loading or transition moments that want texture rather than a plain spinner
+## 什么时候用
+- 赛博朋克、黑客或音乐/街头服饰品牌的主视觉标题
+- 错误和 404 状态，“坏信号”的隐喻贴合语气的地方
+- 导航或按钮上的悬停点缀，短暂地爆发一下不稳定感
+- 加载或过渡时刻，想要质感而不是普通转圈的地方
 
-## How it works
-The visible text is duplicated twice with `content: attr(data-text)` on `::before` and `::after`. Each clone is nudged sideways and tinted a single channel, then a `clip-path: inset(...)` keyframe reveals a different horizontal band on every step. The `inset()` top/bottom values jump around, so the color layers only show through in shifting strips:
+## 工作原理
+可见文字用 `::before` 和 `::after` 上的 `content: attr(data-text)` 复制了两次。每个克隆都横向挪了一点，并染成单一通道，然后一个 `clip-path: inset(...)` 关键帧在每一步揭示一个不同的横向带。`inset()` 的上下值跳来跳去，所以颜色层只在移动的条带里透出来：
 
 ```css
 .glitch::before{
@@ -28,25 +28,25 @@ The visible text is duplicated twice with `content: attr(data-text)` on `::befor
 }
 ```
 
-A small JS loop re-triggers the animation and nudges the element's `translateX` at irregular intervals, so the tear never settles into an obvious loop. The Glitches only on hover setting toggles `animation-play-state` through a `:hover` rule gated behind `@media (hover: hover)`, and a tap toggles it on touch screens.
+一个小的 JS 循环重新触发动画，并不定期地把元素的 `translateX` 推一下，这样撕裂永远不会落入明显的循环。仅悬停时故障这个设置通过 `@media (hover: hover)` 后面的 `:hover` 规则切换 `animation-play-state`，在触屏上点一下可以开关。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Color split | Medium | How far the red and cyan copies sit from the word: small is 2px, medium 4px and large 8px, and each copy casts a shadow in its own color as far again beyond it |
-| Speed | Normal | How long the strips take to run through their pattern: slow is 3.8s, normal 2.4s and fast 1.4s; shorter looks more frantic |
-| Glitch strength | Medium | How hard the word shakes and how often the strips reshuffle: about every quarter second the word jumps up to 1.8px to either side at mild, 3.6px at medium and 5.4px at strong, and the strips jump to a random point in their pattern about 1.5, 2.5 or 3 times a second |
-| Glitches only on hover | off | Holds the word still until you point at it; on touch screens a tap starts and stops it |
-| Your text | GLITCH | The word that glitches, up to 12 letters, shown in capitals |
+| 色彩分离 | 中 | 红色和青色副本离词有多远：小是 2px，中 4px，大 8px，每个副本还会向外再投一个自身颜色的阴影，距离和分离一样远 |
+| 速度 | 普通 | 条带跑完一遍图案需要的时间：慢速 3.8s，普通 2.4s，快速 1.4s；越短看起来越狂乱 |
+| 故障强度 | 中 | 词抖动的幅度和条带重新洗牌的频率：大约每四分之一秒，词向两边跳最多 1.8px（轻微）、3.6px（中）或 5.4px（强烈），条带每秒跳到图案里的随机位置大约 1.5、2.5 或 3 次 |
+| 仅悬停时故障 | 关 | 一直让词保持静止，直到你指向它；在触屏上点一下可以开始和停止 |
+| 你的文字 | GLITCH | 会故障的词，最多 12 个字母，用大写显示 |
 
-## Production notes
-- **Accessibility**: the glitch is one element with real text content, so it stays selectable and readable to screen readers. When you build the effect from split spans instead, add `aria-label` on the container and `aria-hidden="true"` on the fragments so assistive tech reads the word once.
-- **Reduced motion**: the demo starts paused. Once played, it only slides the colored strips; the sideways shake and the random restarts stay off. In production, show these visitors the still word.
-- **Seizure safety**: keep the jitter below a few hertz and avoid full-frame flashes. Rapid, high-contrast strobing can trigger photosensitive reactions.
-- **Library equivalents**: GSAP's timeline with random `clip-path` tweens gives frame-precise control; Splitting.js can shard the text for per-character glitching. Framer Motion can drive the offsets via `useAnimationFrame`.
+## 生产注意事项
+- **无障碍**：故障效果是一个带真实文字内容的元素，所以它仍然可选，屏幕阅读器也能读。当你改用拆开的 span 来做这个效果时，在容器上加 `aria-label`，在碎片上加 `aria-hidden="true"`，这样辅助技术只读一次这个词。
+- **减弱动态效果**：演示开始时是暂停的。播放后，它只滑动彩色条带；横向抖动和随机重启保持关闭。生产中，给这些访客展示静止的词。
+- **癫痫安全**：让抖动保持在几赫兹以下，避免全帧闪烁。快速、高对比的频闪可能触发光敏反应。
+- **库的等价做法**：GSAP 的时间线配合随机的 `clip-path` 补间，可以逐帧精确控制；Splitting.js 可以把文字切碎，做逐字故障。Framer Motion 可以通过 `useAnimationFrame` 驱动偏移。
 
-## See also
-- [Scramble / Glitch Text](../scramble-text/) — random symbols lock into the real text
-- [Text Clip-Path Reveal](../text-clip-path-reveal/) — lines of text are uncovered one by one
-- [Kinetic Typography](../kinetic-typography/) — words that each move in their own way
-- [Neon Flicker](../neon-flicker/) — glowing letters that sputter like a worn neon sign
+## 另见
+- [乱码/故障文字](../scramble-text/) — 随机符号逐个锁定为真实文字
+- [裁剪揭示文字](../text-clip-path-reveal/) — 标题的每一行依次被揭开
+- [动态排版](../kinetic-typography/) — 词语逐个以各自的方式进出
+- [霓虹闪烁](../neon-flicker/) — 发光的字母偶尔像破旧霓虹灯一样闪烁
