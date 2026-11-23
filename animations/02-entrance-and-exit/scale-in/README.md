@@ -1,19 +1,19 @@
-# Scale In / Zoom In
+# 缩放进入
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/scale-in/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/scale-in/)
 
-## What it is
+## 它是什么
 
-A scale-in grows an element from a little smaller than its final size up to full size, usually while it fades in. The anchor point decides where it grows from: its own center, an edge or a corner. With a springy curve the slight overshoot makes the arrival feel physical, as if the element lands in place.
+缩放进入让元素从比最终尺寸稍小一点长到完整尺寸，通常同时淡入。锚点决定它从哪里长：自己的中心、一条边或一个角。弹回曲线带来轻微的超过，让到达感觉很真实，就像元素落定到位一样。
 
-## When to use it
-- Modals, dialogs, and popovers zooming up from the control that opened them
-- Cards or tiles appearing in a grid, each popping into place
-- Icon or badge confirmations (a checkmark scaling in after an action)
-- Menus and dropdowns expanding from the button that triggered them (origin set to that corner)
+## 什么时候用
+- 从打开它们的控件处放大出现的模态框、对话框和弹出层
+- 网格里出现的卡片或瓷贴，每张都弹到位
+- 图标或徽章确认（操作后放大出现的对勾）
+- 从触发它们的按钮处展开的菜单和下拉框（原点设在那个角）
 
-## How it works
-The card starts at `scale(var(--ss))` with `opacity: 0` and transitions both to their end values when `.in` is added. The start scale, origin, easing, and fade are all CSS variables the controls rewrite:
+## 工作原理
+卡片从 `scale(var(--ss))` 和 `opacity: 0` 开始，加上 `.in` 时两者都过渡到结束值。起始缩放、原点、缓动和淡入淡出都是 CSS 变量，由控件改写：
 
 ```css
 .card {
@@ -27,27 +27,27 @@ The card starts at `scale(var(--ss))` with `opacity: 0` and transitions both to 
 .card.in { opacity: 1; transform: scale(1); }
 ```
 
-The default easing is `cubic-bezier(.34,1.56,.64,1)` — its control point above 1 pushes the scale past 1.0 mid-transition before settling, which is the overshoot that reads as a "pop." Changing `--origin` (e.g. to `top left`) re-anchors where that pop expands from.
+默认缓动是 `cubic-bezier(.34,1.56,.64,1)`——它的控制点在 1 以上，会在过渡中途把缩放推过 1.0 再落定，这就是读起来像「砰」一下的超过。改 `--origin`（比如改成 `top left`）会重新固定这个弹跳从哪里展开。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Starting size | A bit smaller | How small it starts: a bit smaller is 80% of full size, half size 50% and from nothing 0%; close to full size is subtle, below half reads as a big zoom |
-| Grows from | Center | The point it grows from: the center, the top left corner, the top edge or the bottom edge |
-| Speed | Normal | How long it takes: slow is 800ms, normal 500ms and fast 300ms; a springy curve needs room to overshoot and settle |
-| Feel | Springy | Springy overshoots and settles; Smooth and Gentle arrive more calmly; Even keeps one steady pace |
-| Fades in | on | Stops the element flashing at full strength while it is still tiny |
+| 起始大小 | 稍小一点 | 开始时有多小：「稍小一点」是完整尺寸的 80%，「一半大小」是 50%，「从零开始」是 0%；接近完整尺寸很微妙，不到一半读起来就是大缩放 |
+| 从哪放大 | 中间 | 它从哪个点放大：中心、左上角、顶部边缘或底部边缘 |
+| 速度 | 普通 | 要多长时间：「慢」是 800ms，「普通」500ms，「快」300ms；弹回曲线需要空间来超过和落定 |
+| 感觉 | 弹回 | 「弹回」超过再落定；「平滑」和「轻柔」到达得更平静；「均匀」保持一个稳定的速度 |
+| 淡入 | 开 | 防止元素还很小的时候就以全强度闪现 |
 
-## Production notes
-- **Anchor the origin to the trigger.** A popover that scales from `center` feels disconnected; setting `transform-origin` to the corner nearest its button makes it feel like it grew *out of* that button.
-- **Don't start from `scale(0)` with springy easing** unless you want a hard pop — the overshoot from zero is dramatic and can feel cartoonish for UI. Starting around 0.8–0.9 keeps it refined.
-- **Watch text rendering during the scale.** Scaling type up from very small can look soft mid-transition; keeping the start scale high (≥0.8) and the duration short minimizes the blur.
-- **Reduced motion:** the demo disables the transform under `prefers-reduced-motion` and keeps a plain fade, so the element appears without zooming.
-- **Library equivalents:** GSAP `gsap.from(el, { scale: 0.8, autoAlpha: 0, ease: 'back.out(1.7)' })` — `back.out` is the same overshoot; Framer Motion `initial={{ scale: 0.8, opacity: 0 }}` with a `type: 'spring'` transition; Motion One `animate(el, { transform: ['scale(0.8)', 'none'], opacity: [0, 1] })`.
+## 生产注意事项
+- **把原点锚定在触发器上。**从 `center` 缩放的弹出层感觉很脱节；把 `transform-origin` 设在离它按钮最近的角，会让它感觉像是从那个按钮里*长出来*的。
+- **不要用弹回缓动从 `scale(0)` 开始**，除非你想要一个很硬的弹跳——从零开始的超过很夸张，在界面里可能显得卡通。从 0.8–0.9 左右开始会更精致。
+- **注意缩放时的文字渲染。**把文字从很小放大，过渡中途可能看起来发软；起始缩放保持高一点（≥0.8）、时长保持短一点，可以把模糊降到最低。
+- **减弱动态：**在 `prefers-reduced-motion` 下，演示禁用 transform，只留单纯的淡入淡出，元素出现时不缩放。
+- **库里的等价写法：**GSAP 的 `gsap.from(el, { scale: 0.8, autoAlpha: 0, ease: 'back.out(1.7)' })`——`back.out` 就是同样的超过；Framer Motion 的 `initial={{ scale: 0.8, opacity: 0 }}`，配合 `type: 'spring'` 过渡；Motion One 的 `animate(el, { transform: ['scale(0.8)', 'none'], opacity: [0, 1] })`。
 
-## See also
-- [Fade In / Fade Out](../fade-in-out/) — the plain fade, with no size change
-- [Bounce In](../bounce-in/) — a bigger, springier landing
-- [Slide In](../slide-in/) — travels into place instead of growing
-- [Flip In](../flip-in/) — swings in like a card turning over
+## 另见
+- [淡入淡出](../fade-in-out/) — 单纯的淡入淡出，没有大小变化
+- [弹跳进入](../bounce-in/) — 更大、更有弹性的落定
+- [滑入](../slide-in/) — 滑入到位，而不是放大
+- [翻转进入](../flip-in/) — 像卡片翻面一样摆进来

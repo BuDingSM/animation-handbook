@@ -1,19 +1,19 @@
-# Split Text Reveal
+# 拆字揭示
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/split-text-reveal/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/split-text-reveal/)
 
-## What it is
+## 它是什么
 
-A split-text reveal breaks text into pieces (characters, words or lines) and animates them one after another with a short delay between each. That delay turns a flat fade into a cascade that flows across the text. It is the basis of most animated headline entrances.
+拆字揭示把文字拆成块（字、词或行），每块之间隔一小会儿，依次做动画。这个延迟把平淡的淡入淡出变成一道流过文字的级联。它是大多数动画标题入场的基础。
 
-## When to use it
-- Headline and hero entrances where letters or words ripple into place
-- Word-by-word reveals timed to feel like the phrase is being spoken
-- Line-by-line reveals for longer copy blocks
-- Any type entrance where a single fade feels too uniform and you want directional flow
+## 什么时候用
+- 标题和主视觉入场，字母或词语泛起涟漪般到位
+- 逐词揭示，时间安排得像这句话正在被说出来
+- 较长文案块的逐行揭示
+- 任何单次淡入淡出显得太均匀、想要方向性流动的文字入场
 
-## How it works
-JavaScript splits the text and gives each unit an `--i` index custom property. CSS then multiplies that index by a `--stagger` variable inside `transition-delay`, so unit 0 starts immediately, unit 1 a beat later, and so on — no per-element timers:
+## 工作原理
+JavaScript 拆分文字，给每个单元一个 `--i` 序号自定义属性。CSS 再在 `transition-delay` 里把这个序号乘以 `--stagger` 变量，所以单元 0 立刻开始，单元 1 晚一拍，以此类推——不需要每个元素一个计时器：
 
 ```css
 .unit {
@@ -26,7 +26,7 @@ JavaScript splits the text and gives each unit an `--i` index custom property. C
 .splitting.in .unit { opacity: 1; transform: none; }
 ```
 
-The split assigns the index as it builds the spans:
+拆分在创建这些 span 时分配序号：
 
 ```js
 text.split(/\s+/).filter(Boolean).forEach((word, wi, all) => {
@@ -44,28 +44,28 @@ text.split(/\s+/).filter(Boolean).forEach((word, wi, all) => {
 });
 ```
 
-Per-unit animation is swappable via `data-anim` (fade-up, fade, scale, rotate); `lines` mode additionally clips each line and slides an inner span up, combining stagger with the slide-up reveal technique.
+每个单元的动画可以通过 `data-anim` 切换（fade-up、fade、scale、rotate）；`lines` 模式还会裁剪每行、把里面的 span 向上滑，把交错和上滑揭示技术结合起来。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Split into | Words | Letters give the finest cascade, words a readable rhythm, lines a block reveal |
-| How each piece appears | Fade up | The small entrance each piece plays: fade up rises by half the font size, fade only fades, grow starts at half its size and flip turns in from 90°, edge-on, around a vertical line; in Lines mode nothing fades: each line slides up into view from behind an invisible edge, so fade shows only that slide, and fade up, grow and flip add their own movement to it |
-| Delay between pieces | Medium | The wait between pieces: short is 10ms, medium 30ms and long 100ms; small values ripple, large values feel deliberate |
-| Speed | Normal | How long each piece takes: slow is 800ms, normal 500ms and fast 300ms |
-| Feel | Smooth | The curve each piece uses; Springy adds a small settle, Even keeps one steady pace |
-| Your text | Design beyond the obvious | The text that is split and revealed |
+| 拆成 | 词语 | 字母的级联最细腻，词语的节奏最易读，行是成块揭示 |
+| 每块怎么出现 | 淡入上浮 | 每块演的小入场：「淡入上浮」上升半个字号，「淡入」只淡入，「放大」从一半大小开始，「翻转」从 90°、侧面对着你、绕一条竖线转进来；在「行」模式下什么都不淡入淡出：每行都从一条看不见的边缘后面滑入视野，所以「淡入」只显示那个滑动，而「淡入上浮」「放大」「翻转」会在上面加上自己的动作 |
+| 块间延迟 | 中等 | 块与块之间的等待：「短」是 10ms，「中等」30ms，「长」100ms；小的值起涟漪，大的值感觉很从容 |
+| 速度 | 普通 | 每块要多长时间：「慢」是 800ms，「普通」500ms，「快」300ms |
+| 感觉 | 平滑 | 每块用的曲线；「弹回」加一点点落定，「均匀」保持一个稳定的速度 |
+| 你的文字 | Design beyond the obvious | 被拆开、被揭示的文字 |
 
-## Production notes
-- **Total time = units × stagger + duration.** Character mode on a long string multiplies fast — 40 chars × 30ms + 500ms is nearly 1.7s. Cap the stagger or switch to words/lines for longer copy so the tail does not drag.
-- **Splitting breaks the text for accessibility.** A screen reader may read char-split text letter by letter, and the split destroys native word wrapping. Add `aria-label` with the full string on the container (and `aria-hidden` on the pieces), and re-run the split on resize since wrapping changes.
-- **Preserve spaces deliberately.** The demo inserts real text nodes for spaces in char mode and adds trailing spaces between word spans — without that, `inline-block` units collapse the whitespace and words run together.
-- **Reduced motion:** the demo collapses every per-unit transform under `prefers-reduced-motion` to a plain 300ms opacity fade, so the whole phrase appears without the cascade.
-- **Library equivalents:** Splitting.js and GSAP's SplitText both do the DOM splitting for you (SplitText also handles the ARIA and re-split-on-resize); Framer Motion uses `staggerChildren` on a parent variant with child `motion.span`s; Motion One's `stagger()` helper generates the per-element delay.
+## 生产注意事项
+- **总时间 = 单元数 × 交错 + 时长。**长字符串的字符模式乘得很快——40 个字符 × 30ms + 500ms 将近 1.7 秒。限制交错，或者给较长的文案换成词语/行，别让尾巴拖太久。
+- **拆分会破坏文字的无障碍性。**屏幕阅读器可能把按字符拆分的文字逐字母读出来，而且拆分会破坏原生的词语换行。在容器上加带完整字符串的 `aria-label`（块上加 `aria-hidden`），并且在调整大小时重新拆分，因为换行会变。
+- **有意保留空格。**演示在字符模式里为空格插入真实的文本节点，并在词语 span 之间加尾随空格——没有这些，`inline-block` 单元会把空白折叠起来，词语就连在一起了。
+- **减弱动态：**在 `prefers-reduced-motion` 下，演示把每个单元的 transform 都收拢成单纯的 300ms 不透明度淡入淡出，整句话没有级联就出现了。
+- **库里的等价写法：**Splitting.js 和 GSAP 的 SplitText 都会帮你做 DOM 拆分（SplitText 还处理 ARIA 和调整大小时重新拆分）；Framer Motion 在父变体上用 `staggerChildren`，子元素是 `motion.span`；Motion One 的 `stagger()` 辅助函数生成每个元素的延迟。
 
-## See also
-- [Slide Up Reveal](../slide-up-reveal/) — whole lines rise from behind an invisible edge
-- [Letter-by-Letter Stagger](../letter-by-letter-stagger/) — one letter at a time, or typed out
-- [Word-by-Word Reveal](../word-by-word-reveal/) — one word at a time, at a reading pace
-- [Fade In / Fade Out](../fade-in-out/) — the whole text fades in at once
+## 另见
+- [上滑揭示](../slide-up-reveal/) — 整行从一条看不见的边缘后方升起
+- [逐字母出现](../letter-by-letter-stagger/) — 一次一个字母，或者打出来
+- [逐词揭示](../word-by-word-reveal/) — 一次一个词，按阅读速度
+- [淡入淡出](../fade-in-out/) — 整段文字一次淡入

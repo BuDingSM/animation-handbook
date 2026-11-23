@@ -1,19 +1,19 @@
-# Blur In
+# 模糊渐入
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/blur-in/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/blur-in/)
 
-## What it is
+## 它是什么
 
-Blur In fades an element into view while it sharpens from a heavy blur to crisp focus, like a camera pulling focus onto a subject. The rising opacity and falling blur feel cinematic because they echo how a real lens resolves an image, unlike the flat look of a plain fade.
+模糊渐入让元素淡入视野，同时从重度模糊变清晰到对上焦，就像相机把焦点拉到主体上一样。上升的不透明度和下降的模糊感觉很有电影感，因为它们呼应了真实镜头解析图像的方式，不像单纯淡入淡出那么平。
 
-## When to use it
-- Hero cards, modals, and single focal elements entering a view
-- Photography, film, and portfolio sites where the camera metaphor fits the brand
-- Drawing attention to one arriving element, not a grid or list of them
-- Paired with a small upward translate for a subtle "settling into place" feel
+## 什么时候用
+- 进入视图的主视觉卡片、模态框和单个焦点元素
+- 摄影、电影和作品集网站，相机的隐喻符合品牌
+- 吸引注意力到一个到达的元素上，不是一组或一列
+- 配上一个小的向上平移，带来微妙的「落定到位」感
 
-## How it works
-Three properties transition together on the same duration and easing: `opacity` from 0 to 1, `filter: blur()` from a large radius to zero, and an optional `translateY`. The blurred start state lives on the base `.card` rule; adding `.in` resolves all three at once:
+## 工作原理
+三个属性以同样的时长和缓动一起过渡：`opacity` 从 0 到 1，`filter: blur()` 从大半径到零，还有可选的 `translateY`。模糊的起始状态在基础 `.card` 规则里；加上 `.in` 会同时解决这三个：
 
 ```css
 .card{
@@ -25,34 +25,34 @@ Three properties transition together on the same duration and easing: `opacity` 
 .card.in{opacity:1;filter:blur(0);transform:translateY(0)}
 ```
 
-Toggling in JS is just a class flip after forcing a reflow so the transition restarts cleanly:
+JS 里的切换只是在强制重排之后翻一下类，让过渡干净地重新开始：
 
 ```js
 card.classList.remove('in');void card.offsetWidth;
 card.classList.add('in');
 ```
 
-The Blur only and Fade only choices of What changes exist to show that the two channels are separable — blur alone feels like focus without arrival, fade alone is the ordinary transition. Combined, they read as a lens finding its subject.
+「变化内容」里的「仅模糊」和「仅淡入」选项是为了说明这两个通道是可以分开的——只有模糊感觉像对焦而没有到达，只有淡入淡出就是普通的过渡。合起来，它们读起来就像镜头找到了主体。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How blurry it starts | Medium | How much blur it starts with: slight is 8px, medium 20px and heavy 35px; past about 30px it looks like frosted glass |
-| Speed | Normal | How long it takes: slow is 1100ms, normal 700ms and fast 400ms; blur needs a little longer than a plain fade for the lens feel to land |
-| What changes | Blur and fade | The full effect; Blur only and Fade only show each half on its own |
-| Feel | Smooth | Smooth slows down like a lens settling; Gentle eases in and out; Even feels robotic |
-| Drifts up | on | A small rise while it sharpens, as if it is settling into place; only with Blur and fade |
+| 起始模糊程度 | 中等 | 开始时有多模糊：「轻微」是 8px，「中等」20px，「重」35px；超过大约 30px 就看起来像毛玻璃了 |
+| 速度 | 普通 | 要多长时间：「慢」是 1100ms，「普通」700ms，「快」400ms；模糊比单纯的淡入淡出需要稍长一点，镜头的感觉才能落定 |
+| 变化内容 | 模糊加淡入 | 完整效果；「仅模糊」和「仅淡入」分别展示每一半 |
+| 感觉 | 平滑 | 「平滑」像镜头落定一样放慢；「轻柔」两头放慢；「均匀」感觉很机械 |
+| 上浮 | 开 | 变清晰时小小地上升一下，就像它落定到位一样；只在「模糊加淡入」时有效 |
 
-## Production notes
-- **GPU cost**: `filter: blur()` is one of the more expensive properties to animate. It forces the element onto its own compositor layer and re-rasterizes each frame. Limit blur-in to a single hero element or a small group — never a long list, and be cautious on low-end mobile.
-- **`will-change`**: declaring `will-change:filter` promotes the layer ahead of time and smooths the first frame, but leaving it on permanently wastes memory. Add it before the animation, remove it after if the element is long-lived.
-- **Reduced motion**: the demo drops to a plain 300ms linear opacity fade with no blur or transform when `prefers-reduced-motion` is set — blur can be nauseating for motion-sensitive users.
-- **Text blur pitfall**: blurring live text triggers subpixel re-rendering each frame and can look muddy mid-transition. Keep the end state at exactly `blur(0)` so the final frame is crisp.
-- **Framer Motion**: animate `filter` between `"blur(20px)"` and `"blur(0px)"` alongside `opacity` in a variant.
-- **Motion One / GSAP**: both animate the `filter` string directly; GSAP needs no plugin for CSS filters.
+## 生产注意事项
+- **GPU 成本**：`filter: blur()` 是做动画比较贵的属性之一。它会把元素推到自己的合成器图层上，每帧重新光栅化。把模糊渐入限制在一个主视觉元素或一小组上——永远不要用在长列表上，低端手机上要小心。
+- **`will-change`**：声明 `will-change:filter` 会提前提升图层、让第一帧更平滑，但一直开着会浪费内存。在动画前加上它，如果元素会长期存在，动画后去掉。
+- **减弱动态**：在 `prefers-reduced-motion` 下，演示退到单纯的 300ms 线性不透明度淡入淡出，没有模糊或 transform——模糊会让对动态敏感的用户恶心。
+- **文字模糊的坑**：给实时文字加模糊会每帧触发亚像素重渲染，过渡中途可能看起来发糊。让结束状态正好是 `blur(0)`，这样最后一帧是清晰的。
+- **Framer Motion**：在变体里给 `filter` 在 `"blur(20px)"` 和 `"blur(0px)"` 之间做动画，同时给 `opacity` 做动画。
+- **Motion One / GSAP**：两者都直接给 `filter` 字符串做动画；GSAP 给 CSS 滤镜做动画不需要插件。
 
-## See also
-- [Fade In / Fade Out](../fade-in-out/) — the fade on its own, with no blur
-- [Scale In / Zoom In](../scale-in/) — grows from smaller to full size
-- [Flip In](../flip-in/) — swings in like a card turning over
+## 另见
+- [淡入淡出](../fade-in-out/) — 单独的淡入淡出，没有模糊
+- [缩放进入](../scale-in/) — 从小放大到完整尺寸
+- [翻转进入](../flip-in/) — 像卡片翻面一样摆进来

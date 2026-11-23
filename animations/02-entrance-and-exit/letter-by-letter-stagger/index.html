@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Letter-by-Letter Stagger — 动画手册</title>
-  <meta name="description" content="A phrase appears letter by letter or typewriter-style. Best for short headlines.">
+  <title>逐字母出现 — 动画手册</title>
+  <meta name="description" content="一句话逐字母出现，或像打字机一样。适合短标题。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Letter-by-Letter Stagger — 动画手册">
-  <meta property="og:description" content="A phrase appears letter by letter or typewriter-style. Best for short headlines.">
+  <meta property="og:title" content="逐字母出现 — 动画手册">
+  <meta property="og:description" content="一句话逐字母出现，或像打字机一样。适合短标题。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Letter-by-Letter Stagger — 动画手册">
-  <meta name="twitter:description" content="A phrase appears letter by letter or typewriter-style. Best for short headlines.">
+  <meta name="twitter:title" content="逐字母出现 — 动画手册">
+  <meta name="twitter:description" content="一句话逐字母出现，或像打字机一样。适合短标题。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Letter-by-Letter Stagger", "name": "Letter-by-Letter Stagger", "description": "A phrase appears letter by letter or typewriter-style. Best for short headlines.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/", "inLanguage": "zh-CN", "articleSection": "Entrance & Exit", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Entrance & Exit, Letter-by-Letter Stagger"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "逐字母出现", "name": "逐字母出现", "description": "一句话逐字母出现，或像打字机一样。适合短标题。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，逐字母出现"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--dur:400ms;--ease:ease-out;--stagger:35ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -87,20 +87,20 @@
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../split-text-reveal/" rel="prev" aria-label="上一个：Split Text Reveal"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Split Text Reveal</span></a><a href="../word-by-word-reveal/" rel="next" aria-label="下一个：Word-by-Word Reveal"><span><span class="hb-dir">下一个：</span>Word-by-Word Reveal</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../split-text-reveal/" rel="prev" aria-label="上一个：拆字揭示"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>拆字揭示</span></a><a href="../word-by-word-reveal/" rel="next" aria-label="下一个：逐词揭示"><span><span class="hb-dir">下一个：</span>逐词揭示</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">02.08 · Entrance &amp; Exit</p>
-    <h1>Letter-by-Letter Stagger</h1>
-    <p class="hb-lede">A phrase appears letter by letter or typewriter-style. Best for short headlines.</p>
+    <p class="hb-cat">02.08 · 入场与退场</p>
+    <h1>逐字母出现</h1>
+    <p class="hb-lede">一句话逐字母出现，或像打字机一样。适合短标题。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It plays by itself. Turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -112,14 +112,14 @@
       <div class="bars" aria-hidden="true"></div>
       <ul class="key" aria-hidden="true">
         <li class="lbl key-row k1" data-hb-caption><span class="sw"><b></b><b></b><b></b></span><span>Each letter waits a little longer than the one before</span></li>
-        <li class="lbl key-row k2" data-hb-caption><span class="sw"><b></b></span><span>Bars: how far each letter has come</span></li>
-        <li class="lbl key-row k3" data-hb-caption><span class="sw"><b></b></span><span>Still waiting</span></li>
-        <li class="lbl key-row k4" data-hb-caption><i class="sw-dial"></i><span>A fifth of a second in</span></li>
+        <li class="lbl key-row k2" data-hb-caption><span class="sw"><b></b></span><span>条：每个字母走了多远</span></li>
+        <li class="lbl key-row k3" data-hb-caption><span class="sw"><b></b></span><span>还在等着</span></li>
+        <li class="lbl key-row k4" data-hb-caption><i class="sw-dial"></i><span>五分之一秒后</span></li>
       </ul>
       <div class="cmp-text" aria-hidden="true" inert></div>
-      <p class="lbl half first" aria-hidden="true" data-hb-caption>All at once</p>
-      <p class="lbl half second" aria-hidden="true" data-hb-caption>Letter by letter</p>
-      <p class="lbl moment" aria-hidden="true" data-hb-caption>A fifth of a second in</p>
+      <p class="lbl half first" aria-hidden="true" data-hb-caption>一次全部</p>
+      <p class="lbl half second" aria-hidden="true" data-hb-caption>逐字母</p>
+      <p class="lbl moment" aria-hidden="true" data-hb-caption>五分之一秒后</p>
       <div class="hold" aria-hidden="true" inert><div class="cmp-text"></div></div>
     </div>
     <div class="hb-player">
@@ -128,65 +128,65 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the bar under each letter fills as that letter arrives. Each one starts a little after the one before, so the bars fill like a wave.</p>
-      <p data-hb-for="compare" hidden>All at once plays every letter together; Letter by letter starts each a moment after the last, so the phrase builds up. With Loop off, both rest a fifth of a second in.</p>
+      <p data-hb-for="inside" hidden>看内部，每个字母下面的条随着那个字母的到达而填满。每个都比前一个晚一点开始，所以条像波浪一样填满。</p>
+      <p data-hb-for="compare" hidden>「一次全部」把所有字母一起演；「逐字母」每个都比上一个晚一会儿开始，整句话就组装起来了。循环关闭时，两者都在五分之一秒后停住。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and the animation plays again.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="style-lbl">Style</p>
+        <p class="hb-setting-name" id="style-lbl">样式</p>
         <div class="seg" id="style-seg" role="group" aria-labelledby="style-lbl">
-          <button type="button" data-mode="cascade" class="on" aria-pressed="true">Cascade</button>
-          <button type="button" data-mode="typewriter" aria-pressed="false">Typewriter</button>
+          <button type="button" data-mode="cascade" class="on" aria-pressed="true">级联</button>
+          <button type="button" data-mode="typewriter" aria-pressed="false">打字机</button>
         </div>
-        <p class="hb-hint">Cascade animates each letter; Typewriter types them.</p>
+        <p class="hb-hint">「级联」让每个字母都动起来；「打字机」把它们打出来。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="stagger-lbl">Delay between letters</p>
+        <p class="hb-setting-name" id="stagger-lbl">字母间延迟</p>
         <div class="seg" id="stagger-seg" role="group" aria-labelledby="stagger-lbl">
-          <button type="button" data-stagger="20" aria-pressed="false">Short</button>
-          <button type="button" data-stagger="35" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-stagger="80" aria-pressed="false">Long</button>
+          <button type="button" data-stagger="20" aria-pressed="false">短</button>
+          <button type="button" data-stagger="35" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-stagger="80" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">Longer delays feel slower and more theatrical.</p>
+        <p class="hb-hint">延迟越长，感觉越慢、越戏剧化。</p>
       </div>
       <div class="hb-setting" id="anim-setting">
-        <p class="hb-setting-name" id="anim-lbl">How each letter appears</p>
+        <p class="hb-setting-name" id="anim-lbl">每个字母怎么出现</p>
         <div class="seg" id="anim-seg" role="group" aria-labelledby="anim-lbl">
-          <button type="button" data-anim="fade-up" class="on" aria-pressed="true">Fade up</button>
-          <button type="button" data-anim="fade" aria-pressed="false">Fade</button>
-          <button type="button" data-anim="scale" aria-pressed="false">Grow</button>
-          <button type="button" data-anim="rotate" aria-pressed="false">Flip</button>
+          <button type="button" data-anim="fade-up" class="on" aria-pressed="true">淡入上浮</button>
+          <button type="button" data-anim="fade" aria-pressed="false">淡入</button>
+          <button type="button" data-anim="scale" aria-pressed="false">放大</button>
+          <button type="button" data-anim="rotate" aria-pressed="false">翻转</button>
         </div>
-        <p class="hb-hint">The small entrance every letter plays.</p>
+        <p class="hb-hint">每个字母都演的小入场。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting" id="speed-setting">
-          <p class="hb-setting-name" id="speed-lbl">Speed</p>
+          <p class="hb-setting-name" id="speed-lbl">速度</p>
           <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-            <button type="button" data-ms="650" aria-pressed="false">Slow</button>
-            <button type="button" data-ms="400" class="on" aria-pressed="true">Normal</button>
-            <button type="button" data-ms="250" aria-pressed="false">Fast</button>
+            <button type="button" data-ms="650" aria-pressed="false">慢</button>
+            <button type="button" data-ms="400" class="on" aria-pressed="true">普通</button>
+            <button type="button" data-ms="250" aria-pressed="false">快</button>
           </div>
-          <p class="hb-hint">How long each letter takes to settle.</p>
+          <p class="hb-hint">每个字母落定要多长时间。</p>
         </div>
         <div class="hb-setting" id="cursor-setting" hidden>
-          <label class="hb-switch-row"><span>Blinking cursor</span><input class="hb-switch" type="checkbox" role="switch" id="cursor-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">A cursor leads the letters as they are typed.</p>
+          <label class="hb-switch-row"><span>闪烁光标</span><input class="hb-switch" type="checkbox" role="switch" id="cursor-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">打字时，光标领着字母前进。</p>
         </div>
         <div class="hb-setting">
           <label class="hb-setting-name" for="txt-in">Your text</label>
           <input class="hb-text" type="text" id="txt-in" value="Hello, world." maxlength="60" autocomplete="off">
-          <p class="hb-hint">Short phrases work best, up to 60 characters.</p>
+          <p class="hb-hint">短句效果最好，最多 60 个字符。</p>
         </div>
       </div>
     </details>
@@ -195,10 +195,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a letter-by-letter entrance to [a short phrase or headline]. In the cascade style, every letter plays a small entrance a moment after the previous one, so the phrase assembles from left to right. In the typewriter style, the letters appear one at a time as if someone is typing, with a blinking cursor when the settings include one. Use it only on short phrases, because long text becomes tedious to wait for. Screen readers should hear the whole phrase once, not letter by letter. If the visitor has reduced motion turned on, show the full phrase immediately. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[一句短语或标题]加上逐字母入场。用级联样式时，每个字母都比前一个晚一会儿演一个小入场，这样整句话从左到右组装起来。用打字机样式时，字母一个接一个出现，就像有人在打字一样，设置里有的话还会带一个闪烁光标。只用在短句上，因为长文字等起来会很烦。屏幕阅读器应该把整句话一次读完，而不是逐字母读。如果访客开了减弱动态效果，就立刻显示整句话。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -214,13 +214,13 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Short headlines</li><li>Names and logos</li><li>Chat messages</li><li>Loading screens</li></ul>
+      <ul class="hb-tags hb-good"><li>短标题</li><li>名字和 Logo</li><li>聊天消息</li><li>加载界面</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Long text</li><li>Buttons and labels</li></ul>
+      <ul class="hb-tags hb-avoid"><li>长文字</li><li>按钮和标签</li></ul>
     </div>
   </section>
 
@@ -411,12 +411,12 @@
   }
   // The notes say what the box shows now; a still note only while the box rests
   function describe(){
-    const tw=mode==='typewriter',still=!motionOk&&posed,tail=tw&&cursorTog.checked?', and the cursor waits at the end.':'.',S='Shown still, a fifth of a second in: ';
+    const tw=mode==='typewriter',still=!motionOk&&posed,tail=tw&&cursorTog.checked?'，光标在末尾等着。':'。',S='静止画面，五分之一秒后：';
     const words=[
-      still?S+(tw?'the first letters are typed, their bars full'+tail:'the bar under each letter shows how far it has come, each a little behind the one before.')
-        :tw?'Inside, each letter is typed in turn: its bar fills at once when it appears'+tail:marked[0],
-      still?S+(tw?'All at once shows the whole phrase, while Letter by letter has typed only its first letters.':'All at once has every letter part way, while Letter by letter has its first letters part way and the rest waiting.')
-        :tw?'All at once shows the whole phrase together; Letter by letter types it one letter at a time. With Loop off, both rest a fifth of a second in.':marked[1]];
+      still?S+(tw?'前几个字母已经打出来了，它们的条是满的'+tail:'每个字母下面的条显示它走了多远，一个比一个落后一点。')
+        :tw?'看内部，每个字母依次打出：出现时，它的条立刻填满'+tail:marked[0],
+      still?S+(tw?'「一次全部」显示了整句话，而「逐字母」只打出了前几个字母。':'「一次全部」里每个字母都走到一半，而「逐字母」里前几个字母走到一半，剩下的还在等着。')
+        :tw?'「一次全部」把整句话一起显示；「逐字母」一次打一个字母。循环关闭时，两者都在五分之一秒后停住。':marked[1]];
     notes.forEach((n,i)=>{if(n.textContent!==words[i])n.textContent=words[i]});
   }
   // Rebuilds both views from the page's state
@@ -424,7 +424,7 @@
     if(view==='normal'){['height','--fs','--tw'].forEach(k=>stage.style.removeProperty(k));bars.replaceChildren();cmp.replaceChildren();holdBox.replaceChildren();return}
     fillCopy(cmp,true);fillCopy(holdBox,false);
     cmp.classList.toggle('done',target.classList.contains('done'));
-    stage.querySelector('.k2 span:not(.sw)').textContent=mode==='typewriter'?'Typed one at a time: each letter just appears':'Bars: how far each letter has come';
+    stage.querySelector('.k2 span:not(.sw)').textContent=mode==='typewriter'?'一次打一个：每个字母直接出现':'条：每个字母走了多远';
     layoutFit();
     if(posed)poseNow();else describe();
   }

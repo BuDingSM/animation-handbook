@@ -1,19 +1,19 @@
-# Flip In
+# 翻转进入
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/flip-in/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/flip-in/)
 
-## What it is
+## 它是什么
 
-Flip In swings an element from a turned-away angle into full view in 3D, like a hinged panel turning toward you. The key detail is that the 3D perspective is set on the element's container, not on the card itself; without it, the turn collapses into a flat squash with no sense of depth.
+翻转进入让元素从一个转开的角度以 3D 方式摆进完整视野，就像一块带铰链的面板转向你。关键细节是 3D 透视设在元素的容器上，而不是卡片本身；没有它，转动会塌成扁平的挤压，没有深度感。
 
-## When to use it
-- Card entrances in dashboards, galleries, and onboarding flows
-- Revealing the "front" of something that conceptually has two sides (flashcards, tiles)
-- Modals or panels that should feel like they physically arrive rather than fade in
-- Anywhere a small dose of dimensionality distinguishes one element from a flat layout
+## 什么时候用
+- 仪表盘、画廊和新手引导流程里的卡片入场
+- 揭示概念上有两面的东西的「正面」（闪卡、瓷贴）
+- 模态框或面板，应该感觉是实实在在地到达，而不是淡入
+- 任何想用一点点立体感把一个元素和扁平布局区分开的地方
 
-## How it works
-The stage sets `perspective`, establishing a shared vanishing point for its children. The card starts rotated (90° by default) and transitions to 0° on `.in`. Because perspective is inherited from the parent's 3D context, the rotation renders as a true swing:
+## 工作原理
+舞台设置 `perspective`，给它的子元素建立一个共享的消失点。卡片从旋转（默认 90°）开始，加上 `.in` 时过渡到 0°。因为透视是从父元素的 3D 上下文继承来的，旋转渲染成一次真正的摆动：
 
 ```css
 .stage{perspective:var(--persp)}
@@ -25,7 +25,7 @@ The stage sets `perspective`, establishing a shared vanishing point for its chil
 .card.in{opacity:1;transform:rotateY(0deg) rotateX(0deg)}
 ```
 
-The Swing direction setting decides which rotation carries the starting angle: Sideways uses rotateY (an upright hinge, like a door), Up and down uses rotateX (a flat hinge, like a flap) and Diagonal uses both:
+「摆动方向」设置决定哪个旋转带起始角度：「左右」用 rotateY（竖直的铰链，像一扇门），「上下」用 rotateX（平放的铰链，像一块翻盖），「对角」两个都用：
 
 ```js
 const ry=axis==='X'?'0deg':rot+'deg';
@@ -34,29 +34,29 @@ document.documentElement.style.setProperty('--rot-y',ry);
 document.documentElement.style.setProperty('--rot-x',rx);
 ```
 
-The Hinge setting moves transform-origin to an edge (top, bottom, left) so the card swings from that side rather than pivoting around its center.
+「铰链」设置把 transform-origin 移到一条边上（上、下、左），卡片就从那一边摆过来，而不是绕着中心转。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Swing direction | Sideways | Which way it swings: sideways around an upright hinge like a door, up and down like a flap, or diagonally |
-| Hinge | Center | Where it turns from; an edge makes it swing from that side |
-| Speed | Normal | How long the swing takes: slow is 1000ms, normal 600ms and fast 350ms |
-| How far it turns | ¼ turn | The angle it starts from: a little (45°), a quarter turn (90°, edge-on) or half a turn (180°, facing away) |
-| 3D depth | Medium | How close the viewer seems: subtle is 2000px, medium 1000px and strong 400px; closer is more dramatic |
-| Feel | Smooth | Smooth slows the swing as it comes to face you; Springy adds a settle; Gentle eases in and out; Even keeps one steady pace |
-| Fades in | on | Fades it in while it turns |
+| 摆动方向 | 左右 | 往哪个方向摆：像门一样绕竖直铰链左右摆，像翻盖一样上下摆，或者对角摆 |
+| 铰链 | 中间 | 从哪里转；铰链在边上会让它从那一边摆过来 |
+| 速度 | 普通 | 摆动要多长时间：「慢」是 1000ms，「普通」600ms，「快」350ms |
+| 转多大 | 四分之一圈 | 开始的角度：「一小点」（45°）、「四分之一圈」（90°，侧面对着你）或「半圈」（180°，背对着你） |
+| 3D 深度 | 中等 | 观众看起来有多近：「微妙」是 2000px，「中等」1000px，「强」400px；越近越夸张 |
+| 感觉 | 平滑 | 「平滑」在摆到正对你时放慢；「弹回」加一点落定；「轻柔」两头放慢；「均匀」保持一个稳定的速度 |
+| 淡入 | 开 | 转动时让它淡入 |
 
-## Production notes
-- **Perspective belongs on the parent**: this is the single most common mistake. Setting `perspective` on the card itself (via `transform: perspective(...)`) applies per-element and won't share a vanishing point across siblings; the container `perspective` property is what creates a coherent 3D scene.
-- **Backface at steep angles**: past ~90° you see the element's back. Add `backface-visibility:hidden` if the reverse side shouldn't show, or a second face for a true two-sided flip.
-- **`will-change:transform`**: promotes the card to its own layer so the 3D transform stays smooth; the demo sets it up front.
-- **Reduced motion**: the demo replaces the flip with a plain 300ms opacity fade and no transform when `prefers-reduced-motion` is requested — 3D rotation is a strong vestibular trigger.
-- **Framer Motion**: animate `rotateY` on a `motion.div` and set `style={{ transformPerspective: 1000 }}` or a `perspective` on the parent.
-- **GSAP**: set `transformPerspective` (or `perspective` on the container) and tween `rotationY`; GSAP's 3D handling is built in.
+## 生产注意事项
+- **透视属于父元素**：这是最常见的错误。在卡片本身上设置 `perspective`（通过 `transform: perspective(...)`）是按元素生效的，不会在兄弟元素之间共享消失点；容器的 `perspective` 属性才是创建连贯 3D 场景的东西。
+- **大角度时的背面**：超过大约 90°，你会看到元素的背面。如果反面不应该显示，加 `backface-visibility:hidden`，或者给真正的双面翻转加第二个面。
+- **`will-change:transform`**：把卡片提升到自己的图层，让 3D transform 保持平滑；演示提前就设置了它。
+- **减弱动态**：在 `prefers-reduced-motion` 下，演示把翻转换成单纯的 300ms 不透明度淡入淡出，没有 transform——3D 旋转是很强的前庭触发因素。
+- **Framer Motion**：在 `motion.div` 上给 `rotateY` 做动画，设置 `style={{ transformPerspective: 1000 }}` 或者在父元素上设置 `perspective`。
+- **GSAP**：设置 `transformPerspective`（或者容器上的 `perspective`），给 `rotationY` 做补间；GSAP 内置了 3D 处理。
 
-## See also
-- [Scale In / Zoom In](../scale-in/) — grows into place, flat on the page
-- [Rotate In](../rotate-in/) — spins flat instead of turning in 3D
-- [Blur In](../blur-in/) — sharpens from a blur as it fades in
+## 另见
+- [缩放进入](../scale-in/) — 放大到位，在页面上是平的
+- [旋转进入](../rotate-in/) — 平着旋转，而不是 3D 转动
+- [模糊渐入](../blur-in/) — 淡入时从模糊中变清晰

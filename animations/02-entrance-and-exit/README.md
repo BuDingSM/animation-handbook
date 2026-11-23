@@ -1,21 +1,21 @@
-# Entrance & Exit
+# 入场与退场
 
-Element-level entrance and exit animations — how individual pieces of UI arrive, reveal, and depart.
+元素级的入场与退场动画——淡入、滑动、揭示、翻转和文字依次出现。
 
-## Entries
+## 全部动画
 
-- [Fade In / Fade Out](fade-in-out/) — Fades in to appear and fades out to leave. Best for pop-ups and tooltips.
-- [Slide In](slide-in/) — Travels into place from one edge. Best for side panels and notifications.
-- [Slide Up Reveal](slide-up-reveal/) — Text rises into view from behind an invisible edge. Best for headlines.
-- [Scale In / Zoom In](scale-in/) — Grows from smaller to full size. Best for pop-ups and menus.
-- [Clip-Path Reveal](clip-path-reveal/) — A growing shape uncovers it while it stays still. Best for images and banners.
-- [Curtain Reveal](curtain-reveal/) — A colored panel covers it, then slides away. Best for intros and logos.
-- [Split Text Reveal](split-text-reveal/) — Text breaks into pieces that appear one after another. Best for headlines.
-- [Letter-by-Letter Stagger](letter-by-letter-stagger/) — A phrase appears letter by letter or typewriter-style. Best for short headlines.
-- [Word-by-Word Reveal](word-by-word-reveal/) — Words appear one after another at a reading pace. Best for quotes and intros.
-- [Blur In](blur-in/) — Comes into focus from a blur, like a camera. Best for featured cards and photos.
-- [Flip In](flip-in/) — Swings into view in 3D, like a card turning over. Best for cards and tiles.
-- [Bounce In](bounce-in/) — Lands with a springy bounce. Best for badges and success messages.
-- [Rotate In](rotate-in/) — Spins into place while it grows. Best for icons, stars and badges.
-- [Shatter Effect](shatter-effect/) — Breaks into pieces that fly apart and fade. Best for galleries and bold exits.
-- [Ink Spread Reveal](ink-spread-reveal/) — Ink drops spread and merge until the picture shows. Best for art and intros.
+- [淡入淡出](fade-in-out/) — 淡入出现，淡出离开。适合弹窗和提示框。
+- [滑入](slide-in/) — 从一边滑入到位。适合侧边面板和通知。
+- [上滑揭示](slide-up-reveal/) — 文字从一条看不见的边缘后方升起进入视野。适合标题。
+- [缩放进入](scale-in/) — 从小放大到完整尺寸。适合弹窗和菜单。
+- [剪裁路径揭示](clip-path-reveal/) — 一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。
+- [幕布揭示](curtain-reveal/) — 一块彩色面板先盖住它，随后滑走。适合开场和 Logo。
+- [拆字揭示](split-text-reveal/) — 文字拆成碎片，依次出现。适合标题。
+- [逐字母出现](letter-by-letter-stagger/) — 一句话逐字母出现，或像打字机一样。适合短标题。
+- [逐词揭示](word-by-word-reveal/) — 词语按阅读节奏依次出现。适合引言和开场。
+- [模糊渐入](blur-in/) — 像相机对焦一样从模糊中变得清晰。适合精选卡片和照片。
+- [翻转进入](flip-in/) — 像卡片翻面一样以 3D 方式翻入视野。适合卡片和瓷贴。
+- [弹跳进入](bounce-in/) — 带着弹簧般的弹跳落定。适合徽章和成功提示。
+- [旋转进入](rotate-in/) — 边旋转边放大进入到位。适合图标、星星和徽章。
+- [碎裂效果](shatter-effect/) — 碎成碎片飞散并淡出。适合画廊和醒目的退场。
+- [墨水扩散揭示](ink-spread-reveal/) — 墨滴扩散、汇合，直至画面显现。适合艺术和开场。

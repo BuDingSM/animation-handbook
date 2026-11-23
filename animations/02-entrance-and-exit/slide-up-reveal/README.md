@@ -1,19 +1,19 @@
-# Slide Up Reveal
+# 上滑揭示
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/slide-up-reveal/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/slide-up-reveal/)
 
-## What it is
+## 它是什么
 
-A slide-up reveal makes a line of text rise into view from behind an invisible edge, as if it is coming up from underneath a surface. The text moves, but everything below the line stays hidden, so only its arrival is visible. It is the classic entrance for headlines and hero copy.
+上滑揭示让一行文字从一条看不见的边缘后方升入视野，就像从一个表面下面升上来一样。文字在动，但线以下的东西一直藏着，所以只看得到它的到达。这是标题和主视觉文案的经典入场。
 
-## When to use it
-- Hero and headline copy on landing pages and case studies
-- Line-by-line reveals where each line rises with a small stagger
-- Section titles that animate in as they scroll into view
-- Any place a plain fade feels too flat and you want the text to feel *lifted* into place
+## 什么时候用
+- 落地页和案例研究里的主视觉和标题文案
+- 逐行揭示，每行都带一点交错升起
+- 滚动进入视野时动起来的章节标题
+- 任何单纯淡入淡出显得太平、想让文字感觉是被*托*到位的地方
 
-## How it works
-There are two ways to achieve the identical visual, and the Reveal style setting switches between them (Slide is Method A, Wipe is Method B). **Method A** wraps each line in an `overflow: hidden` container and pushes the inner text down by `translateY(110%)`; adding `.in` returns it to `0`. **Method B** leaves the text in place and animates a `clip-path: inset()` from fully clipped at the bottom to fully open — no wrapper needed:
+## 工作原理
+有两种办法做出完全一样的视觉效果，「揭示方式」设置可以在它们之间切换（「滑动」是方法 A，「擦除」是方法 B）。**方法 A**把每行包在一个 `overflow: hidden` 容器里，把里面的文字用 `translateY(110%)` 推下去；加上 `.in` 就回到 `0`。**方法 B**让文字留在原地，给 `clip-path: inset()` 做动画，从底部完全裁剪到完全打开——不需要包装元素：
 
 ```css
 /* Method A — translateY inside a clipping wrapper */
@@ -26,29 +26,29 @@ There are two ways to achieve the identical visual, and the Reveal style setting
 [data-method="clippath"] .line.in { clip-path: inset(0% 0 0 0); }
 ```
 
-Multiple lines stagger through a per-line `--d` index multiplied by a `--stagger` variable in `transition-delay`:
+多行通过每行的 `--d` 序号乘以 `transition-delay` 里的 `--stagger` 变量来交错：
 
 ```css
 .line { transition-delay: calc(var(--d, 0) * var(--stagger)); }
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long each line takes to rise: slow is 1100ms, normal 700ms and fast 400ms |
-| Delay between lines | Medium | The wait before each next line starts: short is 30ms, medium 60ms and long 120ms; 40 to 80ms reads as a cascade |
-| Reveal style | Slide | Two ways to build it that look almost the same: sliding the text up behind a hidden edge, or wiping it into view in place |
-| Feel | Smooth | Smooth slows to a stop; Springy adds a slight settle; Even keeps one steady pace |
+| 速度 | 普通 | 每行升起来要多长时间：「慢」是 1100ms，「普通」700ms，「快」400ms |
+| 行间延迟 | 中等 | 下一行开始前的等待：「短」是 30ms，「中等」60ms，「长」120ms；40 到 80ms 读起来像级联 |
+| 揭示方式 | 滑动 | 两种做法看起来几乎一样：在隐藏的边缘后面把文字向上滑，或者在原地把它擦出来 |
+| 感觉 | 平滑 | 「平滑」慢慢停下；「弹回」加一点点落定；「均匀」保持一个稳定的速度 |
 
-## Production notes
-- **`translateY(110%)`, not `100%`.** The extra 10% covers descenders (g, y, p) and line-height slack so no sliver of the glyph peeks above the boundary before it moves.
-- **Pick the method by tradeoff.** `translateY` inside a wrapper composites slightly cheaper and animates more smoothly, but needs the extra `.line-wrap` element. `clip-path` needs no wrapper and keeps the text as a single selectable block, at a marginally higher paint cost. To users, both look the same.
-- **Reduced motion:** the demo strips the transform and clip entirely under `prefers-reduced-motion`, falling back to a plain opacity fade so nothing slides.
-- **Library equivalents:** GSAP's SplitText plugin plus a `y: '110%'` tween is the classic production recipe; Framer Motion animates `y` inside a `overflow-hidden` wrapper with `staggerChildren`; Motion One `animate` with a `delay` derived from index.
+## 生产注意事项
+- **用 `translateY(110%)`，不是 `100%`。**多出来的 10% 盖住下行字母（g、y、p）和行高余量，移动之前不会有一小片字形从边界上方露出来。
+- **按取舍选方法。**包装元素里的 `translateY` 合成起来稍便宜、动画更平滑，但需要多一个 `.line-wrap` 元素。`clip-path` 不需要包装元素，文字保持为一个可选中的块，绘制成本稍高一点。对用户来说，两者看起来一样。
+- **减弱动态：**在 `prefers-reduced-motion` 下，演示完全去掉 transform 和裁剪，退回到单纯的不透明度淡入淡出，什么都不滑动。
+- **库里的等价写法：**GSAP 的 SplitText 插件加一个 `y: '110%'` 补间是经典的生产配方；Framer Motion 在 `overflow-hidden` 包装元素里给 `y` 做动画，配合 `staggerChildren`；Motion One 的 `animate` 用一个从序号得出的 `delay`。
 
-## See also
-- [Split Text Reveal](../split-text-reveal/) — text appears piece by piece, not line by line
-- [Curtain Reveal](../curtain-reveal/) — a colored panel covers it, then slides away
-- [Clip-Path Reveal](../clip-path-reveal/) — a shape uncovers any element
-- [Slide In](../slide-in/) — travels in from any edge, with nothing hiding it
+## 另见
+- [拆字揭示](../split-text-reveal/) — 文字一块一块出现，而不是一行一行
+- [幕布揭示](../curtain-reveal/) — 一块彩色面板盖住它，然后滑走
+- [剪裁路径揭示](../clip-path-reveal/) — 一个形状揭开任何元素
+- [滑入](../slide-in/) — 从任何一边滑进来，什么都不遮挡

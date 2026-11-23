@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fade In / Fade Out — 动画手册</title>
-  <meta name="description" content="Fades in to appear and fades out to leave. Best for pop-ups and tooltips.">
+  <title>淡入淡出 — 动画手册</title>
+  <meta name="description" content="淡入出现，淡出离开。适合弹窗和提示框。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/fade-in-out/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Fade In / Fade Out — 动画手册">
-  <meta property="og:description" content="Fades in to appear and fades out to leave. Best for pop-ups and tooltips.">
+  <meta property="og:title" content="淡入淡出 — 动画手册">
+  <meta property="og:description" content="淡入出现，淡出离开。适合弹窗和提示框。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/fade-in-out/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fade In / Fade Out — 动画手册">
-  <meta name="twitter:description" content="Fades in to appear and fades out to leave. Best for pop-ups and tooltips.">
+  <meta name="twitter:title" content="淡入淡出 — 动画手册">
+  <meta name="twitter:description" content="淡入出现，淡出离开。适合弹窗和提示框。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Fade In / Fade Out", "name": "Fade In / Fade Out", "description": "Fades in to appear and fades out to leave. Best for pop-ups and tooltips.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/fade-in-out/", "inLanguage": "zh-CN", "articleSection": "Entrance & Exit", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Entrance & Exit, Fade In / Fade Out"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "淡入淡出", "name": "淡入淡出", "description": "淡入出现，淡出离开。适合弹窗和提示框。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/fade-in-out/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，淡入淡出"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--ui-muted:#8a8a92;--dur:600ms;--ease:ease-out}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -81,20 +81,20 @@
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../slide-in/" rel="next" aria-label="下一个：Slide In"><span><span class="hb-dir">下一个：</span>Slide In</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../slide-in/" rel="next" aria-label="下一个：滑入"><span><span class="hb-dir">下一个：</span>滑入</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">02.01 · Entrance &amp; Exit</p>
-    <h1>Fade In / Fade Out</h1>
-    <p class="hb-lede">Fades in to appear and fades out to leave. Best for pop-ups and tooltips.</p>
+    <p class="hb-cat">02.01 · 入场与退场</p>
+    <h1>淡入淡出</h1>
+    <p class="hb-lede">淡入出现，淡出离开。适合弹窗和提示框。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It plays by itself. Turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -104,8 +104,8 @@
     <div class="stage hb-dots">
       <div class="card" id="card">
         <div class="card-icon">◈</div>
-        <div class="card-title">Fade In</div>
-        <div class="card-sub">Nothing moves or changes size; it only goes from see-through to solid.</div>
+        <div class="card-title">淡入</div>
+        <div class="card-sub">什么都不移动、也不改变大小，只是从透明变成实色。</div>
       </div>
       <div class="graph" aria-hidden="true">
         <svg viewBox="0 0 300 170">
@@ -113,15 +113,15 @@
           <path class="curve" id="curve" d="M70 140"/>
           <circle class="dot" id="dot" r="6"/>
         </svg>
-        <span class="lbl y1" data-hb-caption>Solid</span>
-        <span class="lbl y0" data-hb-caption>See-through</span>
-        <span class="lbl xin" id="lbl-in" data-hb-caption>Fades in</span>
-        <span class="lbl xstay" id="lbl-stay" data-hb-caption>Stays</span>
-        <span class="lbl xout" id="lbl-out" data-hb-caption>Fades out</span>
+        <span class="lbl y1" data-hb-caption>实色</span>
+        <span class="lbl y0" data-hb-caption>透明</span>
+        <span class="lbl xin" id="lbl-in" data-hb-caption>淡入</span>
+        <span class="lbl xstay" id="lbl-stay" data-hb-caption>保持</span>
+        <span class="lbl xout" id="lbl-out" data-hb-caption>淡出</span>
       </div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Appears at once</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Fades in</p>
-      <p class="lbl when" aria-hidden="true" data-hb-caption>A fifth of a second in</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>立刻出现</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>淡入</p>
+      <p class="lbl when" aria-hidden="true" data-hb-caption>五分之一秒后</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
@@ -129,34 +129,34 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>The graph shows how solid the card is over time: it fades in, then stays, and with Loop on it fades out too. The dot rides the line as the card plays.</p>
-      <p data-hb-for="compare" hidden>On the left, Appears at once: the card is simply there. On the right, Fades in: it turns from see-through to solid, and with Loop off it rests a fifth of a second in.</p>
+      <p data-hb-for="inside" hidden>这张图显示卡片随时间变得有多实：它先淡入，然后保持，循环打开时还会淡出。圆点随着卡片播放沿着线走。</p>
+      <p data-hb-for="compare" hidden>左边是「立刻出现」：卡片直接就在那里。右边是「淡入」：它从透明变成实色，循环关闭时停在五分之一秒的位置。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and the animation plays again.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1000" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="600" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="350" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1000" aria-pressed="false">慢</button>
+          <button type="button" data-ms="600" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="350" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Slow is easy to follow. Fast feels snappy.</p>
+        <p class="hb-hint">慢的容易跟上，快的感觉利落。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">感觉</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="ease-out" class="on" aria-pressed="true">Smooth</button>
-          <button type="button" data-ease="ease-in-out" aria-pressed="false">Gentle</button>
-          <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+          <button type="button" data-ease="ease-out" class="on" aria-pressed="true">平滑</button>
+          <button type="button" data-ease="ease-in-out" aria-pressed="false">轻柔</button>
+          <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
         </div>
-        <p class="hb-hint">How the fade speeds up and slows down.</p>
+        <p class="hb-hint">淡入淡出怎么加速、怎么减速。</p>
       </div>
     </div>
   </section>
@@ -164,10 +164,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a fade-in and fade-out to [the element you want to show and hide]. When it appears, it should go smoothly from fully transparent to fully visible, and when it leaves it should do the reverse. Nothing moves or changes size; only the opacity changes, which keeps the animation smooth because the browser doesn't need to repaint. Reserve the element's space while it is invisible so the layout doesn't jump, and make sure a hidden element can't be clicked or focused. If the visitor has reduced motion turned on, show and hide it instantly or with a very short fade. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想显示和隐藏的元素]加上淡入淡出。出现时，它应该从完全透明平滑地变为完全可见；离开时反过来。什么都不移动、也不改变大小，只有不透明度在变，这样动画很流畅，因为浏览器不需要重绘。元素看不见的时候也要保留它的位置，免得布局跳动；还要确保隐藏的元素不能被点击或获得焦点。如果访客开了减弱动态效果，就立刻显示和隐藏，或者只用很短的淡入淡出。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -183,13 +183,13 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Pop-ups</li><li>Tooltips</li><li>Loaded content</li><li>Image swaps</li></ul>
+      <ul class="hb-tags hb-good"><li>弹窗</li><li>提示框</li><li>加载好的内容</li><li>图片切换</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Side panels</li><li>Urgent alerts</li></ul>
+      <ul class="hb-tags hb-avoid"><li>侧边面板</li><li>紧急提醒</li></ul>
     </div>
   </section>
 
@@ -218,13 +218,13 @@
   // and screen readers
   const twin=card.cloneNode(true);
   twin.removeAttribute('id');twin.classList.add('twin');twin.inert=true;twin.setAttribute('aria-hidden','true');
-  twin.querySelector('.card-title').textContent='Instant';
-  twin.querySelector('.card-sub').textContent='Nothing moves or changes size; it is simply there, all at once.';
+  twin.querySelector('.card-title').textContent='立刻';
+  twin.querySelector('.card-sub').textContent='什么都不移动、也不改变大小，它就是一下子在那里。';
   card.before(twin);
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent='The graph shows how solid the card gets over time, shown still: the dot sits where the fade in ends.';
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still, a fifth of a second in: on the left, Appears at once, the card is fully there; on the right, Fades in, it is only part of the way.';
+    document.querySelector('[data-hb-for="inside"]').textContent='这张图显示卡片随时间变得有多实，静止画面：圆点停在淡入结束的地方。';
+    document.querySelector('[data-hb-for="compare"]').textContent='静止画面，五分之一秒后：左边是「立刻出现」，卡片已经完全在那里；右边是「淡入」，只走了一部分。';
   }
   // falling: the play under way fades out too (it began with Loop on and Loop has not stopped it before its fade out)
   let mode='normal',cycleStart=-1e9,dotRaf=0,G={x0:0,x1:0,yt:0,yb:0},falling=false;
@@ -277,14 +277,14 @@
   }
   // A play's parts in ms: the fade in and the hold, and when it falls the fade out and the wait
   function parts(){const d=dur();return falling?[d,HOLD,d,WAIT]:[d,HOLD]}
-  function words(t){return t<=400?'about a third of a second':t<=700?'about half a second':t<=1200?'about a second':t<=2000?'about two seconds':'about three seconds'}
+  function words(t){return t<=400?'约三分之一秒':t<=700?'约半秒':t<=1200?'约一秒':t<=2000?'约两秒':'约三秒'}
   // The graph, drawn in the box's own pixels: across is time, up is how solid the card is, and each fade has the Feel's own curve.
   // Its words keep their size and stay off the line, so the dot passes them: the two levels' words end left of the line's start, the
   // others sit in a row above (Stays, Fades out) or below (Fades in), each centered on its part where the box allows; "Stays" gives
   // way where it would touch "Fades out".
   function drawGraph(){
     const p=parts(),total=p.reduce((s,v)=>s+v,0),[a,b,c,e]=CURVES[ease];
-    lblIn.textContent='Fades in, '+words(p[0]);
+    lblIn.textContent='淡入，'+words(p[0]);
     lblOut.hidden=p.length<3;lblStay.hidden=false;
     const W=graph.clientWidth,H=graph.clientHeight,lh=lblIn.offsetHeight;
     if(!W)return;
