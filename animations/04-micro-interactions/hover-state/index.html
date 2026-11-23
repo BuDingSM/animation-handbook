@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hover State Animation — 动画手册</title>
-  <meta name="description" content="Six ways a card can react when you point at it. Best for buttons and cards.">
+  <title>悬停状态动画 — 动画手册</title>
+  <meta name="description" content="指向卡片时，它有六种反应方式。适合用在按钮和卡片上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Hover State Animation — 动画手册">
-  <meta property="og:description" content="Six ways a card can react when you point at it. Best for buttons and cards.">
+  <meta property="og:title" content="悬停状态动画 — 动画手册">
+  <meta property="og:description" content="指向卡片时，它有六种反应方式。适合用在按钮和卡片上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hover State Animation — 动画手册">
-  <meta name="twitter:description" content="Six ways a card can react when you point at it. Best for buttons and cards.">
+  <meta name="twitter:title" content="悬停状态动画 — 动画手册">
+  <meta name="twitter:description" content="指向卡片时，它有六种反应方式。适合用在按钮和卡片上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Hover State Animation", "name": "Hover State Animation", "description": "Six ways a card can react when you point at it. Best for buttons and cards.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Hover State Animation"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "悬停状态动画", "name": "悬停状态动画", "description": "指向卡片时，它有六种反应方式。适合用在按钮和卡片上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 悬停状态动画"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--dur:180ms;--ease:ease}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -124,7 +124,7 @@
     @media(max-width:600px){.stage[data-hb-mode="inside"],.stage[data-hb-mode="compare"]{padding:12px 10px}}
     /* The twins and the posed tint skip their transitions for the one style change that a mode or a setting makes */
     .stage.snap .twin,.stage.snap .twin::before,.stage.snap .twin::after,.stage.snap .twin *,.stage.snap .twin *::before,.stage.snap .twin *::after,.stage.snap-pose .hgrid>.h-sweep::before{transition:none!important}
-    /* Compare at rest: the real Sweep card's tint caught a tenth of a second after the pointer arrived (--pose is set from the page's own curve) */
+    /* Compare at rest: the real Sweep card's tint caught 十分之一秒 after the pointer arrived (--pose is set from the page's own curve) */
     .stage[data-hb-mode="compare"] .hgrid.posed>.h-sweep::before{transform:translateX(var(--pose,-100%))}
     /* Reduced motion: hover states still change, but without the tween */
     @media(prefers-reduced-motion:reduce){.h-color,.h-scale,.h-lift,.h-lift::after,.arrow,.h-underline .card-link::after,.h-sweep::before{transition:none!important}}
@@ -135,20 +135,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../click-ripple/" rel="next" aria-label="下一个：Click / Tap Ripple"><span><span class="hb-dir">下一个：</span>Click / Tap Ripple</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../click-ripple/" rel="next" aria-label="下一个：点击涟漪"><span><span class="hb-dir">下一个：</span>点击涟漪</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.01 · Micro-Interactions</p>
-    <h1>Hover State Animation</h1>
-    <p class="hb-lede">Six ways a card can react when you point at it. Best for buttons and cards.</p>
+    <p class="hb-cat">04.01 · 微交互</p>
+    <h1>悬停状态动画</h1>
+    <p class="hb-lede">指向卡片时，它有六种反应方式。适合用在按钮和卡片上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">悬停试试</h2><p>Point at a card (press and hold it on a phone, or Tab to it), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">悬停试试</h2><p>指向一张卡片（手机上按住它，或按 Tab 到它上面），或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -158,15 +158,15 @@
     <div class="stage hb-dots">
       <div style="width:100%">
         <div class="hgrid">
-          <div class="hcard h-color" tabindex="0" role="button"><div class="hcard-name">Color change</div></div>
-          <div class="hcard h-scale" tabindex="0" role="button"><div class="hcard-name">Grow</div></div>
-          <div class="hcard h-lift" tabindex="0" role="button"><div class="hcard-name">Lift</div></div>
-          <div class="hcard h-underline" tabindex="0" role="button"><span class="card-link">Underline</span></div>
-          <div class="hcard h-icon" tabindex="0" role="button"><div class="h-icon-row"><div class="hcard-name">Arrow nudge</div><span class="arrow" aria-hidden="true">→</span></div></div>
-          <div class="hcard h-sweep" tabindex="0" role="button"><div class="hcard-name">Sweep</div></div>
+          <div class="hcard h-color" tabindex="0" role="button"><div class="hcard-name">变色</div></div>
+          <div class="hcard h-scale" tabindex="0" role="button"><div class="hcard-name">变大</div></div>
+          <div class="hcard h-lift" tabindex="0" role="button"><div class="hcard-name">抬起</div></div>
+          <div class="hcard h-underline" tabindex="0" role="button"><span class="card-link">下划线</span></div>
+          <div class="hcard h-icon" tabindex="0" role="button"><div class="h-icon-row"><div class="hcard-name">箭头轻推</div><span class="arrow" aria-hidden="true">→</span></div></div>
+          <div class="hcard h-sweep" tabindex="0" role="button"><div class="hcard-name">扫过</div></div>
           <div class="heads" aria-hidden="true">
-            <span class="vtag hd-in" data-hb-caption>At rest</span><span class="vtag hd-in at-point" data-hb-caption>When pointed at</span>
-            <span class="vtag hd-cmp never" data-hb-caption>Never reacts</span><span class="vtag hd-cmp reacts" data-hb-caption>Reacts</span>
+            <span class="vtag hd-in" data-hb-caption>静止时</span><span class="vtag hd-in at-point" data-hb-caption>被指向时</span>
+            <span class="vtag hd-cmp never" data-hb-caption>从不反应</span><span class="vtag hd-cmp reacts" data-hb-caption>有反应</span>
           </div>
           <span class="vtag cap" data-hb-caption aria-hidden="true"></span>
           <svg class="cursor ghost" viewBox="-1 -1 17 25" aria-hidden="true"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg>
@@ -179,35 +179,35 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each card sits beside a copy of its look when pointed at; pointing, pressing or Tab slides it from one look to the other. Point at a card, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Never reacts: the cards ignore the pointer, shown as a ghost; Reacts: each card changes as the pointer reaches it. Point at a card, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：每张卡片旁边都有它被指向时的样子的复制品；指向、按压或按 Tab，会让它从一种样子滑到另一种。指向一张卡片，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>从不反应：卡片无视指针，显示为幽灵；有反应：指针一到，每张卡片就变化。指向一张卡片，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="300" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="180" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="110" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="300" aria-pressed="false">慢</button>
+          <button type="button" data-ms="180" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="110" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Quick feels responsive; slow can feel sticky.</p>
+        <p class="hb-hint">快感觉灵敏；慢可能感觉黏滞。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">手感</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="ease" class="on" aria-pressed="true">Smooth</button>
-          <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">Springy</button>
-          <button type="button" data-ease="ease-in-out" aria-pressed="false">Gentle</button>
-          <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+          <button type="button" data-ease="ease" class="on" aria-pressed="true">平滑</button>
+          <button type="button" data-ease="cubic-bezier(.34,1.56,.64,1)" aria-pressed="false">回弹</button>
+          <button type="button" data-ease="ease-in-out" aria-pressed="false">轻柔</button>
+          <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
         </div>
-        <p class="hb-hint">Springy goes a little too far, then settles.</p>
+        <p class="hb-hint">「回弹」会稍微过头，再落定。</p>
       </div>
     </div>
   </section>
@@ -215,10 +215,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add hover feedback to [the buttons, links or cards you want to react]. When the pointer moves over an item, change it in one clear way: shift its background color, grow it slightly, lift it with a deeper shadow, draw an underline out from the left, nudge its arrow forward, or sweep a tint across it. Use one style per kind of item and keep it the same across the page. Apply hover styles only on devices that can hover, and show the same change while an item is pressed on touch screens. If the visitor has reduced motion turned on, switch the look without animating it. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想让它有反应的按钮、链接或卡片]加上悬停反馈。指针移到一个项目上时，用一种清晰的方式改变它：变换背景色、稍微变大、用更深的阴影抬起来、从左边画出下划线、把箭头向前推一点，或扫过一层色彩。每种项目用一种样式，全页保持一致。悬停样式只用在能悬停的设备上；触屏上按住项目时，显示同样的变化。如果访客开启了减弱动态效果，直接切换样子，不要做动画。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -238,9 +238,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Buttons</li><li>Links</li><li>Cards</li><li>Menus</li></ul>
+      <ul class="hb-tags hb-good"><li>按钮</li><li>链接</li><li>卡片</li><li>菜单</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Plain text</li><li>Non-clickable items</li></ul>
+      <ul class="hb-tags hb-avoid"><li>纯文本</li><li>不可点击的元素</li></ul>
     </div>
   </section>
 
@@ -296,9 +296,9 @@
   });
   const cap=grid.querySelector('.cap'),pointer=grid.querySelector('.pointer'),ghost=grid.querySelector('.ghost');
   const insideNote=document.querySelector('[data-hb-for="inside"]'),NOTE=insideNote.textContent;
-  const NOTE_RM='Inside, each card sits beside a copy of its look when pointed at; with reduced motion on, pointing, pressing or Tab switches it to that look at once.';
-  const TIME={300:['about a third of a second','nearly a second'],180:['about a fifth of a second','about half a second'],110:['about a tenth of a second','about a third of a second']};
-  const FEEL={ease:'slowing into place','cubic-bezier(.34,1.56,.64,1)':'going a little too far, then settling','ease-in-out':'easing in and out',linear:'at one steady pace'};
+  const NOTE_RM='内部：每张卡片旁边都有它被指向时的样子的复制品；开启减弱动态效果时，指向、按压或按 Tab 会立刻切换到那个样子。';
+  const TIME={300:['大约三分之一秒','将近一秒'],180:['大约五分之一秒','大约半秒'],110:['大约十分之一秒','大约三分之一秒']};
+  const FEEL={ease:'减速到位','cubic-bezier(.34,1.56,.64,1)':'稍微过头再回落','ease-in-out':'缓入缓出',linear:'at one steady pace'};
   const CURVES={ease:[.25,.1,.25,1],'ease-in-out':[.42,0,.58,1],linear:[0,0,1,1]};
   const RM=matchMedia('(prefers-reduced-motion: reduce)');
   let mode='normal',ease='ease',mouse=false,lx=0,ly=0,touch=null,lastDemo=-1;
@@ -312,13 +312,13 @@
     return at((lo+hi)/2,b,d);
   }
   function say(el,t){if(el.textContent!==t)el.textContent=t}
-  // The note and the caption for the settings now, and how far in the posed Sweep tint is: a tenth of a second at Speed and Feel
+  // The note and the caption for the settings now, and how far in the posed Sweep tint is: 十分之一秒 at Speed and Feel
   // (the progress is fixed, so Slow motion changes the words, not the picture), all of the way where there is no tween
   function words(){
     const rm=RM.matches,slow=slowTog.checked;
     say(insideNote,rm?NOTE_RM:NOTE);
-    if(mode==='inside')say(cap,rm?'Each card switches to its second look at once':`Each card changes in ${TIME[dur][+slow]}, ${FEEL[ease]}`);
-    if(mode==='compare')say(cap,rm?'Switches at once':slow?'A third of a second in':'A tenth of a second in');
+    if(mode==='inside')say(cap,rm?'每张卡片立刻切换到第二种样子':`Each card changes in ${TIME[dur][+slow]}, ${FEEL[ease]}`);
+    if(mode==='compare')say(cap,rm?'立刻切换':slow?'三分之一秒时':'十分之一秒时');
     grid.style.setProperty('--pose',((rm?1:curve(Math.min(1,.1/(dur/1000))))-1)*100+'%');
   }
   // Compare: a pretend pointer parked over the real Sweep card, its tint caught part way in, and the ghost over the copy's Sweep. Any

@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkmark Draw — 动画手册</title>
-  <meta name="description" content="A tick draws itself in a circle once a task succeeds. Best for forms.">
+  <title>对勾绘制 — 动画手册</title>
+  <meta name="description" content="任务成功后，对勾在圆圈里自己画出来。适合用在表单上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/checkmark-draw/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Checkmark Draw — 动画手册">
-  <meta property="og:description" content="A tick draws itself in a circle once a task succeeds. Best for forms.">
+  <meta property="og:title" content="对勾绘制 — 动画手册">
+  <meta property="og:description" content="任务成功后，对勾在圆圈里自己画出来。适合用在表单上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/checkmark-draw/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Checkmark Draw — 动画手册">
-  <meta name="twitter:description" content="A tick draws itself in a circle once a task succeeds. Best for forms.">
+  <meta name="twitter:title" content="对勾绘制 — 动画手册">
+  <meta name="twitter:description" content="任务成功后，对勾在圆圈里自己画出来。适合用在表单上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Checkmark Draw", "name": "Checkmark Draw", "description": "A tick draws itself in a circle once a task succeeds. Best for forms.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/checkmark-draw/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Checkmark Draw"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "对勾绘制", "name": "对勾绘制", "description": "任务成功后，对勾在圆圈里自己画出来。适合用在表单上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/checkmark-draw/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 对勾绘制"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--draw-dur:500ms;--draw-ease:ease-out;--stroke-w:4;--stroke-color:#56d364}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -73,7 +73,7 @@
     .legend .lbl{display:flex;gap:6px;align-items:flex-start;font-size:13px}
     .stage[data-hb-mode="inside"] .mk{display:grid}
     .stage[data-hb-mode="inside"] .pen:not(.off){display:block}
-    /* Compare: one Submit above two icons, each under its name; at rest the real icon is held a quarter of a second in (--po: the length undrawn) */
+    /* Compare: one Submit above two icons, each under its name; at rest the real icon is held a quarter of 一秒 in (--po: the length undrawn) */
     .stage[data-hb-mode="compare"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;align-content:center;
       gap:10px 0;padding:clamp(10px,3vw,24px) 8px}
     .stage[data-hb-mode="compare"] .submit-btn{grid-column:1/-1}
@@ -99,20 +99,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../progress-animation/" rel="prev" aria-label="上一个：Progress Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Progress Animation</span></a><a href="../form-field-morph/" rel="next" aria-label="下一个：Form Field Morph"><span><span class="hb-dir">下一个：</span>Form Field Morph</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../progress-animation/" rel="prev" aria-label="上一个：进度动画"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>进度动画</span></a><a href="../form-field-morph/" rel="next" aria-label="下一个：表单字段变形"><span><span class="hb-dir">下一个：</span>表单字段变形</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.13 · Micro-Interactions</p>
-    <h1>Checkmark Draw</h1>
-    <p class="hb-lede">A tick draws itself in a circle once a task succeeds. Best for forms.</p>
+    <p class="hb-cat">04.13 · 微交互</p>
+    <h1>对勾绘制</h1>
+    <p class="hb-lede">任务成功后，对勾在圆圈里自己画出来。适合用在表单上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click or tap Submit (Reset brings it back), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击「提交」（「重置」会把它带回来），或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -121,12 +121,12 @@
     </div>
     <div class="stage hb-dots">
       <button class="submit-btn" id="submit-btn" type="button">
-        <span class="btn-text" id="btn-text">Submit</span>
+        <span class="btn-text" id="btn-text">提交</span>
         <span class="btn-spinner" id="btn-spin" aria-hidden="true"><span class="sp"></span></span>
         <span class="btn-check" id="btn-check" aria-hidden="true">✓</span>
       </button>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Appears at once</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Draws itself</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>立刻出现</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>自己画出来</p>
       <div class="icon-wrap" id="icon-wrap">
         <svg viewBox="0 0 80 80" aria-hidden="true">
           <g class="ghost"><circle class="g-ok" cx="40" cy="40" r="30" pathLength="30"/><polyline class="g-ok" points="24,41 35,52 56,30" pathLength="9"/><line class="g-err" x1="26" y1="26" x2="54" y2="54" pathLength="5"/><line class="g-err" x1="54" y1="26" x2="26" y2="54" pathLength="5"/></g>
@@ -137,11 +137,11 @@
         </svg>
       </div>
       <div class="legend" aria-hidden="true">
-        <p class="lbl k" data-hb-caption><b class="kn">1</b><span>The circle draws first, in about half a second, slowing at the end</span></p>
-        <p class="lbl k" data-hb-caption><b class="kn">2</b><span>The tick starts before the circle closes</span></p>
-        <p class="lbl k" data-hb-caption><i class="kd"></i><span>The faint line is the path; the color slides along it</span></p>
+        <p class="lbl k" data-hb-caption><b class="kn">1</b><span>圆圈先画，大约半秒，结尾放慢</span></p>
+        <p class="lbl k" data-hb-caption><b class="kn">2</b><span>对勾在圆圈合拢前开始</span></p>
+        <p class="lbl k" data-hb-caption><i class="kd"></i><span>淡淡的线是路径；颜色沿着它滑动</span></p>
       </div>
-      <p class="lbl when" aria-hidden="true" data-hb-caption>A quarter of a second in</p>
+      <p class="lbl when" aria-hidden="true" data-hb-caption>四分之一秒时</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
@@ -149,67 +149,67 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the faint lines are the paths: the circle starts first, the tick before the circle closes, and the dot is the pen drawing them. Press Submit, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Shown a quarter of a second into the drawing: Appears at once is already complete; Draws itself is still on its way. Press Submit, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：淡淡的线是路径：圆圈先开始画，对勾在圆圈合拢前开始，圆点就是画它们的笔。按「提交」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>画到四分之一秒时的画面：「立刻出现」已经完成；「自己画出来」还在画。按「提交」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="result-lbl">Result</p>
+        <p class="hb-setting-name" id="result-lbl">结果</p>
         <div class="seg" id="result-seg" role="group" aria-labelledby="result-lbl">
-          <button type="button" data-err="0" class="on" aria-pressed="true">Success</button>
-          <button type="button" data-err="1" aria-pressed="false">Error</button>
+          <button type="button" data-err="0" class="on" aria-pressed="true">成功</button>
+          <button type="button" data-err="1" aria-pressed="false">失败</button>
         </div>
-        <p class="hb-hint">Error draws a red X and gives it a shake.</p>
+        <p class="hb-hint">「失败」会画一个红叉号，并抖一下。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="500" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="300" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="500" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="300" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the lines take to draw.</p>
+        <p class="hb-hint">线条画出来要花多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="thick-lbl">Line thickness</p>
+        <p class="hb-setting-name" id="thick-lbl">线条粗细</p>
         <div class="seg" id="thick-seg" role="group" aria-labelledby="thick-lbl">
-          <button type="button" data-w="2" aria-pressed="false">Thin</button>
-          <button type="button" data-w="4" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-w="7" aria-pressed="false">Thick</button>
+          <button type="button" data-w="2" aria-pressed="false">细</button>
+          <button type="button" data-w="4" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-w="7" aria-pressed="false">粗</button>
         </div>
-        <p class="hb-hint">Thick looks confident; thin looks precise.</p>
+        <p class="hb-hint">「粗」显得自信；「细」显得精确。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">手感</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="ease-out" class="on" aria-pressed="true">Smooth</button>
-            <button type="button" data-ease="ease-in-out" aria-pressed="false">Gentle</button>
-            <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+            <button type="button" data-ease="ease-out" class="on" aria-pressed="true">平滑</button>
+            <button type="button" data-ease="ease-in-out" aria-pressed="false">轻柔</button>
+            <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
           </div>
-          <p class="hb-hint">Smooth slows at the end, like a pen lifting.</p>
+          <p class="hb-hint">「平滑」在结尾放慢，像笔抬起来一样。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Tick color</p>
+          <p class="hb-setting-name" id="color-lbl">对勾颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" aria-pressed="false" aria-label="Pink" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-c="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" aria-pressed="false" aria-label="Blue" data-c="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" class="on" aria-pressed="true" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-c="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" aria-pressed="false" aria-label="蓝色" data-c="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The circle and tick; the X stays red.</p>
+          <p class="hb-hint">圆圈和对勾的颜色；叉号保持红色。</p>
         </div>
       </div>
     </details>
@@ -218,10 +218,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a success check mark that draws itself to [the form or action that just finished]. After the visitor submits, show a short loading state in the button, then draw a circle and a tick inside it as if by hand: the circle first, then the tick, starting just before the circle closes. For a failure, draw a red X the same way and give it a short shake. Let the button turn green or red to match. If the visitor has reduced motion turned on, show the finished check or X at once. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[刚完成的表单或操作]加上自己画出来的成功对勾。访客提交后，先在按钮里显示一个短暂的加载状态，然后像手绘一样画一个圆圈和里面的对勾：先画圆圈，再画对勾，对勾在圆圈合拢前一点就开始。失败时，用同样的方式画一个红叉号，并轻轻抖一下。让按钮变成绿色或红色来配合。如果访客开启了减弱动态效果，立刻显示画好的对勾或叉号。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -241,9 +241,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Form success</li><li>Payments</li><li>Finished steps</li></ul>
+      <ul class="hb-tags hb-good"><li>表单成功状态</li><li>支付</li><li>已完成的步骤</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Frequent small saves</li></ul>
+      <ul class="hb-tags hb-avoid"><li>频繁的小保存</li></ul>
     </div>
   </section>
 
@@ -355,11 +355,11 @@
   const caps=[...stage.querySelectorAll('.legend span')];
   const note={inside:document.querySelector('[data-hb-for="inside"]'),compare:document.querySelector('[data-hb-for="compare"]')};
   const NOTE0={inside:note.inside.textContent,compare:note.compare.textContent};
-  const FEEL={'ease-out':'slowing at the end','ease-in-out':'easing in and out',linear:'at one steady pace'};
+  const FEEL={'ease-out':'结尾放慢','ease-in-out':'缓入缓出',linear:'at one steady pace'};
   // A mark sits just beside where its line starts (x, y in the icon's 80 units), away from the way the pen goes
   const SPOTS={ok:[[70,40,1,0],[24,41,.24,-.97]],err:[[26,26,-.71,-.71],[54,26,.71,-.71]]};
-  const words=ms=>ms<=350?'about a third of a second':ms<=600?'about half a second':ms<=900?'almost a second':ms<=1100?'about a second':
-    ms<=1700?'about a second and a half':ms<=2200?'about two seconds':'about two and a half seconds';
+  const words=ms=>ms<=350?'大约三分之一秒':ms<=600?'大约半秒':ms<=900?'将近一秒':ms<=1100?'大约一秒':
+    ms<=1700?'about 一秒半':ms<=2200?'大约两秒':'大约两秒半';
 
   // The speed curve's height at a share x of its time (the browser's own four numbers), found by halving
   function curveAt([a,b,c,e],x){
@@ -391,24 +391,24 @@
     ridePens();
   }
   function captions(){
-    const first=showError?'The first stroke of the X':'The circle draws first';
+    const first=showError?'叉号的第一笔':'圆圈先画';
     const t=motionOk
-      ?[first+', in '+words(draw*(slowTog.checked?3:1))+', '+FEEL[ease],showError?'The second starts a little later, then a short shake':'The tick starts before the circle closes','The faint line is the path; the color slides along it']
-      :[first+'; with reduced motion on, the lines appear at once',showError?'The second stroke comes next':'The tick comes second','The faint line is the path the pen would follow'];
+      ?[first+'，'+words(draw*(slowTog.checked?3:1))+', '+FEEL[ease],showError?'第二笔稍晚开始，然后轻轻抖一下':'对勾在圆圈合拢前开始','淡淡的线是路径；颜色沿着它滑动']
+      :[first+'；开启减弱动态效果时，线条立刻出现',showError?'第二笔接着来':'对勾第二画','淡淡的线是笔会走的路径'];
     caps.forEach((el,i)=>{if(el.textContent!==t[i])el.textContent=t[i]});
   }
   // The notes keep the markup's words for the first picture of each view and are written only when their words change
   function notes(){
     const t={
-      inside:!motionOk?'Inside, the faint lines are the paths the pen would follow: '+(showError?'one stroke of the X, then the other':'the circle first, then the tick')+'. With reduced motion on, the lines appear at once.'
-        :showError?"Inside, the faint lines are the X's paths: one stroke starts first, the other a little later, then it shakes; the dot is the pen. Press Submit, or press Show me.":NOTE0.inside,
-      compare:posed?(motionOk?NOTE0.compare:'Shown still, a quarter of a second into the drawing: Appears at once is complete; Draws itself is still on its way. With reduced motion on, both appear at once.')
-        :(motionOk?'Appears at once is complete the moment the drawing starts; Draws itself takes its time.':'With reduced motion on, both appear complete the moment the drawing starts.')+' Reset brings the still picture back; Show me plays it again.'
+      inside:!motionOk?'内部：淡淡的线是笔会走的路径：'+(showError?'叉号的一笔，然后是另一笔':'先是圆圈，然后是对勾')+'。开启减弱动态效果时，线条立刻出现。'
+        :showError?"内部：淡淡的线是叉号的路径：一笔先开始，另一笔稍晚，然后它会抖一下；圆点就是笔。按「提交」，或按「演示一下」。":NOTE0.inside,
+      compare:posed?(motionOk?NOTE0.compare:'静止画面，画到四分之一秒时：「立刻出现」已经完成；「自己画出来」还在画。开启减弱动态效果时，两者立刻出现。')
+        :(motionOk?'「立刻出现」在开始画的瞬间就完成了；「自己画出来」慢慢来。':'开启减弱动态效果时，两者在开始画的瞬间就都完成了。')+' 「重置」会带回静止画面；「演示一下」会再播一次。'
     };
     for(const k in t)if(note[k].textContent!==t[k])note[k].textContent=t[k];
   }
 
-  // Compare's rest pose is a look only: the real lines are held where their own curve has them a quarter of a second in (the tick
+  // Compare's rest pose is a look only: the real lines are held where their own curve has them a quarter of 一秒 in (the tick
   // starts 0.4 of Speed later, the X's second stroke 0.3), the copy's are whole. A press or a run lifts it; it returns at rest.
   function atRest(){
     return !btn.disabled&&!running()&&!iconWrap.classList.contains('drawn')&&!iconWrap.classList.contains('error')&&!iconWrap.getAnimations({subtree:true}).length;

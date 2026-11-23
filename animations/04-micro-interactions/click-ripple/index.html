@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Click / Tap Ripple — 动画手册</title>
-  <meta name="description" content="A ripple spreads out from the spot you press. Best for buttons and list items.">
+  <title>点击涟漪 — 动画手册</title>
+  <meta name="description" content="按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/click-ripple/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Click / Tap Ripple — 动画手册">
-  <meta property="og:description" content="A ripple spreads out from the spot you press. Best for buttons and list items.">
+  <meta property="og:title" content="点击涟漪 — 动画手册">
+  <meta property="og:description" content="按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/click-ripple/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Click / Tap Ripple — 动画手册">
-  <meta name="twitter:description" content="A ripple spreads out from the spot you press. Best for buttons and list items.">
+  <meta name="twitter:title" content="点击涟漪 — 动画手册">
+  <meta name="twitter:description" content="按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Click / Tap Ripple", "name": "Click / Tap Ripple", "description": "A ripple spreads out from the spot you press. Best for buttons and list items.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/click-ripple/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Click / Tap Ripple"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "点击涟漪", "name": "点击涟漪", "description": "按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/click-ripple/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 点击涟漪"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ripple-dur:600ms;--ripple-scale:2.5}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -28,7 +28,7 @@
     .rbtn-primary{background:var(--ui-accent);color:#000}
     .rbtn-secondary{background:transparent;border:2px solid var(--ui-accent)!important;color:var(--ui-accent)}
     .rbtn-ghost{background:var(--ui-bg);border:1px solid var(--ui-border)!important;color:var(--ui-text)}
-    /* The site focus ring is drawn inside the button. On the Primary button it has the same orange as the fill, so it turns dark; on the Secondary button it would land on the button's own orange border, so it sits further in. */
+    /* The site focus ring is drawn inside the button. On the 主要按钮 it has the same orange as the fill, so it turns dark; on the 次要按钮 it would land on the button's own orange border, so it sits further in. */
     .hb-page .stage .rbtn-primary:focus-visible{outline-color:#0b0b0d}
     .hb-page .stage .rbtn-secondary:focus-visible{outline-offset:-6px}
     @media(hover:hover){.rbtn:hover{filter:brightness(1.1)}}
@@ -58,7 +58,7 @@
     /* See inside: the buttons move to the left of the box and the three captions go beside them */
     .stage[data-hb-mode="inside"]{align-items:flex-start;padding:14px 16px;gap:24px}
     /* Compare: the plain copies in the left half, the real buttons in the right, every button in the same row as its twin. The
-       Secondary row is a little lower, which leaves room under the Primary button for the caption of its circle. */
+       Secondary row is a little lower, which leaves room under the 主要按钮 for the caption of its circle. */
     .stage[data-hb-mode="compare"]{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto;justify-items:center;align-content:center;row-gap:16px;padding:44px 0 8px}
     .stage[data-hb-mode="compare"] .copies{display:contents}
     .stage[data-hb-mode="compare"] .rbtn{grid-column:2}
@@ -81,20 +81,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../hover-state/" rel="prev" aria-label="上一个：Hover State Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Hover State Animation</span></a><a href="../focus-ring/" rel="next" aria-label="下一个：Focus Ring Animation"><span><span class="hb-dir">下一个：</span>Focus Ring Animation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../hover-state/" rel="prev" aria-label="上一个：悬停状态动画"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>悬停状态动画</span></a><a href="../focus-ring/" rel="next" aria-label="下一个：焦点环动画"><span><span class="hb-dir">下一个：</span>焦点环动画</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.02 · Micro-Interactions</p>
-    <h1>Click / Tap Ripple</h1>
-    <p class="hb-lede">A ripple spreads out from the spot you press. Best for buttons and list items.</p>
+    <p class="hb-cat">04.02 · 微交互</p>
+    <h1>点击涟漪</h1>
+    <p class="hb-lede">按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click or tap anywhere on a button (or Tab to one and press Enter), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击按钮上的任意位置（或按 Tab 到按钮上，按 Enter），或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -102,21 +102,21 @@
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
-      <button class="rbtn rbtn-primary" type="button">Primary button</button>
-      <button class="rbtn rbtn-secondary" type="button">Secondary button</button>
-      <button class="rbtn rbtn-ghost" type="button">Outline button</button>
+      <button class="rbtn rbtn-primary" type="button">主要按钮</button>
+      <button class="rbtn rbtn-secondary" type="button">次要按钮</button>
+      <button class="rbtn rbtn-ghost" type="button">描边按钮</button>
       <div class="copies" aria-hidden="true" inert>
-        <span class="rcopy rbtn-primary">Primary button</span>
-        <span class="rcopy rbtn-secondary">Secondary button</span>
-        <span class="rcopy rbtn-ghost">Outline button</span>
+        <span class="rcopy rbtn-primary">主要按钮</span>
+        <span class="rcopy rbtn-secondary">次要按钮</span>
+        <span class="rcopy rbtn-ghost">描边按钮</span>
       </div>
       <div class="views" aria-hidden="true">
-        <span class="lbl cap" data-hb-caption>1 Starts where you press</span>
-        <span class="lbl cap" data-hb-caption>2 Grows far past the edge, which cuts it off</span>
-        <span class="lbl cap" data-hb-caption>3 Fades as it covers the button, all in about half a second</span>
-        <span class="lbl cmp-l nm" data-hb-caption>No ripple</span>
+        <span class="lbl cap" data-hb-caption>1 从按下的位置开始</span>
+        <span class="lbl cap" data-hb-caption>2 长到远远超出边缘，边缘把它切断</span>
+        <span class="lbl cap" data-hb-caption>3 在盖住按钮时淡出，全程大约半秒</span>
+        <span class="lbl cmp-l nm" data-hb-caption>没有涟漪</span>
         <span class="lbl cmp-l nm second" data-hb-caption>Ripple</span>
-        <span class="lbl cmp-l pose-l" data-hb-caption>A twentieth of a second in</span>
+        <span class="lbl cmp-l pose-l" data-hb-caption>二十分之一秒时</span>
       </div>
     </div>
     <div class="hb-player">
@@ -124,64 +124,64 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, one press is shown at three moments: a circle starts small, grows far past the edge, which cuts it off, and fades. Press a button, or press Show me.</p>
-      <p data-hb-for="compare" hidden>No ripple: a press shows nothing, so you cannot tell it landed; Ripple: a circle spreads across the button and fades. Press a button, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：一次按压展示在三个时刻：圆圈从小开始，长到远远超出边缘——边缘把它切断——然后淡出。按一个按钮，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>没有涟漪：按压什么都不显示，所以你看不出它落下了；有涟漪：圆圈在按钮上扩散开再淡出。按一个按钮，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="from-lbl">Starts from</p>
+        <p class="hb-setting-name" id="from-lbl">起始位置</p>
         <div class="seg" id="from-seg" role="group" aria-labelledby="from-lbl">
-          <button type="button" data-center="false" class="on" aria-pressed="true">Where you press</button>
-          <button type="button" data-center="true" aria-pressed="false">The middle</button>
+          <button type="button" data-center="false" class="on" aria-pressed="true">按下的位置</button>
+          <button type="button" data-center="true" aria-pressed="false">中间</button>
         </div>
-        <p class="hb-hint">Where you press shows exactly where it landed.</p>
+        <p class="hb-hint">「按下的位置」精确显示落点。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1000" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="600" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="350" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1000" aria-pressed="false">慢</button>
+          <button type="button" data-ms="600" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="350" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the ripple takes to spread and fade.</p>
+        <p class="hb-hint">涟漪扩散淡出要花多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Ripple size</p>
+        <p class="hb-setting-name" id="size-lbl">涟漪大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-scale="1.5" aria-pressed="false">Small</button>
-          <button type="button" data-scale="2.5" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-scale="4" aria-pressed="false">Large</button>
+          <button type="button" data-scale="1.5" aria-pressed="false">小</button>
+          <button type="button" data-scale="2.5" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-scale="4" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">How far the circle grows before it fades.</p>
+        <p class="hb-hint">圆圈在淡出前长到多大。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="str-lbl">Ripple strength</p>
+          <p class="hb-setting-name" id="str-lbl">涟漪强度</p>
           <div class="seg" id="str-seg" role="group" aria-labelledby="str-lbl">
-            <button type="button" data-op="0.2" aria-pressed="false">Faint</button>
-            <button type="button" data-op="0.4" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-op="0.6" aria-pressed="false">Strong</button>
+            <button type="button" data-op="0.2" aria-pressed="false">淡淡</button>
+            <button type="button" data-op="0.4" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-op="0.6" aria-pressed="false">强烈</button>
           </div>
-          <p class="hb-hint">How visible the ripple is when it starts.</p>
+          <p class="hb-hint">涟漪刚开始时有多明显。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Ripple color</p>
+          <p class="hb-setting-name" id="color-lbl">涟漪颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" class="on" aria-pressed="true" aria-label="White" data-c="255,255,255" style="background:#ffffff"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="255,157,92" style="background:#ff9d5c"></button>
-            <button type="button" aria-pressed="false" aria-label="Black" data-c="0,0,0" style="background:#000000"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="白色" data-c="255,255,255" style="background:#ffffff"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="255,157,92" style="background:#ff9d5c"></button>
+            <button type="button" aria-pressed="false" aria-label="黑色" data-c="0,0,0" style="background:#000000"></button>
           </div>
-          <p class="hb-hint">Pick a color that shows up on your buttons.</p>
+          <p class="hb-hint">选一个在你按钮上显眼的颜色。</p>
         </div>
       </div>
     </details>
@@ -190,10 +190,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a ripple to [the buttons or list items you want to respond to presses]. When the visitor presses one, a soft circle appears where they pressed, or in the middle when the settings say so, then grows outward and fades away. Clip it to the button's shape so it never spills outside, start it as soon as the press begins so the feedback feels instant, and remove each ripple once it has faded so quick taps do not pile up. It should work the same for mouse, touch and pen. If the visitor has reduced motion turned on, fade a flat highlight over the button instead of a growing circle. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[你想响应按压的按钮或列表项]加上涟漪。访客按下一个时，在按下的地方出现一个柔和的圆圈——如果设置里说在中间，就出现在中间——然后向外长大、淡出。把它裁剪成按钮的形状，绝不溢出外面；按压一开始就启动它，这样反馈感觉立刻生效；每个涟漪淡出后就移除，这样快速点按也不会堆起来。鼠标、触屏和触控笔的效果应该一样。如果访客开启了减弱动态效果，改成在按钮上淡入一片平坦的高亮，而不是长大的圆圈。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -213,9 +213,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Buttons</li><li>List items</li><li>Menu items</li><li>Icon buttons</li></ul>
+      <ul class="hb-tags hb-good"><li>按钮</li><li>列表项</li><li>菜单项</li><li>图标按钮</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Links in text</li><li>Large panels</li></ul>
+      <ul class="hb-tags hb-avoid"><li>正文中的链接</li><li>大面板</li></ul>
     </div>
   </section>
 
@@ -241,9 +241,9 @@
   const marks=[...views.querySelectorAll('.mark')],ptrs=[...views.querySelectorAll('.ptr:not(.ghost)')],ghosts=[...views.querySelectorAll('.ghost')];
   const still=btns.map(b=>b.appendChild(Object.assign(document.createElement('span'),{className:'ripple still'})));
   const edge=btns.map(b=>b.appendChild(Object.assign(document.createElement('span'),{className:'ripple still edge'})));
-  const TIME={350:'about a third of a second',600:'about half a second',1000:'about a second',1050:'about a second',1800:'nearly two seconds',3000:'about three seconds'};
+  const TIME={350:'大约三分之一秒',600:'大约半秒',1000:'大约一秒',1050:'大约一秒',1800:'nearly 两秒',3000:'about 三秒'};
   const NOTES={inside:'Inside, one press is shown still at three moments: a circle starts small, grows past the edge and fades. With reduced motion on, a press only fades a highlight.',
-    compare:'Shown still, a twentieth of a second in: No ripple shows nothing; Ripple shows a circle spreading across the button. With reduced motion on, a press fades a highlight.'};
+    compare:'Shown still, a twentieth of 一秒 in: 没有涟漪 shows nothing; Ripple shows a circle spreading across the button. With reduced motion on, a press fades a highlight.'};
   const note=m=>document.querySelector(`[data-hb-for="${m}"]`),NORMAL_NOTES={inside:note('inside').textContent,compare:note('compare').textContent};
   let mode='normal';
 
@@ -309,14 +309,14 @@
   }
   // Draws the mode from the settings and what runs now: the still circles, the marks, the pointers and the captions, placed from the
   // buttons' measured boxes. See inside shows three moments of a press (a share of the time each) and Compare one, a twentieth of a
-  // second in, on the real Primary and Secondary buttons (a color can hide on one of them). While a ripple runs, only its own press is marked.
+  // second in, on the real Primary and 次要按钮s (a color can hide on one of them). While a ripple runs, only its own press is marked.
   function draw(){
     const lift=live.some(n=>n>0)||running();
     stage.classList.toggle('lift',lift);
     if(mode==='normal')return;
     const s=stage.getBoundingClientRect(),ox=s.left+stage.clientLeft,oy=s.top+stage.clientTop,W=stage.clientWidth,H=stage.clientHeight;
     if(mode==='compare'){
-      // the room under the Primary button for the caption's lines comes first: it moves every button the marks are placed on
+      // the room under the 主要按钮 for the caption's lines comes first: it moves every button the marks are placed on
       const left=btns[0].getBoundingClientRect().left-ox;
       poseCap.style.left=left+'px';poseCap.style.maxWidth=(W-8-left)+'px';
       stage.style.setProperty('--cap-gap',Math.max(12,poseCap.offsetHeight-10)+'px');
@@ -336,8 +336,8 @@
       put(ptrs[i],mode==='compare'&&at&&at.pretend&&at,b.getBoundingClientRect(),ox,oy);
       put(ghosts[i],mode==='compare'&&at,copies[i].getBoundingClientRect(),ox,oy);
     });
-    say(caps[0],fromCenter?'1 Starts in the middle':'1 Starts where you press');
-    say(caps[2],'3 Fades as it covers the button, all in '+TIME[dur*(slowTog.checked?3:1)]);
+    say(caps[0],fromCenter?'1 Starts in the middle':'1 从按下的位置开始');
+    say(caps[2],'3 在盖住按钮时淡出，全程'+TIME[dur*(slowTog.checked?3:1)]);
     if(mode==='inside'){
       let floor=6;
       caps.forEach((c,i)=>{
@@ -347,7 +347,7 @@
         c.style.top=top+'px';floor=top+c.offsetHeight+6;
       });
     }else{
-      // the caption goes under the Primary button, in the room the Secondary row leaves for its lines (one or two)
+      // the caption goes under the 主要按钮, in the room the Secondary row leaves for its lines (one or two)
       poseCap.style.top=(btns[0].getBoundingClientRect().bottom-oy+3)+'px';poseCap.style.visibility=lift?'hidden':'';
     }
   }

@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toast Notification — 动画手册</title>
-  <meta name="description" content="Short messages slide into a corner, then leave on their own. Best for updates.">
+  <title>轻提示 — 动画手册</title>
+  <meta name="description" content="短消息滑入角落，之后自行离开。适合用在更新提醒上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Toast Notification — 动画手册">
-  <meta property="og:description" content="Short messages slide into a corner, then leave on their own. Best for updates.">
+  <meta property="og:title" content="轻提示 — 动画手册">
+  <meta property="og:description" content="短消息滑入角落，之后自行离开。适合用在更新提醒上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Toast Notification — 动画手册">
-  <meta name="twitter:description" content="Short messages slide into a corner, then leave on their own. Best for updates.">
+  <meta name="twitter:title" content="轻提示 — 动画手册">
+  <meta name="twitter:description" content="短消息滑入角落，之后自行离开。适合用在更新提醒上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Toast Notification", "name": "Toast Notification", "description": "Short messages slide into a corner, then leave on their own. Best for updates.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Toast Notification"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "轻提示", "name": "轻提示", "description": "短消息滑入角落，之后自行离开。适合用在更新提醒上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 轻提示"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--ok:#5ad19a;--err:#f4515b;--info:#6ea8ff}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -104,20 +104,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../star-rating/" rel="prev" aria-label="上一个：Star Rating"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Star Rating</span></a><a href="../segmented-control/" rel="next" aria-label="下一个：Segmented Control"><span><span class="hb-dir">下一个：</span>Segmented Control</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../star-rating/" rel="prev" aria-label="上一个：星级评分"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>星级评分</span></a><a href="../segmented-control/" rel="next" aria-label="下一个：分段控制器"><span><span class="hb-dir">下一个：</span>分段控制器</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.27 · Micro-Interactions</p>
-    <h1>Toast Notification</h1>
-    <p class="hb-lede">Short messages slide into a corner, then leave on their own. Best for updates.</p>
+    <p class="hb-cat">04.27 · 微交互</p>
+    <h1>轻提示</h1>
+    <p class="hb-lede">短消息滑入角落，之后自行离开。适合用在更新提醒上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Send a toast, then tap or swipe it away early, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>发一条轻提示，然后点按或滑动提前把它赶走，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -126,72 +126,72 @@
     </div>
     <div class="stage">
       <div class="half real">
-        <button class="send" id="send" type="button">Send a toast</button>
+        <button class="send" id="send" type="button">发一条轻提示</button>
         <div class="toaster tr" id="toaster" role="status" aria-live="polite" aria-atomic="false"></div>
       </div>
-      <p class="cap in" data-k="move" aria-hidden="true" data-hb-caption>Faded: its bar ran out, so it slides out</p>
-      <p class="cap in" data-k="glide" aria-hidden="true" data-hb-caption>Arrows: the others glide up into the gap</p>
-      <p class="cap in" data-k="bars" aria-hidden="true" data-hb-caption>Bars: each lasts about four seconds</p>
-      <p class="cap in" data-k="limit" aria-hidden="true" data-hb-caption>At most four at once: the oldest makes room</p>
-      <p class="cap cmp" data-k="a" aria-hidden="true" data-hb-caption>Jumps</p>
-      <p class="cap cmp" data-k="b" aria-hidden="true" data-hb-caption>Glides</p>
+      <p class="cap in" data-k="move" aria-hidden="true" data-hb-caption>淡出：它的横条走完了，所以它滑出去</p>
+      <p class="cap in" data-k="glide" aria-hidden="true" data-hb-caption>箭头：其他的滑上来填补空缺</p>
+      <p class="cap in" data-k="bars" aria-hidden="true" data-hb-caption>横条：每条持续大约四秒</p>
+      <p class="cap in" data-k="limit" aria-hidden="true" data-hb-caption>一次最多四条：最老的腾出地方</p>
+      <p class="cap cmp" data-k="a" aria-hidden="true" data-hb-caption>跳动</p>
+      <p class="cap cmp" data-k="b" aria-hidden="true" data-hb-caption>滑动</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
       <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each toast leaves when its bar runs out, and whenever the stack changes the others glide to their new places; pointing at one pauses its bar. Send a toast, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Jumps: toasts pop in and vanish, and the stack jumps; Glides: they come and go smoothly, and the others glide to their new places. Send a toast, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：每条轻提示在它的横条走完时离开；堆叠每次变化，其他的滑到新位置；指向一条会暂停它的横条。发一条轻提示，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>跳动：轻提示弹进来、消失，堆叠跳动；滑动：它们平滑地来去，其他的滑到新位置。发一条轻提示，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="corner-lbl">Corner</p>
+        <p class="hb-setting-name" id="corner-lbl">位置</p>
         <div class="seg" id="corner-seg" role="group" aria-labelledby="corner-lbl">
-          <button type="button" data-corner="tl" aria-pressed="false">Top left</button>
-          <button type="button" data-corner="tr" class="on" aria-pressed="true">Top right</button>
-          <button type="button" data-corner="bl" aria-pressed="false">Bottom left</button>
-          <button type="button" data-corner="br" aria-pressed="false">Bottom right</button>
+          <button type="button" data-corner="tl" aria-pressed="false">左上</button>
+          <button type="button" data-corner="tr" class="on" aria-pressed="true">右上</button>
+          <button type="button" data-corner="bl" aria-pressed="false">左下</button>
+          <button type="button" data-corner="br" aria-pressed="false">右下</button>
         </div>
-        <p class="hb-hint">Where toasts appear and stack.</p>
+        <p class="hb-hint">轻提示出现和堆叠的地方。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="style-lbl">How it comes in</p>
+        <p class="hb-setting-name" id="style-lbl">进入方式</p>
         <div class="seg" id="style-seg" role="group" aria-labelledby="style-lbl">
-          <button type="button" data-style="slide" class="on" aria-pressed="true">Slides</button>
-          <button type="button" data-style="fade" aria-pressed="false">Fades</button>
-          <button type="button" data-style="scale" aria-pressed="false">Grows</button>
+          <button type="button" data-style="slide" class="on" aria-pressed="true">滑入</button>
+          <button type="button" data-style="fade" aria-pressed="false">淡入</button>
+          <button type="button" data-style="scale" aria-pressed="false">放大</button>
         </div>
-        <p class="hb-hint">How each toast arrives and leaves.</p>
+        <p class="hb-hint">每条轻提示怎么来、怎么走。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="time-lbl">Time on screen</p>
+        <p class="hb-setting-name" id="time-lbl">停留时间</p>
         <div class="seg" id="time-seg" role="group" aria-labelledby="time-lbl">
-          <button type="button" data-sec="2.5" aria-pressed="false">Short</button>
-          <button type="button" data-sec="4" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-sec="6.5" aria-pressed="false">Long</button>
+          <button type="button" data-sec="2.5" aria-pressed="false">短</button>
+          <button type="button" data-sec="4" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-sec="6.5" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">How long a toast stays before it leaves.</p>
+        <p class="hb-hint">一条轻提示离开前停留多长时间。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="limit-lbl">Most at once</p>
+          <p class="hb-setting-name" id="limit-lbl">同时最多</p>
           <div class="seg" id="limit-seg" role="group" aria-labelledby="limit-lbl">
-            <button type="button" data-n="2" aria-pressed="false">Two</button>
-            <button type="button" data-n="3" aria-pressed="false">Three</button>
-            <button type="button" data-n="4" class="on" aria-pressed="true">Four</button>
+            <button type="button" data-n="2" aria-pressed="false">两个</button>
+            <button type="button" data-n="3" aria-pressed="false">三个</button>
+            <button type="button" data-n="4" class="on" aria-pressed="true">四个</button>
           </div>
-          <p class="hb-hint">The oldest leaves when a new one needs room.</p>
+          <p class="hb-hint">新的一条需要地方时，最老的那条离开。</p>
         </div>
       </div>
     </details>
@@ -200,10 +200,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add toast notifications to [the actions in your app that should be confirmed quietly, such as saving]. Each toast comes into a corner of the screen with a short message and a thin bar that empties as it counts down, then leaves on its own. New toasts stack; when one leaves, the others glide over to close the gap, moved with transforms rather than by changing the layout. Pause the countdown while the pointer is over a toast, and let a tap, a sideways swipe or a close button dismiss it early. Announce each message to screen readers without moving focus. If the visitor has reduced motion turned on, show and hide toasts without movement. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[应用里应该悄悄确认的操作，比如保存]加上轻提示。每条轻提示带着一条简短消息和一条倒计时变空的细横条，来到屏幕的一角，然后自己离开。新的轻提示会堆叠；一条离开时，其他的滑过去填补空缺，用变换移动，而不是改变布局。指针在一条轻提示上时暂停倒计时；点按、横向滑动或关闭按钮可以提前把它赶走。向读屏软件播报每条消息，不要移动焦点。如果访客开启了减弱动态效果，显示和隐藏轻提示时不要做动作。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -223,9 +223,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Save confirmations</li><li>Upload updates</li><li>Sync notices</li></ul>
+      <ul class="hb-tags hb-good"><li>保存确认</li><li>上传更新</li><li>同步提醒</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Errors that need action</li><li>Long messages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>需要处理的错误</li><li>长消息</li></ul>
     </div>
   </section>
 
@@ -241,11 +241,11 @@
   const STILL_CMP='Shown still, a moment into a change: Jumps has already moved every toast; Glides is still moving them into place.',
     OUT_CMP='Without motion both halves show the same toasts at once; turn reduced motion off to see Glides move them.';
   let corner='tr',style='slide',dur=4,limit=4,toasts=[];
-  const TYPES=[['ok','Saved','Your changes were published.'],['ok','Uploaded','profile.png finished uploading.'],
-    ['err','Failed','Could not reach the server.'],['err','Rejected','Card was declined — try another.'],
-    ['info','Heads up','A new version is available.'],['info','Synced','3 items synced across devices.']];
+  const TYPES=[['ok','Saved','你的更改已发布。'],['ok','Uploaded','profile.png 已上传完成。'],
+    ['err','Failed','无法连接到服务器。'],['err','Rejected','卡被拒绝了——换一张试试。'],
+    ['info','注意','有新版本可用。'],['info','Synced','3 个项目已在设备间同步。']];
   // What Show me sends: a neutral example, so a run is always the same and screen readers hear an honest message
-  const DEMO=['ok','Example','A toast like this confirms an action.'];
+  const DEMO=['ok','Example','这样的轻提示确认一个操作。'];
   const ICON={ok:'✓',err:'✕',info:'i'};
   const signX=()=>corner.endsWith('r')?1:-1;
   // Where a toast starts and ends: off to the side, a little smaller, or (fade) in place
@@ -271,7 +271,7 @@
     el.style.setProperty('--dur',dur+'s');
     el.innerHTML=`<span class="ic" aria-hidden="true">${ICON[type]}</span>`+
       `<div class="body"><div class="ti">${title}</div><div class="ms">${text}</div></div>`+
-      `<button class="x" type="button" aria-label="Dismiss">&times;</button><span class="prog"></span>`;
+      `<button class="x" type="button" aria-label="关闭">&times;</button><span class="prog"></span>`;
     // enter: start off to the side, then settle to rest next frame
     el.style.opacity='0';el.style.transform=away();
     const prev=snap();
@@ -365,7 +365,7 @@
   let mode='normal';
   const make=(cls,html,parent)=>{const d=document.createElement('div');d.className=cls;d.innerHTML=html;parent.appendChild(d);return d};
   const CARD='<div class="toast"><span class="ic"></span><div class="body"><div class="ti"></div><div class="ms"></div></div><span class="prog"></span>';
-  const copy=make('half copy','<span class="send">Send a toast</span>',stage),copySend=copy.firstChild,mirror=make('toaster','',copy);
+  const copy=make('half copy','<span class="send">发一条轻提示</span>',stage),copySend=copy.firstChild,mirror=make('toaster','',copy);
   const after=make('toaster after',(CARD+'</div>').repeat(3),copy),pose=make('toaster pose','<span class="slot"></span>'+(CARD+'<span class="arrow"></span></div>').repeat(3),half);
   [copy,pose].forEach(el=>{el.inert=true;el.setAttribute('aria-hidden','true')});
   const pt=[...pose.querySelectorAll('.toast')],at=[...after.querySelectorAll('.toast')],slot=pose.firstChild;
@@ -384,8 +384,8 @@
     if(d)m.animate({translate:[`0 ${d}px`,'0 0']},{duration:340,easing:'cubic-bezier(.22,1,.36,1)'});
     m.animate([{opacity:1},{opacity:1,offset:.6},{opacity:0}],{duration:900}).onfinish=()=>m.remove();
   }
-  const POSE=[['ok','Saved','Your changes were published.'],['info','Synced','3 items synced across devices.'],['ok','Uploaded','profile.png finished uploading.']];
-  const SECS={2.5:'two and a half seconds',4:'about four seconds',6.5:'six and a half seconds'},NUM={2:'two',3:'three',4:'four'};
+  const POSE=[['ok','Saved','你的更改已发布。'],['info','Synced','3 个项目已在设备间同步。'],['ok','Uploaded','profile.png 已上传完成。']];
+  const SECS={2.5:'两秒半',4:'大约四秒',6.5:'六秒半'},NUM={2:'二',3:'三',4:'四'};
   const cap=k=>stage.querySelector(`.cap[data-k="${k}"]`);
   // A box in the stage's own frame (inside its border), as drawn
   const rect=el=>{const s=stage.getBoundingClientRect(),r=el.getBoundingClientRect(),x=s.left+stage.clientLeft,y=s.top+stage.clientTop;return{l:r.left-x,t:r.top-y,r:r.right-x,b:r.bottom-y}};
@@ -396,17 +396,17 @@
     const posed=!toaster.children.length;stage.classList.toggle('posed',posed);
     // The pose. Top corners: the oldest's bar ran out, it leaves and the others glide up into its gap. Bottom corners, where the newest
     // sits nearest the corner (and the oldest leaves from the far end, closing no gap): a new one comes in and the others rise to make
-    // room. Bars as if each toast came a second after the one before. Never more toasts than Most at once allows.
+    // room. Bars as if each toast came 一秒 after the one before. Never more toasts than Most at once allows.
     const order=top?[0,1,2]:[2,1,0],left=top?[0,1/dur,2/dur]:[1,(dur-1)/dur,(dur-2)/dur],n=Math.min(3,limit);
     [pt,at].forEach(set=>set.forEach((t,i)=>{const m=POSE[order[i]];t.className='toast '+m[0]+(set===pt?(i?' mv':' go'):'');
       t.querySelector('.ic').textContent=ICON[m[0]];t.querySelector('.ti').textContent=m[1];t.querySelector('.ms').textContent=m[2];t.style.setProperty('--left',left[i]);t.hidden=i>=n}));
     if(top)at[0].hidden=true;
     // the faded one a fifth of a toast out to the side (so its title shows in every corner), a little smaller, or in place
     pt[0].style.transform=style==='scale'?`scale(${top?.92:.95})`:style==='fade'?'none':`translateX(${signX()*(signX()<0?4:20)}%)`;
-    cap('move').textContent=top?'Faded: its bar ran out, so it '+{slide:'slides out',fade:'fades out',scale:'shrinks away'}[style]:'Faded: a new one '+{slide:'slides',fade:'fades',scale:'grows'}[style]+' in at the corner';
-    cap('glide').textContent=top?'Arrows: the others glide up into the gap':'Arrows: the others rise to make room';
-    cap('bars').textContent='Bars: each lasts '+SECS[dur];
-    cap('limit').textContent=`At most ${NUM[limit]} at once: the oldest makes room`;
+    cap('move').textContent=top?'淡出：它的横条走完了，所以它'+{slide:'滑出去',fade:'淡出',scale:'缩回去'}[style]:'淡出：新的一条'+{slide:'滑',fade:'淡',scale:'长'}[style]+'进角落';
+    cap('glide').textContent=top?'箭头：其他的滑上来填补空缺':'箭头：其他的升起来腾出地方';
+    cap('bars').textContent='横条：每条持续'+SECS[dur];
+    cap('limit').textContent=`一次最多${NUM[limit]}条：最老的腾出地方`;
     if(posed){const g=pt[0],h=(g.offsetHeight+(parseFloat(getComputedStyle(pose).rowGap)||0))*(top?.5:.3);
       pose.style.setProperty('--half',h+'px');pose.style.setProperty('--off',(top?-h:h)+'px');
       Object.assign(slot.style,{left:g.offsetLeft+'px',top:g.offsetTop+'px',width:g.offsetWidth+'px',height:g.offsetHeight+'px'})}

@@ -1,18 +1,18 @@
-# Spotlight Hover Glow
+# 聚光灯悬停辉光
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/spotlight-hover/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/spotlight-hover/)
 
-## What it is
-A spotlight hover glow is a soft light that follows the pointer across a grid of dark cards. Near the pointer the cards brighten a little and their edges light up in color, while the cards farther away stay dim, as if a lamp were moving over them.
+## 它是什么
+聚光灯悬停辉光是一道柔和的光，跟随指针穿过一排深色卡片。指针附近的卡片稍微变亮，边缘亮起彩色；远处的卡片保持暗淡，像一盏灯在上面移动。
 
-## When to use it
-- Feature grids on landing pages, where the light invites the visitor to look around
-- Pricing tiers and product tiles on dark pages
-- Dashboards and settings screens made of many dark panels
-- Portfolio and project grids that should feel tactile
+## 什么时候用
+- 落地页上的特性网格，光邀请访客四处看看
+- 深色页面上的定价档和产品瓷砖
+- 由很多深色面板组成的仪表盘和设置界面
+- 应该有触感的作品集和项目网格
 
-## How it works
-Each card is a faint frame around an opaque face: the frame's padding is the edge. Every card holds two copies of one soft disc (a `radial-gradient` that fades to transparent), both clipped by `overflow: hidden`: one behind the face, which only shows through the edge, and a much fainter one inside the face, under its text. The page never repaints them; it only moves them with `transform`, every card's discs to the same spot of the grid, counted from that card's corner:
+## 工作原理
+每张卡片是一个淡淡的框，围着一个不透明的表面：框的内边距就是边缘。每张卡片里放着一个柔和圆盘（渐隐到透明的 `radial-gradient`）的两份复制品，都被 `overflow: hidden` 裁剪：一份在表面后面，只透过边缘显示；一份在表面里面、文字下面，淡得多。页面永远不重绘它们；只用 `transform` 移动它们，每张卡片的圆盘移到网格上的同一个点，从那张卡片的角落算起：
 
 ```js
 function draw() {
@@ -23,37 +23,37 @@ function draw() {
 }
 ```
 
-The card places and the disc size are measured on load and again whenever the grid changes size (a `ResizeObserver`); on each pointer move the page reads only the grid's own rectangle (`getBoundingClientRect()`), to turn the pointer's position into a spot on the grid. The light trails the pointer by closing a share of the gap on each frame, scaled to the time since the last frame, so the lag is the same on 60 Hz and 120 Hz screens:
+卡片的位置和圆盘大小在加载时量一次，网格大小变化时再量一次（一个 `ResizeObserver`）；每次指针移动，页面只读网格自己的矩形（`getBoundingClientRect()`），把指针的位置换成网格上的一个点。光每帧按时间缩放，闭合与指针之间的一部分差距，所以 60 Hz 和 120 Hz 屏幕上的滞后是一样的：
 
 ```js
 const a = 1 - Math.pow(1 - ease, dt / FRAME);   // FRAME = 1000 / 60, dt: ms since the last frame
 lx += (tx - lx) * a;  ly += (ty - ly) * a;
 ```
 
-A mouse lights the grid while it moves over it, and the light fades out (an `opacity` transition on a class) when it leaves. A finger lights it where it touches and while it drags: the grid has `touch-action: none` and takes pointer capture, so the drag moves the light instead of scrolling the page, and lifting the finger fades it out.
+鼠标在网格上移动时点亮它，离开时光淡出（一个类上的 `opacity` 过渡）。手指在触摸的地方点亮它，拖动时也是：网格有 `touch-action: none` 并取得指针捕获，所以拖动移动光而不是滚动页面；抬起手指，光淡出。
 
-The grid also takes keyboard focus (`tabindex="0"`), and the light then appears in its middle, or where the keys last left it. Each arrow key press moves it by 6% of the grid's width or height, and it trails with the same lag as behind a pointer; Escape, or moving the focus away, fades it out.
+网格也可以获得键盘焦点（`tabindex="0"`），光就出现在它的中间，或按键最后离开的地方。每次按方向键，光移动网格宽度或高度的 6%，像跟在指针后面一样拖着同样的滞后；Esc，或把焦点移开，会让它淡出。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Glow size | Medium | How far the light reaches: small, medium and large are 0.7, 1.15 and 1.7 times the grid's shorter side across |
-| Color | Purple | The color of the light and of the lit edges; white looks the most natural on gray cards |
-| Lights the edges | On | The card edges near the pointer glow brightly; off, only the faces brighten |
-| Lag | Short | How far the light trails a moving pointer: none follows it exactly, short closes 30% of the gap per 60 Hz frame and long 10% (other screens close the share that fits their frame time), so the light gets 95% of the way in about 0.15 or 0.5 seconds |
+| 辉光大小 | 中等 | 光能及多远：小、中等和大分别是网格较短边的 0.7、1.15 和 1.7 倍宽 |
+| 颜色 | 紫色 | 光和被照亮边缘的颜色；白色在灰色卡片上看起来最自然 |
+| 照亮边缘 | 开 | 指针附近的卡片边缘亮起来；关掉时，只有表面变亮 |
+| 延迟 | 短 | 光在移动的指针身后拖多远：无会精确跟随，短是每 60 Hz 帧闭合 30% 的差距，长是 10%（其他屏幕按它们的帧时间闭合相应的份额），所以光大约在 0.15 或 0.5 秒内走完 95% 的路 |
 
-## Production notes
-- **Move layers, do not repaint them**: the common shortcut writes the pointer position into CSS variables used by a `radial-gradient(circle at var(--x) var(--y), …)`, which repaints every card on every pointer move. Moving finished layers with `transform` leaves the work to the compositor.
-- **Measure once**: read the card positions on load and on resize, never in the pointer handler, which then reads one rectangle (the grid's) instead of one per card. The page only writes transforms, which never change the layout, so that read stays cheap.
-- **Touch**: touch screens cannot hover, so let a drag move the light (with `touch-action: none` on the grid only, so the page still scrolls around it) or light the card that is tapped.
-- **Keyboard**: when the cards are links, light the card that has keyboard focus as well, so the effect is not pointer-only.
-- **Contrast**: the face light brightens the card behind its text; keep it faint enough that the text stays at 4.5:1 or more.
-- **Reduced motion**: the light is tied to the pointer, so it can stay. The demo drops the trailing glide, and Show me only fades the light in and out in one place.
-- **Libraries**: Framer Motion's `useMotionValue` with `useSpring` can drive the light's `x` and `y` instead of the easing loop; GSAP's `gsap.quickTo(light, 'x', { duration: .3 })` does the same.
+## 生产注意事项
+- **移动图层，不要重绘它们**：常见的捷径是把指针位置写进 `radial-gradient(circle at var(--x) var(--y), …)` 用的 CSS 变量里，那会在每次指针移动时重绘每张卡片。用 `transform` 移动画好的图层，工作就留给合成器。
+- **量一次**：加载时和调整大小时读卡片位置，永远不要在指针处理函数里读；指针处理函数只读一个矩形（网格的），而不是每张卡片一个。页面只写变换，永远不改变布局，所以那次读取保持便宜。
+- **触摸**：触屏不能悬停，所以让拖动移动光（只在网格上用 `touch-action: none`，这样页面在它周围仍能滚动），或点亮被点按的卡片。
+- **键盘**：卡片是链接时，也点亮获得键盘焦点的卡片，这样效果不只是指针的。
+- **对比度**：表面上的光会照亮文字后面的卡片；保持它足够淡，文字保持 4.5:1 或更高。
+- **减弱动态效果**：光跟着指针走，所以可以留着。演示去掉拖尾的滑行，“演示一下”只在一个地方把光淡入淡出。
+- **库**：Framer Motion 的 `useMotionValue` 加 `useSpring` 可以驱动光的 `x` 和 `y`，代替缓动循环；GSAP 的 `gsap.quickTo(light, 'x', { duration: .3 })` 也一样。
 
-## See also
-- [Cursor Follower](../cursor-follower/) — a shape that follows the pointer itself
-- [Parallax 3D Tilt](../../06-3d-advanced/parallax-3d-tilt/) — a card that tilts and catches the light
-- [Hover State Animation](../hover-state/) — simpler ways for a card to react
-- [Animated Gradient Border](../gradient-border/) — an edge with a band of colors that runs on its own
-- [Magnifier Lens](../magnifier-lens/) — a lens follows the pointer and shows the picture up close
+## 另见
+- [光标跟随](../cursor-follower/) — 一个跟随指针本身的形状
+- [视差 3D 倾斜](../../06-3d-advanced/parallax-3d-tilt/) — 一张倾斜、接住光线的卡片
+- [悬停状态动画](../hover-state/) — 卡片做出反应的更简单方式
+- [渐变边框动画](../gradient-border/) — 边缘上自己跑动的彩色带
+- [放大镜](../magnifier-lens/) — 镜头跟随指针，近距离展示图片

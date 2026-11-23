@@ -1,18 +1,18 @@
-# Notification Badge Pulse
+# 通知徽标脉冲
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/badge-pulse/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/badge-pulse/)
 
-## What it is
-A notification badge is a small colored dot or number on an icon that marks something new, such as unread messages. A gentle pulse, growing a little and settling back or sending out a soft ring, catches the eye at the edge of your vision without interrupting what you are doing.
+## 它是什么
+通知徽标是图标上一个小的彩色圆点或数字，标记有新内容，比如未读消息。轻柔的脉冲——长大一点再收回，或向外送出一圈柔和的光环——能在余光里抓住眼球，又不会打断你正在做的事。
 
-## When to use it
-- Notification bells with unread message counts
-- Inbox or chat icons indicating new messages
-- Avatar status dots indicating online presence
-- Any persistent indicator that must remain visible but not disruptive
+## 什么时候用
+- 有未读消息数的通知铃铛
+- 表示有新消息的收件箱或聊天图标
+- 表示在线状态的头像状态圆点
+- 任何必须一直可见、又不能打扰人的持久指示
 
-## How it works
-The badge pulses via a looping `scale` keyframe animation:
+## 工作原理
+徽标通过循环的 `scale` 关键帧动画来脉冲：
 
 ```css
 :root {
@@ -37,7 +37,7 @@ The badge pulses via a looping `scale` keyframe animation:
 }
 ```
 
-The halo variant adds a radiating ring that expands and fades. The ring is drawn under the badge's number, not over it: the badge is its own stacking context (`isolation: isolate`) and the ring has a negative `z-index`, so it covers the badge's color but never the number, which keeps its contrast through every pulse:
+光晕变体再加一圈扩散淡出的环。环画在徽标数字的下面，而不是上面：徽标是自己的层叠上下文（`isolation: isolate`），环的 `z-index` 是负数，所以它盖住徽标的颜色，但永远盖不住数字，这样每次脉冲数字的对比度都保持不变：
 
 ```css
 .badge {
@@ -62,29 +62,29 @@ The halo variant adds a radiating ring that expands and fades. The ring is drawn
 }
 ```
 
-The ring grows to 2.2 times the badge, well past the icon's corner, and it catches the pointer even when it has faded out. So it has `pointer-events: none`; without that, a click on the empty space beside the icon would land on the ring and count as a click on the badge.
+环长到徽标的 2.2 倍，远远超出图标的角落，而且即使淡出后它也能接到指针。所以它有 `pointer-events: none`；没有它，点图标旁边空白处时会点到环上，算成点到了徽标。
 
-Stopping after three pulses takes two more declarations on the animated parts, `animation-iteration-count: 3` and `animation-fill-mode: forwards`. Without the fill mode the halo would fall back to its resting style, a faint ring around the badge, when the last pulse ends; with it the run stays on its last keyframes, the badge at scale 1 and the halo invisible.
+三次脉冲后停止，需要在动画部分再加两个声明：`animation-iteration-count: 3` 和 `animation-fill-mode: forwards`。没有填充模式，最后一次脉冲结束时光晕会回到静止样式——徽标周围一圈淡淡的环；有了它，这次运行会停在最后一帧关键帧上，徽标是 scale 1，光晕看不见。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Pulse style | Grow | Grow scales the badge up and back; Ring sends a soft halo outward from just around the badge, growing to 2.2 times that size as it fades from half opacity to nothing; Both does the two together |
-| Speed | Normal | How long one pulse takes: slow is 2.4s, normal 1.5s and fast 0.9s; fast feels urgent, slow is easy to miss |
-| How much it grows | Medium | How big the badge gets at the top of each pulse: slightly is 115%, medium 130% and a lot 150% of its size |
-| Stops after three pulses | off | The badges pulse three times and then rest; the online dot keeps going |
-| Badge color | Red | The badge's color; red reads as new and urgent |
+| 脉冲样式 | 变大 | 变大把徽标放大再收回；圆环从徽标周围送出一圈柔和的光晕，长到 2.2 倍大小，同时从一半不透明淡出到完全透明；两者都把两种做法合在一起 |
+| 速度 | 普通 | 一次脉冲要花多长时间：慢是 2.4s，普通 1.5s，快 0.9s；快显得紧急，慢容易被忽略 |
+| 变大多少 | 中等 | 每次脉冲顶部徽标变得有多大：稍微是 115%，中等 130%，很多是 150% |
+| 三次后停止 | 关 | 徽标脉冲三次然后停下；在线圆点会一直脉冲 |
+| 徽标颜色 | 红色 | 徽标的颜色；红色表示有新内容、很紧急 |
 
-## Production notes
-- **Peripheral vision threshold**: 1.15× scale at 1.5s is the minimum perceptible in peripheral vision for most users. Below that, the badge reads as static.
-- **Dismiss on interaction**: always remove the pulse (and the badge itself) when the user views the notifications. A persistent pulse on already-seen content is confusing.
-- **Fade-after-attention**: pulse strongly for the first 5 seconds, then reduce scale or stop entirely. This mirrors real notification system behavior (the alert has been "seen" peripherally).
-- **`border: 2px solid` background color trick**: this makes the badge appear to float above the icon surface with a gap. Update the border color if the icon sits on a non-uniform background.
-- **`prefers-reduced-motion`**: under reduced motion the demo starts paused, so the badges stay still until the visitor presses Play. In production, turn the pulse off: the badge stays visible, just without motion.
-- **React**: `react-hot-toast` and Sonner implement badge-style indicators for toast notifications. For nav badges, most component libraries include a `Badge` with optional `animate` prop.
+## 生产注意事项
+- **余光感知阈值**：1.5s 内 1.15 倍的缩放，是大多数人在余光里能察觉的最小值。低于它，徽标看起来就是静止的。
+- **交互后消除**：用户查看通知后，一定要移除脉冲（以及徽标本身）。已经看过的内容上还留着脉冲，会让人困惑。
+- **引起注意后淡出**：前 5 秒强烈脉冲，然后减小缩放或完全停止。这和真实通知系统的行为一致（提醒已经在余光里“被看见”了）。
+- **用 `border: 2px solid` 背景色的技巧**：这让徽标看起来浮在图标表面上，中间有一道缝。如果图标放在不均匀的背景上，记得更新边框颜色。
+- **`prefers-reduced-motion`**：减弱动态效果下，演示开始时是暂停的，所以徽标保持静止，直到访客按下「播放」。生产环境里请关掉脉冲：徽标保持可见，只是不动。
+- **React**：`react-hot-toast` 和 Sonner 为轻提示实现了徽标风格的指示。对于导航徽标，大多数组件库都有带可选 `animate` 属性的 `Badge`。
 
-## See also
-- [Tooltip Reveal](../tooltip-reveal/) — pointing at an icon shows a short note
-- [Loading Spinner](../loading-spinner/) — another sign that something is going on
-- [Hover State Animation](../hover-state/) — items react when the pointer is over them
-- [Add-to-Cart Fly](../add-to-cart-fly/) — the cart's count goes up as a product flies in
+## 另见
+- [提示气泡浮现](../tooltip-reveal/) — 指向图标会显示一条简短说明
+- [加载旋转指示](../loading-spinner/) — 另一个表示正在发生什么的标志
+- [悬停状态动画](../hover-state/) — 指针移到上面时项目会有反应
+- [加入购物车飞入](../add-to-cart-fly/) — 商品飞入时购物车的数量加一

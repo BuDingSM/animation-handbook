@@ -1,18 +1,18 @@
-# Loading Spinner
+# 加载旋转指示
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/loading-spinner/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/loading-spinner/)
 
-## What it is
-A loading spinner is a small shape that keeps moving in a loop to show that the system is busy. It says nothing about how long the wait will be, only that work is going on, so it suits waits of unknown length, such as a network request. The demo shows six common designs.
+## 它是什么
+加载旋转指示是一个一直在循环里动的小图形，表示系统正在忙。它不说要等多久，只说工作正在进行，所以适合不知道多长的等待，比如网络请求。演示展示了六种常见设计。
 
-## When to use it
-- Network requests where response time is unknown
-- Authentication flows, payment processing, and other server-round-trip operations
-- Background operations the user triggered but cannot cancel
-- Inline loading states within buttons after click (replacing the label briefly)
+## 什么时候用
+- 不知道响应时间的网络请求
+- 身份验证流程、支付处理和其他服务器往返操作
+- 用户触发但无法取消的后台操作
+- 点击后按钮内的加载状态（短暂地替换标签）
 
-## How it works
-The classic ring spinner uses a `border` trick: a full circle with one quadrant colored differently, rotated continuously:
+## 工作原理
+经典的圆环旋转指示用 `border` 技巧：一个完整的圆，一个象限涂成不同的颜色，不停旋转：
 
 ```css
 :root { --spd: 800ms; --clr: #58a6ff; --sz: 40px; }
@@ -28,7 +28,7 @@ The classic ring spinner uses a `border` trick: a full circle with one quadrant 
 @keyframes spin { to { transform: rotate(360deg); } }
 ```
 
-The SVG arc variant offers more control over arc length, which can also animate:
+SVG 弧线变体对弧长有更多控制，弧长也可以做动画：
 
 ```css
 .sp-arc circle {
@@ -46,7 +46,7 @@ The SVG arc variant offers more control over arc length, which can also animate:
 }
 ```
 
-The bounce-dots variant uses staggered animation delays on three sibling elements:
+弹跳圆点变体在三个同级元素上用交错的动画延迟：
 
 ```css
 .dot { animation: bounce var(--spd) ease-in-out infinite; }
@@ -59,23 +59,23 @@ The bounce-dots variant uses staggered animation delays on three sibling element
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long one turn takes: slow is 1.3s, normal 0.8s and fast 0.5s; 0.6 to 1 second reads as calm, faster as anxious |
-| Size | Medium | Small is 28px, medium 40px and large 52px; small fits inside a button, large fills an empty area |
-| Color | Blue | The spinner's color; pick one that stands out from the page |
+| 速度 | 普通 | 转一圈要花多长时间：慢是 1.3 秒，普通 0.8 秒，快是 0.5 秒；0.6 到 1 秒读起来平静，更快会显得焦虑 |
+| 大小 | 中等 | 小是 28px，中等 40px，大是 52px；小号放得进按钮，大号填满空白区域 |
+| 颜色 | 蓝色 | 旋转指示的颜色；选一个和页面对比明显的颜色 |
 
-## Production notes
-- **Minimum display time**: if the operation completes in under ~400ms, either show no spinner at all or enforce a minimum display time. A spinner that flashes briefly causes more confusion than it resolves.
-- **Inline button spinner**: replace the button label with a spinner on click, re-enable on response. This pattern prevents double-submission.
-- **`role="status"` and `aria-label`**: screen readers need to announce the loading state. Add `role="status"` and `aria-label="Loading"` to the spinner container.
-- **`prefers-reduced-motion`**: under reduced motion the demo starts paused, so the spinners stay still until the visitor presses Play. In production, reduce the spinner to a simple opacity pulse, or hide it and rely on an `aria-live` announcement.
-- **React ecosystem**: `react-spinners` (by David Hu) has 15+ variants. For Tailwind, use the `animate-spin` utility on a bordered circle div.
-- **When not to use**: if you know total progress (file upload, multi-step process), use a progress bar instead — it conveys more information and reduces anxiety.
+## 生产注意事项
+- **最短显示时间**：如果操作在大约 400ms 内完成，要么完全不显示旋转指示，要么强制一个最短显示时间。短暂闪现的旋转指示，造成的困惑比它解决的更多。
+- **按钮内的旋转指示**：点击时用旋转指示替换按钮标签，收到响应时恢复。这个模式可以防止重复提交。
+- **`role="status"` 和 `aria-label`**：读屏软件需要播报加载状态。给旋转指示的容器加上 `role="status"` 和 `aria-label="Loading"`。
+- **`prefers-reduced-motion`**：减弱动态效果下演示一开始是暂停的，所以旋转指示保持静止，直到访客按“播放”。生产中把旋转指示简化成简单的透明度脉冲，或隐藏它，依靠 `aria-live` 播报。
+- **React 生态**：`react-spinners`（David Hu 出品）有 15 种以上的变体。Tailwind 里，在带边框的圆形 div 上用 `animate-spin` 工具类。
+- **什么时候不用**：如果知道总进度（文件上传、多步流程），改用进度条——它传达的信息更多，也更让人安心。
 
-## See also
-- [Progress Animation](../progress-animation/) — a bar that shows how much is done
-- [Skeleton Loader](../skeleton-loader/) — gray shapes stand in for the content
-- [Checkmark Draw](../checkmark-draw/) — the success sign once the wait is over
-- [Typing Indicator](../typing-indicator/) — three dots in a chat bubble show that someone is typing
+## 另见
+- [进度动画](../progress-animation/) — 显示完成了多少的横条
+- [骨架屏](../skeleton-loader/) — 代替内容的灰色形状
+- [对勾绘制](../checkmark-draw/) — 等待结束后的成功标志
+- [正在输入指示](../typing-indicator/) — 聊天框里的三个圆点表示有人在输入

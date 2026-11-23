@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star Rating — 动画手册</title>
-  <meta name="description" content="Stars fill up to your pointer and pop when you choose. Best for reviews.">
+  <title>星级评分 — 动画手册</title>
+  <meta name="description" content="星星随指针填满，选中时弹出。适合用在评价上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Star Rating — 动画手册">
-  <meta property="og:description" content="Stars fill up to your pointer and pop when you choose. Best for reviews.">
+  <meta property="og:title" content="星级评分 — 动画手册">
+  <meta property="og:description" content="星星随指针填满，选中时弹出。适合用在评价上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Star Rating — 动画手册">
-  <meta name="twitter:description" content="Stars fill up to your pointer and pop when you choose. Best for reviews.">
+  <meta name="twitter:title" content="星级评分 — 动画手册">
+  <meta name="twitter:description" content="星星随指针填满，选中时弹出。适合用在评价上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Star Rating", "name": "Star Rating", "description": "Stars fill up to your pointer and pop when you choose. Best for reviews.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Star Rating"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "星级评分", "name": "星级评分", "description": "星星随指针填满，选中时弹出。适合用在评价上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 星级评分"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-muted:#8a8a92;--bg:#0b0b0d;--star:clamp(44px,11vw,60px);--pop:1.35;--fill-dur:180ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -89,20 +89,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../copy-to-clipboard/" rel="prev" aria-label="上一个：Copy to Clipboard"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Copy to Clipboard</span></a><a href="../toast-notification/" rel="next" aria-label="下一个：Toast Notification"><span><span class="hb-dir">下一个：</span>Toast Notification</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../copy-to-clipboard/" rel="prev" aria-label="上一个：复制到剪贴板"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>复制到剪贴板</span></a><a href="../toast-notification/" rel="next" aria-label="下一个：轻提示"><span><span class="hb-dir">下一个：</span>轻提示</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.26 · Micro-Interactions</p>
-    <h1>Star Rating</h1>
-    <p class="hb-lede">Stars fill up to your pointer and pop when you choose. Best for reviews.</p>
+    <p class="hb-cat">04.26 · 微交互</p>
+    <h1>星级评分</h1>
+    <p class="hb-lede">星星随指针填满，选中时弹出。适合用在评价上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Point along the stars and click or tap one to choose, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>沿着星星指向，点一颗来选择，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -111,8 +111,8 @@
     </div>
     <div class="stage hb-dots">
       <div class="pane">
-        <div class="rate" id="rate" role="slider" tabindex="0" aria-label="Rating"
-             aria-valuemin="0" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 out of 5"></div>
+        <div class="rate" id="rate" role="slider" tabindex="0" aria-label="评分"
+             aria-valuemin="0" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 / 5"></div>
         <div class="value"><span id="val">3.0</span><small> / <span id="max">5</span></small></div>
       </div>
       <div class="pane twin" aria-hidden="true" inert>
@@ -124,12 +124,12 @@
         <div class="picks"></div>
         <div class="popo"></div>
         <div class="mark"></div>
-        <span class="lbl in-l" data-k="prev" data-hb-caption>Pointing here previews 4</span>
-        <span class="lbl in-l" data-k="chosen" data-hb-caption>Chosen: 3, shown again when you leave</span>
-        <span class="lbl in-l" data-k="pop" data-hb-caption>Pops a third bigger when chosen</span>
-        <span class="lbl in-l" data-k="pick" data-hb-caption>Each dashed box picks one star</span>
-        <span class="lbl cmp-l" data-hb-caption>Click only</span>
-        <span class="lbl cmp-l second" data-hb-caption>Previews and pops</span>
+        <span class="lbl in-l" data-k="prev" data-hb-caption>指向这里预览 4</span>
+        <span class="lbl in-l" data-k="chosen" data-hb-caption>已选：3，离开时再显示</span>
+        <span class="lbl in-l" data-k="pop" data-hb-caption>选中时弹出，大三分之一</span>
+        <span class="lbl in-l" data-k="pick" data-hb-caption>每个虚线框选一颗星</span>
+        <span class="lbl cmp-l" data-hb-caption>只点一下</span>
+        <span class="lbl cmp-l second" data-hb-caption>预览和弹出</span>
         <!-- the pretend pointer and, in Compare, its ghost over the copy: after the labels, so no label hides them -->
         <div class="lay lay-a"><svg class="ptr" id="ghost" width="15" height="22" viewBox="0 0 15 22"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg></div>
         <div class="lay lay-b"><svg class="ptr" id="pretend" width="15" height="22" viewBox="0 0 15 22"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg></div>
@@ -140,51 +140,51 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each dashed box is the spot that picks a star: pointing previews the rating, clicking chooses it and the chosen star pops. Point along the stars, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Click only: nothing shows until you click; Previews and pops: the stars fill up to the pointer first, and the chosen one pops. Point along the stars, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：每个虚线框是选一颗星的位置：指向会预览评分，点击会选中它，选中的星星会弹出。沿着星星指向，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>只点一下：点击之前什么都不显示；预览和弹出：星星先填到指针处，选中的那颗会弹出。沿着星星指向，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="pop-lbl">Pop size</p>
+        <p class="hb-setting-name" id="pop-lbl">弹出大小</p>
         <div class="seg" id="pop-seg" role="group" aria-labelledby="pop-lbl">
-          <button type="button" data-pop="1.15" aria-pressed="false">Small</button>
-          <button type="button" data-pop="1.35" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-pop="1.6" aria-pressed="false">Large</button>
+          <button type="button" data-pop="1.15" aria-pressed="false">小</button>
+          <button type="button" data-pop="1.35" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-pop="1.6" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">How much the chosen star grows as it pops.</p>
+        <p class="hb-hint">选中的星星弹出时变大多少。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="300" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="180" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="110" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="300" aria-pressed="false">慢</button>
+          <button type="button" data-ms="180" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="110" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly each star fills with color.</p>
+        <p class="hb-hint">每颗星星填满颜色有多快。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Allows half stars</span><input class="hb-switch" type="checkbox" role="switch" id="half-tog" autocomplete="off"></label>
-        <p class="hb-hint">The left half of a star gives half a point.</p>
+        <label class="hb-switch-row"><span>允许半星</span><input class="hb-switch" type="checkbox" role="switch" id="half-tog" autocomplete="off"></label>
+        <p class="hb-hint">星星的左半边给半分。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="count-lbl">Number of stars</p>
+          <p class="hb-setting-name" id="count-lbl">星星数量</p>
           <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
-            <button type="button" data-n="3" aria-pressed="false">Three</button>
-            <button type="button" data-n="5" class="on" aria-pressed="true">Five</button>
-            <button type="button" data-n="10" aria-pressed="false">Ten</button>
+            <button type="button" data-n="3" aria-pressed="false">三个</button>
+            <button type="button" data-n="5" class="on" aria-pressed="true">五个</button>
+            <button type="button" data-n="10" aria-pressed="false">十个</button>
           </div>
-          <p class="hb-hint">Five is the usual scale; ten gives finer steps.</p>
+          <p class="hb-hint">五是常用的刻度；十可以分得更细。</p>
         </div>
       </div>
     </details>
@@ -193,10 +193,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a star rating to [the review or feedback form]. As the pointer moves along the row, fill the stars up to the one under it so the choice shows before it is made, and bring back the chosen rating when the pointer leaves. Clicking or tapping a star chooses that rating and makes the star pop: it grows briefly, dips a little below its size and settles. On touch screens, a finger dragged along the row previews too. Make the row one control that the arrow keys can change, and show the rating as a number as well, so it never depends on color alone. If the visitor has reduced motion turned on, fill the stars without the pop. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[评价或反馈表单]加上星级评分。指针沿着这排星星移动时，把星星填到它下面的那颗，这样选择在做出之前就能看到；指针离开时，恢复选中的评分。点击一颗星会选中那个评分，并让星星弹出：它短暂变大，稍微缩到比原来小一点，再落定。触屏上，手指沿着这排拖动也能预览。把这排做成一个方向键可以改变的控件，同时把评分显示为数字，这样它永远不只依赖颜色。如果访客开启了减弱动态效果，填满星星，不要弹出。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -216,9 +216,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Reviews</li><li>Surveys</li><li>Feedback forms</li><li>Media ratings</li></ul>
+      <ul class="hb-tags hb-good"><li>评价</li><li>问卷</li><li>反馈表单</li><li>媒体评分</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Precise scores</li></ul>
+      <ul class="hb-tags hb-avoid"><li>精确分数</li></ul>
     </div>
   </section>
 
@@ -273,7 +273,7 @@
     render(rating);
     valEl.textContent=rating.toFixed(1);
     rate.setAttribute('aria-valuenow',rating);
-    rate.setAttribute('aria-valuetext',rating+' out of '+count);
+    rate.setAttribute('aria-valuetext',rating+' / '+count);
     if(doPop&&rating>0){
       const star=rate.querySelector('.star[data-i="'+(Math.ceil(rating)-1)+'"]');
       if(star){star.classList.remove('pop');void star.offsetWidth;star.classList.add('pop')}
@@ -415,7 +415,7 @@
     if(best.low>=1e4){el.style.maxWidth='190px';const two=scan();if(two.low<best.low)best=two;else el.style.maxWidth=''}
     el.style.left=best.x+'px';el.style.top=best.y+'px';taken.push(best);return best.low;
   }
-  function words(){const ms=cssNum('--fill-dur')*(slowTog.checked?3:1);return ms<145?'a tenth of a second':ms<240?'a fifth of a second':ms<420?'a third of a second':ms<750?'half a second':'a second'}
+  function words(){const ms=cssNum('--fill-dur')*(slowTog.checked?3:1);return ms<145?'十分之一秒':ms<240?'五分之一秒':ms<420?'三分之一秒':ms<750?'半秒':'一秒'}
   function at(fr,v){const f=fr[Math.ceil(v)-1];return{x:f.x+f.w*(v%1?.25:.5),y:f.y+f.h/2}}
   // Draws the mode for what is happening now (nothing in Normal)
   function draw(){
@@ -449,9 +449,9 @@
       taken.push(m);if(!rm)taken.push(o);
     }
     const on={chosen:show('chosen',chosen,`Chosen: ${fmt(rating)}, shown again when you leave`),
-      pop:show('pop',chosen&&!rm,`Pops ${pop<1.25?'a little bigger':pop<1.5?'a third bigger':'over half again as big'} when chosen`),
-      pick:show('pick',true,half?"Each box's left half picks half a star":'Each dashed box picks one star'),
-      prev:show('prev',pointing&&sh>0,`Pointing here previews ${fmt(sh)}: stars fill to it${rm?' at once':', each in about '+words()}`)};
+      pop:show('pop',chosen&&!rm,`选中时弹出，${pop<1.25?'大一点':pop<1.5?'大三分之一':'大一半多'}`),
+      pick:show('pick',true,half?"每个框的左半边选半颗星":'每个虚线框选一颗星'),
+      prev:show('prev',pointing&&sh>0,`指向这里预览${fmt(sh)}：星星填到它${rm?'立刻':'，每颗大约'+words()+'填满'}`)};
     const part={chosen:m,pop:o,pick:all,prev:fr[Math.ceil(sh)-1]};
     const put=keys=>{const t=[...taken];return Math.max(0,...keys.filter(k=>on[k]).map(k=>spot(lbl[k],part[k],t)))};
     // the labels that do not follow the pointer go first, so they stay put while it moves; where its label then has no place close to its star, it goes first
@@ -460,7 +460,7 @@
   // The notes in the markup are for motion; under reduced motion the pop is left out of both
   const notes=[document.querySelector('[data-hb-for="inside"]'),document.querySelector('[data-hb-for="compare"]')];
   const NOTES=notes.map(n=>n.textContent),NOTES_RM=['Inside, each dashed box is the spot that picks a star: pointing previews the rating and clicking chooses it. Point along the stars, or press Show me.',
-    'Click only: nothing shows until you click; Previews and pops: the stars fill up to the pointer first, and the chosen one pops when motion is on. Point along the stars.'];
+    '只点一下: nothing shows until you click; 预览和弹出: the stars fill up to the pointer first, and the chosen one pops when motion is on. Point along the stars.'];
   function writeNotes(){notes.forEach((n,i)=>{const t=(RM.matches?NOTES_RM:NOTES)[i];if(n.textContent!==t)n.textContent=t})}
   writeNotes();RM.addEventListener('change',()=>{writeNotes();refresh()});
   build();

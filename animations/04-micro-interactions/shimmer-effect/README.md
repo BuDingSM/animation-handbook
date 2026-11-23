@@ -1,17 +1,17 @@
-# Shimmer Effect
+# 微光扫过效果
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/shimmer-effect/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/shimmer-effect/)
 
-## What it is
-A shimmer is a band of light that sweeps across gray placeholder shapes again and again while content loads. Where a pulse fades every block up and down together, a shimmer travels in one direction, so the placeholders look like content streaming in.
+## 它是什么
+微光是一条光带，在内容加载时一次又一次扫过灰色占位形状。脉冲让每个色块一起上下淡出，微光朝一个方向移动，所以占位符看起来像内容在流进来。
 
-## When to use it
-- Card and list skeleton loaders where the content streams from a server
-- Premium or branded loading experiences where skeleton pulse alone feels too plain
-- Any skeleton component where the motion direction matches the data source (left-to-right for left-aligned content)
+## 什么时候用
+- 内容从服务器流进来的卡片和列表骨架加载器
+- 高端或有品牌的加载体验，单靠骨架脉冲感觉太平淡
+- 任何骨架组件，运动方向和数据源匹配（左对齐的内容从左到右）
 
-## How it works
-A `::after` pseudo-element holding a translucent gradient covers each skeleton block, and its background position slides from one side to the other:
+## 工作原理
+一个装着半透明渐变的 `::after` 伪元素盖住每个骨架块，它的背景位置从一边滑到另一边：
 
 ```css
 :root {
@@ -44,26 +44,26 @@ A `::after` pseudo-element holding a translucent gradient covers each skeleton b
 }
 ```
 
-The `background-size: 200% 100%` and position animation gives more control over the highlight width than `translateX` alone. The tile is twice as wide as the block and its position travels four block widths per cycle, so the band crosses twice in each `--shim-dur`: every 0.75s at the default 1.5s.
+`background-size: 200% 100%` 和位置动画，比单独用 `translateX` 对高亮宽度有更多控制。贴片是块的两倍宽，它的位置每个周期走过四个块宽，所以每个 `--shim-dur` 里光带会穿过两次：默认 1.5 秒时每 0.75 秒一次。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How often the light crosses: slow every 1.2s, normal every 0.75s and fast every 0.45s; more often than about every 0.4s it feels frantic |
-| Brightness | Medium | How strong the band of light is: soft, medium and bright are 12%, 25% and 45% opacity at its center; soft is subtle, bright suits a branded screen |
-| Highlight angle | Upright | Upright sweeps a straight band; Slanted tilts it 25° and Diagonal 45°; keep one angle across the whole page |
-| Highlight color | White | White works on any placeholder; blue or gold suit branded screens |
+| 速度 | 普通 | 光多长时间穿过一次：慢是每 1.2 秒，普通每 0.75 秒，快是每 0.45 秒；比大约每 0.4 秒更频繁会感觉慌乱 |
+| 亮度 | 中等 | 光带有多强：柔和、中等和明亮在中心分别是 12%、25% 和 45% 的透明度；轻柔很微妙，明亮适合有品牌的屏幕 |
+| 高亮角度 | 竖直 | 竖直扫过一条直带；倾斜把它倾斜 25°，对角 45°；整页保持一个角度 |
+| 高亮颜色 | 白色 | 白色在任何占位符上都适用；蓝色或金色适合有品牌的屏幕 |
 
-## Production notes
-- **Single direction only**: multiple shimmer components sweeping in different directions simultaneously create visual chaos. All skeletons on a page should shimmer in the same direction.
-- **`overflow: hidden` required**: the shimmer pseudo-element extends beyond the card. Without overflow clipping, it bleeds into adjacent elements.
-- **Combining with pulse**: pick one — a pulse and a shimmer together are redundant and visually loud.
-- **Performance**: shimmer uses `background-position` animation rather than `transform`. While `transform` is typically preferred, background-position on a GPU-composited layer is acceptably performant. Alternatively, `translateX` with `will-change: transform` on the pseudo-element is the most performant approach.
-- **CSS-only**: no JavaScript required. The animation is infinite and stops automatically when the element is removed from DOM.
-- **React**: `react-loading-skeleton` includes shimmer. For custom components, the CSS pattern above is framework-agnostic.
+## 生产注意事项
+- **只用一个方向**：多个微光组件同时朝不同方向扫，会造成视觉混乱。一个页面上的所有骨架都应该朝同一个方向闪光。
+- **需要 `overflow: hidden`**：微光伪元素超出卡片。没有溢出裁剪，它会渗进相邻元素。
+- **和脉冲组合**：二选一——脉冲和微光一起是多余的，视觉上很吵。
+- **性能**：微光用 `background-position` 动画，而不是 `transform`。虽然 `transform` 通常更受青睐，但 GPU 合成图层上的 background-position 性能可以接受。或者，在伪元素上用 `translateX` 加 `will-change: transform`，是性能最好的做法。
+- **纯 CSS**：不需要 JavaScript。动画是无限的，元素从 DOM 里移除时自动停止。
+- **React**：`react-loading-skeleton` 包含微光。自定义组件时，上面的 CSS 模式和框架无关。
 
-## See also
-- [Skeleton Loader](../skeleton-loader/) — the placeholders pulse instead
-- [Loading Spinner](../loading-spinner/) — a spinner for waits of unknown length
-- [Progress Animation](../progress-animation/) — a bar that shows how much is done
-- [Animated Gradient Border](../gradient-border/) — a band of colors that runs around an edge instead of across
+## 另见
+- [骨架屏](../skeleton-loader/) — 占位符改为脉冲
+- [加载旋转指示](../loading-spinner/) — 用于不知道多长等待的旋转指示
+- [进度动画](../progress-animation/) — 显示完成了多少的横条
+- [渐变边框动画](../gradient-border/) — 一条色带绕着边缘跑，而不是横扫

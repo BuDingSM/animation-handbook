@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Error Shake — 动画手册</title>
-  <meta name="description" content="A field shakes side to side when the input is wrong. Best for sign-in forms.">
+  <title>错误抖动 — 动画手册</title>
+  <meta name="description" content="输入错误时，字段左右抖动。适合用在登录表单上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/error-shake/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Error Shake — 动画手册">
-  <meta property="og:description" content="A field shakes side to side when the input is wrong. Best for sign-in forms.">
+  <meta property="og:title" content="错误抖动 — 动画手册">
+  <meta property="og:description" content="输入错误时，字段左右抖动。适合用在登录表单上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/error-shake/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Error Shake — 动画手册">
-  <meta name="twitter:description" content="A field shakes side to side when the input is wrong. Best for sign-in forms.">
+  <meta name="twitter:title" content="错误抖动 — 动画手册">
+  <meta name="twitter:description" content="输入错误时，字段左右抖动。适合用在登录表单上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Error Shake", "name": "Error Shake", "description": "A field shakes side to side when the input is wrong. Best for sign-in forms.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/error-shake/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Error Shake"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "错误抖动", "name": "错误抖动", "description": "输入错误时，字段左右抖动。适合用在登录表单上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/error-shake/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 错误抖动"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--err:#f4515b;--ok:#3fb950;--shake-x:8px;--shake-dur:400ms;--shake-ease:cubic-bezier(.36,.07,.19,.97);--pose-k:-.857}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -108,20 +108,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../cursor-follower/" rel="prev" aria-label="上一个：Cursor Follower"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Cursor Follower</span></a><a href="../swipe-to-dismiss/" rel="next" aria-label="下一个：Swipe to Dismiss"><span><span class="hb-dir">下一个：</span>Swipe to Dismiss</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../cursor-follower/" rel="prev" aria-label="上一个：光标跟随"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>光标跟随</span></a><a href="../swipe-to-dismiss/" rel="next" aria-label="下一个：滑动删除"><span><span class="hb-dir">下一个：</span>滑动删除</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.21 · Micro-Interactions</p>
-    <h1>Error Shake</h1>
-    <p class="hb-lede">A field shakes side to side when the input is wrong. Best for sign-in forms.</p>
+    <p class="hb-cat">04.21 · 微交互</p>
+    <h1>错误抖动</h1>
+    <p class="hb-lede">输入错误时，字段左右抖动。适合用在登录表单上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Sign in with a wrong or empty password (the right one is letmein), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>用错误或空的密码登录（正确的密码是 letmein），或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -130,67 +130,67 @@
     </div>
     <div class="stage hb-dots">
       <form class="card" id="login" novalidate>
-        <p class="card-title">Sign in</p>
+        <p class="card-title">登录</p>
         <div class="field" id="field">
-          <label for="pw">Password</label>
+          <label for="pw">密码</label>
           <input type="password" id="pw" autocomplete="off" placeholder="••••••••">
           <span class="msg" id="msg" aria-hidden="true"></span>
         </div>
-        <button class="submit" type="submit">Sign in</button>
+        <button class="submit" type="submit">登录</button>
         <p class="sr-only" id="live" role="alert"></p>
       </form>
       <div class="trace" aria-hidden="true">
         <svg><path class="rest"/><path class="zig"/><circle class="dot" r="6"/></svg>
-        <span class="lbl rests" data-hb-caption>Where it rests</span>
-        <span class="lbl swings" data-hb-caption>Six swings, each smaller than the last</span>
-        <span class="lbl back" data-hb-caption>Back where it started after under half a second</span>
-        <span class="lbl wide" data-hb-caption>Drawn five times as wide as it moves</span>
+        <span class="lbl rests" data-hb-caption>它停着的地方</span>
+        <span class="lbl swings" data-hb-caption>六次摆动，每次都比上一次小</span>
+        <span class="lbl back" data-hb-caption>不到半秒后回到开始的地方</span>
+        <span class="lbl wide" data-hb-caption>画得比实际移动宽五倍</span>
       </div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Just turns red</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Shakes too</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>只变红</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>同时抖动</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the zig-zag is the field's path, drawn five times as wide: each swing is smaller than the last, and it ends where it started. Sign in with a wrong password, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Just turns red only changes the border and message, which is easy to miss; Shakes too also moves the field, which catches the eye. Sign in with a wrong password, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：锯齿线是字段的路径，画得比实际宽五倍：每次摆动比上一次小，最后回到开始的地方。用错误的密码登录，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>只变红只会改变边框和消息，很容易被忽略；同时抖动还会移动字段，吸引眼球。用错误的密码登录，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="dist-lbl">Shake distance</p>
+        <p class="hb-setting-name" id="dist-lbl">抖动距离</p>
         <div class="seg" id="dist-seg" role="group" aria-labelledby="dist-lbl">
-          <button type="button" data-x="4px" aria-pressed="false">Small</button>
-          <button type="button" data-x="8px" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-x="14px" aria-pressed="false">Large</button>
+          <button type="button" data-x="4px" aria-pressed="false">小</button>
+          <button type="button" data-x="8px" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-x="14px" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">How far the field swings left and right.</p>
+        <p class="hb-hint">字段左右摆动多远。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="swings-lbl">Number of swings</p>
+        <p class="hb-setting-name" id="swings-lbl">摆动次数</p>
         <div class="seg" id="swings-seg" role="group" aria-labelledby="swings-lbl">
-          <button type="button" data-n="4" aria-pressed="false">Few</button>
-          <button type="button" data-n="6" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-n="8" aria-pressed="false">Many</button>
+          <button type="button" data-n="4" aria-pressed="false">少</button>
+          <button type="button" data-n="6" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-n="8" aria-pressed="false">多</button>
         </div>
-        <p class="hb-hint">Four to six swings read as a head shake.</p>
+        <p class="hb-hint">四到六次摆动读起来像摇头。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="650" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="400" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="250" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="650" aria-pressed="false">慢</button>
+          <button type="button" data-ms="400" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="250" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the whole shake lasts.</p>
+        <p class="hb-hint">整个抖动持续多长时间。</p>
       </div>
     </div>
   </section>
@@ -198,10 +198,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add an error shake to [the form field that can be rejected, such as a password]. When the value is wrong or missing, move the field quickly left and right a few times, each swing smaller than the last, and end exactly where it started, like a head shaking no. Turn its border red and show a short message saying what went wrong, because movement and color alone do not explain the problem. Move only its horizontal position so the shake stays smooth, and restart the shake on every failed try. If the visitor has reduced motion turned on, skip the shake and keep the red border and the message. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[可能被拒绝的表单字段，比如密码]加上错误抖动。值错误或缺失时，让字段快速左右移动几次，每次摆动比上一次小，最后正好回到开始的地方，像摇头说不。把边框变成红色，并显示一条简短消息，说明哪里错了，因为光靠动作和颜色说不清问题。只移动它的水平位置，这样抖动才平滑；每次失败都重新抖动。如果访客开启了减弱动态效果，跳过抖动，保留红色边框和消息。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -221,9 +221,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Sign-in forms</li><li>Codes and PINs</li><li>Form fields</li></ul>
+      <ul class="hb-tags hb-good"><li>登录表单</li><li>验证码和 PIN 码</li><li>表单字段</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Whole pages</li><li>Warnings</li></ul>
+      <ul class="hb-tags hb-avoid"><li>整页</li><li>警告</li></ul>
     </div>
   </section>
 
@@ -297,11 +297,11 @@
     const v=input.value.trim();
     if(v===PASSWORD){
       clearState();
-      msg.textContent='Welcome back — signed in.';
+      msg.textContent='欢迎回来——已登录。';
       field.classList.add('ok');
       state();
     }else{
-      shake(v?'Incorrect password. Try again.':'Password is required.');
+      shake(v?'密码错误。请再试一次。':'请输入密码。');
       if(v)input.select();else input.focus();
     }
     say(msg.textContent);
@@ -333,7 +333,7 @@
     stopRun();
     toRest();
     input.value=DEMO_PASSWORD;
-    later(()=>shake('Incorrect password. Try again.'),0,400);
+    later(()=>shake('密码错误。请再试一次。'),0,400);
     later(clearField,dur,2000);
     state();
   });
@@ -365,25 +365,25 @@
   // See inside and Compare ------------------------------------------------------------------------------------------------
   const MAG=5;                  // See inside draws the field's path five times as wide as it moves
   const EASE=getComputedStyle(document.documentElement).getPropertyValue('--shake-ease').match(/[\d.]+/g).map(Number); // the shake's own curve
-  const NUMS={4:'Four',6:'Six',8:'Eight'};
-  const words=ms=>ms<=300?'a quarter of a second':ms<=450?'under half a second':ms<=700?'about two thirds of a second':ms<=900?'about three quarters of a second':ms<=1300?'just over a second':'about two seconds';
-  const POSED_MSG='Incorrect password. Try again.';
+  const NUMS={4:'四',6:'六',8:'八'};
+  const words=ms=>ms<=300?'四分之一秒':ms<=450?'不到半秒':ms<=700?'大约三分之二秒':ms<=900?'大约四分之三秒':ms<=1300?'刚过一秒':'大约两秒';
+  const POSED_MSG='密码错误。请再试一次。';
   const motionOk=!matchMedia('(prefers-reduced-motion:reduce)').matches;
   const trace=stage.querySelector('.trace'),svg=trace.querySelector('svg'),zig=svg.querySelector('.zig'),rest=svg.querySelector('.rest'),dot=svg.querySelector('.dot');
   const [tRests,tSwings,tBack,tWide]=trace.querySelectorAll('.lbl');
   const notes={inside:document.querySelector('[data-hb-for="inside"]'),compare:document.querySelector('[data-hb-for="compare"]')};
   const setNote=(el,t)=>{if(el.textContent!==t)el.textContent=t};
-  const STILL='Shown still, at the first swing: Just turns red stays in place; Shakes too is held away from its dashed outline, as it would be with motion on.';
-  const LIVE='With reduced motion on, neither half shakes, so Just turns red and Shakes too look alike: a wrong password shows only as a red border and a message.';
+  const STILL='Shown still, at the first swing: 只变红 stays in place; 同时抖动 is held away from its dashed outline, as it would be with motion on.';
+  const LIVE='With reduced motion on, neither half shakes, so 只变红 and 同时抖动 look alike: a wrong password shows only as a red border and a message.';
   if(!motionOk){
-    setNote(notes.inside,'Inside, shown still: the zig-zag is the path the field takes when motion is on, drawn five times as wide, each swing smaller than the last.');
+    setNote(notes.inside,'内部，静止展示：锯齿线是开启动态效果时字段走的路径，画得比实际宽五倍，每次摆动比上一次小。');
     setNote(notes.compare,STILL);
   }
   // Compare's first card: a copy that only turns red. No form, input, label link or alert, no ids, out of reach of the keyboard and
   // screen readers; state() makes it show what the real card shows (the dots as dots, the classes, the message).
   const twin=document.createElement('div');
   twin.className='card twin';twin.inert=true;twin.setAttribute('aria-hidden','true');
-  twin.innerHTML='<p class="card-title">Sign in</p><div class="field"><span class="lab">Password</span><span class="box"></span><span class="msg"></span></div><span class="submit">Sign in</span>';
+  twin.innerHTML='<p class="card-title">登录</p><div class="field"><span class="lab">密码</span><span class="box"></span><span class="msg"></span></div><span class="submit">登录</span>';
   form.before(twin);
   const tf=twin.querySelector('.field'),tb=twin.querySelector('.box'),tm=twin.querySelector('.msg');
   const ghost=document.createElement('span');
@@ -455,8 +455,8 @@
       el.style.top=t+'px';
     };
     const lay=short=>{
-      tSwings.textContent=NUMS[swings]+' swings, each smaller'+(short?'':' than the last');
-      tBack.textContent=(short?'Back at rest after ':'Back where it started after ')+words(dur*(slowTog.checked?3:1));
+      tSwings.textContent=NUMS[swings]+'次摆动，每次都比上一次小';
+      tBack.textContent=(short?'回到静止后':'回到开始的地方后')+words(dur*(slowTog.checked?3:1));
       park(tBack,hb=>h-hb);
       park(tSwings,hs=>Math.min(Math.max(y0+H*2/k-hs/2,y0-3),tBack.offsetTop-hs-3));
       return tSwings.offsetTop>=y0-3;

@@ -1,54 +1,54 @@
-# Before/After Slider
+# 前后对比滑块
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/before-after-slider/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/before-after-slider/)
 
-## What it is
-A before/after slider stacks two pictures of the same scene, such as a photo before and after an edit, and shows the top one only up to a dividing line. Dragging the line uncovers more of one picture and less of the other, so the eye can compare the same spot in both. Neither picture moves: only the line does.
+## 它是什么
+前后对比滑块把同一场景的两张图片叠在一起，比如一张照片编辑前和编辑后，只在一条分界线之前显示上面那张。拖动线可以露出更多一张、更少另一张，这样眼睛能对比同一个位置在两张图里的样子。两张图片都不动：动的只有线。
 
-## When to use it
-- Photo edits and retouching, the original beside the result
-- Website and app redesigns, the old screen against the new one
-- Renovations, restorations and cleanups
-- Product upgrades, such as a new screen or a better camera
-- Maps and aerial views of one place at two dates
+## 什么时候用
+- 照片编辑和修图，原图放在结果旁边
+- 网站和应用改版，旧界面对着新界面
+- 装修、修复和清理
+- 产品升级，比如新屏幕或更好的相机
+- 同一个地方两个日期的地图和航拍图
 
-## How it works
-Both pictures fill the same box. Before lies whole underneath. After sits in a window as big as the box, and one number from 0 to 1 says how much of it shows. The window slides with the line and the picture inside it slides back by the same amount, so it stays exactly over Before; all three moves are transforms, so a drag redraws nothing:
+## 工作原理
+两张图片填满同一个盒子。「之前」完整地躺在下面。「之后」放在一个和盒子一样大的窗口里，一个 0 到 1 的数字表示它显示多少。窗口随线滑动，里面的图片反向滑动同样的量，所以它正好盖在「之前」上面；这三处移动都是变换，所以拖动时什么都不用重绘：
 
 ```css
 .win      { overflow: hidden; transform: translateX(calc((var(--v) - 1) * 100%)); }
 .win .pic { transform: translateX(calc((1 - var(--v)) * 100%)); }
-.rail     { transform: translateX(calc(var(--v) * 100%)); }  /* the line and its handle */
+.rail     { transform: translateX(calc(var(--v) * 100%)); }  /* 线和它的手柄 */
 ```
 
-Pointer events turn the pointer's place into that number, with pointer capture so a drag keeps working outside the box:
+指针事件把指针的位置变成那个数字，并用指针捕获让拖动在盒子外面也能继续：
 
 ```js
 const r = front.getBoundingClientRect();
 const v = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
-for (const el of movers) el.style.setProperty('--v', v);  // the window, its picture and the line
+for (const el of movers) el.style.setProperty('--v', v);  // 窗口、里面的图片和线
 ```
 
-A press that does not move glides the line to it, eased by the time that passes. The handle is a slider whose value is read as "60% After": the arrow keys move it a twentieth, Page Up and Page Down a quarter, Home and End to the ends. With Left and right the pictures keep `touch-action: pan-y`, so an up-and-down swipe still scrolls the page; with Top and bottom only the handle starts a drag, for the same reason. The Before and After labels fade when the line comes over them. Under reduced motion the line jumps instead of gliding.
+没有移动的按压会让线滑动过去，按流逝的时间缓动。手柄是一个滑块，它的值读作“60% 之后”：方向键移动二十分之一，Page Up 和 Page Down 移动四分之一，Home 和 End 移到两端。左右分割时图片保持 `touch-action: pan-y`，这样上下滑动仍然能滚动页面；上下分割时只有手柄能开始拖动，也是同样的原因。线盖住「之前」和「之后」标签时，标签会淡出。减弱动态效果下，线会跳过去，而不是滑动过去。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Split | Left and right | Which way the line runs: left and right shows After to the left of an upright line, dragged anywhere on the pictures; top and bottom shows After below a level line, dragged by its handle only |
-| Handle | Knob | What there is to grab: knob is a round button with two arrows, bar a narrow bar along the line, line only the bare line, with nothing showing where to grab (the knob's fingertip-sized grab area stays, unseen, on the middle of the line) |
-| Shows labels | on | Before and After name each side from a corner, and each fades out when the line comes within a few pixels of it |
+| 分割方向 | 左右 | 线往哪个方向走：左右是在一条竖线左边显示「之后」，在图片任意处拖动；上下是在一条水平线下方显示「之后」，只能用手柄拖动 |
+| 手柄 | 旋钮 | 有什么可以抓：旋钮是带两个箭头的圆形按钮，横条是沿着线的一条窄条，仅线条是光秃秃的线，看不出哪里能抓（旋钮指尖大小的抓取区域仍然留在线的中间，只是看不见） |
+| 显示标签 | 开 | 「之前」和「之后」从角落标出各自的一边，线靠近到几像素内时各自淡出 |
 
-## Production notes
-- **Uncover, never resize.** Shrinking the top picture's width squeezes it, and changing width forces layout on every move. A sliding window with the picture slid back, or `clip-path: inset(0 calc((1 - var(--v)) * 100%) 0 0)` on the top picture, keeps both pictures still; clip-path is shorter to write but repaints the top picture on each move.
-- **Set the number where it is used.** A property that changes on every move and sits on a parent makes the browser restyle everything inside it, a picture drawn in SVG included. Set it on the parts that move instead, and register it with `@property --v { syntax: "<number>"; inherits: false; initial-value: 0.5; }` so it stays there; on this page that was the main cost of a drag on a slow processor.
-- **Same size, same framing.** Both pictures need exactly the same size and crop (`object-fit: cover` on both); a few pixels of offset reads as a wobble when the line moves.
-- **Phones.** `touch-action: pan-y` on the pictures leaves up-and-down scrolling to the browser. A finger that starts moving up and down is a scroll, so let go of it at once, or the line jumps to the finger before the browser takes over; a `pointercancel` means the browser took the gesture over, so stop the drag there.
-- **Accessibility.** Give the handle `role="slider"`, `aria-valuenow` and an `aria-valuetext` such as "60% After", handle the arrow, Page Up, Page Down, Home and End keys, and give the pictures their own alternative text.
-- **Libraries.** The img-comparison-slider web component, juxtapose.js and TwentyTwenty (jQuery) package the same idea; in an app, GSAP's Draggable or Framer Motion's `drag` can move the line.
-- **Reduced motion.** Let the line jump to a tap or a key press instead of gliding.
+## 生产注意事项
+- **只揭开，绝不调整大小。** 缩小上面那张图片的宽度会挤压它，而且改宽度会在每次移动时强制布局。用滑动窗口把里面的图片滑回去，或者在上面那张图片上用 `clip-path: inset(0 calc((1 - var(--v)) * 100%) 0 0)`，两张图片都能保持不动；clip-path 写起来更短，但每次移动都会重绘上面那张图片。
+- **数字设在用它的地方。** 一个每次移动都会变、又放在父元素上的属性，会让浏览器重新给里面所有东西定样式，包括用 SVG 画的图片。把它设在会动的部分上，并用 `@property --v { syntax: "<number>"; inherits: false; initial-value: 0.5; }` 注册它，让它留在那里；在这个页面上，这就是慢处理器上拖动的主要开销。
+- **同样大小，同样取景。** 两张图片必须大小和裁剪完全相同（两张都用 `object-fit: cover`）；线移动时几像素的偏移看起来就像抖动。
+- **手机。** 图片上的 `touch-action: pan-y` 把上下滚动留给浏览器。手指开始上下移动就是滚动，所以要立刻放开它，否则线会在浏览器接管之前跳到手指那里；`pointercancel` 表示浏览器接管了手势，所以要在那里停止拖动。
+- **无障碍。** 给手柄加上 `role="slider"`、`aria-valuenow` 和 `aria-valuetext`（比如“60% 之后”），处理方向键、Page Up、Page Down、Home 和 End 键，并给图片各自的替代文本。
+- **库。** img-comparison-slider Web 组件、juxtapose.js 和 TwentyTwenty（jQuery）打包了同样的想法；在应用里，GSAP 的 Draggable 或 Framer Motion 的 `drag` 可以移动线。
+- **减弱动态效果。** 轻点或按键时让线跳过去，而不是滑动过去。
 
-## See also
-- [Swipe to Dismiss](../swipe-to-dismiss/) — a drag that follows the finger and springs back
-- [Liquid Glass](../../06-3d-advanced/liquid-glass/) — a glass panel dragged over a picture, arrow keys too
-- [Clip-Path Reveal](../../02-entrance-and-exit/clip-path-reveal/) — a shape uncovers a picture once, by itself
-- [Magnifier Lens](../magnifier-lens/) — a lens follows the pointer and shows the picture up close
+## 另见
+- [滑动删除](../swipe-to-dismiss/) — 跟随手指拖动、又弹回来的拖动
+- [液态玻璃](../../06-3d-advanced/liquid-glass/) — 在图片上拖动的玻璃面板，也支持方向键
+- [剪裁路径揭示](../../02-entrance-and-exit/clip-path-reveal/) — 一个形状自己揭开一张图片
+- [放大镜](../magnifier-lens/) — 镜头跟随指针，近距离展示图片

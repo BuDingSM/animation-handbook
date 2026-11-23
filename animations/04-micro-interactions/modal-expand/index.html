@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modal Expand — 动画手册</title>
-  <meta name="description" content="A window grows out of the button you pressed. Best for detail views.">
+  <title>弹窗展开 — 动画手册</title>
+  <meta name="description" content="窗口从你按下的按钮处长出来。适合用在详情查看上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Modal Expand — 动画手册">
-  <meta property="og:description" content="A window grows out of the button you pressed. Best for detail views.">
+  <meta property="og:title" content="弹窗展开 — 动画手册">
+  <meta property="og:description" content="窗口从你按下的按钮处长出来。适合用在详情查看上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Modal Expand — 动画手册">
-  <meta name="twitter:description" content="A window grows out of the button you pressed. Best for detail views.">
+  <meta name="twitter:title" content="弹窗展开 — 动画手册">
+  <meta name="twitter:description" content="窗口从你按下的按钮处长出来。适合用在详情查看上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Modal Expand", "name": "Modal Expand", "description": "A window grows out of the button you pressed. Best for detail views.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Modal Expand"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "弹窗展开", "name": "弹窗展开", "description": "窗口从你按下的按钮处长出来。适合用在详情查看上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 弹窗展开"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--modal-dur:320ms;--modal-ease:cubic-bezier(.34,1.3,.64,1);--start-scale:0.1;--backdrop-dur:200ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -97,20 +97,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../drawer-slide/" rel="prev" aria-label="上一个：Drawer / Panel Slide"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Drawer / Panel Slide</span></a><a href="../accordion/" rel="next" aria-label="下一个：Accordion Open/Close"><span><span class="hb-dir">下一个：</span>Accordion Open/Close</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../drawer-slide/" rel="prev" aria-label="上一个：抽屉滑出"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>抽屉滑出</span></a><a href="../accordion/" rel="next" aria-label="下一个：手风琴展开/收起"><span><span class="hb-dir">下一个：</span>手风琴展开/收起</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.18 · Micro-Interactions</p>
-    <h1>Modal Expand</h1>
-    <p class="hb-lede">A window grows out of the button you pressed. Best for detail views.</p>
+    <p class="hb-cat">04.18 · 微交互</p>
+    <h1>弹窗展开</h1>
+    <p class="hb-lede">窗口从你按下的按钮处长出来。适合用在详情查看上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Press any of the five buttons and watch the window grow out of it, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>按五个按钮中的任意一个，看窗口从它里面长出来，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -121,89 +121,89 @@
       <div class="scene" id="scene">
         <div class="triggers">
           <div class="trigger-row">
-            <button class="trig-btn" type="button" data-label="Top Left" aria-label="Open from the top left">Open ↗</button>
-            <button class="trig-btn" type="button" data-label="Top Right" aria-label="Open from the top right">Open ↗</button>
+            <button class="trig-btn" type="button" data-label="Top Left" aria-label="从左上打开">打开 ↗</button>
+            <button class="trig-btn" type="button" data-label="Top Right" aria-label="从右上打开">打开 ↗</button>
           </div>
           <div class="trigger-row" style="justify-content:center">
-            <button class="trig-btn" type="button" data-label="Center">Open Center</button>
+            <button class="trig-btn" type="button" data-label="Center">打开中间</button>
           </div>
           <div class="trigger-row">
-            <button class="trig-btn" type="button" data-label="Bottom Left" aria-label="Open from the bottom left">Open ↗</button>
-            <button class="trig-btn" type="button" data-label="Bottom Right" aria-label="Open from the bottom right">Open ↗</button>
+            <button class="trig-btn" type="button" data-label="Bottom Left" aria-label="从左下打开">打开 ↗</button>
+            <button class="trig-btn" type="button" data-label="Bottom Right" aria-label="从右下打开">打开 ↗</button>
           </div>
         </div>
         <div class="modal-backdrop" id="backdrop" aria-hidden="true"></div>
         <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1" inert>
-          <div class="modal-title" id="modal-title">Confirm action</div>
-          <div class="modal-body">This window grew out of the button you pressed, so it feels connected to where it came from.</div>
+          <div class="modal-title" id="modal-title">确认操作</div>
+          <div class="modal-body">这个窗口从你按下的按钮处长出来，所以感觉和它的来源连在一起。</div>
           <div class="modal-actions">
-            <button class="modal-close" id="modal-close" type="button">Cancel</button>
-            <button class="modal-confirm" id="modal-confirm" type="button">Confirm</button>
+            <button class="modal-close" id="modal-close" type="button">取消</button>
+            <button class="modal-confirm" id="modal-confirm" type="button">确认</button>
           </div>
         </div>
         <div class="origin-dot" id="origin-dot" aria-hidden="true"></div>
       </div>
       <div class="band top" aria-hidden="true">
         <p class="cap" data-hb-caption><i class="sw sw-start"></i><span></span></p>
-        <p class="cap" data-hb-caption><i class="sw sw-ray"></i>Every corner moves out along a line<span class="more"> from the button</span></p>
+        <p class="cap" data-hb-caption><i class="sw sw-ray"></i>每个角都沿着一条线向外移动<span class="more"> 从按钮处</span></p>
       </div>
       <div class="band bot" aria-hidden="true">
-        <p class="cap" data-hb-caption><i class="sw sw-full"></i>Ends here, full size</p>
+        <p class="cap" data-hb-caption><i class="sw sw-full"></i>在这里结束，全尺寸</p>
         <p class="cap" data-hb-caption><i class="sw sw-grow"></i><span></span></p>
       </div>
-      <p class="cap half first" data-hb-caption aria-hidden="true">From the middle</p>
-      <p class="cap half second" data-hb-caption aria-hidden="true">From the button</p>
+      <p class="cap half first" data-hb-caption aria-hidden="true">从中间</p>
+      <p class="cap half second" data-hb-caption aria-hidden="true">从按钮</p>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the small box is where the window starts, at the button you pressed; every corner grows out along its line to the full window. Press any button, or Show me.</p>
-      <p data-hb-for="compare" hidden>From the middle: the window ignores which button you pressed; From the button: it grows out of the one you pressed and shrinks back into it. Press any button, or Show me.</p>
+      <p data-hb-for="inside" hidden>内部：小盒子是窗口开始的地方，就在你按下的按钮处；每个角都沿着自己的线长到完整的窗口。按任意按钮，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>从中间：窗口无视你按了哪个按钮；从按钮：它从你按下的那个按钮处长出来，再缩回它里面。按任意按钮，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="500" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="320" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="200" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="500" aria-pressed="false">慢</button>
+          <button type="button" data-ms="320" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="200" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the window takes to grow to full size.</p>
+        <p class="hb-hint">窗口长到全尺寸要花多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Starting size</p>
+        <p class="hb-setting-name" id="size-lbl">起始大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-scale="0.05" aria-pressed="false">Tiny</button>
-          <button type="button" data-scale="0.1" class="on" aria-pressed="true">Small</button>
-          <button type="button" data-scale="0.3" aria-pressed="false">Medium</button>
+          <button type="button" data-scale="0.05" aria-pressed="false">极小</button>
+          <button type="button" data-scale="0.1" class="on" aria-pressed="true">小</button>
+          <button type="button" data-scale="0.3" aria-pressed="false">中等</button>
         </div>
-        <p class="hb-hint">How small it is as it leaves the button.</p>
+        <p class="hb-hint">它离开按钮时有多小。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">手感</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="cubic-bezier(.34,1.3,.64,1)" class="on" aria-pressed="true">Springy</button>
-          <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-          <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+          <button type="button" data-ease="cubic-bezier(.34,1.3,.64,1)" class="on" aria-pressed="true">回弹</button>
+          <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+          <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
         </div>
-        <p class="hb-hint">Springy goes a little past full size, then settles.</p>
+        <p class="hb-hint">「回弹」会稍微超过全尺寸，再落定。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Marks where it grows from</span><input class="hb-switch" type="checkbox" role="switch" id="debug-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">A dot shows the point the window grows out of.</p>
+          <label class="hb-switch-row"><span>标记生长起点</span><input class="hb-switch" type="checkbox" role="switch" id="debug-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">一个圆点标出窗口从哪里长出来。</p>
         </div>
       </div>
     </details>
@@ -212,10 +212,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a modal that grows out of its button to [the button or card that opens a dialog or detail view]. When it is pressed, measure where that button sits and grow the modal from that spot to full size in the middle of the screen while the page behind it dims, so it clearly comes from what was pressed. Close it with its buttons, a tap on the dimmed page or the Escape key, and let it shrink back toward the same spot. Animate only its scale and opacity. Move keyboard focus into it, and back to the button when it closes. If the visitor has reduced motion turned on, show it at full size without growing. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[打开对话框或详情视图的按钮或卡片]加上从按钮处长出来的弹窗。按下时，量出那个按钮的位置，让弹窗从那个点长到屏幕中间的全尺寸，同时后面的页面变暗，这样它明显来自你按下的东西。用它的按钮、点一下变暗的页面或 Esc 键关掉它，让它向同一个点缩回去。只动画它的缩放和透明度。把键盘焦点移进去，关闭时再移回按钮。如果访客开启了减弱动态效果，直接以全尺寸显示，不要生长。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -235,9 +235,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Detail views</li><li>Confirmations</li><li>Quick forms</li><li>Action buttons</li></ul>
+      <ul class="hb-tags hb-good"><li>详情查看</li><li>确认操作</li><li>快捷表单</li><li>操作按钮</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Long content</li><li>Full pages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>长内容</li><li>整页</li></ul>
     </div>
   </section>
 
@@ -384,9 +384,9 @@
   // See inside: the window's full size as a dashed outline, its starting size as a small solid one at the growth point, and four
   // lines from that point through the small outline's corners to the full one's, all from the window's laid-out box, the measured
   // growth point and the starting size. The labels sit in two bands above and below the window and buttons.
-  const SIZE={0.05:'a twentieth',0.1:'a tenth',0.3:'a third'};
-  const FEEL={'cubic-bezier(.34,1.3,.64,1)':'a little past full size, then back','ease-out':'slowing to a stop','linear':'at one steady speed'};
-  const SECS={200:['a fifth of a second','just over half a second'],320:['about a third of a second','about a second'],500:['half a second','a second and a half']};
+  const SIZE={0.05:'二十分之一',0.1:'十分之一',0.3:'三分之一'};
+  const FEEL={'cubic-bezier(.34,1.3,.64,1)':'稍微超过全尺寸，再回来','ease-out':'慢慢停下','linear':'匀速'};
+  const SECS={200:['五分之一秒','刚过半秒'],320:['大约三分之一秒','大约一秒'],500:['半秒','一秒半']};
   const put=(el,x,y,w,h)=>Object.assign(el.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});
   // The window's full box shrunk toward a point by the starting size: where the window starts
   const startBox=(el,m,px,py)=>put(el,px+(m.offsetLeft-px)*startScale,py+(m.offsetTop-py)*startScale,m.offsetWidth*startScale,m.offsetHeight*startScale);
@@ -394,8 +394,8 @@
     const L=modal.offsetLeft,T=modal.offsetTop,W=modal.offsetWidth,H=modal.offsetHeight;
     put(fullOl,L,T,W,H);startBox(startOl,modal,gx,gy);
     rays.setAttribute('d',[[L,T],[L+W,T],[L,T+H],[L+W,T+H]].map(([x,y])=>`M${gx} ${gy}L${x} ${y}`).join(''));
-    say(capA.lastChild,`Starts here, ${SIZE[startScale]} of its size`);
-    say(capD.lastChild,`${motionOk?'Grows':'With motion on, it grows'} in ${SECS[dur][slowTog.checked?1:0]}, ${FEEL[ease]}`);
+    say(capA.lastChild,`从这里开始，是它大小的${SIZE[startScale]}`);
+    say(capD.lastChild,`${motionOk?'':'有动态效果时，'}用${SECS[dur][slowTog.checked?1:0]}长出来，${FEEL[ease]}`);
     const [near,far]=gy<=scene.clientHeight/2?[bandTop,bandBot]:[bandBot,bandTop];
     if(capA.parentNode!==near){near.append(capA,capB);far.append(capC,capD)}
     // The near labels line up under (or over) the growth point's side of the box
@@ -410,7 +410,7 @@
     for(const c of [capC,capB,capD,capA]){if(caps.every(fits))break;c.hidden=true}
   }
 
-  // Compare at rest: both windows a tenth of a second into the same press of Top Right, as far grown and faded as Feel and Speed
+  // Compare at rest: both windows 十分之一秒 into the same press of Top Right, as far grown and faded as Feel and Speed
   // put them then: paused animations held at that moment (so Slow motion leaves them be), cancelled when a press lifts the picture.
   // The real window is pulled toward that button, the copy grows from its middle; each half outlines its starting size.
   let held=[];

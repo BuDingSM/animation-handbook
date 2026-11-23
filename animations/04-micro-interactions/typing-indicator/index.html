@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Typing Indicator — 动画手册</title>
-  <meta name="description" content="Three dots in a chat bubble move in turn while someone types. Best for chat apps.">
+  <title>正在输入指示 — 动画手册</title>
+  <meta name="description" content="聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/typing-indicator/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Typing Indicator — 动画手册">
-  <meta property="og:description" content="Three dots in a chat bubble move in turn while someone types. Best for chat apps.">
+  <meta property="og:title" content="正在输入指示 — 动画手册">
+  <meta property="og:description" content="聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/typing-indicator/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Typing Indicator — 动画手册">
-  <meta name="twitter:description" content="Three dots in a chat bubble move in turn while someone types. Best for chat apps.">
+  <meta name="twitter:title" content="正在输入指示 — 动画手册">
+  <meta name="twitter:description" content="聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Typing Indicator", "name": "Typing Indicator", "description": "Three dots in a chat bubble move in turn while someone types. Best for chat apps.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/typing-indicator/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Typing Indicator"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "正在输入指示", "name": "正在输入指示", "description": "聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/typing-indicator/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 正在输入指示"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--in:#2a2a31;--dot:#b9b9c2;--dur:1200ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -110,20 +110,20 @@
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../rolling-numbers/" rel="prev" aria-label="上一个：Rolling Numbers"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Rolling Numbers</span></a><a href="../hold-to-confirm/" rel="next" aria-label="下一个：Hold to Confirm"><span><span class="hb-dir">下一个：</span>Hold to Confirm</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../rolling-numbers/" rel="prev" aria-label="上一个：数字滚动"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>数字滚动</span></a><a href="../hold-to-confirm/" rel="next" aria-label="下一个：长按确认"><span><span class="hb-dir">下一个：</span>长按确认</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.35 · Micro-Interactions</p>
-    <h1>Typing Indicator</h1>
-    <p class="hb-lede">Three dots in a chat bubble move in turn while someone types. Best for chat apps.</p>
+    <p class="hb-cat">04.35 · 微交互</p>
+    <h1>正在输入指示</h1>
+    <p class="hb-lede">聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">看效果</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each dot take its turn.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己在动。按「暂停」仔细看，或打开「慢动作」看清每个圆点轮流跳动。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -131,11 +131,11 @@
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
-      <div class="chat" role="group" aria-label="Chat with Maya">
-        <div class="head"><span class="avatar" aria-hidden="true">M</span><p class="who">Maya<span class="state">typing…</span></p></div>
-        <p class="msg in">Are you free on Saturday?</p>
-        <p class="msg out">Yes! What's the plan?</p>
-        <div class="msg in typing" id="bubble" role="img" aria-label="Maya is typing"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+      <div class="chat" role="group" aria-label="和玛雅聊天">
+        <div class="head"><span class="avatar" aria-hidden="true">M</span><p class="who">玛雅<span class="state">正在输入…</span></p></div>
+        <p class="msg in">周六有空吗？</p>
+        <p class="msg out">有！什么安排？</p>
+        <div class="msg in typing" id="bubble" role="img" aria-label="玛雅正在输入"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
       </div>
     </div>
     <div class="hb-player">
@@ -143,44 +143,44 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each row is one dot's round: all three dots run the same round, each starting a little after the one before, so they move in turn.</p>
-      <p data-hb-for="compare" hidden>All at once: the three dots move together and read as a blink. One after another: each starts a little later, so they read as someone typing.</p>
+      <p data-hb-for="inside" hidden>内部：每一行是一个圆点的一轮：三个圆点跑的是同一轮，每个比前一个晚一点开始，所以它们轮流移动。</p>
+      <p data-hb-for="compare" hidden>同时：三个圆点一起移动，读起来像眨眼。一个接一个：每个晚一点开始，所以读起来像有人在输入。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="style-lbl">How the dots move</p>
+        <p class="hb-setting-name" id="style-lbl">圆点移动方式</p>
         <div class="seg" id="style-seg" role="group" aria-labelledby="style-lbl">
-          <button type="button" data-style="bounce" class="on" aria-pressed="true">Bounce</button>
-          <button type="button" data-style="fade" aria-pressed="false">Fade</button>
-          <button type="button" data-style="wave" aria-pressed="false">Wave</button>
+          <button type="button" data-style="bounce" class="on" aria-pressed="true">弹跳</button>
+          <button type="button" data-style="fade" aria-pressed="false">淡入淡出</button>
+          <button type="button" data-style="wave" aria-pressed="false">波浪</button>
         </div>
-        <p class="hb-hint">Bounce hops each dot and rests; fade brightens them; wave never stops rising and falling.</p>
+        <p class="hb-hint">「弹跳」让每个圆点跳一下再停；「淡入淡出」让它们变亮；「波浪」不停地起伏。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="1200" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="800" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="1200" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="800" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long one round of the three dots takes. Fast can look impatient.</p>
+        <p class="hb-hint">三个圆点一轮要花多长时间。太快会显得不耐烦。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="color-lbl">Bubble color</p>
+        <p class="hb-setting-name" id="color-lbl">气泡颜色</p>
         <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-          <button type="button" class="on" aria-pressed="true" aria-label="Gray" data-c="#2a2a31" data-dot="#b9b9c2" style="background:#2a2a31"></button>
-          <button type="button" aria-pressed="false" aria-label="Blue" data-c="#2f62d8" data-dot="#ffffff" style="background:#2f62d8"></button>
-          <button type="button" aria-pressed="false" aria-label="Green" data-c="#1f7a45" data-dot="#ffffff" style="background:#1f7a45"></button>
-          <button type="button" aria-pressed="false" aria-label="Purple" data-c="#6b46c1" data-dot="#ffffff" style="background:#6b46c1"></button>
+          <button type="button" class="on" aria-pressed="true" aria-label="灰色" data-c="#2a2a31" data-dot="#b9b9c2" style="background:#2a2a31"></button>
+          <button type="button" aria-pressed="false" aria-label="蓝色" data-c="#2f62d8" data-dot="#ffffff" style="background:#2f62d8"></button>
+          <button type="button" aria-pressed="false" aria-label="绿色" data-c="#1f7a45" data-dot="#ffffff" style="background:#1f7a45"></button>
+          <button type="button" aria-pressed="false" aria-label="紫色" data-c="#6b46c1" data-dot="#ffffff" style="background:#6b46c1"></button>
         </div>
-        <p class="hb-hint">The other person's bubbles; the dots change with them so they stay easy to see.</p>
+        <p class="hb-hint">对方的气泡；圆点随它们变化，保持容易看见。</p>
       </div>
     </div>
   </section>
@@ -188,10 +188,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a typing indicator to [the chat or comment thread where replies arrive]. While the other person is typing, show a small bubble on their side of the conversation with three dots that move one after another in a steady loop, so it reads as someone writing right now. Show it only while they are really typing, hide it after a few quiet seconds, and when their message arrives, put the message where the bubble was. Animate only the dots, never the bubble's size, so it stays smooth, and give screen readers a short text that says who is typing. If the visitor has reduced motion turned on, keep the dots in place and only let them brighten in turn. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[回复会到来的聊天或评论串]加上正在输入指示。对方输入时，在对话里他那一边显示一个小气泡，里面三个圆点一个接一个稳定循环地移动，这样读起来像有人正在写字。只在对方真的输入时显示它，安静几秒后藏起来；对方的消息到来时，把消息放在气泡原来的地方。只动画圆点，永远不要动画气泡的大小，保持流畅；给读屏软件一段简短文字，说谁在输入。如果访客开启了减弱动态效果，让圆点待在原地，只轮流变亮。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -211,9 +211,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Chat apps</li><li>Support chat</li><li>AI assistants</li><li>Comment threads</li></ul>
+      <ul class="hb-tags hb-good"><li>聊天应用</li><li>客服聊天</li><li>AI 助手</li><li>评论串</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Long waits</li><li>Replies that are not live</li></ul>
+      <ul class="hb-tags hb-avoid"><li>长时间等待</li><li>非实时的回复</li></ul>
     </div>
   </section>
 
@@ -240,7 +240,7 @@
   const SHIFT=[...bubble.children].map(d=>Math.round(parseFloat(getComputedStyle(d).animationDelay)*1000/roundMs()*100));
   const copy=bubble.cloneNode(true);
   ['id','role','aria-label'].forEach(a=>copy.removeAttribute(a));
-  const half=make('div','ti-half ti-all',[cap('ti-name','All at once'),copy]);
+  const half=make('div','ti-half ti-all',[cap('ti-name','同时'),copy]);
   const rows=[0,1,2].map(n=>{
     const area=shape('path',{class:'ti-area'}),line=shape('path',{class:'ti-cur'});
     const pic=shape('svg',{viewBox:'0 0 100 20',preserveAspectRatio:'none'});
@@ -252,10 +252,10 @@
   const round=cap('ti-note ti-round'),rest=cap('ti-note ti-rest');
   const graph=make('div','ti-graph',[
     make('div','ti-plot',[...rows.map(r=>r.row),make('div','ti-over',[make('i','ti-band'),head])]),
-    make('div','ti-notes',[cap('ti-note','Same round, each dot a little later'),rest]),
+    make('div','ti-notes',[cap('ti-note','同一轮，每个圆点晚一点'),rest]),
     make('div','ti-bar',[round])]);
   [half,graph].forEach(e=>{e.setAttribute('aria-hidden','true');e.inert=true});
-  bubble.parentNode.append(cap('ti-name','One after another'));
+  bubble.parentNode.append(cap('ti-name','一个接一个'));
   stage.prepend(half);stage.append(graph);
 
   // The rows are the page's own dot, read off its running keyframes: a hidden dot with the same animation is held at 100 moments of
@@ -272,9 +272,9 @@
       r.line.setAttribute('d',d);r.area.setAttribute('d',d+'L100 20L0 20Z');
     });
   }
-  const ROUND={1800:['almost two seconds','over five seconds'],1200:['a little over a second','about three and a half seconds'],800:['under a second','about two and a half seconds']};
+  const ROUND={1800:['将近两秒','超过五秒'],1200:['一秒多一点','大约三秒半'],800:['不到一秒','大约两秒半']};
   function words(){
-    const a='One round: '+ROUND[dotMs][+slowTog.checked],b=style==='wave'?'No rest: always moving':'All three rest here';
+    const a='一轮：'+ROUND[dotMs][+slowTog.checked],b=style==='wave'?'不停：一直在动':'三个都在这里停下';
     if(round.textContent!==a)round.textContent=a;
     if(rest.textContent!==b)rest.textContent=b;
     graph.classList.toggle('ti-wave',style==='wave');
@@ -305,7 +305,7 @@
   matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',follow);
   drawRows();words();
 
-  const NAME={normal:'Maya is typing',inside:"Maya is typing, shown with a graph of each dot's round",compare:'Maya is typing, beside dots that move all at once'};
+  const NAME={normal:'玛雅正在输入',inside:"玛雅正在输入，用每个圆点一轮的图表展示",compare:'玛雅正在输入，旁边是同时移动的圆点'};
   document.addEventListener('hb:mode',e=>{
     bubble.setAttribute('aria-label',NAME[e.detail.mode]);
     if(e.detail.mode!=='normal')follow();

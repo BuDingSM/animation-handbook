@@ -1,18 +1,18 @@
-# Modal Expand
+# 弹窗展开
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/)
 
-## What it is
-Modal expand makes a dialog grow out of the button that opened it. The page measures where that button is and grows the window from that exact spot to its full size in the middle of the screen, so it is clear where the window came from and where it goes back to when it closes.
+## 它是什么
+弹窗展开让对话框从打开它的按钮处长出来。页面量出那个按钮的位置，让窗口从那个精确的点长到屏幕中间的全尺寸，这样窗口来自哪里、关闭时回到哪里，都很清楚。
 
-## When to use it
-- Card actions where tapping a card opens a detail modal
-- Floating action buttons (FABs) that expand into a form or panel
-- Any trigger where the spatial relationship between button and modal matters for comprehension
-- App-like interfaces mimicking iOS long-press → context menu expansion
+## 什么时候用
+- 点按卡片打开详情弹窗的卡片操作
+- 展开成表单或面板的浮动操作按钮（FAB）
+- 任何按钮和弹窗之间的空间关系对理解很重要的触发器
+- 模仿 iOS 长按 → 上下文菜单展开的应用式界面
 
-## How it works
-On click, measure the button's position with `getBoundingClientRect()`, then compute the same point relative to the modal's own corner:
+## 工作原理
+点击时，用 `getBoundingClientRect()` 量出按钮的位置，再算出相对于弹窗自己角落的同一个点：
 
 ```js
 function openModal(btn) {
@@ -46,25 +46,25 @@ function openModal(btn) {
 .modal.open { transform: scale(1); opacity: 1; pointer-events: auto; }
 ```
 
-The springy easing (`cubic-bezier(.34, 1.3, .64, 1)`) causes a slight overshoot, giving the modal a satisfying "pop" as it settles into position.
+回弹缓动（`cubic-bezier(.34, 1.3, .64, 1)`）会造成一点过头，让弹窗在落定位置时有令人满意的“弹出”感。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long the window takes to grow: slow is 500ms, normal 320ms and fast 200ms |
-| Starting size | Small | How big the window is as it leaves the button: tiny is 5%, small 10% and medium 30% of its full size; too big and the growth is hard to see |
-| Feel | Springy | Springy goes a little past full size, then settles; Smooth slows to a stop; Even keeps one steady speed |
-| Marks where it grows from | on | Shows a small dot on the point the window grows out of |
+| 速度 | 普通 | 窗口长出来要花多长时间：慢是 500ms，普通 320ms，快是 200ms |
+| 起始大小 | 小 | 窗口离开按钮时有多大：极小是全尺寸的 5%，小是 10%，中等 30%；太大，生长就很难看出来 |
+| 手感 | 回弹 | 回弹稍微超过全尺寸，再落定；平滑慢慢停下；均匀保持一个稳定的速度 |
+| 标记生长起点 | 开 | 在窗口长出来的点上显示一个小圆点 |
 
-## Production notes
-- **Recalculate `transform-origin` on resize**: if the user resizes the window between opens, the cached origin is stale. Recalculate in the click handler, not at mount time.
-- **Dismiss animation**: reverse the effect on close — scale back down toward the origin point. This requires keeping track of which button was last used to open the modal.
-- **Focus management**: move focus into the modal on open (`modal.querySelector('button, input, [tabindex]')?.focus()`). Return focus to the trigger button on close.
-- **`<dialog>` element**: the native `<dialog>` element handles focus trapping and Escape key automatically. Animate it with `::backdrop` for the overlay and `@starting-style` (Chrome 117+) for entry animation without JavaScript class toggling.
-- **Framer Motion**: `<motion.div initial={{ scale: 0.1, originX: "50%", originY: "50%" }} animate={{ scale: 1 }} />`. For dynamic origins, pass computed values as motion props.
-- **GSAP**: `gsap.fromTo(modal, { scale: 0.1, transformOrigin: `${ox}px ${oy}px` }, { scale: 1, duration: 0.32, ease: "back.out(1.5)" })`.
+## 生产注意事项
+- **调整大小时重新计算 `transform-origin`**：如果用户在两次打开之间调整窗口大小，缓存的原点就过时了。在点击处理函数里重新计算，不要在挂载时算。
+- **关闭动画**：关闭时反向做这个效果——向原点缩回去。这需要记住上次用哪个按钮打开了弹窗。
+- **焦点管理**：打开时把焦点移进弹窗（`modal.querySelector('button, input, [tabindex]')?.focus()`）。关闭时把焦点还给触发按钮。
+- **`<dialog>` 元素**：原生的 `<dialog>` 元素自动处理焦点捕获和 Esc 键。用 `::backdrop` 做遮罩动画，用 `@starting-style`（Chrome 117+）做进入动画，不用 JavaScript 切换类。
+- **Framer Motion**：`<motion.div initial={{ scale: 0.1, originX: "50%", originY: "50%" }} animate={{ scale: 1 }} />`。动态原点时，把计算出的值作为 motion 属性传进去。
+- **GSAP**：`gsap.fromTo(modal, { scale: 0.1, transformOrigin: `${ox}px ${oy}px` }, { scale: 1, duration: 0.32, ease: "back.out(1.5)" })`。
 
-## See also
-- [Drawer / Panel Slide](../drawer-slide/) — a panel that slides in from an edge instead
-- [Tooltip Reveal](../tooltip-reveal/) — a small label for a short explanation
-- [FLIP Technique](../../03-page-transitions/flip-technique/) — the same measure-then-move idea for any layout change
+## 另见
+- [抽屉滑出](../drawer-slide/) — 从边缘滑入的面板
+- [提示气泡浮现](../tooltip-reveal/) — 简短说明的小标签
+- [FLIP 技巧](../../03-page-transitions/flip-technique/) — 同样的先量后移思路，用于任何布局变化

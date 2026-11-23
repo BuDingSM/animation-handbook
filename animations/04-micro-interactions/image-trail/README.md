@@ -1,20 +1,20 @@
-# Image Trail
+# 图片拖尾
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/image-trail/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/image-trail/)
 
-## What it is
-An image trail leaves a stream of pictures behind the pointer as it moves over a hero or a gallery. Each time the pointer has traveled a set distance, a new picture pops up on top of the others where the pointer is, stays for a moment, then leaves and fades away. A quick sweep leaves a long ribbon of pictures, and a pointer that holds still leaves none.
+## 它是什么
+图片拖尾会在指针滑过主视觉或画廊时，在它身后留下一串图片。指针每走过一段固定距离，一张新图片就弹到其他图片上面，出现在指针所在的地方，停留一会儿，然后离开、淡出。快速一扫会留下一条长长的图片带，静止不动的指针则什么都不会留下。
 
-## When to use it
-- Portfolio and photography heroes, where the trail gives a taste of the work before the visitor scrolls
-- Agency and studio landing pages that want a playful first screen
-- Lookbooks, collections and event pages with many pictures to hint at
-- 404 and "coming soon" pages, where a little play is welcome
+## 什么时候用
+- 作品集和摄影主视觉，拖尾在访客滚动之前先尝一口作品
+- 想要一个活泼首屏的代理和工作室落地页
+- 有很多图片要暗示的画册、合集和活动页面
+- 404 和“即将上线”页面，带一点玩味正合适
 
-## How it works
-The pictures are drawn once in the page: eight small SVG scenes in a hidden `<defs>`, each sky a CSS gradient. A fixed pool of 32 frames shows them in turn, each frame an `<i>` holding an `<svg>` whose `<use>` points at one scene. The frames are reused round-robin, so nothing is created while the pointer moves, and phones cycle through only 20 of them. A frame is reused only once its last picture has left: while the next frame in turn is still busy, no picture drops, so a fast pointer (or long stays) thins the trail out instead of cutting pictures short.
+## 工作原理
+图片在页面里只画一次：隐藏的 `<defs>` 里的八个小 SVG 场景，每个天空都是 CSS 渐变。一个 32 帧的固定池轮流显示它们，每帧是一个 `<i>`，里面放一个 `<svg>`，它的 `<use>` 指向其中一个场景。帧按轮询重复使用，所以指针移动时什么都不用创建；手机上只轮换其中 20 帧。只有上一张图片离开后，一帧才会被重复使用：当轮到的下一帧还在忙时，不会落下图片，所以快速的指针（或长停留）会让拖尾变稀，而不是把图片中途切断。
 
-A picture drops each time the pointer has gone the gap (a share of the hero's shorter side) from the last drop. The first point of a stroke only marks where it starts, so a still pointer leaves nothing. Here is the demo's `track()` without its reduced-motion case (below):
+指针每走过一个间距（主视觉较短边的占比），就落下一张图片。一次划动的第一点只标记它从哪里开始，所以静止的指针什么都不留下。下面是演示的 `track()`，去掉了它的减弱动态效果分支（见下文）：
 
 ```js
 function track(x, y) {
@@ -24,7 +24,7 @@ function track(x, y) {
 }
 ```
 
-A picture's whole life is one Web Animations call on `transform` and `opacity`. It glides in from the last drop at half size with a small overshoot, stays, then leaves; when the animation ends the frame is back at its resting `opacity: 0`, so nothing has to clean up after it. The newest frame gets the highest `z-index`, so it always lies on top:
+一张图片的整个生命是一次对 `transform` 和 `opacity` 的 Web Animations 调用。它从上一张落下的地方滑过来，半尺寸、带一点小过头，停留，然后离开；动画结束时，帧回到静止的 `opacity: 0`，所以事后什么都不用清理。最新的帧获得最高的 `z-index`，所以它总是在最上面：
 
 ```js
 el.style.zIndex = ++z;
@@ -36,32 +36,32 @@ el.animate([
 ], { duration: life });                                                       // life = stay + 500ms
 ```
 
-`at(x, y, s, r)` writes `translate(x, y) translate(-50%, -50%) rotate(r) scale(s)`: every keyframe has the same list of functions, so the browser interpolates each one, and the frame stays centered on its spot while it turns and scales. When the pictures fall, the last step eases in more steeply, like something dropping. The demo's Slow motion sets `playbackRate` to a third on every animation in the hero, which slows each picture's whole life.
+`at(x, y, s, r)` 写出 `translate(x, y) translate(-50%, -50%) rotate(r) scale(s)`：每个关键帧都有同样的函数列表，所以浏览器逐个插值，帧在旋转和缩放时始终以自己的位置为中心。图片下落时，最后一步的缓入更陡，像东西掉下去一样。演示的慢动作把主视觉里每个动画的 `playbackRate` 设为三分之一，这会放慢每张图片的整个生命。
 
-On touch screens the hero has `touch-action: none` and takes pointer capture, so a finger drops a picture where it touches and leaves the trail as it drags, instead of scrolling the page. Under reduced motion there is no trail: one picture fades in where the pointer is, without moving or growing, and fades out when the next one appears or its time is up. If reduced motion is switched on while pictures are out, every one of them fades where it is: a `change` listener on the media query does it, and Show me's sweep also reads the setting on every frame, so it stops there too.
+触屏上，主视觉有 `touch-action: none` 并取得指针捕获，所以手指在触摸的地方落下一张图片，拖动时留下拖尾，而不是滚动页面。减弱动态效果下没有拖尾：一张图片在指针所在的地方淡入，不移动、不变大，下一张出现或时间到了就淡出。如果减弱动态效果在图片还在外面时被打开，每一张都会在原地淡出：媒体查询上的一个 `change` 监听器负责这件事；演示一下的扫动也会在每一帧读取这个设置，所以它也会在那里停下。
 
-The keyboard leaves the trail too: Tab focuses a see-through layer over the hero, which drops a picture at an invisible pointer in its middle (or where the keys last left it), as a finger's touch does, and the arrow keys move that pointer a step at a time (6% of the hero's shorter side, three steps with Shift) through the same `track()` as the pointer, so the pictures keep the same spacing. Escape, or a Tab out of the hero, ends the stroke as the pointer leaving does.
+键盘也能留下拖尾：Tab 聚焦主视觉上的一层透明层，它在中间的无形指针处（或按键最后离开的地方）落下一张图片，就像手指的触摸一样；方向键一步一步移动那个指针（主视觉较短边的 6%，按住 Shift 是三步），走的是和指针一样的 `track()`，所以图片的间距保持一致。Esc，或 Tab 离开主视觉，会像指针离开一样结束这次划动。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How often a picture appears | Normal | How far the pointer goes between two pictures: often, normal and rarely are 0.12, 0.2 and 0.32 times the hero's shorter side, so the spacing looks the same on a phone and a laptop |
-| How long they stay | Normal | How long a picture shows before it starts to leave: 0.4, 0.8 or 1.6 seconds from when it appears, then half a second to leave; longer stays make a longer trail |
-| Picture size | Medium | Each picture is 0.26, 0.34 or 0.44 times the hero's shorter side across, in a 4:5 frame |
-| How they leave | Shrink | Shrink scales the picture down to a quarter as it fades; Fade only fades it; Fall drops it by 30% of the hero's height as it fades, turning it a little further |
-| Tilts the pictures | on | Each picture leans up to 8 degrees to one side, at random, and turns into place as it pops; off, they all stand straight |
+| 图片出现频率 | 普通 | 指针在两张图片之间走多远：频繁、普通和很少分别是主视觉较短边的 0.12、0.2 和 0.32 倍，所以间距在手机和笔记本上看起来一样 |
+| 停留时长 | 普通 | 一张图片在开始离开前显示多长时间：从出现起 0.4、0.8 或 1.6 秒，然后用半秒离开；停留越长，拖尾越长 |
+| 图片大小 | 中等 | 每张图片横跨主视觉较短边的 0.26、0.34 或 0.44 倍，放在 4:5 的框里 |
+| 离开方式 | 收缩 | 收缩在淡出时把图片缩到四分之一；淡入淡出只淡出；落下在淡出时让它掉下主视觉高度的 30%，再多转一点 |
+| 图片倾斜 | 开 | 每张图片随机地向一边倾斜最多 8 度，弹出时转到位置；关掉时，它们都站得笔直 |
 
-## Production notes
-- **Pool the frames**: creating and removing an element for every picture works, but it adds page work and garbage with every picture and can stutter on phones. A fixed pool reused in turn costs nothing while the pointer moves. Take a frame back only once its picture has left: when every frame is still out, let the trail wait, so it thins instead of pictures blinking away mid-stay.
-- **Distance, not time**: dropping a picture every N milliseconds piles pictures up under a slow pointer and spreads them out under a fast one. Dropping one every N pixels keeps the spacing even at any speed and leaves nothing behind a pointer that holds still.
-- **Real photos**: decode them before the first drop (`img.decode()`, or keep them in the pool from the start), or the first pass shows empty frames. Small, cropped files keep each frame's paint cheap.
-- **Keep the headline readable**: pictures cover what lies under them for a moment, so put the key text where the trail passes least, or above the trail with enough contrast against any picture.
-- **Touch**: phones cannot hover, so let a drag leave the trail (with `touch-action: none` on the hero only, so the page still scrolls around it) or drop a picture on each tap.
-- **Reduced motion**: one picture that fades in where the pointer is keeps the idea without the movement; the demo also turns its Show me into three fades in place.
-- **Libraries**: GSAP's `gsap.fromTo(el, { x: from.x, y: from.y, scale: .5, opacity: 0 }, { x, y, scale: 1, opacity: 1, ease: 'back.out' })` followed by a delayed `gsap.to(el, { scale: .25, opacity: 0 })` is the classic version of this effect; Framer Motion's `animate(el, keyframes, options)` takes keyframes like the demo's.
+## 生产注意事项
+- **共用帧池**：每张图片创建一个再删掉一个元素也能用，但每张图片都会增加页面工作和垃圾，在手机上可能卡顿。一个轮流重复使用的固定池，在指针移动时什么都不花钱。只有图片离开后才收回一帧：当所有帧都还在外面时，让拖尾等一等，这样它会变稀，而不是让图片在停留中途闪没。
+- **按距离，不按时间**：每隔 N 毫秒落一张图片，会让图片在慢指针下堆起来，在快指针下散开。每隔 N 像素落一张，任何速度下间距都均匀，静止的指针身后什么都不会留下。
+- **真实照片**：在第一次落下之前先解码它们（`img.decode()`，或一开始就把它们放在池里），否则第一遍会显示空帧。小而裁剪过的文件，让每帧的绘制保持便宜。
+- **保持标题可读**：图片会暂时盖住下面的东西，所以把关键文字放在拖尾最少经过的地方，或放在拖尾上面，并和任何图片都有足够的对比度。
+- **触摸**：手机不能悬停，所以让拖动留下拖尾（只在主视觉上用 `touch-action: none`，这样页面在它周围仍能滚动），或每次点按落下一张图片。
+- **减弱动态效果**：一张在指针所在地方淡入的图片，不用移动也能保留这个想法；演示还把它的“演示一下”变成原地的三次淡入。
+- **库**：GSAP 的 `gsap.fromTo(el, { x: from.x, y: from.y, scale: .5, opacity: 0 }, { x, y, scale: 1, opacity: 1, ease: 'back.out' })`，然后延迟执行 `gsap.to(el, { scale: .25, opacity: 0 })`，是这个效果的经典版本；Framer Motion 的 `animate(el, keyframes, options)` 接受和演示一样的 keyframes。
 
-## See also
-- [Cursor Follower](../cursor-follower/) — a shape that follows the pointer itself
-- [Spotlight Hover Glow](../spotlight-hover/) — a soft light that follows the pointer over cards
-- [Image Distortion on Hover](../../06-3d-advanced/image-distortion-hover/) — a picture that ripples and bends under the pointer
-- [Heart / Like Burst](../heart-burst/) — small hearts that pop out and fade
+## 另见
+- [光标跟随](../cursor-follower/) — 一个跟随指针本身的形状
+- [聚光灯悬停辉光](../spotlight-hover/) — 柔和的光跟随指针，滑过卡片
+- [悬停图片扭曲](../../06-3d-advanced/image-distortion-hover/) — 指针下的图片会起伏、弯曲
+- [点赞爱心迸发](../heart-burst/) — 弹出又淡出的小爱心

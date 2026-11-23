@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Expanding Search — 动画手册</title>
-  <meta name="description" content="A search icon opens into a field, then closes when done. Best for toolbars.">
+  <title>搜索框展开 — 动画手册</title>
+  <meta name="description" content="搜索图标展开成输入框，用完后收起。适合用在工具栏上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/expanding-search/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Expanding Search — 动画手册">
-  <meta property="og:description" content="A search icon opens into a field, then closes when done. Best for toolbars.">
+  <meta property="og:title" content="搜索框展开 — 动画手册">
+  <meta property="og:description" content="搜索图标展开成输入框，用完后收起。适合用在工具栏上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/expanding-search/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Expanding Search — 动画手册">
-  <meta name="twitter:description" content="A search icon opens into a field, then closes when done. Best for toolbars.">
+  <meta name="twitter:title" content="搜索框展开 — 动画手册">
+  <meta name="twitter:description" content="搜索图标展开成输入框，用完后收起。适合用在工具栏上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Expanding Search", "name": "Expanding Search", "description": "A search icon opens into a field, then closes when done. Best for toolbars.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/expanding-search/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Expanding Search"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "搜索框展开", "name": "搜索框展开", "description": "搜索图标展开成输入框，用完后收起。适合用在工具栏上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/expanding-search/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 搜索框展开"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-dim:#adadb2;--ui-muted:#9a9aa2;--bar-bg:#16161b;--field:#232329;--dur:280ms;--ease:cubic-bezier(.22,1,.36,1)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -125,20 +125,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../hold-to-confirm/" rel="prev" aria-label="上一个：Hold to Confirm"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Hold to Confirm</span></a><a href="../button-loading-states/" rel="next" aria-label="下一个：Button Loading States"><span><span class="hb-dir">下一个：</span>Button Loading States</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../hold-to-confirm/" rel="prev" aria-label="上一个：长按确认"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>长按确认</span></a><a href="../button-loading-states/" rel="next" aria-label="下一个：按钮加载状态"><span><span class="hb-dir">下一个：</span>按钮加载状态</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.37 · Micro-Interactions</p>
-    <h1>Expanding Search</h1>
-    <p class="hb-lede">A search icon opens into a field, then closes when done. Best for toolbars.</p>
+    <p class="hb-cat">04.37 · 微交互</p>
+    <h1>搜索框展开</h1>
+    <p class="hb-lede">搜索图标展开成输入框，用完后收起。适合用在工具栏上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">点击试试</h2><p>Click or tap the search icon and type, then close it with Escape, × or a click outside, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击搜索图标并输入，再用 Esc、× 或点击外面关掉它，或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -147,19 +147,19 @@
     </div>
     <div class="stage hb-dots">
       <div class="half" id="half">
-        <span class="cap hname" data-hb-caption aria-hidden="true">Grows from icon</span>
+        <span class="cap hname" data-hb-caption aria-hidden="true">从图标长出</span>
         <div class="app" id="app">
           <div class="bar" id="bar">
             <span class="brand"><i aria-hidden="true"></i><span>Acme</span></span>
             <div class="tools">
-              <div class="links" aria-hidden="true"><span>Docs</span><span>Blog</span><span>Pricing</span></div>
+              <div class="links" aria-hidden="true"><span>文档</span><span>博客</span><span>定价</span></div>
               <span class="rim" aria-hidden="true"></span>
-              <button class="sbtn" id="sbtn" type="button" aria-label="Search" aria-expanded="false" aria-controls="sfield"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+              <button class="sbtn" id="sbtn" type="button" aria-label="搜索" aria-expanded="false" aria-controls="sfield"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
               <div class="sfield" id="sfield" role="search">
                 <span class="glass" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>
-                <label class="sr-only" for="q">Search the docs</label>
+                <label class="sr-only" for="q">搜索文档</label>
                 <input id="q" type="search" placeholder="Search docs…" autocomplete="off" spellcheck="false">
-                <button class="sclose" id="sclose" type="button" aria-label="Close search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+                <button class="sclose" id="sclose" type="button" aria-label="关闭搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
               </div>
               <span class="dash" aria-hidden="true"></span><span class="arr" aria-hidden="true"></span>
             </div>
@@ -167,10 +167,10 @@
           <div class="page" aria-hidden="true"><b></b><i></i><i></i><i style="width:62%"></i></div>
         </div>
       </div>
-      <span class="cap tag tag-a up" id="tag-a" data-hb-caption aria-hidden="true">The search field, always full size</span>
-      <span class="cap tag tag-b up" id="tag-b" data-hb-caption aria-hidden="true">Only this part shows</span>
-      <span class="cap tag tag-c" id="tag-c" data-hb-caption aria-hidden="true">Opens this way in about a quarter of a second</span>
-      <span class="cap tag tag-d" id="tag-d" data-hb-caption aria-hidden="true">Closes when you click away</span>
+      <span class="cap tag tag-a up" id="tag-a" data-hb-caption aria-hidden="true">搜索框，始终是完整大小</span>
+      <span class="cap tag tag-b up" id="tag-b" data-hb-caption aria-hidden="true">只有这部分会显示</span>
+      <span class="cap tag tag-c" id="tag-c" data-hb-caption aria-hidden="true">大约四分之一秒内这样打开</span>
+      <span class="cap tag tag-d" id="tag-d" data-hb-caption aria-hidden="true">点击别处时关闭</span>
     </div>
     <div class="hb-player">
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
@@ -178,37 +178,37 @@
       <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed box is the search field, always full size; only the outlined part shows, and that part grows from the icon over the links. Click the icon, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Opens at once: the field simply appears; Grows from icon: the field is uncovered from the icon outward while the links fade. Click the icon, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：虚线框就是搜索框，始终是完整大小；只有描边部分会显示，那部分从图标处长出来，盖住链接。点击图标，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>立刻打开：输入框直接出现；从图标长出：输入框从图标向外揭开，同时链接淡出。点击图标，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="side-lbl">Opens toward</p>
+        <p class="hb-setting-name" id="side-lbl">展开方向</p>
         <div class="seg" id="side-seg" role="group" aria-labelledby="side-lbl">
-          <button type="button" data-side="left" class="on" aria-pressed="true">Left</button>
-          <button type="button" data-side="right" aria-pressed="false">Right</button>
+          <button type="button" data-side="left" class="on" aria-pressed="true">左</button>
+          <button type="button" data-side="right" aria-pressed="false">右</button>
         </div>
-        <p class="hb-hint">Which way the field grows out of the icon.</p>
+        <p class="hb-hint">输入框从图标向哪个方向长出来。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="450" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="280" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="160" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="450" aria-pressed="false">慢</button>
+          <button type="button" data-ms="280" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="160" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly the field opens and closes.</p>
+        <p class="hb-hint">输入框打开和关闭有多快。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Closes when you leave it</span><input class="hb-switch" type="checkbox" role="switch" id="leave-tog" checked autocomplete="off"></label>
-        <p class="hb-hint">Off keeps it open until Escape or the close button.</p>
+        <label class="hb-switch-row"><span>离开时收起</span><input class="hb-switch" type="checkbox" role="switch" id="leave-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">关闭时，它会一直开着，直到按 Esc 或关闭按钮。</p>
       </div>
     </div>
   </section>
@@ -216,10 +216,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add an expanding search to [the toolbar or header where search should sit]. Show only a search icon until it is pressed; then open a search field out of the icon, over the items beside it, and put the text cursor in it. Reveal the field with a clip or a scale from the icon's side, never by animating its width, so nothing around it moves. Escape or a close button closes it and gives the focus back to the icon, and a closed field stays out of the Tab order. Make the icon a real button with a label. If the visitor has reduced motion turned on, open and close it at once. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[搜索应该待着的工具栏或页眉]加上展开搜索。按下之前只显示一个搜索图标；按下后，搜索框从图标处展开，盖住旁边的项目，并把文字光标放进去。用裁剪或从图标那侧缩放来显示输入框，绝不要给宽度做动画，这样周围的东西都不会移动。Esc 或关闭按钮会关掉它，并把焦点还给图标；关掉的输入框不在 Tab 顺序里。让图标成为带标签的真正按钮。如果访客开启了减弱动态效果，立刻打开和关闭它。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -239,9 +239,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Toolbars</li><li>Mobile headers</li><li>Docs sites</li><li>Dashboards</li></ul>
+      <ul class="hb-tags hb-good"><li>工具栏</li><li>移动端页眉</li><li>文档站</li><li>仪表盘</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Sites where search comes first</li></ul>
+      <ul class="hb-tags hb-avoid"><li>搜索优先的网站</li></ul>
     </div>
   </section>
 
@@ -349,7 +349,7 @@
   }
   const twin=document.createElement('div'),twinApp=dupe(app),twinBar=twinApp.querySelector('.bar'),twinClose=twinApp.querySelector('.sclose');
   twin.className='half twin';twin.inert=true;twin.setAttribute('aria-hidden','true');
-  twin.innerHTML='<span class="cap hname" data-hb-caption>Opens at once</span>';
+  twin.innerHTML='<span class="cap hname" data-hb-caption>立刻打开</span>';
   twin.append(twinApp);stage.prepend(twin);
   // The overlay on the real toolbar: a copy of the field, shown only while the pose stands
   const overlay=dupe(field);overlay.classList.add('pose');tools.insertBefore(overlay,sbtn);
@@ -401,8 +401,8 @@
   const DEF={inside:noteIn.textContent,compare:noteCmp.textContent};
   const RM={
     inside:'Inside, the dashed box is the search field, always full size, and only the outlined part shows; with reduced motion that part opens at once. Click the icon, or press Show me.',
-    still:'Shown still: Opens at once is already fully open; Grows from icon is caught part of the way, uncovered from the icon outward. Click the icon, or press Show me.',
-    live:'With reduced motion both open at once, so Grows from icon looks like Opens at once. Click the icon, or press Show me.'
+    still:'Shown still: 立刻打开 is already fully open; 从图标长出 is caught part of the way, uncovered from the icon outward. Click the icon, or press Show me.',
+    live:'With reduced motion both open at once, so 从图标长出 looks like 立刻打开. Click the icon, or press Show me.'
   };
   function put(el,t){if(el.textContent!==t)el.textContent=t}
   function notes(){
@@ -414,7 +414,7 @@
   // ---- See inside: four labels around the toolbar, put where their parts are drawn. The field's dashed box, the rim and the arrow
   // are CSS in the toolbar; only the labels need measuring, again on a new size, a new font, a mode or a setting.
   const tags={a:$('tag-a'),b:$('tag-b'),c:$('tag-c'),d:$('tag-d')};
-  const SAY=[[160,'about a sixth of a second'],[280,'about a quarter of a second'],[450,'almost half a second'],[480,'about half a second'],[840,'under a second'],[1350,'almost a second and a half']];
+  const SAY=[[160,'大约六分之一秒'],[280,'大约四分之一秒'],[450,'将近半秒'],[480,'大约半秒'],[840,'不到一秒'],[1350,'将近一秒半']];
   const spoken=ms=>SAY.reduce((a,b)=>Math.abs(b[0]-ms)<Math.abs(a[0]-ms)?b:a)[1];
   function fit(t,cap){
     t.style.cssText=`left:0;top:0;width:auto;max-width:${cap}px`;
@@ -425,8 +425,8 @@
   function place(){
     app.style.marginTop='';
     if(mode!=='inside')return;
-    tags.c.textContent=reduced.matches?'Opens this way at once':'Opens this way in '+spoken(dur*(slowTog.checked?3:1));
-    tags.d.textContent=leaveTog.checked?'Closes when you click away':'Stays open until Escape or ×';
+    tags.c.textContent=reduced.matches?'Opens this way at once':'这样打开，用'+spoken(dur*(slowTog.checked?3:1));
+    tags.d.textContent=leaveTog.checked?'点击别处时关闭':'一直开着，直到按 Esc 或 ×';
     const W=stage.clientWidth,GAP=6,cap=Math.min(210,Math.floor((W-2*4-GAP)/2));
     const [wa,ha]=fit(tags.a,cap),[wb,hb]=fit(tags.b,cap),[wc,hc]=fit(tags.c,cap),[wd,hd]=fit(tags.d,cap);
     // The toolbar sits lower or higher so that the labels above and below it are centered in the box together

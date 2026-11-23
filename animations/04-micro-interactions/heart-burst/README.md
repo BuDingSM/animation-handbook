@@ -1,18 +1,18 @@
-# Heart / Like Burst
+# 点赞爱心迸发
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/heart-burst/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/heart-burst/)
 
-## What it is
-A like button that celebrates the moment you like something. The heart quickly squashes, overshoots and settles as it fills with color, while tiny hearts and dots burst out from its center and fade. Unliking just removes the color, with no celebration.
+## 它是什么
+一个点赞按钮，在你点赞的瞬间庆祝一下。爱心迅速压扁、过头、再落定，同时填满颜色；小爱心和圆点从它的中心迸出来，淡出。取消点赞只是去掉颜色，没有庆祝。
 
-## When to use it
-- Like / favorite / react buttons in feeds, galleries, and comment threads
-- Any single binary "positive" action worth a small dopamine reward
-- Save-to-collection or bookmark buttons where you want the save to feel earned
-- Not for destructive or neutral toggles — the celebration implies approval
+## 什么时候用
+- 信息流、画廊和评论区里的点赞 / 收藏 / 表情按钮
+- 任何一个值得一点小小多巴胺奖励的、单一的二元“积极”操作
+- 收藏或书签按钮，你想让保存的感觉来之不易
+- 不适合有破坏性或中性的开关——庆祝意味着赞同
 
-## How it works
-The heart itself is an inline SVG whose fill color transitions on a `.on` class, plus a keyframed pop for the overshoot. The burst is a particle system drawn on a `<canvas>` overlay stretched across the stage. On like, you spawn N particles at the heart's center, each with a random angle and velocity; every frame you advance them by the time that has passed, apply gravity and a little sideways drag, and decrement life until they fade out. Every step is multiplied by `k`, the time since the last frame measured in 60 Hz frames: 1 on a 60 Hz screen, 0.5 on a 120 Hz one and 2 on a 30 Hz one, so the burst lasts about three quarters of a second on all of them:
+## 工作原理
+爱心本身是一个内联 SVG，填充颜色随 `.on` 类过渡，再加一段关键帧弹出做过头效果。迸发是一个粒子系统，画在覆盖整个舞台的 `<canvas>` 上。点赞时，你在爱心的中心生成 N 个粒子，每个随机角度和速度；每一帧按过去的时间推进它们，施加重力和一点侧向阻力，生命值递减直到淡出。每一步都乘以 `k`，即按 60 Hz 帧衡量的、距离上一帧的时间：60 Hz 屏幕上是 1，120 Hz 上是 0.5，30 Hz 上是 2，所以迸发在所有屏幕上都持续大约四分之三秒：
 
 ```js
 const FRAME = 1000 / 60;   // one frame of a 60 Hz screen, in ms
@@ -44,28 +44,28 @@ function tick(ts) {
 }
 ```
 
-A burst's first frame counts as one 60 Hz frame, and a gap longer than 50ms (a tab coming back from the background) counts as 50ms, so nothing jumps. The demo also takes a step longer than 1.5 frames (as on a 30 Hz screen, or after a dropped frame) in two halves, so the arc stays close to the one a 60 Hz screen draws, and Slow motion multiplies `k` by a third.
+一次迸发的第一帧算作一帧 60 Hz 的帧，超过 50ms 的间隔（标签页从后台回来）算作 50ms，所以什么都不会跳。演示还把超过 1.5 帧的一步（比如在 30 Hz 屏幕上，或掉帧之后）分成两半走，这样弧线和 60 Hz 屏幕上画的保持接近；慢动作会把 `k` 乘以三分之一。
 
-The `-1` bias on initial `vy` makes the burst lean upward before gravity pulls it down. The pop is retriggered by removing and re-adding the animation class (`btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop')`) so repeated likes always re-fire.
+初始 `vy` 上的 `-1` 偏置，让迸发在重力把它拉下来之前先向上倾斜。弹出通过去掉再重新加上动画类来重新触发（`btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop')`），这样重复点赞总会重新触发。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Number of hearts | Some | How many pieces burst out: few is 10, some 18 and many 32; above about 40 it gets busy and costs frames |
-| How far they fly | Medium | How far the pieces travel before they fade: short, medium and far launch them at up to 300, 450 or 700px a second (at least half that), and they slow, fall and fade out over about three quarters of a second, the fastest ending about 150, 225 or 350px to the side of the heart |
+| 爱心数量 | 一些 | 迸出多少块碎片：少是 10 个，一些是 18 个，多是 32 个；超过大约 40 个会显得忙乱，还耗费帧 |
+| 飞多远 | 中等 | 碎片在淡出前飞多远：短、中、远分别以最高 300、450 或 700px 每秒的速度发射（至少一半），大约四分之三秒内减速、落下、淡出，最快的最后落在爱心侧面大约 150、225 或 350px 处 |
 
-## Production notes
-- **Canvas over DOM particles**: 18–40 short-lived DOM `<span>`s per tap creates layout/GC churn if the user spams the button. One canvas with an array of plain objects stays flat and cheap.
-- **Time, not frames**: scale every per-frame amount by the time since the last frame, and raise a drag factor to the same power (`0.98 ** k`). Without it a burst lasts half as long on a 120 Hz screen and twice as long on a 30 Hz phone, and anything timed around it, such as the demo's Show me, falls out of step.
-- **Idle the loop**: stop `requestAnimationFrame` when `particles.length === 0` and restart it on the next spawn. A permanently running rAF wastes battery for a control that fires occasionally.
-- **DPR scaling**: size the canvas backing store by `devicePixelRatio` (capped at ~2) and `ctx.setTransform(dpr,0,0,dpr,0,0)` so hearts stay crisp on retina without over-allocating on 3x phones.
-- **Reduced motion**: skip the pop and the burst entirely — just toggle the fill color. The state change must still be conveyed, only the celebration is dropped.
-- **Accessibility**: back the button with `aria-pressed` and toggle it with the state; the visual burst is decorative and should be `aria-hidden`.
-- **canvas-confetti**: for a drop-in radial burst, `confetti({ particleCount, spread, origin })` gives you the same physics without hand-rolling the loop.
-- **Framer Motion / Lottie**: Framer's `AnimatePresence` can drive DOM particles for small counts; many production apps instead ship a pre-rendered Lottie burst for pixel-consistent art across platforms.
+## 生产注意事项
+- **Canvas 而不是 DOM 粒子**：每次点按生成 18–40 个短命的 DOM `<span>`，用户连点时会产生布局/GC 抖动。一个 canvas 加一个普通对象数组，始终平稳又便宜。
+- **按时间，不按帧**：把每一帧的量按距离上一帧的时间缩放，阻力系数也要升到同样的幂（`0.98 ** k`）。没有它，迸发在 120 Hz 屏幕上只持续一半时间，在 30 Hz 手机上持续两倍，围绕它计时的东西，比如演示里的“演示一下”，都会错位。
+- **让循环闲下来**：`particles.length === 0` 时停掉 `requestAnimationFrame`，下一次生成时再启动。一个一直运行的 rAF，会给一个偶尔才触发的控件浪费电池。
+- **DPR 缩放**：按 `devicePixelRatio`（上限约 2）设置 canvas 后备存储的大小，再 `ctx.setTransform(dpr,0,0,dpr,0,0)`，这样爱心在视网膜屏上保持清晰，又不会在 3x 手机上过度分配。
+- **减弱动态效果**：完全跳过弹出和迸发——只切换填充颜色。状态变化仍然必须传达，只是庆祝被去掉。
+- **无障碍**：用 `aria-pressed` 支持按钮，并随状态切换它；视觉上的迸发是装饰性的，应该 `aria-hidden`。
+- **canvas-confetti**：想要现成的放射状迸发，`confetti({ particleCount, spread, origin })` 不用手写循环就能给你同样的物理效果。
+- **Framer Motion / Lottie**：Framer 的 `AnimatePresence` 可以在数量少时驱动 DOM 粒子；很多生产应用则会改用预渲染的 Lottie 迸发，让各平台的画面像素一致。
 
-## See also
-- [Button Press Scale](../button-press-scale/) — the squash and spring behind the heart's pop
-- [Notification Badge Pulse](../badge-pulse/) — a badge pulses to catch the eye
-- [Checkmark Draw](../checkmark-draw/) — success shown without a burst
-- [Click / Tap Ripple](../click-ripple/) — a calmer response from the spot you press
+## 另见
+- [按钮按压缩放](../button-press-scale/) — 爱心弹出背后的压扁和回弹
+- [通知徽标脉冲](../badge-pulse/) — 徽标脉冲，吸引注意
+- [对勾绘制](../checkmark-draw/) — 不用迸发的成功表示
+- [点击涟漪](../click-ripple/) — 从你按下的位置传来的、更平静的回应

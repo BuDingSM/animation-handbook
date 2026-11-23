@@ -1,49 +1,49 @@
-# Card Deck Swipe
+# 卡片组滑动
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/card-deck-swipe/)
+[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/card-deck-swipe/)
 
-## What it is
-A card deck swipe shows a pile of cards, such as profiles or products, one at a time. The top card follows a drag, turns a little as if held at its bottom edge, and flies off to the left or the right when let go far enough, while the next card grows into its place. The two sides are two answers, such as no and yes, so people decide quickly, one card at a time.
+## 它是什么
+卡片组滑动一次展示一叠卡片中的一张，比如个人资料或商品。顶部卡片跟随拖动，像捏住底边一样微微旋转，松开时拖得够远就会向左或向右飞走，同时下一张卡片长到它的位置上。两边是两个答案，比如否定和肯定，所以人们可以一张一张快速决定。
 
-## When to use it
-- Matching and dating apps
-- Product pickers and "this or that" shopping
-- Flashcards: known, or not yet
-- Quick polls and preference quizzes
+## 什么时候用
+- 匹配和约会应用
+- 商品选择器和“这个还是那个”购物
+- 单词卡：会了，还是没会
+- 快速投票和偏好问答
 
-## How it works
-The cards are stacked in one box. Each card knows its depth (0 on top), and the waiting cards are moved down and made a little smaller from that number, so the pile peeks out behind the top card:
+## 工作原理
+卡片叠在一个盒子里。每张卡片知道自己的深度（顶部是 0），等待中的卡片按这个数字向下移动、变小一点，这样卡片堆就在顶部卡片后面露出一点：
 
 ```css
-.card { transform-origin: 50% 130%;  /* a point below the bottom edge */
+.card { transform-origin: 50% 130%;  /* 底边下方的一个点 */
         transform: translateY(calc(var(--i) * 12px)) scale(calc(1 - var(--i) * .05)); }
 ```
 
-While it is dragged, the top card's transform follows the pointer and turns in proportion to the distance. Because it turns around a point below its bottom edge, its top swings further than its bottom, as a card held at the bottom would. The stamps grow stronger with the distance:
+拖动时，顶部卡片的变换跟随指针，并按距离成比例旋转。因为它绕着底边下方的一个点旋转，顶部比底部摆得更远，就像一张捏住底边的卡片。印章随距离越来越明显：
 
 ```js
 card.style.transform = `translate(${dx}px, ${dy}px) rotate(${dx / cardWidth * turn}deg)`;
 like.style.opacity = Math.min(1, Math.max(0, dx / (threshold * cardWidth / 2)));
 ```
 
-On release, a card whose middle went past the swipe distance, or that was flicked away from the middle faster than half a pixel per millisecond, gets a transition and is moved off that side; otherwise it springs back with an overshooting curve. The next card's depth becomes 0, so its own transition grows it into place, and the card that left is removed once its transition ends. Undo puts the last card back on top where it left and lets the transition bring it in. Nope, Like and Undo are real buttons, the Left and Right keys work on the focused top card, and each choice is also written into a polite status line for screen readers. Under reduced motion, cards fade instead of flying.
+松开时，中间超过滑动距离的卡片，或者以快于每毫秒半个像素的速度从中间甩开的卡片，会得到一个过渡，并被移到那一边；否则用一条过冲曲线弹回来。下一张卡片的深度变成 0，所以它自己的过渡会让它长到位置上，离开的卡片在过渡结束后被移除。撤销会把上一张卡片放回顶部离开的位置，让过渡把它带进来。「不喜欢」「喜欢」和「撤销」是真正的按钮，左右方向键在聚焦的顶部卡片上起作用，每个选择也会写进一条礼貌的状态行，读给读屏软件听。减弱动态效果下，卡片淡出，而不是飞走。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How far to swipe | Medium | How far the card's middle must go before letting go sends it: short is a quarter of the card's width, medium 40% and long 60%; a quick flick sends it from anywhere |
-| How much it turns | A little | How far the card turns for each card width of drag, around a point below its bottom edge: none does not turn, a little turns 14 degrees and a lot 30 degrees |
-| Shows stamps | on | Like in green and Nope in red fade in on the card as it is dragged, fully shown halfway to the swipe distance |
-| Cards behind | Peeking | How the waiting cards show: peeking sets each one a little lower and 5% smaller, fanned turns them left and right in turn, 5 degrees more and 3% smaller for each card further back, around the same low point, hidden shows only the top card until the next one grows in |
+| 滑动距离 | 中等 | 松开前卡片中间必须走多远：短是卡片宽度的四分之一，中等 40%，长 60%；快速甩一下，在任何地方都能送走它 |
+| 旋转多少 | 一点 | 每拖一个卡片宽度，卡片绕底边下方的点转多远：无不转，一点转 14 度，很多转 30 度 |
+| 显示印章 | 开 | 绿色的「喜欢」和红色的「不喜欢」在卡片拖动时淡入，拖到滑动距离一半时完全显示 |
+| 后面的卡片 | 露出一点 | 等待中的卡片怎么显示：露出一点是每张低一点、小 5%；扇形展开是轮流向左向右转，越往后每张多转 5 度、小 3%，绕同一个低点；隐藏是只显示顶部卡片，直到下一张长进来 |
 
-## Production notes
-- **Transforms only.** Move, turn and grow the cards with transform and fade them with opacity; never change their left, top or size.
-- **Pointer events.** One set of pointerdown, pointermove and pointerup handlers, with pointer capture, serves mouse, pen and touch; `touch-action: pan-y` keeps vertical scrolling on phones. A finger that starts moving up and down is a scroll, so let go of the card at once, and a `pointercancel` springs it back.
-- **Keep a few cards in the page.** Render the top three to five cards, add more as cards leave, and remove a card once its fly-off ends.
-- **Buttons and keys.** Swiping alone shuts out keyboards and some assistive tools: add Nope, Like and Undo buttons and arrow keys, and announce each choice in a polite live region.
-- **Libraries.** react-tinder-card and Swiper's cards effect package the idea; in an app, Framer Motion's `drag` with a velocity check in `onDragEnd`, or GSAP's Draggable, builds it.
-- **Reduced motion.** Fade the card out instead of throwing it, and let the next one appear without growing.
+## 生产注意事项
+- **只用变换。** 用 transform 移动、旋转、放大卡片，用 opacity 淡出它们；绝不要改 left、top 或尺寸。
+- **指针事件。** 一套 pointerdown、pointermove 和 pointerup 处理函数，加上指针捕获，就能服务鼠标、触控笔和触屏；手机上的 `touch-action: pan-y` 保留竖直滚动。手指开始上下移动就是滚动，所以要立刻放开卡片，`pointercancel` 会让它弹回来。
+- **页面里留几张卡片。** 渲染最上面三到五张卡片，卡片离开时再加，飞走结束后移除一张。
+- **按钮和按键。** 只靠滑动会把键盘和一些辅助工具排除在外：加上「不喜欢」「喜欢」和「撤销」按钮和方向键，并在礼貌的实时区域里播报每个选择。
+- **库。** react-tinder-card 和 Swiper 的卡片效果打包了这个想法；在应用里，Framer Motion 的 `drag` 加上 `onDragEnd` 里的速度检查，或者 GSAP 的 Draggable，都能做出来。
+- **减弱动态效果。** 让卡片淡出，而不是扔出去，下一张直接出现，不长大。
 
-## See also
-- [Swipe to Dismiss](../swipe-to-dismiss/) — one list row slides off with a drag or a flick
-- [3D Carousel](../../06-3d-advanced/carousel-3d/) — cards on a ring that turn with a drag and glide on
+## 另见
+- [滑动删除](../swipe-to-dismiss/) — 拖动或甩动滑走的一行列表
+- [3D 轮播](../../06-3d-advanced/carousel-3d/) — 绕着圆环转、拖动后滑行的卡片

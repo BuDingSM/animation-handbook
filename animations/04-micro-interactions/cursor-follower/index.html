@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cursor Follower — 动画手册</title>
-  <meta name="description" content="A dot trails your pointer and flips the colors under it. Best for portfolios.">
+  <title>光标跟随 — 动画手册</title>
+  <meta name="description" content="一个圆点跟随指针，并反转下方颜色。适合用在作品集上。">
   <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="动画手册">
-  <meta property="og:title" content="Cursor Follower — 动画手册">
-  <meta property="og:description" content="A dot trails your pointer and flips the colors under it. Best for portfolios.">
+  <meta property="og:title" content="光标跟随 — 动画手册">
+  <meta property="og:description" content="一个圆点跟随指针，并反转下方颜色。适合用在作品集上。">
   <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/">
   <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cursor Follower — 动画手册">
-  <meta name="twitter:description" content="A dot trails your pointer and flips the colors under it. Best for portfolios.">
+  <meta name="twitter:title" content="光标跟随 — 动画手册">
+  <meta name="twitter:description" content="一个圆点跟随指针，并反转下方颜色。适合用在作品集上。">
   <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Cursor Follower", "name": "Cursor Follower", "description": "A dot trails your pointer and flips the colors under it. Best for portfolios.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/", "inLanguage": "zh-CN", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Cursor Follower"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "光标跟随", "name": "光标跟随", "description": "一个圆点跟随指针，并反转下方颜色。适合用在作品集上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 光标跟随"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-border:rgba(255,255,255,.09);--follower-size:32px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -94,20 +94,20 @@
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
   <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
-  <span class="hb-pager"><a href="../accordion/" rel="prev" aria-label="上一个：Accordion Open/Close"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>Accordion Open/Close</span></a><a href="../error-shake/" rel="next" aria-label="下一个：Error Shake"><span><span class="hb-dir">下一个：</span>Error Shake</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <span class="hb-pager"><a href="../accordion/" rel="prev" aria-label="上一个：手风琴展开/收起"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>手风琴展开/收起</span></a><a href="../error-shake/" rel="next" aria-label="下一个：错误抖动"><span><span class="hb-dir">下一个：</span>错误抖动</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
   <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.20 · Micro-Interactions</p>
-    <h1>Cursor Follower</h1>
-    <p class="hb-lede">A dot trails your pointer and flips the colors under it. Best for portfolios.</p>
+    <p class="hb-cat">04.20 · 微交互</p>
+    <h1>光标跟随</h1>
+    <p class="hb-lede">一个圆点跟随指针，并反转下方颜色。适合用在作品集上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">悬停试试</h2><p>Move your pointer over the box or tap in it (or Tab to it and use the arrow keys), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">悬停试试</h2><p>把指针移到盒子上，或在里面轻点（或按 Tab 到上面，用方向键），或按「演示一下」。</p></div>
     </div>
     <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
       <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
@@ -125,10 +125,10 @@
         <i class="cf-gap"></i>
         <svg class="cf-cross" viewBox="-7 -7 14 14"><path d="M-5 0H5M0-5V5" stroke="#0b0b0d" stroke-width="4"/><path d="M-5 0H5M0-5V5" stroke="#f4f4f2" stroke-width="1.6"/></svg>
         <div class="cf-half"><svg class="cf-arrow"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg></div><div class="cf-half two"><svg class="cf-arrow"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg></div>
-        <span class="cf-lbl in-l l-gap" data-hb-caption>Catches up in about a third of a second,<br class="cf-br"> in smaller and smaller steps</span>
+        <span class="cf-lbl in-l l-gap" data-hb-caption>Catches up 大约三分之一秒内,<br class="cf-br"> in smaller and smaller steps</span>
         <span class="cf-lbl in-l l-ptr" data-hb-caption>Where the pointer is</span>
         <span class="cf-lbl in-l l-flip" data-hb-caption>Flips the colors<br class="cf-br"> under it</span>
-        <span class="cf-lbl in-l l-grow" data-hb-caption>Grows two and a half times over a button</span>
+        <span class="cf-lbl in-l l-grow" data-hb-caption>在按钮上变大两倍半</span>
         <span class="cf-lbl cmp-l" data-hb-caption>No lag</span><span class="cf-lbl cmp-l two" data-hb-caption>Trails behind</span>
       </div>
     </div>
@@ -136,55 +136,55 @@
       <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the cross is where the pointer is: each frame the dot closes part of the gap, in smaller and smaller steps. Move over the box, or press Show me.</p>
-      <p data-hb-for="compare" hidden>No lag: the dot sits right on the pointer; Trails behind: it glides after it and eases in as it catches up. Move over either half, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：十字就是指针所在的位置：每一帧，圆点都会缩小一部分差距，一步比一步小。移到盒子上，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>没有延迟：圆点正好在指针上；拖在后面：它跟在后面滑行，赶上时慢慢减速。移到任意一半上，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">试一试</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="lag-lbl">Lag</p>
+        <p class="hb-setting-name" id="lag-lbl">延迟</p>
         <div class="seg" id="lag-seg" role="group" aria-labelledby="lag-lbl">
-          <button type="button" data-ease="0.35" aria-pressed="false">Short</button>
-          <button type="button" data-ease="0.15" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-ease="0.06" aria-pressed="false">Long</button>
+          <button type="button" data-ease="0.35" aria-pressed="false">短</button>
+          <button type="button" data-ease="0.15" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-ease="0.06" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">A longer lag feels heavier and smoother.</p>
+        <p class="hb-hint">延迟越长，感觉越沉、越平滑。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Size</p>
+        <p class="hb-setting-name" id="size-lbl">大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-px="20" aria-pressed="false">Small</button>
-          <button type="button" data-px="32" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="48" aria-pressed="false">Large</button>
+          <button type="button" data-px="20" aria-pressed="false">小</button>
+          <button type="button" data-px="32" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="48" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">How big the dot is before it grows.</p>
+        <p class="hb-hint">圆点在变大之前有多大。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Flips the colors under it</span><input class="hb-switch" type="checkbox" role="switch" id="blend-tog" checked autocomplete="off"></label>
-        <p class="hb-hint">Keeps the dot visible on light and dark areas.</p>
+        <label class="hb-switch-row"><span>反转下方颜色</span><input class="hb-switch" type="checkbox" role="switch" id="blend-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">让圆点在浅色和深色区域都可见。</p>
       </div>
     </div>
     <details class="hb-options">
       <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="shape-lbl">Shape</p>
+          <p class="hb-setting-name" id="shape-lbl">形状</p>
           <div class="seg" id="shape-seg" role="group" aria-labelledby="shape-lbl">
-            <button type="button" data-shape="circle" class="on" aria-pressed="true">Circle</button>
-            <button type="button" data-shape="ring" aria-pressed="false">Ring</button>
-            <button type="button" data-shape="square" aria-pressed="false">Square</button>
+            <button type="button" data-shape="circle" class="on" aria-pressed="true">圆形</button>
+            <button type="button" data-shape="ring" aria-pressed="false">圆环</button>
+            <button type="button" data-shape="square" aria-pressed="false">方形</button>
           </div>
-          <p class="hb-hint">The outline of the follower.</p>
+          <p class="hb-hint">跟随者的轮廓。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Grows over buttons</span><input class="hb-switch" type="checkbox" role="switch" id="expand-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">The dot swells while the pointer is on a button.</p>
+          <label class="hb-switch-row"><span>悬停按钮时变大</span><input class="hb-switch" type="checkbox" role="switch" id="expand-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">指针在按钮上时，圆点会胀大。</p>
         </div>
       </div>
     </details>
@@ -193,10 +193,10 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">复制提示词</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a cursor follower to [the page or section where it should appear]. Draw a small shape that follows the pointer with a slight delay: each frame, close a share of the gap that is exponential in the time since the last frame, so it follows at the same pace on every screen. Hide it when the pointer leaves. When the settings include them, let it flip the colors beneath it so it stays visible on light and dark areas alike, and let it grow over buttons and links. Move it with transforms only. Touch screens have no pointer, so hide it there or let it glide to where the visitor taps. If the visitor has reduced motion turned on, keep the normal cursor instead. 按下面列出的设置来做。</p>
+      <p class="hb-prompt">给[它应该出现的页面或区块]加上光标跟随者。画一个小图形，让它带着一点延迟跟随指针：每一帧，按自上一帧以来时间的指数比例缩小差距，这样在任何屏幕上跟随的速度都一样。指针离开时隐藏它。如果设置里有，让它反转下方的颜色，这样在浅色和深色区域都看得见；让它在按钮和链接上变大。只用变换来移动它。触屏上没有指针，所以在那里隐藏它，或者让它滑到访客轻点的地方。如果访客开启了减弱动态效果，保留普通光标。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
         <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
@@ -216,9 +216,9 @@
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
-      <ul class="hb-tags hb-good"><li>Portfolios</li><li>Agency sites</li><li>Interactive stories</li></ul>
+      <ul class="hb-tags hb-good"><li>作品集</li><li>代理类网站</li><li>互动故事</li></ul>
       <h3>避免用在</h3>
-      <ul class="hb-tags hb-avoid"><li>Forms and tools</li><li>Reading pages</li></ul>
+      <ul class="hb-tags hb-avoid"><li>表单和工具</li><li>阅读页</li></ul>
     </div>
   </section>
 
@@ -271,7 +271,7 @@
   // The first frame counts as one 60 Hz frame, and no gap counts as more than 50 ms.
   function loop(ts){
     const dt=last===null?FRAME:Math.min(ts-last,50);last=ts;
-    // See inside marks where the dot sets off after the pointer (views() then adds a mark every twentieth of a second)
+    // See inside marks where the dot sets off after the pointer (views() then adds a mark every twentieth of 一秒)
     if(inside&&mode==='inside'&&!trail.length&&Math.hypot(mx-fx,my-fy)>=1){trail=[[fx,fy]];tick=0}
     if(inside){const a=1-Math.pow(1-ease,dt/FRAME);fx+=(mx-fx)*a;fy+=(my-fy)*a;draw()}
     if(mode!=='normal')views(dt);
@@ -357,7 +357,7 @@
     else if(ARROWS[e.key]){e.preventDefault();keyAim(...ARROWS[e.key],e.shiftKey)}
   });
 
-  // See inside and Compare rest on a pose: six 60 Hz frames (a tenth of a second) after Show me's first jump, from the middle of the first
+  // See inside and Compare rest on a pose: six 60 Hz frames (十分之一秒) after Show me's first jump, from the middle of the first
   // area to the button in the second, the dot as far along as Lag puts it then, as far grown as the 0.2 s grow is half way through its ease
   // (all the way under reduced motion, where it is instant) and a mark where it was at each frame; drawn without setting inside.
   function pose(){
@@ -385,15 +385,15 @@
   function measure(){sig='';if(mode==='inside')Object.values(L).forEach(l=>{const d=l.style.display;l.style.display='';SZ.set(l,[l.offsetWidth,l.offsetHeight]);l.style.display=d})}
   // The labels' words follow the settings: how long the catch-up takes (to 95% of the gap), the growing and the color flip
   function say(){const s=Math.log(.05)/Math.log(1-ease)/60,flip=!follower.classList.contains('no-blend'),f=L.flip.childNodes;
-    L.gap.firstChild.textContent=`Catches up in ${s<.2?'about a tenth of a second':s<.5?'about a third of a second':'almost a second'},`;
-    L.grow.textContent=expandOnHover?'Grows two and a half times over a button':'Stays its size over buttons';
-    f[0].textContent=flip?'Flips the colors':'See-through orange,';f[2].textContent=flip?' under it':' no flip';measure()}
+    L.gap.firstChild.textContent=`Catches up in ${s<.2?'大约十分之一秒':s<.5?'大约三分之一秒':'将近一秒'},`;
+    L.grow.textContent=expandOnHover?'在按钮上变大两倍半':'在按钮上保持大小';
+    f[0].textContent=flip?'反转颜色':'半透明橙色，';f[2].textContent=flip?' 在它下面':' 不反转';measure()}
   function refresh(){if(mode!=='normal'){say();if(posed)pose()}}
   // Writes a part's transform (and opacity) only when it changes, and shows or hides it
   function set(el,t,o){if(el._t!==t)el.style.transform=el._t=t;if(o!==undefined&&el._o!==o)el.style.opacity=el._o=o}
   function show(el,on){const d=on?'':'none';if(el._d!==d)el.style.display=el._d=d}
   // Draws the mode in each frame, from the dot's own numbers (the pose's while posed). See inside: the cross, the line to the dot,
-  // the marks (one where the dot set off, then one every twentieth of a second, the oldest faintest; gone once it is within a pixel
+  // the marks (one where the dot set off, then one every twentieth of 一秒, the oldest faintest; gone once it is within a pixel
   // of the pointer) and the labels. Compare: the copy's dot right on the spot, and an arrow in each half the pointer is not over.
   function views(dt){
     const on=inside||posed,[cx,cy]=posed?P.T:[mx,my],f=n=>n.toFixed(1);
