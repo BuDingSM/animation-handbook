@@ -238,17 +238,57 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 
 （待填）
 
-### 02 入场与退场（15）
+### 02 入场与退场（15）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
 
-（待填）
+| slug | 中文名 | 中文简介 |
+|---|---|---|
+| fade-in-out | 淡入淡出 | 淡入出现，淡出离开。适合弹窗和提示框。 |
+| slide-in | 滑入 | 从一边滑入到位。适合侧边面板和通知。 |
+| slide-up-reveal | 上滑揭示 | 文字从一条看不见的边缘后方升起进入视野。适合标题。 |
+| scale-in | 缩放进入 | 从小放大到完整尺寸。适合弹窗和菜单。 |
+| clip-path-reveal | 剪裁路径揭示 | 一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。 |
+| curtain-reveal | 幕布揭示 | 一块彩色面板先盖住它，随后滑走。适合开场和 Logo。 |
+| split-text-reveal | 拆字揭示 | 文字拆成碎片，依次出现。适合标题。 |
+| letter-by-letter-stagger | 逐字母出现 | 一句话逐字母出现，或像打字机一样。适合短标题。 |
+| word-by-word-reveal | 逐词揭示 | 词语按阅读节奏依次出现。适合引言和开场。 |
+| blur-in | 模糊渐入 | 像相机对焦一样从模糊中变得清晰。适合精选卡片和照片。 |
+| flip-in | 翻转进入 | 像卡片翻面一样以 3D 方式翻入视野。适合卡片和瓷贴。 |
+| bounce-in | 弹跳进入 | 带着弹簧般的弹跳落定。适合徽章和成功提示。 |
+| rotate-in | 旋转进入 | 边旋转边放大进入到位。适合图标、星星和徽章。 |
+| shatter-effect | 碎裂效果 | 碎成碎片飞散并淡出。适合画廊和醒目的退场。 |
+| ink-spread-reveal | 墨水扩散揭示 | 墨滴扩散、汇合，直至画面显现。适合艺术和开场。 |
+
+02 备注：演示内容本身是演示对象时保留英文——letter-by-letter 的输入 `Hello, world.`、split-text 的输入 `Design beyond the obvious`、slide-up-reveal 的标题 "Beautiful / interfaces / crafted with care."、word-by-word 的例句（按空格分词，中文会破坏演示）、shatter 的照片标题、clip-path 的表面标签与标题 "Unmasked"、curtain 的徽章/标题 "Unveiled" 及其副标题。行为适配：word-by-word 的时长助手按中文语序重写（`NUM` → 一/两/三…，`n<1` → 半秒）；curtain-reveal 的无暂停正则 `.replace(/,? (?:and)?holds?,/,',')` 改为中文 `.replace(/，?停顿一下/,'')`，四条模式说明都写成含“，停顿一下”以便移除后仍通顺；flip-in 的 JS 变量 `edge` 保持英文（top/bottom/left），模板字符串映射为“卡片的上/下/左 边”；各页时长词助手按中文语序重组（"about a third of a second" → 约三分之一秒；"a second and a half" → 一秒半）。跨分类 "See also" 保留英文名，待协调人统一改：curtain-reveal → Overlay Wipe（03）；shatter-effect → Dissolve Transition（03）、2D Physics（06）；ink-spread-reveal → Circle Reveal（03）。分类 README 的 `## Entries` 标题译为 `## 全部动画`（协调人统一：01/03 仍是 `## Entries`，汇总时统一改为 `## 全部动画`）。
 
 ### 04 微交互（44）
 
 （待填）
 
-### 05 文字与排版（19）
+### 05 文字与排版（19）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
 
-（待填）
+| slug | 中文名 | 中文简介 |
+|---|---|---|
+| kinetic-typography | 动态排版 | 词语逐个以各自的方式进出。最适合开场。 |
+| typewriter-effect | 打字机效果 | 文字在闪烁光标后逐字打出。最适合短标语。 |
+| scramble-text | 乱码/故障文字 | 随机符号从左到右逐个锁定为真实文字。最适合科技标题。 |
+| variable-font-morph | 可变字体变形 | 一个词平滑地变粗、变细，还会倾斜。最适合标题。 |
+| text-clip-path-reveal | 裁剪揭示文字 | 标题的每一行依次被揭开。最适合大标题。 |
+| marquee-ticker | 跑马灯/滚动条 | 文字横向无缝无限滚动。最适合新闻滚动条。 |
+| text-morphing | 文字变形 | 一个词逐字变成下一个词。最适合短标签。 |
+| text-gradient-animation | 文字渐变动画 | 颜色在静止的文字中流动。最适合标题。 |
+| outline-to-fill | 描边填充 | 空心字以擦除或淡入的方式填满颜色。最适合大标题。 |
+| enter-exit-typography | 入场退场排版 | 每句短语进来、停留足够读完、再离开。最适合标语。 |
+| rotate-word-carousel | 轮换词轮播 | 句子中的一个词不断换成下一个。最适合主视觉标题。 |
+| glitch-text | 故障文字 | 文字像信号故障一样撕成红青色条带。最适合醒目标题。 |
+| text-on-path | 路径文字 | 文字沿波浪、弧线或圆形行进。最适合徽章和印章。 |
+| wavy-text | 波浪文字 | 波浪逐字滚过整个词。最适合俏皮标题。 |
+| highlighter-sweep | 荧光笔扫过 | 记号笔依次扫过关键词的后面。最适合要点。 |
+| split-flap-board | 翻牌器 | 像机场翻牌一样，翻牌逐个拼出一个词。最适合主视觉标题。 |
+| neon-flicker | 霓虹闪烁 | 发光的字母偶尔像破旧霓虹灯一样闪烁。最适合夜晚主题。 |
+| handwriting-draw | 手写描绘 | 一个词像用笔写出来一样一笔一画出现。最适合问候语和签名。 |
+| text-particles | 文字粒子 | 由圆点组成的词被指针打散，又弹回原位。最适合开场。 |
+
+05 备注：演示示例词保留英文（被演示的文字本身）——kinetic/enter-exit 的短语、typewriter 的打字句（含 " — always." 重打结尾）、rotate-word 的句子与轮换词、morphing 的词（OCEAN 等）、glitch 的 GLITCH、outline 的 OUTLINE、split-flap 的 BOARDING、neon 的 OPEN、gradient 的 Flow、wavy 的 Wavy、on-path 的 FOLLOW THE CURVE ·、scramble 的 DECODE THE MESSAGE、clip-path 的行、particles 的 HELLO、marquee 默认已是中文（动画手册）；handwriting 的词 hello/thanks/hi there（与手绘 SVG 笔画路径绑定）；split-flap 的 A–Z 翻牌。行为适配：highlighter 的演示句已翻成中文（高亮由 `<mark>` 标签驱动，安全）；split-flap 的 "Departures" 牌头翻成“出发”；neon 的 `replace()` 搜索串改为中文从句（否则静默失效）；JS 生成的说明模板全部翻成中文（morphing WORDS/HOLDS/moveWords、wavy `words()`/`secs()`/`NUM` 英文数字词 → 中文数字、on-path `slideWord` 分数 → 中文分数、scramble 速率说明、typewriter aria-label 后缀、handwriting `MORE`、variable `ago()`、gradient "In the box"、particles "Far"、variable "Leans by tilting a little"、wavy `other[]` still 变体、neon `nameFor`）。**hb-cat 行未翻**（`05.NN · Text & Typography`，负责人认为属模板不在其范围；01/02/03/04/06/07 均已翻成中文——协调人汇总时用脚本把 05 的 19 页改为 `05.NN · 文字与排版`）。跨分类 "See also" 保留英文名，待协调人统一改：01 — Text Fill on Scroll、Reveal on Scroll；02 — Clip-Path Reveal（×2）、Curtain Reveal、Letter-by-Letter Stagger、Word-by-Word Reveal、Flip In；04 — Checkmark Draw、Rolling Numbers；06 — SVG Path Animation、3D Flip Card、Canvas Particle Effect、Image Distortion on Hover、GPGPU Particle System；07 — Breathing Glow、Light Leak；分类 README 的 See also：02 — Entrance & Exit、04 — Micro-Interactions。
 
 ### 03 页面切换（17）—— 已翻译（2026-11-23，分类负责人已报完；待协调人汇总进 CATS）
 
@@ -296,10 +336,10 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - [x] 共享界面机械替换（176 页模板文案 + demo-page.js + demo-page.css 注释 + 404.html + 测试同步；`node --test "tests/*.test.js"` 2371/2371 通过）
 - [x] 首页（根 index.html）UI 翻译：head/title/JSON-LD、导航、hero、PLACES、FIND_Q、结果区、知名效果、怎么用、页脚、noscript、render/findLine/showFound/showFinder/findWords；搜索分词 CJK 化（`wordsOf`：英文词 + 中文词组 + 单字；STOP 增加中文虚词）；`tools/check-pages.mjs` 的首页/演示页断言同步为中文；`tests/pages.test.js`、`tests/finder.test.js` 同步。首页测试全过；其余失败全部是分类页与未翻译 CATS 之间的逐页一致性检查，待 CATS 汇总后消除。
 - [ ] 01 滚动驱动（27）
-- [ ] 02 入场与退场（15）
+- [x] 02 入场与退场（15）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [x] 03 页面切换（17）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 04 微交互（44）
-- [ ] 05 文字与排版（19）
+- [x] 05 文字与排版（19）—— 翻译完成，术语表已汇总在本文件，待协调人写入 CATS
 - [ ] 06 3D 与高级效果（28）
 - [ ] 07 氛围与背景（26）
 - [ ] 根 index.html（CATS + 搜索 placeholder + Popular 搜索词 + 分组 chips 名称）
@@ -324,6 +364,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 ## 待协调人统一做的事（不要由分类负责人改）
 
 - **CATS 的 `key` 字段**：`const CAT=Object.fromEntries(CATS.map(c=>[slugify(c.name),c]))` 用分类名做 `?cat=` 的 key——中文名经 `slugify` 全变空串，7 个分类冲突。CATS 每项加 `key` 字段（英文 slug：scroll-based、entrance-exit、page-transitions、micro-interactions、text-typography、3d-advanced、ambient-background），CAT 行改为用 `c.key`；同步改 `tests/pages.test.js` 的 chips 测试（`key: cat.key`）、`?cat=` 测试与 `homeAddress`（不再取 `const slugify=` 行）、spots 的 `data-cat` 不用动（已是英文 slug）。
+- **分类间不一致，汇总时统一**：① `hb-cat` 行——01/02/03/04/06/07 已翻成中文（`NN.NN · 中文分类名`），只有 05 的 19 页仍是英文 `05.NN · Text & Typography`，汇总时用脚本改掉。② 分类 README 的条目区标题——02 用了 `## 全部动画`、05 用了 `## 动画`、01/03 仍是 `## Entries`、04/06/07 仍是 `## Animations`，汇总时统一为 `## 全部动画`。
 - **搜索测试改中文**（`tests/pages.test.js:1086` 起与 `tests/finder.test.js` 的 CASES 28 条）：placeholder 例句、`first` 映射、parallax 断言、`page transitions` 行、Popular 映射、CASES 的英文卡片名，全部改为中文查询 + 中文期望名；`parallax` 的 SAME 组如需中文对应（视差/深度）须先实测 `tests/pages.test.js:1120` 的 SAME 遍历（直接匹配须排在组匹配前面）。
 - **famous**：CATS 翻译汇总后再跑 `node tools/make-famous.mjs` 重新生成 famous 页的生成块。
 - **check-pages 的 famous 部分未动**：`tools/check-pages.mjs` 里 famous 页的断言仍是英文（Pause/Play、Copy prompt/Copied、Press Ctrl+C to copy、Next/Previous），随 famous 翻译一起改。
