@@ -2256,6 +2256,91 @@ button,input{font:inherit;color:inherit}
 @keyframes k-deckswipe-by{0%,25%{transform:scale(1)}30%{transform:scale(1.18)}38%,100%{transform:scale(1)}}
 @keyframes k-deckswipe-bn{0%,75%{transform:scale(1)}80%{transform:scale(1.18)}88%,100%{transform:scale(1)}}
 @keyframes k-deckswipe-tip{0%{transform:translate(22cqw,28cqh) scale(1);opacity:0;animation-timing-function:cubic-bezier(.22,1,.36,1)}7%{transform:translate(1cqw,2cqh) scale(1);opacity:1}9%{transform:translate(0,0) scale(.8);animation-timing-function:cubic-bezier(.45,0,.55,1)}27%{transform:translate(20cqw,1.5cqh) scale(.8)}30%{transform:translate(23cqw,0) scale(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}55%{transform:translate(0,0) scale(1)}59%{transform:translate(0,0) scale(.8);animation-timing-function:cubic-bezier(.45,0,.55,1)}77%{transform:translate(-20cqw,1.5cqh) scale(.8)}80%{transform:translate(-23cqw,0) scale(1);opacity:1;animation-timing-function:cubic-bezier(.5,0,.75,0)}96%,100%{transform:translate(-34cqw,30cqh) scale(1);opacity:0}}
+/* crumbs · Breadcrumbs: the path fills in one level at a time — Home, then Courses, then the bold current page — and its page fades in below */
+.pv-crumbs .bar{position:absolute;left:8cqw;top:31cqh;width:84cqw;height:24cqh;display:flex;align-items:center;justify-content:center;gap:2cqw;border-radius:6cqh;background:#fff;box-shadow:var(--cp-lift)}
+.pv-crumbs .bar b{font:900 6.8cqh/1 var(--disp);letter-spacing:-.02em;color:var(--g2);white-space:nowrap}
+.pv-crumbs .bar .s3{color:var(--cp-ink)}
+.pv-crumbs .bar i{font:900 6.8cqh/1 var(--disp);font-style:normal;color:color-mix(in srgb,var(--cp-ink) 45%,#fff)}
+.pv-crumbs .s1{animation:k-crumbs-s1 4.8s var(--cp-spring) infinite}
+.pv-crumbs .s2{animation:k-crumbs-s2 4.8s var(--cp-spring) infinite}
+.pv-crumbs .s3{animation:k-crumbs-s3 4.8s var(--cp-spring) infinite}
+.pv-crumbs .p1{animation:k-crumbs-p1 4.8s var(--cp-ease) infinite}
+.pv-crumbs .p2{animation:k-crumbs-p2 4.8s var(--cp-ease) infinite}
+.pv-crumbs .pg{position:absolute;left:20cqw;top:61cqh;width:60cqw;height:20cqh;border-radius:4.5cqh;background:#fff;box-shadow:var(--cp-lift);animation:k-crumbs-pg 4.8s var(--cp-ease) infinite}
+.pv-crumbs .pg i{position:absolute;left:4cqw;height:3cqh;border-radius:2cqh}
+.pv-crumbs .pg .h{top:5cqh;width:22cqw;background:var(--cp-ink)}
+.pv-crumbs .pg .b{top:11.5cqh;width:40cqw;height:2.6cqh;background:var(--cp-lip)}
+@keyframes k-crumbs-s1{0%{transform:scale(.5);opacity:0}6%,72%{transform:scale(1);opacity:1}78%,100%{transform:scale(.7);opacity:0}}
+@keyframes k-crumbs-s2{0%,12%{transform:scale(.5);opacity:0}18%,72%{transform:scale(1);opacity:1}78%,100%{transform:scale(.7);opacity:0}}
+@keyframes k-crumbs-s3{0%,24%{transform:scale(.5);opacity:0}30%,72%{transform:scale(1);opacity:1}78%,100%{transform:scale(.7);opacity:0}}
+@keyframes k-crumbs-p1{0%,8%{transform:scale(.6);opacity:0}12%,72%{transform:scale(1);opacity:1}78%,100%{transform:scale(.6);opacity:0}}
+@keyframes k-crumbs-p2{0%,20%{transform:scale(.6);opacity:0}24%,72%{transform:scale(1);opacity:1}78%,100%{transform:scale(.6);opacity:0}}
+@keyframes k-crumbs-pg{0%,30%{transform:translateY(2cqh);opacity:0}38%,70%{transform:translateY(0);opacity:1}78%,100%{transform:translateY(-1cqh);opacity:0}}
+/* invalid · Inline Validation: the email types in, a green tick pops when it checks out, then a red cross pops when it fails */
+.pv-invalid .lb{position:absolute;left:14cqw;top:30cqh;font:800 6.2cqh/1 var(--disp);letter-spacing:-.01em;color:#fff}
+.pv-invalid .fd{position:absolute;left:14cqw;top:38cqh;width:72cqw;height:26cqh;border-radius:5cqh;background:#fff;box-shadow:var(--cp-lift)}
+.pv-invalid .tx{position:absolute;left:4cqw;top:11.3cqh;width:38cqw;height:3.4cqh;border-radius:2cqh;background:var(--cp-ink);transform-origin:0 50%;transform:scaleX(0);animation:k-invalid-tx 5s infinite}
+.pv-invalid .mk{position:absolute;right:4cqw;top:6.5cqh;width:13cqh;height:13cqh;display:grid;place-items:center;border-radius:50%}
+.pv-invalid .ok{background:#22a35e;animation:k-invalid-ok 5s infinite}
+.pv-invalid .er{background:#e5383b;animation:k-invalid-er 5s infinite}
+.pv-invalid .mk svg{width:58%;height:58%;fill:none;stroke:#fff;stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round}
+.pv-invalid .ms{position:absolute;left:14cqw;top:69cqh;height:3.2cqh;border-radius:2cqh;transform-origin:0 50%}
+.pv-invalid .mok{width:30cqw;background:#22a35e;animation:k-invalid-mok 5s infinite}
+.pv-invalid .mer{width:38cqw;background:#e5383b;animation:k-invalid-mer 5s infinite}
+@keyframes k-invalid-tx{0%{transform:scaleX(0);animation-timing-function:steps(8,end)}14%,88%{transform:scaleX(1)}92%,100%{transform:scaleX(0)}}
+@keyframes k-invalid-ok{0%,20%{transform:scale(.3);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}26%,46%{transform:scale(1);opacity:1}50%,100%{transform:scale(.5);opacity:0}}
+@keyframes k-invalid-er{0%,52%{transform:scale(.3);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}58%,82%{transform:scale(1);opacity:1}88%,100%{transform:scale(.5);opacity:0}}
+@keyframes k-invalid-mok{0%,24%{transform:scaleX(0);opacity:0}28%,46%{transform:scaleX(1);opacity:1}50%,100%{transform:scaleX(0);opacity:0}}
+@keyframes k-invalid-mer{0%,56%{transform:scaleX(0);opacity:0}60%,82%{transform:scaleX(1);opacity:1}88%,100%{transform:scaleX(0);opacity:0}}
+/* lightbox · Lightbox: the fingertip taps the middle thumbnail, the page dims and the picture grows to the centre with its count and close button */
+.pv-lightbox .th{position:absolute;top:70cqh;width:22cqw;height:20cqh;overflow:hidden;border-radius:3.4cqh;background:linear-gradient(170deg,var(--g1),var(--g2));box-shadow:0 0 0 .9cqh #fff,var(--cp-lift)}
+.pv-lightbox .t1{left:14cqw}.pv-lightbox .t2{left:39cqw}.pv-lightbox .t3{left:64cqw}
+.pv-lightbox .sun{position:absolute;right:14%;top:12%;width:26%;aspect-ratio:1;border-radius:50%;background:#fff}
+.pv-lightbox .hill{position:absolute;left:-20%;right:-20%;bottom:-46%;height:88%;border-radius:50%;background:var(--cp-ink)}
+.pv-lightbox .ph .sun{width:18%}
+.pv-lightbox .tip{position:absolute;left:50cqw;top:80cqh;width:7.2cqh;height:7.2cqh;margin:-3.6cqh 0 0 -3.6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:var(--cp-tip);animation:k-lightbox-tip 5s var(--cp-ease) infinite}
+.pv-lightbox .ov{position:absolute;inset:0;background:rgba(20,18,28,.82);opacity:0;animation:k-lightbox-ov 5s var(--cp-ease) infinite}
+.pv-lightbox .ph{position:absolute;left:22cqw;top:26cqh;width:56cqw;height:46cqh;overflow:hidden;border-radius:4.5cqh;background:linear-gradient(170deg,var(--g1),var(--g2));box-shadow:0 0 0 .9cqh #fff,0 3.6cqh 6cqh color-mix(in srgb,var(--cp-sh) 45%,transparent);transform:scale(.7);opacity:0;animation:k-lightbox-ph 5s var(--cp-ease) infinite}
+.pv-lightbox .ct{position:absolute;left:0;right:0;top:76cqh;text-align:center;font:800 6.4cqh/1 var(--disp);letter-spacing:.02em;color:#fff;opacity:0;animation:k-lightbox-ct 5s var(--cp-ease) infinite}
+.pv-lightbox .cl{position:absolute;left:calc(78cqw - 4.5cqh);top:21.5cqh;width:9cqh;height:9cqh;display:grid;place-items:center;border-radius:50%;background:#fff;box-shadow:var(--cp-lift);opacity:0;animation:k-lightbox-cl 5s var(--cp-ease) infinite}
+.pv-lightbox .cl svg{width:55%;height:55%;fill:none;stroke:var(--cp-ink);stroke-width:3.6;stroke-linecap:round}
+@keyframes k-lightbox-tip{0%{transform:translate(20cqw,20cqh) scale(1);opacity:0}7%{opacity:1}12%{transform:translate(0,0) scale(1)}16%{transform:translate(0,1.4cqh) scale(.8)}20%{transform:translate(0,0) scale(1)}24%{transform:translate(0,0) scale(1);opacity:1}32%,100%{transform:translate(18cqw,16cqh) scale(1);opacity:0}}
+@keyframes k-lightbox-ov{0%,14%{opacity:0}28%,78%{opacity:1}88%,100%{opacity:0}}
+@keyframes k-lightbox-ph{0%,16%{transform:scale(.7);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}30%,76%{transform:scale(1);opacity:1}86%,100%{transform:scale(.7);opacity:0}}
+@keyframes k-lightbox-ct{0%,32%{opacity:0}40%,76%{opacity:1}84%,100%{opacity:0}}
+@keyframes k-lightbox-cl{0%,32%{transform:scale(.5);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}40%,76%{transform:scale(1);opacity:1}84%,100%{transform:scale(.5);opacity:0}}
+/* hotspots · Hotspots: two dots pulse on the picture; the fingertip taps each in turn and its note pops up beside it */
+.pv-hotspots .pic{position:absolute;left:15cqw;top:26cqh;width:70cqw;height:52cqh;overflow:hidden;border-radius:5cqh;background:linear-gradient(170deg,var(--g1),var(--g2));box-shadow:var(--cp-lift)}
+.pv-hotspots .sun{position:absolute;right:14%;top:12%;width:20%;aspect-ratio:1;border-radius:50%;background:#fff}
+.pv-hotspots .hill{position:absolute;left:-20%;right:-20%;bottom:-46%;height:88%;border-radius:50%;background:var(--cp-ink)}
+.pv-hotspots .dt{position:absolute;width:10cqh;height:10cqh;margin:-5cqh 0 0 -5cqh;border-radius:50%;background:#fff;box-shadow:0 1cqh 2cqh color-mix(in srgb,var(--cp-sh) 45%,transparent);z-index:2}
+.pv-hotspots .dt::before{content:"";position:absolute;left:50%;top:50%;width:4cqh;height:4cqh;margin:-2cqh 0 0 -2cqh;border-radius:50%;background:var(--g2)}
+.pv-hotspots .dt::after,.pv-hotspots .dt i{content:"";position:absolute;inset:0;border-radius:50%;border:.6cqh solid rgba(255,255,255,.75);animation:k-hotspots-pulse 1.6s ease-out infinite}
+.pv-hotspots .dt i{animation-delay:.8s}
+.pv-hotspots .d1{left:41.6cqw;top:41.6cqh}
+.pv-hotspots .d2{left:59.8cqw;top:58.2cqh}
+.pv-hotspots .tp{position:absolute;left:47cqw;top:30cqh;width:34cqw;height:20cqh;border-radius:4cqh;background:#fff;box-shadow:var(--cp-lift);z-index:3;transform-origin:0 50%;transform:scale(.5);opacity:0;animation:k-hotspots-tp 5.6s infinite}
+.pv-hotspots .tp i{position:absolute;left:3cqw;height:3cqh;border-radius:2cqh;background:var(--cp-ink)}
+.pv-hotspots .tp .h{top:4.6cqh;width:18cqw}
+.pv-hotspots .tp .b{top:11cqh;width:26cqw;height:2.6cqh;background:var(--cp-lip)}
+.pv-hotspots .tip{position:absolute;left:41.6cqw;top:41.6cqh;width:7.2cqh;height:7.2cqh;margin:-3.6cqh 0 0 -3.6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:var(--cp-tip);animation:k-hotspots-tip 5.6s var(--cp-ease) infinite}
+@keyframes k-hotspots-pulse{from{transform:scale(1);opacity:.75}to{transform:scale(2.5);opacity:0}}
+@keyframes k-hotspots-tp{0%,18%{transform:translate(0,0) scale(.5);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}24%,42%{transform:translate(0,0) scale(1);opacity:1}48%{transform:translate(0,0) scale(.5);opacity:0}50%{transform:translate(-26cqw,18cqh) scale(.5);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}56%,74%{transform:translate(-26cqw,18cqh) scale(1);opacity:1}80%,100%{transform:translate(-26cqw,18cqh) scale(.5);opacity:0}}
+@keyframes k-hotspots-tip{0%{transform:translate(22cqw,30cqh) scale(1);opacity:0}7%{opacity:1}11%{transform:translate(0,0) scale(1)}14%{transform:translate(0,1.4cqh) scale(.8)}18%{transform:translate(0,0) scale(1)}46%{transform:translate(0,0) scale(1);opacity:1}52%{transform:translate(18.2cqw,16.6cqh) scale(1)}55%{transform:translate(18.2cqw,18cqh) scale(.8)}59%{transform:translate(18.2cqw,16.6cqh) scale(1)}76%{transform:translate(18.2cqw,16.6cqh) scale(1);opacity:1}82%,100%{transform:translate(38cqw,30cqh) scale(1);opacity:0}}
+/* countdown · Countdown Timer: the seconds tile rolls down 05 to 00 while its bar runs out */
+.pv-countdown .band{position:absolute;left:9cqw;top:34cqh;width:82cqw;height:42cqh;border-radius:6cqh;background:linear-gradient(150deg,var(--g1),var(--g2));box-shadow:var(--cp-lift)}
+.pv-countdown .lb{position:absolute;left:0;right:0;top:5cqh;text-align:center;font:800 6cqh/1 var(--disp);letter-spacing:.14em;color:rgba(255,255,255,.92)}
+.pv-countdown .dg{position:absolute;left:0;right:0;top:14cqh;display:flex;justify-content:center;align-items:center;gap:1.2cqw}
+.pv-countdown .t,.pv-countdown .w{position:relative;width:10.5cqw;height:20cqh;border-radius:2.6cqh;background:#fff;box-shadow:0 1cqh 0 var(--cp-lip)}
+.pv-countdown .t{display:grid;place-items:center}
+.pv-countdown .t b{font:900 14cqh/1 var(--disp);color:var(--cp-ink)}
+.pv-countdown .w{overflow:hidden}
+.pv-countdown .c{position:absolute;left:0;right:0;top:0;transform:translateY(-80cqh);animation:k-countdown-sec 5s infinite}
+.pv-countdown .c b{display:block;height:20cqh;font:900 14cqh/20cqh var(--disp);text-align:center;color:var(--cp-ink)}
+.pv-countdown .dg i{font:900 12cqh/1 var(--disp);font-style:normal;color:#fff;width:3cqw;text-align:center}
+.pv-countdown .bar{position:absolute;left:11cqw;top:36.5cqh;width:60cqw;height:2.4cqh;border-radius:2cqh;background:rgba(255,255,255,.65);transform-origin:0 50%;animation:k-countdown-bar 5s linear infinite}
+@keyframes k-countdown-sec{0%,8%{transform:translateY(-80cqh);animation-timing-function:cubic-bezier(.5,0,.3,1)}14%,22%{transform:translateY(-100cqh);animation-timing-function:cubic-bezier(.5,0,.3,1)}28%,36%{transform:translateY(-120cqh);animation-timing-function:cubic-bezier(.5,0,.3,1)}42%,50%{transform:translateY(-140cqh);animation-timing-function:cubic-bezier(.5,0,.3,1)}56%,64%{transform:translateY(-160cqh);animation-timing-function:cubic-bezier(.5,0,.3,1)}70%,86%{transform:translateY(-180cqh)}90%{transform:translateY(-180cqh);opacity:1}92%{transform:translateY(-180cqh);opacity:0}93%{transform:translateY(-80cqh);opacity:0}96%,100%{transform:translateY(-80cqh);opacity:1}}
+@keyframes k-countdown-bar{0%{transform:scaleX(1);opacity:1}86%{transform:scaleX(.12);opacity:1}89%{transform:scaleX(.12);opacity:0}90%{transform:scaleX(1);opacity:0}93%,100%{transform:scaleX(1);opacity:1}}
 /* ── region r04c: end ── */
 /* ── region r05: start · 05 Text & Typography ── */
 /* typewriter · Typewriter Effect (approved): letters appear one by one behind a block cursor that sits just after the last one; the line clears and types again */
@@ -3934,6 +4019,7 @@ const PV={
   'grain-overlay':'grain2','scanline':'scan','light-leak':'leak','floating-elements':'floaters',
   'grid-dot-pattern-parallax':'dotgrid','abstract-geometric-motion':'geo',
   'magnetic-button':'magnet','heart-burst':'heart','success-confetti':'confetti','error-shake':'shake','swipe-to-dismiss':'swipe',
+  'breadcrumbs':'crumbs','inline-validation':'invalid','lightbox':'lightbox','hotspots':'hotspots','countdown-timer':'countdown',
   'glitch-text':'glitch','text-on-path':'onpath','wavy-text':'wavy','highlighter-sweep':'hilite','split-flap-board':'splitflap',
   'neon-flicker':'neon','handwriting-draw':'handwrite','text-particles':'tparticles',
   'particle-constellation':'constell','flow-field':'flow','synthwave-grid':'synth'
@@ -4683,6 +4769,11 @@ function pvMarkup(k){
     case 'beforeafter': return '<span class="fr"><span class="pa"><span class="sc bf"><i class="sun"></i><i class="hb"></i><i class="hf"></i></span><span class="win anim"><span class="sc af anim"><i class="sun"></i><i class="hb"></i><i class="hf"></i></span></span><b class="tg ta">After</b><b class="tg tb">Before</b><span class="ln anim"><span class="hd anim"><svg viewBox="0 0 24 24"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></span></span></span><span class="tip anim"></span>';
     case 'magnifier': return (c=>'<span class="pd og">'+c+'</span><span class="lz anim"><span class="ring"><span class="pd zc anim">'+c+'</span></span><i class="hd"></i></span><span class="tip anim"></span>')('<i class="pc"><b class="sun"></b><b class="hill"></b><b class="bd"></b></i><i class="nm"></i><i class="pr"></i><i class="fp f1"></i><i class="fp f2"></i><i class="fp f3"></i><i class="fp f4"></i><i class="by"><b>Buy</b></i>');
     case 'deckswipe': return '<span class="bt bn anim"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span><span class="bt by anim"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z"/></svg></span>'+['e4','e3','e2','e1'].map(e=>'<span class="cd '+e+' anim"><i class="pic"><i class="sun"></i><i class="hill"></i></i><b></b><b></b>'+(e==='e1'?'<i class="sy anim"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z"/></svg></i><i class="sn anim"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></i>':'')+'</span>').join('')+'<span class="tip anim"></span>';
+    case 'crumbs': return '<span class="bar"><b class="s1 anim">Home</b><i class="p1 anim">›</i><b class="s2 anim">Courses</b><i class="p2 anim">›</i><b class="s3 anim">Design</b></span><span class="pg anim"><i class="h"></i><i class="b"></i></span>';
+    case 'invalid': return '<b class="lb">Email</b><span class="fd"><span class="tx anim"></span><span class="mk ok anim"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="mk er anim"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span></span><span class="ms mok anim"></span><span class="ms mer anim"></span>';
+    case 'lightbox': return '<span class="th t1"><i class="sun"></i><i class="hill"></i></span><span class="th t2"><i class="sun"></i><i class="hill"></i></span><span class="th t3"><i class="sun"></i><i class="hill"></i></span><span class="tip anim"></span><span class="ov anim"></span><span class="ph anim"><i class="sun"></i><i class="hill"></i></span><span class="ct anim">1 / 4</span><span class="cl anim"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span>';
+    case 'hotspots': return '<span class="tp anim"><i class="h"></i><i class="b"></i></span><span class="pic"><i class="sun"></i><i class="hill"></i></span><span class="dt d1 anim"><i class="anim"></i></span><span class="dt d2 anim"><i class="anim"></i></span><span class="tip anim"></span>';
+    case 'countdown': return '<span class="band"><b class="lb">ENDS IN</b><span class="dg"><span class="t"><b>0</b></span><span class="t"><b>2</b></span><i>:</i><span class="t"><b>1</b></span><span class="t"><b>4</b></span><i>:</i><span class="t"><b>0</b></span><span class="w"><span class="c anim">'+[...'9876543210'].map(n=>'<b>'+n+'</b>').join('')+'</span></span></span><span class="bar anim"></span></span>';
     // ── region r04c: end ──
     // ── region r05: start ──
     case 'sig5': return '<span class="aa"><b class="anim">A</b><b class="anim">a</b></span><span class="ls">'+[0,1,2,3].map(k=>'<i class="anim" style="--k:'+k+'"></i>').join('')+'</span>';
@@ -5064,7 +5155,7 @@ const STILL={
   bsheet:.45,popover:.48,tabs:.4,fchips:.33,stepper:.35,paging:.4,
   // ── region r04b: end ──
   // ── region r04c: start ──
-  cartfly:.42,reorder:.27,rollnum:.26,typing:.3,holdconf:.44,xsearch:.52,imgtrail:.33,gooey:.32,beforeafter:.56,magnifier:.44,deckswipe:.22,
+  cartfly:.42,reorder:.27,rollnum:.26,typing:.3,holdconf:.44,xsearch:.52,imgtrail:.33,gooey:.32,beforeafter:.56,magnifier:.44,deckswipe:.22,crumbs:.45,invalid:.35,lightbox:.55,hotspots:.35,countdown:.3,
   // ── region r04c: end ──
   // ── region r05: start ──
   typewriter:.55,
