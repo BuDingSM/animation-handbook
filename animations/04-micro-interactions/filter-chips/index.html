@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>筛选标签 — 动画手册</title>
+  <meta name="description" content="点一下加上或拿掉一个筛选条件。最适合列表和商品筛选。">
+  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/filter-chips/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="筛选标签 — 动画手册">
+  <meta property="og:description" content="点一下加上或拿掉一个筛选条件。最适合列表和商品筛选。">
+  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/filter-chips/">
+  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="筛选标签 — 动画手册">
+  <meta name="twitter:description" content="点一下加上或拿掉一个筛选条件。最适合列表和商品筛选。">
+  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "筛选标签", "name": "筛选标签", "description": "点一下加上或拿掉一个筛选条件。最适合列表和商品筛选。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/filter-chips/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，微交互，筛选标签"}</script>
+  <style>
+    :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--blue:#3b82f6;--blue-bg:#dbeafe;--ok:#1e9e5a;--err:#e5383b}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    .stage{position:relative;display:flex;align-items:center;justify-content:center;background:#0b0b0d;overflow:hidden;padding:16px}
+    .demo{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;max-width:520px}
+    .inside-panel,.cmp-copy,.cap{display:none}
+    .inside-panel{position:absolute;left:12px;right:12px;top:12px;z-index:8;padding:10px 12px;border:1px solid var(--ui-border);border-radius:8px;background:rgba(11,11,13,.94);color:var(--ui-text);font-size:12px;line-height:1.7;pointer-events:none}
+    .inside-panel b{color:var(--ui-accent)}
+    .stage[data-hb-mode="inside"] .inside-panel{display:block}
+    .stage[data-hb-mode="compare"]{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+    .stage[data-hb-mode="compare"]::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;background:#2a2a30;z-index:7}
+    .stage[data-hb-mode="compare"] .demo{max-width:none;padding:30px 12px 12px}
+    .stage[data-hb-mode="compare"] .cmp-copy{display:flex;position:relative;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:30px 12px 12px}
+    .stage[data-hb-mode="compare"] .cmp-copy *{transition:none!important;animation:none!important}
+    .stage[data-hb-mode="compare"] .cap{display:block;position:absolute;top:8px;z-index:8;padding:2px 8px;border-radius:6px;background:rgba(11,11,13,.92);color:#f4f4f2;font:600 12px/16px var(--hb-font)}
+    .cap.a{left:12px}
+    .cap.b{left:calc(50% + 12px)}
+    @media(prefers-reduced-motion:reduce){.stage *{transition:none!important;animation:none!important}}
+
+
+    .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .chip{min-height:34px;height:34px;padding:0 16px;border:1px solid var(--ui-border);border-radius:17px;background:transparent;color:var(--ui-text);font-family:inherit;font-size:13px;cursor:pointer;transition:background-color var(--dur,.15s) cubic-bezier(.22,1,.36,1),border-color var(--dur,.15s) cubic-bezier(.22,1,.36,1),color var(--dur,.15s) cubic-bezier(.22,1,.36,1),padding var(--dur,.15s) cubic-bezier(.22,1,.36,1)}
+    .chip .tick{display:none;margin-right:6px;font-weight:800}
+    .chip.on{background:var(--blue-bg);border-color:var(--blue);color:var(--blue);padding-left:10px}
+    .chip.on .tick{display:inline}
+    .count{font-size:12px;color:var(--ui-muted)}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:440px}
+    .card{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--ui-border);border-radius:8px;background:var(--ui-bg);transition:opacity var(--dur,.15s) ease}
+    .card.dim{opacity:.12}
+    .card.hide{display:none}
+    .card .sw{flex:none;width:34px;height:34px;border-radius:6px}
+    .card .nm{font-size:13px;font-weight:700;color:var(--ui-text)}
+    .card .tg{font-size:11px;color:var(--ui-muted);margin-top:2px}
+    .cmp-copy .chip.on{padding-left:10px}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
+  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+</head>
+<body class="hb" data-hb-kind="do" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../tabs/" rel="prev" aria-label="上一个：标签页"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>标签页</span></a><a href="../stepper/" rel="next" aria-label="下一个：步进器"><span><span class="hb-dir">下一个：</span>步进器</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.53 · 微交互</p>
+    <h1>筛选标签</h1>
+    <p class="hb-lede">点一下加上或拿掉一个筛选条件。最适合列表和商品筛选。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点一个标签，看看下面的商品怎么变；再点一次拿掉它，或按「演示一下」。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage">
+
+      <div class="demo">
+        <div class="chips" role="group" aria-label="筛选条件">
+          <button type="button" class="chip on" data-chip="all" aria-pressed="true">全部</button>
+          <button type="button" class="chip" data-chip="new" data-tags="new" aria-pressed="false"><span class="tick" aria-hidden="true">✓</span>新品</button>
+          <button type="button" class="chip" data-chip="hot" data-tags="hot" aria-pressed="false"><span class="tick" aria-hidden="true">✓</span>热门</button>
+          <button type="button" class="chip" data-chip="free" data-tags="free" aria-pressed="false"><span class="tick" aria-hidden="true">✓</span>免费</button>
+        </div>
+        <p class="count" id="count" aria-live="polite">共 4 件商品</p>
+        <div class="cards" id="cards">
+          <div class="card" data-tags="new hot"><span class="sw" style="background:linear-gradient(135deg,#f6a5c0,#7aa5ff)"></span><div><div class="nm">无线耳机</div><div class="tg">新品 · 热门</div></div></div>
+          <div class="card" data-tags="hot"><span class="sw" style="background:linear-gradient(135deg,#ffd479,#ff8a5c)"></span><div><div class="nm">帆布包</div><div class="tg">热门</div></div></div>
+          <div class="card" data-tags="free"><span class="sw" style="background:linear-gradient(135deg,#9be8b8,#4db6ac)"></span><div><div class="nm">壁纸套装</div><div class="tg">免费</div></div></div>
+          <div class="card" data-tags="new free"><span class="sw" style="background:linear-gradient(135deg,#c3a6ff,#ff9d5c)"></span><div><div class="nm">桌面收纳盒</div><div class="tg">新品 · 免费</div></div></div>
+        </div>
+      </div>
+      <div class="cmp-copy" aria-hidden="true" inert>
+        <div class="chips">
+          <span class="chip">全部</span>
+          <span class="chip on"><span class="tick">✓</span>新品</span>
+          <span class="chip">热门</span>
+          <span class="chip">免费</span>
+        </div>
+        <p class="count">共 2 件商品</p>
+        <div class="cards">
+          <div class="card"><span class="sw" style="background:linear-gradient(135deg,#f6a5c0,#7aa5ff)"></span><div><div class="nm">无线耳机</div><div class="tg">新品 · 热门</div></div></div>
+          <div class="card dim"><span class="sw" style="background:linear-gradient(135deg,#ffd479,#ff8a5c)"></span><div><div class="nm">帆布包</div><div class="tg">热门</div></div></div>
+          <div class="card dim"><span class="sw" style="background:linear-gradient(135deg,#9be8b8,#4db6ac)"></span><div><div class="nm">壁纸套装</div><div class="tg">免费</div></div></div>
+          <div class="card"><span class="sw" style="background:linear-gradient(135deg,#c3a6ff,#ff9d5c)"></span><div><div class="nm">桌面收纳盒</div><div class="tg">新品 · 免费</div></div></div>
+        </div>
+      </div>
+      <div class="inside-panel" aria-hidden="true"><b>看内部：</b>1 点标签：标签加上 ✓，变蓝，宽了约 18px。2 列表按标签过滤：符合的留下，不符合的变淡到 0.12。3 再点一次：拿掉这个条件。4 点「全部」：清空所有条件。</div>
+      <p class="cap a" aria-hidden="true">无动画</p>
+      <p class="cap b" aria-hidden="true">有动画</p>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>内部：点一下标签，它就加上勾号、变成蓝色，宽了约 18px；列表随即按标签过滤，不符合的卡片透明度降到 0.12。再点一次就拿掉这个条件。按「演示一下」看一遍。</p>
+      <p data-hb-for="compare" hidden>无动画：点标签只换颜色，列表突然变；有动画：标签 0.15 秒变蓝、长出勾号，卡片平滑变淡。按「演示一下」。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
+        <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
+          <button type="button" data-ms="100" aria-pressed="false">快</button>
+          <button type="button" data-ms="150" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="300" aria-pressed="false">慢</button>
+        </div>
+        <p class="hb-hint">标签变蓝、卡片变淡要花多长时间。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="match-lbl">匹配方式</p>
+        <div class="seg" id="match-seg" role="group" aria-labelledby="match-lbl">
+          <button type="button" data-match="any" class="on" aria-pressed="true">任一符合</button>
+          <button type="button" data-match="all" aria-pressed="false">全部符合</button>
+        </div>
+        <p class="hb-hint">选了两个标签时，只要符合一个就算，还是两个都要符合。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="miss-lbl">不符合的卡片</p>
+        <div class="seg" id="miss-seg" role="group" aria-labelledby="miss-lbl">
+          <button type="button" data-miss="fade" class="on" aria-pressed="true">变淡</button>
+          <button type="button" data-miss="hide" aria-pressed="false">隐藏</button>
+        </div>
+        <p class="hb-hint">变淡是留在原地变透明，隐藏是直接从列表里拿掉。</p>
+      </div>
+
+    </div>
+    <details class="hb-options">
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="hb-settings">
+      <div class="hb-setting">
+        <label class="hb-switch-row"><span>显示数量</span><input class="hb-switch" type="checkbox" role="switch" id="count-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">在标签下面显示还剩几件商品。</p>
+      </div>
+      </div>
+    </details>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[商品列表或文章列表]加上筛选标签。在列表上方放一排标签，比如全部、新品、热门、免费。点一下标签就加上这个筛选条件，标签出现勾号、变成蓝色、稍微变宽；再点一次就拿掉。不符合条件的卡片变淡，不要直接消失；点「全部」清空所有条件。只对标签的颜色、宽度和卡片的透明度做动画。如果访客开启了减弱动态效果，切换时不要做动画。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>商品筛选</li><li>文章列表</li><li>图片库</li><li>菜谱分类</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>只有一个筛选条件</li><li>筛选条件太多（超过 8 个）</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let timers = [];
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+  function stopRun(){ timers.forEach(clearTimeout); timers = []; }
+  document.addEventListener('hb:input', stopRun);
+  let mode = 'normal';
+  document.addEventListener('hb:mode', e => { mode = e.detail.mode; });
+  function choices(id, pick){
+    const buttons = document.querySelectorAll('#' + id + ' button');
+    buttons.forEach(b => b.addEventListener('click', () => {
+      buttons.forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
+      pick(b.dataset);
+    }));
+  }
+
+  const chips = [...document.querySelectorAll('.demo .chip')];
+  const cards = [...document.querySelectorAll('#cards .card')];
+  const count = document.getElementById('count');
+  let dur = 150, matchMode = 'any', missMode = 'fade';
+  const stage = document.querySelector('.stage');
+  function setDur(ms){ dur = ms; stage.style.setProperty('--dur', ms + 'ms'); }
+  function activeTags(){
+    return chips.filter(c => c.dataset.chip !== 'all' && c.classList.contains('on')).map(c => c.dataset.tags);
+  }
+  function apply(){
+    const tags = activeTags();
+    let shown = 0;
+    cards.forEach(card => {
+      const has = card.dataset.tags.split(' ');
+      const ok = !tags.length || (matchMode === 'any' ? tags.some(t => has.includes(t)) : tags.every(t => has.includes(t)));
+      card.classList.toggle('dim', !ok && missMode === 'fade');
+      card.classList.toggle('hide', !ok && missMode === 'hide');
+      if (ok) shown++;
+    });
+    count.textContent = '共 ' + shown + ' 件商品';
+    count.style.display = document.getElementById('count-tog').checked ? '' : 'none';
+  }
+  function press(chip){
+    if (chip.dataset.chip === 'all'){
+      chips.forEach(c => { c.classList.toggle('on', c === chip); c.setAttribute('aria-pressed', String(c === chip)); });
+    } else {
+      chip.classList.toggle('on');
+      chip.setAttribute('aria-pressed', String(chip.classList.contains('on')));
+      const all = chips[0];
+      const anyOn = chips.slice(1).some(c => c.classList.contains('on'));
+      all.classList.toggle('on', !anyOn);
+      all.setAttribute('aria-pressed', String(!anyOn));
+    }
+    apply();
+  }
+  chips.forEach(c => c.addEventListener('click', () => { stopRun(); press(c); }));
+  function toRest(){
+    stopRun();
+    chips.forEach(c => { const on = c.dataset.chip === 'all'; c.classList.toggle('on', on); c.setAttribute('aria-pressed', String(on)); });
+    apply();
+  }
+  document.getElementById('btn-demo').addEventListener('click', () => {
+    toRest();
+    later(() => press(chips[1]), 500);
+    later(() => press(chips[3]), 1200);
+    later(() => press(chips[0]), 2100);
+  });
+  document.getElementById('btn-reset').addEventListener('click', toRest);
+  choices('speed-seg', d => setDur(+d.ms));
+  choices('match-seg', d => { matchMode = d.match; apply(); });
+  choices('miss-seg', d => { missMode = d.miss; apply(); });
+  document.getElementById('count-tog').addEventListener('change', apply);
+  setDur(150); apply();
+
+</script>
+</body>
+</html>
