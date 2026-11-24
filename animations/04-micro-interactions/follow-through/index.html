@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跟随动作 — 动画手册</title>
+  <meta name="description" content="主体停下了，身上的部件还多晃几下才停。最适合角色、旗帜和挂件。">
+  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/follow-through/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="跟随动作 — 动画手册">
+  <meta property="og:description" content="主体停下了，身上的部件还多晃几下才停。最适合角色、旗帜和挂件。">
+  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/follow-through/">
+  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="跟随动作 — 动画手册">
+  <meta name="twitter:description" content="主体停下了，身上的部件还多晃几下才停。最适合角色、旗帜和挂件。">
+  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "跟随动作", "name": "跟随动作", "description": "主体停下了，身上的部件还多晃几下才停。最适合角色、旗帜和挂件。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/follow-through/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 跟随动作"}</script>
+  <style>
+    :root{--ui-accent:#5fd88a;--ui-muted:#8a8a92;--coral:#ff7a6b;--flag:#ffd23f}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{position:relative;display:flex;align-items:center;justify-content:center;background:#0b0b0d;overflow:hidden}
+    .floor{position:absolute;left:8%;right:8%;bottom:84px;border-top:2px solid rgba(244,244,242,.35)}
+    .actor{position:absolute;left:12%;bottom:84px;width:76px;height:76px}
+    .actor .body{position:absolute;left:0;bottom:0;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b9f5cf,var(--ui-accent) 60%,#2f9e5f)}
+    .actor .body .face{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-size:20px;color:#0b0b0d}
+    .actor .flag{position:absolute;left:50%;bottom:66px;width:4px;height:58px;margin-left:-2px;background:#f4f4f2;border-radius:2px;transform-origin:50% 100%}
+    .actor .flag i{position:absolute;left:4px;top:0;width:34px;height:22px;background:var(--flag);clip-path:polygon(0 0,100% 50%,0 100%)}
+    .actor .tail{position:absolute;right:64px;bottom:14px;width:56px;height:14px;transform-origin:100% 50%}
+    .actor .tail i{display:block;width:56px;height:14px;border-radius:7px;background:var(--coral)}
+    .inside-view,.compare-view{display:none;width:100%;height:100%}
+    .stage[data-hb-mode="inside"] .demo-main{display:none}
+    .stage[data-hb-mode="inside"] .inside-view{display:flex;align-items:center;justify-content:center;gap:clamp(14px,4vw,40px)}
+    .stage[data-hb-mode="compare"] .demo-main,.stage[data-hb-mode="compare"] .inside-view{display:none}
+    .stage[data-hb-mode="compare"] .compare-view{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,3vw,32px)}
+    .stage[data-hb-mode="compare"] .compare-view::after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px solid rgba(244,244,242,.12)}
+    .cmp-half{position:relative}
+    .cmp-half .floor{left:12%;right:12%;bottom:70px}
+    .cmp-half .actor{bottom:70px;left:8%}
+    .callout{max-width:190px;font:600 13px/1.6 var(--hb-font);color:#f4f4f2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px}
+    .callout b{color:var(--ui-accent)}
+    @media(prefers-reduced-motion:reduce){.actor{transition:none}}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
+  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+</head>
+<body class="hb" data-hb-kind="once" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../anticipation/" rel="prev" aria-label="上一个：预备动作"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>预备动作</span></a><a href="../bottom-sheet/" rel="next" aria-label="下一个：底部抽屉"><span><span class="hb-dir">下一个：</span>底部抽屉</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.49 · 微交互</p>
+    <h1>跟随动作</h1>
+    <p class="hb-lede">主体停下了，身上的部件还多晃几下才停。最适合角色、旗帜和挂件。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage hb-dots">
+      <div class="demo-main" style="display:contents">
+        <div class="floor" aria-hidden="true"></div>
+<div class="actor" id="actor-main"><div class="tail"><i></i></div><div class="flag"><i></i></div><div class="body"><span class="face">● ‿ ●</span></div></div>
+      </div>
+      <div class="inside-view">
+        <div class="callout"><b>身体先停</b><br>滑到位置就急停，不拖泥带水。</div>
+        <div class="callout"><b>旗帜和尾巴晚一步</b><br>它们被身体的加速度甩出去，停下后还晃大约半秒才收住。</div>
+      </div>
+      <div class="compare-view">
+        <div class="cmp-half"><div class="floor" aria-hidden="true"></div>
+<div class="actor" id="actor-a"><div class="tail"><i></i></div><div class="flag"><i></i></div><div class="body"><span class="face">● ‿ ●</span></div></div>
+          <p style="position:absolute;top:10px;left:10px;color:#f4f4f2;font:600 13px/1.4 var(--hb-font);background:rgba(11,11,13,.9);padding:3px 8px;border-radius:6px">全身一起停</p></div>
+        <div class="cmp-half"><div class="floor" aria-hidden="true"></div>
+<div class="actor" id="actor-b"><div class="tail"><i></i></div><div class="flag"><i></i></div><div class="body"><span class="face">● ‿ ●</span></div></div>
+          <p style="position:absolute;top:10px;left:10px;color:#f4f4f2;font:600 13px/1.4 var(--hb-font);background:rgba(11,11,13,.9);padding:3px 8px;border-radius:6px">旗帜和尾巴多晃几下</p></div>
+      </div>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>看内部：身体滑到位置就急停，旗帜和尾巴被甩出去，停下后还晃大约半秒才收住。晃的幅度一次比一次小。</p>
+      <p data-hb-for="compare" hidden>左边全身一起停，像一块木头突然刹住。右边旗帜和尾巴多晃几下，身体看起来才像真的跑过来的。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="amp-lbl">晃动幅度</p>
+        <div class="seg" id="amp-seg" role="group" aria-labelledby="amp-lbl">
+          <button type="button" data-amp="15" aria-pressed="false">小</button>
+          <button type="button" data-amp="30" class="on" aria-pressed="true">中</button>
+          <button type="button" data-amp="45" aria-pressed="false">大</button>
+        </div>
+        <p class="hb-hint">旗帜和尾巴被甩出去的角度。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="swing-lbl">晃动时间</p>
+        <div class="seg" id="swing-seg" role="group" aria-labelledby="swing-lbl">
+          <button type="button" data-swing="0.6" aria-pressed="false">短</button>
+          <button type="button" data-swing="1" class="on" aria-pressed="true">中</button>
+          <button type="button" data-swing="1.6" aria-pressed="false">长</button>
+        </div>
+        <p class="hb-hint">晃动收住的快慢：越长晃得越久。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="parts-lbl">晃动的部件</p>
+        <div class="seg" id="parts-seg" role="group" aria-labelledby="parts-lbl">
+          <button type="button" data-parts="both" class="on" aria-pressed="true">旗帜和尾巴</button>
+          <button type="button" data-parts="flag" aria-pressed="false">只有旗帜</button>
+          <button type="button" data-parts="tail" aria-pressed="false">只有尾巴</button>
+        </div>
+        <p class="hb-hint">哪些部件跟着晃。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[你的角色、旗帜或挂件]加上跟随动作。让主体滑到位置就急停，不要拖泥带水；它身上的旗帜和尾巴被加速度甩出去，停下后还晃大约半秒才收住，一次比一次小。晃动的部件越软、越长，晃得越久。只给主体用位置做动画，旗帜和尾巴用旋转做动画。如果访客开了减弱动态效果，就让所有部件和主体一起停下，不要晃。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>角色跑动和急停</li><li>旗帜和挂件</li><li>头发和围巾</li><li>有软部件的图标</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>硬邦邦的机械部件</li><li>需要立刻静止的界面</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  const stage=document.querySelector('.stage');
+  const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const loopTog=document.getElementById('loop-tog'),slowTog=document.getElementById('slow-tog');
+  let amp=30,swing=1,parts='both',mode='normal',raf=0,timers=[];
+  const TOTAL=2350; // ms per move
+  // body position: accelerate first 30% of the slide, constant speed, abrupt stop at 0.85s of 2.35s
+  function bodyX2(t,dist){
+    const stop=0.85;
+    if(t<=0.15)return 0;
+    const u=Math.min((t-0.15)/(stop-0.15),1);
+    const acc=0.3,den=0.5*acc*acc+(1-acc)*acc;
+    return u<acc?dist*(0.5*u*u)/den:dist*(0.5*acc*acc+(u-acc)*acc)/den;
+  }
+  function runActor(root,rigid){
+    const actor=root,body=actor.querySelector('.body'),flag=actor.querySelector('.flag'),tail=actor.querySelector('.tail');
+    const host=actor.closest('.cmp-half')||stage;
+    const dist=Math.max(0,host.clientWidth*0.55);
+    const scale=slowTog.checked?3:1,t0=performance.now();
+    const step=now=>{
+      const el=(now-t0)/1000/scale,t=Math.min(el,TOTAL/1000);
+      const x=bodyX2(t,dist);
+      // velocity factor: 1 while moving, 0 after stop
+      const moving=t>0.15&&t<0.85;
+      const lean=amp*(moving?1:0);
+      let fa=0,ta=0;
+      if(t>=0.85){
+        const s=t-0.85;
+        fa=-amp*Math.exp(-4*s/swing)*Math.cos(9*s/swing);
+        ta=-amp*1.2*Math.exp(-3*s/swing)*Math.cos(7*s/swing);
+      }else if(moving){
+        fa=-amp*0.9;ta=-amp*1.1;
+      }
+      actor.style.transform=`translateX(${x}px)`;
+      if(!rigid){
+        if(parts!=='tail')flag.style.transform=`rotate(${fa}deg)`;
+        if(parts!=='flag')tail.style.transform=`rotate(${ta}deg)`;
+      }
+      if(el<TOTAL/1000){raf=requestAnimationFrame(step)}
+      else if(loopTog.checked){timers.push(setTimeout(()=>runAll(),600))}
+    };
+    raf=requestAnimationFrame(step);
+  }
+  function runAll(){
+    cancelAnimationFrame(raf);timers.forEach(clearTimeout);timers=[];
+    if(!motionOk)return;
+    if(mode==='compare'){
+      runActor(document.getElementById('actor-a'),true);
+      runActor(document.getElementById('actor-b'),false);
+    }else runActor(document.getElementById('actor-main'),false);
+  }
+  function play(){runAll()}
+  document.getElementById('btn-play').addEventListener('click',play);
+  loopTog.addEventListener('change',()=>{if(loopTog.checked)play()});
+  function choices(id,pick){
+    const buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);
+    }));
+  }
+  choices('amp-seg',d=>{amp=+d.amp});
+  choices('swing-seg',d=>{swing=+d.swing});
+  choices('parts-seg',d=>{parts=d.parts});
+  document.addEventListener('hb:mode',e=>{mode=e.detail.mode});
+
+</script>
+</body>
+</html>

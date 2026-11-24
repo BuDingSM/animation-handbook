@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>缓动曲线 — 动画手册</title>
+  <meta name="description" content="速度有快有慢，而不是匀速移动。最适合让任何动作停得自然。">
+  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/easing/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="缓动曲线 — 动画手册">
+  <meta property="og:description" content="速度有快有慢，而不是匀速移动。最适合让任何动作停得自然。">
+  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/easing/">
+  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="缓动曲线 — 动画手册">
+  <meta name="twitter:description" content="速度有快有慢，而不是匀速移动。最适合让任何动作停得自然。">
+  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "缓动曲线", "name": "缓动曲线", "description": "速度有快有慢，而不是匀速移动。最适合让任何动作停得自然。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/easing/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 缓动曲线"}</script>
+  <style>
+    :root{--ui-accent:#5fd88a;--ui-muted:#8a8a92}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{position:relative;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,4vh,34px);padding:clamp(16px,4vw,40px);background:#0b0b0d}
+    .lane{position:relative}
+    .lane-name{font:600 13px/1.4 var(--hb-font);color:var(--ui-muted);margin-bottom:8px}
+    .lane-name b{color:#f4f4f2}
+    .rail{position:relative;height:64px;border-radius:10px;background:#141419;border:1px solid rgba(255,255,255,.07)}
+    .rail::after{content:"";position:absolute;left:32px;right:32px;top:50%;border-top:2px dashed rgba(255,255,255,.18)}
+    .sq{position:absolute;left:32px;top:50%;width:56px;height:56px;margin-top:-28px;border-radius:16px;background:var(--ui-accent)}
+    .sq.top{background:#8a8a92}
+    .flag{position:absolute;top:50%;width:2px;height:64px;margin-top:-32px;background:rgba(244,244,242,.35)}
+    .flag.end{right:32px}
+    .inside-view,.compare-view{display:none;height:100%}
+    .stage[data-hb-mode="inside"] .demo-main{display:none}
+    .stage[data-hb-mode="inside"] .inside-view{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+    .stage[data-hb-mode="compare"] .demo-main,.stage[data-hb-mode="compare"] .inside-view{display:none}
+    .stage[data-hb-mode="compare"] .compare-view{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,3vw,32px)}
+    .stage[data-hb-mode="compare"] .compare-view::after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px solid rgba(244,244,242,.12)}
+    .cmp-half{position:relative;display:flex;flex-direction:column;justify-content:center;gap:8px}
+    .cmp-half .rail{height:56px}
+    .cmp-half .sq{width:48px;height:48px;margin-top:-24px}
+    .cap{position:absolute;padding:3px 8px;border-radius:6px;background:rgba(11,11,13,.9);color:#f4f4f2;font:600 13px/1.25 var(--hb-font);white-space:nowrap;pointer-events:none}
+    .graph{width:min(560px,100%)}
+    .graph svg{width:100%;height:auto;display:block;overflow:visible}
+    .graph .axis{fill:none;stroke:rgba(244,244,242,.5);stroke-width:1.5}
+    .graph .lin{fill:none;stroke:rgba(244,244,242,.45);stroke-width:2;stroke-dasharray:6 5}
+    .graph .cur{fill:none;stroke:var(--ui-accent);stroke-width:3;stroke-linecap:round}
+    .graph text{fill:#f4f4f2;font:600 12px var(--hb-font)}
+    .graph .mut{fill:var(--ui-muted)}
+    @media(prefers-reduced-motion:reduce){.sq{transition:none}}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
+  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+</head>
+<body class="hb" data-hb-kind="once" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../card-deck-swipe/" rel="prev" aria-label="上一个：卡片组滑动"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>卡片组滑动</span></a><a href="../overshoot/" rel="next" aria-label="下一个：过冲回弹"><span><span class="hb-dir">下一个：</span>过冲回弹</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.45 · 微交互</p>
+    <h1>缓动曲线</h1>
+    <p class="hb-lede">速度有快有慢，而不是匀速移动。最适合让任何动作停得自然。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage hb-dots">
+      <div class="demo-main" style="display:contents">
+      <div class="lane"><p class="lane-name"><b>上面：匀速</b>——从头到尾一个速度</p><div class="rail" id="rail-top"><span class="flag end" aria-hidden="true"></span><span class="sq top" id="sq-top"><span style="display:block;width:100%;height:100%;border-radius:16px;background:inherit"></span></span></div></div>
+      <div class="lane"><p class="lane-name"><b>下面：缓动</b>——先快后慢，停得自然</p><div class="rail" id="rail-bot"><span class="flag end" aria-hidden="true"></span><span class="sq " id="sq-bot"><span style="display:block;width:100%;height:100%;border-radius:16px;background:inherit"></span></span></div></div>
+      </div>
+      <div class="inside-view">
+        <div class="graph"><svg id="ease-graph" viewBox="0 0 300 170" aria-hidden="true">
+          <path class="axis" d="M34 14V146H292"/>
+          <path class="lin" d="M34 146L292 14"/>
+          <path class="cur" d="M34 146"/>
+          <text class="cur-lbl" x="150" y="166" text-anchor="middle">缓出：先快后慢</text>
+          <text class="mut" x="34" y="10">走过的路 ↑</text>
+          <text class="mut" x="292" y="166" text-anchor="end">时间 →</text>
+        </svg></div>
+      </div>
+      <div class="compare-view">
+        <div class="cmp-half"><p class="lane-name"><b>匀速</b></p><div class="rail" id="rail-cmp-a"><span class="sq top" id="sq-cmp-a"><span style="display:block;width:100%;height:100%;border-radius:16px;background:inherit"></span></span></div></div>
+        <div class="cmp-half"><p class="lane-name"><b>缓动</b></p><div class="rail" id="rail-cmp-b"><span class="sq" id="sq-cmp-b"><span style="display:block;width:100%;height:100%;border-radius:16px;background:inherit"></span></span></div></div>
+      </div>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>看内部：横着是时间，竖着是走过的路。匀速是一条斜的虚线；缓动曲线先陡后平，说明它开头快、结尾慢，停下来之前慢慢减速。</p>
+      <p data-hb-for="compare" hidden>左边匀速：从头到尾一个速度，停得突然。右边缓动：先快后慢，停得自然。两块走同样的距离、用同样的时间。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="curve-lbl">曲线</p>
+        <div class="seg" id="curve-seg" role="group" aria-labelledby="curve-lbl">
+          <button type="button" data-curve="ease-out" class="on" aria-pressed="true">缓出</button>
+          <button type="button" data-curve="ease-in-out" aria-pressed="false">两头慢</button>
+          <button type="button" data-curve="ease-in" aria-pressed="false">缓入</button>
+        </div>
+        <p class="hb-hint">缓出先快后慢，停得最自然；两头慢开头和结尾都慢。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
+        <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
+          <button type="button" data-ms="1600" aria-pressed="false">慢</button>
+          <button type="button" data-ms="1000" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="600" aria-pressed="false">快</button>
+        </div>
+        <p class="hb-hint">走完这段路用的时间。</p>
+      </div>
+    </div>
+    <details class="hb-options">
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="hb-settings">
+        <div class="hb-setting">
+          <label class="hb-switch-row"><span>速度拉伸</span><input class="hb-switch" type="checkbox" role="switch" id="stretch-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">速度最快时沿移动方向拉长一点，停下时恢复原形。</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[你想移动的元素，比如一张卡片]加上缓动曲线。让它从起点移到终点时先快后慢，停下来之前慢慢减速，而不是从头到尾一个速度。速度最快时把它沿移动方向拉长一点，停下时恢复原形。只给它的位置做动画，这样才流畅。如果访客开了减弱动态效果，就直接把它放到终点，不要移动。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>所有移动</li><li>弹窗和面板出现</li><li>页面之间的切换</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>需要匀速的进度条</li><li>极短的按压反馈</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  const stage=document.querySelector('.stage');
+  const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const loopTog=document.getElementById('loop-tog'),slowTog=document.getElementById('slow-tog');
+  const stretchTog=document.getElementById('stretch-tog');
+  let curve='ease-out',ms=1000,stretch=true,mode='normal',timers=[],anims=[];
+  const CURVES={'ease-out':[0.22,1,0.36,1],'ease-in-out':[0.65,0,0.35,1],'ease-in':[0.42,0,1,1]};
+  const NAMES={'ease-out':'缓出','ease-in-out':'两头慢','ease-in':'缓入'};
+  // cubic-bezier solver: y for a given x
+  function bezY(c,x){
+    const [a,b,cc,e]=c;
+    const at=(p,q,t)=>3*p*t*(1-t)*(1-t)+3*q*t*t*(1-t)+t*t*t;
+    let lo=0,hi=1,t=x;
+    for(let i=0;i<24;i++){t=(lo+hi)/2;if(at(a,cc,t)<x)lo=t;else hi=t}
+    return at(b,e,t);
+  }
+  function dur(){return slowTog.checked?ms*3:ms}
+  function distOf(rail,sq){return Math.max(0,rail.clientWidth-sq.offsetWidth-64)}
+  function runOne(sq,rail,easeName,stretchIt){
+    const d=distOf(rail,sq),c=CURVES[easeName]||[0.22,1,0.36,1];
+    const ease=easeName==='linear'?'linear':`cubic-bezier(${c.join(',')})`;
+    const a=sq.animate([{transform:'translateX(0px) scale(1,1)'},{transform:`translateX(${d}px) scale(1,1)`}],{duration:dur(),easing:ease,fill:'forwards'});
+    let b=null;
+    if(stretchIt&&stretch){
+      const inner=sq.firstChild;
+      b=inner.animate([{transform:'scale(1,1)'},{transform:'scale(1.28,0.82)',offset:.5},{transform:'scale(1,1)'}],{duration:dur(),easing:'ease-in-out',fill:'forwards'});
+    }
+    return [a,b].filter(Boolean);
+  }
+  function stopAll(){anims.forEach(a=>{try{a.cancel()}catch(e){}});anims=[];timers.forEach(clearTimeout);timers=[]}
+  function play(){
+    stopAll();
+    if(!motionOk){settle();return}
+    const d=dur();
+    if(mode==='compare'){
+      anims.push(...runOne(document.getElementById('sq-cmp-a'),document.getElementById('rail-cmp-a'),'linear',false));
+      anims.push(...runOne(document.getElementById('sq-cmp-b'),document.getElementById('rail-cmp-b'),curve,true));
+    }else{
+      anims.push(...runOne(document.getElementById('sq-top'),document.getElementById('rail-top'),'linear',false));
+      anims.push(...runOne(document.getElementById('sq-bot'),document.getElementById('rail-bot'),curve,true));
+    }
+    if(mode==='inside')drawGraph();
+    if(loopTog.checked)timers.push(setTimeout(play,d+900));
+  }
+  function settle(){
+    const put=(sq,rail)=>{sq.style.transform=`translateX(${distOf(rail,sq)}px)`};
+    if(mode==='compare'){put(document.getElementById('sq-cmp-a'),document.getElementById('rail-cmp-a'));put(document.getElementById('sq-cmp-b'),document.getElementById('rail-cmp-b'))}
+    else{put(document.getElementById('sq-top'),document.getElementById('rail-top'));put(document.getElementById('sq-bot'),document.getElementById('rail-bot'))}
+    if(mode==='inside')drawGraph();
+  }
+  function drawGraph(){
+    const svg=document.getElementById('ease-graph');if(!svg)return;
+    const W=300,H=170,x0=34,y0=14,x1=292,y1=146,c=CURVES[curve];
+    const X=t=>x0+(x1-x0)*t,Y=v=>y1-(y1-y0)*v;
+    let d=`M${X(0)} ${Y(0)}`;
+    for(let i=1;i<=40;i++){const t=i/40;d+=` L${X(t).toFixed(1)} ${Y(bezY(c,t)).toFixed(1)}`}
+    svg.querySelector('.cur').setAttribute('d',d);
+    svg.querySelector('.cur-lbl').textContent=NAMES[curve]+'：先快后慢';
+    svg.querySelector('.axis').setAttribute('d',`M${x0} ${y0}V${y1}H${x1}`);
+    svg.querySelector('.lin').setAttribute('d',`M${X(0)} ${Y(0)}L${X(1)} ${Y(1)}`);
+  }
+  document.getElementById('btn-play').addEventListener('click',play);
+  loopTog.addEventListener('change',()=>{if(loopTog.checked)play()});
+  function choices(id,pick){
+    const buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);
+    }));
+  }
+  choices('curve-seg',d=>{curve=d.curve;if(mode==='inside')drawGraph()});
+  choices('speed-seg',d=>{ms=+d.ms});
+  stretchTog.addEventListener('change',e=>{stretch=e.target.checked});
+  document.addEventListener('hb:mode',e=>{mode=e.detail.mode;if(mode==='inside')drawGraph()});
+  addEventListener('resize',()=>{if(mode==='inside')drawGraph()});
+  drawGraph();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>预备动作 — 动画手册</title>
+  <meta name="description" content="先往反方向缩一下，再冲出去。最适合让突然的移动看起来有准备。">
+  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/anticipation/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="预备动作 — 动画手册">
+  <meta property="og:description" content="先往反方向缩一下，再冲出去。最适合让突然的移动看起来有准备。">
+  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/anticipation/">
+  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="预备动作 — 动画手册">
+  <meta name="twitter:description" content="先往反方向缩一下，再冲出去。最适合让突然的移动看起来有准备。">
+  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "预备动作", "name": "预备动作", "description": "先往反方向缩一下，再冲出去。最适合让突然的移动看起来有准备。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/anticipation/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 预备动作"}</script>
+  <style>
+    :root{--ui-accent:#ff7a6b;--ui-muted:#8a8a92}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{position:relative;display:flex;align-items:center;justify-content:center;background:#0b0b0d;overflow:hidden}
+    .floor{position:absolute;left:8%;right:8%;bottom:84px;border-top:2px solid rgba(244,244,242,.35)}
+    .char{position:absolute;left:60px;bottom:84px;width:86px;height:86px;border-radius:24px;background:var(--ui-accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:40px;font-weight:800}
+    .inside-view,.compare-view{display:none;width:100%;height:100%}
+    .stage[data-hb-mode="inside"] .demo-main{display:none}
+    .stage[data-hb-mode="inside"] .inside-view{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,28px)}
+    .stage[data-hb-mode="compare"] .demo-main,.stage[data-hb-mode="compare"] .inside-view{display:none}
+    .stage[data-hb-mode="compare"] .compare-view{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,3vw,32px)}
+    .stage[data-hb-mode="compare"] .compare-view::after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px solid rgba(244,244,242,.12)}
+    .cmp-half{position:relative}
+    .cmp-half .floor{left:12%;right:12%;bottom:70px}
+    .cmp-half .char{bottom:70px;width:72px;height:72px;font-size:32px}
+    .step{display:flex;flex-direction:column;align-items:center;gap:8px;max-width:150px;text-align:center}
+    .step .n{width:30px;height:30px;border-radius:50%;background:var(--ui-accent);color:#16161a;font:800 16px/30px var(--hb-font);text-align:center}
+    .step p{font:600 13px/1.5 var(--hb-font);color:#f4f4f2}
+    .step small{color:var(--ui-muted);font-weight:500}
+    .step .arr{font-size:26px;color:var(--ui-muted)}
+    @media(prefers-reduced-motion:reduce){.char{transition:none}}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
+  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+</head>
+<body class="hb" data-hb-kind="once" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../squash-and-stretch/" rel="prev" aria-label="上一个：挤压与伸展"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>挤压与伸展</span></a><a href="../follow-through/" rel="next" aria-label="下一个：跟随动作"><span><span class="hb-dir">下一个：</span>跟随动作</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.48 · 微交互</p>
+    <h1>预备动作</h1>
+    <p class="hb-lede">先往反方向缩一下，再冲出去。最适合让突然的移动看起来有准备。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage hb-dots">
+      <div class="demo-main" style="display:contents">
+        <div class="floor" aria-hidden="true"></div>
+        <div class="char" id="char-main">→</div>
+      </div>
+      <div class="inside-view">
+        <div class="step"><span class="n">1</span><p>往反方向缩一下<small>压扁、往后倾，像拉弓</small></p></div>
+        <div class="step"><span class="arr">→</span></div>
+        <div class="step"><span class="n">2</span><p>冲出去<small>拉长、带着一点过冲</small></p></div>
+        <div class="step"><span class="arr">→</span></div>
+        <div class="step"><span class="n">3</span><p>落定<small>晃一下，停住</small></p></div>
+      </div>
+      <div class="compare-view">
+        <div class="cmp-half"><div class="floor" aria-hidden="true"></div><div class="char" id="char-a">→</div>
+          <p style="position:absolute;top:10px;left:10px;color:#f4f4f2;font:600 13px/1.4 var(--hb-font);background:rgba(11,11,13,.9);padding:3px 8px;border-radius:6px">没有预备动作</p></div>
+        <div class="cmp-half"><div class="floor" aria-hidden="true"></div><div class="char" id="char-b">→</div>
+          <p style="position:absolute;top:10px;left:10px;color:#f4f4f2;font:600 13px/1.4 var(--hb-font);background:rgba(11,11,13,.9);padding:3px 8px;border-radius:6px">有预备动作</p></div>
+      </div>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>看内部：动作分三步——先往反方向缩一下、压扁，像拉弓一样蓄力；再冲出去，带着一点拉长和过冲；最后晃一下落定。</p>
+      <p data-hb-for="compare" hidden>左边没有预备动作：方块突然就动了，看起来像被推了一把。右边先往反方向缩一下，你就知道它要往哪边去了。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="amp-lbl">预备幅度</p>
+        <div class="seg" id="amp-seg" role="group" aria-labelledby="amp-lbl">
+          <button type="button" data-amp="24" aria-pressed="false">小</button>
+          <button type="button" data-amp="44" class="on" aria-pressed="true">中</button>
+          <button type="button" data-amp="70" aria-pressed="false">大</button>
+        </div>
+        <p class="hb-hint">往反方向缩回去的距离。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="wind-lbl">预备时间</p>
+        <div class="seg" id="wind-seg" role="group" aria-labelledby="wind-lbl">
+          <button type="button" data-wind="400" aria-pressed="false">短</button>
+          <button type="button" data-wind="750" class="on" aria-pressed="true">中</button>
+          <button type="button" data-wind="1200" aria-pressed="false">长</button>
+        </div>
+        <p class="hb-hint">缩回去、蓄力用的时间。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="dir-lbl">方向</p>
+        <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
+          <button type="button" data-dir="1" class="on" aria-pressed="true">向右</button>
+          <button type="button" data-dir="-1" aria-pressed="false">向左</button>
+        </div>
+        <p class="hb-hint">方块要冲向哪一边。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[你的按钮、角色或卡片]加上预备动作。在它突然移动之前，先让它往反方向缩一点：压扁、往后倾，像拉弓一样蓄力大约 0.3 秒，再冲出去。冲出去时把它沿移动方向拉长一点，落点带一点过冲，晃一下停住。只给它的位置和形状做动画。如果访客开了减弱动态效果，就让它直接出现在终点，不要冲出去。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>突然的移动</li><li>角色跳跃和冲刺</li><li>按钮飞出</li><li>游戏里的攻击前摇</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>本来就很慢的动作</li><li>需要立刻响应的反馈</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  const stage=document.querySelector('.stage');
+  const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const loopTog=document.getElementById('loop-tog'),slowTog=document.getElementById('slow-tog');
+  let amp=44,wind=750,dir=1,mode='normal',timers=[],anims=[];
+  function stopAll(){anims.forEach(a=>{try{a.cancel()}catch(e){}});anims=[];timers.forEach(clearTimeout);timers=[]}
+  function span(el){const host=el.closest('.cmp-half')||stage;return Math.max(0,host.clientWidth-60-el.offsetWidth-40)}
+  function runOne(el,anticipate){
+    const d=span(el),w=slowTog.checked?wind*3:wind,launch=430*(slowTog.checked?3:1);
+    const x0=0,xBack=-dir*amp,xEnd=dir*d;
+    const kf=anticipate?[
+      {offset:0,transform:`translateX(${x0}px) scale(1,1) rotate(0deg)`,easing:'ease-in-out'},
+      {offset:.55,transform:`translateX(${xBack}px) scale(1.22,0.76) rotate(${-dir*10}deg)`,easing:'cubic-bezier(.34,1.4,.64,1)'},
+      {offset:.85,transform:`translateX(${xEnd}px) scale(1,1) rotate(0deg)`,easing:'ease-out'},
+      {offset:1,transform:`translateX(${xEnd}px) scale(1,1) rotate(0deg)`}
+    ]:[
+      {offset:0,transform:'translateX(0px)',easing:'ease-in-out'},
+      {offset:1,transform:`translateX(${xEnd}px)`}
+    ];
+    const total=anticipate?w+launch+500:w+launch+500;
+    return el.animate(kf,{duration:total,easing:'linear',fill:'forwards'});
+  }
+  function play(){
+    stopAll();
+    if(!motionOk)return;
+    if(mode==='compare'){
+      anims.push(runOne(document.getElementById('char-a'),false));
+      anims.push(runOne(document.getElementById('char-b'),true));
+    }else{
+      anims.push(runOne(document.getElementById('char-main'),true));
+    }
+    if(loopTog.checked)timers.push(setTimeout(play,(slowTog.checked?wind*3:wind)+430*(slowTog.checked?3:1)+1400));
+  }
+  document.getElementById('btn-play').addEventListener('click',play);
+  loopTog.addEventListener('change',()=>{if(loopTog.checked)play()});
+  function choices(id,pick){
+    const buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);
+    }));
+  }
+  choices('amp-seg',d=>{amp=+d.amp});
+  choices('wind-seg',d=>{wind=+d.wind});
+  choices('dir-seg',d=>{dir=+d.dir;const a=dir>0?'→':'←';['char-main','char-a','char-b'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=a})});
+  document.addEventListener('hb:mode',e=>{mode=e.detail.mode});
+
+</script>
+</body>
+</html>
