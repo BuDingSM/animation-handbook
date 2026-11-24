@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>往返循环 — 动画手册</title>
+  <meta name="description" content="正着走一遍，再倒着走回来。最适合加载指示和装饰。">
+  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ping-pong-loop/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="往返循环 — 动画手册">
+  <meta property="og:description" content="正着走一遍，再倒着走回来。最适合加载指示和装饰。">
+  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ping-pong-loop/">
+  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="往返循环 — 动画手册">
+  <meta name="twitter:description" content="正着走一遍，再倒着走回来。最适合加载指示和装饰。">
+  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "往返循环", "name": "往返循环", "description": "正着走一遍，再倒着走回来。最适合加载指示和装饰。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ping-pong-loop/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 往返循环"}</script>
+  <style>
+    :root{--ui-accent:#5fd8a0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{position:relative;overflow:hidden;background:#0d0d10}
+    #cvs{position:absolute;inset:0;width:100%;height:100%;display:block}
+    .fx-lbl{display:none;position:absolute;padding:3px 8px;border-radius:6px;background:rgba(7,6,8,.88);color:#f4f4f2;
+      font:600 13px/1.25 var(--hb-font);white-space:nowrap;pointer-events:none}
+    .stage[data-hb-mode="inside"] .in,.stage[data-hb-mode="compare"] .cmp{display:block}
+    .divide{display:none;position:absolute;left:calc(50% - 1px);top:0;width:2px;height:100%;background:rgba(244,244,242,.25);pointer-events:none}
+    .stage[data-hb-mode="compare"] .divide{display:block}
+    .cmp{top:10px}.cmp.first{left:10px}.cmp.second{left:calc(50% + 10px)}
+    .in{max-width:46%}
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
+  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+</head>
+<body class="hb" data-hb-kind="loop">
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../wiggle/" rel="prev" aria-label="上一个：摆动"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>摆动</span></a><a href="../repeater/" rel="next" aria-label="下一个：重复器"><span><span class="hb-dir">下一个：</span>重复器</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">07.28 · 氛围与背景</p>
+    <h1>往返循环</h1>
+    <p class="hb-lede">正着走一遍，再倒着走回来。最适合加载指示和装饰。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。点「暂停」，或打开慢动作，看方块走到头怎么回来。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage" role="img" aria-label="薄荷色方块沿着三座小拱从一头走到另一头，再倒着走回来，下面有一条播放条">
+      <canvas id="cvs" aria-hidden="true"></canvas><i class="divide" aria-hidden="true"></i>
+      <p class="fx-lbl in" style="left:10px;top:10px" aria-hidden="true" data-hb-caption>进度 0 → 1 → 0</p>
+      <p class="fx-lbl in" style="left:10px;top:44px" aria-hidden="true" data-hb-caption>去和回是同一条路</p>
+      <p class="fx-lbl in" style="right:10px;top:10px" aria-hidden="true" data-hb-caption>正放蓝 · 倒放珊瑚</p>
+      <p class="fx-lbl cmp first" aria-hidden="true" data-hb-caption>跳回开头</p>
+      <p class="fx-lbl cmp second" aria-hidden="true" data-hb-caption>倒着走回来</p>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>内部画面里，虚线是方块走过的路：进度从 0 走到 1，再从 1 回到 0，所以去和回是同一条路；下面的播放条会跟着变色，标出正在正放还是倒放。</p>
+      <p data-hb-for="compare" hidden>上面是普通循环：走到头直接跳回开头，中间断一下。下面是往返循环：走到头倒着走回来，没有断点。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看动起来有什么不同。</p></div>
+    </div>
+    <div class="hb-settings">
+    <div class="hb-setting">
+      <p class="hb-setting-name" id="oneway-lbl">单程时间</p>
+      <div class="seg" id="oneway-seg" role="group" aria-labelledby="oneway-lbl"><button type="button" data-oneway="2" aria-pressed="false">慢 2 秒</button><button type="button" data-oneway="1" aria-pressed="true" class="on">普通 1 秒</button><button type="button" data-oneway="0.5" aria-pressed="false">快 0.5 秒</button></div>
+      <p class="hb-hint">单程就是从一头走到另一头的时间。</p>
+    </div>
+    <div class="hb-setting">
+      <p class="hb-setting-name" id="shape-lbl">形状</p>
+      <div class="seg" id="shape-seg" role="group" aria-labelledby="shape-lbl"><button type="button" data-shape="square" aria-pressed="true" class="on">方块</button><button type="button" data-shape="dot" aria-pressed="false">圆点</button></div>
+      <p class="hb-hint">圆点更像加载指示，方块更显眼。</p>
+    </div>
+    <div class="hb-setting">
+      <p class="hb-setting-name" id="gait-lbl">走法</p>
+      <div class="seg" id="gait-seg" role="group" aria-labelledby="gait-lbl"><button type="button" data-gait="hop" aria-pressed="true" class="on">跳跃</button><button type="button" data-gait="slide" aria-pressed="false">平移</button></div>
+      <p class="hb-hint">跳跃是沿着三座小拱走，平移是贴着地面走。</p>
+    </div>
+    </div>
+    <details class="hb-options">
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="hb-settings">
+    <div class="hb-setting">
+      <label class="hb-switch-row"><span>残影</span><input class="hb-switch" type="checkbox" role="switch" id="ghosts-tog" checked autocomplete="off"></label>
+      <p class="hb-hint">身后的残影让运动看起来更顺滑。</p>
+    </div>
+      </div>
+    </details>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[想要来回动的加载指示或装饰]加上往返循环。让一个圆角方块从一头走到另一头，再沿着同一条路倒着走回来，周而复始，中间没有跳回开头的断点；去的时候转一圈，回来的时候倒着转回去。下面配一条播放条：正放时是蓝色、写着“正放”，倒放时是珊瑚色、写着“倒放”，进度条和圆点跟着走。两头各立一根柱子标出折返点。如果访客开启了减弱动态效果，就显示静止在中间的方块。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>加载指示</li><li>等待中的装饰</li><li>来回展示的小元素</li><li>空闲动画</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>需要明确进度的加载</li><li>正式内容</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d'),stage=cvs.parentElement;
+  const slowTog=document.getElementById('slow-tog');
+  const reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
+  const LABELS={normal:"A mint square hops along three arches from one end to the other and back, with a playback bar below.",inside:"The square on its dashed path, with its progress and direction shown, and the playback bar below.",compare:"Two tracks: one square jumps back to the start, the other comes back along the same path."};
+  let mode='normal',paused=false;
+  let W=0,H=0,raf=0,lastT=null,t=0;
+  function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+  function loop(ts){
+    raf=requestAnimationFrame(loop);
+    if(lastT===null){lastT=ts;return}
+    const dt=Math.min(ts-lastT,50)*(slowTog.checked?1/3:1);lastT=ts;t+=dt/1000;draw();
+  }
+  function start(){if(raf||paused)return;lastT=null;raf=requestAnimationFrame(loop)}
+  document.addEventListener('hb:pause',e=>{paused=e.detail.paused;notes();if(paused){cancelAnimationFrame(raf);raf=0;draw()}else start()});
+  document.addEventListener('visibilitychange',()=>{lastT=null});
+  document.addEventListener('hb:mode',e=>{mode=e.detail.mode;stage.setAttribute('aria-label',LABELS[mode]);if(W)draw()});
+  function resize(){
+    const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h||(w===W&&h===H))return;W=w;H=h;
+    const dpr=Math.min(devicePixelRatio||1,2);cvs.width=W*dpr;cvs.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    draw();
+  }
+
+  const ghostsTog=document.getElementById('ghosts-tog');
+  let oneway=1,shape='square',gait='hop';
+  const mod=(a,n)=>((a%n)+n)%n;
+  function gOf(u){const c=2*oneway,q=mod(u,c)/c;return q<0.5?2*q:2-2*q}
+  function fwdOf(u){return mod(u,2*oneway)/(2*oneway)<0.5}
+  function pos(g,x0,x1,base,hop){return [x0+(x1-x0)*g,base-(gait==='hop'?hop*Math.abs(Math.sin(3*Math.PI*g)):0)]}
+  function drawShape(x,y,s,rot,alpha){
+    ctx.save();ctx.translate(x,y);ctx.rotate(rot);ctx.globalAlpha=alpha;ctx.fillStyle='#5fd8a0';
+    if(shape==='dot'){ctx.beginPath();ctx.arc(0,0,s/2,0,6.283);ctx.fill()}
+    else{rr(-s/2,-s/2,s,s,Math.max(6,s*0.27));ctx.fill();
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(s/2-11,-s/2+11,5,0,6.283);ctx.fill()}
+    ctx.restore();
+  }
+  function drawBar(g,fwd,y){
+    const bx=16,bw=110,bh=34;
+    ctx.fillStyle=fwd?'#3b82f6':'#ff6f61';rr(bx,y,bw,bh,17);ctx.fill();
+    ctx.fillStyle='#fff';ctx.font='700 14px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(fwd?'▶ 正放':'◀ 倒放',bx+bw/2,y+bh/2+1);
+    const tx0=bx+bw+16,tx1=W-16,ty=y+bh/2;
+    ctx.fillStyle='rgba(244,244,242,.25)';rr(tx0,ty-5,tx1-tx0,10,5);ctx.fill();
+    ctx.fillStyle=fwd?'#3b82f6':'#ff6f61';rr(tx0,ty-5,Math.max(10,(tx1-tx0)*g),10,5);ctx.fill();
+    ctx.fillStyle='#ffce5a';ctx.beginPath();ctx.arc(tx0+(tx1-tx0)*g,ty,11,0,6.283);ctx.fill();
+  }
+  function drawTrack(yBase,half,g,fwd,ghosts,bar){
+    const x0=W*0.12,x1=W*0.88,S=Math.min(48,H*0.16),hop=H*0.2;
+    ctx.strokeStyle='rgba(244,244,242,.3)';ctx.lineWidth=2;ctx.setLineDash([2,10]);ctx.lineCap='round';
+    ctx.beginPath();
+    for(let i=0;i<=60;i++){const p=pos(i/60,x0,x1,yBase,hop);i?ctx.lineTo(p[0],p[1]-S/2):ctx.moveTo(p[0],p[1]-S/2)}
+    ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle='rgba(244,244,242,.5)';
+    [x0,x1].forEach(function(xx){rr(xx-3,yBase-hop-8,6,hop+10,3);ctx.fill()});
+    ctx.fillStyle='rgba(244,244,242,.25)';rr(x0-30,yBase+4,x1-x0+60,4,2);ctx.fill();
+    if(ghosts)for(let j=4;j>=1;j--){const gj=gOf(t-j*0.045),pj=pos(gj,x0,x1,yBase,hop);
+      drawShape(pj[0],pj[1]-S/2,S,gj*Math.PI*2,0.1*(5-j))}
+    const p=pos(g,x0,x1,yBase,hop);
+    drawShape(p[0],p[1]-S/2,S,g*Math.PI*2,1);
+    if(bar)drawBar(g,fwd,H-46);
+    return {x:p[0],y:p[1]-S/2};
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const g=gOf(t),fwd=fwdOf(t);
+    if(mode==='compare'){
+      const g2=mod(t,oneway)/oneway;
+      drawTrack(H*0.32,H,g2,true,false,false);
+      drawTrack(H*0.74,H,g,fwd,false,false);
+      return;
+    }
+    const p=drawTrack(H*0.60,H,g,fwd,ghostsTog.checked,true);
+    if(mode==='inside'){
+      ctx.fillStyle='rgba(244,244,242,.85)';ctx.font='600 13px sans-serif';ctx.textAlign='left';ctx.textBaseline='alphabetic';
+      ctx.fillText('进度 '+g.toFixed(2)+' · '+(fwd?'正放':'倒放'),16,26);
+      ctx.strokeStyle='#ffce5a';ctx.lineWidth=2;ctx.beginPath();
+      const ax=p.x+(fwd?26:-26);ctx.moveTo(p.x, p.y);ctx.lineTo(ax,p.y);
+      ctx.moveTo(ax+(fwd?-8:8),p.y-5);ctx.lineTo(ax,p.y);ctx.lineTo(ax+(fwd?-8:8),p.y+5);ctx.stroke();
+    }
+  }
+
+  function choices(id,pick){
+    const buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);if(W)draw();
+    }));
+  }
+  choices('oneway-seg',d=>{oneway=+d.oneway});
+  choices('shape-seg',d=>{shape=d.shape});
+  choices('gait-seg',d=>{gait=d.gait});
+  ghostsTog.addEventListener('change',()=>{if(W)draw()});
+
+  const said={inside:document.querySelector('[data-hb-for="inside"]').textContent,compare:document.querySelector('[data-hb-for="compare"]').textContent};
+  const STILL={inside:"静止画面：方块沿着虚线走，进度从 0 走到 1 再回到 0，去和回是同一条路。按「播放」观看。",compare:"静止画面：上面走到头跳回开头，下面倒着走回来。按「播放」观看。"};
+  function notes(){const still=reduceMQ.matches&&paused;for(const k of ['inside','compare'])document.querySelector('[data-hb-for="'+k+'"]').textContent=still?STILL[k]:said[k]}
+  notes();
+  reduceMQ.addEventListener('change',notes);
+  resize();
+  new ResizeObserver(resize).observe(stage);
+  if(!reduceMQ.matches)start();
+
+</script>
+</body>
+</html>
