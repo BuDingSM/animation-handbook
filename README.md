@@ -1,14 +1,14 @@
 <div align="center">
 
-<a href="https://matinmonshizadeh.github.io/animation-handbook/"><picture><source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="docs/hero-phone-still.webp"><source media="(prefers-reduced-motion: reduce)" srcset="docs/hero-still.webp"><source media="(max-width: 600px)" srcset="docs/hero-phone.webp"><img src="docs/hero.webp" alt="手册里的六个动画同时播放：文字粒子、水面涟漪、合成波网格、液态玻璃、火焰效果和前后对比滑块，是 176 个网页动画效果中的六个" width="820"></picture></a>
+<a href="https://matinmonshizadeh.github.io/animation-handbook/"><picture><source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="docs/hero-phone-still.webp"><source media="(prefers-reduced-motion: reduce)" srcset="docs/hero-still.webp"><source media="(max-width: 600px)" srcset="docs/hero-phone.webp"><img src="docs/hero.webp" alt="手册里的六个动画同时播放：文字粒子、水面涟漪、合成波网格、液态玻璃、火焰效果和前后对比滑块，是 199 个网页动画效果中的六个" width="820"></picture></a>
 
 # 动画手册
 
-**176 个网页动画效果的可视化参考：每个动画都能在线播放，大多数可以用简单的设置调整，还附带可直接复制的提示词，粘贴到 AI 助手里就能用。免费使用，不用注册。**
+**199 个网页动画效果的可视化参考：每个动画都能在线播放，大多数可以用简单的设置调整，还附带可直接复制的提示词，粘贴到 AI 助手里就能用。免费使用，不用注册。**
 
 [**打开在线手册 →**](https://matinmonshizadeh.github.io/animation-handbook/)
 
-[![Live site](https://img.shields.io/website?url=https%3A%2F%2Fmatinmonshizadeh.github.io%2Fanimation-handbook%2F&label=live%20demo&up_message=online&color=91bdff)](https://matinmonshizadeh.github.io/animation-handbook/) [![Stars](https://img.shields.io/github/stars/matinmonshizadeh/animation-handbook?style=flat&color=79de9d)](https://github.com/matinmonshizadeh/animation-handbook) [![License](https://img.shields.io/github/license/matinmonshizadeh/animation-handbook?color=c6a1ff)](LICENSE) [![Techniques](https://img.shields.io/badge/techniques-176-ff9d5c)](#full-catalog) [![Dependencies](https://img.shields.io/badge/dependencies-0-ff94a9)](#设计原则) [![Build](https://img.shields.io/badge/build-none-62ddcf)](#设计原则)
+[![Live site](https://img.shields.io/website?url=https%3A%2F%2Fmatinmonshizadeh.github.io%2Fanimation-handbook%2F&label=live%20demo&up_message=online&color=91bdff)](https://matinmonshizadeh.github.io/animation-handbook/) [![Stars](https://img.shields.io/github/stars/matinmonshizadeh/animation-handbook?style=flat&color=79de9d)](https://github.com/matinmonshizadeh/animation-handbook) [![License](https://img.shields.io/github/license/matinmonshizadeh/animation-handbook?color=c6a1ff)](LICENSE) [![Techniques](https://img.shields.io/badge/techniques-199-ff9d5c)](#full-catalog) [![Dependencies](https://img.shields.io/badge/dependencies-0-ff94a9)](#设计原则) [![Build](https://img.shields.io/badge/build-none-62ddcf)](#设计原则)
 
 </div>
 
@@ -16,7 +16,7 @@
 
 ## 这是什么
 
-这里收录了 176 个网页动画效果，全部放在一处，每个都能实际看到效果。每个页面都会在线播放它的动画，并给出一句现成的提示词，粘贴到 AI 助手里，不用自己写代码就能把这个动画加到你的网站上。大多数页面还可以用几个简单的设置调整动画，复制的提示词会列出你的选择。每个文件夹里的 `README.md` 会讲这个效果的原理、关键参数和生产中的注意事项，适合想亲手实现的人看。
+这里收录了 199 个网页动画效果，全部放在一处，每个都能实际看到效果。每个页面都会在线播放它的动画，并给出一句现成的提示词，粘贴到 AI 助手里，不用自己写代码就能把这个动画加到你的网站上。大多数页面还可以用几个简单的设置调整动画，复制的提示词会列出你的选择。每个文件夹里的 `README.md` 会讲这个效果的原理、关键参数和生产中的注意事项，适合想亲手实现的人看。
 
 全部都是普通的 HTML、CSS 和 JavaScript：没有构建步骤，没有框架，没有 CDN。从仓库的副本里直接打开任意页面的 `index.html`，演示就能离线运行；[本地运行](#本地运行）讲的是哪些部分需要本地服务器。做这个手册是为了*启发*和*教学*，不是为了卖一个库。
 
@@ -40,15 +40,15 @@
 |:--:|----------|:-----:|
 | 01 | [滚动驱动](#01) | 27 |
 | 02 | [入场与退场](#02) | 15 |
-| 03 | [页面切换](#03) | 17 |
-| 04 | [微交互](#04) | 44 |
-| 05 | [文字与排版](#05) | 19 |
+| 03 | [页面切换](#03) | 18 |
+| 04 | [微交互](#04) | 60 |
+| 05 | [文字与排版](#05) | 21 |
 | 06 | [3D 与高级效果](#06) | 28 |
-| 07 | [氛围与背景](#07) | 26 |
+| 07 | [氛围与背景](#07) | 30 |
 
 ## 完整目录
 
-全部 176 个动画，每个都链接到在线演示。
+全部 199 个动画，每个都链接到在线演示。
 
 每个动画的代码和 README 都在 [animations/](animations/) 下对应的文件夹里。
 
@@ -118,11 +118,11 @@
 
 <a id="03"></a>
 
-### 03 · 页面切换 · 17 个动画
+### 03 · 页面切换 · 18 个动画
 
 <sub>路由或视图之间的整页切换——交叉淡入淡出、滑动、传送门、变形和 View Transitions API。</sub>
 
-<details><summary>浏览「页面切换」的全部 17 个动画</summary>
+<details><summary>浏览「页面切换」的全部 18 个动画</summary>
 
 - **[View Transitions API](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/view-transitions-api/)** — 浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。
 - **[共享元素过渡](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/)** — 图片从列表放大，进入下一页的页眉。最适合图库。
@@ -141,16 +141,17 @@
 - **[翻页卷角](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/page-curl/)** — 页面像纸一样从角落卷起。最适合数字杂志。
 - **[立方体过渡](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/cube-transition/)** — 页面贴在立方体上，旋转展示下一页。最适合图片故事。
 - **[像素化过渡](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/pixelate-transition/)** — 页面碎成大像素，再清晰成下一页。最适合画廊。
+- **[加载开场](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/preloader/)** — 进站先看到 Logo 和百分比，到 100% 幕布拉开。最适合品牌开场和重型页面。
 
 </details>
 
 <a id="04"></a>
 
-### 04 · 微交互 · 44 个动画
+### 04 · 微交互 · 60 个动画
 
 <sub>短暂的、由用户触发的动画——悬停、点击、聚焦、加载状态和界面反馈模式。</sub>
 
-<details><summary>浏览「微交互」的全部 44 个动画</summary>
+<details><summary>浏览「微交互」的全部 60 个动画</summary>
 
 - **[悬停状态动画](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/)** — 指向卡片时，它有六种反应方式。适合用在按钮和卡片上。
 - **[点击涟漪](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/click-ripple/)** — 按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。
@@ -196,16 +197,32 @@
 - **[前后对比滑块](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/before-after-slider/)** — 拖动一条线，横跨两张图片进行对比。适合用在照片编辑上。
 - **[放大镜](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/magnifier-lens/)** — 镜头跟随指针，近距离展示图片。适合用在商品照片上。
 - **[卡片组滑动](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/card-deck-swipe/)** — 左右滑动顶部卡片，下一张随之升起。适合用在快速选择上。
+- **[缓动曲线](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/easing/)** — 速度有快有慢，而不是匀速移动。最适合让任何动作停得自然。
+- **[过冲回弹](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/overshoot/)** — 冲过目标一点，再回弹停住。最适合仪表、滑块和需要一点弹性的落点。
+- **[挤压与伸展](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/squash-and-stretch/)** — 落地时压扁，起跳时拉长，带出弹性感。最适合小球、角色和活泼的图标。
+- **[预备动作](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/anticipation/)** — 先往反方向缩一下，再冲出去。最适合让突然的移动看起来有准备。
+- **[跟随动作](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/follow-through/)** — 主体停下了，身上的部件还多晃几下才停。最适合角色、旗帜和挂件。
+- **[底部抽屉](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/bottom-sheet/)** — 面板从屏幕底部往上滑出。最适合移动端的详情和操作面板。
+- **[弹出气泡](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/popover/)** — 点一下，带箭头的小面板跳出来。最适合详情说明和快捷操作。
+- **[标签页切换](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/tabs/)** — 点页签切换内容，底线跟着滑过去。最适合价格页和设置页。
+- **[筛选标签](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/filter-chips/)** — 点一下加上或拿掉一个筛选条件。最适合列表和商品筛选。
+- **[步进器](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/stepper/)** — 用加减按钮增减数字。最适合购买数量和人数选择。
+- **[分页](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/pagination/)** — 用页码切换页面。最适合搜索结果和长列表。
+- **[面包屑导航](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/breadcrumbs/)** — 用层级显示现在的位置。最适合文章页和深层级网站。
+- **[即时校验](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/inline-validation/)** — 边输边告诉你对还是错。最适合注册和联系表单。
+- **[灯箱](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/lightbox/)** — 点缩略图，在变暗的页面上放大看图。最适合作品集和商品图。
+- **[热点标注](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hotspots/)** — 图上的点一点，弹出对应说明。最适合产品图和示意图。
+- **[倒计时](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/countdown-timer/)** — 数着离截止还有多久。最适合活动和限时优惠。
 
 </details>
 
 <a id="05"></a>
 
-### 05 · 文字与排版 · 19 个动画
+### 05 · 文字与排版 · 21 个动画
 
 <sub>专为文字设计的动画——动态排版、逐字效果、渐变流动和词语变换。</sub>
 
-<details><summary>浏览「文字与排版」的全部 19 个动画</summary>
+<details><summary>浏览「文字与排版」的全部 21 个动画</summary>
 
 - **[动态排版](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/kinetic-typography/)** — 词语逐个以各自的方式进出。最适合开场。
 - **[打字机效果](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/typewriter-effect/)** — 文字在闪烁光标后逐字打出。最适合短标语。
@@ -226,6 +243,8 @@
 - **[霓虹闪烁](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/neon-flicker/)** — 发光的字母偶尔像破旧霓虹灯一样闪烁。最适合夜晚主题。
 - **[手写描绘](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/handwriting-draw/)** — 一个词像用笔写出来一样一笔一画出现。最适合问候语和签名。
 - **[文字粒子](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-particles/)** — 由圆点组成的词被指针打散，又弹回原位。最适合开场。
+- **[文字蒙版](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-mask/)** — 字母镂空，里面露出会动的画面。最适合大标题和开场。
+- **[下划线动画](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/underline-animation/)** — 移上去，底线从左边长出来。最适合导航链接。
 
 </details>
 
@@ -270,11 +289,11 @@
 
 <a id="07"></a>
 
-### 07 · 氛围与背景 · 26 个动画
+### 07 · 氛围与背景 · 30 个动画
 
 <sub>被动的循环效果，不抢注意力也能保持视觉趣味——渐变、粒子、噪点和辉光。</sub>
 
-<details><summary>浏览「氛围与背景」的全部 26 个动画</summary>
+<details><summary>浏览「氛围与背景」的全部 30 个动画</summary>
 
 - **[动态渐变背景](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/animated-gradient-background/)** — 颜色在柔和的渐变背景上缓缓流动。最适合主视觉区。
 - **[网格渐变](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/mesh-gradient/)** — 模糊的彩色色块漂移、交融。最适合落地页。
@@ -302,6 +321,10 @@
 - **[肯·伯恩斯效果](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ken-burns/)** — 照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。
 - **[火焰效果](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/fire-effect/)** — 火焰闪烁升腾，随热量升降。最适合游戏和活动页面。
 - **[闪电](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/lightning/)** — 锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。
+- **[摆动](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wiggle/)** — 小幅度、不停地抖。最适合提醒铃铛和待处理标记。
+- **[往返循环](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ping-pong-loop/)** — 正着走一遍，再倒着走回来。最适合加载指示和装饰。
+- **[重复器](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/repeater/)** — 一个形状复制一圈，转着圈排开。最适合装饰图案和加载动画。
+- **[万花筒](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/kaleidoscope/)** — 八面对称的图案一边转一边散开。最适合开场背景和装饰。
 
 </details>
 
