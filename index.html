@@ -3114,6 +3114,21 @@ button,input{font:inherit;color:inherit}
 @keyframes k-sig7-drift{0%{transform:translateX(-34cqw)}100%{transform:translateX(104cqw)}}
 @keyframes k-sig7-halo{0%,100%{transform:scale(.85);opacity:.6}50%{transform:scale(1.08);opacity:1}}
 @keyframes k-sig7-tw{0%,100%{transform:scale(.4) rotate(0deg);opacity:.3}50%{transform:scale(1) rotate(45deg);opacity:1}}
+/* wiggle · Wiggle: a white bell with an ink knob and clapper rocks side to side on its top pivot, the clapper swinging the other way, like a reminder bell that will not sit still */
+.pv-wiggle .bl{position:absolute;left:50%;top:53cqh;width:36cqh;height:42cqh;margin:-21cqh 0 0 -18cqh;transform-origin:50% 6%;animation:k-wiggle-rock 3.6s var(--cp-inout) infinite}
+.pv-wiggle .kb{position:absolute;left:50%;top:0;width:8cqh;height:8cqh;margin-left:-4cqh;border-radius:50%;background:var(--cp-ink)}
+.pv-wiggle .bd{position:absolute;left:0;top:6cqh;width:100%;height:30cqh;background:#fff;border-radius:50% 50% 8% 8%/72% 72% 8% 8%;box-shadow:var(--cp-lift)}
+.pv-wiggle .rm{position:absolute;left:-4%;right:-4%;bottom:6cqh;height:5cqh;border-radius:3cqh;background:#fff;box-shadow:0 1.3cqh 0 var(--cp-lip)}
+.pv-wiggle .cp{position:absolute;left:50%;bottom:0;width:7cqh;height:7cqh;margin-left:-3.5cqh;border-radius:50%;background:var(--cp-ink);transform-origin:50% -1cqh;animation:k-wiggle-clap 3.6s var(--cp-inout) infinite}
+@keyframes k-wiggle-rock{0%{transform:rotate(-7deg)}25%{transform:rotate(7deg)}50%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}100%{transform:rotate(-7deg)}}
+@keyframes k-wiggle-clap{0%{transform:rotate(9deg)}25%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}75%{transform:rotate(-9deg)}100%{transform:rotate(9deg)}}
+/* pong · Ping-Pong Loop: a white ball runs along its track from one ink end stop to the other and back, pausing at each end before turning around */
+.pv-pong .tr{position:absolute;left:14cqw;top:51cqh;width:72cqw;height:4cqh;border-radius:2cqh;background:rgba(255,255,255,.45)}
+.pv-pong .mk{position:absolute;top:53cqh;width:4.5cqh;height:4.5cqh;margin:-2.25cqh 0 0 -2.25cqh;border-radius:50%;background:var(--cp-ink)}
+.pv-pong .m1{left:20cqw}
+.pv-pong .m2{left:80cqw}
+.pv-pong .bl{position:absolute;left:50%;top:53cqh;width:18cqh;height:18cqh;margin:-9cqh 0 0 -9cqh;border-radius:50%;background:#fff;box-shadow:var(--cp-lift);animation:k-pong-slide 4s var(--cp-inout) infinite}
+@keyframes k-pong-slide{0%,10%{transform:translateX(-30cqw)}46%,54%{transform:translateX(30cqw)}90%,100%{transform:translateX(-30cqw)}}
 /* ── region r07a: end ── */
 /* ── region r07b: start · 07 Ambient & Background, part B ── */
 /* synth · Synthwave Grid: on the dusk sky a striped sun sits on the horizon while a pink neon grid floor rolls steadily toward you */
@@ -3248,6 +3263,23 @@ button,input{font:inherit;color:inherit}
 @keyframes k-kenburns-b{0%,44%{opacity:0;transform:translate(3%,-2%) scale(1.24)}54%,90%{opacity:1}98%{opacity:0;transform:translate(0,0) scale(1.02)}100%{opacity:0;transform:translate(3%,-2%) scale(1.24)}}
 /* flow · Flow Field: particles ride smooth invisible currents over the stage, leaving white trails that curve and fade (the canvas in the markup, drawn by flowEngine()) */
 .pv-flow canvas{opacity:.94}
+/* repeater · Repeater: eight copies of one white petal stand in a ring around an ink hub; the ring turns and each petal swells in turn */
+.pv-repeater .rg{position:absolute;left:50%;top:53cqh;width:0;height:0;animation:k-repeater-turn 6s linear infinite}
+.pv-repeater .rp{position:absolute;left:0;top:0;transform:rotate(var(--a)) translateY(-24cqh)}
+.pv-repeater .rp i{position:absolute;left:-5cqh;top:-8cqh;width:10cqh;height:16cqh;border-radius:50%;background:#fff;box-shadow:0 1cqh 0 var(--cp-lip);animation:k-repeater-pulse 3s var(--cp-inout) infinite;animation-delay:var(--d)}
+.pv-repeater .hb{position:absolute;left:50%;top:53cqh;width:12cqh;height:12cqh;margin:-6cqh 0 0 -6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:0 0 0 1.6cqh rgba(255,255,255,.5)}
+@keyframes k-repeater-turn{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes k-repeater-pulse{0%,100%{transform:scale(.8)}50%{transform:scale(1.18)}}
+/* kaleido · Kaleidoscope: on the dusk sky, eight identical wedges of gradient petals, white dots and ink dots turn together and breathe outward, like looking down a kaleidoscope tube */
+.pv-kaleido{background:var(--cp-dusk)}
+.pv-kaleido .kl{position:absolute;left:50%;top:53cqh;width:0;height:0;animation:k-kaleido-turn 6s linear infinite}
+.pv-kaleido .wd{position:absolute;left:0;top:0;transform:rotate(var(--a))}
+.pv-kaleido .pt{position:absolute;left:-6.5cqh;top:-35cqh;width:13cqh;height:17cqh;border-radius:50%;background:linear-gradient(180deg,var(--g1),var(--g2))}
+.pv-kaleido .d1{position:absolute;left:-4cqh;top:-30cqh;width:8cqh;height:8cqh;border-radius:50%;background:#fff}
+.pv-kaleido .d2{position:absolute;left:-2.5cqh;top:-17cqh;width:5cqh;height:5cqh;border-radius:50%;background:var(--cp-ink)}
+.pv-kaleido .hb{position:absolute;left:50%;top:53cqh;width:12cqh;height:12cqh;margin:-6cqh 0 0 -6cqh;border-radius:50%;background:#fff;box-shadow:var(--cp-lift)}
+.pv-kaleido .hb::after{content:"";position:absolute;left:50%;top:50%;width:5cqh;height:5cqh;margin:-2.5cqh 0 0 -2.5cqh;border-radius:50%;background:var(--cp-ink)}
+@keyframes k-kaleido-turn{0%{transform:rotate(0deg) scale(.86)}50%{transform:rotate(180deg) scale(1.05)}100%{transform:rotate(360deg) scale(.86)}}
 /* ── region r07b: end ── */
 
 @media(prefers-reduced-motion:reduce){
@@ -4053,6 +4085,7 @@ const PV={
   'gpgpu-particle-system':'gpgpu','image-distortion-hover':'distort','cloth-simulation':'cloth','volumetric-smoke':'smoke','morphing-blob':'morphblob',
   'animated-gradient-background':'gradbg','mesh-gradient':'mesh','aurora':'aurora','starfield':'starfield',
   'breathing-glow':'glow','ambient-ripple':'aripple',
+  'wiggle':'wiggle','ping-pong-loop':'pong','repeater':'repeater','kaleidoscope':'kaleido',
   'grain-overlay':'grain2','scanline':'scan','light-leak':'leak','floating-elements':'floaters',
   'grid-dot-pattern-parallax':'dotgrid','abstract-geometric-motion':'geo',
   'magnetic-button':'magnet','heart-burst':'heart','success-confetti':'confetti','error-shake':'shake','swipe-to-dismiss':'swipe',
@@ -4907,6 +4940,8 @@ function pvMarkup(k){
     case 'dotgrid': return '<span class="gd anim"></span><span class="lt anim"></span><span class="win"><s><i></i><i></i><i></i></s><b class="w1"></b><b class="w2"></b><b class="w3"></b></span><span class="tip anim"></span>';
     case 'geo': return '<svg class="gm" viewBox="0 0 160 100">'+[[3,11],[4,18],[5,25],[6,32],[7,39]].map(([n,r],k)=>'<polygon class="p'+(k+1)+' anim" points="'+Array.from({length:n},(_,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return (88+r*Math.cos(a)).toFixed(1)+','+(58+r*Math.sin(a)).toFixed(1);}).join(' ')+'"/>').join('')+'</svg>';
     case 'constell': return [[1,1,3],[2,4,6],[3,7,8],[4,9,10],[5,11,11]].map(([c,a,b])=>'<span class="cl cn'+c+' anim">'+Array.from({length:b-a+1},(_,i)=>'<span class="sp s'+(a+i)+' anim"><i class="ln anim"></i><b class="dt anim"></b></span>').join('')+'<b class="hub"></b></span>').join('')+[1,2,3,4].map(k=>'<b class="fd d'+k+' anim"></b>').join('');
+    case 'wiggle': return '<span class="bl anim"><i class="kb"></i><i class="bd"></i><i class="rm"></i><i class="cp anim"></i></span>';
+    case 'pong': return '<span class="tr"></span><i class="mk m1"></i><i class="mk m2"></i><span class="bl anim"></span>';
     // ── region r07a: end ──
     // ── region r07b: start ──
     case 'flow': return '<canvas class="anim"></canvas>';
@@ -4922,6 +4957,8 @@ function pvMarkup(k){
     case 'kenburns': return '<span class="fr"><span class="ph"><span class="p p1 anim"><i class="su"></i><i class="hx"></i><i class="hy"></i></span><span class="p p2 anim"><i class="mo"></i><svg class="mt" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100V62L16 30L30 58L50 4L68 50L80 26L100 60V100Z"/><path class="c" d="M12 38L16 30L19.5 37L17.5 35L16 38L14 35.5ZM45 17.5L50 4L54.5 15.5L52 13L50 17L47.5 13.5ZM77 32L80 26L85 34.5L82.5 31.5L80 34L78.5 31Z"/></svg></span></span></span>';
     case 'fire': return [['r',[[2,1.9],[15,2.3],[28,1.8],[41,2.5],[54,2],[67,2.4],[80,1.85],[93,2.2]]],['o',[[6,1.7],[17,2],[28,1.6],[39,2.1],[50,1.8],[61,2],[72,1.65],[83,1.95],[94,1.7]]],['y',[[1,1.6],[11.5,1.9],[22,1.5],[32.5,1.8],[43,1.6],[53.5,1.95],[64,1.55],[74.5,1.8],[85,1.6],[95.5,1.75]]]].map(([c,fl])=>fl.map(([x,sy],i)=>'<i class="f '+c+' anim" style="left:'+x+'cqw;--sy:'+sy+';animation-duration:'+(.75+(i*37%10)/25).toFixed(2)+'s;animation-delay:-'+((i*53%10)/10).toFixed(1)+'s"></i>').join('')).join('')+'<i class="b"></i>'+[[12,'#ff8f1f','2cqw',0,44],[27,'#ffd43b','-3cqw',-.8,36],[41,'#ff4a35','1.5cqw',-1.3,52],[55,'#ffd43b','-2cqw',-.4,40],[68,'#ff8f1f','2.5cqw',-1.1,48],[82,'#ff4a35','-1.5cqw',-.6,42],[93,'#ffd43b','-2.5cqw',-1.5,34]].map(([x,c,dx,dl,b])=>'<i class="e anim" style="left:'+x+'cqw;bottom:'+b+'cqh;--fc:'+c+';--dx:'+dx+';animation-delay:'+dl+'s"></i>').join('');
     case 'lightning': return '<span class="fl anim"></span>'+[['b1','M104 18L97 33L104 36L94 52L101 55L90 72L95 74L88 88M99 44L110 53L107 57L115 66'],['b2','M52 20L58 34L51 37L60 51L53 54L63 70L57 72L64 88M56 45L45 54L48 58L40 66']].map(([c,d])=>'<svg class="bt '+c+' anim" viewBox="0 0 160 100"><path class="g" d="'+d+'"/><path d="'+d+'"/></svg>').join('')+'<span class="cl"><i class="anim"></i></span><span class="hl"></span>';
+    case 'repeater': return '<span class="rg anim">'+[0,1,2,3,4,5,6,7].map(k=>'<span class="rp" style="--a:'+(k*45)+'deg;--d:-'+(k*3/8).toFixed(2)+'s"><i class="anim"></i></span>').join('')+'</span><span class="hb"></span>';
+    case 'kaleido': return '<span class="kl anim">'+[0,1,2,3,4,5,6,7].map(k=>'<span class="wd" style="--a:'+(k*45)+'deg"><i class="pt"></i><b class="d1"></b><b class="d2"></b></span>').join('')+'</span><span class="hb"></span>';
     // ── region r07b: end ──
     default: return '';
   }
@@ -5229,12 +5266,16 @@ const STILL={
   // ── region r06b: end ──
   // ── region r07a: start ──
   leak:.3,
+  wiggle:.25,
+  pong:.5,
   // ── region r07a: end ──
   // ── region r07b: start ──
   snowrain:.25,
   fireworks:.36,
   kenburns:.3,
   lightning:.2,
+  repeater:.25,
+  kaleido:.5,
   // ── region r07b: end ──
 };
 function hold(card){
