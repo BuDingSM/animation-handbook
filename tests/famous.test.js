@@ -106,7 +106,7 @@ const read = f => fs.readFileSync(f, 'utf8').replace(/\r\n/g, '\n');
 const PAGE = read(FILE);
 const HOME = read(path.join(ROOT, 'index.html'));
 const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
-const REPO = 'https://github.com/matinmonshizadeh/animation-handbook';
+const REPO = 'https://github.com/BuDingSM/animation-handbook';
 const TEMPLATE = `${REPO}/issues/new?template=famous_effect.yml`;
 const TITLE = '知名效果 — 动画手册';
 const LEDE = '人们在知名网站上喜欢的效果、做出类似效果的手册动画，以及帮你自己动手做的提示词。';

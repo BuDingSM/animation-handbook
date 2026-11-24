@@ -169,7 +169,7 @@ test('the finder part of an address and the answers in words', () => {
 
 test('the Not here? address opens the form animation_not_here.yml with its title and its answers field filled in', () => {
   const url = new URL(finder().findIssueURL({ what: 'text', when: 'scroll', how: 'draw' }));
-  assert.equal(url.origin + url.pathname, 'https://github.com/matinmonshizadeh/animation-handbook/issues/new');
+  assert.equal(url.origin + url.pathname, 'https://github.com/BuDingSM/animation-handbook/issues/new');
   assert.deepEqual([...url.searchParams.keys()], ['template', 'title', 'answers']);
   assert.equal(url.searchParams.get('template'), 'animation_not_here.yml');
   assert.equal(url.searchParams.get('title'), '[not here] 文字或数字 · 滚动时 · 自己画出来或打出来');
@@ -301,7 +301,7 @@ test('Not here? sits under the cards with its words, its GitHub link in a new ta
   assert.ok(panel, 'the Not here? panel, hidden until an answer is picked');
   for (const part of ['<h3 class="fd-not-t">不在这里？</h3>',
     '<p class="fd-not-s" id="find-not-s">告诉我们你看到了什么。我们会用它来补上这个动画，或修正查找器。</p>',
-    '<a class="fd-btn" id="find-gh" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">去 GitHub 告诉我们</a>',
+    '<a class="fd-btn" id="find-gh" href="https://github.com/BuDingSM/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">去 GitHub 告诉我们</a>',
     '<button type="button" class="pillbtn" id="find-words">用文字描述</button>',
     '<p class="fd-fine">表单在 GitHub 上，需要一个免费账号。</p>']) assert.ok(panel.includes(part), part);
   assert.ok(at('id="find-not"') > at('id="more"') && at('id="find-not"') < at('id="how"'), 'under the cards, before How it works');

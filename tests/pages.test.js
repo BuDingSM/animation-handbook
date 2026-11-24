@@ -563,7 +563,7 @@ test('a setting that starts lower on phones marks that choice data-hb-phone, and
 
 // The footer of every page: the site's name, a link to the source on GitHub (in a new tab) and Back to top.
 test('every guided-steps page has the same footer, with a link to the source on GitHub', () => {
-  const FOOTER = '<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>';
+  const FOOTER = '<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>';
   assert.ok(steps.length > 0, 'there are guided-steps pages');
   assert.deepEqual(steps.filter(d => count(pageOf(d), FOOTER) !== 1 || count(pageOf(d), '<footer') !== 1).map(d => `${d.cat}/${d.slug}`), [],
     'pages without exactly this footer');
@@ -572,7 +572,7 @@ test('every guided-steps page has the same footer, with a link to the source on 
 // The Star link at the end of every page's top bar and the star row under its prompt card, the same on every page
 // (docs/superpowers/specs/2026-10-12-star-button-design.md).
 const STAR_ICON = '<svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>';
-const STAR_HREF = 'href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"';
+const STAR_HREF = 'href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"';
 const BAR_STAR = `<a class="hb-star" ${STAR_HREF} aria-label="在 GitHub 上点星">${STAR_ICON}<span>在 GitHub 上点星</span></a>`;
 const STAR_ROW = `<div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" ${STAR_HREF}>${STAR_ICON}在 GitHub 上点星</a></div>`;
 test('every guided-steps page asks for a star at the end of its top bar and under its prompt card', () => {
@@ -1215,9 +1215,9 @@ test('of two cards with the same score, the one that has more of the typed words
 
 test('Nothing matches offers Ask for it: a link to the GitHub form with the typed words filled in', () => {
   const panel = between(HOME, '<div class="empty" id="empty" hidden>', '</div>');
-  assert.ok(panel.includes('<p class="empty-ask">手册里还没有？ <a class="pillbtn" id="empty-gh" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">去 GitHub 提需求</a></p>'), panel);
+  assert.ok(panel.includes('<p class="empty-ask">手册里还没有？ <a class="pillbtn" id="empty-gh" href="https://github.com/BuDingSM/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">去 GitHub 提需求</a></p>'), panel);
   const url = new URL(homeSearch().askURL('dock that grows & shrinks #1'));
-  assert.equal(url.origin + url.pathname, 'https://github.com/matinmonshizadeh/animation-handbook/issues/new');
+  assert.equal(url.origin + url.pathname, 'https://github.com/BuDingSM/animation-handbook/issues/new');
   assert.deepEqual([...url.searchParams.keys()], ['template', 'title', 'answers']);
   assert.equal(url.searchParams.get('template'), 'animation_not_here.yml');
   assert.equal(url.searchParams.get('title'), '[not here] dock that grows & shrinks #1');
