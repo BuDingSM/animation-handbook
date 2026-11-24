@@ -1559,6 +1559,61 @@ button,input{font:inherit;color:inherit}
 .pv-tooltip .tip{position:absolute;left:56cqw;top:72cqh;width:7.2cqh;height:7.2cqh;margin:-3.6cqh 0 0 -3.6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:var(--cp-tip);animation:k-tooltip-tip 4.4s var(--cp-inout) infinite}
 @keyframes k-tooltip-in{0%,40%{opacity:0;transform:translateY(2cqh) scale(.86);animation-timing-function:cubic-bezier(.34,1.56,.64,1)}48%,72%{opacity:1;transform:translateY(0) scale(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}80%,100%{opacity:0;transform:translateY(0) scale(.96)}}
 @keyframes k-tooltip-tip{0%{transform:translate(24cqw,30cqh);opacity:0}8%{opacity:1}22%,62%{transform:translate(0,0);opacity:1}82%,100%{transform:translate(22cqw,30cqh);opacity:0}}
+/* ease · Easing: two balls race the same rail — the top one at a steady speed, the bottom one fast then slow, so it pulls ahead halfway and stops gently */
+.pv-ease .rl{position:absolute;left:20cqw;width:60cqw;height:1.6cqh;border-radius:1cqh;background:rgba(255,255,255,.45)}
+.pv-ease .r1{top:38cqh}
+.pv-ease .r2{top:62cqh}
+.pv-ease .tk{position:absolute;left:79.3cqw;width:1.4cqh;height:9.6cqh;border-radius:1cqh;background:#fff}
+.pv-ease .t1{top:33.2cqh}
+.pv-ease .t2{top:57.2cqh}
+.pv-ease .b1,.pv-ease .b2{position:absolute;left:20cqw;width:10cqh;height:10cqh;margin-top:-5cqh;border-radius:50%}
+.pv-ease .b1{top:38cqh;box-shadow:inset 0 0 0 .9cqh #fff;animation:k-ease-lin 4s linear infinite}
+.pv-ease .b2{top:62cqh;background:#fff;box-shadow:0 1cqh 0 var(--cp-lip);animation:k-ease-ease 4s infinite}
+@keyframes k-ease-lin{0%{transform:translateX(0);opacity:1}55%,86%{transform:translateX(50cqw);opacity:1}92%{transform:translateX(50cqw);opacity:0}93%{transform:translateX(0);opacity:0}98%,100%{transform:translateX(0);opacity:1}}
+@keyframes k-ease-ease{0%{transform:translateX(0);opacity:1}12%{transform:translateX(22cqw)}24%{transform:translateX(36cqw)}38%{transform:translateX(46cqw)}55%,86%{transform:translateX(50cqw);opacity:1}92%{transform:translateX(50cqw);opacity:0}93%{transform:translateX(0);opacity:0}98%,100%{transform:translateX(0);opacity:1}}
+/* overshoot · Overshoot: a gauge needle sweeps up past the white target tick, then settles back onto it */
+.pv-overshoot .dl{position:absolute;left:50%;top:53%;width:58cqh;height:29cqh;margin:-29cqh 0 0 -29cqh;overflow:hidden}
+.pv-overshoot .ar{position:absolute;left:0;top:0;width:58cqh;height:58cqh;border-radius:50%;border:1.4cqh solid rgba(255,255,255,.4)}
+.pv-overshoot .tk{position:absolute;left:50%;top:0;width:1.4cqh;height:5cqh;margin-left:-.7cqh;border-radius:1cqh;background:#fff}
+.pv-overshoot .nd{position:absolute;left:50%;bottom:0;width:1.6cqh;height:26cqh;margin-left:-.8cqh;border-radius:1cqh;background:#fff;transform-origin:50% 100%;animation:k-overshoot-nd 4s infinite}
+.pv-overshoot .hb{position:absolute;left:50%;top:53%;width:6.8cqh;height:6.8cqh;margin:-3.4cqh 0 0 -3.4cqh;border-radius:50%;background:var(--cp-ink)}
+@keyframes k-overshoot-nd{0%{transform:rotate(-72deg)}30%{transform:rotate(14deg)}40%{transform:rotate(-5deg)}48%{transform:rotate(2deg)}56%,84%{transform:rotate(0deg)}96%,100%{transform:rotate(-72deg)}}
+/* squash · Squash and Stretch: a white ball drops, flattens on the floor, stretches as it springs back up, and rests at the top */
+.pv-squash .fl{position:absolute;left:28cqw;top:78cqh;width:44cqw;height:1.6cqh;border-radius:1cqh;background:rgba(255,255,255,.7)}
+.pv-squash .sh{position:absolute;left:50%;top:80.5cqh;width:22cqh;height:3.4cqh;margin-left:-11cqh;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--cp-sh) 55%,transparent),transparent);animation:k-squash-sh 4s var(--cp-inout) infinite}
+.pv-squash .wr{position:absolute;left:50%;top:53%;width:24cqh;height:24cqh;margin:-12cqh 0 0 -12cqh;animation:k-squash-drop 4s infinite}
+.pv-squash .bl{position:absolute;inset:0;border-radius:50%;background:#fff;box-shadow:0 1.2cqh 0 var(--cp-lip);animation:k-squash-sq 4s infinite}
+.pv-squash .bl i{position:absolute;top:8cqh;width:3cqh;height:3cqh;border-radius:50%;background:var(--cp-ink)}
+.pv-squash .bl i:first-child{left:6cqh}
+.pv-squash .bl i:last-child{right:6cqh}
+@keyframes k-squash-drop{0%{transform:translateY(-20cqh);animation-timing-function:cubic-bezier(.5,0,.8,.4)}30%{transform:translateY(13cqh)}40%{transform:translateY(0)}55%,100%{transform:translateY(-20cqh)}}
+@keyframes k-squash-sq{0%,26%{transform:scale(1)}30%{transform:scale(1.4,.6)}36%{transform:scale(.82,1.22)}44%{transform:scale(1)}55%,100%{transform:scale(1)}}
+@keyframes k-squash-sh{0%{transform:scale(.55);opacity:.45}30%{transform:scale(1.15);opacity:.9}55%,100%{transform:scale(.55);opacity:.45}}
+/* anticip · Anticipation: a white arrow block crouches back and squashes, then dashes right past the finish post and settles */
+.pv-anticip .fl{position:absolute;left:22cqw;top:66cqh;width:56cqw;height:1.6cqh;border-radius:1cqh;background:rgba(255,255,255,.7)}
+.pv-anticip .fg{position:absolute;left:76cqw;top:40cqh;width:1.4cqh;height:26cqh;border-radius:1cqh;background:#fff}
+.pv-anticip .mv{position:absolute;top:53%;width:8cqw;height:1.6cqh;margin-top:-.8cqh;border-radius:1cqh;background:rgba(255,255,255,.8);opacity:0;animation:k-anticip-mv 4s infinite}
+.pv-anticip .m1{left:44cqw}
+.pv-anticip .m2{left:52cqw;animation-delay:.06s}
+.pv-anticip .m3{left:60cqw;animation-delay:.12s}
+.pv-anticip .ar{position:absolute;left:26cqw;top:53%;width:20cqh;height:20cqh;margin:-10cqh 0 0 -10cqh;border-radius:5cqh;background:#fff;box-shadow:var(--cp-lift);animation:k-anticip-go 4s infinite}
+.pv-anticip .ar::before{content:"";position:absolute;left:4.6cqh;top:9.2cqh;width:8cqh;height:1.6cqh;border-radius:1cqh;background:var(--cp-ink)}
+.pv-anticip .ar::after{content:"";position:absolute;left:10.6cqh;top:7.6cqh;width:4.4cqh;height:4.4cqh;border:solid var(--cp-ink);border-width:1.6cqh 1.6cqh 0 0;border-radius:.5cqh;transform:rotate(45deg)}
+@keyframes k-anticip-go{0%,12%{transform:translateX(0) scale(1);opacity:1}24%{transform:translateX(-6cqw) scale(.7,1.1);opacity:1}38%{transform:translateX(34cqw) scale(1.18,.88);opacity:1}48%{transform:translateX(31cqw) scale(1);opacity:1}60%,84%{transform:translateX(31cqw) scale(1);opacity:1}90%{transform:translateX(31cqw) scale(1);opacity:0}91%{transform:translateX(0) scale(1);opacity:0}97%,100%{transform:translateX(0) scale(1);opacity:1}}
+@keyframes k-anticip-mv{0%,30%{opacity:0}36%,44%{opacity:.8}50%,100%{opacity:0}}
+/* followthru · Follow-Through: the body slides in and stops dead; its flag and tail keep swinging after it */
+.pv-followthru .fl{position:absolute;left:22cqw;top:66cqh;width:56cqw;height:1.6cqh;border-radius:1cqh;background:rgba(255,255,255,.7)}
+.pv-followthru .ac{position:absolute;left:50%;top:53%;width:22cqh;height:22cqh;margin:-11cqh 0 0 -11cqh;animation:k-followthru-go 4.4s var(--cp-inout) infinite}
+.pv-followthru .bd{position:absolute;inset:0;border-radius:6cqh;background:#fff;box-shadow:var(--cp-lift)}
+.pv-followthru .bd i{position:absolute;top:8cqh;width:3cqh;height:3cqh;border-radius:50%;background:var(--cp-ink)}
+.pv-followthru .bd i:first-child{left:5.4cqh}
+.pv-followthru .bd i:last-child{right:5.4cqh}
+.pv-followthru .tl{position:absolute;right:calc(100% - 2cqh);top:50%;width:14cqh;height:4.4cqh;margin-top:-2.2cqh;border-radius:99cqh;background:#fff;transform-origin:100% 50%;animation:k-followthru-tail 4.4s infinite}
+.pv-followthru .fg{position:absolute;left:50%;bottom:calc(100% - 2cqh);width:1.4cqh;height:13cqh;margin-left:-.7cqh;background:var(--cp-ink);transform-origin:50% 100%;animation:k-followthru-flag 4.4s infinite}
+.pv-followthru .fg i{position:absolute;left:1.4cqh;top:0;width:0;height:0;border-top:3.2cqh solid transparent;border-bottom:3.2cqh solid transparent;border-left:8cqw solid var(--cp-ink)}
+@keyframes k-followthru-go{0%{transform:translateX(-28cqw);opacity:1}26%{transform:translateX(0);opacity:1}30%,82%{transform:translateX(0);opacity:1}88%{transform:translateX(0);opacity:0}89%{transform:translateX(-28cqw);opacity:0}95%,100%{transform:translateX(-28cqw);opacity:1}}
+@keyframes k-followthru-flag{0%{transform:rotate(-24deg)}26%{transform:rotate(18deg)}34%{transform:rotate(-14deg)}42%{transform:rotate(10deg)}50%{transform:rotate(-6deg)}58%{transform:rotate(3deg)}66%,100%{transform:rotate(0deg)}}
+@keyframes k-followthru-tail{0%{transform:rotate(18deg)}26%{transform:rotate(-16deg)}34%{transform:rotate(12deg)}42%{transform:rotate(-8deg)}50%{transform:rotate(5deg)}58%{transform:rotate(-2deg)}66%,100%{transform:rotate(0deg)}}
 /* ── region r04a: end ── */
 /* ── region r04b: start · 04 Micro-Interactions, part B ── */
 /* drawer · Drawer / Panel Slide: the fingertip taps the page's menu button; the page dims and a white menu panel slides in from the left and slows to a stop, then a tap on the dimmed page sends it quickly back */
@@ -3767,6 +3822,7 @@ const PV={
   'elastic-transition':'elastic','portal-zoom':'portal','dissolve':'dissolve','flip-technique':'flip',
   'circle-reveal':'circlerev','overlay-wipe':'owipe','page-curl':'pcurl','cube-transition':'cubepage','pixelate-transition':'pixelate',
   'click-ripple':'ripple','loading-spinner':'spinner','shimmer-effect':'shimmer','skeleton-loader':'skeleton',
+  'easing':'ease','overshoot':'overshoot','squash-and-stretch':'squash','anticipation':'anticip','follow-through':'followthru',
   'hover-state':'hoverbtn','focus-ring':'focusring','button-press-scale':'press','toggle-switch':'toggle',
   'progress-animation':'segbar','checkmark-draw':'check','form-field-morph':'floatlabel','badge-pulse':'badge',
   'tooltip-reveal':'tooltip','drawer-slide':'drawer','modal-expand':'modal','accordion':'accordion','cursor-follower':'cursor',
@@ -4490,6 +4546,11 @@ function pvMarkup(k){
     case 'floatlabel': return '<span class="fd"><span class="ol anim"></span><span class="lb anim">Email<i class="anim">Email</i></span><span class="tx anim">'+[...'ana@pop.io'].map((c,i)=>'<i class="anim" style="--i:'+i+'">'+c+'</i>').join('')+'</span></span><span class="tip anim"></span>';
     case 'badge': return '<span class="ic"><svg class="bl anim" viewBox="0 0 24 24"><path d="M12 2.8a6.2 6.2 0 0 0-6.2 6.2v3.6l-1.9 3.6a1 1 0 0 0 .9 1.5h14.4a1 1 0 0 0 .9-1.5l-1.9-3.6V9A6.2 6.2 0 0 0 12 2.8z"/><path d="M9.3 19.4a2.7 2.7 0 0 0 5.4 0z"/></svg><span class="rg anim"></span><span class="bg anim">3</span></span>';
     case 'tooltip': return '<span class="bt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="4.4" stroke-dasharray="3.1 3.18"/><circle cx="12" cy="12" r="6" stroke-width="3.6"/></svg></span><span class="tt anim">Settings</span><span class="tip anim"></span>';
+    case 'ease': return '<span class="rl r1"></span><span class="rl r2"></span><span class="tk t1"></span><span class="tk t2"></span><span class="b1 anim"></span><span class="b2 anim"></span>';
+    case 'overshoot': return '<span class="dl"><span class="ar"></span><span class="tk"></span><span class="nd anim"></span></span><span class="hb"></span>';
+    case 'squash': return '<span class="fl"></span><span class="sh anim"></span><span class="wr anim"><span class="bl anim"><i></i><i></i></span></span>';
+    case 'anticip': return '<span class="fl"></span><span class="fg"></span><span class="mv m1 anim"></span><span class="mv m2 anim"></span><span class="mv m3 anim"></span><span class="ar anim"></span>';
+    case 'followthru': return '<span class="fl"></span><span class="ac anim"><span class="tl anim"></span><span class="fg anim"><i></i></span><span class="bd"><i></i><i></i></span></span>';
     // ── region r04a: end ──
     // ── region r04b: start ──
     case 'drawer': return '<span class="pg"><span class="mb"></span><span class="hl"></span><span class="pic"><b class="sun"></b><b class="hill"></b></span><span class="tx"><b></b><b></b><b></b><b></b></span><span class="dim anim"></span><span class="dr anim"><b class="av"></b><b class="nm"></b>'+[[20,' on',18],[30,'',14],[40,'',20],[50,'',12]].map(([t,c,w])=>'<b class="it'+c+'" style="top:'+t+'cqh;--w:'+w+'cqw"></b>').join('')+'</span></span><span class="tip anim"></span>';
@@ -4887,6 +4948,11 @@ const STILL={
   floatlabel:0.7,
   badge:0.12,
   tooltip:0.56,
+  ease:0.3,
+  overshoot:0.3,
+  squash:0.3,
+  anticip:0.24,
+  followthru:0.34,
   // ── region r04a: end ──
   // ── region r04b: start ──
   cursor:.56,
