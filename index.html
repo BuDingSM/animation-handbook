@@ -1324,6 +1324,23 @@ button,input{font:inherit;color:inherit}
 .pv-sig3 .p2{transform:translate3d(14cqw,-9cqh,-26cqw);animation:k-sig3-b 5s var(--cp-inout) infinite}
 @keyframes k-sig3-a{0%,18%{transform:translate3d(0,0,0);animation-timing-function:cubic-bezier(.5,0,.75,.5)}31%{transform:translate3d(-14cqw,-2cqh,-13cqw) rotate(-4deg);animation-timing-function:cubic-bezier(.25,.5,.5,1)}44%,68%{transform:translate3d(14cqw,-9cqh,-26cqw)}94%,100%{transform:translate3d(0,0,0)}}
 @keyframes k-sig3-b{0%,18%{transform:translate3d(14cqw,-9cqh,-26cqw);animation-timing-function:cubic-bezier(.5,0,.75,.5)}31%{transform:translate3d(22cqw,0,-13cqw) rotate(4deg);animation-timing-function:cubic-bezier(.25,.5,.5,1)}44%,68%{transform:translate3d(0,0,0);animation-timing-function:cubic-bezier(.5,0,.75,.5)}81%{transform:translate3d(-14cqw,-2cqh,-13cqw) rotate(-4deg);animation-timing-function:cubic-bezier(.25,.5,.5,1)}94%,100%{transform:translate3d(14cqw,-9cqh,-26cqw)}}
+/* preloader · Preloader: a dark curtain with the studio logo and a progress bar fills, then the curtain lifts up and the white page fades and rises in beneath it; then the curtain comes back down */
+.pv-preloader .pg{position:absolute;left:12cqw;top:25cqh;width:76cqw;height:66cqh;border-radius:4.4cqh;overflow:hidden;background:#fff;box-shadow:var(--cp-lift)}
+.pv-preloader .pg i{position:absolute;left:0;top:0;width:100%;height:21%;background:var(--cp-ink)}
+.pv-preloader .pg i::before{content:"";position:absolute;left:4.4cqw;top:50%;width:6.4cqh;height:6.4cqh;margin-top:-3.2cqh;border-radius:50%;background:#fff}
+.pv-preloader .pg i::after{content:"";position:absolute;right:4.4cqw;top:50%;width:8cqw;height:2.6cqh;margin-top:-1.3cqh;border-radius:2cqh;background:rgba(255,255,255,.5);box-shadow:-10.5cqw 0 0 rgba(255,255,255,.5)}
+.pv-preloader .pg b{position:absolute;left:8%;top:55%;width:80%;height:2.6cqh;border-radius:2cqh;background:var(--cp-lip)}
+.pv-preloader .pg b:nth-of-type(1){top:37%;width:54%;height:3cqh;background:var(--cp-ink)}
+.pv-preloader .pg b:nth-of-type(3){top:70%;width:64%}
+.pv-preloader .p1{animation:k-preloader-page 5.4s var(--cp-inout) infinite}
+.pv-preloader .cv{position:absolute;left:12cqw;top:25cqh;width:76cqw;height:66cqh;border-radius:4.4cqh;overflow:hidden;background:var(--cp-ink);box-shadow:0 1.3cqh 0 #000,0 3.6cqh 6cqh color-mix(in srgb,var(--cp-sh) 40%,transparent);animation:k-preloader-lift 5.4s var(--cp-inout) infinite}
+.pv-preloader .lg{position:absolute;left:0;right:0;top:32%;text-align:center;font:900 8.5cqh/1 var(--disp);letter-spacing:.02em;color:#fff;white-space:nowrap}
+.pv-preloader .lg i{display:inline-block;width:2.6cqh;height:2.6cqh;margin-right:2cqw;background:#fff;rotate:45deg;transform:translateY(-.14em)}
+.pv-preloader .tr{position:absolute;left:50%;top:56%;translate:-50% 0;width:44cqw;height:2.6cqh;border-radius:2cqh;background:rgba(255,255,255,.22);overflow:hidden}
+.pv-preloader .fl{position:absolute;inset:0;border-radius:2cqh;background:linear-gradient(90deg,var(--g1),var(--g2));transform:scaleX(0);transform-origin:0 50%;animation:k-preloader-bar 5.4s var(--cp-inout) infinite}
+@keyframes k-preloader-page{0%,56%{opacity:0;transform:translateY(4cqh)}72%,86%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(4cqh)}}
+@keyframes k-preloader-lift{0%,56%{transform:translateY(0)}72%,86%{transform:translateY(-112%)}100%{transform:translateY(0)}}
+@keyframes k-preloader-bar{0%{transform:scaleX(0)}50%,86%{transform:scaleX(1)}100%{transform:scaleX(0)}}
 /* ── region r03: end ── */
 /* ── region r04a: start · 04 Micro-Interactions, part A ── */
 /* ripple · Click / Tap Ripple (approved): the fingertip presses the button onto its lip; a ripple spreads inside from that spot and two rings go out */
@@ -2531,6 +2548,24 @@ button,input{font:inherit;color:inherit}
 .pv-tparticles .tip{position:absolute;left:91cqw;top:53cqh;width:7.2cqh;height:7.2cqh;margin:-3.6cqh 0 0 -3.6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:var(--cp-tip);opacity:0;animation:k-tparticles-tip 4.8s infinite}
 @keyframes k-tparticles-push{0%{transform:translate(0,0);animation-timing-function:cubic-bezier(.2,.8,.4,1)}4%{transform:translate(var(--x),var(--y));animation-timing-function:cubic-bezier(.34,1.56,.64,1)}14%,100%{transform:translate(0,0)}}
 @keyframes k-tparticles-tip{0%{transform:translate(10cqw,42cqh);opacity:0;animation-timing-function:cubic-bezier(.22,1,.36,1)}3%{opacity:1}12%{transform:translate(0,0);opacity:1;animation-timing-function:linear}52%{transform:translate(-82cqw,0);opacity:1;animation-timing-function:cubic-bezier(.5,0,.75,0)}62%,100%{transform:translate(-90cqw,40cqh);opacity:0}}
+/* textmask · Text Mask: the big word OCEAN is cut out of the stage and a seaside scene — sky, sun, sea and waves — drifts inside the letters; the letters themselves never move */
+.pv-textmask svg{position:absolute;inset:0;width:100%;height:100%}
+.pv-textmask text{font-family:var(--disp);font-weight:900;letter-spacing:-.045em}
+.pv-textmask .lp{fill:color-mix(in srgb,var(--g2) 62%,#000 38%)}
+.pv-textmask .sky{fill:var(--g1)}
+.pv-textmask .sea{fill:var(--g2)}
+.pv-textmask .sun{fill:#fff}
+.pv-textmask .wv{fill:rgba(255,255,255,.5)}
+.pv-textmask .wv2{fill:rgba(255,255,255,.35)}
+.pv-textmask .sc{transform-box:fill-box;animation:k-textmask-pan 5s var(--cp-inout) infinite}
+@keyframes k-textmask-pan{0%,100%{transform:translateX(0)}50%{transform:translateX(-10%)}}
+/* uline · Underline Animation: the fingertip hovers over the middle nav link and its underline grows out from the left, holds, then slips away to the right as the fingertip leaves */
+.pv-uline .nv{position:absolute;left:50%;top:53%;translate:-50% -50%;display:flex;gap:7cqw;align-items:center;padding:5cqh 6.5cqw;border-radius:5cqh;background:#fff;box-shadow:var(--cp-lift)}
+.pv-uline .lk{position:relative;font:900 10cqh/1.2 var(--disp);letter-spacing:-.02em;color:var(--cp-ink);white-space:nowrap}
+.pv-uline .ul{position:absolute;left:0;right:0;bottom:-1.6cqh;height:1.1cqh;border-radius:1cqh;background:var(--g2);transform:scaleX(0);transform-origin:0 50%;animation:k-uline-line 4.8s infinite}
+@keyframes k-uline-line{0%,10%{transform:scaleX(0);transform-origin:0 50%;animation-timing-function:cubic-bezier(.22,1,.36,1)}30%,60%{transform:scaleX(1);transform-origin:0 50%}61%{transform:scaleX(1);transform-origin:100% 50%;animation-timing-function:cubic-bezier(.65,0,.35,1)}78%,100%{transform:scaleX(0);transform-origin:100% 50%}}
+.pv-uline .tip{position:absolute;width:7.2cqh;height:7.2cqh;margin:-3.6cqh 0 0 -3.6cqh;border-radius:50%;background:var(--cp-ink);box-shadow:var(--cp-tip);opacity:0;left:50cqw;top:52cqh;animation:k-uline-tip 4.8s var(--cp-ease) infinite}
+@keyframes k-uline-tip{0%{transform:translate(24cqw,32cqh);opacity:0}6%{opacity:1}14%{transform:translate(0,0)}20%{opacity:1}28%,100%{transform:translate(22cqw,30cqh);opacity:0}}
 /* ── region r05: end ── */
 /* ── region r06a: start · 06 3D & Advanced, part A ── */
 /* sig6 · 3D & Advanced (the group's picture): a chunky white "3D" with a deep side, built from stacked layers, turns slowly from side to side so its depth shows */
@@ -3999,6 +4034,7 @@ const PV={
   'slide-transition':'slidepage','zoom-transition':'zoompage','flash-transition':'flash','blur-transition':'blurpage',
   'elastic-transition':'elastic','portal-zoom':'portal','dissolve':'dissolve','flip-technique':'flip',
   'circle-reveal':'circlerev','overlay-wipe':'owipe','page-curl':'pcurl','cube-transition':'cubepage','pixelate-transition':'pixelate',
+  'preloader':'preloader',
   'click-ripple':'ripple','loading-spinner':'spinner','shimmer-effect':'shimmer','skeleton-loader':'skeleton',
   'easing':'ease','overshoot':'overshoot','squash-and-stretch':'squash','anticipation':'anticip','follow-through':'followthru',
   'hover-state':'hoverbtn','focus-ring':'focusring','button-press-scale':'press','toggle-switch':'toggle',
@@ -4008,6 +4044,7 @@ const PV={
   'text-gradient-animation':'gtext','marquee-ticker':'marquee','scramble-text':'scramble',
   'kinetic-typography':'kinetic','typewriter-effect':'typewriter','variable-font-morph':'varfont',
   'text-clip-path-reveal':'textclip','text-morphing':'textmorph','outline-to-fill':'outfill',
+  'text-mask':'textmask','underline-animation':'uline',
   'enter-exit-typography':'enterexit','rotate-word-carousel':'carousel',
   '3d-model-orbit':'orbit3d','scroll-driven-3d-rotation':'cube3d','parallax-3d-tilt':'tilt3d',
   'canvas-particle-effect':'particles','fluid-simulation':'fluid','glassmorphism-animated':'glass',
@@ -4707,6 +4744,7 @@ function pvMarkup(k){
     case 'pcurl': return '<span class="pc"><span class="pg p1 anim"><i></i><b></b><b></b><b></b></span><span class="ct anim"><span class="pg nx p2 anim"><i></i><em></em><b></b><b></b><b></b></span></span><span class="fp anim"><span class="fi anim"></span></span></span>';
     case 'cubepage': return '<span class="cb anim"><span class="pg p1 anim"><i></i><b></b><b></b><b></b></span><span class="pg nx p2 anim"><i></i><em></em><b></b><b></b><b></b></span></span>';
     case 'pixelate': return '<span class="pg p1 anim"><i></i><b></b><b></b><b></b></span><span class="px x0 anim"></span><span class="px x1 anim"></span><span class="px x2 anim"></span><span class="px x3 anim"></span><span class="pg nx p2 anim"><i></i><em></em><b></b><b></b><b></b></span>';
+    case 'preloader': return '<span class="pg p1 anim"><i></i><b></b><b></b><b></b></span><span class="cv anim"><span class="lg"><i></i>工作室</span><span class="tr"><i class="fl anim"></i></span></span>';
     // ── region r03: end ──
     // ── region r04a: start ──
     case 'sig4': return '<span class="w"><span class="cb"><i class="anim"></i></span><span class="sw"><i class="anim"></i><b class="anim"></b></span><span class="rd"><i class="anim"></i></span></span><span class="tip anim"></span>';
@@ -4812,6 +4850,8 @@ function pvMarkup(k){
       [...'HEY'].forEach((ch,k)=>[...F[ch]].forEach((v,i)=>{if(v!=='1')return;const c=k*6+i%5,r=(i/5|0)-3,x=15+c*4.375,f=Math.max(0,1-Math.abs(r)/3.6),s=r?Math.sign(r):c%2?1:-1;
         d+='<i class="dt anim" style="left:'+x+'cqw;top:'+(53+r*7)+'cqh;--x:'+(-2.2*f).toFixed(2)+'cqw;--y:'+(10*f*s).toFixed(2)+'cqh;animation-delay:'+(.576+(91-x)/82*1.92-.19).toFixed(3)+'s"></i>';}));
       return d+'<span class="tip anim"></span>';})();
+    case 'textmask': return '<svg viewBox="0 0 160 100"><defs><clipPath id="pvTextmaskClip"><text x="80" y="66" text-anchor="middle" font-size="33">OCEAN</text></clipPath><g id="pvTextmaskScene"><rect class="sky" width="160" height="58"/><rect class="sea" y="58" width="160" height="42"/><circle class="sun" cx="38" cy="24" r="10"/><ellipse class="wv" cx="22" cy="72" rx="26" ry="7"/><ellipse class="wv2" cx="122" cy="85" rx="30" ry="8"/></g></defs><text class="lp" x="80" y="67.4" text-anchor="middle" font-size="33">OCEAN</text><g clip-path="url(#pvTextmaskClip)"><g class="sc anim"><use href="#pvTextmaskScene"/><use href="#pvTextmaskScene" x="160"/></g></g></svg>';
+    case 'uline': return '<span class="nv"><b class="lk">首页</b><b class="lk">作品<i class="ul anim"></i></b><b class="lk">关于</b></span><span class="tip anim"></span>';
     // ── region r05: end ──
     // ── region r06a: start ──
     case 'sig6': return '<span class="sh"></span><span class="w3 anim">'+[9,8,7,6,5,4,3,2,1,0].map(z=>'<b style="--z:'+z+'">3D</b>').join('')+'</span>';
@@ -5125,6 +5165,7 @@ const STILL={
   // ── region r03: start ──
   sig3:.3,vt:.27,shared:.29,morph:.6,xfade:.27,slidepage:.27,zoompage:.26,flash:.38,blurpage:.3,elastic:.27,
   portal:.31,dissolve:.27,flip:.28,circlerev:.25,owipe:.4,pcurl:.25,cubepage:.27,pixelate:.3,
+  preloader:.8,
   // ── region r03: end ──
   // ── region r04a: start ──
   ripple:.4,
@@ -5166,6 +5207,7 @@ const STILL={
   wavy:.27,
   handwrite:.234,
   tparticles:.32,
+  textmask:.4,uline:.45,
   // ── region r05: end ──
   // ── region r06a: start ──
   orbit3d:.09,
