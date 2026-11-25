@@ -1064,6 +1064,24 @@ async function pressCopyButton(index) {
 // Leaves the home page.
 async function homeCopyProblems() {
   const problems = [];
+  // A fresh browser, with the clipboard left as Chrome provides it. The button must not stay on 复制提示词,
+  // and a success or a failure message has to be on screen. This is a real mouse press, not btn.click().
+  const coveredLive = await pressCopyButton(3);
+  if (coveredLive) problems.push(`复制提示词 button of the fourth card is covered by ${coveredLive} at its center`);
+  else {
+    const live = await evaluate(`(async () => {
+      const btn = document.querySelectorAll('#cards .card .copy')[3];
+      for (let i = 0; i < 40 && btn.textContent.trim() === '复制提示词'; i++) await new Promise(r => setTimeout(r, 50));
+      const toast = document.getElementById('toast');
+      const shown = toast.classList.contains('show') && toast.textContent.trim().length > 0;
+      const label = btn.textContent.trim();
+      const ink = getComputedStyle(btn).backgroundColor;
+      return { label, shown, ink, name: btn.getAttribute('aria-label') || '' };
+    })()`);
+    if (live.label === '复制提示词' || !live.shown || !live.name.startsWith(live.label)) {
+      problems.push(`复制提示词 in a fresh browser: ${JSON.stringify(live)}`);
+    }
+  }
   await evaluate(`(() => {
     window.__clipboardGot = null;
     navigator.clipboard.write = async items => { window.__clipboardGot = await (await items[0].getType('text/plain')).text(); };
@@ -1080,23 +1098,44 @@ async function homeCopyProblems() {
     })()`);
     if (!wiring.same || wiring.label !== '已复制' || !wiring.toast) problems.push(`复制提示词 button: ${JSON.stringify(wiring)}`);
   }
-  // Second pass, on the second card: the browser refuses the clipboard. The button offers to open the page, and its name starts
-  // with what it shows and says which animation it belongs to.
+  // The click is a real mouse press. The clipboard is then forced into each branch, because a headless browser
+  // cannot be asked to refuse or remove it on its own. What is checked is what the visitor sees.
+  const readCopy = index => evaluate(`(async () => {
+    const btn = document.querySelectorAll('#cards .card .copy')[${index}];
+    for (let i = 0; i < 80 && btn.textContent.trim() === '复制提示词'; i++) await new Promise(r => setTimeout(r, 50));
+    const toast = document.getElementById('toast');
+    const manual = document.querySelector('.copy-manual');
+    return { label: btn.textContent.trim(), name: btn.getAttribute('aria-label') || '',
+      animation: btn.closest('.card').querySelector('.title a').textContent.trim(),
+      toast: toast.classList.contains('show') ? toast.textContent.trim() : '',
+      manual: !!(manual && manual.getClientRects().length && document.activeElement === manual) };
+  })()`);
   await evaluate(`(() => {
     const refuse = async () => { throw new DOMException('denied', 'NotAllowedError'); };
     navigator.clipboard.write = refuse;
     navigator.clipboard.writeText = refuse;
+    document.execCommand = () => false;
   })()`);
   const coveredAgain = await pressCopyButton(1);
   if (coveredAgain) problems.push(`复制提示词 button of the second card is covered by ${coveredAgain} at its center`);
   else {
-    const refused = await evaluate(`(async () => {
-      const btn = document.querySelectorAll('#cards .card .copy')[1];
-      for (let i = 0; i < 60 && btn.textContent.trim() === '复制提示词'; i++) await new Promise(r => setTimeout(r, 50));
-      return { label: btn.textContent.trim(), name: btn.getAttribute('aria-label') || '', animation: btn.closest('.card').querySelector('.title a').textContent.trim() };
-    })()`);
-    if (refused.label !== '打开页面复制' || !refused.name.startsWith(refused.label) || !refused.name.includes(refused.animation)) {
-      problems.push(`复制提示词 with the clipboard refused: ${JSON.stringify(refused)} (expected "打开页面复制" and a name that starts with it and names the animation)`);
+    const refused = await readCopy(1);
+    if (refused.label !== '按 Ctrl+C 复制' || !refused.name.startsWith(refused.label) || !refused.name.includes(refused.animation) || !refused.toast.includes('没能写入剪贴板') || !refused.manual) {
+      problems.push(`复制提示词 with the clipboard refused: ${JSON.stringify(refused)}`);
+    }
+  }
+  await evaluate(`(() => {
+    navigator.clipboard.write = undefined;
+    navigator.clipboard.writeText = undefined;
+    window.ClipboardItem = undefined;
+    document.execCommand = () => false;
+  })()`);
+  const coveredMissing = await pressCopyButton(2);
+  if (coveredMissing) problems.push(`复制提示词 button of the third card is covered by ${coveredMissing} at its center`);
+  else {
+    const missing = await readCopy(2);
+    if (missing.label !== '按 Ctrl+C 复制' || !missing.toast.includes('没能写入剪贴板') || !missing.manual) {
+      problems.push(`复制提示词 with no clipboard: ${JSON.stringify(missing)}`);
     }
   }
   // Every page's text as the home page gives it, read six at a time: Python's stock server refuses connections when many
@@ -1132,6 +1171,60 @@ async function homeCopyProblems() {
     listeners.delete(onLoad);
     const own = await evaluate(`DemoPage.pageCopyText(document, window)`);
     if (own !== text) problems.push(`Copy prompt text differs for ${url}${text.startsWith('ERROR ') ? ` (${text})` : ''}`);
+  }
+  // The same three branches on a technique page, again with a real mouse press. This runs after the home page
+  // has been read, because navigating away drops the home page's promptFor.
+  {
+    let onLoad;
+    const loaded = new Promise(resolve => { onLoad = msg => { if (msg.method === 'Page.loadEventFired') resolve(); }; listeners.add(onLoad); });
+    await send('Page.navigate', { url: `${BASE}/animations/02-entrance-and-exit/rotate-in/` });
+    try { await withTimeout(loaded, LOAD_TIMEOUT); } catch { problems.push('rotate-in did not load'); }
+    listeners.delete(onLoad);
+    await sleep(400);
+    const pressPage = async () => {
+      const spot = await evaluate(`(() => {
+        const btn = document.querySelector('.hb-copy');
+        btn.scrollIntoView({ block: 'center' });
+        const b = btn.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2, hit = document.elementFromPoint(x, y);
+        return { x, y, covered: btn.contains(hit) ? '' : (hit ? hit.tagName.toLowerCase() : 'nothing') };
+      })()`);
+      if (spot.covered) return spot.covered;
+      await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: spot.x, y: spot.y, button: 'none' });
+      for (const type of ['mousePressed', 'mouseReleased']) await send('Input.dispatchMouseEvent', { type, x: spot.x, y: spot.y, button: 'left', clickCount: 1 });
+      return '';
+    };
+    const readPage = expect => evaluate(`(async () => {
+      const btn = document.querySelector('.hb-copy');
+      const status = document.querySelector('.hb-copy-status');
+      const want = ${JSON.stringify(expect)};
+      for (let i = 0; i < 80 && btn.textContent.trim() !== want; i++) await new Promise(r => setTimeout(r, 50));
+      return { label: btn.textContent.trim(), status: status ? status.textContent.trim() : '',
+        name: btn.getAttribute('aria-label') || '' };
+    })()`);
+    const coveredPage = await pressPage();
+    if (coveredPage) problems.push(`technique 复制提示词 is covered by ${coveredPage}`);
+    else {
+      const live = await readPage('已复制');
+      if (live.label !== '已复制' || !live.status.includes('已复制') || live.name !== '已复制') {
+        problems.push(`technique 复制提示词 in a fresh browser: ${JSON.stringify(live)}`);
+      }
+    }
+    await evaluate(`(() => {
+      const refuse = async () => { throw new DOMException('denied', 'NotAllowedError'); };
+      navigator.clipboard.writeText = refuse;
+      document.execCommand = () => false;
+    })()`);
+    await pressPage();
+    const refused = await readPage('按 Ctrl+C 复制');
+    if (refused.label !== '按 Ctrl+C 复制' || !refused.status.includes('没能写入剪贴板')) {
+      problems.push(`technique 复制提示词 with the clipboard refused: ${JSON.stringify(refused)}`);
+    }
+    await evaluate(`(() => { navigator.clipboard.writeText = undefined; document.execCommand = () => false; })()`);
+    await pressPage();
+    const missingPage = await readPage('按 Ctrl+C 复制');
+    if (missingPage.label !== '按 Ctrl+C 复制' || !missingPage.status.includes('没能写入剪贴板')) {
+      problems.push(`technique 复制提示词 with no clipboard: ${JSON.stringify(missingPage)}`);
+    }
   }
   return problems;
 }

@@ -292,14 +292,47 @@
       var label = copyBtn.querySelector('.hb-copy-label') || copyBtn;
       var original = label.textContent;
       var timer = 0;
+      var status = doc.createElement('p');
+      status.className = 'hb-copy-status';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      copyBtn.insertAdjacentElement('afterend', status);
+      copyBtn.setAttribute('aria-label', original);
       function show(message, done) {
         label.textContent = message;
         copyBtn.classList.toggle('is-done', done);
+        copyBtn.classList.toggle('is-fail', !done && message !== original);
+        copyBtn.setAttribute('aria-label', message);
+        status.textContent = done ? '已复制，可以粘贴到 AI 助手里。'
+          : (message === original ? '' : '没能写入剪贴板。提示词已选中，请' + message + '。');
         win.clearTimeout(timer);
         timer = win.setTimeout(function () {
           label.textContent = original;
           copyBtn.classList.remove('is-done');
-        }, 1500);
+          copyBtn.classList.remove('is-fail');
+          copyBtn.setAttribute('aria-label', original);
+          status.textContent = '';
+        }, done ? 2400 : 6000);
+      }
+      // A clipboard call that never settles must not leave the button saying nothing happened.
+      function withTimeout(promise, ms) {
+        return new Promise(function (resolve, reject) {
+          var settled = false;
+          var wait = win.setTimeout(function () {
+            if (!settled) { settled = true; reject(new Error('timeout')); }
+          }, ms);
+          promise.then(function (value) {
+            if (settled) return;
+            settled = true;
+            win.clearTimeout(wait);
+            resolve(value);
+          }, function (err) {
+            if (settled) return;
+            settled = true;
+            win.clearTimeout(wait);
+            reject(err);
+          });
+        });
       }
       // Where the clipboard API is blocked, copy through an off-screen text box so the settings line still comes along.
       function copyThroughTextBox(textToCopy) {
@@ -342,7 +375,7 @@
         var textToCopy = copyText();
         var clip = win.navigator.clipboard;
         if (clip && clip.writeText) {
-          clip.writeText(textToCopy).then(copied, function () { fallback(textToCopy); });
+          withTimeout(clip.writeText(textToCopy), 1200).then(copied, function () { fallback(textToCopy); });
         } else {
           fallback(textToCopy);
         }

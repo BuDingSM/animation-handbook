@@ -172,6 +172,10 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
   border-radius:8px;background:var(--hb-ink);color:#0b0b0d;font:700 16px/1 var(--hb-font);cursor:pointer}
 .hb-copy .hb-i-done,.hb-copy.is-done .hb-i-copy{display:none}
 .hb-copy.is-done .hb-i-done{display:inline}
+.hb-copy.is-done{background:#157a43;color:#fff}
+.hb-copy.is-fail{outline:2px solid #f2c14e;outline-offset:2px}
+.hb-copy-status{flex:1 1 100%;margin:0;min-height:1.4em;font:600 15px/1.4 var(--hb-font);color:#f2c14e}
+.hb-copy.is-done + .hb-copy-status{color:#8ae7ab}
 /* 提示词卡片下方：一句话和一个描边的「在 GitHub 上点星」按钮（手机上全宽）。访客复制过
    提示词后，共享脚本把这一行标记为 is-asked：句子变亮，按钮的边框和星星变金色，在允许动效的地方
    轻轻脉冲一下。 */

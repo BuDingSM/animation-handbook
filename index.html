@@ -55,7 +55,7 @@ function setTheme(t){document.documentElement.dataset.theme=t;document.querySele
 // has drawn the finder, so the start page is not painted first. Once the page is read the class goes in any case: if the script
 // failed, the start page still shows.
 (function(){var p=new URLSearchParams(location.search);if(p.get('view')!=='find'||(p.get('q')||'').trim()||p.get('place'))return;var h=document.documentElement;h.classList.add('fd-direct');addEventListener('DOMContentLoaded',function(){h.classList.remove('fd-direct');});})();</script>
-<script src="assets/js/demo-page.js?v=12" defer></script>
+<script src="assets/js/demo-page.js?v=13" defer></script>
 <style>
 @font-face{font-family:'Schibsted Grotesk';src:url('assets/fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Schibsted Grotesk';src:url('assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -234,6 +234,8 @@ button,input{font:inherit;color:inherit}
 .copy{position:relative;z-index:3;display:inline-flex;align-items:center;gap:8px;min-width:0;max-width:100%;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .copy-l{min-width:0;overflow:hidden;text-overflow:ellipsis} /* the label never wraps; only if it cannot fit at all does it end in an ellipsis */
 .copy.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.copy.fail{border-color:#e0a100;color:var(--ink);background:color-mix(in srgb,#e0a100 18%,var(--surface))}
+.copy-manual{position:fixed;z-index:61;left:16px;right:16px;bottom:88px;max-height:7.2em;padding:12px 14px;border-radius:12px;border:2px solid #e0a100;background:var(--surface);color:var(--ink);font:15px/1.45 var(--text);resize:vertical}
 .try{display:inline-flex;align-items:center;gap:6px;padding-right:6px;font-size:15px;font-weight:700;color:var(--brand)}
 .try .i{transition:transform .25s var(--ease)}
 @media(hover:hover){
@@ -4746,7 +4748,7 @@ function pvMarkup(k){
     case 'words': return '<span class="qc"><i class="qm">&#8220;</i><span class="qt">'+[['Less','noise,'],['more','signal.']].map((l,j)=>'<span class="ln">'+l.map((w,i)=>'<b class="anim" style="--i:'+(j*2+i)+'">'+w+'</b>').join('')+'</span>').join('')+'</span><i class="by"></i></span>';
     case 'blurin': return '<span class="vf"><i></i><i></i><i></i><i></i></span><span class="ph anim"><span class="sf anim"><i class="hd"></i><i class="bd"></i></span><span class="sh anim"><i class="hd"></i><i class="bd"></i></span></span>';
     case 'flipin': return '<span class="fc anim"><i class="sn"></i><b class="tp">24&#176;</b></span>';
-    case 'bouncein': return '<span class="ms anim"><i class="ck"></i><b>Saved!</b></span>';
+    case 'bouncein': return '<span class="ms anim"><i class="ck"></i><b>已保存</b></span>';
     case 'rotatein': return '<span class="sh anim"></span><span class="bdg anim"><svg viewBox="-50 -50 100 100"><path class="sl" d="'+Array.from({length:32},(_,i)=>{const a=i*Math.PI/16,r=i%2?41:47;return (i?'L':'M')+(r*Math.sin(a)).toFixed(1)+' '+(-r*Math.cos(a)).toFixed(1);}).join('')+'Z"/><circle class="rg2" r="36"/></svg><i class="ds"></i><i class="st"></i></span>';
     case 'shatter': return ((B,J)=>{
       // eight cracks run from the impact point (50% 42%) to points on the edge, each bent twice; piece k is a copy of the card cut
@@ -4782,7 +4784,7 @@ function pvMarkup(k){
     // ── region r04a: start ──
     case 'sig4': return '<span class="w"><span class="cb"><i class="anim"></i></span><span class="sw"><i class="anim"></i><b class="anim"></b></span><span class="rd"><i class="anim"></i></span></span><span class="tip anim"></span>';
     case 'hoverbtn': return '<span class="sh anim"></span><span class="cd anim"><i class="ti"></i><i class="ul anim"></i><i class="l1"></i><i class="l2"></i><i class="ar anim"></i></span><span class="tip anim"></span>';
-    case 'ripple': return '<span class="lip"></span><span class="btn anim"><span class="rp anim"></span><em>Tap me</em></span><span class="rg anim"></span><span class="rg r2 anim"></span><span class="tip anim"></span>';
+    case 'ripple': return '<span class="lip"></span><span class="btn anim"><span class="rp anim"></span><em>点我</em></span><span class="rg anim"></span><span class="rg r2 anim"></span><span class="tip anim"></span>';
     case 'focusring': return '<span class="f f1"><i></i></span><span class="f f2"><i></i></span><span class="f f3"><i></i></span><span class="rg r1 anim"></span><span class="rg r2 anim"></span><span class="rg r3 anim"></span><span class="kl"></span><span class="kf anim">Tab<svg viewBox="0 0 20 14"><path d="M2 7h12M9.5 2.5 14 7l-4.5 4.5M18 2v10"/></svg></span>';
     case 'press': return '<span class="bt anim"><span class="lp"></span><span class="fc anim">Buy now</span></span><span class="tip anim"></span>';
     case 'magnet': return '<span class="hm"></span><span class="bt anim"><em class="anim">Say hi</em></span><span class="tip anim"></span>';
@@ -4805,7 +4807,7 @@ function pvMarkup(k){
     // ── region r04a: end ──
     // ── region r04b: start ──
     case 'drawer': return '<span class="pg"><span class="mb"></span><span class="hl"></span><span class="pic"><b class="sun"></b><b class="hill"></b></span><span class="tx"><b></b><b></b><b></b><b></b></span><span class="dim anim"></span><span class="dr anim"><b class="av"></b><b class="nm"></b>'+[[20,' on',18],[30,'',14],[40,'',20],[50,'',12]].map(([t,c,w])=>'<b class="it'+c+'" style="top:'+t+'cqh;--w:'+w+'cqw"></b>').join('')+'</span></span><span class="tip anim"></span>';
-    case 'modal': return '<span class="tx"><b></b><b></b><b></b></span><span class="lip"></span><span class="bt anim"><em>Open</em></span><span class="dim anim"></span><span class="wd anim"><span class="pic"><b class="sun"></b><b class="hill"></b></span><b class="l1"></b><b class="l2"></b><i class="x"></i></span><span class="tip anim"></span>';
+    case 'modal': return '<span class="tx"><b></b><b></b><b></b></span><span class="lip"></span><span class="bt anim"><em>打开</em></span><span class="dim anim"></span><span class="wd anim"><span class="pic"><b class="sun"></b><b class="hill"></b></span><b class="l1"></b><b class="l2"></b><i class="x"></i></span><span class="tip anim"></span>';
     case 'accordion': return '<span class="ac"><span class="an anim"><i class="anim"><b></b><b></b><b></b></i></span></span><span class="q q1" style="--w:30cqw"><i class="anim"></i></span><span class="q q2 anim" style="--w:24cqw"><i></i></span><span class="q q3 anim" style="--w:27cqw"><i></i></span><span class="tip anim"></span>';
     case 'cursor': return '<span class="w">Portfolio</span><span class="fo anim"><i class="anim">Portfolio</i></span><span class="tip anim"></span>';
     case 'shake': return '<span class="fd anim"><span class="dt">'+'<b></b>'.repeat(7)+'</span><span class="sb anim"></span><i class="anim"></i></span><span class="ms anim"><i>!</i><b></b></span><span class="tip anim"></span>';
@@ -4827,18 +4829,18 @@ function pvMarkup(k){
     case 'paging': return '<span class="row"><b class="pg p1">‹</b><b class="pg p2">1</b><b class="pg p3">2</b><b class="pg p4">3</b><b class="pg p5">›</b></span><span class="hl anim"><i class="anim"><b>1</b><b>2</b><b>3</b></i></span><span class="ls anim"><span class="lr"><b></b><b></b></span><span class="lr"><b></b><b></b></span></span><span class="tip anim"></span>';
     // ── region r04b: end ──
     // ── region r04c: start ──
-    case 'cartfly': return '<span class="pc"><i class="pic"><b class="sun"></b><b class="hill"></b></i><i class="nm"></i></span><span class="lip"></span><span class="btn anim"><em>Add</em></span><span class="ct anim"><svg viewBox="0 0 24 24"><path d="M2.5 3.5h2.3l2.5 11a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.4-1.1l1.9-6.6H6"/><circle cx="9.5" cy="19.6" r="1.4"/><circle cx="17" cy="19.6" r="1.4"/></svg><span class="bd anim"><b class="n2 anim">2</b><b class="n3 anim">3</b></span></span><span class="fx anim"><span class="fy anim"><span class="fc anim"><b class="sun"></b><b class="hill"></b></span></span></span><span class="tip anim"></span>';
+    case 'cartfly': return '<span class="pc"><i class="pic"><b class="sun"></b><b class="hill"></b></i><i class="nm"></i></span><span class="lip"></span><span class="btn anim"><em>加入</em></span><span class="ct anim"><svg viewBox="0 0 24 24"><path d="M2.5 3.5h2.3l2.5 11a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.4-1.1l1.9-6.6H6"/><circle cx="9.5" cy="19.6" r="1.4"/><circle cx="17" cy="19.6" r="1.4"/></svg><span class="bd anim"><b class="n2 anim">2</b><b class="n3 anim">3</b></span></span><span class="fx anim"><span class="fy anim"><span class="fc anim"><b class="sun"></b><b class="hill"></b></span></span></span><span class="tip anim"></span>';
     case 'reorder': return '<span class="rw rb anim"><i></i></span><span class="rw rc anim"><i></i></span><span class="rw ra anim"><i></i></span><span class="tip anim"></span>';
     case 'rollnum': return '<span class="nm"><b class="cu">$</b>'+[['ch','0123'],['ct','8901'],['cn','89012345']].map(([c,d])=>'<span class="w"><span class="c '+c+' anim">'+[...d].map(n=>'<b>'+n+'</b>').join('')+'</span></span>').join('')+'</span>';
     case 'typing': return '<span class="me"><i></i><i></i></span><span class="av"></span><span class="tb anim"><i class="anim"></i><i class="anim"></i><i class="anim"></i></span><span class="rp anim"><i></i><i></i></span>';
-    case 'holdconf': return '<span class="lip"></span><span class="btn anim"><span class="fl anim"></span><span class="t t1 anim">Hold to delete</span><span class="t t2 anim"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Deleted</span></span><span class="tip anim"></span>';
+    case 'holdconf': return '<span class="lip"></span><span class="btn anim"><span class="fl anim"></span><span class="t t1 anim">按住删除</span><span class="t t2 anim"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>已删除</span></span><span class="tip anim"></span>';
     case 'xsearch': return '<span class="bar"><i class="lg"></i><i class="lk"></i><i class="fr"></i><i class="fm anim"></i><i class="fl anim"></i><i class="tx anim"></i><i class="ca anim"></i><i class="ic anim"></i></span><span class="tip anim"></span>';
     case 'btnload': return '<span class="sh anim"></span><span class="lp"><i class="l anim"></i><i class="m anim"></i><i class="r anim"></i></span><span class="fc anim"><i class="l anim"></i><i class="m anim"></i><i class="r anim"></i><em class="anim">Save</em><b class="sp anim"></b><b class="ok anim"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></b></span><span class="tip anim"></span>';
     case 'imgtrail': return [[20,65.2,.2,-9.7,-7,.074],[32.8,71.9,-12.8,-6.7,5,.1494],[46.2,69,-13.4,2.9,-4,.228],[59.4,63.4,-13.1,5.6,7,.305],[72.9,61.9,-13.6,1.5,-6,.3845],[85.7,57.7,-12.8,4.2,4,.5159],[73.7,47.5,12,10.2,-8,.611],[60.3,45.3,13.4,2.3,6,.6896],[46.8,48.4,13.5,-3.1,-5,.7685],[33.3,50,13.6,-1.7,7,.848],[20.2,55.5,13.1,-5.5,-3,.9247]].map(([x,y,dx,dy,r,t])=>'<i class="anim" style="--x:'+x+'cqw;--y:'+y+'cqh;--dx:'+dx+'cqw;--dy:'+dy+'cqh;--r:'+r+'deg;animation-delay:'+(t*5-5).toFixed(3)+'s"></i>').join('')+'<span class="tx anim"><span class="tip anim"></span></span>';
     case 'gooey': return '<svg class="gf" aria-hidden="true"><filter id="cpGooeyF" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation=".032"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8"/></filter></svg><span class="gw"><i class="d d1 anim"></i><i class="d d2 anim"></i><i class="d d3 anim"></i><i class="m anim"></i></span><span class="ic"><i class="pl anim"></i><i class="g g1 anim"></i><i class="g g2 anim"></i><i class="g g3 anim"></i></span><span class="tip anim"></span>';
     case 'dynisland': return '<span class="ph"></span><span class="st"></span><span class="ico"></span><span class="bh anim"></span><span class="bv anim"></span><span class="c o1 anim"></span><span class="c o2 anim"></span><span class="c o3 anim"></span><span class="c o4 anim"></span><span class="in anim"><i class="av"></i><i class="l1"></i><i class="l2"></i><span class="wv"><i class="anim"></i><i class="anim"></i><i class="anim"></i><i class="anim"></i></span></span>';
     case 'beforeafter': return '<span class="fr"><span class="pa"><span class="sc bf"><i class="sun"></i><i class="hb"></i><i class="hf"></i></span><span class="win anim"><span class="sc af anim"><i class="sun"></i><i class="hb"></i><i class="hf"></i></span></span><b class="tg ta">After</b><b class="tg tb">Before</b><span class="ln anim"><span class="hd anim"><svg viewBox="0 0 24 24"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></span></span></span><span class="tip anim"></span>';
-    case 'magnifier': return (c=>'<span class="pd og">'+c+'</span><span class="lz anim"><span class="ring"><span class="pd zc anim">'+c+'</span></span><i class="hd"></i></span><span class="tip anim"></span>')('<i class="pc"><b class="sun"></b><b class="hill"></b><b class="bd"></b></i><i class="nm"></i><i class="pr"></i><i class="fp f1"></i><i class="fp f2"></i><i class="fp f3"></i><i class="fp f4"></i><i class="by"><b>Buy</b></i>');
+    case 'magnifier': return (c=>'<span class="pd og">'+c+'</span><span class="lz anim"><span class="ring"><span class="pd zc anim">'+c+'</span></span><i class="hd"></i></span><span class="tip anim"></span>')('<i class="pc"><b class="sun"></b><b class="hill"></b><b class="bd"></b></i><i class="nm"></i><i class="pr"></i><i class="fp f1"></i><i class="fp f2"></i><i class="fp f3"></i><i class="fp f4"></i><i class="by"><b>购买</b></i>');
     case 'deckswipe': return '<span class="bt bn anim"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span><span class="bt by anim"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z"/></svg></span>'+['e4','e3','e2','e1'].map(e=>'<span class="cd '+e+' anim"><i class="pic"><i class="sun"></i><i class="hill"></i></i><b></b><b></b>'+(e==='e1'?'<i class="sy anim"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z"/></svg></i><i class="sn anim"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></i>':'')+'</span>').join('')+'<span class="tip anim"></span>';
     case 'crumbs': return '<span class="bar"><b class="s1 anim">Home</b><i class="p1 anim">›</i><b class="s2 anim">Courses</b><i class="p2 anim">›</i><b class="s3 anim">Design</b></span><span class="pg anim"><i class="h"></i><i class="b"></i></span>';
     case 'invalid': return '<b class="lb">Email</b><span class="fd"><span class="tx anim"></span><span class="mk ok anim"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="mk er anim"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span></span><span class="ms mok anim"></span><span class="ms mer anim"></span>';
@@ -5145,7 +5147,7 @@ function buildCard(e){
   card.innerHTML=`<div class="stage"><div class="pv pv-${pv}" aria-hidden="true">${pvMarkup(pv)}</div>`+
     `<span class="tag">${esc(e.places.length?PLACE[e.places[0]].name:e.cat.name)}</span></div>`+
     `<div class="meta"><h3 class="title"><a href="${esc(pageHref(e.url))}">${esc(e.name)}</a></h3><p class="desc">${esc(e.desc)}</p>`+
-    `<div class="acts"><button type="button" class="copy" aria-label="${esc('Copy prompt for '+e.name)}">${ICON_COPY}<span class="copy-l" aria-live="polite">复制提示词</span></button>`+
+    `<div class="acts"><button type="button" class="copy" aria-label="${esc('复制「'+e.name+'」的提示词')}">${ICON_COPY}<span class="copy-l" aria-live="polite">复制提示词</span></button>`+
     `<span class="try" aria-hidden="true">试一试${ICON_ARROW}</span></div></div>`;
   if(reduce)card.querySelectorAll('animate').forEach(a=>a.remove());
   const eng=engines[pv]?engines[pv](card.querySelector('.pv')):null;
@@ -5706,18 +5708,49 @@ function promptFor(url){
   return text;
 }
 // Safari only writes the clipboard while the press is fresh, so the text goes in as a promise where the browser allows it.
-async function writeClipboard(text){
+function withTimeout(promise,ms){
+  return new Promise((resolve,reject)=>{
+    let settled=false;
+    const wait=setTimeout(()=>{if(!settled){settled=true;reject(new Error('timeout'));}},ms);
+    promise.then(value=>{if(settled)return;settled=true;clearTimeout(wait);resolve(value);},err=>{if(settled)return;settled=true;clearTimeout(wait);reject(err);});
+  });
+}
+// A clipboard call that never settles used to leave the button saying 复制提示词. After a short wait, try the next way.
+async function writeClipboard(textPromise){
   const clip=navigator.clipboard;
-  if(!clip)throw new Error('no clipboard');
-  if(window.ClipboardItem&&clip.write){
-    // If the read fails while write or the constructor has already given up, nobody is left waiting for this promise: mark it handled.
-    // The failure still reaches the code below, through write or through text.
-    const blob=text.then(t=>new Blob([t],{type:'text/plain'}));
+  if(clip&&window.ClipboardItem&&typeof clip.write==='function'){
+    const blob=textPromise.then(t=>new Blob([t],{type:'text/plain'}));
     blob.catch(()=>{});
-    try{await clip.write([new ClipboardItem({'text/plain':blob})]);return;}
-    catch(err){if(err&&err.name==='NotAllowedError')throw err;}
+    try{await withTimeout(clip.write([new ClipboardItem({'text/plain':blob})]),1200);return;}
+    catch(err){/* try the next way */}
   }
-  await clip.writeText(await text);
+  const text=await textPromise;
+  if(clip&&typeof clip.writeText==='function'){
+    try{await withTimeout(clip.writeText(text),1200);return;}
+    catch(err){/* try the text box */}
+  }
+  if(copyThroughTextBox(text))return;
+  const err=new Error('manual');
+  err.text=text;
+  throw err;
+}
+let manualBox=null;
+function copyThroughTextBox(text){
+  if(manualBox){manualBox.remove();manualBox=null;}
+  const box=document.createElement('textarea');
+  box.value=text;
+  box.readOnly=true;
+  box.className='copy-manual';
+  box.setAttribute('aria-label','待复制的提示词');
+  document.body.appendChild(box);
+  box.focus({preventScroll:true});
+  box.select();
+  box.setSelectionRange(0,box.value.length);
+  let copied=false;
+  try{copied=document.execCommand('copy');}catch(e){copied=false;}
+  if(copied){box.remove();return true;}
+  manualBox=box;
+  return false;
 }
 const toastEl=$('toast'),toastText=toastEl.querySelector('.toast-t');let toastTimer=0,toastClear=0;
 function toast(message){
@@ -5732,14 +5765,16 @@ function toast(message){
 }
 // Only the icon is swapped and the text of the label changes: the label is a live region, and a screen reader announces a change
 // inside one but not a new one. The name of the button always contains what it shows.
+const COPY_KEYS=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent)?'按 ⌘C 复制':'按 Ctrl+C 复制';
 function copyState(btn,kind){
   const name=btn.closest('.card').querySelector('.title a').textContent;
   clearTimeout(btn._timer);
-  btn.classList.toggle('done',kind==='done');btn.classList.toggle('fail',kind==='fail');
-  btn.querySelector('.i').outerHTML=kind==='done'?ICON_DONE:kind==='fail'?ICON_OPEN:ICON_COPY;
-  btn.querySelector('.copy-l').textContent=kind==='done'?'已复制':kind==='fail'?'打开页面复制':'复制提示词';
-  btn.setAttribute('aria-label',kind==='done'?'已复制「'+name+'」的提示词':kind==='fail'?'打开页面复制「'+name+'」的提示词':'复制「'+name+'」的提示词');
-  if(kind==='done')btn._timer=setTimeout(()=>copyState(btn,''),1800);
+  const label=kind==='done'?'已复制':kind==='keys'?COPY_KEYS:'复制提示词';
+  btn.classList.toggle('done',kind==='done');btn.classList.toggle('fail',kind==='keys');
+  btn.querySelector('.i').outerHTML=kind==='done'?ICON_DONE:kind==='keys'?ICON_OPEN:ICON_COPY;
+  btn.querySelector('.copy-l').textContent=label;
+  btn.setAttribute('aria-label',kind==='done'?'已复制「'+name+'」的提示词':kind==='keys'?COPY_KEYS+'：「'+name+'」的提示词已选中':'复制「'+name+'」的提示词');
+  if(kind)btn._timer=setTimeout(()=>copyState(btn,''),kind==='done'?2400:6000);
 }
 // The address of a card's page as it is read: its folder (the card's link names index.html when the home page is opened from disk).
 const urlOf=card=>BY_SLUG[card.dataset.slug].url;
@@ -5747,8 +5782,16 @@ cardsBox.addEventListener('click',e=>{
   const btn=e.target.closest('.copy');
   if(!btn)return;
   const url=urlOf(btn.closest('.card'));
-  if(btn.classList.contains('fail')){location.href=pageHref(url)+'#hb-prompt-title';return;}
-  writeClipboard(promptFor(url)).then(()=>{copyState(btn,'done');toast('提示词已复制，粘贴到你的 AI 助手里就能用。');},()=>copyState(btn,'fail'));
+  writeClipboard(promptFor(url)).then(()=>{
+    if(manualBox){manualBox.remove();manualBox=null;}
+    copyState(btn,'done');
+    toast('提示词已复制，粘贴到你的 AI 助手里就能用。');
+  },err=>{
+    copyState(btn,'keys');
+    toast('没能写入剪贴板。文字已选中，请'+COPY_KEYS+'。');
+    if(!(err&&err.text))return;
+    if(!manualBox)copyThroughTextBox(err.text);
+  });
 });
 // Reading the page starts when a mouse pointer rests on a card or the keyboard brings focus to it, so the copy is quick. A
 // finger does not count: on a phone the touch that sends it opens the card or scrolls the page, and the focus a tap gives the

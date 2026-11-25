@@ -536,6 +536,7 @@ test("pressing a page's Copy prompt copies what pageCopyText gives", async () =>
     const page = standInPage('once', false, {}, { prompt, controls, clipboard });
     page.button.emit('click', visitor);
     await accepted;
+    await Promise.resolve();
     assert.deepEqual(written, [expected], name);
     assert.equal(written[0], DP.pageCopyText(page.doc, page.win), name);
     assert.equal(page.button.textContent, '已复制', name);
@@ -549,6 +550,7 @@ test('a copy that worked marks the star row, and nothing marks it before', async
   assert.deepEqual(page.starRow.classList.names, [], 'nothing is marked before a copy');
   page.button.emit('click', visitor);
   await accepted;
+  await Promise.resolve();
   assert.ok(page.starRow.classList.names.length > 0 && page.starRow.classList.names.every(name => name === 'is-asked'), page.starRow.classList.names.join());
 });
 
@@ -557,6 +559,22 @@ test('where the clipboard is missing, a copy through the text box marks the star
   page.button.emit('click', visitor);
   assert.equal(page.button.textContent, '已复制');
   assert.ok(page.starRow.classList.names.includes('is-asked'));
+});
+
+test('where the clipboard is missing and the text box cannot copy, the button asks for the keys', () => {
+  const page = standInPage('once', false, {}, { prompt: 'Add a fade to [the card].', controls: null, clipboard: undefined, exec: false });
+  page.button.emit('click', visitor);
+  assert.equal(page.button.textContent, '按 Ctrl+C 复制');
+  assert.deepEqual(page.starRow.classList.names, []);
+});
+
+test('a clipboard call that never settles asks for the keys instead of leaving the button unchanged', async () => {
+  const page = standInPage('once', false, {}, { prompt: 'Add a fade to [the card].', controls: null, clipboard: { writeText: () => new Promise(() => {}) }, exec: false });
+  page.button.emit('click', visitor);
+  assert.equal(page.button.textContent, '', 'nothing is claimed before the clipboard answers');
+  page.runTimers();
+  await Promise.resolve();
+  assert.equal(page.button.textContent, '按 Ctrl+C 复制');
 });
 
 test('a copy that did not work shows the keys to press and leaves the star row unmarked', async () => {
@@ -574,5 +592,6 @@ test('a page with no star row still copies', async () => {
   const page = standInPage('once', false, {}, { prompt: 'Add a fade to [the card].', controls: null, clipboard: { writeText: () => accepted } }, null, { noStarRow: true });
   page.button.emit('click', visitor);
   await accepted;
+  await Promise.resolve();
   assert.equal(page.button.textContent, '已复制');
 });

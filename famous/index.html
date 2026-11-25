@@ -1644,7 +1644,12 @@ document.querySelectorAll('.fx .copy').forEach(btn=>btn.addEventListener('click'
     copyState(btn,'keys');
   };
   const clip=navigator.clipboard;
-  if(clip&&clip.writeText)clip.writeText(text).then(copied,fallback);else fallback();
+  const timed=promise=>new Promise((resolve,reject)=>{
+    let settled=false;
+    const wait=setTimeout(()=>{if(!settled){settled=true;reject(new Error('timeout'));}},1200);
+    promise.then(value=>{if(settled)return;settled=true;clearTimeout(wait);resolve(value);},err=>{if(settled)return;settled=true;clearTimeout(wait);reject(err);});
+  });
+  if(clip&&clip.writeText)timed(clip.writeText(text)).then(copied,fallback);else fallback();
 }));
 
 // The pop-up. A press on a tile opens its entry in one native dialog: the entry's section is moved into the dialog and put back in the
