@@ -1,6 +1,6 @@
 # 点击涟漪
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/click-ripple/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/click-ripple/)
 
 ## 它是什么
 涟漪是一个柔和的圆圈，从你按下的位置长出来，再淡出。它确认按压已经登记，并精确显示落在哪里，在触屏上最有帮助——触屏上悬停什么都不会触发。Material Design，Google 的设计系统，让它流行起来。

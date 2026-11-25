@@ -1,6 +1,6 @@
 # 通知徽标脉冲
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/badge-pulse/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/badge-pulse/)
 
 ## 它是什么
 通知徽标是图标上一个小的彩色圆点或数字，标记有新内容，比如未读消息。轻柔的脉冲——长大一点再收回，或向外送出一圈柔和的光环——能在余光里抓住眼球，又不会打断你正在做的事。

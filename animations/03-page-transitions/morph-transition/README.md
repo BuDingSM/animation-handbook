@@ -1,6 +1,6 @@
 # 变形过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/morph-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/morph-transition/)
 
 ## 它是什么
 变形过渡通过把轮廓上的每个点移向新形状里对应的点，把一个形状变成另一个形状。不是换图片，而是轮廓在流动：圆形展开成六边形，六边形收尖成星形。在演示里，一个小 Logo 会随着你在首页、画廊和关于之间移动而改变形状。

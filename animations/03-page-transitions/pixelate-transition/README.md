@@ -1,6 +1,6 @@
 # 像素化过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/pixelate-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/pixelate-transition/)
 
 ## 它是什么
 像素化过渡把从一个页面或图片到下一个的变化藏在大方形块后面。当前页面碎成不断变大的纯色块，趁看不清时换页，方块再缩小，直到新页面变清晰。看起来像一幅图在老式电子游戏里失去又恢复焦点。

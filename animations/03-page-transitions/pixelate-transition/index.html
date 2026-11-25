@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>像素化过渡 — 动画手册</title>
   <meta name="description" content="页面碎成大像素，再清晰成下一页。最适合画廊。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/pixelate-transition/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/03-page-transitions/pixelate-transition/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="像素化过渡 — 动画手册">
   <meta property="og:description" content="页面碎成大像素，再清晰成下一页。最适合画廊。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/pixelate-transition/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/03-page-transitions/pixelate-transition/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="像素化过渡 — 动画手册">
   <meta name="twitter:description" content="页面碎成大像素，再清晰成下一页。最适合画廊。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "像素化过渡", "name": "像素化过渡", "description": "页面碎成大像素，再清晰成下一页。最适合画廊。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/pixelate-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 像素化过渡"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "像素化过渡", "name": "像素化过渡", "description": "页面碎成大像素，再清晰成下一页。最适合画廊。", "url": "https://animation.xizanghuapi.cn/animations/03-page-transitions/pixelate-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 像素化过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -36,8 +36,8 @@
     .in.copy{white-space:normal;text-align:right;max-width:calc(100% - 150px)}
     .half{bottom:10px}.half.first{left:10px}.half.second{left:calc(50% + 10px)}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -65,7 +65,7 @@
     <div class="stage">
       <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
       <div class="page-area" id="page-area">
-        <canvas id="cvs" role="img" aria-label="A small gallery site whose page breaks into big pixels and sharpens into the next page"></canvas>
+        <canvas id="cvs" role="img" aria-label="一个小画廊网站，页面碎成大像素，再变清晰进入下一页"></canvas>
         <p class="px-lbl in copy" id="l-copy" aria-hidden="true" data-hb-caption>小副本 · 每个方块一个像素</p>
         <p class="px-lbl in up" id="l-up" aria-hidden="true" data-hb-caption>放大，平滑关闭</p>
         <p class="px-lbl in swap" id="l-swap" aria-hidden="true" data-hb-caption>在这里换页</p>
@@ -141,7 +141,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -156,27 +156,27 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const nav=document.getElementById('nav'),area=document.getElementById('page-area'),cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d');
   const slowTog=document.getElementById('slow-tog'),reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
-  const LABELS={normal:'A small gallery site whose page breaks into big pixels and sharpens into the next page',
-    inside:'The page as big blocks with their grid, the small copy they come from, and a strip of block size over a change',
-    compare:'The same page change twice: a plain cut on the left, the pixelating change on the right'};
+  const LABELS={normal:'一个小画廊网站，页面碎成大像素，再变清晰进入下一页',
+    inside:'页面变成带网格的大色块，旁边是它们来自的小图，以及切换过程中色块大小的色条',
+    compare:'同一次换页做了两次：左边是直接切换，右边是像素化切换'};
   // Three pages of a made-up photography site, each a drawn picture with a title (in the site's font once it has loaded)
   const PAGES=[
     {name:'首页',draw:(g,w,h)=>{const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#28204a');sky.addColorStop(.6,'#c4567a');sky.addColorStop(1,'#f6a85c');g.fillStyle=sky;g.fillRect(0,0,w,h);
       g.fillStyle='#ffe2a0';g.beginPath();g.arc(w*.7,h*.62,h*.16,0,6.283);g.fill();
       g.fillStyle='#3b2c5a';g.beginPath();g.moveTo(0,h);g.lineTo(0,h*.72);g.lineTo(w*.22,h*.5);g.lineTo(w*.42,h*.7);g.lineTo(w*.62,h*.46);g.lineTo(w*.86,h*.68);g.lineTo(w,h*.6);g.lineTo(w,h);g.fill();
-      g.fillStyle='#1d1733';g.fillRect(0,h*.86,w,h*.14);return['Northlight','Photography by the sea']}},
+      g.fillStyle='#1d1733';g.fillRect(0,h*.86,w,h*.14);return['Northlight','海边的摄影']}},
     {name:'工作',draw:(g,w,h)=>{g.fillStyle='#14161c';g.fillRect(0,0,w,h);
       const cols=[['#ff7a59','#ffd36e'],['#4fd1c5','#2b6cb0'],['#b794f4','#ed64a6'],['#68d391','#2f855a'],['#f6ad55','#c05621'],['#63b3ed','#5a67d8']];
       cols.forEach((c,i)=>{const x=w*(.08+(i%3)*.3),y=h*(.36+(i/3|0)*.31),tw=w*.26,th=h*.26,gr=g.createLinearGradient(x,y,x+tw,y+th);gr.addColorStop(0,c[0]);gr.addColorStop(1,c[1]);g.fillStyle=gr;g.fillRect(x,y,tw,th)});
-      return['Selected work','Six stories from the coast']}},
+      return['Selected work','海岸边的六个故事']}},
     {name:'关于',draw:(g,w,h)=>{const bg=g.createLinearGradient(0,0,w,h);bg.addColorStop(0,'#2a2016');bg.addColorStop(1,'#6b4a2b');g.fillStyle=bg;g.fillRect(0,0,w,h);
       const cx=w*.72,cy=h*.6,s=h*.2;g.fillStyle='#1b1410';g.fillRect(cx-s*1.3,cy-s*.8,s*2.6,s*1.7);g.fillStyle='#d9c6a5';g.fillRect(cx-s*.5,cy-s*1.05,s,s*.3);
       g.fillStyle='#0f0b08';g.beginPath();g.arc(cx,cy+s*.05,s*.62,0,6.283);g.fill();g.fillStyle='#4a7ab8';g.beginPath();g.arc(cx,cy+s*.05,s*.36,0,6.283);g.fill();
-      g.fillStyle='#bfe0ff';g.beginPath();g.arc(cx-s*.12,cy-s*.08,s*.1,0,6.283);g.fill();return['About the studio','Two people, one old camera']}}
+      g.fillStyle='#bfe0ff';g.beginPath();g.arc(cx-s*.12,cy-s*.08,s*.1,0,6.283);g.fill();return['关于工作室','Two people, one old camera']}}
   ];
   let blockMax=16,changeMs=800,stepped=false,mode='normal',current=0,dpr=1,W=0,H=0,raf=0,lastT=null,change=null,runTimers=[],runFrom=null,font='sans-serif';
   const pics={}; // each page drawn once for a size (the whole area, or a Compare half): pics[page+':'+w] is a canvas

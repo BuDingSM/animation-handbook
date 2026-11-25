@@ -1,6 +1,6 @@
 # 翻牌器
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/split-flap-board/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/split-flap-board/)
 
 ## 它是什么
 翻牌器让每个字母显示在一块中间断开的翻牌上，就像老机场和火车站的出发牌。要换一个字母，翻牌就逐个字母翻过字母表：旧字母的上半部分向前翻过铰链，下一个字母的下半部分落在它下面，一次又一次，直到翻牌显示新字母。字母在字母表中越靠后，翻牌翻得越久，所以词是一块翻牌一块翻牌地定下来的。

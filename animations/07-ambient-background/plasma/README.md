@@ -1,6 +1,6 @@
 # 等离子场
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/plasma/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/plasma/)
 
 ## 它是什么
 

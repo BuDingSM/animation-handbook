@@ -74,7 +74,7 @@ names in it.
 A contents list at the top (every file is over 100 lines), then one entry per page in the home page's order:
 
 - `## <name>`, the one-line description, the live demo address
-  (`https://matinmonshizadeh.github.io/animation-handbook/animations/<category>/<slug>/`), how it starts in plain words
+  (`https://animation.xizanghuapi.cn/animations/<category>/<slug>/`), how it starts in plain words
   (plays once · moves by itself · reacts to the visitor · follows the scroll), Good for and Avoid on;
 - **Prompt**: the page's prompt, exactly;
 - **Settings**: one line per setting, `Label: choice · **default** · choice`, the phone default named where there is

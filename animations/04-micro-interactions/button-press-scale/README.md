@@ -1,6 +1,6 @@
 # 按钮按压缩放
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/button-press-scale/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/button-press-scale/)
 
 ## 它是什么
 按钮按压缩放让按钮在按住时微微缩小，松开时弹回来。屏幕上没有真正的按钮行程，所以这个小小的缩小代替了按实体按钮的手感，并确认按压已经登记。

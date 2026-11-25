@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>水面涟漪 — 动画手册</title>
   <meta name="description" content="涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/water-ripple/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/water-ripple/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="水面涟漪 — 动画手册">
   <meta property="og:description" content="涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/water-ripple/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/water-ripple/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="水面涟漪 — 动画手册">
   <meta name="twitter:description" content="涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "水面涟漪", "name": "水面涟漪", "description": "涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/water-ripple/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 水面涟漪"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "水面涟漪", "name": "水面涟漪", "description": "涟漪从指尖扩散，弯曲下面的画面。适合主视觉图片。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/water-ripple/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 水面涟漪"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -43,8 +43,8 @@
     .in.crest{left:10px;top:10px}.in.patch{right:10px;bottom:104px;text-align:right}.in.read{left:10px;bottom:10px}
     .half-name{top:10px}.half-name.first{left:10px}.half-name.second{left:calc(50% + 10px)}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -157,7 +157,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -172,7 +172,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const cvs=document.getElementById('cvs'),stage=cvs.parentElement,over=document.getElementById('over'),octx=over.getContext('2d');
   const spot=stage.querySelector('.spot'),slowTog=document.getElementById('slow-tog'),lightTog=document.getElementById('light-tog');
@@ -210,18 +210,18 @@
   // The pond, drawn with canvas commands at a view's size: deep water, a pebble floor, a koi and lily pads with a flower
   function pond(g,w,h){
     const s=Math.min(w/320,h/200),rnd=(n=>()=>{n=(n*16807)%2147483647;return n/2147483647})(42);
-    const water=g.createLinearGradient(0,0,0,h);water.add颜色Stop(0,'#1d6f7a');water.add颜色Stop(1,'#0b3b44');g.fill样式=water;g.fillRect(0,0,w,h);
-    for(let i=0;i<140;i++){const x=rnd()*w,y=rnd()*h,r=(3+rnd()*8)*s,t=rnd();g.fill样式=`rgb(${110+t*60|0},${118+t*44|0},${104+t*30|0})`;
+    const water=g.createLinearGradient(0,0,0,h);water.addColorStop(0,'#1d6f7a');water.addColorStop(1,'#0b3b44');g.fillStyle=water;g.fillRect(0,0,w,h);
+    for(let i=0;i<140;i++){const x=rnd()*w,y=rnd()*h,r=(3+rnd()*8)*s,t=rnd();g.fillStyle=`rgb(${110+t*60|0},${118+t*44|0},${104+t*30|0})`;
       g.beginPath();g.ellipse(x,y,r,r*.7,rnd()*3,0,6.283);g.fill()}
-    g.fill样式='rgba(20,90,100,.35)';g.fillRect(0,0,w,h);
+    g.fillStyle='rgba(20,90,100,.35)';g.fillRect(0,0,w,h);
     const kx=w*.55,ky=h*.55;g.save();g.translate(kx,ky);g.rotate(-.35);g.scale(s,s);
-    g.fill样式='#f5f0e6';g.beginPath();g.ellipse(0,0,34,12,0,0,6.283);g.fill();
-    g.fill样式='#ff7a2f';g.beginPath();g.ellipse(-6,-2,16,9,0,0,6.283);g.fill();g.beginPath();g.ellipse(18,1,8,6,0,0,6.283);g.fill();
-    g.fill样式='#f5f0e6';g.beginPath();g.moveTo(-30,0);g.lineTo(-52,-12);g.lineTo(-48,0);g.lineTo(-52,12);g.closePath();g.fill();g.restore();
+    g.fillStyle='#f5f0e6';g.beginPath();g.ellipse(0,0,34,12,0,0,6.283);g.fill();
+    g.fillStyle='#ff7a2f';g.beginPath();g.ellipse(-6,-2,16,9,0,0,6.283);g.fill();g.beginPath();g.ellipse(18,1,8,6,0,0,6.283);g.fill();
+    g.fillStyle='#f5f0e6';g.beginPath();g.moveTo(-30,0);g.lineTo(-52,-12);g.lineTo(-48,0);g.lineTo(-52,12);g.closePath();g.fill();g.restore();
     for(const [px,py,pr] of [[.18,.3,22],[.8,.22,26],[.86,.72,18],[.28,.78,20]]){const x=px*w,y=py*h,r=pr*s;
-      g.fill样式='#3f8f3a';g.beginPath();g.moveTo(x,y);g.arc(x,y,r,.3,6.1);g.closePath();g.fill();g.stroke样式='#2b6b2a';g.lineWidth=1.2*s;g.stroke()}
-    g.fill样式='#ff9ec0';for(let i=0;i<6;i++){g.beginPath();g.ellipse(w*.8+Math.cos(i)*5*s,h*.22+Math.sin(i)*5*s,6*s,3*s,i,0,6.283);g.fill()}
-    g.fill样式='#ffe38a';g.beginPath();g.arc(w*.8,h*.22,3*s,0,6.283);g.fill();
+      g.fillStyle='#3f8f3a';g.beginPath();g.moveTo(x,y);g.arc(x,y,r,.3,6.1);g.closePath();g.fill();g.strokeStyle='#2b6b2a';g.lineWidth=1.2*s;g.stroke()}
+    g.fillStyle='#ff9ec0';for(let i=0;i<6;i++){g.beginPath();g.ellipse(w*.8+Math.cos(i)*5*s,h*.22+Math.sin(i)*5*s,6*s,3*s,i,0,6.283);g.fill()}
+    g.fillStyle='#ffe38a';g.beginPath();g.arc(w*.8,h*.22,3*s,0,6.283);g.fill();
   }
   // A view: a small canvas for one water, twice the grid's size each way (R), stretched over its rectangle; it keeps the pond's
   // pixels and three lighter copies of them for the light on the waves
@@ -265,7 +265,7 @@
     v.g.putImageData(v.img,0,0);
     octx.clearRect(0,0,W,H);
     const step=34,cx=W/gw,cy=H/gh,b=bend*gw/(phone.matches?128:200);
-    octx.stroke样式='#ffce5a';octx.lineWidth=1.8;octx.lineCap='round';octx.beginPath();
+    octx.strokeStyle='#ffce5a';octx.lineWidth=1.8;octx.lineCap='round';octx.beginPath();
     for(let y=step/2;y<H-90;y+=step)for(let x=step/2;x<W;x+=step){
       const i=Math.min(gh-2,Math.max(1,y/cy|0))*gw+Math.min(gw-2,Math.max(1,x/cx|0)),dx=sx[i]*b*cx,dy=sy[i]*b*cy,len=Math.hypot(dx,dy);
       octx.moveTo(x,y);
@@ -275,8 +275,8 @@
     octx.stroke();octx.lineCap='butt';
     let best=gw+1,top=0;for(let i=gw+1;i<gw*(gh-1)-1;i++){const s=Math.abs(sx[i])+Math.abs(sy[i]);if(s>top){top=s;best=i}}
     const bx=best%gw,by=best/gw|0,size=phone.matches?18:22,ox=W-10-size*3,oy=H-10-size*3;
-    for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){const g=Math.max(0,Math.min(255,128+cur[best+j*gw+i]*230))|0;octx.fill样式=`rgb(${g},${g},${g})`;octx.fillRect(ox+(i+1)*size+1,oy+(j+1)*size+1,size-2,size-2)}
-    octx.stroke样式='#ffce5a';octx.lineWidth=2;octx.strokeRect(ox+size+1,oy+size+1,size-2,size-2);
+    for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){const g=Math.max(0,Math.min(255,128+cur[best+j*gw+i]*230))|0;octx.fillStyle=`rgb(${g},${g},${g})`;octx.fillRect(ox+(i+1)*size+1,oy+(j+1)*size+1,size-2,size-2)}
+    octx.strokeStyle='#ffce5a';octx.lineWidth=2;octx.strokeRect(ox+size+1,oy+size+1,size-2,size-2);
     octx.setLineDash([4,4]);octx.beginPath();octx.moveTo(ox,oy+size*1.5);octx.lineTo(bx*cx,by*cy);octx.stroke();octx.setLineDash([]);
   }
   function draw(){
@@ -393,7 +393,7 @@
   // The notes and the canvas names follow the Light switch and reduced motion, read each time either changes (the markup holds
   // the words for light on, with motion): under reduced motion the water never moves, so they say what the still views show
   const noteIn=document.querySelector('[data-hb-for="inside"]'),noteCmp=document.querySelector('[data-hb-for="compare"]');
-  const NOTE_IN=[["The gray map is the water's height. Each step, a point becomes half its neighbors' total minus its last height, and the picture is read from a spot shifted by the slope.",noteIn.textContent],
+  const NOTE_IN=[["灰色图是水面高度。每一步，一个点变成邻居之和的一半再减去它上一次的高度，画面则从被坡度挪开的位置读取。",noteIn.textContent],
     ["静止时：灰色图就是水面的高度。每个点是邻居总和的一半减去它上一步的高度；箭头表示图片从哪里读取。",
      "静止时：灰色图就是水面的高度；蓝色的色块标记朝向光的斜坡。每个点是邻居总和的一半减去它上一步的高度；箭头表示图片从哪里读取。"]];
   const NOTE_CMP=[noteCmp.textContent,'静止时：「只画圆环」在平面的图片上画出亮环，而「弯曲图片」会在波浪下移动图片本身，看起来像水。'];

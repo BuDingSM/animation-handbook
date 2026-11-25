@@ -1,6 +1,6 @@
 # 光束
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/light-rays/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/light-rays/)
 
 ## 它是什么
 光束（也叫上帝之光或太阳光）是从视野外一个明亮点扇形展开的柔和光柱，就像阳光透过窗户或树间洒落。每束光边缘柔和，在光进来的地方最亮、越远越淡。光束微微摇摆，按自己缓慢的周期变亮变暗，所以光看起来扫过场景，尘埃微粒只在光束照到的地方闪烁。

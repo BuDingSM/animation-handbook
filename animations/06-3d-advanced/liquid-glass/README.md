@@ -1,6 +1,6 @@
 # 液态玻璃
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/liquid-glass/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/liquid-glass/)
 
 ## 它是什么
 液态玻璃让一块面板看起来像躺在页面上的一块厚厚的透明玻璃。靠近圆角边缘的地方，身后的画面会弯曲放大，就像透镜弯曲的边缘弯折光线，中间几乎保持透明，边缘上还有一条细细的高光。在 Chromium 浏览器里，弯曲是施加在面板身后东西上的位移滤镜；其他浏览器把同一块面板显示为磨砂玻璃。

@@ -1,6 +1,6 @@
 # 颗粒噪点叠加
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grain-overlay/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/grain-overlay/)
 
 ## 它是什么
 胶片颗粒在设计上铺一层半透明的随机圆点，一遍遍重画，让质感像摄影胶片的颗粒一样闪烁。强度低时，大约 5% 到 10%，几乎看不见，但扁平的数码色彩感觉更暖、更深；强得多时，看起来像坏掉的屏幕。诀窍是微妙：人们不应该注意到颗粒，只在它消失时想念它。

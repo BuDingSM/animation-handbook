@@ -1,6 +1,6 @@
 # 汉堡菜单切换
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hamburger-menu-toggle/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/hamburger-menu-toggle/)
 
 ## 它是什么
 三条线的“汉堡”图标，激活时变成叉号。同样的三条线表示两种状态：上下两条线向中心旋转，形成叉号，中间那条淡出。它表示隐藏的菜单已经打开，而不用换成另一个图标。

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>光线步进 / SDF 场景 — 动画手册</title>
   <meta name="description" content="只用公式画出的 3D 场景，镜头绕着它转。适合艺术页面。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ray-marching-sdf/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/ray-marching-sdf/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="光线步进 / SDF 场景 — 动画手册">
   <meta property="og:description" content="只用公式画出的 3D 场景，镜头绕着它转。适合艺术页面。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ray-marching-sdf/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/ray-marching-sdf/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="光线步进 / SDF 场景 — 动画手册">
   <meta name="twitter:description" content="只用公式画出的 3D 场景，镜头绕着它转。适合艺术页面。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "光线步进 / SDF 场景", "name": "光线步进 / SDF 场景", "description": "只用公式画出的 3D 场景，镜头绕着它转。适合艺术页面。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ray-marching-sdf/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 光线步进 / SDF 场景"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "光线步进 / SDF 场景", "name": "光线步进 / SDF 场景", "description": "只用公式画出的 3D 场景，镜头绕着它转。适合艺术页面。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/ray-marching-sdf/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 光线步进 / SDF 场景"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -50,8 +50,8 @@
     @media (max-width:600px) and (min-height:501px){.ibox{width:auto;right:10px;max-height:calc(50% - 22px)}.pane{flex-basis:84px}}
     @media (max-width:600px),(max-height:500px){.cap{font-size:12px;line-height:16px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -173,7 +173,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -188,12 +188,12 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const VS=`attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}`;
 const FS=`
 precision mediump float;
-uniform vec2 uRes,uOrigin;uniform float uT,uCamAng;uniform int u场景,uMaxSteps;uniform bool uAO,uShadow,uDebug;
+uniform vec2 uRes,uOrigin;uniform float uT,uCamAng;uniform int uScene,uMaxSteps;uniform bool uAO,uShadow,uDebug;
 
 float sdSph(vec3 p,float r){return length(p)-r;}
 float sdBox(vec3 p,vec3 b){vec3 q=abs(p)-b;return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.);}
@@ -204,7 +204,7 @@ mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
 
 vec2 map(vec3 p){
   float d,id;
-  if(u场景==0){
+  if(uScene==0){
     float t1=uT*.3;
     vec3 q=p;q.y+=sin(uT*.4)*.1;
     d=sdSph(q,0.62);
@@ -213,7 +213,7 @@ vec2 map(vec3 p){
     vec3 q3=p-vec3(1.4,-.15,0.);q3.xy*=rot(uT*.4);
     d=smin(d,sdTor(q3,vec2(.52,.19)),0.32);
     id=d<sdPl(p)?1.:0.;d=min(d,sdPl(p));
-  }else if(u场景==1){
+  }else if(uScene==1){
     float a=sdSph(p,.82),b=sdBox(p,vec3(.56)),c=sdSph(p-.12,.38);
     float s1=max(a,-b);id=1.;
     float s2=min(s1,c);if(s2==c)id=2.;
@@ -253,7 +253,7 @@ void main(){
     if(t>22.)break;
   }
 
-  if(uDebug){float f=float(steps)/float(uMaxSteps);gl_Frag颜色=vec4(f,f*.3,(1.-f)*.8,1.);return;}
+  if(uDebug){float f=float(steps)/float(uMaxSteps);gl_FragColor=vec4(f,f*.3,(1.-f)*.8,1.);return;}
 
   vec3 col=sky;
   if(res.x>0.){
@@ -269,7 +269,7 @@ void main(){
     float fog=1.-exp(-res.x*.04);
     col=mix(col,sky,fog);
   }
-  gl_Frag颜色=vec4(sqrt(clamp(col,0.,1.)),1.);
+  gl_FragColor=vec4(sqrt(clamp(col,0.,1.)),1.);
 }`;
 
 const stage=document.getElementById('stage'),cvs=document.getElementById('cvs');
@@ -281,7 +281,7 @@ let mode='normal';
 const NAMES={normal:cvs.getAttribute('aria-label'),
   inside:'3D 场景，旁边画着一条光线：它朝着形状一步步跳，每步都和到最近表面的距离一样大',
   compare:'场景画两次：光线步数太少，地板和边缘不见了；光线步数够了'};
-const UNIFORMS=['uRes','uOrigin','uT','uCamAng','u场景','uMaxSteps','uAO','uShadow','uDebug'];
+const UNIFORMS=['uRes','uOrigin','uT','uCamAng','uScene','uMaxSteps','uAO','uShadow','uDebug'];
 // The most steps a ray may take at Low, Medium and High: on computers, then on phones
 const STEPS=[[24,48,96],[16,32,64]];
 // Phones are screens up to 600px wide, or up to 500px tall when held sideways
@@ -306,12 +306,12 @@ function init(){
   gl=cvs.getContext('webgl');
   if(!gl){fail('这个浏览器不支持 WebGL。','整个场景就是一个片段着色器——没有 GL 上下文，就没有几何图形可画。试试打开了硬件加速的浏览器。');return false;}
   let log='';
-  function sh(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))log+=(gl.getShaderInfoLog(x)||'shader compile failed')+'\n';return x;}
+  function sh(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))log+=(gl.getShaderInfoLog(x)||'着色器编译失败')+'\n';return x;}
   prog=gl.createProgram();
   gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
   gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
   gl.linkProgram(prog);
-  if(!gl.getProgramParameter(prog,gl.LINK_STATUS))log+=(gl.getProgramInfoLog(prog)||'program link failed')+'\n';
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS))log+=(gl.getProgramInfoLog(prog)||'程序链接失败')+'\n';
   // A failed compile normally leaves a silent black canvas — say so instead.
   if(log){console.error(log);fail('着色器在这个 GPU 上构建失败。',log.trim());return false;}
   const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
@@ -349,14 +349,14 @@ function draw(t){
   gl.useProgram(prog);
   gl.uniform1f(U.uT,t);
   gl.uniform1f(U.uCamAng,camA);
-  gl.uniform1i(U.u场景,SCENE);
+  gl.uniform1i(U.uScene,SCENE);
   gl.uniform1i(U.uAO,AO?1:0);
   gl.uniform1i(U.uShadow,SHADOW?1:0);
   gl.uniform1i(U.uDebug,DEBUG?1:0);
   // Compare: one context, two pictures with a thin line between them; the first lets each ray take a quarter of the steps
   if(mode==='compare'){
     const w=(W>>1)-Math.max(1,Math.round(W/400));
-    gl.viewport(0,0,W,H);gl.clear颜色(.17,.17,.2,1);gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.viewport(0,0,W,H);gl.clearColor(.17,.17,.2,1);gl.clear(gl.COLOR_BUFFER_BIT);
     view(0,w,Math.max(1,MAX_STEPS>>2));view(W-w,w,MAX_STEPS);
     gl.viewport(0,0,W,H);
   }else{
@@ -446,16 +446,16 @@ function drawSide(t){
   }
   gctx.putImageData(gimg,0,0);sctx.clearRect(0,0,w,h);sctx.drawImage(grid,0,0,w,h);
   // The ray, with a circle at each step as big as the gap to the nearest surface
-  sctx.lineWidth=1.5*q;sctx.stroke样式='rgba(63,214,196,.95)';sctx.fill样式='rgba(63,214,196,.1)';
+  sctx.lineWidth=1.5*q;sctx.strokeStyle='rgba(63,214,196,.95)';sctx.fillStyle='rgba(63,214,196,.1)';
   for(let i=0;i<n;i++){sctx.beginPath();sctx.arc(rx(i),ry(i),Math.max(RH[i],0)*vk,0,6.2832);sctx.fill();sctx.stroke();}
   const ex=SX(ray.te*ray.dh),ey=SY(ray.oy+ray.te*ray.dy),lost=ray.end==='out';
-  sctx.lineWidth=2*q;sctx.stroke样式=sctx.fill样式='#ffd166';
+  sctx.lineWidth=2*q;sctx.strokeStyle=sctx.fillStyle='#ffd166';
   sctx.beginPath();sctx.moveTo(SX(0),SY(ray.oy));
   for(let i=0;i<n;i++)sctx.lineTo(rx(i),ry(i));
   sctx.lineTo(ex,ey);sctx.stroke();
   for(let i=1;i<n;i++)dot(rx(i),ry(i),2.5*q);
-  sctx.fill样式='#fff';dot(SX(0),SY(ray.oy),4.5*q);
-  sctx.stroke样式='#ff6b5e';sctx.beginPath();
+  sctx.fillStyle='#fff';dot(SX(0),SY(ray.oy),4.5*q);
+  sctx.strokeStyle='#ff6b5e';sctx.beginPath();
   if(ray.end==='hit')sctx.arc(ex,ey,6*q,0,6.2832);
   else if(lost){const r=5*q;sctx.moveTo(ex-r,ey-r);sctx.lineTo(ex+r,ey+r);sctx.moveTo(ex+r,ey-r);sctx.lineTo(ex-r,ey+r);}
   sctx.stroke();

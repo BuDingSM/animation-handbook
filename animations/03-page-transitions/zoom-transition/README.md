@@ -1,6 +1,6 @@
 # 缩放过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/zoom-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/zoom-transition/)
 
 ## 它是什么
 缩放过渡在淡入淡出的同时缩放页面，所以切换看起来像是在纵深中移动，而不是横着滑过屏幕。方向本身带有含义：放大感觉像抵达或深入，缩小像后退，而穿过——新页面从更大处冲进来再落定——感觉像在向前行进。

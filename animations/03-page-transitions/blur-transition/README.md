@@ -1,6 +1,6 @@
 # 模糊过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/blur-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/blur-transition/)
 
 ## 它是什么
 模糊过渡让旧页面失焦直到消失，再把新页面从模糊带到清晰。看起来像相机从一个主体拉焦到另一个主体，所以切换读起来像是注意力的转移，而不是一次硬切。

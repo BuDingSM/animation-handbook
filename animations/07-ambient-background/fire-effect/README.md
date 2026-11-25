@@ -1,6 +1,6 @@
 # 火焰效果
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/fire-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/fire-effect/)
 
 ## 它是什么
 火焰效果用闪烁、升腾、熄灭的火焰填满黑暗区域的底部，火花向上飘。它由一个小的热量值网格做成：底行永远是最热的，热量带着一点左右摇摆一次爬一行，上升途中冷却，所以炽热的底部变成了火舌。这是早期电脑游戏的经典火焰，画得很柔和。

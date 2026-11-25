@@ -1,6 +1,6 @@
 # 可变字体变形
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/variable-font-morph/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/variable-font-morph/)
 
 ## 它是什么
 可变字体把一整套字重（从细到特粗）装进一个文件里，每种样式只是一个数字。正因为这样，浏览器可以平滑地从一种样式移到另一种样式，所以一个词可以在你眼前变粗或变细。在演示里，这个词在网站字体的常规字重和特粗字重之间移动，还会通过倾斜来模拟斜体，因为这个字体本身没有斜体样式。

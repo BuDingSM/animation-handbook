@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>共享元素过渡 — 动画手册</title>
   <meta name="description" content="图片从列表放大，进入下一页的页眉。最适合图库。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/03-page-transitions/shared-element-transition/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="共享元素过渡 — 动画手册">
   <meta property="og:description" content="图片从列表放大，进入下一页的页眉。最适合图库。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/03-page-transitions/shared-element-transition/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="共享元素过渡 — 动画手册">
   <meta name="twitter:description" content="图片从列表放大，进入下一页的页眉。最适合图库。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "共享元素过渡", "name": "共享元素过渡", "description": "图片从列表放大，进入下一页的页眉。最适合图库。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 共享元素过渡"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "共享元素过渡", "name": "共享元素过渡", "description": "图片从列表放大，进入下一页的页眉。最适合图库。", "url": "https://animation.xizanghuapi.cn/animations/03-page-transitions/shared-element-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 共享元素过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -86,8 +86,8 @@
       .stage[data-hb-mode="compare"] .cx{display:none}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -125,7 +125,7 @@
             <div id="detail-body" class="cb">
               <div id="detail-title" class="ct">Project Name</div>
               <div id="detail-sub" class="cs">Category</div>
-              <div id="detail-desc" class="cx">Project description goes here.</div>
+              <div id="detail-desc" class="cx">项目说明写在这里。</div>
             </div>
           </div>
           <div id="flip-el"></div>
@@ -200,7 +200,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -215,12 +215,12 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PROJECTS=[
-    {name:'Atlas',sub:'Brand Identity',desc:'A complete brand system for a mapping-technology startup — wordmark, motion language, and product icon suite.',bg:'linear-gradient(135deg,#0d2b5e,#1a4a8c)',ac:'#a5d6ff'},
+    {name:'Atlas',sub:'Brand Identity',desc:'一套完整的品牌系统，给一家地图技术新创公司：字标、动效语言和产品图标。',bg:'linear-gradient(135deg,#0d2b5e,#1a4a8c)',ac:'#a5d6ff'},
     {name:'Orbit',sub:'Digital Platform',desc:'A collaboration platform for distributed design teams. Real-time editing, async review flows, approval trails.',bg:'linear-gradient(135deg,#2d1b3d,#4a2a6c)',ac:'#d2a8ff'},
-    {name:'Prism',sub:'Mobile Application',desc:'A personal finance app that makes spending visible through a live data-art dashboard.',bg:'linear-gradient(135deg,#1e3a1e,#2d5c2d)',ac:'#7ee787'},
+    {name:'Prism',sub:'Mobile Application',desc:'一款个人理财应用，用实时的数据图形把花费显示出来。',bg:'linear-gradient(135deg,#1e3a1e,#2d5c2d)',ac:'#7ee787'},
     {name:'Lumen',sub:'E-commerce',desc:'Redesign of a lighting brand\'s online store — focused on large-format product photography and editorial layout.',bg:'linear-gradient(135deg,#3d2000,#6c3a00)',ac:'#ffa657'},
   ];
   const grid=document.getElementById('page-grid'),detail=document.getElementById('page-detail');

@@ -1,6 +1,6 @@
 # 鸟群
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flocking/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/flocking/)
 
 ## 它是什么
 鸟群让一群简单的圆点像一群鸟或一群鱼一样整体移动，没有领头，也没有计划。每只鸟只看得见附近的鸟，遵循三条规则：与最近的鸟保持一点距离、按邻居的方向飞、向群体的中间靠拢。这三条局部规则就足以让整个鸟群盘旋、分开再汇合；Craig Reynolds 在 1986 年描述它们时，把这些鸟叫做“boids”。

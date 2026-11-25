@@ -1,6 +1,6 @@
 # 2.5D / 伪 3D
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/2-5d-pseudo-3d/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/2-5d-pseudo-3d/)
 
 ## 它是什么
 2.5D 用平面图层假装出景深。画面按远近分成图层，镜头移动时，近处的图层比远处滑得更多，就像从火车车窗看出去一样。老卡通和电子游戏就是用同样的手法做出纵深感的。

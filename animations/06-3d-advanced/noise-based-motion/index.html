@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>噪声驱动运动 — 动画手册</title>
   <meta name="description" content="平滑噪声让圆点摇摆、色块起伏。适合安静的背景。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/noise-based-motion/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/noise-based-motion/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="噪声驱动运动 — 动画手册">
   <meta property="og:description" content="平滑噪声让圆点摇摆、色块起伏。适合安静的背景。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/noise-based-motion/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/noise-based-motion/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="噪声驱动运动 — 动画手册">
   <meta name="twitter:description" content="平滑噪声让圆点摇摆、色块起伏。适合安静的背景。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "噪声驱动运动", "name": "噪声驱动运动", "description": "平滑噪声让圆点摇摆、色块起伏。适合安静的背景。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/noise-based-motion/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 噪声驱动运动"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "噪声驱动运动", "name": "噪声驱动运动", "description": "平滑噪声让圆点摇摆、色块起伏。适合安静的背景。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/noise-based-motion/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 噪声驱动运动"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -35,8 +35,8 @@
     .side.second{left:calc(50% + 10px)}
     @media(max-width:360px){.lbl{font-size:12px;padding:3px 7px}.side.second{left:calc(50% + 6px)}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -170,7 +170,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -185,7 +185,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 // === Simplex Noise (simplified, public domain) ===
 (function(){
@@ -258,15 +258,15 @@ function drawGrid(ox=0,oy=0,w=W,h=H,rand=false){
       const op=.4+Math.abs(n)*.5;
       if(trail)for(let k=TRAIL;k>0;k--){
         const m=rand?rnd(i,j,roll-k):simplex2(x*SCALE,y*SCALE+t-k*gap);
-        ctx.fill样式=`rgba(${r},${g},${b},${(.72-k*.12).toFixed(2)})`;
+        ctx.fillStyle=`rgba(${r},${g},${b},${(.72-k*.12).toFixed(2)})`;
         ctx.beginPath();ctx.arc(ox+x+Math.cos(m*Math.PI*2)*AMP,oy+y+Math.sin(m*Math.PI*2)*AMP,1.7,0,Math.PI*2);ctx.fill();
       }
-      ctx.fill样式=`rgba(${r},${g},${b},${op.toFixed(2)})`;
+      ctx.fillStyle=`rgba(${r},${g},${b},${op.toFixed(2)})`;
       ctx.beginPath();ctx.arc(ox+x+dx,oy+y+dy,view?2.2:1.5,0,Math.PI*2);ctx.fill();
-      ctx.stroke样式=`rgba(${r},${g},${b},${(op*(view?.85:.4)).toFixed(2)})`;
+      ctx.strokeStyle=`rgba(${r},${g},${b},${(op*(view?.85:.4)).toFixed(2)})`;
       ctx.lineWidth=view?1.25:.5;ctx.beginPath();ctx.moveTo(ox+x,oy+y);ctx.lineTo(ox+x+dx,oy+y+dy);ctx.stroke();
       if(VIEW==='inside'){
-        ctx.stroke样式='rgba(244,244,242,.35)';ctx.lineWidth=1;
+        ctx.strokeStyle='rgba(244,244,242,.35)';ctx.lineWidth=1;
         ctx.beginPath();ctx.arc(ox+x,oy+y,3.5,0,Math.PI*2);ctx.stroke();
       }
     }
@@ -289,8 +289,8 @@ function drawBlob(ox=0,oy=0,w=W,h=H,rand=false){
     i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
   }
   ctx.closePath();
-  ctx.fill样式=`rgba(${r},${g},${b},.08)`;ctx.fill();
-  ctx.stroke样式=`rgba(${r},${g},${b},.8)`;ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=`rgba(${r},${g},${b},.08)`;ctx.fill();
+  ctx.strokeStyle=`rgba(${r},${g},${b},.8)`;ctx.lineWidth=2;ctx.stroke();
   // Inner highlights
   ctx.beginPath();
   for(let i=0;i<=VERTS;i++){
@@ -301,7 +301,7 @@ function drawBlob(ox=0,oy=0,w=W,h=H,rand=false){
     i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
   }
   ctx.closePath();
-  ctx.stroke样式=`rgba(${r},${g},${b},.3)`;ctx.lineWidth=1;ctx.stroke();
+  ctx.strokeStyle=`rgba(${r},${g},${b},.3)`;ctx.lineWidth=1;ctx.stroke();
 }
 
 // See inside: the noise as a gray map, one value per cell, worked out with the dots' own formula and clock and drawn smooth
@@ -321,9 +321,9 @@ function drawMap(){
 // See inside, Blob: the plain circle, and sixteen arrows from it to the edge, drawn at the angles the edge is read at
 function drawPush(){
   const cx=W/2,cy=H/2,R=Math.min(W,H)*.28;
-  ctx.setLineDash([5,5]);ctx.stroke样式='rgba(244,244,242,.75)';ctx.lineWidth=1.5;
+  ctx.setLineDash([5,5]);ctx.strokeStyle='rgba(244,244,242,.75)';ctx.lineWidth=1.5;
   ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
-  ctx.stroke样式='#f4f4f2';ctx.fill样式='#f4f4f2';ctx.lineWidth=2;ctx.lineCap='round';
+  ctx.strokeStyle='#f4f4f2';ctx.fillStyle='#f4f4f2';ctx.lineWidth=2;ctx.lineCap='round';
   for(let k=0;k<16;k++){
     const a=k/16*Math.PI*2,c=Math.cos(a),s=Math.sin(a),d=edgeN(a)*2,len=Math.abs(d);
     const x0=cx+c*R,y0=cy+s*R,x1=cx+c*(R+d),y1=cy+s*(R+d);
@@ -343,7 +343,7 @@ function drawSplit(){
     if(MODE==='grid')drawGrid(side*hw,TOP,hw,H-TOP,!side);else drawBlob(side*hw,TOP,hw,H-TOP,!side);
     ctx.restore();
   }
-  ctx.fill样式='rgba(244,244,242,.3)';ctx.fillRect(hw-1,0,2,H);
+  ctx.fillStyle='rgba(244,244,242,.3)';ctx.fillRect(hw-1,0,2,H);
 }
 function frame(){
   ctx.clearRect(0,0,W,H);

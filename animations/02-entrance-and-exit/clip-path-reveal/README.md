@@ -1,6 +1,6 @@
 # 剪裁路径揭示
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/clip-path-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/clip-path-reveal/)
 
 ## 它是什么
 

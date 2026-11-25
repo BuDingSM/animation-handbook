@@ -1,6 +1,6 @@
 # 裁剪揭示文字
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-clip-path-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-clip-path-reveal/)
 
 ## 它是什么
 裁剪揭示文字让标题一行一行地被揭开，就像一个隐藏的窗口划过每一行。每个字母从一开始就待在它最终的位置上；只有每行可见的部分在变大。因为文字本身从来不动，它的间距保持得和设计时一模一样，这在逐个给字母做动画时是很难保持的。

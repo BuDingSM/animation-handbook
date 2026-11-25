@@ -1,6 +1,6 @@
 # 滚动驱动背景色
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-background-color/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-background-color/)
 
 ## 它是什么
 

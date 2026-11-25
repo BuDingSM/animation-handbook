@@ -1,6 +1,6 @@
 # 跟随动作
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/follow-through/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/follow-through/)
 
 ## 它是什么
 

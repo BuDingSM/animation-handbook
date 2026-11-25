@@ -1,6 +1,6 @@
 # 圆形揭示
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/circle-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/circle-reveal/)
 
 ## 它是什么
 圆形揭示通过一个圆圈展示下一页，圆圈从一个点开始，不断变大，直到新页面填满整个视图。圆点位于访客点击或轻触的地方，所以新页面看起来像是从他们的手指下扩散开来。返回时可以反向运行：旧页面缩回那个点，露出更早的页面。

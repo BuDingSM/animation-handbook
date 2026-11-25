@@ -1,6 +1,6 @@
 # 动态排版
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/kinetic-typography/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/kinetic-typography/)
 
 ## 它是什么
 动态排版是会动的文字，每个词的动作都贴合它的意思。一个短序列一次展示一句短语，每句都有自己的进场和退场方式：重的词可以大大地落进来，轻的词可以轻轻淡入。它源自电影片头和动态图形，在那里，会动的文字自己就能讲故事。

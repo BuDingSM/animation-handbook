@@ -1,6 +1,6 @@
 # 生命游戏
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/game-of-life/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/game-of-life/)
 
 ## 它是什么
 康威生命游戏是一张方形细胞网格，每个细胞或生或死，按关于每个细胞八个邻居的三条规则一代一代变化：恰好有三个活邻居的死细胞诞生，有两个或三个邻居的活细胞活下去，其他细胞都死亡。没有人操纵它，但从这些规则中产生了静止的图形、闪烁的图形、在网格上爬行的滑翔机和永远发射滑翔机的枪。数学家约翰·康威在 1970 年设计了它。

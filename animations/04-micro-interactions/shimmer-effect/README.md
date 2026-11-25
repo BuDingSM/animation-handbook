@@ -1,6 +1,6 @@
 # 微光扫过效果
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/shimmer-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/shimmer-effect/)
 
 ## 它是什么
 微光是一条光带，在内容加载时一次又一次扫过灰色占位形状。脉冲让每个色块一起上下淡出，微光朝一个方向移动，所以占位符看起来像内容在流进来。

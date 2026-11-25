@@ -1,6 +1,6 @@
 # 滚动驱动 3D 旋转
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/scroll-driven-3d-rotation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/scroll-driven-3d-rotation/)
 
 ## 它是什么
 滚动驱动 3D 旋转把物体的转动绑在滚动位置上。用户滚动经过一个高高的区域时，物体固定在视野里，每滚动一段就进入下一个姿态：转过去、倾斜、变大，然后露出背面。往回滚动会反向播放，就像许多产品页展示新设备那样。

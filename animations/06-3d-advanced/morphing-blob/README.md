@@ -1,6 +1,6 @@
 # 变形色块
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/morphing-blob/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/morphing-blob/)
 
 ## 它是什么
 变形色块是由普通圆圈做成的柔软液体形状。圆圈先模糊，再把边缘重新锐化，所以两个圆圈一靠近就会融成一个形状，像水银滴。随着它们漂移，色块拉伸、分裂、汇合，其中一滴跟随指针。

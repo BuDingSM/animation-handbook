@@ -1,6 +1,6 @@
 # 轮换词轮播
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/rotate-word-carousel/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/rotate-word-carousel/)
 
 ## 它是什么
 轮换词让句子保持静止，只有一个词不停地换：“We craft for Designers”变成“We craft for Developers”，再变成“We craft for Humans”。当前的词滑出视野，下一个从另一边滑进来，所以每次变化都容易注意到，而句子的其余部分仍然可读。这是工作室和软件产品首页上常见的主视觉标题。

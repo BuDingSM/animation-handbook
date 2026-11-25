@@ -1,6 +1,6 @@
 # 立方体过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/cube-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/cube-transition/)
 
 ## 它是什么
 立方体过渡把两个页面当作立方体相邻的两个面。页面切换时，立方体转四分之一圈：旧页面绕立方体的中线转走，新页面从侧面转进来，取代它的位置。返回时立方体朝反方向转，所以访客总能知道自己往哪个方向走了。

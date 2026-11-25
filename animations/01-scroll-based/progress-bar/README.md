@@ -1,6 +1,6 @@
 # 阅读进度条
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/progress-bar/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/progress-bar/)
 
 ## 它是什么
 

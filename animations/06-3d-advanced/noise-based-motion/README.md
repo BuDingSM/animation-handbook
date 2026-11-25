@@ -1,6 +1,6 @@
 # 噪声驱动运动
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/noise-based-motion/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/noise-based-motion/)
 
 ## 它是什么
 噪声驱动运动用平滑噪声（一个随位置逐渐变化的随机值）让东西自然地动。普通的随机数会乱跳；噪声是漂移的，所以相邻的圆点动得相似，什么都不会猛地一抖。演示把它做成一片像风中草一样摇摆的圆点，和一个边缘起伏的色块。

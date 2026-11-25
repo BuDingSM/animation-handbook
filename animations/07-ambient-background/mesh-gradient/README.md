@@ -1,6 +1,6 @@
 # 网格渐变
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/mesh-gradient/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/mesh-gradient/)
 
 ## 它是什么
 网格渐变是几个大彩色圆圈的背景，模糊后边缘变软、颜色相互交融；重度模糊时它们融成柔和的色晕。每个圆圈沿自己的路径慢慢漂移、变大或缩小，所以颜色不断以新的方式交融，像永远没干透的颜料。这是 Stripe、Linear 和许多现代软件网站的样子。

@@ -1,6 +1,6 @@
 # 主题切换变形
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/theme-toggle-morph/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/theme-toggle-morph/)
 
 ## 它是什么
 主题切换变形是一个图标，在网站从浅色切换到深色时，从太阳变成月牙。太阳的光线缩进中心，同时一个隐藏的圆圈滑过太阳，把它切成月牙，所以两种状态明显是同一个形状在变化。演示里，一张小的预览卡片同时翻到它的深色面。

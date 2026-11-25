@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>入场退场排版 — 动画手册</title>
   <meta name="description" content="每句短语进来、停留足够读完、再离开。最适合标语。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="入场退场排版 — 动画手册">
   <meta property="og:description" content="每句短语进来、停留足够读完、再离开。最适合标语。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="入场退场排版 — 动画手册">
   <meta name="twitter:description" content="每句短语进来、停留足够读完、再离开。最适合标语。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "入场退场排版", "name": "入场退场排版", "description": "每句短语进来、停留足够读完、再离开。最适合标语。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/", "inLanguage": "zh-CN", "articleSection": "文字与排版", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画、CSS 动画、文字与排版、入场退场排版"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "入场退场排版", "name": "入场退场排版", "description": "每句短语进来、停留足够读完、再离开。最适合标语。", "url": "https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/", "inLanguage": "zh-CN", "articleSection": "文字与排版", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画、CSS 动画、文字与排版、入场退场排版"}</script>
   <style>
     :root{--ui-accent:#ff6f8b;--enter-dur:500ms;--exit-dur:400ms;--enter-ease:ease-out;--exit-ease:ease-in}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -90,8 +90,8 @@
     .when{bottom:8px}
     .ghost{position:absolute;border:1.5px dashed rgba(244,244,242,.5);border-radius:6px;pointer-events:none}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -206,7 +206,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -221,7 +221,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const phraseEl=document.getElementById('phrase-el');
   const phraseText=document.getElementById('phrase-text');
@@ -249,10 +249,10 @@
 
   const PHRASES=[
     {text:'Everything starts',enter:'enter-slide-right',exit:'exit-slide-up'},
-    {text:'with a blank page.',enter:'enter-slide-up',exit:'exit-blur'},
-    {text:'Then words arrive.',enter:'enter-blur',exit:'exit-slide-left'},
-    {text:'Then motion.',enter:'enter-scale',exit:'exit-scale'},
-    {text:'Then meaning.',enter:'enter-clip',exit:'exit-clip'},
+    {text:'配上一页空白。',enter:'enter-slide-up',exit:'exit-blur'},
+    {text:'然后词语到来。',enter:'enter-blur',exit:'exit-slide-left'},
+    {text:'然后是运动。',enter:'enter-scale',exit:'exit-scale'},
+    {text:'然后是意义。',enter:'enter-clip',exit:'exit-clip'},
   ];
   const allPhaseClasses=[...PHRASES.map(p=>p.enter),...PHRASES.map(p=>p.exit),'state-hidden'];
 

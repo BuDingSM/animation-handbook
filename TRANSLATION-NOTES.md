@@ -220,7 +220,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 - Full catalog 标题格式：`### 01 · 滚动驱动 · 27 个动画`（`### NN · 中文分类名 · N 个动画`）。
 - 分类下简介行：`<sub>分类中文简介</sub>`，与 CATS 里的 cat.desc 完全一致。
 - 展开摘要：`<details><summary>浏览「滚动驱动」的全部 27 个动画</summary>`（格式：`浏览「中文分类名」的全部 N 个动画`）。
-- 条目格式不变：`- **[中文名](https://matinmonshizadeh.github.io/animation-handbook/animations/…/)** — 中文简介`，简介与 CATS 的 desc 完全一致。
+- 条目格式不变：`- **[中文名](https://animation.xizanghuapi.cn/animations/…/)** — 中文简介`，简介与 CATS 的 desc 完全一致。
 - `All 176 techniques, each linked to its live demo.` → `全部 176 个动画，每个都有在线演示链接。`
 - Categories 表：分类名用中文，链接不变，计数不变。
 
@@ -288,7 +288,7 @@ README 标题 `# <英文名>` → `# <中文名>`；`[Live demo](…)` → `[在
 | shatter-effect | 碎裂效果 | 碎成碎片飞散并淡出。适合画廊和醒目的退场。 |
 | ink-spread-reveal | 墨水扩散揭示 | 墨滴扩散、汇合，直至画面显现。适合艺术和开场。 |
 
-02 备注：演示内容本身是演示对象时保留英文——letter-by-letter 的输入 `Hello, world.`、split-text 的输入 `Design beyond the obvious`、slide-up-reveal 的标题 "Beautiful / interfaces / crafted with care."、word-by-word 的例句（按空格分词，中文会破坏演示）、shatter 的照片标题、clip-path 的表面标签与标题 "Unmasked"、curtain 的徽章/标题 "Unveiled" 及其副标题。行为适配：word-by-word 的时长助手按中文语序重写（`NUM` → 一/两/三…，`n<1` → 半秒）；curtain-reveal 的无暂停正则 `.replace(/,? (?:and)?holds?,/,',')` 改为中文 `.replace(/，?停顿一下/,'')`，四条模式说明都写成含“，停顿一下”以便移除后仍通顺；flip-in 的 JS 变量 `edge` 保持英文（top/bottom/left），模板字符串映射为“卡片的上/下/左 边”；各页时长词助手按中文语序重组（"about a third of a second" → 约三分之一秒；"a second and a half" → 一秒半）。跨分类 "See also" 保留英文名，待协调人统一改：curtain-reveal → Overlay Wipe（03）；shatter-effect → Dissolve Transition（03）、2D Physics（06）；ink-spread-reveal → Circle Reveal（03）。分类 README 的 `## Entries` 标题译为 `## 全部动画`（协调人统一：01/03 仍是 `## Entries`，汇总时统一改为 `## 全部动画`）。
+02 备注：演示内容本身是演示对象时保留英文——letter-by-letter 的输入 `Hello, world.`、split-text 的输入 `看见显而易见之外`、slide-up-reveal 的标题 "Beautiful / interfaces / 用心做好。"、word-by-word 的例句（按空格分词，中文会破坏演示）、shatter 的照片标题、clip-path 的表面标签与标题 "Unmasked"、curtain 的徽章/标题 "Unveiled" 及其副标题。行为适配：word-by-word 的时长助手按中文语序重写（`NUM` → 一/两/三…，`n<1` → 半秒）；curtain-reveal 的无暂停正则 `.replace(/,? (?:and)?holds?,/,',')` 改为中文 `.replace(/，?停顿一下/,'')`，四条模式说明都写成含“，停顿一下”以便移除后仍通顺；flip-in 的 JS 变量 `edge` 保持英文（top/bottom/left），模板字符串映射为“卡片的上/下/左 边”；各页时长词助手按中文语序重组（"about a third of a second" → 约三分之一秒；"a second and a half" → 一秒半）。跨分类 "See also" 保留英文名，待协调人统一改：curtain-reveal → Overlay Wipe（03）；shatter-effect → Dissolve Transition（03）、2D Physics（06）；ink-spread-reveal → Circle Reveal（03）。分类 README 的 `## Entries` 标题译为 `## 全部动画`（协调人统一：01/03 仍是 `## Entries`，汇总时统一改为 `## 全部动画`）。
 
 ### 04 微交互（44）—— 已翻译（2026-11-23；负责人已报告，协调人校验 0 问题，术语表与报告完全一致）
 

@@ -1,6 +1,6 @@
 # 故障文字
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/glitch-text/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/glitch-text/)
 
 ## 它是什么
 故障文字让标题看起来像坏掉的视频信号。一个红色副本和一个青色副本的词紧贴在它两边，只有每个副本薄薄的横向条带会显示出来，而且一直在变，所以颜色条带看起来像从字母上撕下来一样。读起来像数字故障：信号失去同步，或者磁带掉了信号。

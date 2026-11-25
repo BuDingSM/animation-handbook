@@ -1,6 +1,6 @@
 # 拆字揭示
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/split-text-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/split-text-reveal/)
 
 ## 它是什么
 
@@ -55,7 +55,7 @@ text.split(/\s+/).filter(Boolean).forEach((word, wi, all) => {
 | 块间延迟 | 中等 | 块与块之间的等待：「短」是 10ms，「中等」30ms，「长」100ms；小的值起涟漪，大的值感觉很从容 |
 | 速度 | 普通 | 每块要多长时间：「慢」是 800ms，「普通」500ms，「快」300ms |
 | 感觉 | 平滑 | 每块用的曲线；「弹回」加一点点落定，「均匀」保持一个稳定的速度 |
-| 你的文字 | Design beyond the obvious | 被拆开、被揭示的文字 |
+| 你的文字 | 看见显而易见之外 | 被拆开、被揭示的文字 |
 
 ## 生产注意事项
 - **总时间 = 单元数 × 交错 + 时长。**长字符串的字符模式乘得很快——40 个字符 × 30ms + 500ms 将近 1.7 秒。限制交错，或者给较长的文案换成词语/行，别让尾巴拖太久。

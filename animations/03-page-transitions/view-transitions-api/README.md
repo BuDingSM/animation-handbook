@@ -1,6 +1,6 @@
 # View Transitions API
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/view-transitions-api/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/view-transitions-api/)
 
 ## 它是什么
 View Transitions API 是浏览器自带的功能，帮你给页面切换做动画。你告诉浏览器页面要变了；它在变化前后各给页面拍一张照，然后在两张照片之间做动画。照片怎么动由 CSS 决定，所以同一次点击可以淡入淡出、滑动、缩放或倾斜。

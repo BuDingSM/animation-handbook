@@ -1,6 +1,6 @@
 # ASCII / 半调
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/)
 
 ## 它是什么
 ASCII 或半调效果用网格上的小标记重画一张图片。图片缩小到每个格子一个像素，每个格子的亮度挑一个字符（越亮的格子，墨越多的字符），或决定一个圆点的大小，就像报纸上的照片。因为图片每帧都会重新读取，所以它能用在任何动的东西上：Canvas 场景、视频或摄像头。

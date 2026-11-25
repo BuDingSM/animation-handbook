@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ASCII / 半调 — 动画手册</title>
   <meta name="description" content="动态画面用字母或圆点重新画出来。适合复古和科技风格。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="ASCII / 半调 — 动画手册">
   <meta property="og:description" content="动态画面用字母或圆点重新画出来。适合复古和科技风格。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ASCII / 半调 — 动画手册">
   <meta name="twitter:description" content="动态画面用字母或圆点重新画出来。适合复古和科技风格。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ASCII / 半调", "name": "ASCII / 半调", "description": "动态画面用字母或圆点重新画出来。适合复古和科技风格。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, ASCII / 半调"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ASCII / 半调", "name": "ASCII / 半调", "description": "动态画面用字母或圆点重新画出来。适合复古和科技风格。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, ASCII / 半调"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--night:#07080c;--paper:#f1eadb;--ink-dark:#86e8c1;--ink-paper:#1f1c27}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -32,8 +32,8 @@
     .cap.s{white-space:nowrap}
     .stage[data-hb-mode="inside"] .cap.in,.stage[data-hb-mode="compare"] .cap.cm{display:block}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -147,7 +147,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -162,13 +162,13 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d');
 const pic=document.getElementById('pic'),pctx=pic.getContext('2d');
 const stage=document.getElementById('stage');
 const slowTog=document.getElementById('slow-tog');
-const css=getComputed样式(document.documentElement),INK={dark:css.getPropertyValue('--ink-dark'),paper:css.getPropertyValue('--ink-paper')};
+const css=getComputedStyle(document.documentElement),INK={dark:css.getPropertyValue('--ink-dark'),paper:css.getPropertyValue('--ink-paper')};
 const FRAME=1000/60; // one step is what a 60 Hz frame adds, so a faster screen or a slow frame does not change the speed
 // Phones are screens up to 600px wide, or up to 500px tall when held sideways: they get bigger cells
 const phone=matchMedia('(max-width:600px),(max-height:500px)');
@@ -198,19 +198,19 @@ const PAD=6,BAR=22,SWH=14,GAP=4; // the strip's spacing in stage px: edge, capti
 // either canvas: the tiny one that is read and the full-size one shown under the marks.
 function scene(g,w,h){
   const sky=g.createLinearGradient(0,0,0,h*.7);
-  sky.add颜色Stop(0,'#0a0f2c');sky.add颜色Stop(.55,'#3a2c72');sky.add颜色Stop(1,'#ff9a7a');
-  g.fill样式=sky;g.fillRect(0,0,w,h);
+  sky.addColorStop(0,'#0a0f2c');sky.addColorStop(.55,'#3a2c72');sky.addColorStop(1,'#ff9a7a');
+  g.fillStyle=sky;g.fillRect(0,0,w,h);
   const sx=w*.66,sy=h*(.46+.04*Math.sin(t*.7)),sr=h*.16;
   let gr=g.createRadialGradient(sx,sy,0,sx,sy,h*.55);
-  gr.add颜色Stop(0,'rgba(255,190,130,.5)');gr.add颜色Stop(1,'rgba(255,190,130,0)');
-  g.fill样式=gr;g.fillRect(0,0,w,h);
+  gr.addColorStop(0,'rgba(255,190,130,.5)');gr.addColorStop(1,'rgba(255,190,130,0)');
+  g.fillStyle=gr;g.fillRect(0,0,w,h);
   gr=g.createRadialGradient(sx,sy,0,sx,sy,sr);
-  gr.add颜色Stop(0,'#fffbe8');gr.add颜色Stop(.75,'#ffd47e');gr.add颜色Stop(1,'#ffa25c');
-  g.fill样式=gr;g.beginPath();g.arc(sx,sy,sr,0,Math.PI*2);g.fill();
-  g.fill样式='rgba(255,255,255,.22)';
+  gr.addColorStop(0,'#fffbe8');gr.addColorStop(.75,'#ffd47e');gr.addColorStop(1,'#ffa25c');
+  g.fillStyle=gr;g.beginPath();g.arc(sx,sy,sr,0,Math.PI*2);g.fill();
+  g.fillStyle='rgba(255,255,255,.22)';
   for(const [y,s,o] of [[.17,.02,0],[.29,.032,.6]]){const x=((o+t*s)%1.4-.2)*w;g.beginPath();g.ellipse(x,h*y,w*.14,h*.045,0,0,Math.PI*2);g.fill();}
   for(const [base,amp,speed,col] of [[.62,.06,.02,'#5a4890'],[.74,.07,.05,'#1d3d50'],[.87,.06,.11,'#070f14']]){
-    g.fill样式=col;g.beginPath();g.moveTo(0,h);
+    g.fillStyle=col;g.beginPath();g.moveTo(0,h);
     for(let i=0;i<=40;i++){const p=i/40*6.3+t*speed*6.3;g.lineTo(w*i/40,h*(base+amp*(Math.sin(p)*.7+Math.sin(p*2.3+1)*.3)));}
     g.lineTo(w,h);g.fill();
   }
@@ -236,10 +236,10 @@ function render(){
     }
   }
   ctx.clearRect(0,0,cvs.width,cvs.height);
-  for(let n=1;n<=top;n++){ctx.fill样式=pats[n];ctx.fill(runs[n]);}
+  for(let n=1;n<=top;n++){ctx.fillStyle=pats[n];ctx.fill(runs[n]);}
   ctx.globalCompositeOperation='source-in';
   if(COLOR==='full'){ctx.imageSmoothingEnabled=false;ctx.drawImage(src,x0,0,cols*cw,rows*ch);}
-  else{ctx.fill样式=PAPER?INK.paper:INK.dark;ctx.fillRect(0,0,cvs.width,cvs.height);}
+  else{ctx.fillStyle=PAPER?INK.paper:INK.dark;ctx.fillRect(0,0,cvs.width,cvs.height);}
   ctx.globalCompositeOperation='source-over';
   if(view==='inside')drawInside(px);
   else if(view==='compare')draw原图(gh);
@@ -259,8 +259,8 @@ function drawInside(px){
   }
   bctx.putImageData(bimg,0,0);
   ctx.imageSmoothingEnabled=false;ctx.drawImage(blk,0,0,X,rows*ch);
-  ctx.fill样式=gridPat;ctx.fillRect(0,0,X,rows*ch);
-  const dv=Math.max(2,Math.round(dpr*1.5));ctx.fill样式=LINE;ctx.fillRect(X-dv,0,dv,cvs.height);
+  ctx.fillStyle=gridPat;ctx.fillRect(0,0,X,rows*ch);
+  const dv=Math.max(2,Math.round(dpr*1.5));ctx.fillStyle=LINE;ctx.fillRect(X-dv,0,dv,cvs.height);
   ctx.drawImage(ramp,0,cvs.height-ramp.height);
 }
 // Compare, after the marks: the smooth picture in the first half, laid out for the same width as the half of marks
@@ -268,7 +268,7 @@ function draw原图(gh){
   ctx.save();ctx.beginPath();ctx.rect(0,0,x0,cvs.height);ctx.clip();
   ctx.setTransform(dpr,0,0,dpr,0,0);scene(ctx,sw,gh);
   ctx.restore();
-  const dv=Math.max(2,Math.round(dpr*1.5));ctx.fill样式=LINE;ctx.fillRect(x0-dv,0,dv,cvs.height);
+  const dv=Math.max(2,Math.round(dpr*1.5));ctx.fillStyle=LINE;ctx.fillRect(x0-dv,0,dv,cvs.height);
 }
 
 // The grid for the chosen cell size, in device pixels: letters are narrower than they are tall, dots sit in square cells. Each
@@ -283,19 +283,19 @@ function layout(){
   lc=view==='inside'?Math.round(cols*.4):0;
   pats=Array.from({length:letters?RAMP.length:DOTS},(_,n)=>{
     const tile=document.createElement('canvas'),g=tile.getContext('2d');
-    tile.width=cw;tile.height=ch;g.fill样式='#fff';
+    tile.width=cw;tile.height=ch;g.fillStyle='#fff';
     if(letters){
       g.font=`600 ${ch}px "Schibsted Grotesk",system-ui,sans-serif`;
       g.textAlign='center';g.textBaseline='middle';g.fillText(RAMP[n],cw/2,ch*.55);
     }else{g.beginPath();g.arc(cw/2,ch/2,cw/2*Math.sqrt(n/(DOTS-1)),0,Math.PI*2);g.fill();}
-    return ctx.create图案(tile,'repeat');
+    return ctx.createPattern(tile,'repeat');
   });
   if(lc){ // See inside: the blocks and the grid lines that mark each cell's edge
     blk.width=lc;blk.height=rows;bimg=bctx.createImageData(lc,rows);
     const tile=document.createElement('canvas'),g=tile.getContext('2d');tile.width=cw;tile.height=ch;
-    g.fill样式='rgba(255,255,255,.2)';g.fillRect(cw-2,0,1,ch);g.fillRect(0,ch-2,cw,1);
-    g.fill样式='rgba(0,0,0,.22)';g.fillRect(cw-1,0,1,ch);g.fillRect(0,ch-1,cw,1);
-    gridPat=ctx.create图案(tile,'repeat');
+    g.fillStyle='rgba(255,255,255,.2)';g.fillRect(cw-2,0,1,ch);g.fillRect(0,ch-2,cw,1);
+    g.fillStyle='rgba(0,0,0,.22)';g.fillRect(cw-1,0,1,ch);g.fillRect(0,ch-1,cw,1);
+    gridPat=ctx.createPattern(tile,'repeat');
   }
 }
 
@@ -321,21 +321,21 @@ function buildRamp(){
   const swW=(w-2*pad-(n-1)*gap)/n,sy=Math.round((PAD+BAR)*dpr),sh=Math.round(SWH*dpr),my=Math.round((PAD+BAR+SWH+GAP)*dpr);
   ramp.width=w;ramp.height=h;
   for(let i=0;i<n;i++){
-    g.save();g.translate(Math.round(pad+i*(swW+gap)+(swW-cw)/2),my);g.fill样式=pats[i];g.fillRect(0,0,cw,ch);g.restore();
+    g.save();g.translate(Math.round(pad+i*(swW+gap)+(swW-cw)/2),my);g.fillStyle=pats[i];g.fillRect(0,0,cw,ch);g.restore();
   }
-  g.globalCompositeOperation='source-in';g.fill样式=COLOR==='mono'&&!PAPER?INK.dark:LINE;g.fillRect(0,0,w,h);
+  g.globalCompositeOperation='source-in';g.fillStyle=COLOR==='mono'&&!PAPER?INK.dark:LINE;g.fillRect(0,0,w,h);
   g.globalCompositeOperation='destination-over'; // from here on, everything is drawn behind the marks
   for(let i=0;i<n;i++){
     const x=Math.round(pad+i*(swW+gap)),y=Math.round(255*(PAPER?1-i/(n-1):i/(n-1))),sw2=Math.round(swW);
-    g.fill样式=`rgb(${y},${y},${y})`;g.fillRect(x,sy,sw2,sh);
-    g.fill样式='rgba(244,244,242,.6)';g.fillRect(x-o,sy-o,sw2+2*o,sh+2*o);
+    g.fillStyle=`rgb(${y},${y},${y})`;g.fillRect(x,sy,sw2,sh);
+    g.fillStyle='rgba(244,244,242,.6)';g.fillRect(x-o,sy-o,sw2+2*o,sh+2*o);
   }
   const ay=Math.round((4+cap.c.offsetHeight/2)*dpr),x1=(cap.c.offsetLeft+cap.c.offsetWidth+8)*dpr,x2=(cap.d.offsetLeft-8)*dpr;
   if(x2-x1>20*dpr){
-    g.stroke样式='rgba(244,244,242,.7)';g.lineWidth=Math.max(1,dpr*1.5);g.lineCap='round';g.beginPath();
+    g.strokeStyle='rgba(244,244,242,.7)';g.lineWidth=Math.max(1,dpr*1.5);g.lineCap='round';g.beginPath();
     g.moveTo(x1,ay);g.lineTo(x2,ay);g.moveTo(x2-5*dpr,ay-4*dpr);g.lineTo(x2,ay);g.lineTo(x2-5*dpr,ay+4*dpr);g.stroke();
   }
-  g.fill样式='rgba(5,6,10,.94)';g.fillRect(0,0,w,h);g.globalCompositeOperation='source-over';
+  g.fillStyle='rgba(5,6,10,.94)';g.fillRect(0,0,w,h);g.globalCompositeOperation='source-over';
 }
 // The notes use the markup's words for the moving picture; paused under reduced motion the picture is a still, and says so
 function words(){

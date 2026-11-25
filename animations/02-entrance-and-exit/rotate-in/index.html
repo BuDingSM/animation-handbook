@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>旋转进入 — 动画手册</title>
   <meta name="description" content="边旋转边放大进入到位。适合图标、星星和徽章。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/rotate-in/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/rotate-in/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="旋转进入 — 动画手册">
   <meta property="og:description" content="边旋转边放大进入到位。适合图标、星星和徽章。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/rotate-in/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/rotate-in/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="旋转进入 — 动画手册">
   <meta name="twitter:description" content="边旋转边放大进入到位。适合图标、星星和徽章。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "旋转进入", "name": "旋转进入", "description": "边旋转边放大进入到位。适合图标、星星和徽章。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/rotate-in/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，旋转进入"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "旋转进入", "name": "旋转进入", "description": "边旋转边放大进入到位。适合图标、星星和徽章。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/rotate-in/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，旋转进入"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--dur:600ms;--ease:cubic-bezier(.34,1.56,.64,1);--rot-start:-180deg;--scale-start:0;--opacity-dur:var(--dur)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -61,8 +61,8 @@
     .stage[data-hb-mode="compare"].posed .icon{transform:rotate(var(--pose-r)) scale(var(--pose-s))!important;opacity:var(--pose-o)!important;transition:none!important}
     @media(prefers-reduced-motion:reduce){.icon{transition:opacity 300ms linear!important;transform:none!important}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -204,7 +204,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const icon=document.getElementById('icon');
   const stage=icon.parentElement;
@@ -219,8 +219,8 @@
   // the play's time, so Speed and Slow motion leave it alone), and the pixels kept between marks, words and the box's edge.
   const POSES=[.3,.55,.8],POSE_AT=1/6,GAP=6,PAD=6,MAXM=.36;
   const NAMES={normal:icon.getAttribute('aria-label'),
-    inside:'A star badge spinning into place, with small copies of it along an arrow, earlier in the spin',
-    compare:'A star badge spinning into place, beside a wide card doing the same spin'};
+    inside:'一枚星形徽章旋转到位，箭头上有它旋转途中更早的小副本',
+    compare:'一枚星形徽章旋转到位，旁边一张宽卡片做同样的旋转'};
   // Compare's first scene: a made-up wide card with the badge's class, so it takes the same entrance; out of reach of keys and readers
   const wide=document.createElement('div');
   wide.className='icon wide';wide.textContent='欢迎回来';wide.inert=true;wide.setAttribute('aria-hidden','true');
@@ -288,10 +288,10 @@
   function words(t){return t<=450?'约三分之一秒':t<=750?'约半秒':t<=1250?'约一秒':t<=2200?'约两秒':'约三秒'}
   function note(which,text){const p=document.querySelector('[data-hb-for="'+which+'"]');if(p.textContent!==text)p.textContent=text}
   function notes(){
-    const grows=scaleTog.checked?'growing and turning':'turned but full size';
-    note('inside',motionOk?'Inside, small copies of the badge along the arrow show it earlier in its spin, '+grows+'; the arrow shows which way and how far it turns before it lands upright.'
-      :'Shown still: the small copies of the badge along the arrow show it earlier in its spin, '+grows+', and the arrow shows which way and how far it turns.');
-    if(!motionOk)note('compare',"Shown still, just after the start: Wide card's text is tipped over, while Round badge still reads as a badge.");
+    const grows=scaleTog.checked?'一边变大一边转动':'只转动、已经是完整大小';
+    note('inside',motionOk?'看内部时，箭头上的小徽章是它旋转途中更早的样子，'+grows+'；箭头标出转向和角度，直到正立停下。'
+      :'静止展示：箭头上的小徽章是它旋转途中更早的样子，'+grows+'，箭头标出转向和角度。');
+    if(!motionOk)note('compare',"静止展示，刚开始之后：「宽卡片」上的文字是歪的，「圆形徽章」看起来仍是一枚徽章。");
   }
   // See inside: round the badge an arrow runs from where the spin starts to upright, and small copies of the badge stand along it at the
   // angle they have turned to (their top points outward), growing toward the arrowhead; one more stands beyond it where the curve goes

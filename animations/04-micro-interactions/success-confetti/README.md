@@ -1,6 +1,6 @@
 # 成功彩带
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/)
 
 ## 它是什么
 成功彩带是一阵彩带，标记一个完成的任务，比如「下单」。按钮变成成功状态，很多彩色小矩形从它上面以扇形喷出，旋转、落下、淡出。它是一种奖励：它庆祝这一刻，但不增加新信息。

@@ -1,6 +1,6 @@
 # 下拉刷新
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/pull-to-refresh/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/pull-to-refresh/)
 
 ## 它是什么
 下拉刷新在你从列表顶部把它往下拉时重新加载列表。拉的时候，列表跟着手指走，但越往下拉阻力越大，上面一个旋转指示淡入、转动。拉过一段固定距离再松开，列表会停在下面，旋转指示继续转动，新内容加载进来；然后它滑回去，新内容在最上面。

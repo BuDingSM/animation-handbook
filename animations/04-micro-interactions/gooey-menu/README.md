@@ -1,6 +1,6 @@
 # 粘性菜单
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/gooey-menu/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/gooey-menu/)
 
 ## 它是什么
 粘性菜单是一个圆形按钮，按下后，较小的按钮会像液滴一样从里面渗出来，再按一次，又被拉回去。液滴是分开移动的素圆圈；一个滤镜先把它们模糊，再把模糊的边缘锐化回来，这样靠得近的圆圈会融化成一个形状，中间拉出一条液体脖颈，直到断开。

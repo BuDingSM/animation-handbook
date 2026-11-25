@@ -1,6 +1,6 @@
 # 对勾绘制
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/checkmark-draw/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/checkmark-draw/)
 
 ## 它是什么
 自己画出来的对勾，像手绘一样，确认某件事成功了。圆圈和对勾从一开始就在那里，只是藏起来了，沿着长度一点点露出来，所以线条看起来像被画出来一样。同样的技巧可以在失败时画一个红叉号。

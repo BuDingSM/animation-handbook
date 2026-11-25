@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>无限缩放 — 动画手册</title>
   <meta name="description" content="视野不断放大，进入画中画。适合页面开场。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/infinite-zoom/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/infinite-zoom/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="无限缩放 — 动画手册">
   <meta property="og:description" content="视野不断放大，进入画中画。适合页面开场。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/infinite-zoom/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/infinite-zoom/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="无限缩放 — 动画手册">
   <meta name="twitter:description" content="视野不断放大，进入画中画。适合页面开场。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "无限缩放", "name": "无限缩放", "description": "视野不断放大，进入画中画。适合页面开场。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/infinite-zoom/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 无限缩放"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "无限缩放", "name": "无限缩放", "description": "视野不断放大，进入画中画。适合页面开场。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/infinite-zoom/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 无限缩放"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--edge:#3fd6c4;--view:#ffd84d}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -30,8 +30,8 @@
     .cap.vw{color:var(--view)}
     .stage[data-hb-mode="inside"] .cap.si,.stage[data-hb-mode="compare"] .cap.sc{display:block}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -140,7 +140,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -155,11 +155,11 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const cvs=document.getElementById('cvs'),main=cvs.getContext('2d');let ctx=main; // ctx: what the helpers draw on (main, or a soft light)
 const stage=document.getElementById('stage'),slowTog=document.getElementById('slow-tog');
-const EDGE=getComputed样式(document.documentElement).getPropertyValue('--edge').trim(),VIEW=getComputed样式(document.documentElement).getPropertyValue('--view').trim();
+const EDGE=getComputedStyle(document.documentElement).getPropertyValue('--edge').trim(),VIEW=getComputedStyle(document.documentElement).getPropertyValue('--view').trim();
 // Phones are screens up to 600px wide, or up to 500px tall when held sideways: they draw 1.5 canvas pixels per screen pixel, not 2,
 // and each picture's wall, sky or table in one flat color, without the soft light
 const phone=matchMedia('(max-width:600px),(max-height:500px)');
@@ -172,12 +172,12 @@ let SECS=4.5,COUNT=5,DIR=1,EDGES=false,mode='normal',paused=false;
 // 画什么 helpers, in stage pixels. u is 1% of the stage's shorter side; X, Y, w, h are the window in the middle, 40% of the stage.
 // The box is the stage, or in Compare a half of it, with its window dx and dy boxes off the middle; what hangs on the window follows cx, cy.
 function geom(bw,bh,dx,dy){W=bw;H=bh;u=Math.min(W,H)/100;w=W*R;h=H*R;X=W*(1-R)/2+W*dx;Y=H*(1-R)/2+H*dy;cx=W/2+W*dx;cy=H/2+H*dy;}
-const grad=(g,c)=>{c.forEach((s,i)=>g.add颜色Stop(i/(c.length-1),s));return g;};
+const grad=(g,c)=>{c.forEach((s,i)=>g.addColorStop(i/(c.length-1),s));return g;};
 const lin=(x0,y0,x1,y1,...c)=>grad(ctx.createLinearGradient(x0,y0,x1,y1),c);
-function box(x,y,bw,bh,f,r){ctx.fill样式=f;ctx.beginPath();if(r&&ctx.roundRect)ctx.roundRect(x,y,bw,bh,r);else ctx.rect(x,y,bw,bh);ctx.fill();}
-function oval(x,y,rx,ry,f,a){ctx.fill样式=f;ctx.beginPath();ctx.ellipse(x,y,rx,ry,a||0,0,TAU);ctx.fill();}
-function poly(f,...q){ctx.fill样式=f;ctx.beginPath();for(let i=0;i<q.length;i+=2)ctx.lineTo(q[i],q[i+1]);ctx.fill();}
-function line(c,lw,...q){ctx.stroke样式=c;ctx.lineWidth=lw;ctx.lineJoin=ctx.lineCap='round';
+function box(x,y,bw,bh,f,r){ctx.fillStyle=f;ctx.beginPath();if(r&&ctx.roundRect)ctx.roundRect(x,y,bw,bh,r);else ctx.rect(x,y,bw,bh);ctx.fill();}
+function oval(x,y,rx,ry,f,a){ctx.fillStyle=f;ctx.beginPath();ctx.ellipse(x,y,rx,ry,a||0,0,TAU);ctx.fill();}
+function poly(f,...q){ctx.fillStyle=f;ctx.beginPath();for(let i=0;i<q.length;i+=2)ctx.lineTo(q[i],q[i+1]);ctx.fill();}
+function line(c,lw,...q){ctx.strokeStyle=c;ctx.lineWidth=lw;ctx.lineJoin=ctx.lineCap='round';
   ctx.beginPath();for(let i=0;i<q.length;i+=2)ctx.lineTo(q[i],q[i+1]);ctx.stroke();}
 const light=(x,y,r,c)=>box(x-r,y-r,2*r,2*r,grad(ctx.createRadialGradient(x,y,0,x,y,r),[c,c.replace(/[\d.]+\)$/,'0)')]));
 // The frame m pixels around the window; hole() fills the window with a dark color, seen only in the smallest picture drawn
@@ -235,7 +235,7 @@ function desk(soft){
   frame(2.2*u,'#0e1118',1.8*u);hole();oval(cx,Y-1.1*u,.35*u,.35*u,'#3a4458');
   poly(lin(0,Y+h+2.2*u,0,Y+h+6*u,'#c9cfdb','#7c8496'),X-2.2*u,Y+h+2.2*u,X+w+2.2*u,Y+h+2.2*u,X+w+7*u,Y+h+6*u,X-7*u,Y+h+6*u);
   box(X+w+12*u,Y+h+3*u,6*u,7*u,'#e9e4da',.8*u);
-  ctx.stroke样式='#e9e4da';ctx.lineWidth=u;ctx.beginPath();ctx.arc(X+w+18*u,Y+h+6.5*u,2*u,-1.4,1.4);ctx.stroke(); // its handle
+  ctx.strokeStyle='#e9e4da';ctx.lineWidth=u;ctx.beginPath();ctx.arc(X+w+18*u,Y+h+6.5*u,2*u,-1.4,1.4);ctx.stroke(); // its handle
 }
 // 5: a photo on a wooden table, seen from above, beside other photos, a cup of coffee and a camera
 function table(soft){
@@ -266,7 +266,7 @@ function soften(set){
 function render(){
   if(mode==='compare')return compare();
   // The pictures tile the canvas, but their edges are soft, so they go over a dark fill: no frame mixes in the one before it
-  ctx.setTransform(1,0,0,1,0,0);ctx.fill样式='#0c0c10';ctx.fillRect(0,0,cvs.width,cvs.height);
+  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#0c0c10';ctx.fillRect(0,0,cvs.width,cvs.height);
   if(mode==='inside')return inside();
   const seen=chain(1,p,0,0,SOFT,3);
   if(EDGES)edges(seen,0,0,false);
@@ -295,9 +295,9 @@ function edges(seen,ox,oy,right){
   ctx.save();ctx.setTransform(kx,0,0,ky,kx*ox,ky*oy);ctx.font='700 13px "Schibsted Grotesk",system-ui,sans-serif';ctx.textAlign='center';
   for(const [s,n] of seen){
     const x=W/2*(1-s),y=H/2*(1-s);
-    ctx.setLineDash([]);ctx.lineWidth=4;ctx.stroke样式='rgba(0,0,0,.45)';ctx.strokeRect(x,y,W*s,H*s);
-    ctx.setLineDash([7,5]);ctx.lineWidth=2;ctx.stroke样式=EDGE;ctx.strokeRect(x,y,W*s,H*s);
-    if(H*s>60){const bx=right?x+W*s-30:x+6;box(bx,y+6,24,22,'rgba(8,10,14,.85)',5);ctx.fill样式=EDGE;ctx.fillText(n+1,bx+12,y+22);}
+    ctx.setLineDash([]);ctx.lineWidth=4;ctx.strokeStyle='rgba(0,0,0,.45)';ctx.strokeRect(x,y,W*s,H*s);
+    ctx.setLineDash([7,5]);ctx.lineWidth=2;ctx.strokeStyle=EDGE;ctx.strokeRect(x,y,W*s,H*s);
+    if(H*s>60){const bx=right?x+W*s-30:x+6;box(bx,y+6,24,22,'rgba(8,10,14,.85)',5);ctx.fillStyle=EDGE;ctx.fillText(n+1,bx+12,y+22);}
   }
   ctx.restore();
 }
@@ -307,7 +307,7 @@ function edges(seen,ox,oy,right){
 // the outline starts again: the swap Normal hides. Faint outlines mark where the view starts and ends. Under reduced motion, paused,
 // it is posed half way, with an arrow as long as the move.
 const reduceMQ=matchMedia('(prefers-reduced-motion:reduce)'),K=.8,still=()=>reduceMQ.matches&&paused;
-const ring=(s,c,lw,dash)=>{ctx.setLineDash(dash);ctx.lineWidth=lw;ctx.stroke样式=c;ctx.strokeRect(W/2*(1-s)-2,H/2*(1-s)-2,W*s+4,H*s+4);};
+const ring=(s,c,lw,dash)=>{ctx.setLineDash(dash);ctx.lineWidth=lw;ctx.strokeStyle=c;ctx.strokeRect(W/2*(1-s)-2,H/2*(1-s)-2,W*s+4,H*s+4);};
 function inside(){
   const s=K*Math.pow(R,still()?.5:p),vx=Math.max(4,Math.min(W/2*(1-s)-2,SW-vw-4)),vy=Math.max(2,H/2*(1-s)-7-ch);
   put(cV,vx,vy); // "你的视野" rides the outline's top left corner, above it
@@ -318,7 +318,7 @@ function inside(){
   ctx.lineCap='round';ring(K,'rgba(255,255,255,.5)',1.5,[3,4]);ring(K*R,'rgba(255,255,255,.5)',1.5,[3,4]);
   if(still()){
     const a=W/2*(1-K)-2,b=W/2*(1-K*R)-2,y=H/2,[f,t]=DIR>0?[a,b]:[b,a],d=t>f?-9:9;
-    for(const [c,lw] of [['rgba(0,0,0,.6)',6],[VIEW,3]]){ctx.setLineDash([]);ctx.stroke样式=c;ctx.lineWidth=lw;ctx.beginPath();ctx.moveTo(f,y);ctx.lineTo(t,y);ctx.moveTo(t+d,y-6);ctx.lineTo(t,y);ctx.lineTo(t+d,y+6);ctx.stroke();}
+    for(const [c,lw] of [['rgba(0,0,0,.6)',6],[VIEW,3]]){ctx.setLineDash([]);ctx.strokeStyle=c;ctx.lineWidth=lw;ctx.beginPath();ctx.moveTo(f,y);ctx.lineTo(t,y);ctx.moveTo(t+d,y-6);ctx.lineTo(t,y);ctx.lineTo(t+d,y+6);ctx.stroke();}
   }
   ctx.restore();
   ctx.save();ctx.setTransform(kx,0,0,ky,0,0);ring(s,'rgba(0,0,0,.6)',5,[]);ring(s,VIEW,2.5,[9,6]);ctx.restore();
@@ -331,7 +331,7 @@ function inside(){
 const OFF=[[.12,.1],[0,0]],keep=()=>[W,H,u,X,Y,w,h,cx,cy],back=g=>{[W,H,u,X,Y,w,h,cx,cy]=g;};
 let band=28,pairKey='';
 function compare(){
-  ctx.setTransform(1,0,0,1,0,0);ctx.fill样式='#0c0c10';ctx.fillRect(0,0,cvs.width,cvs.height);
+  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#0c0c10';ctx.fillRect(0,0,cvs.width,cvs.height);
   const bw=(SW-2)/2,bh=SH-band,g=keep();
   for(let i=0;i<2;i++){
     const ox=i*(bw+2);geom(bw,bh,...OFF[i]);
@@ -340,7 +340,7 @@ function compare(){
     if(EDGES)edges(seen,ox,band,false);
     ctx.restore();
   }
-  back(g);ctx.fill样式='#2a2b33';ctx.fillRect(kx*bw,0,kx*2,cvs.height);
+  back(g);ctx.fillStyle='#2a2b33';ctx.fillRect(kx*bw,0,kx*2,cvs.height);
 }
 // Each half's soft lights are drawn for its own box (and window) when Compare is shown, and again when that box changes
 function softPair(){
@@ -351,8 +351,8 @@ function softPair(){
 
 // The captions: plain words, put in place from their measured sizes. Margin captions take shorter words where the long ones do not fit
 const el=id=>document.getElementById(id),cV=el('c-view'),cT=el('c-top'),cB=el('c-bot'),cL=el('c-left'),cR=el('c-right');
-const TOP=[['到达窗口时，从里一张图片重新开始','At the window it starts over','Restarts at the window'],['Reaching the edge, it starts over one picture out','At the edge it starts over','Restarts at the edge']];
-const BOT=['每张图片装着下一张，只有五分之二大','Each holds the next, two fifths the size'];
+const TOP=[['到达窗口时，从里一张图片重新开始','到窗口就重新开始','在窗口重新开始'],['到达边缘时，从外面一张图重新开始','到边缘就重新开始','在边缘重新开始']];
+const BOT=['每张图片装着下一张，只有五分之二大','每一张套着下一张，大小是五分之二'];
 const put=(e,x,y)=>{e.style.transform='translate('+Math.round(x)+'px,'+Math.round(y)+'px)';};
 const fit=(e,words,room)=>{for(const t of words){e.textContent=t;if(e.offsetWidth<=room)break;}};
 let ch=18,vw=60; // the height of a caption, the width of "你的视野"
@@ -374,14 +374,14 @@ function layout(){
 // views hold a pose). A note is written only when its words change, as its box is read out loud.
 const notes=[...document.querySelectorAll('[data-hb-for]')],moving=notes.map(n=>n.textContent),NAME=cvs.getAttribute('aria-label');
 const SAY=[[[moving[0],'静止时：你的视野（虚线）正在移进一张图片，图片中间装着下一张；到达那个窗口时，绘画会从里一张图片重新开始，看起来一模一样。'],
-  ["Inside, your view (dashed) moves out from a picture's middle window toward its edge; when it reaches the edge, the drawing starts over one picture out, which looks exactly the same.",
+  ["看内部时，你的视野（虚线）从图片中间的窗口移向边缘；到达边缘时，画面从外面一张图重新开始，看起来完全一样。",
    "静止时：你的视野（虚线）正在从一张图片的中间窗口向外移动；到达边缘时，绘画会从外一张图片重新开始，看起来一模一样。"]],
   [moving[1],'静止时：在「窗口偏了」里，下一张图片对不上它的框，会留下一道缝；在「窗口居中」里，每张图片都正好装下下一张。']];
 function describe(){
   const s=+still(),want=[SAY[0][DIR>0?0:1][s],SAY[1][s]];
   notes.forEach((n,i)=>{if(n.textContent!==want[i])n.textContent=want[i];});
-  const name=mode==='inside'?'The nested pictures held still at a smaller size, with a dashed outline for your view moving '+(DIR>0?'into the middle picture and starting over one picture in':'out toward the edge and starting over one picture out')
-    :mode==='compare'?'Two zooms side by side: on the left each window sits off the middle, so the next picture misses its frame; on the right each picture fits the next exactly':NAME;
+  const name=mode==='inside'?'嵌套的图片以更小的尺寸静止，虚线是你的视野，正在'+(DIR>0?'进入中间那张，并从里面一张重新开始':'向外移向边缘，并从外面一张重新开始')
+    :mode==='compare'?'两个缩放并排：左边每个窗口不在正中，下一张对不齐画框；右边每一张都正好套住下一张':NAME;
   if(cvs.getAttribute('aria-label')!==name)cvs.setAttribute('aria-label',name);
 }
 function update(){describe();if(mode!=='normal')layout();render();}

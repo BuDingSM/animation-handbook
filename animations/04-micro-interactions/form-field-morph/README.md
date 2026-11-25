@@ -1,6 +1,6 @@
 # 表单字段变形
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/)
 
 ## 它是什么
 表单字段变形，也叫浮动标签，一开始每个字段的标签都在字段里面，像占位符一样。点击字段或在里面输入时，标签上移并缩小，始终可见地待在文字上方，而不是像占位符那样消失。

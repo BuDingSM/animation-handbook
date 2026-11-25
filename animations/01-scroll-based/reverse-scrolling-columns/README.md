@@ -1,6 +1,6 @@
 # 反向滚动列
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reverse-scrolling-columns/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/reverse-scrolling-columns/)
 
 ## 它是什么
 

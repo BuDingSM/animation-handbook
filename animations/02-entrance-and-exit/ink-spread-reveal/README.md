@@ -1,6 +1,6 @@
 # 墨水扩散揭示
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/ink-spread-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/ink-spread-reveal/)
 
 ## 它是什么
 墨水扩散揭示用墨在潮湿纸上扩散的方式揭开一张图片。图片开始时藏在一层素色的纸色图层下面，墨滴一个接一个落下，每滴扩散成一个边缘不平整的墨渍；墨渍长大、汇合，最终显示整张图片。每个墨渍开始时向外冲得很快，洇开时慢慢变慢，这让它读起来像墨水，而不是一个在变大的形状。

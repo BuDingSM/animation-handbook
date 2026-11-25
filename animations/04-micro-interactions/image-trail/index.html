@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>图片拖尾 — 动画手册</title>
   <meta name="description" content="图片在指针身后接连弹出，然后淡出。适合用在作品集上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/image-trail/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/image-trail/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="图片拖尾 — 动画手册">
   <meta property="og:description" content="图片在指针身后接连弹出，然后淡出。适合用在作品集上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/image-trail/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/image-trail/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="图片拖尾 — 动画手册">
   <meta name="twitter:description" content="图片在指针身后接连弹出，然后淡出。适合用在作品集上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "图片拖尾", "name": "图片拖尾", "description": "图片在指针身后接连弹出，然后淡出。适合用在作品集上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/image-trail/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 图片拖尾"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "图片拖尾", "name": "图片拖尾", "description": "图片在指针身后接连弹出，然后淡出。适合用在作品集上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/image-trail/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 图片拖尾"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--bg:#0b0b0d;--glow:#251a30;--ink:#f4f4f2;--dim:#adadb2;--edge:rgba(255,255,255,.14);--shade:rgba(0,0,0,.55)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -81,8 +81,8 @@
       .cmp-l.second{left:8px;top:calc(50% + 6px)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -230,7 +230,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -245,7 +245,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $=id=>document.getElementById(id);
   const stage=$('stage'),trail=$('trail'),slowTog=$('slow-tog');
@@ -403,10 +403,10 @@
     pathOf=(a,b)=>{let d='';for(let i=a;i<=b;i+=2){const q=sweep(i/STEPS);d+=(d?'L':'M')+q.x.toFixed(0)+' '+q.y.toFixed(0)}return d};
   dotEls.forEach(c=>{c.setAttribute('class','dot');c.setAttribute('r',5)});
   // The notes as the markup has them, and for reduced motion: still (the pose) or live (the visitor or Show me made pictures)
-  const DEF={},STILL={inside:'Inside, shown still: each dot is where a picture dropped, and the next drops only when the pointer leaves the ring around the last one.',
-      compare:'Shown still: Every move has piled pictures up on each small move; Spaced out has dropped one only every set distance.'},
-    LIVE={inside:'Inside, each dot is where a picture appeared. Your device is set to reduce motion, so one shows at a time, where you point.',
-      compare:'Your device is set to reduce motion, so Every move and Spaced out both show one picture at a time, where you point.'};
+  const DEF={},STILL={inside:'看内部、静止展示：每个点是一张图落下的位置，指针离开上一张周围的圆圈后，下一张才落下。',
+      compare:'静止展示：「每次移动」在每小步都叠一张图；「隔开」只按设定距离落一张。'},
+    LIVE={inside:'看内部时，每个点是一张图出现的位置。你的设备开启了减弱动态效果，所以一次只在你指向的地方显示一张。',
+      compare:'你的设备开启了减弱动态效果，所以「每次移动」和「隔开」都一次只在你指向的地方显示一张图。'};
   document.querySelectorAll('[data-hb-for]').forEach(p=>DEF[p.dataset.hbFor]=p.textContent);
   function note(){   // written only when its words change: the box is read aloud each time
     if(mode==='normal')return;

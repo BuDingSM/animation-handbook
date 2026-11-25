@@ -1,6 +1,6 @@
 # 焦点环动画
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/focus-ring/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/focus-ring/)
 
 ## 它是什么
 焦点环是显示键盘在哪个项目上的轮廓。给它做动画，让圆环在每次按 Tab 时收拢到每个项目周围，每次移动都更容易跟上。它在使用键盘时显示（点进文本字段时也会显示，因为接下来要在那里打字），所以用鼠标点击按钮和链接的人不会看到圆环出现。

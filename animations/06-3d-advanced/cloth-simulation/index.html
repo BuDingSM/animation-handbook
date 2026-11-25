@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>布料模拟 — 动画手册</title>
   <meta name="description" content="一块布在风中飘动，还可以拖着玩。适合有趣的页面。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/cloth-simulation/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/cloth-simulation/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="布料模拟 — 动画手册">
   <meta property="og:description" content="一块布在风中飘动，还可以拖着玩。适合有趣的页面。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/cloth-simulation/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/cloth-simulation/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="布料模拟 — 动画手册">
   <meta name="twitter:description" content="一块布在风中飘动，还可以拖着玩。适合有趣的页面。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "布料模拟", "name": "布料模拟", "description": "一块布在风中飘动，还可以拖着玩。适合有趣的页面。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/cloth-simulation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 布料模拟"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "布料模拟", "name": "布料模拟", "description": "一块布在风中飘动，还可以拖着玩。适合有趣的页面。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/cloth-simulation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 布料模拟"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -45,8 +45,8 @@
     @media(max-width:600px),(max-height:660px){.key{gap:4px;padding:6px 10px}.k.pts{display:none}.k{max-width:200px;white-space:normal;text-wrap:balance}}
     @media(max-width:600px){.lbl{font-size:12px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -178,7 +178,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -193,7 +193,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d');
 const stage=document.getElementById('stage');
@@ -299,20 +299,20 @@ function drawCloth(cut){
     for(let c=0;c<COLS;c++){
       const a=pts[n(r,c)],b=pts[n(r,c+1)],cc=pts[n(r+1,c)],d=pts[n(r+1,c+1)];
       const hue=(c/COLS*40+r/ROWS*20);
-      ctx.fill样式=`hsla(${200+hue},60%,${30+r/ROWS*20}%,0.85)`;
+      ctx.fillStyle=`hsla(${200+hue},60%,${30+r/ROWS*20}%,0.85)`;
       if(!off(n(r,c),n(r,c+1),n(r+1,c))){ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.lineTo(cc[0],cc[1]);ctx.closePath();ctx.fill();}
       if(!off(n(r,c+1),n(r+1,c+1),n(r+1,c))){ctx.beginPath();ctx.moveTo(b[0],b[1]);ctx.lineTo(d[0],d[1]);ctx.lineTo(cc[0],cc[1]);ctx.closePath();ctx.fill();}
     }
   }
   // Mesh edges — one path, one stroke call per frame
-  ctx.stroke样式='rgba(88,166,255,.12)';ctx.lineWidth=.5;ctx.beginPath();
+  ctx.strokeStyle='rgba(88,166,255,.12)';ctx.lineWidth=.5;ctx.beginPath();
   for(let r=0;r<=ROWS;r++)for(let c=0;c<COLS;c++)if(!off(n(r,c),n(r,c+1))){ctx.moveTo(pts[n(r,c)][0],pts[n(r,c)][1]);ctx.lineTo(pts[n(r,c+1)][0],pts[n(r,c+1)][1]);}
   for(let r=0;r<ROWS;r++)for(let c=0;c<=COLS;c++)if(!off(n(r,c),n(r+1,c))){ctx.moveTo(pts[n(r,c)][0],pts[n(r,c)][1]);ctx.lineTo(pts[n(r+1,c)][0],pts[n(r+1,c)][1]);}
   ctx.stroke();
   // Vertices
   if(SHOW_VERTS){
     pts.forEach((p,i)=>{
-      ctx.fill样式=pinned[i]?'#f85149':'rgba(88,166,255,.7)';
+      ctx.fillStyle=pinned[i]?'#f85149':'rgba(88,166,255,.7)';
       ctx.beginPath();ctx.arc(p[0],p[1],pinned[i]?4:2,0,Math.PI*2);ctx.fill();
     });
   }
@@ -364,8 +364,8 @@ document.addEventListener('hb:pause',e=>{
 // of its own and leaves Normal's (points, held point, wind clock) untouched until it comes back (hung again after 挂在, 细节
 // or a size change).
 const NAMES={normal:cvs.getAttribute('aria-label'),
-  inside:'The cloth as points joined by links: each link gold where it is stretched and pulls its points back, the pinned points red, with arrows for the push of the wind and of gravity',
-  compare:'Two cloths side by side: on the left, points with no links fall away from their pins; on the right, the linked cloth hangs and sways'};
+  inside:'布料是用连线连起来的点：被拉长的连线呈金色并把点拉回去，钉住的点是红色，箭头表示风和重力的推力',
+  compare:'两块布并排：左边没有连线的点从钉子上掉下去；右边连着的布悬挂并摆动'};
 document.addEventListener('hb:mode',e=>{
   mode=e.detail.mode;
   cvs.setAttribute('aria-label',NAMES[mode]);
@@ -400,23 +400,23 @@ function hangHalves(settle){
 function drawHalves(){
   const hw=W/2;ctx.clearRect(0,0,W,H);
   halves.forEach((o,i)=>{ctx.save();ctx.beginPath();ctx.rect(i*hw,0,hw,H);ctx.clip();ctx.translate(i*hw,o.top);inWorld(o,()=>{drawCloth(!i);pinDots(4);});ctx.restore();});
-  ctx.fill样式='#3a3c46';ctx.fillRect(hw-1,0,2,H);
+  ctx.fillStyle='#3a3c46';ctx.fillRect(hw-1,0,2,H);
 }
-function pinDots(r){ctx.fill样式='#f85149';pts.forEach((p,i)=>{if(pinned[i]){ctx.beginPath();ctx.arc(p[0],p[1],r,0,Math.PI*2);ctx.fill();}});}
+function pinDots(r){ctx.fillStyle='#f85149';pts.forEach((p,i)=>{if(pinned[i]){ctx.beginPath();ctx.arc(p[0],p[1],r,0,Math.PI*2);ctx.fill();}});}
 // See inside, over the real cloth dimmed to about a third: every link bold, colored by how far it is stretched past its length now
 // (pale at its length, then three golds; one path and one stroke each), free points with Shows the points, pins red and ringed.
 const BANDS=['rgba(232,235,242,.6)','#ecd28f','#f4b942','#ff8f2e'];
 function drawInside(){
-  ctx.save();ctx.fill样式='rgba(11,11,13,.66)';ctx.fillRect(0,0,W,H);
+  ctx.save();ctx.fillStyle='rgba(11,11,13,.66)';ctx.fillRect(0,0,W,H);
   const paths=BANDS.map(()=>new Path2D());
   for(const[a,b,rest]of constraints){
     const s=Math.hypot(pts[b][0]-pts[a][0],pts[b][1]-pts[a][1])/rest-1,p=paths[s<.003?0:s<.01?1:s<.03?2:3];
     p.moveTo(pts[a][0],pts[a][1]);p.lineTo(pts[b][0],pts[b][1]);
   }
   ctx.lineWidth=COLS>=40?1:1.5;ctx.lineCap='round';
-  paths.forEach((p,i)=>{ctx.stroke样式=BANDS[i];ctx.stroke(p);});
-  if(SHOW_VERTS){ctx.fill样式='rgba(88,166,255,.7)';pts.forEach((p,i)=>{if(!pinned[i]){ctx.beginPath();ctx.arc(p[0],p[1],2,0,Math.PI*2);ctx.fill();}});}
-  ctx.stroke样式='#f85149';ctx.lineWidth=1.5;
+  paths.forEach((p,i)=>{ctx.strokeStyle=BANDS[i];ctx.stroke(p);});
+  if(SHOW_VERTS){ctx.fillStyle='rgba(88,166,255,.7)';pts.forEach((p,i)=>{if(!pinned[i]){ctx.beginPath();ctx.arc(p[0],p[1],2,0,Math.PI*2);ctx.fill();}});}
+  ctx.strokeStyle='#f85149';ctx.lineWidth=1.5;
   pts.forEach((p,i)=>{if(pinned[i]){ctx.beginPath();ctx.arc(p[0],p[1],8,0,Math.PI*2);ctx.stroke();}});
   pinDots(5);ctx.restore();drawPushes();
 }
@@ -428,7 +428,7 @@ function drawPushes(){
   const w=pushCvs.clientWidth,h=pushCvs.clientHeight,dpr=Math.min(window.devicePixelRatio||1,2),cw=Math.round(w*dpr),ch=Math.round(h*dpr);
   if(!w)return;
   if(pushCvs.width!==cw||pushCvs.height!==ch){pushCvs.width=cw;pushCvs.height=ch;}
-  pctx.setTransform(dpr,0,0,dpr,0,0);pctx.clearRect(0,0,w,h);pctx.fill样式=pctx.stroke样式='#f4f4f2';pctx.lineWidth=2.5;
+  pctx.setTransform(dpr,0,0,dpr,0,0);pctx.clearRect(0,0,w,h);pctx.fillStyle=pctx.strokeStyle='#f4f4f2';pctx.lineWidth=2.5;
   const x=w*.34,y=windCap.offsetHeight+6,S=Math.min((x-6)/(WMAX*.7),(w-x-6)/(WMAX*1.3));
   arrow(x,y,x+WIND*(Math.sin(windT*.0005)+.3)*.8*.04*S,y);arrow(x,y,x,y+GRAVITY*.08*S);
   pctx.beginPath();pctx.arc(x,y,4,0,Math.PI*2);pctx.fill();

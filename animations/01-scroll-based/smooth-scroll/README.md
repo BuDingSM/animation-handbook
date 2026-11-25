@@ -1,6 +1,6 @@
 # 平滑（惯性）滚动
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/smooth-scroll/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/smooth-scroll/)
 
 ## 它是什么
 

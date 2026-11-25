@@ -1,6 +1,6 @@
 # 正在输入指示
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/typing-indicator/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/typing-indicator/)
 
 ## 它是什么
 正在输入指示告诉对话里的人，对方正在写回复。它是对方那一边的一个小聊天框，里面三个圆点轮流移动，弹跳、变亮或像波浪一样起伏。回复到来时，消息取代气泡的位置。

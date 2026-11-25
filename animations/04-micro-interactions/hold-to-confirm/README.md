@@ -1,6 +1,6 @@
 # 长按确认
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hold-to-confirm/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/hold-to-confirm/)
 
 ## 它是什么
 长按确认是一个按钮，只有按住一会儿后才会执行操作。按住时，填充会横跨它或绕着它增长；填满时，操作执行，并显示一个对勾。提前松开会让填充流回去，什么都不发生，所以一次手滑的点按或点击永远删不掉任何东西。

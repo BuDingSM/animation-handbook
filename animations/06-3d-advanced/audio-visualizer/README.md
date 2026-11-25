@@ -1,6 +1,6 @@
 # 音频可视化
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/audio-visualizer/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/audio-visualizer/)
 
 ## 它是什么
 音频可视化把声音变成动的图形：一排音条，左边是低音，右边是高音，每根的高度就是它那个音高段此刻的响度。声音一响音条就跳起来，声音一弱就沉回去，所以底鼓会让低音条跃起，踩镲在顶部闪烁。同样的响度可以画成音条、围成圆环的音条，或者声音本身的波形。

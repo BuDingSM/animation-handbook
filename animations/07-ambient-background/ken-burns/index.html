@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>肯·伯恩斯效果 — 动画手册</title>
   <meta name="description" content="照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ken-burns/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/07-ambient-background/ken-burns/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="肯·伯恩斯效果 — 动画手册">
   <meta property="og:description" content="照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ken-burns/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/07-ambient-background/ken-burns/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="肯·伯恩斯效果 — 动画手册">
   <meta name="twitter:description" content="照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "肯·伯恩斯效果", "name": "肯·伯恩斯效果", "description": "照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ken-burns/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 肯·伯恩斯效果"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "肯·伯恩斯效果", "name": "肯·伯恩斯效果", "description": "照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。", "url": "https://animation.xizanghuapi.cn/animations/07-ambient-background/ken-burns/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 肯·伯恩斯效果"}</script>
   <style>
     :root{--ui-accent:#ffce5a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -92,8 +92,8 @@
       .fl,.fc{animation:none;transform:var(--l3)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -196,7 +196,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -211,7 +211,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage');
   const ZMAX=1.5; // the strongest zoom: each photo is drawn this much larger than the box and only ever scaled down from there
@@ -241,9 +241,9 @@
   // How far each photo zooms (its zoom at the start and the end of a zoom in) and how far it drifts toward its point of interest
   const MOVES={subtle:{z:[1.04,1.16],k:.45},medium:{z:[1.06,1.3],k:.75},strong:{z:[1.08,1.5],k:1}};
   let zoom='both',move='medium';
-  const LABELS={normal:'Three drawn photos, each slowly zooming and drifting, then fading into the next',
-    inside:'The whole photo held still, with a bright frame gliding from where the view starts to where it ends',
-    compare:'Two slideshows of the same photos: still photos that only fade, and photos that zoom and drift'};
+  const LABELS={normal:'三张画出来的照片，各自慢慢放大、平移，再淡入下一张',
+    inside:'整张照片保持不动，亮框从视野起点滑到终点',
+    compare:'同一组照片的两套幻灯：左边只淡入淡出，右边会放大并平移'};
   // Both reels are made in one go, so their timelines start together: the reel, with the frame, dashed frames, arrow and labels of
   // See inside in each slide, and Compare's copy, whose photos never move (no ids of its own, out of reach of the keyboard).
   const slideOf=(k,id,inside)=>`<div class="slide s${k+1}"><div class="photo"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">${PHOTOS[k].svg(id)}</svg></div>`+

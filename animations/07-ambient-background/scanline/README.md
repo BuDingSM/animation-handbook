@@ -1,6 +1,6 @@
 # 扫描线效果
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/scanline/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/scanline/)
 
 ## 它是什么
 扫描线是老式显像管电视或电脑显示器上光行之间的细深色线条。把它们作为重复条纹图案铺在设计上，就有了 80 或 90 年代复古屏幕的样子。一条柔和的光带慢慢扫过屏幕，增加运动，变暗的角落暗示弯曲的玻璃。

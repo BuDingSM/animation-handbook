@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>波浪层 — 动画手册</title>
   <meta name="description" content="层层波浪横向漂移，各自速度不同。最适合主视觉区。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wave-layers/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/07-ambient-background/wave-layers/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="波浪层 — 动画手册">
   <meta property="og:description" content="层层波浪横向漂移，各自速度不同。最适合主视觉区。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wave-layers/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/07-ambient-background/wave-layers/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="波浪层 — 动画手册">
   <meta name="twitter:description" content="层层波浪横向漂移，各自速度不同。最适合主视觉区。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "波浪层", "name": "波浪层", "description": "层层波浪横向漂移，各自速度不同。最适合主视觉区。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wave-layers/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 波浪层"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "波浪层", "name": "波浪层", "description": "层层波浪横向漂移，各自速度不同。最适合主视觉区。", "url": "https://animation.xizanghuapi.cn/animations/07-ambient-background/wave-layers/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 波浪层"}</script>
   <style>
     :root{--ui-accent:#ffce5a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -92,8 +92,8 @@
     .gauge.same .ar{--s:1.25}
     .ins [hidden],.cmp [hidden]{display:none}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -212,7 +212,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -227,7 +227,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const waves=[...document.querySelectorAll('.wave')];
@@ -255,10 +255,10 @@
   const copies=waves.map(w=>twin.appendChild(w.cloneNode(true)));
   waves.forEach(w=>{w.prepend(mk('b','so'));w.querySelector('.track').append(mk('b','mid'))});
   const ins=mk('div','ins','<b class="veil"></b><b class="win"></b>'+[1,2,3,4].map(n=>`<span class="chip w${n}"><i class="ar"></i></span>`).join('')
-    +'<div class="top">'+cap('Each strip is twice as wide; it slides half its width, then starts over')+cap('Far: slowest')+'</div>'
-    +'<div class="bot">'+cap('The box shows only this part')+cap('Near: fastest')+'</div>');
+    +'<div class="top">'+cap('每条都有两倍宽；它滑过自己一半的宽度，然后重新开始')+cap('Far: slowest')+'</div>'
+    +'<div class="bot">'+cap('盒子只显示这一段')+cap('Near: fastest')+'</div>');
   const cmp=mk('div','cmp',`<div class="half">${cap('Same pace')}<div class="gauge same">${arrows}</div></div>`
-    +`<div class="half">${cap('Near ones faster')}<div class="gauge">${arrows}</div></div>`);
+    +`<div class="half">${cap('近的更快')}<div class="gauge">${arrows}</div></div>`);
   [twin,ins,cmp].forEach(e=>{e.setAttribute('aria-hidden','true');e.inert=true});
   stage.append(twin,ins,cmp);
 

@@ -1,6 +1,6 @@
 # 滑动过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/slide-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/slide-transition/)
 
 ## 它是什么
 滑动过渡把旧页面从一侧滑出，同时新页面从另一侧滑入，像轨道上的面板一样。当方向跟着导航走——前进向左滑、后退向右滑——它会给访客一种位置感，就像手机应用那样。演示也可以总是朝同一个方向滑，或向下滑动。

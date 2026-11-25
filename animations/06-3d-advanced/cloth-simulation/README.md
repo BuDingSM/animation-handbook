@@ -1,6 +1,6 @@
 # 布料模拟
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/cloth-simulation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/cloth-simulation/)
 
 ## 它是什么
 布料模拟把布看作由固定长度的连线连起来的点网格。每秒六十次，每个点按自己原来的运动方向继续移动，再加上重力和风，然后连线把相邻的点拉回原形。固定几个点，网格就会像布一样悬挂、摇摆和折叠，还可以抓着玩。

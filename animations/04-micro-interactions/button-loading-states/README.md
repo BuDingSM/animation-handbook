@@ -1,6 +1,6 @@
 # 按钮加载状态
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/button-loading-states/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/button-loading-states/)
 
 ## 它是什么
 按钮加载状态在按钮自己内部显示：按下后正在处理。标签让位给旋转指示，按钮不能被按两次，收到答复后，一个对勾或叉号先说结果怎么样，标签再回来。按钮也可以缩成旋转指示周围的圆形，用裁剪画出来，周围什么都不会动。

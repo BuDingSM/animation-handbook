@@ -1,6 +1,6 @@
 # 手写描绘
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/handwriting-draw/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/handwriting-draw/)
 
 ## 它是什么
 手写描绘让一个词看起来像有人在你眼前写出来。这个词由钢笔线条组成，而不是字体，每条线按人写字的顺序，从钢笔落笔的地方到抬起的地方揭开：先写连在一起的字母，再写 i 上的点和 t 上的横。

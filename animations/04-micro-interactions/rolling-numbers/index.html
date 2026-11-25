@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>数字滚动 — 动画手册</title>
   <meta name="description" content="每个数字像里程表一样滚动到新值。适合用在价格上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/rolling-numbers/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/rolling-numbers/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="数字滚动 — 动画手册">
   <meta property="og:description" content="每个数字像里程表一样滚动到新值。适合用在价格上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/rolling-numbers/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/rolling-numbers/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="数字滚动 — 动画手册">
   <meta name="twitter:description" content="每个数字像里程表一样滚动到新值。适合用在价格上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "数字滚动", "name": "数字滚动", "description": "每个数字像里程表一样滚动到新值。适合用在价格上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/rolling-numbers/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 数字滚动"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "数字滚动", "name": "数字滚动", "description": "每个数字像里程表一样滚动到新值。适合用在价格上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/rolling-numbers/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 数字滚动"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--card:#16161a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -91,8 +91,8 @@
     @media(max-width:600px){.lbl{font:600 12px/1.25 var(--hb-font);padding:2px 5px}}
     @media(max-height:640px){.stage[data-hb-mode="inside"] .num{font-size:clamp(32px,10vw,56px)}.stage[data-hb-mode="compare"] .num{font-size:clamp(32px,11vw,64px)}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -202,7 +202,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -217,7 +217,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $=id=>document.getElementById(id);
   const slowTog=$('slow-tog'),valueEl=$('value'),reduceMq=matchMedia('(prefers-reduced-motion:reduce)');
@@ -391,7 +391,7 @@
     if(wait)poseT=setTimeout(go,wait);else go();
   }
   const noteIn=document.querySelector('[data-hb-for="inside"]'),NOTE_IN=noteIn.textContent,lDir=$('l-dir'),lSpeed=$('l-speed'),xd=document.querySelector('.xd');
-  const NOTE_STILL='Inside, shown still: each digit is a window over a column of 0 to 9, and a change would slide the column; with reduced motion the new digit fades in instead.';
+  const NOTE_STILL='看内部、静止展示：每一位是 0 到 9 那一列上的窗口，变化时整列会滑动；减弱动态效果下，新数字改为淡入。';
   const say=ms=>ms<=400?'大约三分之一秒':ms<=700?'大约半秒':ms<=1000?'将近一秒':ms<=1800?'大约一秒半':ms<=2200?'大约两秒':'大约三秒';
   const put=(el,t)=>{if(el.textContent!==t)el.textContent=t};
   // See inside: the words and arrow for the settings, then the room: the windows grow until the card fills the box, to half a digit

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3D 模型环绕 — 动画手册</title>
   <meta name="description" content="带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/3d-model-orbit/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/3d-model-orbit/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="3D 模型环绕 — 动画手册">
   <meta property="og:description" content="带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/3d-model-orbit/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/3d-model-orbit/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="3D 模型环绕 — 动画手册">
   <meta name="twitter:description" content="带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D 模型环绕", "name": "3D 模型环绕", "description": "带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/3d-model-orbit/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 3D 模型环绕"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D 模型环绕", "name": "3D 模型环绕", "description": "带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/3d-model-orbit/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 3D 模型环绕"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--sun:#ffd35c;--pill:rgba(6,10,16,.92);--ink:#f4f4f2}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -42,8 +42,8 @@
     .stage[data-hb-mode="compare"].stack .cap.second{left:10px;top:calc(50% + 6px)}
     .stage.no-gl .cap,.stage.no-gl .sunlay{display:none!important}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -179,7 +179,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -194,7 +194,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 // ─── Shaders ───────────────────────────────────────────────────────────────
 const VS=`
@@ -213,10 +213,10 @@ uniform vec3 uCol,uLight;
 uniform float uDim; // 1 as the page draws it; See inside dims the solid
 uniform bool uWire;
 void main(){
-  if(uWire){gl_Frag颜色=vec4(uCol,1.);return;}
+  if(uWire){gl_FragColor=vec4(uCol,1.);return;}
   vec3 L=normalize(uLight-vP),V=normalize(-vP);
   float d=max(dot(vN,L),0.),s=pow(max(dot(reflect(-L,vN),V),0.),48.);
-  gl_Frag颜色=vec4((.15*uCol+d*uCol+.7*s*vec3(1.))*uDim,1.);
+  gl_FragColor=vec4((.15*uCol+d*uCol+.7*s*vec3(1.))*uDim,1.);
 }`;
 
 // ─── Mat4 helpers (column-major) ───────────────────────────────────────────
@@ -327,7 +327,7 @@ function init(){
   gl.linkProgram(prog);
   if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(prog));fail('着色器程序链接失败——日志在浏览器控制台里。');return;}
   gl.useProgram(prog);
-  gl.enable(gl.DEPTH_TEST);gl.clear颜色(...CLEAR);
+  gl.enable(gl.DEPTH_TEST);gl.clearColor(...CLEAR);
   posBuf=gl.createBuffer();nrmBuf=gl.createBuffer();idxBuf=gl.createBuffer();lineBuf=gl.createBuffer();
   loadGeometry('cube');
 }
@@ -396,8 +396,8 @@ function pickAngles(){
 function draw(){
   gl.disable(gl.SCISSOR_TEST);
   if(VIEW==='compare'){
-    gl.viewport(0,0,W,H);gl.clear颜色(.2,.25,.32,1);gl.clear(gl.COLOR_BUFFER_BIT); // the thin divider between the halves
-    gl.clear颜色(...CLEAR);
+    gl.viewport(0,0,W,H);gl.clearColor(.2,.25,.32,1);gl.clear(gl.COLOR_BUFFER_BIT); // the thin divider between the halves
+    gl.clearColor(...CLEAR);
   }else{gl.viewport(0,0,W,H);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);}
   gl.useProgram(prog);
   setAttr('aPos',posBuf,3);setAttr('aNorm',nrmBuf,3);

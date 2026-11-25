@@ -1,6 +1,6 @@
 # 摆动
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wiggle/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/wiggle/)
 
 ## 它是什么
 

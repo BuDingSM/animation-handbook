@@ -1,6 +1,6 @@
 # 提示气泡浮现
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/tooltip-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/tooltip-reveal/)
 
 ## 它是什么
 提示气泡是一个小标签，在你指向一个项目或用键盘到达它时出现在它旁边，给出页面上放不下的简短说明。它淡入并非常轻微地长大，显示前会等一会儿，这样指针只是经过东西时，提示不会闪现。指针离开后，它会停留一会儿再淡出，不会在指针刚滑出项目时立刻消失。

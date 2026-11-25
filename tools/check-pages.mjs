@@ -184,7 +184,7 @@ const homeCheck = firstScreen => `(() => {
   if (!tile) problems.push('no place tiles');
   else if (${firstScreen} && r(tile).bottom > innerHeight) problems.push('place tiles below the first screen');
   const counts = [...document.querySelectorAll('.pl-count')].map(el => el.textContent.trim());
-  if (counts.length !== 9 || counts.some(t => !/^[1-9]\\d* animations?$/.test(t))) problems.push('tile counts: ' + counts.join(' | '));
+  if (counts.length !== 9 || counts.some(t => !/^[1-9]\\d* 个动画$/.test(t))) problems.push('tile counts: ' + counts.join(' | '));
   const cards = document.querySelectorAll('#cards .card').length;
   if (cards !== 8) problems.push('Start shows ' + cards + ' cards, not 8');
   return { problems };
@@ -1209,9 +1209,9 @@ async function homeViewProblems() {
   // The group chips under the heading. The group pressed is the biggest one (more than a page of cards, for Show all); the
   // other is the first group that is not it. Both come from the page's data, as the totals do.
   const chips = () => evaluate(`(() => { const row = document.getElementById('spots');
-    return { shown: !row.hidden && row.getClientRects().length > 0, pressed: [...row.querySelectorAll('.spot[aria-pressed="true"]')].map(b => b.dataset.cat || 'All').join() }; })()`);
+    return { shown: !row.hidden && row.getClientRects().length > 0, pressed: [...row.querySelectorAll('.spot[aria-pressed="true"]')].map(b => b.dataset.cat || '全部').join() }; })()`);
   const [group, other] = await evaluate(`(() => { const big = CATS.reduce((a, b) => b.entries.length > a.entries.length ? b : a), next = CATS.find(c => c !== big);
-    return [big, next].map(c => ({ key: slugify(c.name), name: c.name, cards: c.entries.length })); })()`);
+    return [big, next].map(c => ({ key: c.key, name: c.name, cards: c.entries.length })); })()`);
   if (group.cards <= 8) problems.push(`the page's own data: the biggest group has ${group.cards} cards (the group steps need more than one page of cards)`);
   let c = await chips();
   if (!c.shown || c.pressed !== '全部') problems.push(`group chips at Start: ${JSON.stringify(c)}`);
@@ -1771,12 +1771,12 @@ async function finderViewProblems() {
   if (s.checked !== 'what=menu&when=scroll&how=slide' || s.search !== '?view=find&what=menu&when=scroll&how=slide' || s.steps !== steps) {
     problems.push(`finder, three answers: chosen ${s.checked}, the address ${s.search}, ${s.steps - steps} history steps added`);
   }
-  if (!s.names.slice(0, 6).includes('Hide-on-Scroll Header')) problems.push(`finder: 菜单或表单 · 滚动时 · 滑动 shows ${s.names.slice(0, 6).join(', ') || 'no cards'} first, not Hide-on-Scroll Header`);
+  if (!s.names.slice(0, 6).includes('滚动隐藏顶栏')) problems.push(`finder: 菜单或表单 · 滚动时 · 滑动 shows ${s.names.slice(0, 6).join(', ') || 'no cards'} first, not 滚动隐藏顶栏`);
   if (!FIND_SEE.test(s.see) || !s.notHere) problems.push(`finder: 查看 N 个匹配 reads "${s.see}", Not here? is ${s.notHere ? 'shown' : 'hidden'}`);
   if (!FIND_LINE.test(s.sub)) problems.push(`finder: the results line "${s.sub}"`);
   const link = await evaluate(`(() => { const a = document.getElementById('find-gh');
     return a ? { href: new URL(a.href).href, want: new URL(findIssueURL({ what: 'menu', when: 'scroll', how: 'slide' })).href, target: a.target, rel: a.rel } : null; })()`);
-  if (!link || link.href !== link.want || !link.href.startsWith('https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml&') ||
+  if (!link || link.href !== link.want || !link.href.startsWith('https://github.com/BuDingSM/animation-handbook/issues/new?template=animation_not_here.yml&') ||
     link.target !== '_blank' || link.rel !== 'noopener') problems.push(`finder: the “不在这里？” link ${JSON.stringify(link)}`);
   const picked = s.names;
   await press('#find-see');
@@ -2183,7 +2183,7 @@ async function famousCopyProblems(id, extra) {
   const prompt = `document.querySelector('#${id} .fx-prompt').textContent.replace(/\\s+/g, ' ').trim()`;
   const title = `document.querySelector('#${id} h2').textContent`;
   const message = `document.getElementById('toast').classList.contains('show') && document.querySelector('#toast .toast-t').textContent === '提示词已复制，粘贴到你的 AI 助手里就能用。'`;
-  // Before a press the button reads 复制提示词 again (its 已复制 lasts about two seconds), the message of the press before is put
+  // Before a press the button reads 复制提示词 again (its 已复制 lasts 大约两秒), the message of the press before is put
   // away and nothing is selected, so the press has to bring its own.
   const idle = () => evaluate(`(async () => { const btn = document.querySelector('${copy}');
     for (let i = 0; i < 100 && btn.textContent.trim() !== '复制提示词'; i++) await new Promise(r => setTimeout(r, 50));

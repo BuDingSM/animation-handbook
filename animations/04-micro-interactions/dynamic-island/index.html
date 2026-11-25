@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>灵动岛 — 动画手册</title>
   <meta name="description" content="黑色药丸长成通知，然后再缩回去。适合用在实时更新上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/dynamic-island/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/dynamic-island/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="灵动岛 — 动画手册">
   <meta property="og:description" content="黑色药丸长成通知，然后再缩回去。适合用在实时更新上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/dynamic-island/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/dynamic-island/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="灵动岛 — 动画手册">
   <meta name="twitter:description" content="黑色药丸长成通知，然后再缩回去。适合用在实时更新上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "灵动岛", "name": "灵动岛", "description": "黑色药丸长成通知，然后再缩回去。适合用在实时更新上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/dynamic-island/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 灵动岛"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "灵动岛", "name": "灵动岛", "description": "黑色药丸长成通知，然后再缩回去。适合用在实时更新上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/dynamic-island/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 灵动岛"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--muted:#a1a1aa;--orange:#ff9f0a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -137,8 +137,8 @@
     @media(max-width:760px){
       .stage[data-hb-mode="compare"] .phone{border-width:4px;border-radius:32px 32px 0 0}.stage[data-hb-mode="compare"] .screen{border-radius:28px 28px 0 0}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -263,7 +263,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -278,7 +278,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $=id=>document.getElementById(id);
   const stage=document.querySelector('.stage'),isl=$('isl'),shapeEl=isl.querySelector('.shape'),say=$('say'),tm=$('tm'),slowTog=$('slow-tog');
@@ -448,7 +448,7 @@
     pose();place();
   }
   // The notes' words for reduced motion (the markup holds the others): written only when they change
-  const NOTE0={},NOTE1={inside:'Inside, shown still: the dashed box is the island and never changes size; the card waits inside at full size, and only a black cut-out shows. With reduced motion on, the card fades in instead.',
+  const NOTE0={},NOTE1={inside:'看内部、静止展示：虚线框是岛，大小不变；卡片以完整尺寸等在里面，只露出黑色切口。开启减弱动态效果后，卡片改为淡入。',
     compare:'Shown still, just after a press: 立刻出现 shows the whole card; in 药丸长大 the shape is still moving from the pill (dashed). With reduced motion on, a press fades the card in.'};
   document.querySelectorAll('.hb-mode-notes [data-hb-for]').forEach(p=>{NOTE0[p.dataset.hbFor]=p.textContent});
   function notes(){document.querySelectorAll('.hb-mode-notes [data-hb-for]').forEach(p=>{const t=(reduceMq.matches?NOTE1:NOTE0)[p.dataset.hbFor];if(p.textContent!==t)p.textContent=t})}

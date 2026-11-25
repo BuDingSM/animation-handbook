@@ -1,6 +1,6 @@
 # 星空
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/starfield/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/starfield/)
 
 ## 它是什么
 星空在深色背景上布满小星星，从中心向外飞流，像从飞船上看太空。每颗星星的大小、亮度和速度取决于它离中间多远：中心附近的星星小、暗、慢，向边缘变大、变亮、变快，这正是它感觉深邃的原因。横向版本让星星飘过，越近的越快，像从窗户看出去。

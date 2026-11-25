@@ -1,6 +1,6 @@
 # 文字蒙版
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-mask/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-mask/)
 
 ## 它是什么
 

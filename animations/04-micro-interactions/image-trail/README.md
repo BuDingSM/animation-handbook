@@ -1,6 +1,6 @@
 # 图片拖尾
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/image-trail/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/image-trail/)
 
 ## 它是什么
 图片拖尾会在指针滑过主视觉或画廊时，在它身后留下一串图片。指针每走过一段固定距离，一张新图片就弹到其他图片上面，出现在指针所在的地方，停留一会儿，然后离开、淡出。快速一扫会留下一条长长的图片带，静止不动的指针则什么都不会留下。

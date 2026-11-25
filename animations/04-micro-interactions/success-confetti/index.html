@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>成功彩带 — 动画手册</title>
   <meta name="description" content="任务完成时，按钮处迸出彩带。适合用在重要时刻。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="成功彩带 — 动画手册">
   <meta property="og:description" content="任务完成时，按钮处迸出彩带。适合用在重要时刻。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="成功彩带 — 动画手册">
   <meta name="twitter:description" content="任务完成时，按钮处迸出彩带。适合用在重要时刻。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "成功彩带", "name": "成功彩带", "description": "任务完成时，按钮处迸出彩带。适合用在重要时刻。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 成功彩带"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "成功彩带", "name": "成功彩带", "description": "任务完成时，按钮处迸出彩带。适合用在重要时刻。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 成功彩带"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ok:#3fb950}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -52,8 +52,8 @@
     .half.first{left:10px}.half.second{left:calc(50% + 10px)}
     @media(max-width:600px){.cap{padding:3px 7px;font-size:12px;line-height:16px}.stage[data-hb-mode="compare"] .order-btn{padding:18px 14px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -155,7 +155,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -170,7 +170,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage'),btn=document.querySelector('.order-btn'),check=btn.querySelector('.check'),
         lbl=document.getElementById('btn-lbl'),cv=document.getElementById('cv'),ctx=cv.getContext('2d'),
@@ -301,7 +301,7 @@
   const FANS={60:'窄扇形',110:'中等扇形',170:'宽扇形'},PULLS={.15:'轻轻',.28:'稳稳',.45:'用力'};
   const [capFan,capPull,capPath,capSpin]=stage.querySelectorAll('.cap.in');
   // Under reduced motion both views are still pictures, and their notes say so (the page's own words otherwise)
-  const STILL={inside:'Inside, shown still: the fan shows where the pieces would be shot, the arrows the pull on them and the lines their paths. With reduced motion on, no confetti flies.',
+  const STILL={inside:'看内部、静止展示：扇形是碎片射出的方向，箭头是拉力，线是路径。开启减弱动态效果后，没有彩纸飞出。',
     compare:'Shown still: 只有对勾 turns green with a check; 带彩带 also sends pieces flying. With reduced motion on, both only turn green.'};
   const noteTexts=[...document.querySelectorAll('[data-hb-for]')].map(n=>[n,n.textContent]);
   function noteWords(){for(const [n,t] of noteTexts){const w=reduce.matches?STILL[n.dataset.hbFor]:t;if(n.textContent!==w)n.textContent=w}}

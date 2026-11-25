@@ -1,6 +1,6 @@
 # 逐字母出现
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/letter-by-letter-stagger/)
 
 ## 它是什么
 

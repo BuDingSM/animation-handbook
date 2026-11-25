@@ -1,6 +1,6 @@
 # 乱码/故障文字
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/scramble-text/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/scramble-text/)
 
 ## 它是什么
 乱码文字让每个字母先显示为一个不停变化的随机字符，然后逐个锁定为真实字母。字母从左到右一个接一个地锁定，所以文字是一点一点变得可读的，就像一条隐藏信息正在被解码。随机字符可以是符号、字母表里的字母、数字、日文字符，或者混合。

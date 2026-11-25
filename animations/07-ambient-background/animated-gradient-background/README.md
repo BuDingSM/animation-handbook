@@ -1,6 +1,6 @@
 # 动态渐变背景
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/animated-gradient-background/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/animated-gradient-background/)
 
 ## 它是什么
 动态渐变背景在内容后面慢慢变换颜色，周期很长（通常 15 到 30 秒），所以页面感觉有生气，却没有什么会抓住眼球。渐变画得比它填充的区域大得多，慢慢来回滑动，或者它的颜色沿着色轮转动。这是最轻量的氛围效果：浏览器完全不用脚本就能让它动起来。

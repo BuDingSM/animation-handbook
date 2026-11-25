@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>悬停图片扭曲 — 动画手册</title>
   <meta name="description" content="图片在指针周围起涟漪、弯曲。适合作品集图片。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="悬停图片扭曲 — 动画手册">
   <meta property="og:description" content="图片在指针周围起涟漪、弯曲。适合作品集图片。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="悬停图片扭曲 — 动画手册">
   <meta name="twitter:description" content="图片在指针周围起涟漪、弯曲。适合作品集图片。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "悬停图片扭曲", "name": "悬停图片扭曲", "description": "图片在指针周围起涟漪、弯曲。适合作品集图片。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 悬停图片扭曲"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "悬停图片扭曲", "name": "悬停图片扭曲", "description": "图片在指针周围起涟漪、弯曲。适合作品集图片。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 悬停图片扭曲"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -46,8 +46,8 @@
     .stage.failed .ov,.stage.failed .key,.stage.failed .ptr{display:none!important}
     @media(max-width:600px){.cap{font-size:12px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -171,7 +171,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -186,7 +186,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const VS=`attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}`;
 const FS=`
@@ -228,7 +228,7 @@ void main(){
     float px=mix(.002,.04,falloff*(uStr/20.));
     duv=floor(uv/px)*px;
   }
-  gl_Frag颜色=vec4(pat(duv),1.);
+  gl_FragColor=vec4(pat(duv),1.);
 }`;
 
 const stage=document.getElementById('stage'),cvs=document.getElementById('cvs');
@@ -280,7 +280,7 @@ function init(){
   if(!gl){glErr='这个浏览器不支持 WebGL，所以扭曲着色器无法运行。';return false;}
   function sh(t,s){
     const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);
-    if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(x)||'shader compile failed');
+    if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(x)||'着色器编译失败');
     return x;
   }
   try{
@@ -288,7 +288,7 @@ function init(){
     gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
     gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
     gl.linkProgram(prog);
-    if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog)||'program link failed');
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog)||'程序链接失败');
   }catch(e){glErr=('着色器构建失败：\n'+e.message).replace(/\0/g,'').trim();return false;}
   U={};['uRes','uMouse','uO','uT','uStr','uRad','uPhase','uType','uAnimate'].forEach(n=>{U[n]=gl.getUniformLocation(prog,n);});
   const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
@@ -330,7 +330,7 @@ function draw(){
   gl.uniform1i(U.uAnimate,ANIMATE?1:0);
   if(mode==='normal'){view(0,W,H,mouseX,mouseY,STR*amp,phase);return;}
   const p=now(),f=fr();
-  gl.viewport(0,0,W,H);gl.clear颜色(.07,.07,.09,1);gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.viewport(0,0,W,H);gl.clearColor(.07,.07,.09,1);gl.clear(gl.COLOR_BUFFER_BIT);
   if(mode==='compare'){
     view(0,f.w,f.h,-999,-999,0,0); // untouched: no bend, so the point and the phase change nothing
     view(f.x,f.w,f.h,p.x-f.x,p.y-f.y,STR*p.a,p.ph);
@@ -357,8 +357,8 @@ function shift(ux,uy,mx,my,ar,s,ph){
 }
 // Strokes the path twice: a dark edge under, then the light line (dashed as asked)
 function stroke(under,color,w,dash){
-  ctx.setLineDash([]);ctx.stroke样式=under;ctx.lineWidth=w+2;ctx.stroke();
-  ctx.setLineDash(dash);ctx.stroke样式=color;ctx.lineWidth=w;ctx.stroke();
+  ctx.setLineDash([]);ctx.strokeStyle=under;ctx.lineWidth=w+2;ctx.stroke();
+  ctx.setLineDash(dash);ctx.strokeStyle=color;ctx.lineWidth=w;ctx.stroke();
 }
 // See inside draws, over the picture and in CSS pixels, the ring (how far the bend reaches), thin dashes where the picture's real
 // grid lines are and an arrow from each spot to the spot it copies its color from. Compare and See inside place the pretend

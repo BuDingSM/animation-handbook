@@ -1,6 +1,6 @@
 # 波浪层
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/wave-layers/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/wave-layers/)
 
 ## 它是什么
 波浪层把几条水带一层层叠起来，每条顶边是波浪形。每条带子沿自己的无尽循环横向滑动，近处的带子位置更低、移动更快、波浪更大，所以几个扁平形状看起来就是深水。浏览器不用脚本就让它们全部动起来。

@@ -1,6 +1,6 @@
 # 数字滚动计数
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/counter-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/counter-animation/)
 
 ## 它是什么
 

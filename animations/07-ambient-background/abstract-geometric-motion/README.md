@@ -1,6 +1,6 @@
 # 抽象几何动效
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/abstract-geometric-motion/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/abstract-geometric-motion/)
 
 ## 它是什么
 抽象几何动效是由简单图形组成的无尽循环，纯粹为了观看而存在：多边形围绕中心慢慢旋转，圆环从中心扩散，斜条滑过，或波浪线带着色彩流动。没有故事，也没有什么可点击的。像屏保或音乐可视化一样，它就是要长时间保持平静、赏心悦目。

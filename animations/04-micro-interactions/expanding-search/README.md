@@ -1,6 +1,6 @@
 # 搜索框展开
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/expanding-search/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/expanding-search/)
 
 ## 它是什么
 展开搜索在需要之前只显示一个搜索图标。按下图标，搜索框从图标处打开，盖住旁边的链接，并把光标放进去；Esc、关闭按钮或点击别处会再关掉它。它在拥挤的工具栏里省地方，同时让搜索一按就到。

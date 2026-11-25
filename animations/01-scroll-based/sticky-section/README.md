@@ -1,6 +1,6 @@
 # 吸顶区域
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/sticky-section/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/sticky-section/)
 
 ## 它是什么
 吸顶区域在你滚动时让整个区域固定不动，并用这段滚动让它的内容逐步走过一个序列，而不是移动页面。区域坐在一个高包装器里，你在包装器里滚了多远决定显示哪一步，所以往上滚会倒退回上一步。演示里，一列文字和一张图片一起走过四个步骤，然后区域滚走。

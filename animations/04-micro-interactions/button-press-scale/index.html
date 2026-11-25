@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>按钮按压缩放 — 动画手册</title>
   <meta name="description" content="按下时缩小，松开时弹回。适合用在主按钮上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/button-press-scale/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/button-press-scale/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="按钮按压缩放 — 动画手册">
   <meta property="og:description" content="按下时缩小，松开时弹回。适合用在主按钮上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/button-press-scale/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/button-press-scale/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="按钮按压缩放 — 动画手册">
   <meta name="twitter:description" content="按下时缩小，松开时弹回。适合用在主按钮上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "按钮按压缩放", "name": "按钮按压缩放", "description": "按下时缩小，松开时弹回。适合用在主按钮上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/button-press-scale/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 按钮按压缩放"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "按钮按压缩放", "name": "按钮按压缩放", "description": "按下时缩小，松开时弹回。适合用在主按钮上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/button-press-scale/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 按钮按压缩放"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--press-scale:0.95;--press-dur:80ms;--release-dur:180ms;--release-ease:cubic-bezier(.34,1.56,.64,1)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -96,8 +96,8 @@
       .cmp-time{left:12px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -230,7 +230,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -245,7 +245,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const btns=[...document.querySelectorAll('.pbtn')];
   const slowTog=document.getElementById('slow-tog');
@@ -294,10 +294,10 @@
   const pt=document.getElementById('pt'),gh=document.getElementById('gh');
   const noteIn=document.querySelector('[data-hb-for="inside"]'),noteCmp=document.querySelector('[data-hb-for="compare"]');
   const NOTE={inside:noteIn.textContent,compare:noteCmp.textContent};
-  const RM={inside:'Inside, the outer outline is the button at rest and the inner one its size while held down; with reduced motion on it changes size at once.',
+  const RM={inside:'看内部时，外圈是按钮静止时的大小，内圈是按住时的大小；开启减弱动态效果后，大小会立刻改变。',
     compare:'保持不变 looks as always, and 按下时缩小 rests held down, smaller with a smaller glow. With reduced motion on it changes size at once.'};
   const rmQuery=matchMedia('(prefers-reduced-motion: reduce)'),stacked=matchMedia('(max-width:600px)');
-  const OUT=3,LANE=14,FEELS={spring:'a little past full size',out:'减速到位',linear:'at one steady pace'};
+  const OUT=3,LANE=14,FEELS={spring:'a little past full size',out:'减速到位',linear:'以稳定的速度'};
   let mode='normal',ps=.95,feel='spring',held=false;
   btns.forEach(b=>{const c=document.createElement('span');c.className=b.className;c.textContent=b.textContent;twins.append(c)});
   const smaller=s=>s>=.96?'slightly smaller':s>=.93?'a little smaller':'小十分之一';
@@ -309,8 +309,8 @@
   function words(){
     const k=slowTog.checked?3:1,rm=rmQuery.matches;
     say(caps[1],'按住：'+smaller(ps)+', '+(rm?'at once':quickly(pd*k)));
-    say(caps[2],'Let go: back '+(rm?'to full size at once':'in '+secs(rd*k)+', '+FEELS[feel]));
-    say(timeCap,rm?'Changes size at once':'沉下去'+quickly(pd*k)+'; springs back in '+secs(rd*k)+', '+FEELS[feel]);
+    say(caps[2],'松开：回到'+(rm?'to full size at once':'in '+secs(rd*k)+', '+FEELS[feel]));
+    say(timeCap,rm?'Changes size at once':'沉下去'+quickly(pd*k)+'；弹回用时'+secs(rd*k)+', '+FEELS[feel]);
     say(noteIn,rm?RM.inside:NOTE.inside);say(noteCmp,rm?RM.compare:NOTE.compare);
   }
   // Both outlines come from each button's own box: the outer one a few pixels outside it, the inner one at Press depth

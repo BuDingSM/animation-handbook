@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>色差 — 动画手册</title>
   <meta name="description" content="一个词裂成红、绿、蓝三色边缘。适合醒目的标题。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/chromatic-aberration/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="色差 — 动画手册">
   <meta property="og:description" content="一个词裂成红、绿、蓝三色边缘。适合醒目的标题。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/chromatic-aberration/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="色差 — 动画手册">
   <meta name="twitter:description" content="一个词裂成红、绿、蓝三色边缘。适合醒目的标题。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "色差", "name": "色差", "description": "一个词裂成红、绿、蓝三色边缘。适合醒目的标题。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 色差"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "色差", "name": "色差", "description": "一个词裂成红、绿、蓝三色边缘。适合醒目的标题。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/chromatic-aberration/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 色差"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--ca-amt:4px;--ca-angle:30deg;--ca-blur:0px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -100,8 +100,8 @@
       .stage[data-hb-mode="compare"]::after{left:16px;right:16px;top:50%;bottom:auto;width:auto;height:1px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -218,7 +218,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -233,7 +233,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const wrap=document.getElementById('ca-wrap');
   const rLayer=document.getElementById('ca-r'),bLayer=document.getElementById('ca-b');
@@ -357,7 +357,7 @@
   function fit(){
     if(mode==='normal')return;
     const boxes=mode==='inside'?[minis,realBox]:[first,realBox];
-    let s=parseFloat(getComputed样式(rulerText).font大小)*(mode==="compare"?.85:1);
+    let s=parseFloat(getComputedStyle(rulerText).fontSize)*(mode==="compare"?.85:1);
     for(let i=0;i<30;i++){
       stage.style.setProperty('--ca-fs',s.toFixed(1)+'px');
       if(s<6||boxes.every(fits))break;

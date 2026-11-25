@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canvas 粒子效果 — 动画手册</title>
   <meta name="description" content="圆点漂浮，靠近时连线，还会躲开指针。适合科技类网站。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/canvas-particle-effect/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/canvas-particle-effect/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="Canvas 粒子效果 — 动画手册">
   <meta property="og:description" content="圆点漂浮，靠近时连线，还会躲开指针。适合科技类网站。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/canvas-particle-effect/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/canvas-particle-effect/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Canvas 粒子效果 — 动画手册">
   <meta name="twitter:description" content="圆点漂浮，靠近时连线，还会躲开指针。适合科技类网站。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Canvas 粒子效果", "name": "Canvas 粒子效果", "description": "圆点漂浮，靠近时连线，还会躲开指针。适合科技类网站。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/canvas-particle-effect/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, Canvas 粒子效果"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Canvas 粒子效果", "name": "Canvas 粒子效果", "description": "圆点漂浮，靠近时连线，还会躲开指针。适合科技类网站。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/canvas-particle-effect/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, Canvas 粒子效果"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -34,8 +34,8 @@
     .side.second{left:calc(50% + 11px)}
     @media(max-width:900px),(max-height:500px){.lg{display:none}.sh{display:inline}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -169,7 +169,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -184,7 +184,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const cvs=document.getElementById('cvs');const ctx=cvs.getContext('2d');
 const stage=document.getElementById('stage');
@@ -274,21 +274,21 @@ function paint(links,dim){
     }
     ctx.lineWidth=.5;
     paths.forEach((path,k)=>{
-      ctx.stroke样式=`rgba(${r},${g},${b},${(k+.5)/6*.4*dim})`;
+      ctx.strokeStyle=`rgba(${r},${g},${b},${(k+.5)/6*.4*dim})`;
       ctx.stroke(path);
     });
   }
 
   // Dots
   particles.forEach(p=>{
-    ctx.fill样式=`rgba(${r},${g},${b},${p.op*dim})`;
+    ctx.fillStyle=`rgba(${r},${g},${b},${p.op*dim})`;
     ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
   });
 }
 
 // washes is how many times the Trails wash (15% of the old picture) is laid over it: once for a frame at 60 Hz
 function draw(washes=1){
-  if(TRAILS){ctx.fill样式='rgba(6,10,16,.15)';for(let i=0;i<washes;i++)ctx.fillRect(0,0,W,H);}
+  if(TRAILS){ctx.fillStyle='rgba(6,10,16,.15)';for(let i=0;i<washes;i++)ctx.fillRect(0,0,W,H);}
   else{ctx.clearRect(0,0,W,H);}
   if(mode!=='compare')return paint(true,mode==='inside'?.5:1);
   // Compare: the same dots twice, each half clipped; only the second joins them with lines
@@ -296,7 +296,7 @@ function draw(washes=1){
     ctx.save();ctx.translate(s*(HW+2),TOP);ctx.beginPath();ctx.rect(0,0,HW,WH);ctx.clip();
     paint(s===1,1);ctx.restore();
   }
-  ctx.fill样式='#2f3743';ctx.fillRect(HW,0,2,H);
+  ctx.fillStyle='#2f3743';ctx.fillRect(HW,0,2,H);
 }
 
 // One of the pointer ring's eight arrows into ra: out from the ring's inside for Push, in for Pull
@@ -319,29 +319,29 @@ function drawMarks(){
     if(CONNECTIONS){
       const d2max=DIST*DIST;mctx.lineWidth=1.25;
       for(let k=0;k<6;k++){
-        mctx.stroke样式=`rgba(${r},${g},${b},${Math.min(1,(k+.5)/6*.4*2.5)})`;mctx.beginPath();
+        mctx.strokeStyle=`rgba(${r},${g},${b},${Math.min(1,(k+.5)/6*.4*2.5)})`;mctx.beginPath();
         for(const q of particles){
           const dx=q.x-p.x,dy=q.y-p.y,d2=dx*dx+dy*dy;
           if(q!==p&&d2<d2max&&Math.min(5,Math.floor((1-d2/d2max)*6))===k){mctx.moveTo(p.x,p.y);mctx.lineTo(q.x,q.y);}
         }
         mctx.stroke();
       }
-      mctx.setLineDash(DASH);mctx.stroke样式=`rgb(${r},${g},${b})`;mctx.lineWidth=1.5;
+      mctx.setLineDash(DASH);mctx.strokeStyle=`rgb(${r},${g},${b})`;mctx.lineWidth=1.5;
       mctx.beginPath();mctx.arc(p.x,p.y,DIST,0,Math.PI*2);mctx.stroke();mctx.setLineDash(NONE);
     }
-    mctx.fill样式=`rgb(${r},${g},${b})`;mctx.stroke样式='#f4f4f2';mctx.lineWidth=1.2;
+    mctx.fillStyle=`rgb(${r},${g},${b})`;mctx.strokeStyle='#f4f4f2';mctx.lineWidth=1.2;
     mctx.beginPath();mctx.arc(p.x,p.y,p.r+2.5,0,Math.PI*2);mctx.fill();mctx.stroke();
     const v=Math.hypot(p.vx,p.vy)||1,s0=p.r+4,len=Math.max(v*60,s0+10);
     mctx.lineWidth=2;mctx.beginPath();arrow(p.x+p.vx/v*s0,p.y+p.vy/v*s0,p.x+p.vx/v*len,p.y+p.vy/v*len);mctx.stroke();
   }
   if(!FORCE)return;
   const x=mouse.x,y=mouse.y;
-  mctx.setLineDash(DASH);mctx.stroke样式='#ffd666';mctx.lineWidth=1.5;
+  mctx.setLineDash(DASH);mctx.strokeStyle='#ffd666';mctx.lineWidth=1.5;
   mctx.beginPath();mctx.arc(x,y,REACH,0,Math.PI*2);mctx.stroke();mctx.setLineDash(NONE);
   mctx.lineWidth=2;mctx.beginPath();
   for(let i=0;i<8;i++){reach(i,x,y);arrow(ra[0],ra[1],ra[2],ra[3]);}
   mctx.stroke();
-  if(parked){mctx.save();mctx.translate(x,y);mctx.fill样式='#fff';mctx.stroke样式='#060a10';mctx.lineWidth=1.2;mctx.fill(CUR);mctx.stroke(CUR);mctx.restore();}
+  if(parked){mctx.save();mctx.translate(x,y);mctx.fillStyle='#fff';mctx.strokeStyle='#060a10';mctx.lineWidth=1.2;mctx.fill(CUR);mctx.stroke(CUR);mctx.restore();}
 }
 
 // One step is 1/60 s, so the dots drift at the same speed whatever the screen's refresh rate.
@@ -467,7 +467,7 @@ const LABEL={normal:cvs.getAttribute('aria-label'),compare:'同样的圆点画�
 // The picture's name says what the mode draws: one ringed dot on phones, no rings at 连线距离 None, no pointer ring at None
 function label(){
   const one=phoneQ.matches,t=mode==='normal'?LABEL.normal:mode==='compare'?(CONNECTIONS?LABEL.compare:'The same dots twice, drawn alone in both halves because 连线距离 is None')
-    :'Dots drifting, '+(one?'one':'three')+' of them '+(CONNECTIONS?'ringed to show how near another dot must be to join it, with ':'marked, with ')+(one?'an arrow for its':'arrows for their')+' drift'+(FORCE?' and a ring for the pointer’s reach':'');
+    :'Dots drifting, '+(one?'one':'three')+' of them '+(CONNECTIONS?'圈出另一点要多近才会连上，还有':'被标出，还有')+(one?'an arrow for its':'arrows for their')+' drift'+(FORCE?'，以及指针影响范围的圆圈':'');
   if(cvs.getAttribute('aria-label')!==t)cvs.setAttribute('aria-label',t);
 }
 // Registered at the top level, before the shared script. Compare keeps Normal's dots and picture and puts them back; See inside works on Normal's own dots.

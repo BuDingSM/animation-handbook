@@ -1,6 +1,6 @@
 # 错误抖动
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/error-shake/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/error-shake/)
 
 ## 它是什么
 错误抖动告诉别人，他们输入的内容没有被接受。字段左右摆动几次，每次摆动比上一次小，最后正好回到开始的地方，像摇头说不。红色边框和一条简短消息会一起出现，说明哪里错了。

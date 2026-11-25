@@ -1,6 +1,6 @@
 # 星级评分
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/star-rating/)
 
 ## 它是什么
 星级评分让人通过选一颗星来打分。指针沿着这排星星移动时，星星会填到它下面的那颗，这样选择在做出之前就能看到；点击一颗星会选中它，并让它弹出。方向键也能改变评分；一个设置让每颗星可以按半颗算。

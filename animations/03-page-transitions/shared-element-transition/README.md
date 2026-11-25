@@ -1,6 +1,6 @@
 # 共享元素过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/shared-element-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/shared-element-transition/)
 
 ## 它是什么
 共享元素过渡让页面切换时有一块内容保持可见：网格里的缩略图会长大、移动，进入详情页顶部的大图，而不是两个页面简单地互换。感觉像是你跟着内容一起走，而不是跳到一个新屏幕。演示先量出图片的起点和终点，再把它的一个副本从一处移到另一处。

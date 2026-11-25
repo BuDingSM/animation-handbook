@@ -1,6 +1,6 @@
 # 描边填充
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/outline-to-fill/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/outline-to-fill/)
 
 ## 它是什么
 描边填充让文字一开始是空心字，只显示每个字母的描边，然后填满颜色，所以文字看起来像正在被涂上墨。有两种做法，演示都展示了：一种是擦除，从一边像油漆一样填满字母；另一种是淡入，像墨水浸透一样同时填满所有地方。

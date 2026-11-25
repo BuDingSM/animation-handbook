@@ -1,6 +1,6 @@
 # 渐变边框动画
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/gradient-border/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/gradient-border/)
 
 ## 它是什么
 渐变边框动画是卡片或按钮周围的一条彩色边缘，一带颜色不停地绕着它流动。元素后面放着一个大图层，上面画着绕中心扫过的颜色；一个内部盒子盖住除了边缘以外的所有地方，这个图层转动，颜色就像沿着边框移动。

@@ -1,6 +1,6 @@
 # 骨架屏
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/skeleton-loader/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/skeleton-loader/)
 
 ## 它是什么
 骨架屏按即将到来的内容的布局，显示灰色占位形状。色块轻轻脉冲，表示正在加载；真实内容到来时，在它们上面淡入。因为人们看到了即将到来的东西的形状，等待比面对空白区域或旋转指示时感觉更短。

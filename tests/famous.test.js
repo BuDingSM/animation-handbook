@@ -105,7 +105,7 @@ const FILE = path.join(ROOT, 'famous', 'index.html');
 const read = f => fs.readFileSync(f, 'utf8').replace(/\r\n/g, '\n');
 const PAGE = read(FILE);
 const HOME = read(path.join(ROOT, 'index.html'));
-const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
+const LIVE = 'https://animation.xizanghuapi.cn/';
 const REPO = 'https://github.com/BuDingSM/animation-handbook';
 const TEMPLATE = `${REPO}/issues/new?template=famous_effect.yml`;
 const TITLE = '知名效果 — 动画手册';

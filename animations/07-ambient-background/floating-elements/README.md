@@ -1,6 +1,6 @@
 # 漂浮元素
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/floating-elements/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/floating-elements/)
 
 ## 它是什么
 漂浮元素是小的半透明图形，比如圆形、方形或圆环，在背景上慢慢漂移。每个图形沿着自己平滑、循环的路径走，有自己的速度、距离和起点，所以没有两个会同步移动。正是这种独立让它看起来像有生命的背景，而不是屏保。

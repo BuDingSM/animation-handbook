@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>音频可视化 — 动画手册</title>
   <meta name="description" content="音条随音乐起舞，从低音到高音。适合音乐播放器。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/audio-visualizer/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/audio-visualizer/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="音频可视化 — 动画手册">
   <meta property="og:description" content="音条随音乐起舞，从低音到高音。适合音乐播放器。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/audio-visualizer/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/audio-visualizer/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="音频可视化 — 动画手册">
   <meta name="twitter:description" content="音条随音乐起舞，从低音到高音。适合音乐播放器。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "音频可视化", "name": "音频可视化", "description": "音条随音乐起舞，从低音到高音。适合音乐播放器。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/audio-visualizer/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 音频可视化"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "音频可视化", "name": "音频可视化", "description": "音条随音乐起舞，从低音到高音。适合音乐播放器。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/audio-visualizer/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 音频可视化"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -42,8 +42,8 @@
     .stage[data-hb-mode="inside"].st-bars .scale{display:flex;justify-content:space-between}
     .row{left:10px}.row.first{top:10px}.row.second{top:var(--l2-y,50%)}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -163,7 +163,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -178,7 +178,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d'),stage=cvs.parentElement,hear=document.getElementById('hear');
   const slowTog=document.getElementById('slow-tog'),peakTog=document.getElementById('peak-tog'),pauseBtn=document.getElementById('btn-pause');
@@ -272,7 +272,7 @@
     return waveSet={s,n,sum,each};
   }
   const wave=(s,part)=>part===undefined?waves(s).sum:waves(s).each[part];
-  function grad(x0,y0,x1,y1){const g=ctx.createLinearGradient(x0,y0,x1,y1),[a,b]=PALETTES[pal];g.add颜色Stop(0,a);g.add颜色Stop(1,b);return g}
+  function grad(x0,y0,x1,y1){const g=ctx.createLinearGradient(x0,y0,x1,y1),[a,b]=PALETTES[pal];g.addColorStop(0,a);g.addColorStop(1,b);return g}
   // One row of bars in a rectangle; split: draw each bar in the colors of the parts filling it (See inside)
   // The palette's colors from the bottom of a bar to its top, drawn once into a strip one pixel wide; each bar copies the part of
   // the strip it reaches, which costs far less than filling bars with a gradient every frame
@@ -280,7 +280,7 @@
   function stripFor(h){
     if(strip&&strip.h===Math.round(h)&&strip.pal===pal)return strip.c;
     const c=document.createElement('canvas'),g=c.getContext('2d'),[a,b]=PALETTES[pal],gr=g.createLinearGradient(0,h,0,0);
-    c.width=1;c.height=Math.max(1,Math.round(h));gr.add颜色Stop(0,a);gr.add颜色Stop(1,b);g.fill样式=gr;g.fillRect(0,0,1,h);
+    c.width=1;c.height=Math.max(1,Math.round(h));gr.addColorStop(0,a);gr.addColorStop(1,b);g.fillStyle=gr;g.fillRect(0,0,1,h);
     strip={c,h:Math.round(h),pal};return c;
   }
   // Every bar is drawn in the palette first (in See inside a little larger, so the palette frames it); See inside then fills it part
@@ -294,39 +294,39 @@
         ctx.beginPath();
         for(let i=0;i<n;i++){const bh=Math.max(2,row.level[i]*h),sh=row.split[i][k];let under=0;for(let q=0;q<k;q++)under+=row.split[i][q];
           if(sh)ctx.rect(x+i*bw+gap/2,y+h-(under+sh)*bh,bw-gap,sh*bh)}
-        ctx.fill样式=PART_COLORS[k];ctx.fill();
+        ctx.fillStyle=PART_COLORS[k];ctx.fill();
       }
       ctx.globalAlpha=1;
     }
-    if(peakTog.checked){ctx.beginPath();for(let i=0;i<n;i++)ctx.rect(x+i*bw+gap/2,y+h-row.peak[i]*h-3,bw-gap,2);ctx.fill样式=split?PALETTES[pal][1]:'#f4f4f2';ctx.fill()}
+    if(peakTog.checked){ctx.beginPath();for(let i=0;i<n;i++)ctx.rect(x+i*bw+gap/2,y+h-row.peak[i]*h-3,bw-gap,2);ctx.fillStyle=split?PALETTES[pal][1]:'#f4f4f2';ctx.fill()}
   }
   // The ring: every bar in the palette (one path), the parts over it in See inside (one path each), a dot beyond each bar's peak
   function drawCircle(row,cx,cy,r0,len,split){
     const n=row.level.length,bass=(row.level[0]+row.level[1]+row.level[2])/3,r=r0*(1+.18*bass),[ca,cb]=PALETTES[pal],g=ctx.createRadialGradient(cx,cy,r,cx,cy,r+len);
-    g.add颜色Stop(0,ca);g.add颜色Stop(1,cb);
+    g.addColorStop(0,ca);g.addColorStop(1,cb);
     const lw=Math.max(2,Math.min(8,6.283*r/n*.55)),spoke=i=>{const a=-Math.PI/2+i/n*6.283;return[Math.cos(a),Math.sin(a),Math.max(2,row.level[i]*len)]};
-    ctx.lineWidth=split?lw+1.6:lw;ctx.lineCap='round';ctx.stroke样式=g;ctx.beginPath();
+    ctx.lineWidth=split?lw+1.6:lw;ctx.lineCap='round';ctx.strokeStyle=g;ctx.beginPath();
     for(let i=0;i<n;i++){const[c,s,l]=spoke(i);ctx.moveTo(cx+c*r,cy+s*r);ctx.lineTo(cx+c*(r+l),cy+s*(r+l))}
     ctx.stroke();
     if(split){
       ctx.globalAlpha=.86;ctx.lineWidth=lw;ctx.lineCap='butt';
       for(let k=0;k<5;k++){
-        ctx.stroke样式=PART_COLORS[k];ctx.beginPath();
+        ctx.strokeStyle=PART_COLORS[k];ctx.beginPath();
         for(let i=0;i<n;i++){const sh=row.split[i][k];if(sh<.02)continue;const[c,s,l]=spoke(i);let under=0;for(let q=0;q<k;q++)under+=row.split[i][q];
           const d0=r+under*l,d1=r+(under+sh)*l;ctx.moveTo(cx+c*d0,cy+s*d0);ctx.lineTo(cx+c*d1,cy+s*d1)}
         ctx.stroke();
       }
       ctx.globalAlpha=1;
     }
-    if(peakTog.checked){ctx.fill样式=split?cb:'#f4f4f2';ctx.beginPath();const pr=Math.max(1.5,lw*.4);
+    if(peakTog.checked){ctx.fillStyle=split?cb:'#f4f4f2';ctx.beginPath();const pr=Math.max(1.5,lw*.4);
       for(let i=0;i<n;i++){const[c,s]=spoke(i),d=r+row.peak[i]*len+lw/2+pr+1,px=cx+c*d,py=cy+s*d;ctx.moveTo(px+pr,py);ctx.arc(px,py,pr,0,6.283)}
       ctx.fill()}
-    ctx.stroke样式='rgba(255,255,255,.25)';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,cy,r-4,0,6.283);ctx.stroke();
+    ctx.strokeStyle='rgba(255,255,255,.25)';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,cy,r-4,0,6.283);ctx.stroke();
   }
   // A soft limit keeps the line inside its box at the loudest moments, so it never reaches into the half beside it
   // (step 3 for the noisy parts, whose jagged lines cost the most to draw and read the same with fewer points)
   function drawWave(pts,x,y,w,h,color,width,step=1){
-    ctx.stroke样式=color;ctx.lineWidth=width;ctx.lineJoin='bevel';ctx.beginPath();
+    ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineJoin='bevel';ctx.beginPath();
     for(let j=0;j<pts.length;j+=step){const v=pts[j],px=x+j/(pts.length-1)*w,py=y+h/2-v/(1+.25*Math.abs(v))*h*.42;j?ctx.lineTo(px,py):ctx.moveTo(px,py)}
     ctx.stroke();
   }
@@ -343,8 +343,8 @@
   const CELLS=[...Array(32)].map((_,b)=>KICK.includes(b/2)?PART_COLORS[0]:SNARE.includes(b/2)?PART_COLORS[1]:'rgba(255,255,255,.14)');
   function drawBeat(y){
     const x=10,w=W-20,cw=w/32;
-    for(let b=0;b<32;b++){ctx.fill样式=CELLS[b];ctx.fillRect(x+b*cw+1,y,cw-2,10)}
-    ctx.fill样式='#fff';ctx.fillRect(x+song/LOOP*w-1.5,y-4,3,18);
+    for(let b=0;b<32;b++){ctx.fillStyle=CELLS[b];ctx.fillRect(x+b*cw+1,y,cw-2,10)}
+    ctx.fillStyle='#fff';ctx.fillRect(x+song/LOOP*w-1.5,y-4,3,18);
   }
   // Where Compare draws: the top 58px hold Hear it and the first name, then two halves of the same width and height, the second
   // name in the band between them
@@ -356,12 +356,12 @@
     if(audio&&audio.ctx.state==='running')liveWave=toWave(audio.an);
     const live=audio&&style==='wave'?liveWave:null;
     if(mode==='compare'){const L=layout();drawRow(rows.lin,10,L.y1,W-20,L.h,false,song,live);drawRow(rows.cmp,10,L.y2,W-20,L.h,false,song,live);
-      ctx.fill样式='rgba(255,255,255,.12)';ctx.fillRect(0,L.y1+L.h+1,W,2)}
+      ctx.fillStyle='rgba(255,255,255,.12)';ctx.fillRect(0,L.y1+L.h+1,W,2)}
     else if(mode==='inside'){drawBeat(insideTop+30);drawRow(rows.log,10,insideTop+56,W-20,H-insideTop-96,true,song,live)}
     else drawRow(rows.log,10,58,W-20,H-68,false,song,live);
   }
   const waveBuf=new Float32Array(120);
-  const toWave=an=>{const d=audio.td||(audio.td=new Uint8Array(an.fft大小)),n=wave大小(),stride=Math.floor(600/n);an.getByteTimeDomainData(d);for(let j=0;j<n;j++)waveBuf[j]=(d[j*stride]-128)/128*1.6;return waveBuf.subarray(0,n)};
+  const toWave=an=>{const d=audio.td||(audio.td=new Uint8Array(an.fftSize)),n=wave大小(),stride=Math.floor(600/n);an.getByteTimeDomainData(d);for(let j=0;j<n;j++)waveBuf[j]=(d[j*stride]-128)/128*1.6;return waveBuf.subarray(0,n)};
   // One frame: the tune moves on by the time that passed (a third of it in slow motion), the heights follow it (or the real
   // sound), and the sound is scheduled a little ahead
   function frame(dt){
@@ -386,7 +386,7 @@
   function startAudio(){
     liveWave=null;
     const ac=new (window.AudioContext||window.webkitAudioContext)(),an=ac.createAnalyser(),out=ac.createGain();
-    an.fft大小=2048;an.smoothingTimeConstant=.5;out.gain.value=.45;out.connect(an);an.connect(ac.destination);
+    an.fftSize=2048;an.smoothingTimeConstant=.5;out.gain.value=.45;out.connect(an);an.connect(ac.destination);
     const noise=ac.createBuffer(1,ac.sampleRate,ac.sampleRate),d=noise.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;
     audio={ctx:ac,an,out,noise,upTo:clock};
     quiet(ac.resume());

@@ -1,6 +1,6 @@
 # 网格 / 圆点图案视差
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/grid-dot-pattern-parallax/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/grid-dot-pattern-parallax/)
 
 ## 它是什么
 网格或圆点图案视差在 Linear 和 Vercel 等开发者工具网站上很常见，它在内容后面放一个淡淡的重复圆点或线条图案，并让它朝指针的反方向微微移动。移动很小，只有指针移动的几个百分点，所以图案看起来比内容深一点：深度更多是感觉到的，而不是看到的。没有指针在上面时，网格自己慢慢漂移。

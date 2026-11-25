@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>焦点环动画 — 动画手册</title>
   <meta name="description" content="Tab 键到达的项目周围会收拢一个圆环。适合用在表单和菜单上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/focus-ring/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/focus-ring/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="焦点环动画 — 动画手册">
   <meta property="og:description" content="Tab 键到达的项目周围会收拢一个圆环。适合用在表单和菜单上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/focus-ring/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/focus-ring/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="焦点环动画 — 动画手册">
   <meta name="twitter:description" content="Tab 键到达的项目周围会收拢一个圆环。适合用在表单和菜单上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "焦点环动画", "name": "焦点环动画", "description": "Tab 键到达的项目周围会收拢一个圆环。适合用在表单和菜单上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/focus-ring/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 焦点环动画"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "焦点环动画", "name": "焦点环动画", "description": "Tab 键到达的项目周围会收拢一个圆环。适合用在表单和菜单上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/focus-ring/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 焦点环动画"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--ring-color:#ff9d5c;--ring-w:2px;--ring-offset:3px;--ring-dur:140ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -101,8 +101,8 @@
       .stage[data-hb-mode="compare"] .cmp-line{left:0;right:0;top:50%;bottom:auto;width:auto;height:1px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -244,7 +244,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -259,7 +259,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const form=document.getElementById('the-form');
   const stage=document.querySelector('.stage');
@@ -355,7 +355,7 @@
   function words(){
     const r=reduced.matches,gap=ringOff&&ringStyle==='ring-dual'?GAP[ringOff].replace('间隙','填满的间隙'):GAP[ringOff];
     const line=(ringStyle==='ring-dashed'?'虚线':LINE[ringW]+'线条')+(ringStyle==='ring-glow'?'，带一圈柔和的光晕':''),text=gap+'和'+line;
-    say(cap.from,r?'The ring would start out here, faint':'圆圈从这里开始，淡淡的');
+    say(cap.from,r?'环会从这里开始，很淡':'圆圈从这里开始，淡淡的');
     say(cap.close,r?'开启减弱动态效果时，它立刻出现在位置上':'然后收拢，用'+secs(ringDur*(slowTog.checked?3:1)));
     say(cap.look,text[0].toUpperCase()+text.slice(1));
     const n=r?"内部：虚线是圆环将会开始的地方；开启减弱动态效果时，它立刻出现在 Tab 到达的项目周围，箭头表示 Tab 的顺序。按 Tab，或按「演示一下」。":NOTE;

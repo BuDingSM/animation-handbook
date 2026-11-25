@@ -19,7 +19,7 @@ The first screen of the GitHub page shows what the handbook is: many good-lookin
 2. **`docs/hero.png`:** one clear frame of the same wall, shown instead of the GIF when the visitor's device asks for reduced motion.
 3. **The top of `README.md`:** `og-image.png` is replaced by the new picture, still linked to the live site:
    ```html
-   <a href="https://matinmonshizadeh.github.io/animation-handbook/"><picture>
+   <a href="https://animation.xizanghuapi.cn/"><picture>
      <source media="(prefers-reduced-motion: reduce)" srcset="docs/hero.png">
      <img src="docs/hero.gif" alt="Six animations from the handbook playing at once: Text Particles, Synthwave Grid, Liquid Glass, Shatter Effect, Holographic Card and Dynamic Island. Animation Handbook — 166 web animation techniques with live demos" width="820">
    </picture></a>

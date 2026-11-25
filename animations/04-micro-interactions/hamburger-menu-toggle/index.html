@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>汉堡菜单切换 — 动画手册</title>
   <meta name="description" content="三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hamburger-menu-toggle/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hamburger-menu-toggle/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="汉堡菜单切换 — 动画手册">
   <meta property="og:description" content="三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hamburger-menu-toggle/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hamburger-menu-toggle/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="汉堡菜单切换 — 动画手册">
   <meta name="twitter:description" content="三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "汉堡菜单切换", "name": "汉堡菜单切换", "description": "三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hamburger-menu-toggle/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 汉堡菜单切换"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "汉堡菜单切换", "name": "汉堡菜单切换", "description": "三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/hamburger-menu-toggle/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 汉堡菜单切换"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--dur:340ms;--ease:cubic-bezier(.65,0,.35,1);--bar-h:4px;--bar-w:44px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -111,8 +111,8 @@
       .stage[data-hb-mode="compare"] .menu li{padding:7px 14px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -239,7 +239,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -254,7 +254,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const btn=document.getElementById('burger');
@@ -337,7 +337,7 @@
   const RM_CMP_HELD='Shown still, half way through: 立刻切换 already shows the X and the whole menu; 变成叉号 is part way, its items still arriving.';
   const RM_CMP_PLAIN='With motion off, 变成叉号 swaps at once too, so the halves match. Press Compare again to see the still half way through.';
   if(!motionOk)noteCmp.textContent=RM_CMP_HELD;
-  if(!motionOk)noteIn.textContent='Inside, shown still: the dotted X is where the lines end; with motion on, the top and bottom lines slide to the middle and turn to cross, and the middle one fades.';
+  if(!motionOk)noteIn.textContent='看内部、静止展示：虚线的 X 是线条的终点；有动画时，上下两条滑到中间再转成交叉，中间那条淡出。';
 
   // The height of a speed curve at a share x of its time: the curve's own t for x found by halving, then its height there
   function curveAt(spec,x){

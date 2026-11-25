@@ -1,6 +1,6 @@
 # 文字渐变动画
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-gradient-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-gradient-animation/)
 
 ## 它是什么
 文字渐变动画用渐变而不是纯色来填充字母，然后在字母后面移动渐变，所以颜色看起来在词里流动，而字母保持静止。窍门是把渐变画成文字的背景，只在字母形状里显示这个背景，并让文字颜色本身透明。

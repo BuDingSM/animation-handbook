@@ -1,6 +1,6 @@
 # 交错显现
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/stagger-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/stagger-reveal/)
 
 ## 它是什么
 交错显现让一组元素一个接一个出现，而不是同时出现，元素之间有短暂延迟，所以整组像一次扫过一样出现。顺序可以从第一个到最后一个、从最后一个到第一个、从中间向外，或随机。演示在卡片网格、列表和一簇标签上播放它，每组滚动进入视野时触发。

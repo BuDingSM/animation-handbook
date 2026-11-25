@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>主题切换变形 — 动画手册</title>
   <meta name="description" content="颜色切换到深色时，太阳变成月亮。适合用在主题按钮上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/theme-toggle-morph/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/theme-toggle-morph/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="主题切换变形 — 动画手册">
   <meta property="og:description" content="颜色切换到深色时，太阳变成月亮。适合用在主题按钮上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/theme-toggle-morph/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/theme-toggle-morph/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="主题切换变形 — 动画手册">
   <meta name="twitter:description" content="颜色切换到深色时，太阳变成月亮。适合用在主题按钮上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "主题切换变形", "name": "主题切换变形", "description": "颜色切换到深色时，太阳变成月亮。适合用在主题按钮上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/theme-toggle-morph/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 主题切换变形"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "主题切换变形", "name": "主题切换变形", "description": "颜色切换到深色时，太阳变成月亮。适合用在主题按钮上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/theme-toggle-morph/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 主题切换变形"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ink:#f4f4f2;--moon:#cdd3ff;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--morph-dur:500ms;--morph-ease:cubic-bezier(.4,0,.2,1);--toggle-size:clamp(72px,12vw,104px)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -100,8 +100,8 @@
       .stage[data-hb-mode="inside"] .face{padding:10px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -165,9 +165,9 @@
           </div>
         </div>
       </div>
-      <span class="cap cap-i cap-ring" data-hb-caption aria-hidden="true">A hidden circle slides in and cuts the moon out of the sun</span>
-      <span class="cap cap-i cap-rays" data-hb-caption aria-hidden="true">The rays shrink into the center</span>
-      <span class="cap cap-i cap-card" data-hb-caption aria-hidden="true">The card flips at the same pace</span>
+      <span class="cap cap-i cap-ring" data-hb-caption aria-hidden="true">一个隐藏的圆滑进来，从太阳里切出月亮</span>
+      <span class="cap cap-i cap-rays" data-hb-caption aria-hidden="true">光芒向中心收拢</span>
+      <span class="cap cap-i cap-card" data-hb-caption aria-hidden="true">卡片以同样的速度翻转</span>
       <span class="cap cap-i cap-time" data-hb-caption aria-hidden="true">用半秒，缓入缓出</span>
       <span class="cap cap-n n1" data-hb-caption aria-hidden="true">Swaps at once</span>
       <span class="cap cap-n n2" data-hb-caption aria-hidden="true">Becomes a moon</span>
@@ -231,7 +231,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -246,7 +246,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('demo');
   const toggle=document.getElementById('toggle');
@@ -339,9 +339,9 @@
 
   // ---- See inside and Compare
   const noteIn=document.querySelector('[data-hb-for="inside"]'),noteCmp=document.querySelector('[data-hb-for="compare"]');
-  const RM_IN='Inside, shown still: the dashed circle, hidden in Normal, is what cuts the moon out of the sun; with motion on, it slides over the sun while the rays shrink.';
-  const RM_POSED='Shown still, a moment after the same press: Swaps at once is already the moon; Becomes a moon is caught part way, its circle sliding onto the sun and its card turning.';
-  const RM_PLAIN='With motion off, Becomes a moon swaps at once too, so the halves match. Press Compare again to see the still a moment after a press.';
+  const RM_IN='看内部、静止展示：常规里藏着的虚线圆，是从太阳里切出月亮的那个圆；有动画时，它滑过太阳，光芒同时收拢。';
+  const RM_POSED='静止展示，同一次按压片刻之后：「立刻切换」已经是月亮；「变成月亮」停在半路，圆正在滑上太阳，卡片正在转。';
+  const RM_PLAIN='没有动画时，「变成月亮」也会立刻切换，两边看起来一样。再按一次「对比」，看按压片刻后的静止画面。';
   if(!motionOk){noteIn.textContent=RM_IN;noteCmp.textContent=RM_PLAIN}
   function note(){
     if(motionOk)return;

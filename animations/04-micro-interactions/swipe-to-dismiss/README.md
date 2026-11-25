@@ -1,6 +1,6 @@
 # 滑动删除
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/swipe-to-dismiss/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/swipe-to-dismiss/)
 
 ## 它是什么
 滑动删除在你把列表项横向拖动时删掉它，是邮件和消息应用里滑动删除的手势。拖动时，卡片精确地跟随你的手指；松开时，它要么飞出边缘、它那行合上，要么弹回原位。拖得长或甩得快，都能删掉它。

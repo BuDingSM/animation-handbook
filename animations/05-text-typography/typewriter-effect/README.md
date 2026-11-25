@@ -1,6 +1,6 @@
 # 打字机效果
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/typewriter-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/typewriter-effect/)
 
 ## 它是什么
 打字机效果让文字像有人在打字一样一个字符一个字符地出现，最后一个字符后面跟着一个闪烁的光标。每次按键之间时间上的微小随机差异，让它感觉像是人打出来的，而不是机器，因为真实的打字从来不是完全均匀的。

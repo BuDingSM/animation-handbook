@@ -1,6 +1,6 @@
 # FLIP 技巧
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/flip-technique/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/flip-technique/)
 
 ## 它是什么
 FLIP 是 First、Last、Invert、Play 的缩写，给 CSS 自己做不了动画的布局变化做动画，比如给网格排序或从多列切换到列表。浏览器先把每个条目一下子移到新位置；然后每个条目被移回原来的位置，再从那里滑到新位置。看起来条目像是滑进了新布局，但实际上只有它们在屏幕上的位置做了动画。

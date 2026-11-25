@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>幕布揭示 — 动画手册</title>
   <meta name="description" content="一块彩色面板先盖住它，随后滑走。适合开场和 Logo。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/curtain-reveal/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/curtain-reveal/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="幕布揭示 — 动画手册">
   <meta property="og:description" content="一块彩色面板先盖住它，随后滑走。适合开场和 Logo。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/curtain-reveal/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/curtain-reveal/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="幕布揭示 — 动画手册">
   <meta name="twitter:description" content="一块彩色面板先盖住它，随后滑走。适合开场和 Logo。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "幕布揭示", "name": "幕布揭示", "description": "一块彩色面板先盖住它，随后滑走。适合开场和 Logo。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/curtain-reveal/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，幕布揭示"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "幕布揭示", "name": "幕布揭示", "description": "一块彩色面板先盖住它，随后滑走。适合开场和 Logo。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/curtain-reveal/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，幕布揭示"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--ui-muted:#8a8a92;--dur:500ms;--ease:cubic-bezier(.2,.7,.3,1);--curtain-color:#111827}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -86,8 +86,8 @@
       .stage[data-hb-mode="compare"] .content-sub{display:none}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -119,7 +119,7 @@
         <div class="content">
           <div class="content-badge">Curtain Reveal</div>
           <div class="content-title">Unveiled</div>
-          <div class="content-sub">The reveal is hidden then exposed — your eye registers the change dramatically.</div>
+          <div class="content-sub">先藏住再露出，眼睛会强烈感觉到变化。</div>
         </div>
         <span class="curtain ghost" id="gh-a" data-axis="h"><span class="arrow"><i></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5l8 7-8 7"/></svg><svg class="bk" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5l-8 7 8 7"/></svg></span></span>
         <span class="curtain ghost to" id="gh-b" data-axis="h"><span class="arrow"><i></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5l8 7-8 7"/></svg><svg class="bk" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5l-8 7 8 7"/></svg></span></span>
@@ -235,7 +235,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const curtain=document.getElementById('curtain'),curtainB=document.getElementById('curtain-b');
   const vars=document.documentElement.style;

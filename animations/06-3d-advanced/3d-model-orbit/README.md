@@ -1,6 +1,6 @@
 # 3D 模型环绕
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/3d-model-orbit/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/3d-model-orbit/)
 
 ## 它是什么
 3D 模型环绕展示一个看起来结实的物体在浏览器里转动。形状以三角形存储，WebGL 用柔和的基础光、直射光和高光照亮它的每一点，所以每一面转到眼前时都显得结实。这是 3D 产品查看器的基本模式，这里不用 3D 库画出来。

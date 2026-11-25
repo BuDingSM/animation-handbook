@@ -1,6 +1,6 @@
 # 波浪文字
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/wavy-text/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/wavy-text/)
 
 ## 它是什么
 波浪文字让波浪滚过一个词。每个字母都以同样的动作上下浮动，但每个字母比前一个晚一点开始，所以最高点从第一个字母走到最后一个，就像飘动的旗帜，或者一排被涌浪抬起的浮标。

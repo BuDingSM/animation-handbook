@@ -563,7 +563,7 @@ test('a setting that starts lower on phones marks that choice data-hb-phone, and
 
 // The footer of every page: the site's name, a link to the source on GitHub (in a new tab) and Back to top.
 test('every guided-steps page has the same footer, with a link to the source on GitHub', () => {
-  const FOOTER = '<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>';
+  const FOOTER = '<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>';
   assert.ok(steps.length > 0, 'there are guided-steps pages');
   assert.deepEqual(steps.filter(d => count(pageOf(d), FOOTER) !== 1 || count(pageOf(d), '<footer') !== 1).map(d => `${d.cat}/${d.slug}`), [],
     'pages without exactly this footer');
@@ -828,8 +828,8 @@ test('the counts written on the home page match its cards', () => {
 // heading, each as "- **[Name](its page on the live site)** — description": Name and description are the card's, word for
 // word, and the folder the link names holds the page. Every problem is listed at once, so one run shows them all.
 test('the Full catalog in the root README lists every card once, in home order, linked to its live page', () => {
-  const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
-  const ENTRY = /^- \*\*\[([^\]]+)\]\(https:\/\/matinmonshizadeh\.github\.io\/animation-handbook\/(animations\/([^/()\s]+)\/([^/()\s]+)\/)\)\*\* — (.+)$/;
+  const LIVE = 'https://animation.xizanghuapi.cn/';
+  const ENTRY = /^- \*\*\[([^\]]+)\]\(https:\/\/animation\.xizanghuapi\.cn\/(animations\/([^/()\s]+)\/([^/()\s]+)\/)\)\*\* — (.+)$/;
   const cats = homeConst('CATS');
   // Each card by the path of its page, "animations/<category folder>/<slug>/", in the order of CATS.
   const cards = new Map(cats.flatMap(cat => cat.entries.map(([slug, name, desc]) => [`${cat.folder}/${slug}/`, { cat, name, desc }])));
@@ -907,7 +907,7 @@ test('the no-JavaScript list links every animation once, in home order, under it
 // llms.txt: the handbook as one plain list, for AI tools that read a site without running its scripts.
 // tools/update-sitemap.mjs writes it from the cards and the Famous effects page.
 test('llms.txt lists every card once, in the order of CATS under its group, with its live address and its line, then the Famous effects page', () => {
-  const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
+  const LIVE = 'https://animation.xizanghuapi.cn/';
   const text = read(path.join(ROOT, 'llms.txt')).replace(/\r\n/g, '\n');
   const cats = homeConst('CATS'), cards = cats.flatMap(cat => cat.entries.map(([slug, name, desc]) => ({ name, address: `${LIVE}${cat.folder}/${slug}/`, desc })));
   assert.ok(text.startsWith('# 动画手册\n'), 'llms.txt starts with the title');
@@ -937,7 +937,7 @@ test('the counts written in the issue template, the 404 page and the sitemap mat
   // address once.
   const sitemap = read(path.join(ROOT, 'sitemap.xml'));
   assert.equal(count(sitemap, '<url>'), cards + 2, 'sitemap.xml lists the home page, the Famous effects page and every animation');
-  const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
+  const LIVE = 'https://animation.xizanghuapi.cn/';
   const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map(m => m[1]);
   assert.deepEqual(locs.slice(0, 2), [LIVE, `${LIVE}famous/`], 'the home page, then Famous effects');
   assert.equal(new Set(locs).size, locs.length, 'each address once');
@@ -954,10 +954,10 @@ test('the 404 page stays out of search results and every address in it works at 
   assert.ok(html.includes('<meta name="robots" content="noindex">'), 'noindex');
   const addresses = [...html.matchAll(/\s(?:href|src|action)="([^"]*)"/g), ...html.matchAll(/url\(\s*['"]?([^'")\s]+)/g)].map(m => m[1]);
   assert.ok(addresses.length > 0, 'the page has addresses to check');
-  for (const address of addresses) assert.match(address, /^(?:\/animation-handbook\/|https:\/\/|#)/, address);
+  for (const address of addresses) assert.match(address, /^(?:\/|https:\/\/|#)/, address);
   // Each file the page loads or links on the site is in the repository (a folder address stands for its index.html).
-  for (const address of addresses.filter(a => a.startsWith('/animation-handbook/'))) {
-    const file = address.replace(/^\/animation-handbook\//, '').replace(/[?#].*$/, '');
+  for (const address of addresses.filter(a => a.startsWith('/') && !a.startsWith('//'))) {
+    const file = address.replace(/^\//, '').replace(/[?#].*$/, '');
     assert.ok(fs.existsSync(path.join(ROOT, file === '' || file.endsWith('/') ? file + 'index.html' : file)), `${address} is in the repository`);
   }
 });
@@ -970,13 +970,14 @@ test('the 404 page sends a mistyped address where it belongs and never off the s
   for (; end < html.length; end++) { if (html[end] === '{') depth++; else if (html[end] === '}' && --depth === 0) break; }
   const whereTo = vm.runInNewContext('(' + html.slice(start, end + 1) + ')');
   const cases = [
-    ['/animation-handbook/animations/02-entrance-and-exit/Rotate-In/', '?x=1#y', { go: '/animation-handbook/animations/02-entrance-and-exit/rotate-in/?x=1#y' }],
-    ['/animation-handbook/animations/', '', { go: '/animation-handbook/?view=all#results' }],
-    ['/animation-handbook/animations/02-entrance-and-exit/', '', { go: '/animation-handbook/?view=all#results' }],
-    ['/animation-handbook/animations/02-entrance-and-exit/rotate-inn/', '', { words: 'rotate inn' }],
-    ['/animation-handbook/animations%2F02-entrance-and-exit%2Frotate-in/', '', { words: 'rotate in' }],
-    ['/animation-handbook/12345', '', { words: '' }],
-    ['/FOO/Bar', '', { words: 'Bar' }],
+    ['/animations/02-entrance-and-exit/Rotate-In/', '?x=1#y', { go: '/animations/02-entrance-and-exit/rotate-in/?x=1#y' }],
+    ['/animation-handbook/animations/02-entrance-and-exit/Rotate-In/', '?x=1#y', { go: '/animations/02-entrance-and-exit/rotate-in/?x=1#y' }],
+    ['/animations/', '', { go: '/?view=all#results' }],
+    ['/animations/02-entrance-and-exit/', '', { go: '/?view=all#results' }],
+    ['/animations/02-entrance-and-exit/rotate-inn/', '', { words: 'rotate inn' }],
+    ['/animations%2F02-entrance-and-exit%2Frotate-in/', '', { words: 'rotate in' }],
+    ['/12345', '', { words: '' }],
+    ['/FOO/Bar', '', { go: '/foo/bar' }],
     ['//evil.example/X', '', { words: 'X' }]
   ];
   for (const [where, rest, want] of cases) assert.deepEqual({ ...whereTo(where, rest) }, want, where + rest);
@@ -990,17 +991,17 @@ test('the 404 page sends /finder and /find to the finder, keeping only its answe
   for (; end < html.length; end++) { if (html[end] === '{') depth++; else if (html[end] === '}' && --depth === 0) break; }
   const whereTo = vm.runInNewContext('(' + html.slice(start, end + 1) + ')');
   const cases = [
-    ['/animation-handbook/finder', '', { go: '/animation-handbook/?view=find' }],
-    ['/animation-handbook/find/', '', { go: '/animation-handbook/?view=find' }],
-    ['/animation-handbook/Finder/', '?what=text&when=scroll&how=draw#top', { go: '/animation-handbook/?view=find&what=text&when=scroll&how=draw' }],
-    ['/animation-handbook/FIND', '?q=fade&how=fade&utm_source=x', { go: '/animation-handbook/?view=find&how=fade' }],
-    ['/animation-handbook/finder', '?what=%3Cb%3E', { go: '/animation-handbook/?view=find' }],
-    ['/animation-handbook/finder', '?view=find&all=1&xwhat=a&what=a%2Fb&how=fade', { go: '/animation-handbook/?view=find&how=fade' }],
-    ['/animation-handbook/finders', '', { words: 'finders' }],
-    ['/animation-handbook/animations/finder/', '', { words: 'finder' }]
+    ['/finder', '', { go: '/?view=find' }],
+    ['/find/', '', { go: '/?view=find' }],
+    ['/Finder/', '?what=text&when=scroll&how=draw#top', { go: '/?view=find&what=text&when=scroll&how=draw' }],
+    ['/FIND', '?q=fade&how=fade&utm_source=x', { go: '/?view=find&how=fade' }],
+    ['/finder', '?what=%3Cb%3E', { go: '/?view=find' }],
+    ['/finder', '?view=find&all=1&xwhat=a&what=a%2Fb&how=fade', { go: '/?view=find&how=fade' }],
+    ['/finders', '', { words: 'finders' }],
+    ['/animations/finder/', '', { words: 'finder' }]
   ];
   for (const [where, rest, want] of cases) assert.deepEqual({ ...whereTo(where, rest) }, want, where + rest);
-  assert.ok(html.includes('<a class="way" href="/animation-handbook/?view=find">按你见过的样子找动画</a>'), 'the third way back');
+  assert.ok(html.includes('<a class="way" href="/?view=find">按你见过的样子找动画</a>'), 'the third way back');
 });
 
 // Where the bracket that opens at HOME[from] ('[' or '{') is closed. It steps over strings and // comments, so a quote or bracket
@@ -1221,7 +1222,7 @@ test('Nothing matches offers Ask for it: a link to the GitHub form with the type
   assert.deepEqual([...url.searchParams.keys()], ['template', 'title', 'answers']);
   assert.equal(url.searchParams.get('template'), 'animation_not_here.yml');
   assert.equal(url.searchParams.get('title'), '[not here] dock that grows & shrinks #1');
-  assert.equal(url.searchParams.get('answers'), 'Searched for “dock that grows & shrinks #1” — https://matinmonshizadeh.github.io/animation-handbook/?q=dock%20that%20grows%20%26%20shrinks%20%231');
+  assert.equal(url.searchParams.get('answers'), '搜索了「dock that grows & shrinks #1” — https://animation.xizanghuapi.cn/?q=dock%20that%20grows%20%26%20shrinks%20%231');
   // Only fields the form has are filled.
   const form = read(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'animation_not_here.yml'));
   assert.match(form, /^\s+id: answers\r?$/m);

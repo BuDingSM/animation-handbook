@@ -1,6 +1,6 @@
 # 灵动岛
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/dynamic-island/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/dynamic-island/)
 
 ## 它是什么
 灵动岛是手机屏幕顶部的一个小黑色药丸，会长成一张更大的卡片，显示实时内容，比如来电、计时器或正在播放的歌曲，完成后缩回药丸。药丸和卡片是一个黑色形状，轮廓会变化，所以变化读起来像一个物体在伸展，而不是打开了一个新窗口。名字来自 iPhone，但同样的想法适合应用或页面顶部任何状态区域。

@@ -1,6 +1,6 @@
 # 封面卡片变固定顶栏
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/cover-card-to-fixed-header/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/cover-card-to-fixed-header/)
 
 ## 它是什么
 

@@ -1,6 +1,6 @@
 # 覆盖擦除
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/overlay-wipe/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/overlay-wipe/)
 
 ## 它是什么
 覆盖擦除把页面切换藏在一块纯色面板后面。面板从一侧扫进来，直到盖住整个页面，趁没人能看见时换页，再从对侧扫出去，露出新页面。第二块浅色面板可以在进入时跑在它前面一点、离开时跟在它后面一点，这样边缘会显示出两条色带。

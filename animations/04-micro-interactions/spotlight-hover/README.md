@@ -1,6 +1,6 @@
 # 聚光灯悬停辉光
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/spotlight-hover/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/spotlight-hover/)
 
 ## 它是什么
 聚光灯悬停辉光是一道柔和的光，跟随指针穿过一排深色卡片。指针附近的卡片稍微变亮，边缘亮起彩色；远处的卡片保持暗淡，像一盏灯在上面移动。

@@ -1,6 +1,6 @@
 # 路径文字
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-on-path/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-on-path/)
 
 ## 它是什么
 路径文字让一行字沿着曲线走，而不是直线。曲线定义一次，文字附在上面，所以每个字母都坐在那条线上。把文字开始的点沿着曲线移动，字母就会沿着它行进，就像一条弯成形状的滚动条。

@@ -1,6 +1,6 @@
 # 轻提示
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/toast-notification/)
 
 ## 它是什么
 轻提示是一条小消息，来到屏幕的一角，停留几秒，然后自己离开；一条细横条倒计时它剩下的时间。几条轻提示靠得近时会堆叠，一条离开时，其他的滑过去填补空缺。点按、滑动或它的关闭按钮可以提前赶走一条。

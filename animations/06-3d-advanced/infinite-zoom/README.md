@@ -1,6 +1,6 @@
 # 无限缩放
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/infinite-zoom/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/infinite-zoom/)
 
 ## 它是什么
 无限缩放不断钻进一幅画，画的中间装着一幅更小的画，那幅里又装着一幅更小的，所以视野像是在永远向下钻。这是个伪装的短循环：每幅画都以更小的尺寸重画在外面那幅的画框里，视野每次恰好放大两幅之间的步长。里面的画填满视野时，就直接取代外面那幅的位置，所以什么都不会跳。

@@ -1,6 +1,6 @@
 # 光线步进 / SDF 场景
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ray-marching-sdf/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/ray-marching-sdf/)
 
 ## 它是什么
 光线步进不用任何 3D 模型就能画出 3D 场景。每个形状都是一个给出到它表面距离的公式，对每个像素，着色器按那个距离让一条光线向前走，直到碰到东西，再照亮那个点。因为形状是公式，它们可以融在一起、互相挖空，或永远重复。

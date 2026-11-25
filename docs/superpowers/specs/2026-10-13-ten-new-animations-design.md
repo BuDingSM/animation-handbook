@@ -284,7 +284,7 @@ Zoom (06.26), Game of Life (07.23). The last new page of each section has no Nex
   finder `card background` · `loop load` · `grow slide fade`. **Good for** Hero photos · Slideshows · Travel and property
   sites · Story pages. **Avoid on** Product photos people inspect · Pictures of text.
 - **Demo:** three drawn photos (mountains at dawn, a harbor at dusk, a desert road under stars), each larger than the box.
-  Each slowly zooms and drifts toward a point of interest, and the next fades in over about a second before the move ends,
+  Each slowly zooms and drifts toward a point of interest, and the next fades in over 大约一秒 before the move ends,
   so the motion never stops. One CSS keyframe timeline per photo, its start and end framing set by variables, so Pause and
   Slow motion are the CSS kind; every photo stays larger than the box at every moment, so no edge shows.
 - **Try it:** Which way it zooms: In · Out · **Both**, "Both changes direction from photo to photo." How much it moves:

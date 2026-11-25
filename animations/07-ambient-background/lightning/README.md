@@ -1,6 +1,6 @@
 # 闪电
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/lightning/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/lightning/)
 
 ## 它是什么
 闪电画出锯齿状的闪电，每隔几秒从云层劈到地面，闪烁一次、淡出，天空在后面柔和地亮起。每道闪电都是新的：它从一条直线开始，一次次分裂，每次分裂把中点推开一点、一次比一次少，这造出真实闪电的大弯曲和细抖动。点击或轻触会让闪电劈在访客指的地方。

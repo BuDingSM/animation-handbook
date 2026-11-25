@@ -1,6 +1,6 @@
 # 流体模拟
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/fluid-simulation/)
 
 ## 它是什么
 这个流体效果看起来像液体，但并不是真正的流体模拟。WebGL 着色器对每个像素算出它离几个移动圆圈有多远，再把这些距离混合起来，让靠得近的圆圈融成一个平滑的形状，像水银滴或熔岩灯。漂开的圆圈又会干净地分开。

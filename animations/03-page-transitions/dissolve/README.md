@@ -1,6 +1,6 @@
 # 溶解过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/dissolve/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/dissolve/)
 
 ## 它是什么
 溶解把一次页面切换打碎成一格瓷砖。每块瓷砖在略有不同的时刻淡入、盖住旧页面，所以旧页面看起来像是碎成颗粒或方块，而不是均匀淡出。瓷砖的顺序——随机、对角线扫过或从中间向外成环——决定了溶解的质感。

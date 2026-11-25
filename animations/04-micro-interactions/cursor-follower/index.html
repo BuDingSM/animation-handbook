@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>光标跟随 — 动画手册</title>
   <meta name="description" content="一个圆点跟随指针，并反转下方颜色。适合用在作品集上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/cursor-follower/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="光标跟随 — 动画手册">
   <meta property="og:description" content="一个圆点跟随指针，并反转下方颜色。适合用在作品集上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/cursor-follower/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="光标跟随 — 动画手册">
   <meta name="twitter:description" content="一个圆点跟随指针，并反转下方颜色。适合用在作品集上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "光标跟随", "name": "光标跟随", "description": "一个圆点跟随指针，并反转下方颜色。适合用在作品集上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 光标跟随"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "光标跟随", "name": "光标跟随", "description": "一个圆点跟随指针，并反转下方颜色。适合用在作品集上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/cursor-follower/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 光标跟随"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-border:rgba(255,255,255,.09);--follower-size:32px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -88,8 +88,8 @@
       .stage[data-hb-mode="compare"]>.zone:nth-child(n+3),.stage[data-hb-mode="compare"] .twin>.zone:nth-child(n+3){align-items:flex-start;padding-top:8px;padding-bottom:0}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -115,17 +115,17 @@
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <div class="zone zone-dark">Move your pointer here</div>
+      <div class="zone zone-dark">把指针移到这里</div>
       <div class="zone zone-accent"><div class="hover-target" data-hover>Button</div></div>
       <div class="zone zone-light"><div class="hover-target" data-hover>Button</div></div>
-      <div class="zone zone-mid">Pass over these words</div>
-      <div class="keys" id="keys" tabindex="0" role="group" aria-label="Dot follower: use the arrow keys to move it"></div>
+      <div class="zone zone-mid">从这些字上掠过</div>
+      <div class="keys" id="keys" tabindex="0" role="group" aria-label="圆点跟随：用方向键移动"></div>
       <div id="follower" class="circle" aria-hidden="true"><div class="shape"><svg aria-hidden="true"><circle cx="50%" cy="50%" r="50%"/></svg></div></div>
       <div class="views" aria-hidden="true">
         <i class="cf-gap"></i>
         <svg class="cf-cross" viewBox="-7 -7 14 14"><path d="M-5 0H5M0-5V5" stroke="#0b0b0d" stroke-width="4"/><path d="M-5 0H5M0-5V5" stroke="#f4f4f2" stroke-width="1.6"/></svg>
         <div class="cf-half"><svg class="cf-arrow"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg></div><div class="cf-half two"><svg class="cf-arrow"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg></div>
-        <span class="cf-lbl in-l l-gap" data-hb-caption>Catches up 大约三分之一秒内,<br class="cf-br"> in smaller and smaller steps</span>
+        <span class="cf-lbl in-l l-gap" data-hb-caption>Catches up 大约三分之一秒内,<br class="cf-br"> 步子越来越小</span>
         <span class="cf-lbl in-l l-ptr" data-hb-caption>Where the pointer is</span>
         <span class="cf-lbl in-l l-flip" data-hb-caption>Flips the colors<br class="cf-br"> under it</span>
         <span class="cf-lbl in-l l-grow" data-hb-caption>在按钮上变大两倍半</span>
@@ -212,7 +212,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -227,7 +227,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage');
   const follower=document.getElementById('follower');

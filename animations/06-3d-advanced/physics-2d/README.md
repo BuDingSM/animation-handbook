@@ -1,6 +1,6 @@
 # 2D 物理
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/physics-2d/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/physics-2d/)
 
 ## 它是什么
 2D 物理按小步模拟时间，让物体像真实物体那样落下、弹跳和落定。每步给每个球的速度加上重力，找出互相接触或碰到墙的球，再把它们推开刚好不陷进去的距离，保留一部分速度作为弹跳。每秒六十步这样的几条规则，就足够让球弹跳、滚到停下、堆起来，还能被拿起和扔出去。

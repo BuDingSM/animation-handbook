@@ -1,6 +1,6 @@
 # 视差 3D 倾斜
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/parallax-3d-tilt/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/parallax-3d-tilt/)
 
 ## 它是什么
 3D 倾斜让一张平面卡片朝指针倾斜，好像你从不同角度看一张真实的卡片。卡片的容器给场景带来景深，一道柔光跟着指针滑过卡面，补全了这个错觉。浏览器自己的 3D 变换就能做到，不需要 3D 库。

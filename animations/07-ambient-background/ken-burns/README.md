@@ -1,6 +1,6 @@
 # 肯·伯恩斯效果
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ken-burns/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/ken-burns/)
 
 ## 它是什么
 肯·伯恩斯效果让静态照片活起来，慢慢缩放、平移扫过它们，就像纪录片相机在印好的照片上移动。每张照片朝值得看的东西漂移，下一张在移动结束前淡入，所以画面永不停歇。它以让这项技术在纪录片中出名的电影人命名。

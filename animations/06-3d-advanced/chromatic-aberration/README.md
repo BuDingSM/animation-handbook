@@ -1,6 +1,6 @@
 # 色差
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/chromatic-aberration/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/chromatic-aberration/)
 
 ## 它是什么
 色差模仿廉价镜头的缺陷：红、绿、蓝三色光落在略微不同的位置，在边缘留下彩色边纹。演示把一个词的红、绿、蓝三个副本叠在一起，重叠处加起来是白色，再把红和蓝的副本错开。裂开的幅度可以一呼一吸，也可以故障式跳动。

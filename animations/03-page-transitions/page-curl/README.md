@@ -1,6 +1,6 @@
 # 翻页卷角
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/page-curl/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/page-curl/)
 
 ## 它是什么
 翻页卷角像翻一张纸一样翻过一页。它的底角掀起并向左移动，掀起的部分作为纸的背面折在页面上，下一页在下面显示，直到整张纸翻走。返回时反向运行：更早的页面从左侧过来、盖在当前页面上。

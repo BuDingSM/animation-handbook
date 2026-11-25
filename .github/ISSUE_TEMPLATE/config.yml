@@ -1,10 +1,10 @@
 blank_issues_enabled: true
 contact_links:
   - name: Find an animation by what you saw
-    url: https://matinmonshizadeh.github.io/animation-handbook/?view=find
+    url: https://animation.xizanghuapi.cn/?view=find
     about: "Saw an animation on a website and don't know its name? Answer three short questions and see the ones that match."
   - name: Browse the live handbook
-    url: https://matinmonshizadeh.github.io/animation-handbook/
+    url: https://animation.xizanghuapi.cn/
     about: See all 199 techniques running before filing an issue.
   - name: Ask a question or share an idea
     url: https://github.com/matinmonshizadeh/animation-handbook/discussions

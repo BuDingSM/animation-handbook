@@ -1,6 +1,6 @@
 # 滚动图片序列
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-image-sequence/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-image-sequence/)
 
 ## 它是什么
 滚动图片序列在你滚动时播放一串静止图片，就像翻一本翻页书：每个滚动位置显示一张图片，所以往下滚播放动画，往上滚倒放。产品页面用它把一段预渲染的动画（比如一部旋转的手机）变成读者能控制的东西。演示边走边画图片——一个旋转的线框立方体，所以不需要图片文件。

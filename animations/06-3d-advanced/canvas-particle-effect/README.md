@@ -1,6 +1,6 @@
 # Canvas 粒子效果
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/canvas-particle-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/canvas-particle-effect/)
 
 ## 它是什么
 Canvas 粒子效果在一块画布上画出几百个小圆点，每帧移动它们。每个圆点朝自己的方向漂移，碰到边缘就弹回来；靠得近的圆点之间会连上细线，指针会把附近的圆点推开或拉近。这就是许多科技网站上的连线圆点背景。

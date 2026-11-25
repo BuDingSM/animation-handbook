@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>逐字母出现 — 动画手册</title>
   <meta name="description" content="一句话逐字母出现，或像打字机一样。适合短标题。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/letter-by-letter-stagger/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="逐字母出现 — 动画手册">
   <meta property="og:description" content="一句话逐字母出现，或像打字机一样。适合短标题。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/letter-by-letter-stagger/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="逐字母出现 — 动画手册">
   <meta name="twitter:description" content="一句话逐字母出现，或像打字机一样。适合短标题。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "逐字母出现", "name": "逐字母出现", "description": "一句话逐字母出现，或像打字机一样。适合短标题。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/letter-by-letter-stagger/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，逐字母出现"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "逐字母出现", "name": "逐字母出现", "description": "一句话逐字母出现，或像打字机一样。适合短标题。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/letter-by-letter-stagger/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，逐字母出现"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--dur:400ms;--ease:ease-out;--stagger:35ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -81,8 +81,8 @@
     @media(max-width:600px){.lbl{font-size:12.5px;padding:3px 6px}}
     @media(prefers-reduced-motion:reduce){.char{transition:none!important;opacity:1!important;transform:none!important}.bars b{transition:none!important}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -111,7 +111,7 @@
       <div id="text-target" data-mode="cascade" data-anim="fade-up">Hello, world.</div>
       <div class="bars" aria-hidden="true"></div>
       <ul class="key" aria-hidden="true">
-        <li class="lbl key-row k1" data-hb-caption><span class="sw"><b></b><b></b><b></b></span><span>Each letter waits a little longer than the one before</span></li>
+        <li class="lbl key-row k1" data-hb-caption><span class="sw"><b></b><b></b><b></b></span><span>每个字母都比前一个多等一会儿</span></li>
         <li class="lbl key-row k2" data-hb-caption><span class="sw"><b></b></span><span>条：每个字母走了多远</span></li>
         <li class="lbl key-row k3" data-hb-caption><span class="sw"><b></b></span><span>还在等着</span></li>
         <li class="lbl key-row k4" data-hb-caption><i class="sw-dial"></i><span>五分之一秒后</span></li>
@@ -229,7 +229,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const target=document.getElementById('text-target');
   const vars=document.documentElement.style;

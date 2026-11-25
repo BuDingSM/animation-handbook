@@ -1,6 +1,6 @@
 # 数字滚动
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/rolling-numbers/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/rolling-numbers/)
 
 ## 它是什么
 数字滚动像汽车里程表一样显示一个变化的数字：每个数字坐在 0 到 9 的一列数字上的小窗口里；值变化时，列滑动，直到新数字进入窗口。只有变化的数字会动，所以小的变化只转一个轮子，大的跳动会转全部。

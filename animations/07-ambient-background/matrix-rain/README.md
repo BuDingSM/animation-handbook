@@ -1,6 +1,6 @@
 # 矩阵雨
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/matrix-rain/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/matrix-rain/)
 
 ## 它是什么
 矩阵雨，也叫数字雨，是字符列在深色屏幕上落下的背景。每列的领头字符明亮，后面的字符向黑色淡出，所以每列看起来像一个发光的头带着渐隐的尾巴。电影《黑客帝国》（1999）之后，它成了“电脑在工作”的速记。

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>墨水扩散揭示 — 动画手册</title>
   <meta name="description" content="墨滴扩散、汇合，直至画面显现。适合艺术和开场。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/ink-spread-reveal/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/ink-spread-reveal/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="墨水扩散揭示 — 动画手册">
   <meta property="og:description" content="墨滴扩散、汇合，直至画面显现。适合艺术和开场。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/ink-spread-reveal/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/ink-spread-reveal/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="墨水扩散揭示 — 动画手册">
   <meta name="twitter:description" content="墨滴扩散、汇合，直至画面显现。适合艺术和开场。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "墨水扩散揭示", "name": "墨水扩散揭示", "description": "墨滴扩散、汇合，直至画面显现。适合艺术和开场。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/ink-spread-reveal/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，墨水扩散揭示"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "墨水扩散揭示", "name": "墨水扩散揭示", "description": "墨滴扩散、汇合，直至画面显现。适合艺术和开场。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/ink-spread-reveal/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，墨水扩散揭示"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--paper:#efe6d2;--ink:#1c1a26}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -51,8 +51,8 @@
     .side{top:10px;left:10px}
     @media(max-width:600px){.cap.c-dash{display:none!important}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -178,7 +178,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage'),scenesEl=document.getElementById('scenes');
   const loopTog=document.getElementById('loop-tog'),rimTog=document.getElementById('rim-tog');
@@ -194,8 +194,8 @@
   // the parts show and paper is still left; reduced motion holds every view there too
   const POSE=[.62,.44,.27];
   const LABELS={normal:'一幅海边山景图，被扩散、汇合的墨滴揭开',
-    inside:'The reveal taken apart: the picture faint under the paper, and each numbered blot growing to its dashed outline',
-    compare:'The reveal twice: clean circles on the left, ragged ink blots on the right'};
+    inside:'显现被拆开：纸下的图很淡，每一块编了号的墨渍长到自己的虚线轮廓',
+    compare:'显现做了两次：左边是整齐的圆，右边是边缘参差的墨渍'};
   let drops='several',speed='normal',edge='ragged',mode='normal',view='paper',anims=[],timers=[];
   const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
   const stopTimers=()=>{timers.forEach(clearTimeout);timers=[]};

@@ -1,6 +1,6 @@
 # 文字粒子
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-particles/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-particles/)
 
 ## 它是什么
 文字粒子把一个词画成许多小圆点，而不是实心字母。每个圆点都记得它在词里的位置：指针把附近的圆点推开，弹簧把每个圆点拉回去，所以字母在你指的地方张开，在你身后又合上。

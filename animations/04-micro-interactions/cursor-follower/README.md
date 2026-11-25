@@ -1,6 +1,6 @@
 # 光标跟随
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/cursor-follower/)
 
 ## 它是什么
 光标跟随者是一个小图形，带着一点延迟跟在鼠标指针后面，滑行着追赶、赶上时慢慢减速，而不是粘在指针上。它反转下方任何东西的颜色，在任何背景上都看得见——深色区域上是浅色，浅色区域上是深色，不用为每种背景选颜色。

@@ -1,6 +1,6 @@
 # 3D 轮播
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/carousel-3d/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/carousel-3d/)
 
 ## 它是什么
 3D 轮播把卡片围成一圈，整圈转动，把一张卡片带到前面。每张卡片按圆周的等份转动，再从中间向外推出同样的距离，所以前面卡片旁边的会向外倾斜，后面的会露出背面。拖动能转动圆环，松手后它会滑行一小段，再停在最近的卡片上。

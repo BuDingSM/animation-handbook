@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>体积烟雾 / 3D 噪声 — 动画手册</title>
   <meta name="description" content="柔和的烟雾向上盘旋，像真正的 3D 云。适合有氛围的背景。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/volumetric-smoke/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/volumetric-smoke/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="体积烟雾 / 3D 噪声 — 动画手册">
   <meta property="og:description" content="柔和的烟雾向上盘旋，像真正的 3D 云。适合有氛围的背景。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/volumetric-smoke/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/volumetric-smoke/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="体积烟雾 / 3D 噪声 — 动画手册">
   <meta name="twitter:description" content="柔和的烟雾向上盘旋，像真正的 3D 云。适合有氛围的背景。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "体积烟雾 / 3D 噪声", "name": "体积烟雾 / 3D 噪声", "description": "柔和的烟雾向上盘旋，像真正的 3D 云。适合有氛围的背景。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/volumetric-smoke/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 体积烟雾 / 3D 噪声"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "体积烟雾 / 3D 噪声", "name": "体积烟雾 / 3D 噪声", "description": "柔和的烟雾向上盘旋，像真正的 3D 云。适合有氛围的背景。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/volumetric-smoke/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 体积烟雾 / 3D 噪声"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--gold:#ffbf3c}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -43,8 +43,8 @@
     .ov .gold{stroke:var(--gold)}
     .ov .ray.gold{stroke-width:1.5}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -173,7 +173,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -188,7 +188,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const VS=`attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}`;
 const FS=`
@@ -198,7 +198,7 @@ precision highp float;
 precision mediump float;
 #endif
 uniform vec2 uRes,uOrigin,uSc;uniform float uT,uDens,uRise;uniform int uSteps,uView;
-uniform bool u风,uDither;uniform vec3 uSmoke,uBG;uniform vec4 uSl;
+uniform bool uWind,uDither;uniform vec3 uSmoke,uBG;uniform vec4 uSl;
 
 // 3D value noise via hash
 float h31(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5);}
@@ -216,7 +216,7 @@ float fbm(vec3 p){
 }
 
 float density(vec3 p,float t){
-  float windX=u风?t*.08:0.;
+  float windX=uWind?t*.08:0.;
   vec3 q=p+vec3(windX,0.,0.);
   // Cone source shape: narrower at top
   float r=length(p.xz);float src=exp(-r*3.)*smoothstep(-.2,0.6,p.y)*(1.-smoothstep(1.0,1.8,p.y));
@@ -260,8 +260,8 @@ vec3 flatPic(vec2 uv){
 void main(){
   vec2 uv=(gl_FragCoord.xy-uOrigin-.5*uRes)/min(uRes.x,uRes.y);
   uv=uv*uSc.x+vec2(0.,uSc.y);
-  if(uView==1){gl_Frag颜色=vec4(slice(),1.);return;}
-  if(uView==2){gl_Frag颜色=vec4(flatPic(uv),1.);return;}
+  if(uView==1){gl_FragColor=vec4(slice(),1.);return;}
+  if(uView==2){gl_FragColor=vec4(flatPic(uv),1.);return;}
   vec3 ro=vec3(0.,0.,3.);
   vec3 rd=normalize(vec3(uv,-.9));
   vec3 col=vec3(0.);
@@ -283,12 +283,12 @@ void main(){
     if(transmit<.01)break;
   }
   col+=uBG*transmit;
-  gl_Frag颜色=vec4(col,1.);
+  gl_FragColor=vec4(col,1.);
 }`;
 
 const stage=document.getElementById('stage'),cvs=document.getElementById('cvs');
 const msgEl=document.getElementById('msg'),slowTog=document.getElementById('slow-tog');
-const UNIFORMS=['uRes','uOrigin','uSc','uSl','uView','uT','uDens','uRise','uSteps','u风','uDither','uSmoke','uBG'];
+const UNIFORMS=['uRes','uOrigin','uSc','uSl','uView','uT','uDens','uRise','uSteps','uWind','uDither','uSmoke','uBG'];
 // The clock and the rise start where the old still frame was (2 seconds in, at the default speed), so the first picture is that frame
 let W=0,H=0,gl=null,prog=null,U=null,raf=null,paused=false,last=null,curT=2,rise=1.2,wasPhone=false,lost=false;
 let DENS=0.7,SPD=0.6,STEPS=32,WIND=true,DITHER=true;
@@ -304,9 +304,9 @@ function init(){
   gl=cvs.getContext('webgl');
   if(!gl){fail('这个浏览器不支持 WebGL，所以体积无法做光线步进。',true);return false;}
   let glErr='';
-  function sh(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){glErr=(gl.getShaderInfoLog(x)||'shader compile failed').replace(/\0/g,'').trim();console.error(glErr);}return x;}
+  function sh(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){glErr=(gl.getShaderInfoLog(x)||'着色器编译失败').replace(/\0/g,'').trim();console.error(glErr);}return x;}
   prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);
-  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){const e=(gl.getProgramInfoLog(prog)||'program link failed').replace(/\0/g,'').trim();console.error(e);if(!glErr)glErr=e;}
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){const e=(gl.getProgramInfoLog(prog)||'程序链接失败').replace(/\0/g,'').trim();console.error(e);if(!glErr)glErr=e;}
   // A failed compile otherwise draws nothing at all, with no visible symptom.
   if(glErr){fail('着色器构建失败：'+glErr,true);gl=null;return false;}
   const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
@@ -352,11 +352,11 @@ function draw(t){
   gl.uniform1f(U.uT,t);
   gl.uniform1f(U.uDens,DENS);gl.uniform1f(U.uRise,rise);
   gl.uniform1i(U.uSteps,steps());
-  gl.uniform1i(U.u风,WIND?1:0);gl.uniform1i(U.uDither,DITHER?1:0);
+  gl.uniform1i(U.uWind,WIND?1:0);gl.uniform1i(U.uDither,DITHER?1:0);
   gl.uniform3fv(U.uSmoke,SMOKE);gl.uniform3fv(U.uBG,BG);
   if(!views){paint(0,0,W,H,0,1,0);return;}
   // One context, a viewport for each picture (given in stage pixels)
-  gl.viewport(0,0,W,H);gl.clear颜色(BG[0],BG[1],BG[2],1);gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.viewport(0,0,W,H);gl.clearColor(BG[0],BG[1],BG[2],1);gl.clear(gl.COLOR_BUFFER_BIT);
   const kx=W/stage.clientWidth,ky=H/stage.clientHeight;
   for(let i=0;i<views.length;i++){
     const v=views[i],h=Math.round(v.h*ky);

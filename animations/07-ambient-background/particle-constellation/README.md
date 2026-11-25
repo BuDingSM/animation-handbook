@@ -1,6 +1,6 @@
 # 粒子星座
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/particle-constellation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/particle-constellation/)
 
 ## 它是什么
 粒子星座是一片小圆点在背景上慢慢漂移，任何两个靠得够近的圆点都由一条细线连起来，圆点分开时线条淡出。线条不断形成、断开，所以网络似乎在移动、生长：许多科技和产品网站后面的“相连圆点”背景。

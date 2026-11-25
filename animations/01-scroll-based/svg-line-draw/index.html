@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SVG 线条滚动描绘 — 动画手册</title>
   <meta name="description" content="线条随滚动沿路线自己画出来。最适合时间线。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/svg-line-draw/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/svg-line-draw/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="SVG 线条滚动描绘 — 动画手册">
   <meta property="og:description" content="线条随滚动沿路线自己画出来。最适合时间线。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/svg-line-draw/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/svg-line-draw/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SVG 线条滚动描绘 — 动画手册">
   <meta name="twitter:description" content="线条随滚动沿路线自己画出来。最适合时间线。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SVG 线条滚动描绘", "name": "SVG 线条滚动描绘", "description": "线条随滚动沿路线自己画出来。最适合时间线。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/svg-line-draw/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, SVG 线条滚动描绘"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SVG 线条滚动描绘", "name": "SVG 线条滚动描绘", "description": "线条随滚动沿路线自己画出来。最适合时间线。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/svg-line-draw/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, SVG 线条滚动描绘"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-accent:#6ea8ff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -82,8 +82,8 @@
     .cm-n1{top:8px;left:8px}
     .cm-n2{top:8px;left:calc(50% + 8px)}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -204,7 +204,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -219,7 +219,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage'),trail=document.getElementById('trail'),map=document.getElementById('map');
   const wpTog=document.getElementById('wp-tog');
@@ -229,7 +229,7 @@
   // See inside and Compare. The mode is drawn at once, wherever the box is; nothing here scrolls, moves focus or presses a control.
   let mode='normal',easeMode='linear',completeAt=1;
   const LABELS={
-    normal:'A route that draws itself as you scroll',
+    normal:'滚动时自己描出来的路线',
     inside:'一条随滚动自己画出的路线，切成十份，附带笔尖和表示你滚了多远、画了多少的条形',
     compare:'路线从中间分开：左边已画好，右边随滚动画出'
   };

@@ -1,6 +1,6 @@
 # 景深照片
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/depth-map-photo/)
 
 ## 它是什么
 景深照片在你指着它时，让一张平面图片看起来有了立体感。图片旁边放着一张同样大小的灰度景深图，近处是白色，远处是黑色；指针移动时，图片的每个部分按它的灰度移动。近处比远处滑得更多，眼睛把这种差别读作景深，就像你晃动脑袋时一样。

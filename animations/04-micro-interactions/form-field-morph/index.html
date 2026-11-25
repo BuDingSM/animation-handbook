@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>表单字段变形 — 动画手册</title>
   <meta name="description" content="开始输入时，标签上移让开。适合用在注册表单上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="表单字段变形 — 动画手册">
   <meta property="og:description" content="开始输入时，标签上移让开。适合用在注册表单上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="表单字段变形 — 动画手册">
   <meta name="twitter:description" content="开始输入时，标签上移让开。适合用在注册表单上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "表单字段变形", "name": "表单字段变形", "description": "开始输入时，标签上移让开。适合用在注册表单上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 表单字段变形"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "表单字段变形", "name": "表单字段变形", "description": "开始输入时，标签上移让开。适合用在注册表单上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 表单字段变形"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--field-dur:200ms;--float-dist:22px;--label-scale:0.8;--focus-color:#58a6ff;--box-rise:-12px;--box-scale:0.78}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -109,8 +109,8 @@
       .stage[data-hb-mode="compare"] .cmp-n.second{left:12px;top:calc(50% + 6px)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -256,7 +256,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -271,7 +271,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const form=stage.querySelector('.form:not(.twin)');
@@ -391,7 +391,7 @@
   const cap={up:$('c-up'),stay:$('c-stay'),rest:$('c-rest'),line:$('c-line'),box:$('c-box')};
   const ghRest=nameWrap.querySelector('.gh-rest i'),ghUp=nameWrap.querySelector('.gh-up i'),ghBox=companyWrap.querySelector('.gh-box i');
   const insideNote=document.querySelector('[data-hb-for="inside"]'),NOTE=insideNote.textContent;
-  const RM_NOTE=NOTE.replace(/\. Click a field.*$/,'; with reduced motion on it moves at once.');
+  const RM_NOTE=NOTE.replace(/\. Click a field.*$/,'；开启减弱动态效果后会立刻移动。');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)'),phoneMQ=matchMedia('(max-width:600px)');
   const say=(el,t)=>{if(el.textContent!==t)el.textContent=t};
   nameWrap.querySelector('.pose-t').textContent=typed;

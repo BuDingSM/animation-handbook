@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>流体模拟 — 动画手册</title>
   <meta name="description" content="色块像液体一样漂移、融化、合在一起。适合主视觉背景。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/fluid-simulation/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="流体模拟 — 动画手册">
   <meta property="og:description" content="色块像液体一样漂移、融化、合在一起。适合主视觉背景。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/fluid-simulation/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="流体模拟 — 动画手册">
   <meta name="twitter:description" content="色块像液体一样漂移、融化、合在一起。适合主视觉背景。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "流体模拟", "name": "流体模拟", "description": "色块像液体一样漂移、融化、合在一起。适合主视觉背景。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 流体模拟"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "流体模拟", "name": "流体模拟", "description": "色块像液体一样漂移、融化、合在一起。适合主视觉背景。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/fluid-simulation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 流体模拟"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -38,8 +38,8 @@
     .side.second{left:calc(50% + 10px)}
     .stage.no-gl .key,.stage.no-gl .side{display:none!important}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -173,7 +173,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -188,7 +188,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const stage=document.getElementById('stage');
 const cvs=document.getElementById('cvs');
@@ -201,7 +201,7 @@ let COLOR=[88/255,166/255,255/255];
 let mode='normal';
 const LABELS={normal:cvs.getAttribute('aria-label'),
   inside:'The blobs dimmed, each one\'s own circle outlined in white and the places where two melt together shaded gold',
-  compare:'Two copies of the blobs side by side: hard circles that only overlap on the left, blobs that melt together on the right'};
+  compare:'两份色块并排：左边是只会重叠的硬圆，右边是会融在一起的团'};
 const BG=[3/255,8/255,16/255];
 // The pointer is recorded at once, but the picture takes it only when a frame moves on,
 // so a repaint while paused shows a new setting and moves nothing.
@@ -212,7 +212,7 @@ const FS=`
 precision mediump float;
 uniform vec2 uRes,uOrigin;uniform float uT;uniform int uBalls,uView;
 uniform float uSmooth,uRad;uniform vec2 uMouse;uniform bool uGlow,uMouseBall;
-uniform vec3 u颜色,uBG;
+uniform vec3 uColor,uBG;
 
 float smin(float a,float b,float k){
   float h=clamp(.5+.5*(b-a)/k,0.,1.);
@@ -241,9 +241,9 @@ void main(){
   // Compare's first picture: the plain circles, with no melting between them
   if(uView==2)d=hard;
   float inside=smoothstep(.01,-.01,d);
-  vec3 rim=u颜色*pow(clamp(1.-abs(d)/.05,0.,1.),3.);
+  vec3 rim=uColor*pow(clamp(1.-abs(d)/.05,0.,1.),3.);
   float glow=uGlow?exp(-max(d,0.)/.08)*.4:0.;
-  vec3 col=mix(uBG,u颜色,inside)+rim*.5+u颜色*glow;
+  vec3 col=mix(uBG,uColor,inside)+rim*.5+uColor*glow;
   // See inside: the liquid dimmed; where the melting adds liquid outside every plain circle, gold; each plain circle outlined
   if(uView==1){
     col*=.45;
@@ -251,7 +251,7 @@ void main(){
     col=mix(col,vec3(1.,.82,.36),melt*.95);
     col=mix(col,vec3(1.),1.-smoothstep(.002,.007,edge));
   }
-  gl_Frag颜色=vec4(col,1.);
+  gl_FragColor=vec4(col,1.);
 }`;
 
 // A failed shader is otherwise a silent black canvas — say so instead.
@@ -273,7 +273,7 @@ function init(){
   if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(prog));
     fail('着色器程序链接失败——日志在浏览器控制台里。');return false;}
   gl.useProgram(prog);
-  U={};'uRes uOrigin uT uBalls uView uSmooth uRad uMouse uGlow uMouseBall u颜色 uBG'.split(' ')
+  U={};'uRes uOrigin uT uBalls uView uSmooth uRad uMouse uGlow uMouseBall uColor uBG'.split(' ')
     .forEach(n=>{U[n]=gl.getUniformLocation(prog,n);});
   const buf=gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER,buf);
@@ -310,13 +310,13 @@ function render(ts){
   gl.uniform1f(U.uRad,RAD);
   gl.uniform2f(U.uMouse,shownX,shownY);
   gl.uniform1i(U.uGlow,GLOW?1:0);
-  gl.uniform3fv(U.u颜色,COLOR);
+  gl.uniform3fv(U.uColor,COLOR);
   gl.uniform3fv(U.uBG,BG);
   // Compare: one context, two pictures side by side with a thin line between them, the plain circles on the left and the melting
   // blobs on the right; the pointer, read over the right half only, moves the same blob in both, so the blobs match.
   if(mode==='compare'){
     const half=Math.floor(W/2),gap=Math.max(1,Math.round(W/400));
-    gl.viewport(0,0,W,H);gl.clear颜色(.17,.17,.2,1);gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.viewport(0,0,W,H);gl.clearColor(.17,.17,.2,1);gl.clear(gl.COLOR_BUFFER_BIT);
     view(0,half-gap,2,MOUSE_BALL);
     view(half+gap,W-half-gap,0,MOUSE_BALL);
   }else view(0,W,mode==='inside'?1:0,MOUSE_BALL);

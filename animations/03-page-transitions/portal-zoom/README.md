@@ -1,6 +1,6 @@
 # 传送门 / 隧道缩放
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/portal-zoom/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/portal-zoom/)
 
 ## 它是什么
 传送门缩放把页面上的一个小元素当作通往下一页的窗口。点击它会从元素中心打开一个圆形（或方形），不断变大，直到新页面填满整个视图，感觉像潜入传送门，而不是跳到新页面。新页面本来就在下面；不断变大的开口只是揭示它。

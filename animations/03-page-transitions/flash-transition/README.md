@@ -1,6 +1,6 @@
 # 闪光 / 漏光过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/flash-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/flash-transition/)
 
 ## 它是什么
 闪光过渡把一次页面切换藏在一道闪光里。一层彩色层盖住页面并升到全强度，趁盖住时换页，然后这层再淡出，露出新页面。眼睛会把它读成一个明亮的瞬间，所以切换本身永远看不见——电影里藏剪切点用的也是同一个技巧。

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>滑动删除 — 动画手册</title>
   <meta name="description" content="卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/swipe-to-dismiss/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/swipe-to-dismiss/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="滑动删除 — 动画手册">
   <meta property="og:description" content="卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/swipe-to-dismiss/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/swipe-to-dismiss/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="滑动删除 — 动画手册">
   <meta name="twitter:description" content="卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滑动删除", "name": "滑动删除", "description": "卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/swipe-to-dismiss/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 滑动删除"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滑动删除", "name": "滑动删除", "description": "卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/swipe-to-dismiss/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 滑动删除"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--del:#f4515b}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -99,8 +99,8 @@
       .stage[data-hb-mode="compare"] .row{height:52px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -192,7 +192,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -207,7 +207,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const listEl=document.getElementById('list'),stage=document.querySelector('.stage');
   const resetBtn=document.getElementById('btn-reset'),reduceMq=window.matchMedia('(prefers-reduced-motion:reduce)');
@@ -397,10 +397,10 @@
   const RANGE=0.75,SPEED_FULL=FLICK/0.6; // the gauge shows a card up to RANGE of its width each way; the speed bar is full at SPEED_FULL px per ms
   const POSE_FLY=0.2,POSE_CLOSE=0.5;     // 0.1 s after letting go the card has flown this share of its way and the row has closed this share
   let half=0,gx=0,gw=300,speedX=0,speedT=0,holdT=0,poseT=0;
-  const STILL='Shown still, just after letting go: Vanishes has already dropped the message and jumped up; Flies off is still sliding it away and closing the gap.';
-  const FREE='With reduced motion, Vanishes and Flies off both drop a message at once. Reset brings the still back.';
+  const STILL='静止展示，刚松开时：「消失」已经去掉消息并跳上去；「飞出去」还在把消息滑走并合上空隙。';
+  const FREE='减弱动态效果下，「消失」和「飞出去」都会立刻去掉消息。重置会把静止画面带回来。';
   if(reduceMq.matches){
-    noteIn.textContent='Inside, the dashed marks are the delete distance: let go past one, or flick fast, and the message goes; short of it, it comes back. Drag a message, or press Show me.';
+    noteIn.textContent='看内部时，虚线是删除距离：松开超过一条，或快速一甩，消息就走；不到就弹回来。拖一条消息，或按「演示一下」。';
     noteCmp.textContent=STILL;
   }
   function note(posed){ if(reduceMq.matches&&mode==='compare'&&noteCmp.textContent!==(posed?STILL:FREE))noteCmp.textContent=posed?STILL:FREE; }

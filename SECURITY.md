@@ -4,7 +4,7 @@ Animation Handbook is a static website: HTML, CSS and JavaScript files that GitH
 server code, no accounts, no sign-up and nothing that collects what visitors type. All it keeps is in the visitor's own
 browser: the light or dark theme they picked, and the repository's star count, which the home page reads from GitHub's
 public API. The only version looked after is the one on the `main` branch, which is the live site at
-https://matinmonshizadeh.github.io/animation-handbook/.
+https://animation.xizanghuapi.cn/.
 
 ## What to report
 

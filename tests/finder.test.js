@@ -174,7 +174,7 @@ test('the Not here? address opens the form animation_not_here.yml with its title
   assert.equal(url.searchParams.get('template'), 'animation_not_here.yml');
   assert.equal(url.searchParams.get('title'), '[not here] 文字或数字 · 滚动时 · 自己画出来或打出来');
   assert.equal(url.searchParams.get('answers'),
-    '文字或数字 · 滚动时 · 自己画出来或打出来 — https://matinmonshizadeh.github.io/animation-handbook/?view=find&what=text&when=scroll&how=draw');
+    '文字或数字 · 滚动时 · 自己画出来或打出来 — https://animation.xizanghuapi.cn/?view=find&what=text&when=scroll&how=draw');
 });
 
 test('the Not here? title and answers are encoded whole, so an answer with &, #, + or % reaches the form as written', () => {
@@ -186,7 +186,7 @@ test('the Not here? title and answers are encoded whole, so an answer with &, #,
   const url = new URL(href);
   assert.deepEqual([...url.searchParams.keys()], ['template', 'title', 'answers']);
   assert.equal(url.searchParams.get('title'), '[not here] ' + words);
-  assert.equal(url.searchParams.get('answers'), words + ' — https://matinmonshizadeh.github.io/animation-handbook/' + page.findQuery(answers));
+  assert.equal(url.searchParams.get('answers'), words + ' — https://animation.xizanghuapi.cn/' + page.findQuery(answers));
 });
 
 // ── The pictures of the How answers ──
@@ -331,7 +331,7 @@ test('the Not here? link names animation_not_here.yml and fills only fields the 
 
 test('the issue chooser offers the finder first', () => {
   const config = read(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'config.yml'));
-  assert.match(config.split(/\r?\n  - name: /)[1] || '', /^Find an animation by what you saw\r?\n    url: https:\/\/matinmonshizadeh\.github\.io\/animation-handbook\/\?view=find\r?\n/);
+  assert.match(config.split(/\r?\n  - name: /)[1] || '', /^Find an animation by what you saw\r?\n    url: https:\/\/animation\.xizanghuapi\.cn\/\?view=find\r?\n/);
 });
 
 // ── The finder's view as the page runs it ──

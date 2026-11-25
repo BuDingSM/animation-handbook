@@ -1,6 +1,6 @@
 # 霓虹闪烁
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/neon-flicker/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/neon-flicker/)
 
 ## 它是什么
 霓虹闪烁让一个词看起来像发光的霓虹招牌，灯光有时会断断续续。字母大多数时间稳定地亮着，然后在短暂而不均匀的爆发里熄灭又回来，就像磨损的灯管或松动的电线那样，有一个字母还会像快要坏掉的灯管一样自己嗡嗡作响。

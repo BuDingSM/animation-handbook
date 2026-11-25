@@ -1,6 +1,6 @@
 # 放大镜
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/magnifier-lens/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/magnifier-lens/)
 
 ## 它是什么
 放大镜把图片的一部分近距离展示出来：一个圆形或方形的窗口跟随指针，里面放着图片的放大复制品，位置要让指针下的点正好在镜头的中间。它让人不用离开页面或打开更大的图片，就能读小字、检查小细节。

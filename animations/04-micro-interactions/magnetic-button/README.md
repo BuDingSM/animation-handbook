@@ -1,6 +1,6 @@
 # 磁吸按钮
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/magnetic-button/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/magnetic-button/)
 
 ## 它是什么
 磁吸按钮好像被指针吸住。指针靠近时，按钮向它移动一部分，标签再多移一点，所以标签像浮在按钮上面一样。指针离开时，按钮弹回来；它在布局里的位置永远不会变。

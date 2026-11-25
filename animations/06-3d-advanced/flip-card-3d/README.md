@@ -1,6 +1,6 @@
 # 3D 翻转卡片
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flip-card-3d/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/flip-card-3d/)
 
 ## 它是什么
 3D 翻转卡片有正面和背面，在 3D 中翻过来露出另一面。两面处在同一个位置，背面转过去，背对观看者的那一面会被隐藏。卡片容器上的透视让翻转有了真正的景深，感觉就像翻一张真实的卡片。

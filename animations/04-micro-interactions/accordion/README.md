@@ -1,6 +1,6 @@
 # 手风琴展开/收起
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/accordion/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/accordion/)
 
 ## 它是什么
 手风琴是一叠标题，每个标题都能打开，在下方显示更多内容，然后再收起来。难的是这个动作：内容的盒子必须从零长到自然高度，而浏览器本身做不到这一点。演示展示了两种做法：先测好内容的高度，或者让网格行从零长到完整尺寸。

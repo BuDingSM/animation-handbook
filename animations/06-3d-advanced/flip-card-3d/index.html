@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3D 翻转卡片 — 动画手册</title>
   <meta name="description" content="卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flip-card-3d/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/flip-card-3d/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="3D 翻转卡片 — 动画手册">
   <meta property="og:description" content="卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flip-card-3d/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/flip-card-3d/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="3D 翻转卡片 — 动画手册">
   <meta name="twitter:description" content="卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D 翻转卡片", "name": "3D 翻转卡片", "description": "卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flip-card-3d/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 3D 翻转卡片"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D 翻转卡片", "name": "3D 翻转卡片", "description": "卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/flip-card-3d/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 3D 翻转卡片"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--perspective:1200px;--flip-dur:650ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -115,8 +115,8 @@
       .stage[data-hb-mode="compare"] .copy .card.axis-x:not(.flipped) .back{transform:rotateX(180deg)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -256,7 +256,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -271,7 +271,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage');
   const tilt=document.getElementById('tilt');
@@ -352,7 +352,7 @@
   }
   // The place the card sits in: the stage's middle, or in Compare the middle of a half (below its name)
   function frame(h){
-    const r=(h||stage).getBoundingClientRect(),t=h?parseFloat(getComputed样式(h).paddingTop):0;
+    const r=(h||stage).getBoundingClientRect(),t=h?parseFloat(getComputedStyle(h).paddingTop):0;
     return{left:r.left,top:r.top+t,width:r.width,height:r.height-t};
   }
   function overCard(e,r){
@@ -407,8 +407,8 @@
     compare:['静止时：「背面透出来」是背面盖在正面上面，还是镜像的，因为没有任何东西藏起背对着的面；「藏起背面」只显示正面。',
       '静止时，已经翻过去了：两张卡片都正面朝向正确地显示着详情。翻回来，「背面透出来」会用背面盖住正面，还是镜像的。']};
   function say(el,t){if(el.textContent!==t)el.textContent=t}
-  const SECONDS=[[500,'under half a second'],[800,'about two thirds of a second'],[1100,'about a second'],[1500,'just over a second'],[2500,'about two seconds']];
-  const seconds=ms=>(SECONDS.find(([m])=>ms<m)||[0,'about three seconds'])[1];
+  const SECONDS=[[500,'不到半秒'],[800,'大约三分之二秒'],[1100,'大约一秒'],[1500,'一秒出头'],[2500,'大约两秒']];
+  const seconds=ms=>(SECONDS.find(([m])=>ms<m)||[0,'大约三秒'])[1];
   function draw(){
     if(mode!=='inside'){half.style.transform=half.style.translate='';stage.style.removeProperty('--gap')}
     if(mode!=='compare')[half,copy].forEach(h=>h.style.removeProperty('--cs'));
@@ -418,15 +418,15 @@
   }
   // Compare: each card keeps its 156 x 218 layout and is scaled to what its half leaves (the half names sit above the cards)
   function sizeCompare(){
-    cs=Math.min(1.2,(half.clientWidth-12)/156,(half.clientHeight-parseFloat(getComputed样式(half).paddingTop)-10)/218);
+    cs=Math.min(1.2,(half.clientWidth-12)/156,(half.clientHeight-parseFloat(getComputedStyle(half).paddingTop)-10)/218);
     [half,copy].forEach(h=>h.style.setProperty('--cs',cs));
   }
   const rotate=(p,x,d)=>{const c=Math.cos(d*Math.PI/180),s=Math.sin(d*Math.PI/180);return x?[p[0],p[1]*c-p[2]*s,p[1]*s+p[2]*c]:[p[0]*c+p[2]*s,p[1],-p[0]*s+p[2]*c]};
   function placeInside(){
     const W=stage.clientWidth,H=stage.clientHeight,cw=card.offsetWidth,ch=card.offsetHeight,xt=stage.classList.contains('xturn');
-    const P=parseFloat(getComputed样式(stage).perspective)||1200,rm=reduce.matches,vy=rm?0:VY,turn=rm?(card.classList.contains('flipped')?120:60):0;
+    const P=parseFloat(getComputedStyle(stage).perspective)||1200,rm=reduce.matches,vy=rm?0:VY,turn=rm?(card.classList.contains('flipped')?120:60):0;
     const g=cw*GAP,ext=Math.max(10,ch*.05),caps=[...stage.querySelectorAll('.in-cap')];
-    say(caps[3],'Turns on this line in '+seconds(flipMs*(slowTog.checked?3:1)));
+    say(caps[3],'沿这条线翻转，用时'+seconds(flipMs*(slowTog.checked?3:1)));
     // a point of the card (x right, y down, z toward the viewer; t: it turns with the card) as the viewer sees it, from the stage's middle
     const pr=(x,y,z,s,t)=>{let p=[x*s,y*s,z*s];if(t&&turn)p=rotate(p,xt,turn);p=rotate(rotate(p,0,vy),1,VX);const k=P/(P-p[2]);return[p[0]*k,p[1]*k]};
     // the gold line and its arrow stand in front of the faces (z), shifted so that, seen from here, they run through the card's middle

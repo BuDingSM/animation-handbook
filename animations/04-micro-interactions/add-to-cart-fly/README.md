@@ -1,6 +1,6 @@
 # 加入购物车飞入
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/add-to-cart-fly/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/add-to-cart-fly/)
 
 ## 它是什么
 加入购物车飞入是指，访客按下「加入购物车」时，把商品图片的一个小复制品送进购物车图标。复制品在飞行中缩小，落下时购物车轻轻抖一下，购物车上的数字加一，这样访客能看到商品去了哪里。

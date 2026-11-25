@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>拆字揭示 — 动画手册</title>
   <meta name="description" content="文字拆成碎片，依次出现。适合标题。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/split-text-reveal/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/split-text-reveal/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="拆字揭示 — 动画手册">
   <meta property="og:description" content="文字拆成碎片，依次出现。适合标题。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/split-text-reveal/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/split-text-reveal/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="拆字揭示 — 动画手册">
   <meta name="twitter:description" content="文字拆成碎片，依次出现。适合标题。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "拆字揭示", "name": "拆字揭示", "description": "文字拆成碎片，依次出现。适合标题。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/split-text-reveal/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，拆字揭示"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "拆字揭示", "name": "拆字揭示", "description": "文字拆成碎片，依次出现。适合标题。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/split-text-reveal/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，拆字揭示"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--dur:500ms;--ease:cubic-bezier(.2,.7,.3,1);--stagger:30ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -89,8 +89,8 @@
     @media(max-width:600px){.lbl{font-size:12.5px;padding:3px 6px}}
     @media(prefers-reduced-motion:reduce){.unit,.unit-inner{transition:opacity 300ms linear!important;transform:none!important}[data-mode="lines"] .unit{opacity:0}.splitting.in .unit{opacity:1}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -116,7 +116,7 @@
       <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots hb-grow">
-      <div id="text-target" class="splitting" data-mode="words" data-anim="fade-up">Design beyond the obvious</div>
+      <div id="text-target" class="splitting" data-mode="words" data-anim="fade-up">看见显而易见之外</div>
       <div class="ghosts" aria-hidden="true"></div>
       <ul class="key" aria-hidden="true">
         <li class="lbl key-row k1" data-hb-caption><i class="sw sw-box"></i><span>每个词语都是自己的一块</span></li>
@@ -199,7 +199,7 @@
         </div>
         <div class="hb-setting">
           <label class="hb-setting-name" for="txt-in">你的文字</label>
-          <input class="hb-text" type="text" id="txt-in" value="Design beyond the obvious" autocomplete="off">
+          <input class="hb-text" type="text" id="txt-in" value="看见显而易见之外" autocomplete="off">
           <p class="hb-hint">输入你自己的文字，看看它们怎么拆开。</p>
         </div>
       </div>
@@ -243,7 +243,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const target=document.getElementById('text-target');
   const vars=document.documentElement.style;
@@ -263,7 +263,7 @@
   // and at once when Split into or Your text changes so the stage never shows a stale split.
   function split(){
     setIn(false);
-    const text=txtIn.value||'Design beyond the obvious';
+    const text=txtIn.value||'看见显而易见之外';
     target.dataset.mode=mode;target.dataset.anim=anim;
     target.innerHTML='';
     if(mode==='chars'){

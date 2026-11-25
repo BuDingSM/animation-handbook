@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>粘性菜单 — 动画手册</title>
   <meta name="description" content="小按钮像液体一样从圆形按钮里渗出来。适合用在快捷操作上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/gooey-menu/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/gooey-menu/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="粘性菜单 — 动画手册">
   <meta property="og:description" content="小按钮像液体一样从圆形按钮里渗出来。适合用在快捷操作上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/gooey-menu/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/gooey-menu/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="粘性菜单 — 动画手册">
   <meta name="twitter:description" content="小按钮像液体一样从圆形按钮里渗出来。适合用在快捷操作上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "粘性菜单", "name": "粘性菜单", "description": "小按钮像液体一样从圆形按钮里渗出来。适合用在快捷操作上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/gooey-menu/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 粘性菜单"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "粘性菜单", "name": "粘性菜单", "description": "小按钮像液体一样从圆形按钮里渗出来。适合用在快捷操作上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/gooey-menu/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 粘性菜单"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--goo:#ff9d5c;--dur:600ms;--stag:60ms;--pop:cubic-bezier(.3,1.4,.55,1);--pull:cubic-bezier(.55,-.25,.75,.25)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -118,8 +118,8 @@
       .stage[data-hb-mode="inside"] .gm-pose .gm-b,.stage[data-hb-mode="compare"] .gm-pose .gm-b{opacity:1}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -253,7 +253,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -268,7 +268,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $=id=>document.getElementById(id),set=(el,name,v)=>el.style.setProperty(name,v),root=document.documentElement;
   const stage=$('stage'),gm=$('gm'),main=$('gm-main'),mb=$('gm-mb'),group=$('gm-items'),say=$('gm-say'),slowTog=$('slow-tog');
@@ -403,9 +403,9 @@
   const BLUR={5:'轻微',9:'中等',13:'强烈'};
   const SAYS={950:['将近一秒','almost 三秒'],600:['大约半秒','almost 两秒'],380:['大约三分之一秒','超过一秒']};
   const notes=[...document.querySelectorAll('[data-hb-for]')],NOTES=notes.map(n=>n.textContent);
-  const XRAY=['Inside, the rings are the plain circles that move underneath; Shows the plain circles is on, so the blur that melts them is off. Press the round button, or Show me.',
+  const XRAY=['看内部时，圆环是底下在移动的普通圆；「显示普通圆」开着，所以把它们融在一起的模糊是关的。按圆按钮，或按「演示一下」。',
     '「显示素圆圈」已打开，所以「没有粘性」和「粘性」看起来一样。在「更多选项」下关掉它，就能看到液体。'];
-  const STILL=['Inside, shown still: the rings are the plain circles underneath, caught part way out; a blur and then a sharpen melt the ones that touch into one liquid shape.',
+  const STILL=['看内部、静止展示：圆环是底下的普通圆，停在半路；先模糊再变清晰，把挨着的圆融成一个液态形状。',
     'Shown still: 没有粘性 has separate dots; Gooey has its drops caught part way out, melted together where they touch.'];
   const FADES=['内部：减弱动态效果下按钮在原地淡入，所以没有液体加入圆环。关掉菜单，看它们在半路上被定格。',
     '减弱动态效果下按钮在原地淡入，所以「没有粘性」和「粘性」看起来一样。关掉菜单，看液滴在半路上被定格。'];
@@ -413,7 +413,7 @@
     const xr=$('xray-tog').checked,rm=reduceMq.matches,posed=gm.classList.contains('gm-pose'),w=xr?XRAY:!rm?NOTES:posed?STILL:FADES,fade=rm&&!posed;
     // While the buttons only fade in (no tails, no blur) the two labels about them say so; both wordings are in the label
     const two=(k,a,b,alt)=>{const [x,y]=k.children;x.textContent=a;y.textContent=b;k.classList.toggle('alt',alt)};
-    keys[0].textContent=rm?'Rings: the plain circles underneath':'圆环：素圆圈在下面移动';
+    keys[0].textContent=rm?'圆环：底下的普通圆':'圆环：素圆圈在下面移动';
     two(keys[1],'虚线圆环：尾巴拖在后面','尾巴：按钮淡入时隐藏',fade);
     const melt=xr?'滤镜关闭：圆圈保持分开':BLUR[goo]+'模糊，再锐化：碰到的圆圈融化在一起';
     two(keys[2],melt,xr?melt:'按钮淡入时没有模糊，所以什么都不会融化',fade&&!xr);

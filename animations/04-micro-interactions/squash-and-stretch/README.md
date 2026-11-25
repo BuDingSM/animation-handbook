@@ -1,6 +1,6 @@
 # 挤压与伸展
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/squash-and-stretch/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/squash-and-stretch/)
 
 ## 它是什么
 

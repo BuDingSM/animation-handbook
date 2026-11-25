@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2D 物理 — 动画手册</title>
   <meta name="description" content="球从你点击的地方落下，弹跳、堆积。适合有趣的开场。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/physics-2d/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/physics-2d/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="2D 物理 — 动画手册">
   <meta property="og:description" content="球从你点击的地方落下，弹跳、堆积。适合有趣的开场。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/physics-2d/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/physics-2d/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="2D 物理 — 动画手册">
   <meta name="twitter:description" content="球从你点击的地方落下，弹跳、堆积。适合有趣的开场。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "2D 物理", "name": "2D 物理", "description": "球从你点击的地方落下，弹跳、堆积。适合有趣的开场。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/physics-2d/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 2D 物理"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "2D 物理", "name": "2D 物理", "description": "球从你点击的地方落下，弹跳、堆积。适合有趣的开场。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/physics-2d/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 2D 物理"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--b1:#ff6f8b;--b2:#ffce5a;--b3:#6ea8ff;--b4:#5fd88a;--b5:#b98cff;--b6:#3fd6c4;--mark:#fff;--hint:rgba(255,255,255,.72)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,8 +40,8 @@
     .half.first{left:25%}.half.second{left:75%}
     @media(max-width:600px){.lbl{font-size:12px}.key{max-width:48%}.more{display:none}} /* on a phone the key keeps the short words, so it stays clear of the pile */
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -68,7 +68,7 @@
     </div>
     <div class="stage hb-dots" id="stage">
       <canvas id="cvs" tabindex="0" role="button" aria-label="一盒球：点击、轻触或按回车可以丢下一个球，拖动球可以把它扔出去"></canvas>
-      <p class="hint" id="hint" aria-hidden="true">Click or tap to drop a ball</p>
+      <p class="hint" id="hint" aria-hidden="true">点击或轻点，放下一颗球</p>
       <div class="key" aria-hidden="true">
         <p class="lbl kc" data-hb-caption>重力让每个球加速下落</p>
         <p class="lbl kc" data-hb-caption>碰到的球互相推开，绝不拉近</p>
@@ -155,7 +155,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -170,13 +170,13 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d');
 const stage=document.getElementById('stage'),hint=document.getElementById('hint'),slowTog=document.getElementById('slow-tog');
 // Phones are screens up to 600px wide, or up to 500px tall when held sideways: they keep fewer balls
 const reduce=matchMedia('(prefers-reduced-motion:reduce)'),phone=matchMedia('(max-width:600px),(max-height:500px)');
-const css=getComputed样式(document.documentElement),COLORS=[1,2,3,4,5,6].map(n=>css.getPropertyValue('--b'+n)),MARK=css.getPropertyValue('--mark');
+const css=getComputedStyle(document.documentElement),COLORS=[1,2,3,4,5,6].map(n=>css.getPropertyValue('--b'+n)),MARK=css.getPropertyValue('--mark');
 const FRAME=1000/60,FADE=300,RING=450; // one physics step is 1/60 s; a fade and a tap ring last 300 and 450 ms
 const WALL={vx:0,vy:0,im:0}; // the walls and floor never move
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -230,11 +230,11 @@ function settle(){awake=true;calm=0;for(let i=0;i<900&&awake;i++)step();awake=fa
 
 function draw(){ctx.clearRect(0,0,W,H);scene();if(mode==='inside')inside();}
 function scene(){
-  ctx.stroke样式=ctx.fill样式=MARK;ctx.lineWidth=2;
+  ctx.strokeStyle=ctx.fillStyle=MARK;ctx.lineWidth=2;
   for(const r of rings){const p=(clock-r.t)/RING;ctx.globalAlpha=(1-p)*.7;ctx.beginPath();ctx.arc(r.x,r.y,6+R0*1.2*p,0,Math.PI*2);ctx.stroke();}
   for(const b of balls){
-    ctx.globalAlpha=b.al;ctx.fill样式=b.c;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
-    ctx.globalAlpha=b.al*.55;ctx.fill样式=MARK;ctx.beginPath(); // a spot on the ball turns as it rolls
+    ctx.globalAlpha=b.al;ctx.fillStyle=b.c;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
+    ctx.globalAlpha=b.al*.55;ctx.fillStyle=MARK;ctx.beginPath(); // a spot on the ball turns as it rolls
     ctx.arc(b.x+Math.cos(b.a)*b.r*.55,b.y+Math.sin(b.a)*b.r*.55,b.r*.16,0,Math.PI*2);ctx.fill();
     const s=Math.hypot(b.vx,b.vy);if(!SHOW||s<.3)continue;
     const L=Math.min(s*6,b.r*3),ux=b.vx/s,uy=b.vy/s,ex=b.x+ux*L,ey=b.y+uy*L;
@@ -357,7 +357,7 @@ function compareFrame(ms){
 function drawHalves(){
   const hw=W/2;ctx.clearRect(0,0,W,H);
   for(let i=0;i<2;i++){ctx.save();ctx.beginPath();ctx.rect(i*hw,0,hw,H);ctx.clip();ctx.translate(i*hw,TOP);inWorld(halves[i],scene);ctx.restore();}
-  ctx.fill样式='#3a3c46';ctx.fillRect(hw-1,0,2,H);
+  ctx.fillStyle='#3a3c46';ctx.fillRect(hw-1,0,2,H);
 }
 // See inside, over the balls: a white line through each touching point of the last step, along the push, as long as the push it carried
 // (one ball's weight on Earth is about 3/4 of a radius; a line never passes one and a half), with a head at each end pointing apart, or one head
@@ -376,12 +376,12 @@ function inside(){
     ctx.moveTo(x-nx*L/2,y-ny*L/2);ctx.lineTo(x+nx*L/2,y+ny*L/2);head(x+nx*L/2,y+ny*L/2,nx,ny,hs);head(x-nx*L/2,y-ny*L/2,-nx,-ny,hs);
   }
   const g=R0*(.7+.85*GRAV);ctx.moveTo(22,14);ctx.lineTo(22,14+g);head(22,14+g,0,1);
-  ctx.stroke样式='rgba(11,11,13,.85)';ctx.lineWidth=6;ctx.stroke();ctx.stroke样式='#fff';ctx.lineWidth=2.5;ctx.stroke();
+  ctx.strokeStyle='rgba(11,11,13,.85)';ctx.lineWidth=6;ctx.stroke();ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.stroke();
 }
 const key=stage.querySelector('.key');
 const NAMES={normal:cvs.getAttribute('aria-label')};
-NAMES.inside=NAMES.normal+'; inside, arrows show gravity and the pushes where balls touch';
-NAMES.compare=NAMES.normal+'; two boxes side by side, balls that pass through each other and balls that pile up';
+NAMES.inside=NAMES.normal+'；看内部时，箭头表示重力，以及球相碰时的推力';
+NAMES.compare=NAMES.normal+'；两个盒子并排，球互相穿过，以及球堆在一起';
 // The mode switch draws the mode at once. Leaving a mode stops its run; Compare starts two empty worlds and keeps Normal's color count,
 // clock and steps owed; Normal fades out the balls a view's run posed (the visitor's own stay). Under reduced motion an empty box gets
 // the plan's balls resting at once. The flag marks the Show me press that follows as the visitor's (cleared once it has run).

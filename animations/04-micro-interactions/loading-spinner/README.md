@@ -1,6 +1,6 @@
 # 加载旋转指示
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/loading-spinner/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/loading-spinner/)
 
 ## 它是什么
 加载旋转指示是一个一直在循环里动的小图形，表示系统正在忙。它不说要等多久，只说工作正在进行，所以适合不知道多长的等待，比如网络请求。演示展示了六种常见设计。

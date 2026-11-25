@@ -1,6 +1,6 @@
 # GPGPU 粒子系统
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/gpgpu-particle-system/)
 
 ## 它是什么
 GPU 粒子系统把数万个粒子放在显卡上移动，而不是在 JavaScript 里。每个粒子的位置和速度存为纹理的一个像素，着色器读取上一帧的纹理、同时写出下一帧。第二步把每个粒子画成一个小点。

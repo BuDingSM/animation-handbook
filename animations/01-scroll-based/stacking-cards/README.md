@@ -1,6 +1,6 @@
 # 层叠卡片
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/stacking-cards/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/stacking-cards/)
 
 ## 它是什么
 

@@ -1,6 +1,6 @@
 # 滚动显现
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reveal-on-scroll/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/reveal-on-scroll/)
 
 ## 它是什么
 滚动显现让元素保持隐藏，比如淡出、移位、缩小、模糊或裁剪，直到它升过视野里的一条线，再让它落定到位。浏览器会在每个元素越过线时报告，所以每次滚动都不需要运行任何东西。演示用一条虚线展示了七种显现方式。

@@ -1,6 +1,6 @@
 # 体积烟雾 / 3D 噪声
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/volumetric-smoke/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/volumetric-smoke/)
 
 ## 它是什么
 体积烟雾是按真正的 3D 云画出来的，而不是一张平面图。对每个像素，一条光线穿过一片平滑噪声的云，累加它遇到的烟雾量，再按它与光源之间的烟雾量给每个部分上色。这带来柔和的边缘和深度，电影就是这样画烟雾、雾和云的。

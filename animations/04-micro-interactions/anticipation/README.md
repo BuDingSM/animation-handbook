@@ -1,6 +1,6 @@
 # 预备动作
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/anticipation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/anticipation/)
 
 ## 它是什么
 

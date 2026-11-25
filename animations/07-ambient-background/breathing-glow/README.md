@@ -1,6 +1,6 @@
 # 呼吸光晕
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/breathing-glow/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/breathing-glow/)
 
 ## 它是什么
 呼吸光晕是一团柔和的圆形彩色光晕，慢慢变大变亮，再缩小变暗，反反复复，像一个人平静地呼吸。四到六秒一个周期符合放松的呼吸。它位于有生气但处于静止的东西后面，比如暂停的音乐播放器、闲置的语音助手或冥想计时器。

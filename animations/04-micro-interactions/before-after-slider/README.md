@@ -1,6 +1,6 @@
 # 前后对比滑块
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/before-after-slider/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/before-after-slider/)
 
 ## 它是什么
 前后对比滑块把同一场景的两张图片叠在一起，比如一张照片编辑前和编辑后，只在一条分界线之前显示上面那张。拖动线可以露出更多一张、更少另一张，这样眼睛能对比同一个位置在两张图里的样子。两张图片都不动：动的只有线。

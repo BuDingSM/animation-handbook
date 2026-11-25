@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SVG 路径动画 — 动画手册</title>
   <meta name="description" content="线条画一笔一笔自己画出来。适合图标和标志。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/svg-path-animation/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/svg-path-animation/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="SVG 路径动画 — 动画手册">
   <meta property="og:description" content="线条画一笔一笔自己画出来。适合图标和标志。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/svg-path-animation/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/svg-path-animation/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SVG 路径动画 — 动画手册">
   <meta name="twitter:description" content="线条画一笔一笔自己画出来。适合图标和标志。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SVG 路径动画", "name": "SVG 路径动画", "description": "线条画一笔一笔自己画出来。适合图标和标志。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/svg-path-animation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, SVG 路径动画"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SVG 路径动画", "name": "SVG 路径动画", "description": "线条画一笔一笔自己画出来。适合图标和标志。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/svg-path-animation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, SVG 路径动画"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--stroke-w:2;--stroke-color:#58a6ff;--fill-dur:400ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -82,8 +82,8 @@
       .cap-a{max-width:calc(100% - 16px)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -228,7 +228,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -243,7 +243,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const DRAWINGS=[
     {label:'房子和星星图标',paths:[
@@ -388,7 +388,7 @@
   function rebuildViews(){
     viewsFor=built;
     lens=built.map(path=>path.getTotalLength());
-    styles=built.map(path=>getComputed样式(path));
+    styles=built.map(path=>getComputedStyle(path));
     routes.replaceChildren();copyG.replaceChildren();
     samples=built.map((path,i)=>{
       const pts=[],k=Math.ceil(lens[i]/6);
@@ -431,9 +431,9 @@
     if(!W||!n)return;
     const fill=fillTog.checked,ms=speed(),gap=ms*.3,fms=slowTog.checked?1200:400,fillAt=(n-1)*gap+ms+30,total=fillAt+(fill?fms:0);
     const secs=Math.round(total/500)/2;
-    put(capB,n>1?'1、2、3：它们画出来的顺序':'1: where the line starts');
+    put(capB,n>1?'1、2、3：它们画出来的顺序':'1：线从这里开始');
     put(capPh,' · '+capB.textContent);
-    put(capC,(n>1?'Each starts a little after the one before: ':'The line draws from its dot: ')+'about '+
+    put(capC,(n>1?'每一条都比前一条稍晚开始：':'线从它的圆点开始描：')+'about '+
       (secs<1?'half a second':secs===1?'a second':(secs%1?Math.floor(secs)+'½':secs)+' seconds')+' in all');
     const rows=n+(fill?1:0),axisY=H-PAD-capC.offsetHeight-13,top=axisY-4-(rows*PITCH-(PITCH-ROW));
     stage.style.setProperty('--io-t',PAD+Math.max(capA.offsetHeight,capB.offsetHeight)+GAP+'px');
@@ -509,7 +509,7 @@
       }
       pose();
     }
-    put(capPose,poseMs()<1000?'Under a second in':'One second in');
+    put(capPose,poseMs()<1000?'不到一秒':'One second in');
     syncCopy();
     if(!motionOk){
       const when=poseMs()<1000?'不到一秒':'一秒';

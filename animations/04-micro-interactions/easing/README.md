@@ -1,6 +1,6 @@
 # 缓动曲线
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/easing/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/easing/)
 
 ## 它是什么
 

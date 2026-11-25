@@ -1,6 +1,6 @@
 # 雪 / 雨
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/snow-rain/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/snow-rain/)
 
 ## 它是什么
 雪或雨的效果在黑暗场景上铺的透明画布上画落下的粒子。雪花慢慢落下、左右摇摆，雨滴快速落下、画成随风倾斜的短线。每个粒子都有深度，近的比远的大、亮、快，这把扁平的一洒圆点变成你透过看的天气。

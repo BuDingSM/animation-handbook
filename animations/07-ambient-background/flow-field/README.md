@@ -1,6 +1,6 @@
 # 流场
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/flow-field/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/flow-field/)
 
 ## 它是什么
 流场让成千上万的粒子穿过画布，每个粒子按它下方看不见的水流方向转向。方向从一处到另一处平滑变化，所以彼此靠近的粒子一起弯曲，整个表面呈现出轻柔、河流般的水流。画布每帧只是变暗一点而不是清空，所以每个粒子都留下一条渐隐的轨迹，描出水流。

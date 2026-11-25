@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>轻提示 — 动画手册</title>
   <meta name="description" content="短消息滑入角落，之后自行离开。适合用在更新提醒上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/toast-notification/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="轻提示 — 动画手册">
   <meta property="og:description" content="短消息滑入角落，之后自行离开。适合用在更新提醒上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/toast-notification/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="轻提示 — 动画手册">
   <meta name="twitter:description" content="短消息滑入角落，之后自行离开。适合用在更新提醒上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "轻提示", "name": "轻提示", "description": "短消息滑入角落，之后自行离开。适合用在更新提醒上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toast-notification/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 轻提示"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "轻提示", "name": "轻提示", "description": "短消息滑入角落，之后自行离开。适合用在更新提醒上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/toast-notification/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 轻提示"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--ok:#5ad19a;--err:#f4515b;--info:#6ea8ff}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -98,8 +98,8 @@
     /* A narrow stage: the words sit past the stack's free end, and may wrap */
     @container (max-width:559px){.cap{font-size:12px;line-height:16px;white-space:normal;max-width:calc(100% - 24px)}.stage[data-hb-mode="inside"] .cap[data-k="limit"]{display:none}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -219,7 +219,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -234,12 +234,12 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const toaster=document.getElementById('toaster'),send=document.getElementById('send');
   const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)');
-  const STILL_CMP='Shown still, a moment into a change: Jumps has already moved every toast; Glides is still moving them into place.',
-    OUT_CMP='Without motion both halves show the same toasts at once; turn reduced motion off to see Glides move them.';
+  const STILL_CMP='静止展示，变化开始片刻：「跳过去」已经把每条提示挪到位；「滑过去」还在滑向新位置。',
+    OUT_CMP='没有动画时，两边会立刻显示同样的提示；关掉减弱动态效果，才能看到「滑过去」移动它们。';
   let corner='tr',style='slide',dur=4,limit=4,toasts=[];
   const TYPES=[['ok','Saved','你的更改已发布。'],['ok','Uploaded','profile.png 已上传完成。'],
     ['err','Failed','无法连接到服务器。'],['err','Rejected','卡被拒绝了——换一张试试。'],
@@ -457,7 +457,7 @@
   if(document.fonts)document.fonts.ready.then(draw);
   // Under reduced motion both views are still pictures, and their notes say so
   if(reduceMotion.matches){
-    document.querySelector('[data-hb-for="inside"]').textContent='Inside, shown still: each toast leaves when its bar runs out, and whenever the stack changes the others move to their new places; pointing at one pauses its bar.';
+    document.querySelector('[data-hb-for="inside"]').textContent='看内部、静止展示：每条提示在自己的进度条走完时离开，叠放变化时其他条移到新位置；指向一条会暂停它的进度条。';
     document.querySelector('[data-hb-for="compare"]').textContent=STILL_CMP;
   }
 </script>

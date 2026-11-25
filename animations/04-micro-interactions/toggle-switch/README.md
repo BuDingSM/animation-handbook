@@ -1,6 +1,6 @@
 # 开关滑动
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toggle-switch/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/toggle-switch/)
 
 ## 它是什么
 开关滑动是一个开/关控件，圆形旋钮滑过轨道，打开时轨道填满颜色。滑动展示了变化，而不是只翻转它；它的速度和曲线决定开关感觉机械、有分量还是有弹性。

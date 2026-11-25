@@ -1,6 +1,6 @@
 # 点赞爱心迸发
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/heart-burst/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/heart-burst/)
 
 ## 它是什么
 一个点赞按钮，在你点赞的瞬间庆祝一下。爱心迅速压扁、过头、再落定，同时填满颜色；小爱心和圆点从它的中心迸出来，淡出。取消点赞只是去掉颜色，没有庆祝。

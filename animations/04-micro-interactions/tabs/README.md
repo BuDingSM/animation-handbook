@@ -1,6 +1,6 @@
 # 标签页切换
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/tabs/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/tabs/)
 
 ## 它是什么
 

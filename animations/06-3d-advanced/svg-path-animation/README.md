@@ -1,6 +1,6 @@
 # SVG 路径动画
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/svg-path-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/svg-path-animation/)
 
 ## 它是什么
 SVG 路径动画让线条画看起来像手画出来的一样。每条线藏在一段和线一样长的虚线后面，把虚线滑走，就从一端到另一端露出线条。整幅画从一开始就在页面里，带有标签，所以屏幕阅读器总能找到它。

@@ -1,6 +1,6 @@
 # 荧光笔扫过
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/highlighter-sweep/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/highlighter-sweep/)
 
 ## 它是什么
 荧光笔扫过像用笔一样标记句子里的关键词。一条记号笔颜色的带子从左到右在每个关键短语后面长出来，按阅读顺序一个短语接一个短语，让眼睛从一个想法走到下一个。文字本身从来不动；只有它后面的颜色被画出来。

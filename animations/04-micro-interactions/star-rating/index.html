@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>星级评分 — 动画手册</title>
   <meta name="description" content="星星随指针填满，选中时弹出。适合用在评价上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/star-rating/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="星级评分 — 动画手册">
   <meta property="og:description" content="星星随指针填满，选中时弹出。适合用在评价上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/star-rating/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="星级评分 — 动画手册">
   <meta name="twitter:description" content="星星随指针填满，选中时弹出。适合用在评价上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "星级评分", "name": "星级评分", "description": "星星随指针填满，选中时弹出。适合用在评价上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/star-rating/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 星级评分"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "星级评分", "name": "星级评分", "description": "星星随指针填满，选中时弹出。适合用在评价上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/star-rating/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 星级评分"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-muted:#8a8a92;--bg:#0b0b0d;--star:clamp(44px,11vw,60px);--pop:1.35;--fill-dur:180ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -83,8 +83,8 @@
       .stage[data-hb-mode="compare"] .lay-a{clip-path:inset(0 0 50% 0)}.stage[data-hb-mode="compare"] .lay-b{clip-path:inset(50% 0 0 0)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -212,7 +212,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -227,7 +227,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const STAR='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z';
   const stage=document.querySelector('.stage');
@@ -459,7 +459,7 @@
   }
   // The notes in the markup are for motion; under reduced motion the pop is left out of both
   const notes=[document.querySelector('[data-hb-for="inside"]'),document.querySelector('[data-hb-for="compare"]')];
-  const NOTES=notes.map(n=>n.textContent),NOTES_RM=['Inside, each dashed box is the spot that picks a star: pointing previews the rating and clicking chooses it. Point along the stars, or press Show me.',
+  const NOTES=notes.map(n=>n.textContent),NOTES_RM=['看内部时，每个虚线框是选中一颗星的区域：指向时预览评分，点击才选定。沿星星移动，或按「演示一下」。',
     '只点一下: nothing shows until you click; 预览和弹出: the stars fill up to the pointer first, and the chosen one pops when motion is on. Point along the stars.'];
   function writeNotes(){notes.forEach((n,i)=>{const t=(RM.matches?NOTES_RM:NOTES)[i];if(n.textContent!==t)n.textContent=t})}
   writeNotes();RM.addEventListener('change',()=>{writeNotes();refresh()});

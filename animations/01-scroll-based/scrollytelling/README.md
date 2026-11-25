@@ -1,6 +1,6 @@
 # 滚动叙事
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrollytelling/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/scrollytelling/)
 
 ## 它是什么
 滚动叙事把一幅图片绑在滚动文字讲的故事上。往下读时，文字旁边的图片随你一起变化，在各章之间平滑混合，而不是每章切换一次。演示里你下沉穿过海洋的六层，舷窗里的水变暗，深度数到 10,935 米。

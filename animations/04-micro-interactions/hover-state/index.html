@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>悬停状态动画 — 动画手册</title>
   <meta name="description" content="指向卡片时，它有六种反应方式。适合用在按钮和卡片上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hover-state/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="悬停状态动画 — 动画手册">
   <meta property="og:description" content="指向卡片时，它有六种反应方式。适合用在按钮和卡片上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hover-state/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="悬停状态动画 — 动画手册">
   <meta name="twitter:description" content="指向卡片时，它有六种反应方式。适合用在按钮和卡片上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "悬停状态动画", "name": "悬停状态动画", "description": "指向卡片时，它有六种反应方式。适合用在按钮和卡片上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hover-state/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 悬停状态动画"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "悬停状态动画", "name": "悬停状态动画", "description": "指向卡片时，它有六种反应方式。适合用在按钮和卡片上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/hover-state/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 悬停状态动画"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--dur:180ms;--ease:ease}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -129,8 +129,8 @@
     /* Reduced motion: hover states still change, but without the tween */
     @media(prefers-reduced-motion:reduce){.h-color,.h-scale,.h-lift,.h-lift::after,.arrow,.h-underline .card-link::after,.h-sweep::before{transition:none!important}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -234,7 +234,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -249,7 +249,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const cards=[...document.querySelectorAll('.hcard')];
   const stage=document.querySelector('.stage');
@@ -298,7 +298,7 @@
   const insideNote=document.querySelector('[data-hb-for="inside"]'),NOTE=insideNote.textContent;
   const NOTE_RM='内部：每张卡片旁边都有它被指向时的样子的复制品；开启减弱动态效果时，指向、按压或按 Tab 会立刻切换到那个样子。';
   const TIME={300:['大约三分之一秒','将近一秒'],180:['大约五分之一秒','大约半秒'],110:['大约十分之一秒','大约三分之一秒']};
-  const FEEL={ease:'减速到位','cubic-bezier(.34,1.56,.64,1)':'稍微过头再回落','ease-in-out':'缓入缓出',linear:'at one steady pace'};
+  const FEEL={ease:'减速到位','cubic-bezier(.34,1.56,.64,1)':'稍微过头再回落','ease-in-out':'缓入缓出',linear:'以稳定的速度'};
   const CURVES={ease:[.25,.1,.25,1],'ease-in-out':[.42,0,.58,1],linear:[0,0,1,1]};
   const RM=matchMedia('(prefers-reduced-motion: reduce)');
   let mode='normal',ease='ease',mouse=false,lx=0,ly=0,touch=null,lastDemo=-1;

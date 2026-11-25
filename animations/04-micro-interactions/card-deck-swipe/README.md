@@ -1,6 +1,6 @@
 # 卡片组滑动
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/card-deck-swipe/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/card-deck-swipe/)
 
 ## 它是什么
 卡片组滑动一次展示一叠卡片中的一张，比如个人资料或商品。顶部卡片跟随拖动，像捏住底边一样微微旋转，松开时拖得够远就会向左或向右飞走，同时下一张卡片长到它的位置上。两边是两个答案，比如否定和肯定，所以人们可以一张一张快速决定。

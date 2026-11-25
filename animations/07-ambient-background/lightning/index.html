@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>闪电 — 动画手册</title>
   <meta name="description" content="锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/lightning/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/07-ambient-background/lightning/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="闪电 — 动画手册">
   <meta property="og:description" content="锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/lightning/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/07-ambient-background/lightning/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="闪电 — 动画手册">
   <meta name="twitter:description" content="锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "闪电", "name": "闪电", "description": "锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/lightning/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 闪电"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "闪电", "name": "闪电", "description": "锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。", "url": "https://animation.xizanghuapi.cn/animations/07-ambient-background/lightning/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 闪电"}</script>
   <style>
     :root{--ui-accent:#ffce5a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,8 +40,8 @@
     .stage[data-hb-mode="inside"] .in,.stage[data-hb-mode="compare"] .half{display:block}
     .half{top:10px}.half.first{left:10px}.half.second{left:calc(50% + 10px)}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -160,7 +160,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -175,7 +175,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d'),stage=cvs.parentElement,rain=stage.querySelector('.rain'),rctx=rain.getContext('2d');
   const clouds=[...stage.querySelectorAll('.clouds')],flash=stage.querySelector('.flash');
@@ -185,9 +185,9 @@
   // there are at most two flashes in any second
   const FRAME=1000/60,GLOW=990,GAP=1500;
   const EVERY={rarely:[5000,8000],sometimes:[2600,4400],often:[1600,2400]}; // the wait between strikes, in ms, picked at random
-  const LABELS={normal:'A storm over dark hills where a bolt strikes every few seconds. Click, or press Enter or Space, to make one strike.',
-    inside:'The bolt drawn round by round: a straight line split again and again, its forks numbered and its glow. Click, or press Enter or Space, to strike.',
-    compare:'Two bolts strike together: an even zigzag on the left and random splits on the right. Click, or press Enter or Space, to strike.'};
+  const LABELS={normal:'深色山丘上的风暴，每隔几秒打下一道闪电。点击，或按 Enter 或空格，打下一道。',
+    inside:'闪电一圈圈画出来：直线一次次分叉，分叉编了号，并带着光晕。点击，或按 Enter 或空格来击打。',
+    compare:'两道闪电一起打下：左边是均匀折线，右边是随机分叉。点击，或按 Enter 或空格来击打。'};
   let often='sometimes',forks=4,rgb=[235,240,255],mode='normal',paused=false;
   let W=0,H=0,raf=0,lastT=null,t=0,lastStrike=-1e9,nextAt=900,pending=null,strike=null,drops=[],shownKey='';
   let seed=5;const rand=()=>{seed=seed+0x6D2B79F5|0;let x=Math.imul(seed^seed>>>15,1|seed);x=x+Math.imul(x^x>>>7,61|x)^x;return((x^x>>>14)>>>0)/4294967296};

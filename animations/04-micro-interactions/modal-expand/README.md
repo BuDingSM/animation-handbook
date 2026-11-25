@@ -1,6 +1,6 @@
 # 弹窗展开
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/modal-expand/)
 
 ## 它是什么
 弹窗展开让对话框从打开它的按钮处长出来。页面量出那个按钮的位置，让窗口从那个精确的点长到屏幕中间的全尺寸，这样窗口来自哪里、关闭时回到哪里，都很清楚。

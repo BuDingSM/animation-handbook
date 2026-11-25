@@ -1,6 +1,6 @@
 # 进度动画
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/progress-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/progress-animation/)
 
 ## 它是什么
 进度动画通过填充一个形状来显示任务完成了多少：一条横条、一个圆环或一排步骤。和旋转指示不同，它告诉人们还剩多少，这让漫长的等待更容易。在演示里，三种都由同一个百分比驱动。

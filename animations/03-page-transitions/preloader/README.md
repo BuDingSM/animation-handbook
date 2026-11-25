@@ -1,6 +1,6 @@
 # 加载开场
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/preloader/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/preloader/)
 
 ## 它是什么
 

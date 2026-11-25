@@ -47,7 +47,7 @@ const CARDS = [
   { shape: 'arc',      label: 'Motion Reel',    meta: 'Video · 2022',   accent: '#79c0ff' },
   { shape: 'zigzag',   label: 'Type Study',     meta: 'Type · 2023',    accent: '#d2a8ff' },
   { shape: 'dot',      label: 'Data Viz',       meta: 'Research · 2024',accent: '#56d364' },
-  { shape: 'line',     label: 'Scroll Kit',     meta: 'Library · 2023', accent: '#58a6ff' },
+  { shape: 'line',     label: '滚动套件',     meta: 'Library · 2023', accent: '#58a6ff' },
   { shape: 'hex',      label: 'Space UI',       meta: 'Design · 2024',  accent: '#bf91f3' },
   { shape: 'wave',     label: 'Sound Tools',    meta: 'Audio · 2023',   accent: '#3fb950' },
   { shape: 'ring',     label: 'Orbit System',   meta: 'Motion · 2024',  accent: '#f78166' },

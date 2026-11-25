@@ -1,6 +1,6 @@
 # 图片缩放进入
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/zoom-into-image/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/zoom-into-image/)
 
 ## 它是什么
 图片缩放进入从图片上一个小窗口开始，滚动时打开它填满屏幕，好像你飞进了图片里。图片本身从不长大：只是揭开更多部分，所以保持清晰。窗口的圆角在打开时变方，最后淡入一段说明。

@@ -1,6 +1,6 @@
 # 水面涟漪
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/water-ripple/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/water-ripple/)
 
 ## 它是什么
 水面涟漪让一张图片看起来像躺在清水下面：拖动留下一道尾迹，轻触丢下一颗石子，涟漪扩散、交错、撞到边缘反弹再消失，经过之处把下面的图片弯曲。这是一个真正的微型波浪模拟，而不是按公式画的圆环，所以两道涟漪相交时会像水一样叠加。

@@ -1,6 +1,6 @@
 # 极光
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/aurora/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/aurora/)
 
 ## 它是什么
 极光背景用几条高高的彩色光带模仿北极光，在夜空中慢慢摇曳。每条光带在上下两端淡出，并轻轻模糊，每条都按自己的周期横向漂移、微微倾斜，所以光的帘幕永远不会一起动。浏览器不用脚本就能画出这一切。

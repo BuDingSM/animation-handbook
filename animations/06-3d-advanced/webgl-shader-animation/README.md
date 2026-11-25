@@ -1,6 +1,6 @@
 # WebGL 着色器动画
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/webgl-shader-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/webgl-shader-animation/)
 
 ## 它是什么
 着色器动画完全在显卡上画出动态画面。一个小程序每帧为每个像素运行一次，按像素的位置和时间算出它的颜色，所以整个图案都是数学做出来的，没有图片。演示里的四种图案各是这样一个程序。

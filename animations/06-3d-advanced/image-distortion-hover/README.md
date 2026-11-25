@@ -1,6 +1,6 @@
 # 悬停图片扭曲
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/)
 
 ## 它是什么
 悬停图片扭曲在指针周围弯曲图片。WebGL 着色器画出图片，指针附近的每个像素从略微偏移的位置读取，所以图片在那里像是起涟漪、鼓起来、漩涡转动或碎成方块，而图片本身从不改变。指针离开后弯曲慢慢消失。

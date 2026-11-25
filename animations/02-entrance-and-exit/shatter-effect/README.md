@@ -1,6 +1,6 @@
 # 碎裂效果
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/shatter-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/shatter-effect/)
 
 ## 它是什么
 

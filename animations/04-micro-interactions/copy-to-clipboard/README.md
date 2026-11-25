@@ -1,6 +1,6 @@
 # 复制到剪贴板
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/copy-to-clipboard/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/copy-to-clipboard/)
 
 ## 它是什么
 复制反馈是「复制」按钮复制完东西后给出的简短确认。剪贴板图标变成对勾，标签从「复制」变成「已复制！」，短暂的颜色闪光标出这一刻。一两秒后按钮变回来，随时可以再用。

@@ -1,6 +1,6 @@
 # 文字变形
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-morphing/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-morphing/)
 
 ## 它是什么
 文字变形让一个词逐字变成下一个词。当前词的字母滑出视野，然后下一个词的字母从相反一边滑进来；字母之间的小延迟，可以让每次变化像波浪一样穿过整个词。每个词停留的时间都够读完，然后再进行下一次变化。

@@ -1,6 +1,6 @@
 # 弹性过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/elastic-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/elastic-transition/)
 
 ## 它是什么
 弹性过渡让新页面滑进来时冲过自己的位置一点，再弹回来落定，而不是减速到停。过冲让运动有了分量，就像页面是被橡皮筋拉到位的一样。弹跳可以提前规划成一条固定路径，成本低；也可以通过模拟弹簧实时算出来，感觉更真实。

@@ -1,6 +1,6 @@
 # 漏光
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/light-leak/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/light-leak/)
 
 ## 它是什么
 漏光是一团暖光从画框边缘漫入、又淡出，像老相机密封不好时到达胶片的杂散光。真实的漏光随机发生、强度各不相同，所以效果在每次漏光之间等待一个随机间隔，每次峰值亮度也略有不同；定时均匀的漏光看起来像机器，不像胶片相机。

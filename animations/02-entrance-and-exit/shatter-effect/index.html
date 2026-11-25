@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>碎裂效果 — 动画手册</title>
   <meta name="description" content="碎成碎片飞散并淡出。适合画廊和醒目的退场。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/shatter-effect/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/shatter-effect/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="碎裂效果 — 动画手册">
   <meta property="og:description" content="碎成碎片飞散并淡出。适合画廊和醒目的退场。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/shatter-effect/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/shatter-effect/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="碎裂效果 — 动画手册">
   <meta name="twitter:description" content="碎成碎片飞散并淡出。适合画廊和醒目的退场。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "碎裂效果", "name": "碎裂效果", "description": "碎成碎片飞散并淡出。适合画廊和醒目的退场。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/shatter-effect/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，碎裂效果"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "碎裂效果", "name": "碎裂效果", "description": "碎成碎片飞散并淡出。适合画廊和醒目的退场。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/shatter-effect/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，碎裂效果"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--stage-bg:#0b0c10;--card-bg:#f4f1ea;--card-ink:#16171b;--card-dim:#4b4e57}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -72,8 +72,8 @@
     }
     @media(prefers-reduced-motion:reduce){.stage[data-hb-mode="inside"] .ov{transition:none}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -225,7 +225,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const deck=document.getElementById('deck'),cards=[...deck.querySelectorAll('.card')],flashEl=deck.querySelector('.flash');
   // Compare's plain fade is a copy of the deck, made once: no ids, no name, out of reach of the keyboard and screen readers
@@ -382,8 +382,8 @@
   choices('grav-seg',d=>{gravity=d.g});choices('speed-seg',d=>{ms=+d.ms});
   // ── See inside and Compare ──
   // Each mode redraws at once on a press, a setting, a play's end or a new size. Normal keeps its photo: it comes back when Normal is pressed.
-  const NAMES={normal:deck.getAttribute('aria-label'),inside:'A photo card with the lines it will break along, where it is hit and where the pieces go',
-    compare:'The photo change twice: a plain fade, and the card breaking into pieces'};
+  const NAMES={normal:deck.getAttribute('aria-label'),inside:'一张照片卡片，标出它会裂开的线、击中的位置，以及碎片飞去的方向',
+    compare:'换照片做了两次：一次是普通淡出，一次是卡片碎成片'};
   const STILL={inside:'静止画面：线标出卡片会在哪里碎裂，圆圈是被击中的地方，箭头是碎片飞去的方向；减弱动态时改为淡入。',
     compare:'静止画面，碎裂进行到一半：「普通淡入」在两张照片中间，而「碎裂」的碎片正在四散飞开。'};
   const note=k=>document.querySelector('[data-hb-for="'+k+'"]'),NOTES={inside:note('inside').textContent,compare:note('compare').textContent};

@@ -1,6 +1,6 @@
 # 入场退场排版
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/)
 
 ## 它是什么
 入场退场排版在同一个地方一次展示一句短语。每句短语进来、静止停留到够读完，然后在下一句到来之前离开。每句短语都有自己的进出方式，比如滑动、放大、模糊或擦除，序列结束时最后一句留在屏幕上。

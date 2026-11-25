@@ -1,6 +1,6 @@
 # 区域擦除切换
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/section-wipe/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/section-wipe/)
 
 ## 它是什么
 区域擦除切换用下一个全屏区域从上面滑上来，取代前一个区域，而不是把旧的滚走。每个区域都吸在屏幕顶部，位于前一个之上，所以滚动时下一个区域盖住它。被盖住的区域可以略微缩小，看起来像沉到到来的那个后面。

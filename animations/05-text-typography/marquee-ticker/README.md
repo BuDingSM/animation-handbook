@@ -1,6 +1,6 @@
 # 跑马灯/滚动条
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/marquee-ticker/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/marquee-ticker/)
 
 ## 它是什么
 跑马灯让一行文字横向无缝滚动，就像新闻滚动条。文字是重复的，整行移动的距离正好是一个副本的宽度，然后再从头开始，所以总有一个一模一样的副本在原位，接缝看不出来。在演示里，三行以同样的速度滚动，中间那行方向相反，指向某一行或点一下它，只会停住那一行。

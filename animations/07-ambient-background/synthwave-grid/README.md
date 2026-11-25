@@ -1,6 +1,6 @@
 # 合成波网格
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/synthwave-grid/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/synthwave-grid/)
 
 ## 它是什么
 合成波网格是发光的霓虹地板，伸向地平线、稳稳地向观众滚动而来，在紫色天空下有一个条纹的、发光的太阳。它是 1980 年代专辑封面和街机游戏的复古样子，是 1980 年代对未来的想象，画成一个永远看不出重启动的循环。

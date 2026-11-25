@@ -1,6 +1,6 @@
 # 动态毛玻璃
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/glassmorphism-animated/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/glassmorphism-animated/)
 
 ## 它是什么
 动态毛玻璃把卡片做成磨砂玻璃：半透明的着色、身后东西的模糊，和一条细细的亮边。只有玻璃后面有彩色的东西在动时它才成立，所以演示在三张卡片后面漂着柔和的彩色色块：一张是静止的磨砂，一张的模糊会呼吸，一张的着色会慢慢变化。

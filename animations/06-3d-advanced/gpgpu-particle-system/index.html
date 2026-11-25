@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GPGPU 粒子系统 — 动画手册</title>
   <meta name="description" content="数万个粒子在显卡上流动。适合主视觉特效。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/gpgpu-particle-system/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="GPGPU 粒子系统 — 动画手册">
   <meta property="og:description" content="数万个粒子在显卡上流动。适合主视觉特效。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/gpgpu-particle-system/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="GPGPU 粒子系统 — 动画手册">
   <meta name="twitter:description" content="数万个粒子在显卡上流动。适合主视觉特效。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GPGPU 粒子系统", "name": "GPGPU 粒子系统", "description": "数万个粒子在显卡上流动。适合主视觉特效。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, GPGPU 粒子系统"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GPGPU 粒子系统", "name": "GPGPU 粒子系统", "description": "数万个粒子在显卡上流动。适合主视觉特效。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/gpgpu-particle-system/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, GPGPU 粒子系统"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -38,8 +38,8 @@
     @media (max-width:600px),(max-height:500px){.store{right:116px;max-width:calc(100% - 140px)}}
     @media (max-width:360px){.cap{font-size:12px;line-height:16px;padding:3px 7px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
 <nav class="hb-bar" aria-label="动画手册">
@@ -160,7 +160,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -175,7 +175,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 // Physics shader (WebGL2 GLSL ES 3.00)
 const PHYSICS_VS=`#version 300 es
@@ -225,7 +225,7 @@ const RENDER_VS=`#version 300 es
 precision highp float;
 in float aIdx;
 uniform sampler2D uPos;uniform vec2 uTexSz;
-uniform int u颜色Mode;uniform float uT;uniform float uPS;
+uniform int uColorMode;uniform float uT;uniform float uPS;
 out vec4 vCol;
 void main(){
   int idx=int(aIdx);
@@ -233,19 +233,19 @@ void main(){
   int ty=idx/int(uTexSz.x);
   vec4 p=texelFetch(uPos,ivec2(tx,ty),0);
   gl_Position=vec4(p.xy,0.,1.);
-  gl_Point大小=uPS;// 1.5 CSS px, scaled by devicePixelRatio
+  gl_PointSize=uPS;// 1.5 CSS px, scaled by devicePixelRatio
   float spd=length(p.zw)*200.;
-  if(u颜色Mode==0)vCol=vec4(.35,.65,1.,.6);
-  else if(u颜色Mode==1)vCol=vec4(spd*.8,spd*.4,1.-spd*.4,.7);
+  if(uColorMode==0)vCol=vec4(.35,.65,1.,.6);
+  else if(uColorMode==1)vCol=vec4(spd*.8,spd*.4,1.-spd*.4,.7);
   else{float age=fract(float(idx)*.00131+uT*.05);vCol=vec4(age,.5,1.-age,.6);}
 }`;
 const RENDER_FS=`#version 300 es
-precision mediump float;in vec4 vCol;out vec4 frag颜色;
-void main(){frag颜色=vCol;}`;
+precision mediump float;in vec4 vCol;out vec4 fragColor;
+void main(){fragColor=vCol;}`;
 // Trails: a translucent full-screen quad fades the previous frame instead of clearing it
 const FADE_FS=`#version 300 es
-precision mediump float;out vec4 frag颜色;
-void main(){frag颜色=vec4(.024,.039,.063,.12);}`;
+precision mediump float;out vec4 fragColor;
+void main(){fragColor=vec4(.024,.039,.063,.12);}`;
 // See inside's small square: the position texture in a viewport (uBox), a texel per particle, across as red, up as green; uCopy copies
 const INSET_FS=`#version 300 es
 precision highp float;uniform sampler2D uPos;uniform vec4 uBox;uniform float uN;uniform bool uCopy;out vec4 o;
@@ -273,8 +273,8 @@ document.querySelectorAll('#count-seg button').forEach(b=>{
 });
 names(); // Compare's half names and note for this start (on phones about 1,000 beside 16,000)
 
-function mk(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){shaderErr=gl.getShaderInfoLog(x)||'the shader did not compile';console.error(shaderErr);}return x;}
-function mkProg(vs,fs){const p=gl.createProgram();gl.attachShader(p,mk(gl.VERTEX_SHADER,vs));gl.attachShader(p,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS)){shaderErr=gl.getProgramInfoLog(p)||'the shaders did not link';console.error(shaderErr);}return p;}
+function mk(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){shaderErr=gl.getShaderInfoLog(x)||'着色器没有编译成功';console.error(shaderErr);}return x;}
+function mkProg(vs,fs){const p=gl.createProgram();gl.attachShader(p,mk(gl.VERTEX_SHADER,vs));gl.attachShader(p,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS)){shaderErr=gl.getProgramInfoLog(p)||'着色器没有链接成功';console.error(shaderErr);}return p;}
 
 // A float texture n pixels square (d: its first data, or null), and a framebuffer that draws into a texture
 function makeTex(n,d){
@@ -309,8 +309,8 @@ function initTex(n){
 function fail(msg){gl=null;cvs.hidden=true;noWgl2.textContent=msg;noWgl2.style.display='flex';stage.classList.add('gl-off');}
 
 function init(){
-  // preserve画什么Buffer keeps last frame for trails; alpha:false avoids premultiplied-alpha artifacts
-  gl=cvs.getContext('webgl2',{preserve画什么Buffer:true,alpha:false});
+  // preserveDrawingBuffer keeps last frame for trails; alpha:false avoids premultiplied-alpha artifacts
+  gl=cvs.getContext('webgl2',{preserveDrawingBuffer:true,alpha:false});
   // Rendering into RGBA32F framebuffers requires EXT_color_buffer_float in WebGL2
   if(!gl||!gl.getExtension('EXT_color_buffer_float')){fail(NO_WGL2_MSG);return false;}
   shaderErr='';
@@ -400,7 +400,7 @@ function paint(t,fresh,fades=1){
     gl.useProgram(fadeProg);gl.bindBuffer(gl.ARRAY_BUFFER,qBuf);
     const fa=gl.getAttribLocation(fadeProg,'a');gl.enableVertexAttribArray(fa);gl.vertexAttribPointer(fa,2,gl.FLOAT,false,0,0);
     for(let i=0;i<fades;i++)gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-  }else{gl.clear颜色(0.024,0.039,0.063,1);gl.clear(gl.COLOR_BUFFER_BIT);}
+  }else{gl.clearColor(0.024,0.039,0.063,1);gl.clear(gl.COLOR_BUFFER_BIT);}
   if(mode==='compare')halves(t);else dots(tex0,particleCount,TEX_N,t);
   if(mode==='inside')inside(t);
 }
@@ -413,7 +413,7 @@ function dots(tex,n,size,t){
   gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);
   gl.uniform1i(gl.getUniformLocation(renderProg,'uPos'),0);
   gl.uniform2f(gl.getUniformLocation(renderProg,'uTexSz'),size,size);
-  gl.uniform1i(gl.getUniformLocation(renderProg,'u颜色Mode'),COLOR_MODE);
+  gl.uniform1i(gl.getUniformLocation(renderProg,'uColorMode'),COLOR_MODE);
   gl.uniform1f(gl.getUniformLocation(renderProg,'uT'),t);
   gl.uniform1f(gl.getUniformLocation(renderProg,'uPS'),PT);
   gl.drawArrays(gl.POINTS,0,n);
@@ -444,7 +444,7 @@ function halves(t){
   const half=Math.floor(W/2),gap=Math.max(1,Math.round(DPR));
   gl.enable(gl.SCISSOR_TEST);gl.viewport(0,0,half-gap,H);gl.scissor(0,0,half-gap,H);dots(small.tex[0],small.n*small.n,small.n,t);
   gl.viewport(half+gap,0,W-half-gap,H);gl.scissor(half+gap,0,W-half-gap,H);dots(tex0,particleCount,TEX_N,t);
-  gl.scissor(half-gap,0,2*gap,H);gl.clear颜色(.17,.19,.24,1);gl.clear(gl.COLOR_BUFFER_BIT);gl.disable(gl.SCISSOR_TEST);gl.viewport(0,0,W,H);
+  gl.scissor(half-gap,0,2*gap,H);gl.clearColor(.17,.19,.24,1);gl.clear(gl.COLOR_BUFFER_BIT);gl.disable(gl.SCISSOR_TEST);gl.viewport(0,0,W,H);
 }
 // The small square's place in canvas pixels (from the bottom left), where the style's labels expect it
 function box(){const s=Math.round((PHONE.matches?96:128)*DPR),m=Math.round(12*DPR);return{x:W-m-s,y:H-m-s,s};}
@@ -503,10 +503,10 @@ function marks(t,b,f){
     c.moveTo(gx-ux*len/2,gy-uy*len/2);c.lineTo(hx,hy);
     c.moveTo(hx-(ux*.85-uy*.53)*6*k,hy-(uy*.85+ux*.53)*6*k);c.lineTo(hx,hy);c.lineTo(hx-(ux*.85+uy*.53)*6*k,hy-(uy*.85-ux*.53)*6*k);
   }
-  const both=(dark,light,wide,thin)=>{c.stroke样式=dark;c.lineWidth=wide*k;c.stroke();c.stroke样式=light;c.lineWidth=thin*k;c.stroke();};
+  const both=(dark,light,wide,thin)=>{c.strokeStyle=dark;c.lineWidth=wide*k;c.stroke();c.strokeStyle=light;c.lineWidth=thin*k;c.stroke();};
   both('rgba(6,10,16,.8)','rgba(244,244,242,.95)',4,1.6);
   c.beginPath();c.rect(b.x-k,top-k,b.s+2*k,b.s+2*k);both('rgba(6,10,16,.8)','rgba(244,244,242,.9)',3.5,1.5);
-  c.fill样式=`rgb(${f.x/W*255|0},${(1-f.y/H)*255|0},77)`;c.fillRect(ix-6*k,iy-6*k,12*k,12*k); // its pixel's color, made bigger
+  c.fillStyle=`rgb(${f.x/W*255|0},${(1-f.y/H)*255|0},77)`;c.fillRect(ix-6*k,iy-6*k,12*k,12*k); // its pixel's color, made bigger
   const lx=f.x-ix,ly=f.y-iy,ll=Math.hypot(lx,ly)||1,ux=lx/ll,uy=ly/ll,d=6*k/Math.max(Math.abs(ux),Math.abs(uy)); // the line runs edge to edge
   c.beginPath();if(ll>d+10*k){c.moveTo(ix+ux*d,iy+uy*d);c.lineTo(f.x-ux*10*k,f.y-uy*10*k);}c.moveTo(f.x+10*k,f.y);c.arc(f.x,f.y,10*k,0,Math.PI*2);c.rect(ix-6*k,iy-6*k,12*k,12*k);
   both('rgba(6,10,16,.85)','#ffd84d',4.5,2);

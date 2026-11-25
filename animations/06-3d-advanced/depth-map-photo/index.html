@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>景深照片 — 动画手册</title>
   <meta name="description" content="平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/depth-map-photo/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="景深照片 — 动画手册">
   <meta property="og:description" content="平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/depth-map-photo/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="景深照片 — 动画手册">
   <meta name="twitter:description" content="平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "景深照片", "name": "景深照片", "description": "平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/depth-map-photo/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 景深照片"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "景深照片", "name": "景深照片", "description": "平面照片随指尖变成 3D：近处移动得更多。适合主视觉图片。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/depth-map-photo/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 景深照片"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -41,8 +41,8 @@
     .stage[data-hb-mode="inside"] .ring.you,.stage[data-hb-mode="compare"] .ring{display:block}
     .stage[data-hb-mode="inside"] .ring.ghost{display:none}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -133,7 +133,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -148,7 +148,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const VS='attribute vec2 a;varying vec2 v;void main(){v=a*.5+.5;gl_Position=vec4(a,0.,1.);}';
 // A spot at depth t moves by uOff*(t-uFocus). Each pixel tries depths from near (1) to far (0) for the spot that lands on it,
@@ -172,7 +172,7 @@ void main(){
     c=mix(c,vec3(mix(1.,.03,smoothstep(.4,.6,dot(c,vec3(.3,.59,.11))))),e*.9);
     if(uSplit>0.)c=mix(c,vec3(1.),step(abs(v.x-uSplit)*uVw,.75));
   }
-  gl_Frag颜色=vec4(c,1.);
+  gl_FragColor=vec4(c,1.);
 }`;
 const stage=document.getElementById('stage');
 let cvs=document.getElementById('cvs');
@@ -194,28 +194,28 @@ function hill(g,w,h,y0,amp,f,ph){g.beginPath();g.moveTo(0,h);for(let i=0;i<=48;i
 const LAYERS=[
   [0,(g,w,h,c,m,dm)=>{   // sky and sun (m, the shorter side, keeps round things round)
     const s=g.createLinearGradient(0,0,0,h*.68);
-    [[0,'#1b2452'],[.45,'#4c3a7a'],[.78,'#c96a78'],[1,'#f4b16c']].forEach(([t,col])=>s.add颜色Stop(t,c(col)));
-    g.fill样式=s;g.fillRect(0,0,w,h);
-    if(!dm){const r=g.createRadialGradient(w*.7,h*.32,0,w*.7,h*.32,m*.32);r.add颜色Stop(0,'rgba(255,224,170,.5)');r.add颜色Stop(1,'rgba(255,224,170,0)');g.fill样式=r;g.fillRect(0,0,w,h);}
-    g.fill样式=c('#fff1cf');dot(g,w*.7,h*.32,m*.065);
+    [[0,'#1b2452'],[.45,'#4c3a7a'],[.78,'#c96a78'],[1,'#f4b16c']].forEach(([t,col])=>s.addColorStop(t,c(col)));
+    g.fillStyle=s;g.fillRect(0,0,w,h);
+    if(!dm){const r=g.createRadialGradient(w*.7,h*.32,0,w*.7,h*.32,m*.32);r.addColorStop(0,'rgba(255,224,170,.5)');r.addColorStop(1,'rgba(255,224,170,0)');g.fillStyle=r;g.fillRect(0,0,w,h);}
+    g.fillStyle=c('#fff1cf');dot(g,w*.7,h*.32,m*.065);
   }],
   [.2,(g,w,h,c)=>{       // far mountains
-    g.fill样式=c('#6d5a96');g.beginPath();g.moveTo(0,h);
+    g.fillStyle=c('#6d5a96');g.beginPath();g.moveTo(0,h);
     [[0,.55],[.07,.47],[.14,.52],[.24,.38],[.33,.49],[.42,.43],[.5,.5],[.6,.4],[.7,.49],[.79,.42],[.88,.5],[.95,.46],[1,.52]].forEach(([x,y])=>g.lineTo(x*w,y*h));
     g.lineTo(w,h);g.fill();
   }],
-  [.45,(g,w,h,c)=>{g.fill样式=c('#3f5f86');hill(g,w,h,.62,.035,7,.6);}],   // hills
-  [.65,(g,w,h,c)=>{g.fill样式=c('#2f6150');hill(g,w,h,.72,.03,5,2.2);}],   // meadow
+  [.45,(g,w,h,c)=>{g.fillStyle=c('#3f5f86');hill(g,w,h,.62,.035,7,.6);}],   // hills
+  [.65,(g,w,h,c)=>{g.fillStyle=c('#2f6150');hill(g,w,h,.72,.03,5,2.2);}],   // meadow
   [.9,(g,w,h,c,m)=>{     // tree, as near as the ground it stands on
-    const x=w*.25;g.fill样式=c('#3b2a22');g.fillRect(x-m*.016,h*.55,m*.032,h*.33);
-    g.fill样式=c('#23503f');dot(g,x,h*.47,m*.13);dot(g,x-m*.1,h*.54,m*.1);dot(g,x+m*.1,h*.54,m*.1);
-    g.fill样式=c('#2f6a52');dot(g,x-m*.035,h*.43,m*.07);
+    const x=w*.25;g.fillStyle=c('#3b2a22');g.fillRect(x-m*.016,h*.55,m*.032,h*.33);
+    g.fillStyle=c('#23503f');dot(g,x,h*.47,m*.13);dot(g,x-m*.1,h*.54,m*.1);dot(g,x+m*.1,h*.54,m*.1);
+    g.fillStyle=c('#2f6a52');dot(g,x-m*.035,h*.43,m*.07);
   }],
   [.92,(g,w,h,c,m,dm)=>{ // ground, nearer toward the bottom, and a rock
-    const s=g.createLinearGradient(0,h*.82,0,h);s.add颜色Stop(0,dm?gray(.9):'#1f3e2c');s.add颜色Stop(1,dm?gray(1):'#0d1f15');
-    g.fill样式=s;hill(g,w,h,.84,.012,9,1);
-    g.fill样式=c('#4a4658',1);g.beginPath();g.ellipse(w*.76,h*.91,m*.11,m*.06,0,0,7);g.fill();
-    g.fill样式=c('#615b70',1);g.beginPath();g.ellipse(w*.75,h*.89,m*.07,m*.03,0,0,7);g.fill();
+    const s=g.createLinearGradient(0,h*.82,0,h);s.addColorStop(0,dm?gray(.9):'#1f3e2c');s.addColorStop(1,dm?gray(1):'#0d1f15');
+    g.fillStyle=s;hill(g,w,h,.84,.012,9,1);
+    g.fillStyle=c('#4a4658',1);g.beginPath();g.ellipse(w*.76,h*.91,m*.11,m*.06,0,0,7);g.fill();
+    g.fillStyle=c('#615b70',1);g.beginPath();g.ellipse(w*.75,h*.89,m*.07,m*.03,0,0,7);g.fill();
   }]
 ];
 const colorOf=(d,dm)=>(col,dd)=>dm?gray(dd??d):col;
@@ -295,7 +295,7 @@ function layout(){
 function draw(){
   if(gl){
     gl.uniform1f(U.uFocus,FOCUS);gl.uniform1f(U.uMap,MAP);gl.uniform2f(U.uPx,.75*cs/SW,.75*cs/SH);
-    if(mode==='compare'){gl.clear颜色(.043,.043,.051,1);gl.clear(gl.COLOR_BUFFER_BIT);}
+    if(mode==='compare'){gl.clearColor(.043,.043,.051,1);gl.clear(gl.COLOR_BUFFER_BIT);}
     V.forEach(v=>{
       const O=STR*v.w;
       gl.viewport(v.x,H-v.y-v.h,v.w,v.h);
@@ -305,7 +305,7 @@ function draw(){
     });
   }else{
     const m=Math.min(SW,SH);
-    if(mode==='compare'){g2.setTransform(1,0,0,1,0,0);g2.fill样式='#0b0b0d';g2.fillRect(0,0,W,H);}
+    if(mode==='compare'){g2.setTransform(1,0,0,1,0,0);g2.fillStyle='#0b0b0d';g2.fillRect(0,0,W,H);}
     V.forEach(v=>{
       const O=STR*v.w,ox=v.x+(v.w-SW)/2,oy=v.y+(v.h-SH)/2;
       const pass=(dm,w)=>{
@@ -318,7 +318,7 @@ function draw(){
       if(v.lines){
         g2.setTransform(1,0,0,1,0,0);g2.save();g2.beginPath();g2.rect(v.x,v.y,v.w,v.h);g2.clip();
         g2.drawImage(lineCv||(lineCv=edges()),ox,oy);
-        if(v.split){g2.fill样式='#fff';g2.fillRect(v.x+v.w*v.split-.75*cs,v.y,1.5*cs,v.h);}
+        if(v.split){g2.fillStyle='#fff';g2.fillRect(v.x+v.w*v.split-.75*cs,v.y,1.5*cs,v.h);}
         g2.restore();
       }
     });

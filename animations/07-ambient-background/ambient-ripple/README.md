@@ -1,6 +1,6 @@
 # 环境涟漪
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ambient-ripple/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/ambient-ripple/)
 
 ## 它是什么
 环境涟漪一次次从几个点发出圆环，像水滴落在静水面上，或声呐屏幕的回声。每个圆环从无到有，扩散时淡出，下一个在它消失前就开始了，所以圆环重叠成轻柔、稳定的脉动。它自己运行，不响应点击，暗示那里有东西活着。

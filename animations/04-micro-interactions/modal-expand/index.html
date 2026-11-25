@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>弹窗展开 — 动画手册</title>
   <meta name="description" content="窗口从你按下的按钮处长出来。适合用在详情查看上。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/modal-expand/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="弹窗展开 — 动画手册">
   <meta property="og:description" content="窗口从你按下的按钮处长出来。适合用在详情查看上。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/modal-expand/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="弹窗展开 — 动画手册">
   <meta name="twitter:description" content="窗口从你按下的按钮处长出来。适合用在详情查看上。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "弹窗展开", "name": "弹窗展开", "description": "窗口从你按下的按钮处长出来。适合用在详情查看上。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/modal-expand/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 弹窗展开"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "弹窗展开", "name": "弹窗展开", "description": "窗口从你按下的按钮处长出来。适合用在详情查看上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/modal-expand/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 弹窗展开"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--modal-dur:320ms;--modal-ease:cubic-bezier(.34,1.3,.64,1);--start-scale:0.1;--backdrop-dur:200ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -91,8 +91,8 @@
       .stage[data-hb-mode="compare"] .modal-actions{flex-direction:column;gap:6px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
 <nav class="hb-bar" aria-label="动画手册">
@@ -231,7 +231,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -246,7 +246,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage');
   const scene=document.getElementById('scene');
@@ -440,10 +440,10 @@
   }
 
   const STILL={
-    inside:'Inside, shown still: the small box is where the window starts, at the button you pressed; with motion on, every corner grows out along its line to the full window.',
-    open:'Inside, with the window open: it shows at full size at once; close it to see the small box at the button you pressed and the lines it would grow along.',
-    posed:'Shown still, a moment after the same press: From the middle is part grown at the center; From the button is part grown out of the button.',
-    lifted:'With reduced motion the window appears at once in both halves, so they look alike; with motion on, From the middle ignores the button you pressed and From the button grows out of it.'
+    inside:'看内部、静止展示：小框是窗口的起点，就在你按下的按钮上；有动画时，每个角沿自己的线长成完整窗口。',
+    open:'看内部、窗口开着时：它立刻以完整大小显示；关上后能看到按钮上的小框，以及它会沿之生长的线。',
+    posed:'静止展示，同一次按压片刻之后：「从中间」在中心长出一截；「从按钮」从按钮里长出一截。',
+    lifted:'减弱动态效果下，两边的窗口都立刻出现，看起来一样；有动画时，「从中间」不理会你按的按钮，「从按钮」从按钮里长出来。'
   };
   if(!motionOk)say(noteIn,STILL.inside);
   // The mode switch: draws the mode at once. The shared script then presses Show me (not under reduced motion), which plays it.

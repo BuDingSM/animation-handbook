@@ -1,6 +1,6 @@
 # 烟花
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/fireworks/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/fireworks/)
 
 ## 它是什么
 烟花效果从黑暗场景的底部发射火箭；每支火箭爬升时减速，在爬升顶点爆成一团火花，向外飞散，在重力下下垂、淡出。画布不是被清空，而是在每帧盖上一层淡淡的透明层，所以每颗火花都留下一条发光的轨迹，记录它飞过的路径。

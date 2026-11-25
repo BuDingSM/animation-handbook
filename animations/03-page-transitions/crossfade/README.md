@@ -1,6 +1,6 @@
 # 交叉淡入淡出过渡
 
-[在线演示](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/crossfade/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/crossfade/)
 
 ## 它是什么
 交叉淡入淡出让旧页面淡出的同时新页面淡入，这样有一瞬间两个页面都半透明、彼此混合。正是这种重叠让它成为交叉淡入淡出：先让旧页面淡出、再让新页面淡入，中间会留下一段短暂的空白。演示两种方式都能做，方便你比较。

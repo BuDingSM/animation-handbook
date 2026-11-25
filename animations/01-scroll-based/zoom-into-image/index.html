@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>图片缩放进入 — 动画手册</title>
   <meta name="description" content="小窗口随滚动放大填满整个盒子。最适合主视觉图片。">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/zoom-into-image/">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/zoom-into-image/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
@@ -13,13 +13,13 @@
   <meta property="og:site_name" content="动画手册">
   <meta property="og:title" content="图片缩放进入 — 动画手册">
   <meta property="og:description" content="小窗口随滚动放大填满整个盒子。最适合主视觉图片。">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/zoom-into-image/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/zoom-into-image/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="图片缩放进入 — 动画手册">
   <meta name="twitter:description" content="小窗口随滚动放大填满整个盒子。最适合主视觉图片。">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "图片缩放进入", "name": "图片缩放进入", "description": "小窗口随滚动放大填满整个盒子。最适合主视觉图片。", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/zoom-into-image/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 图片缩放进入"}</script>
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "图片缩放进入", "name": "图片缩放进入", "description": "小窗口随滚动放大填满整个盒子。最适合主视觉图片。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/zoom-into-image/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 图片缩放进入"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--br-start:16;--start:30}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -90,8 +90,8 @@
       .stage[data-hb-mode="compare"] .faint{display:block;inset:0 50% 0 0;opacity:1;z-index:0}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=12">
+  <script src="../../../assets/js/demo-page.js?v=12" defer></script>
 </head>
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="图片完整显示，带说明，不放大">
 <nav class="hb-bar" aria-label="动画手册">
@@ -255,7 +255,7 @@
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
       <h2 id="hb-what-title">它是什么</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
       <h2>适合用在</h2>
@@ -270,7 +270,7 @@
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage'),zoomSec=document.getElementById('zoom-section');
   const zoomImg=document.getElementById('zoom-img'),caption=document.getElementById('caption');
@@ -290,7 +290,7 @@
   zoomSec.prepend(copyOf('full'));
   const tgGone=stage.querySelector('.tg-gone'),tgAll=stage.querySelector('.tg-all'),tgWin=stage.querySelector('.tg-win'),arrow=stage.querySelector('.arr');
   const LABELS={
-    normal:'A picture that opens up as you scroll',
+    normal:'往下滚时逐渐打开的一张图',
     inside:'整幅图片淡显示，附带揭开它的亮窗口',
     compare:'图片出现两次：滚过的普通图片，以及打开填满盒子的窗口',
   };
