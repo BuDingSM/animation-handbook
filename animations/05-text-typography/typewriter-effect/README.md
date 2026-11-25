@@ -1,18 +1,18 @@
-# Typewriter Effect
+# 打字机效果
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/typewriter-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/typewriter-effect/)
 
-## What it is
-The typewriter effect shows text one character at a time, as if someone is typing it, with a blinking cursor just after the last character. Small random differences in the time between keystrokes make it feel typed by a person rather than a machine, because real typing is never perfectly even.
+## 它是什么
+打字机效果让文字像有人在打字一样一个字符一个字符地出现，最后一个字符后面跟着一个闪烁的光标。每次按键之间时间上的微小随机差异，让它感觉像是人打出来的，而不是机器，因为真实的打字从来不是完全均匀的。
 
-## When to use it
-- Hero headlines on developer tools, terminal-themed, or hacker-aesthetic sites
-- Code samples that benefit from being "typed out" rather than appearing all at once
-- Brief taglines and CTAs where the typing reveals the message progressively
-- Chat interfaces, AI demos, and streaming text UI
+## 什么时候用
+- 开发者工具、终端主题或黑客美学网站上的主视觉标题
+- 打出来比一下子出现更好的代码示例
+- 打字逐步揭示信息的简短标语和行动号召
+- 聊天界面、AI 演示和流式文本界面
 
-## How it works
-The core loop counts up and shows the text cut to that length. Setting `textContent` replaces everything in the element, the cursor `<span>` too, so each step appends the cursor again and it always sits after the last character. `later` is `setTimeout` that also keeps the timer's id, so Replay can cancel the keystrokes still waiting:
+## 工作原理
+核心循环是数数，并把文字截到那个长度显示出来。设置 `textContent` 会替换元素里的所有内容，包括光标 `<span>`，所以每一步都会重新加上光标，它总是在最后一个字符后面。`later` 是会记住计时器 id 的 `setTimeout`，这样重播可以取消还在等待的按键：
 
 ```js
 function render(shown) {
@@ -36,7 +36,7 @@ function jitter(base) {
 }
 ```
 
-The cursor blinks via a CSS animation; the Line shape is a 2px bar in the cursor color:
+光标通过 CSS 动画闪烁；竖线形状是光标颜色的 2px 宽的竖条：
 
 ```css
 .cursor {
@@ -54,7 +54,7 @@ The cursor blinks via a CSS animation; the Line shape is a 2px bar in the cursor
 }
 ```
 
-For the backspace-and-retype variant, the index counts down instead, over the last word and the space before it (never more than the last 40% of the text). Then `retypeChars` types the deleted word again with " — always." after it:
+对于删除并重打的变体，索引改为倒数，删掉最后一个词和它前面的空格（从来不超过文字的最后 40%）。然后 `retypeChars` 把删掉的词重新打出来，后面加上 " — always."：
 
 ```js
 function deleteChars(text) {
@@ -68,24 +68,24 @@ function deleteChars(text) {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | The time between keystrokes: slow is 80ms, normal 50ms and fast 30ms; about 80 to 120ms feels like a natural pace |
-| Cursor shape | Line | A block reads as a terminal, a line as a text editor, an underscore as an old computer screen |
-| Deletes and retypes | off | Types the text, backs up over the last word at about 30ms a character, then types it again with a new ending |
-| Types like a person | on | Moves each keystroke up to 20ms earlier or later so the rhythm is uneven, like real typing |
-| Cursor color | Pink | The cursor's color; pick one that stands out from the text |
-| Your text | Two sample sentences | The text that is typed; short lines work best |
+| 速度 | 普通 | 每次按键之间的时间：慢速是 80ms，普通 50ms，快速 30ms；大约 80 到 120ms 感觉像是自然的打字节奏 |
+| 光标形状 | 竖线 | 方块读起来像终端，竖线像文本编辑器，下划线像老式电脑屏幕 |
+| 删除并重打 | 关 | 把文字打出来，倒回去删掉最后一个词（每个字符大约 30ms），然后用一个新的结尾重新打出来 |
+| 像真人一样打字 | 开 | 让每次按键最多提前或推后 20ms，节奏不均匀，像真人打字 |
+| 光标颜色 | 粉色 | 光标的颜色；选一个和文字形成对比的颜色 |
+| 你的文字 | 两句示例句子 | 要打出来的文字；短行效果最好 |
 
-## Production notes
-- **Long text is exhausting**: the typewriter effect works on short hero copy (under ~15 words). A full paragraph typed character-by-character forces users to wait for content they could read instantly. Reserve it for dramatic reveals, not body text.
-- **Screen readers**: they should hear the full text once, not each character as it types. Do not put `aria-live` on the element being typed (it would announce every keystroke); hide the typed element with `aria-hidden="true"` and give its wrapper `role="img"` with an `aria-label` holding the full final text, as the demo does.
-- **Looping and rotation**: the "type, delete, retype" loop (cycling between multiple phrases) is the most common production pattern. Each phrase is typed, held briefly, then deleted before the next starts.
-- **Performance**: `setTimeout` is accurate enough; `requestAnimationFrame` is overkill for typewriter timing and introduces unnecessary complexity.
-- **Typed.js**: the canonical library for this effect. Handles multiple strings, backspace, loops, smart backspace (delete only the differing suffix), and HTML tags in strings. Worth using in production rather than rolling your own.
+## 生产注意事项
+- **长文字让人疲惫**：打字机效果适合简短的主视觉文案（大约 15 个词以内）。整段文字一个字符一个字符地打出来，会逼着用户等待他们本来能立刻读完的内容。把它留给戏剧性的揭示，而不是正文。
+- **屏幕阅读器**：它们应该只听一次完整文字，而不是每个字符打出来时都听一次。不要在正在打字的元素上放 `aria-live`（它会播报每次按键）；把正在打字的元素用 `aria-hidden="true"` 藏起来，给它的容器 `role="img"` 和一个放着完整最终文字的 `aria-label`，就像这个演示做的那样。
+- **循环和轮换**：“打出来、删掉、重打”的循环（在多个短语之间轮换）是最常见的生产模式。每个短语打出来，短暂停留，然后在下一个开始前删掉。
+- **性能**：`setTimeout` 的精度够用了；`requestAnimationFrame` 对打字计时来说是多余的，还会带来不必要的复杂性。
+- **Typed.js**：这个效果的经典库。处理多个字符串、删除、循环、智能删除（只删不同的后缀），以及字符串里的 HTML 标签。生产中值得用它，而不是自己写。
 
-## See also
-- [Scramble / Glitch Text](../scramble-text/) — random symbols lock into the real text
-- [Rotate Word Carousel](../rotate-word-carousel/) — one word in a sentence keeps changing
-- [Enter/Exit Typography](../enter-exit-typography/) — each phrase comes in, holds and leaves
+## 另见
+- [乱码/故障文字](../scramble-text/) — 随机符号逐个锁定为真实文字
+- [轮换词轮播](../rotate-word-carousel/) — 句子中的一个词不断换成下一个
+- [入场退场排版](../enter-exit-typography/) — 每句短语进来、停留足够读完、再离开

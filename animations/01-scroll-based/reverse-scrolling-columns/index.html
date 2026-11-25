@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reverse-Scrolling Columns — Animation Handbook</title>
-  <meta name="description" content="Side columns run the opposite way to the middle one. Best for portfolios.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reverse-scrolling-columns/">
+  <title>反向滚动列 — 动画手册</title>
+  <meta name="description" content="两侧的列与中间一列朝相反方向滚动。最适合作品集。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/reverse-scrolling-columns/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Reverse-Scrolling Columns — Animation Handbook">
-  <meta property="og:description" content="Side columns run the opposite way to the middle one. Best for portfolios.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reverse-scrolling-columns/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="反向滚动列 — 动画手册">
+  <meta property="og:description" content="两侧的列与中间一列朝相反方向滚动。最适合作品集。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/reverse-scrolling-columns/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Reverse-Scrolling Columns — Animation Handbook">
-  <meta name="twitter:description" content="Side columns run the opposite way to the middle one. Best for portfolios.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Reverse-Scrolling Columns", "name": "Reverse-Scrolling Columns", "description": "Side columns run the opposite way to the middle one. Best for portfolios.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reverse-scrolling-columns/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Reverse-Scrolling Columns"}</script>
+  <meta name="twitter:title" content="反向滚动列 — 动画手册">
+  <meta name="twitter:description" content="两侧的列与中间一列朝相反方向滚动。最适合作品集。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "反向滚动列", "name": "反向滚动列", "description": "两侧的列与中间一列朝相反方向滚动。最适合作品集。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/reverse-scrolling-columns/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 反向滚动列"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--ui-border:rgba(255,255,255,.09);--card-bg:#111114}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -91,33 +91,33 @@
       /* the windows stand on their starts, so no start outline is drawn */
       .stage[data-hb-mode="inside"] .zs{display:none}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
-<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="The columns stay still while the box scrolls">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../parallax-scrolling/" rel="prev" aria-label="Previous: Parallax Scrolling"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Parallax Scrolling</span></a><a href="../cover-card-to-fixed-header/" rel="next" aria-label="Next: Cover Card to Fixed Header"><span><span class="hb-dir">Next: </span>Cover Card to Fixed Header</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="盒子滚动时各列保持不动">
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../parallax-scrolling/" rel="prev" aria-label="上一个：视差滚动"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>视差滚动</span></a><a href="../cover-card-to-fixed-header/" rel="next" aria-label="下一个：封面卡片变固定顶栏"><span><span class="hb-dir">下一个：</span>封面卡片变固定顶栏</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.03 · Scroll-Based</p>
-    <h1>Reverse-Scrolling Columns</h1>
-    <p class="hb-lede">Side columns run the opposite way to the middle one. Best for portfolios.</p>
+    <p class="hb-cat">01.03 · 滚动驱动</p>
+    <h1>反向滚动列</h1>
+    <p class="hb-lede">两侧的列与中间一列朝相反方向滚动。最适合作品集。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="Three columns of project cards">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="三列项目卡片">
       <div class="scene">
         <div class="columns">
           <div class="half">
@@ -135,37 +135,37 @@
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Each column holds its cards twice, and the box is a window sliding down the middle and up the sides, then jumping a copy. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>All one way moves every column up with the scroll, like a plain page; Sides reversed sends the side columns down against it. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>每列都放了两份卡片，盒子是一个窗口，沿中间向下滑、沿两侧向上滑，然后跳过一份。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>全部同向让每列随滚动向上移动，像普通页面一样；两侧反向让两侧列朝相反方向向下移动。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="dir-lbl">Side columns go</p>
+        <p class="hb-setting-name" id="dir-lbl">两侧列方向</p>
         <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
-          <button type="button" data-dir="-1" class="on" aria-pressed="true">Opposite way</button>
-          <button type="button" data-dir="1" aria-pressed="false">Same way</button>
+          <button type="button" data-dir="-1" class="on" aria-pressed="true">反向</button>
+          <button type="button" data-dir="1" aria-pressed="false">同向</button>
         </div>
-        <p class="hb-hint">Same way shows the plain scroll, for comparison.</p>
+        <p class="hb-hint">同向显示普通滚动，供对比。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Side column speed</p>
+        <p class="hb-setting-name" id="speed-lbl">两侧列速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-speed="0.5" aria-pressed="false">Slower</button>
-          <button type="button" data-speed="1" class="on" aria-pressed="true">Same</button>
-          <button type="button" data-speed="1.5" aria-pressed="false">Faster</button>
+          <button type="button" data-speed="0.5" aria-pressed="false">更慢</button>
+          <button type="button" data-speed="1" class="on" aria-pressed="true">相同</button>
+          <button type="button" data-speed="1.5" aria-pressed="false">更快</button>
         </div>
-        <p class="hb-hint">Their speed compared with the middle column.</p>
+        <p class="hb-hint">它们相对于中间列的速度。</p>
       </div>
     </div>
   </section>
@@ -173,55 +173,55 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add reverse-scrolling columns to [your grid of project cards or images]. Lay the cards out in three columns and hold them in view while the visitor scrolls through a taller section. Move the middle column up with the scroll, and move the two side columns in the direction and at the speed given in the settings; running them the opposite way makes them seem to flow against the scroll. Put two copies of the cards in each column and wrap the movement by exactly one copy's height, so the columns never run out. If the visitor has reduced motion turned on, keep the columns still. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的项目卡片或图片网格]加上反向滚动列。把卡片排成三列，访客滚动经过一个更高的区域时让它们保持在视野里。中间列随滚动向上移动，两侧列按设置给出的方向和速度移动；让它们反向跑，看起来就像逆着滚动流动。每列放两份卡片，按正好一份卡片的高度循环移动，列就永远不会跑完。如果访客开启了减弱动态效果，让各列保持不动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Portfolios</li><li>Agency sites</li><li>Image galleries</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Reading pages</li><li>Forms</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>作品集</li><li>代理机构网站</li><li>图片画廊</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>阅读页面</li><li>表单</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const CARDS = [
-    {s:'grid',    l:'Project Alpha',  m:'Design · 2024',   a:'#58a6ff'},
-    {s:'circle',  l:'Studio Work',    m:'Motion · 2023',   a:'#bf91f3'},
-    {s:'tri',     l:'Concept 03',     m:'Dev · 2024',      a:'#3fb950'},
-    {s:'diamond', l:'Brand Atlas',    m:'Identity · 2023', a:'#f78166'},
-    {s:'cross',   l:'Interface V2',   m:'UX · 2024',       a:'#ffa657'},
-    {s:'arc',     l:'Motion Reel',    m:'Video · 2022',    a:'#79c0ff'},
-    {s:'zz',      l:'Type Study',     m:'Type · 2023',     a:'#d2a8ff'},
-    {s:'dot',     l:'Data Viz',       m:'Research · 2024', a:'#56d364'},
-    {s:'lines',   l:'Scroll Kit',     m:'Library · 2023',  a:'#58a6ff'},
-    {s:'hex',     l:'Space UI',       m:'Design · 2024',   a:'#bf91f3'},
-    {s:'wave',    l:'Sound Tools',    m:'Audio · 2023',    a:'#3fb950'},
-    {s:'ring',    l:'Orbit System',   m:'Motion · 2024',   a:'#f78166'},
+    {s:'grid',    l:'Project Alpha',  m:'设计 · 2024',   a:'#58a6ff'},
+    {s:'circle',  l:'Studio Work',    m:'动态 · 2023',   a:'#bf91f3'},
+    {s:'tri',     l:'Concept 03',     m:'开发 · 2024',      a:'#3fb950'},
+    {s:'diamond', l:'Brand Atlas',    m:'品牌 · 2023', a:'#f78166'},
+    {s:'cross',   l:'Interface V2',   m:'体验 · 2024',       a:'#ffa657'},
+    {s:'arc',     l:'Motion Reel',    m:'视频 · 2022',    a:'#79c0ff'},
+    {s:'zz',      l:'Type Study',     m:'字体 · 2023',     a:'#d2a8ff'},
+    {s:'dot',     l:'Data Viz',       m:'研究 · 2024', a:'#56d364'},
+    {s:'lines',   l:'滚动套件',     m:'组件库 · 2023',  a:'#58a6ff'},
+    {s:'hex',     l:'Space UI',       m:'设计 · 2024',   a:'#bf91f3'},
+    {s:'wave',    l:'Sound Tools',    m:'音频 · 2023',    a:'#3fb950'},
+    {s:'ring',    l:'Orbit System',   m:'动态 · 2024',   a:'#f78166'},
   ];
   const SVG = {
     grid:   '<rect x="2" y="2" width="4" height="4" rx="1" fill="currentColor"/><rect x="8" y="2" width="4" height="4" rx="1" fill="currentColor" opacity=".45"/><rect x="2" y="8" width="4" height="4" rx="1" fill="currentColor" opacity=".45"/><rect x="8" y="8" width="4" height="4" rx="1" fill="currentColor"/>',
@@ -290,8 +290,8 @@
   const zooms = mainCols.map((col, i) => {
     const z = hide(el('div', 'zoom', '<i class="zc"></i><i class="zc"></i><i class="zs"></i><i class="zw"></i><i class="zj"></i><i class="ar"></i>'));
     if (i === 1) {
-      z.insertAdjacentHTML('beforeend', '<p class="zl zl1" data-hb-caption>Copy 1</p><p class="zl zl2" data-hb-caption>Copy 2, <br>the same</p><p class="zl zlj" data-hb-caption>Jumps back <br>here</p>');
-      z.querySelector('.zw').innerHTML = '<p class="zl zlb" data-hb-caption>In the box</p>';
+      z.insertAdjacentHTML('beforeend', '<p class="zl zl1" data-hb-caption>副本 1</p><p class="zl zl2" data-hb-caption>副本 2，<br>相同</p><p class="zl zlj" data-hb-caption>跳回<br>这里</p>');
+      z.querySelector('.zw').innerHTML = '<p class="zl zlb" data-hb-caption>在盒子里</p>';
     }
     col.append(z);
     return z;
@@ -299,7 +299,7 @@
   const wins = zooms.map(z => z.querySelector('.zw'));
 
   // Compare: an arrow on every column and a name on each half
-  [[twinCols, 'All one way'], [mainCols, 'Sides reversed']].forEach(([cols, name]) => {
+  [[twinCols, '全部同向'], [mainCols, '两侧反向']].forEach(([cols, name]) => {
     cols.forEach(c => c.append(hide(el('i', 'carrow', '<b class="ar"></b>'))));
     const n = hide(el('p', 'hname', name));
     n.setAttribute('data-hb-caption', '');
@@ -389,21 +389,21 @@
   }
 
   const LABELS = {
-    normal:  'Three columns of project cards',
-    inside:  'Each column zoomed out to its two copies of the cards, with a window for what the box shows',
-    compare: 'The columns twice: all moving one way, and with the side columns reversed',
+    normal:  '三列项目卡片',
+    inside:  '每列都缩小到能放下两份卡片，附带一个窗口显示盒子里的内容',
+    compare: '各列出现两次：全部同向移动的，以及两侧反向的',
   };
   const insideNote  = document.querySelector('[data-hb-for="inside"]');
   const compareNote = document.querySelector('[data-hb-for="compare"]');
   // The notes follow Side columns go and reduced motion, so they stay true to the picture
   const NOTES = {
-    inside:           ['Each column holds its cards twice, and the box is a window sliding down the middle and up the sides, then jumping a copy. Scroll the box or press Play to watch.',
-                       'Each column holds its cards twice, and with Same way picked the box is a window sliding down every column, then jumping a copy. Scroll the box or press Play to watch.',
-                       'Shown still: each column holds its cards twice, and the box is a window on it; the arrows show which way each window would slide before jumping a copy.'],
-    compare:          ['All one way moves every column up with the scroll, like a plain page; Sides reversed sends the side columns down against it. Scroll the box or press Play to watch.',
-                       'Side columns go is set to Same way, so All one way and Sides reversed match. Pick Opposite way in Try it, then scroll the box or press Play to watch.',
-                       'Shown still, part of the way down the box: in All one way every column has moved up, in Sides reversed the side columns have moved down.',
-                       'Shown still, part of the way down the box; Side columns go is set to Same way, so All one way and Sides reversed match. Pick Opposite way in Try it to see the difference.'],
+    inside:           ['每列都放了两份卡片，盒子是一个窗口，沿中间向下滑、沿两侧向上滑，然后跳过一份。滚动盒子或按「播放」观看。',
+                       '每列都放了两份卡片；选了“同向”后，盒子是一个窗口，沿每列向下滑，然后跳过一份。滚动盒子或按「播放」观看。',
+                       '静止显示：每列都放了两份卡片，盒子是上面的一个窗口；箭头表示每个窗口在跳过一份之前会往哪个方向滑。'],
+    compare:          ['全部同向让每列随滚动向上移动，像普通页面一样；两侧反向让两侧列朝相反方向向下移动。滚动盒子或按「播放」观看。',
+                       '“两侧列方向”设为“同向”，所以全部同向和两侧反向是一样的。去“试一试”里选“反向”，再滚动盒子或按「播放」观看。',
+                       '静止显示，停在盒子往下一部分：在全部同向里每列都向上移动了，在两侧反向里两侧列向下移动了。',
+                       '静止显示，停在盒子往下一部分；“两侧列方向”设为“同向”，所以全部同向和两侧反向是一样的。去“试一试”里选“反向”，看看区别。'],
   };
   function notes() {
     const same = dir > 0, still = motionMQ.matches;

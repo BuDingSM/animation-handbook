@@ -1,41 +1,41 @@
-# 05 — Text & Typography
+# 文字与排版
 
-Animations specifically for type — where the letterforms themselves are the content and the motion serves the words.
+专为文字设计的动画——动态排版、逐字效果、渐变流动和词语变换。
 
-## Animations
+## 全部动画
 
-| Demo | Description |
-|------|-------------|
-| [Kinetic Typography](kinetic-typography/) | Words arrive and leave one by one, each moving its own way. Best for intros. |
-| [Typewriter Effect](typewriter-effect/) | Text types itself out behind a blinking cursor. Best for short taglines. |
-| [Scramble / Glitch Text](scramble-text/) | Random symbols lock into the real text, left to right. Best for tech headlines. |
-| [Variable Font Morph](variable-font-morph/) | A word smoothly turns bold, then light, and leans over. Best for headlines. |
-| [Text Clip-Path Reveal](text-clip-path-reveal/) | Each line of a headline is uncovered in turn. Best for big headlines. |
-| [Marquee / Ticker](marquee-ticker/) | Text scrolls sideways in an endless loop, with no seam. Best for news tickers. |
-| [Text Morphing](text-morphing/) | One word changes into the next, letter by letter. Best for short labels. |
-| [Text Gradient Animation](text-gradient-animation/) | Colors flow through the letters while the text stays still. Best for headlines. |
-| [Outline to Fill](outline-to-fill/) | Hollow letters fill with color, as a wipe or a fade. Best for big headlines. |
-| [Enter/Exit Typography](enter-exit-typography/) | Each phrase comes in, stays long enough to read, then leaves. Best for slogans. |
-| [Rotate Word Carousel](rotate-word-carousel/) | One word in a sentence keeps swapping for the next. Best for hero headlines. |
-| [Glitch Text](glitch-text/) | Text tears into red and cyan strips like a broken signal. Best for bold titles. |
-| [Text on a Path](text-on-path/) | Text travels along a wave, an arc or a circle. Best for badges and seals. |
-| [Wavy Text](wavy-text/) | A wave rolls through the word, letter by letter. Best for playful titles. |
-| [Highlighter Sweep](highlighter-sweep/) | A marker sweeps in behind the key words, one after another. Best for key points. |
-| [Split-Flap Board](split-flap-board/) | Tiles flip through the letters to spell a word, like an airport board. Best for hero titles. |
-| [Neon Flicker](neon-flicker/) | Glowing letters sputter now and then, like a worn neon sign. Best for night themes. |
-| [Handwriting Draw](handwriting-draw/) | A word writes itself stroke by stroke, as if by a pen. Best for greetings and signatures. |
-| [Text Particles](text-particles/) | A word of dots scatters from your pointer and springs back. Best for intros. |
+- [动态排版](kinetic-typography/) — 词语逐个以各自的方式进出。最适合开场。
+- [打字机效果](typewriter-effect/) — 文字在闪烁光标后逐字打出。最适合短标语。
+- [乱码/故障文字](scramble-text/) — 随机符号从左到右逐个锁定为真实文字。最适合科技标题。
+- [可变字体变形](variable-font-morph/) — 一个词平滑地变粗、变细，还会倾斜。最适合标题。
+- [裁剪揭示文字](text-clip-path-reveal/) — 标题的每一行依次被揭开。最适合大标题。
+- [跑马灯/滚动条](marquee-ticker/) — 文字横向无缝无限滚动。最适合新闻滚动条。
+- [文字变形](text-morphing/) — 一个词逐字变成下一个词。最适合短标签。
+- [文字渐变动画](text-gradient-animation/) — 颜色在静止的文字中流动。最适合标题。
+- [描边填充](outline-to-fill/) — 空心字以擦除或淡入的方式填满颜色。最适合大标题。
+- [入场退场排版](enter-exit-typography/) — 每句短语进来、停留足够读完、再离开。最适合标语。
+- [轮换词轮播](rotate-word-carousel/) — 句子中的一个词不断换成下一个。最适合主视觉标题。
+- [故障文字](glitch-text/) — 文字像信号故障一样撕成红青色条带。最适合醒目标题。
+- [路径文字](text-on-path/) — 文字沿波浪、弧线或圆形行进。最适合徽章和印章。
+- [波浪文字](wavy-text/) — 波浪逐字滚过整个词。最适合俏皮标题。
+- [荧光笔扫过](highlighter-sweep/) — 记号笔依次扫过关键词的后面。最适合要点。
+- [翻牌器](split-flap-board/) — 像机场翻牌一样，翻牌逐个拼出一个词。最适合主视觉标题。
+- [霓虹闪烁](neon-flicker/) — 发光的字母偶尔像破旧霓虹灯一样闪烁。最适合夜晚主题。
+- [手写描绘](handwriting-draw/) — 一个词像用笔写出来一样一笔一画出现。最适合问候语和签名。
+- [文字粒子](text-particles/) — 由圆点组成的词被指针打散，又弹回原位。最适合开场。
+- [文字蒙版](text-mask/) — 字母镂空，里面露出会动的画面。最适合大标题和开场。
+- [下划线动画](underline-animation/) — 移上去，底线从左边长出来。最适合导航链接。
 
-## Key principles
+## 关键原则
 
-**Motion serves the words.** Every typographic animation should reinforce the meaning of the copy — a fragile word dissolves, a bold word snaps in, a soft word drifts. Generic transforms applied uniformly undermine the technique.
+**动作服务于文字。** 每个文字动画都应该强化文案的意思——脆弱的词消散，醒目的词啪地进来，轻柔的词漂移。统一套用的通用变换会削弱整个手法。
 
-**Hold duration is critical.** The hold phase is where reading happens; enter and exit are punctuation. A 3-word phrase needs at least 600–800ms of hold. The most common mistake is making phrases too brief to read.
+**停留时间至关重要。** 停留阶段是阅读发生的地方；进场和退场只是标点。一句 3 个词的短语至少需要 600–800ms 的停留。最常见的错误是让短语短到读不完。
 
-**Preserve typographic quality.** Clip-path reveals and whole-word techniques leave kerning and spacing untouched. Character-splitting (scramble, morph, stagger) can disrupt spacing — test at the intended font size.
+**保持排版质量。** 裁剪揭示和整词手法让字距和间距丝毫不动。拆字（乱码、变形、错开）可能打乱间距——在目标字号下测试。
 
-**Reduced motion.** All demos show full text without motion when `prefers-reduced-motion: reduce` is set. Never hide or remove text as a reduced-motion fallback — only remove the animation.
+**减弱动态效果。** 所有演示在设置了 `prefers-reduced-motion: reduce` 时，不用动作也能显示完整文字。永远不要把文字藏起来或拿掉，作为减弱动态效果的降级——只去掉动画。
 
-## See also
-- [02 — Entrance & Exit](../02-entrance-and-exit/) — element-level enter/exit including text-specific techniques like letter-by-letter stagger and word-by-word reveal
-- [04 — Micro-Interactions](../04-micro-interactions/) — includes typewriter-adjacent patterns like the floating label
+## 另见
+- [02 — 入场与退场](../02-entrance-and-exit/) — 元素级的进场/退场，包括逐字错开和逐词揭示这样的文字技巧
+- [04 — 微交互](../04-micro-interactions/) — 包括打字机相关的模式，比如浮动标签

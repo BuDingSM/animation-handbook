@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面包屑导航 — 动画手册</title>
+  <meta name="description" content="用层级显示现在的位置。最适合文章页和深层级网站。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/breadcrumbs/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="面包屑导航 — 动画手册">
+  <meta property="og:description" content="用层级显示现在的位置。最适合文章页和深层级网站。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/breadcrumbs/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="面包屑导航 — 动画手册">
+  <meta name="twitter:description" content="用层级显示现在的位置。最适合文章页和深层级网站。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "面包屑导航", "name": "面包屑导航", "description": "用层级显示现在的位置。最适合文章页和深层级网站。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/breadcrumbs/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，微交互，面包屑导航"}</script>
+  <style>
+    :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--blue:#3b82f6;--blue-bg:#dbeafe;--ok:#1e9e5a;--err:#e5383b}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    .stage{position:relative;display:flex;align-items:center;justify-content:center;background:#0b0b0d;overflow:hidden;padding:16px}
+    .demo{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;max-width:520px}
+    .inside-panel,.cmp-copy,.cap{display:none}
+    .inside-panel{position:absolute;left:12px;right:12px;top:12px;z-index:8;padding:10px 12px;border:1px solid var(--ui-border);border-radius:8px;background:rgba(11,11,13,.94);color:var(--ui-text);font-size:12px;line-height:1.7;pointer-events:none}
+    .inside-panel b{color:var(--ui-accent)}
+    .stage[data-hb-mode="inside"] .inside-panel{display:block}
+    .stage[data-hb-mode="compare"]{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+    .stage[data-hb-mode="compare"]::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;background:#2a2a30;z-index:7}
+    .stage[data-hb-mode="compare"] .demo{max-width:none;padding:30px 12px 12px}
+    .stage[data-hb-mode="compare"] .cmp-copy{display:flex;position:relative;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:30px 12px 12px}
+    .stage[data-hb-mode="compare"] .cmp-copy *{transition:none!important;animation:none!important}
+    .stage[data-hb-mode="compare"] .cap{display:block;position:absolute;top:8px;z-index:8;padding:2px 8px;border-radius:6px;background:rgba(11,11,13,.92);color:#f4f4f2;font:600 12px/16px var(--hb-font)}
+    .cap.a{left:12px}
+    .cap.b{left:calc(50% + 12px)}
+    @media(prefers-reduced-motion:reduce){.stage *{transition:none!important;animation:none!important}}
+
+
+    .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:16px;width:100%;max-width:460px}
+    .crumbs a{color:var(--blue);text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+    .crumbs .sep{color:var(--ui-muted)}
+    .crumbs .cur{font-weight:700;color:var(--ui-text)}
+    .crumbs.gray .cur{font-weight:400;color:var(--ui-muted)}
+    .crumb-body{width:100%;max-width:460px;border-top:1px solid var(--ui-border);padding-top:14px;transition:opacity var(--fade,.25s) ease}
+    .crumb-body.swap{opacity:0}
+    .crumb-body h3{font-size:16px;color:var(--ui-text);margin-bottom:6px}
+    .crumb-body p{font-size:13px;color:var(--ui-muted);line-height:1.7}
+    .crumb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .crumb-card{border:1px solid var(--ui-border);border-radius:8px;background:var(--ui-bg);padding:10px;cursor:pointer;text-align:left;font-family:inherit;color:var(--ui-text)}
+    .crumb-card:hover{border-color:var(--blue)}
+    .crumb-card .sw{height:52px;border-radius:6px;margin-bottom:8px}
+    .crumb-card .nm{font-size:12px;font-weight:700;line-height:1.5}
+    .crumb-div{width:100%;max-width:460px;border:0;border-top:1px solid var(--ui-border)}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
+</head>
+<body class="hb" data-hb-kind="do" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../pagination/" rel="prev" aria-label="上一个：分页"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>分页</span></a><a href="../inline-validation/" rel="next" aria-label="下一个：即时校验"><span><span class="hb-dir">下一个：</span>即时校验</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.56 · 微交互</p>
+    <h1>面包屑导航</h1>
+    <p class="hb-lede">用层级显示现在的位置。最适合文章页和深层级网站。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点「课程」回到上一层，再点一张卡片回到详情页，或按「演示一下」。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage">
+
+      <div class="demo">
+        <nav class="crumbs" id="crumbs" aria-label="面包屑导航"></nav>
+        <div class="crumb-body" id="crumb-body"></div>
+      </div>
+      <div class="cmp-copy" aria-hidden="true" inert>
+        <nav class="crumbs"><a>首页</a><span class="sep">›</span><span class="cur">课程</span></nav>
+        <div class="crumb-body">
+          <div class="crumb-cards">
+            <div class="crumb-card"><div class="sw" style="background:linear-gradient(135deg,#f6a5c0,#7aa5ff)"></div><div class="nm">网页设计入门</div></div>
+            <div class="crumb-card"><div class="sw" style="background:linear-gradient(135deg,#ffd479,#ff8a5c)"></div><div class="nm">动效基础</div></div>
+            <div class="crumb-card"><div class="sw" style="background:linear-gradient(135deg,#9be8b8,#4db6ac)"></div><div class="nm">配色实战</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="inside-panel" aria-hidden="true"><b>看内部：</b>1 点上级：最后一段淡出，上级变成当前页（加粗、不再是链接）。2 内容淡入淡出切换。3 点列表里的卡片：回到详情页，面包屑恢复三段。</div>
+      <p class="cap a" aria-hidden="true">无动画</p>
+      <p class="cap b" aria-hidden="true">有动画</p>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>内部：点上级时，最后一段淡出，上级变成当前页——加粗、不再是链接；内容淡入淡出切换。点列表里的卡片回到详情页，面包屑恢复三段。按「演示一下」看一遍。</p>
+      <p data-hb-for="compare" hidden>无动画：面包屑和内容同时换，没有过渡；有动画：内容淡一下再换，层级变化看得清楚。按「演示一下」。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="sep-lbl">分隔符</p>
+        <div class="seg" id="sep-seg" role="group" aria-labelledby="sep-lbl">
+          <button type="button" data-sep="›" class="on" aria-pressed="true">›</button>
+          <button type="button" data-sep="/" aria-pressed="false">/</button>
+          <button type="button" data-sep="→" aria-pressed="false">→</button>
+        </div>
+        <p class="hb-hint">层级之间用什么符号隔开。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="cur-lbl">当前页样式</p>
+        <div class="seg" id="cur-seg" role="group" aria-labelledby="cur-lbl">
+          <button type="button" data-cur="bold" class="on" aria-pressed="true">加粗</button>
+          <button type="button" data-cur="gray" aria-pressed="false">变灰</button>
+        </div>
+        <p class="hb-hint">当前页怎么和链接区分开。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="speed-lbl">切换速度</p>
+        <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
+          <button type="button" data-ms="150" aria-pressed="false">快</button>
+          <button type="button" data-ms="250" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="450" aria-pressed="false">慢</button>
+        </div>
+        <p class="hb-hint">内容淡入淡出切换要花多长时间。</p>
+      </div>
+
+    </div>
+    <details class="hb-options">
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="hb-settings">
+      <div class="hb-setting">
+        <label class="hb-switch-row"><span>显示分隔线</span><input class="hb-switch" type="checkbox" role="switch" id="div-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">在面包屑和内容之间画一条分隔线。</p>
+      </div>
+      </div>
+    </details>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[文章页或深层级页面]加上面包屑导航。在内容上方放一串链接，比如首页 › 课程 › 网页设计，当前页加粗、不加链接。点上级回到上一层，内容淡入淡出切换；点列表里的卡片回到详情页，面包屑恢复原样。只对内容的透明度做动画。如果访客开启了减弱动态效果，切换时不要做动画。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>文章页</li><li>商品详情</li><li>深层级网站</li><li>帮助文档</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>只有一两层</li><li>扁平结构</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let timers = [];
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+  function stopRun(){ timers.forEach(clearTimeout); timers = []; }
+  document.addEventListener('hb:input', stopRun);
+  let mode = 'normal';
+  document.addEventListener('hb:mode', e => { mode = e.detail.mode; });
+  function choices(id, pick){
+    const buttons = document.querySelectorAll('#' + id + ' button');
+    buttons.forEach(b => b.addEventListener('click', () => {
+      buttons.forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
+      pick(b.dataset);
+    }));
+  }
+
+  const crumbsEl = document.getElementById('crumbs');
+  const bodyEl = document.getElementById('crumb-body');
+  const DETAIL = '<h3>网页设计入门</h3><p>这一课讲页面是怎么排版的：标题多大、正文多宽、按钮放哪里。跟着做一遍，就能做出一个能看的页面。</p>';
+  const CARDS = [
+    ['网页设计入门', 'linear-gradient(135deg,#f6a5c0,#7aa5ff)'],
+    ['动效基础', 'linear-gradient(135deg,#ffd479,#ff8a5c)'],
+    ['配色实战', 'linear-gradient(135deg,#9be8b8,#4db6ac)'],
+  ];
+  const LIST = '<div class="crumb-cards">' + CARDS.map((c, i) =>
+    '<button type="button" class="crumb-card" data-i="' + i + '"><div class="sw" style="background:' + c[1] + '"></div><div class="nm">' + c[0] + '</div></button>').join('') + '</div>';
+  let level = 0, sep = '›', fadeMs = 250;
+  function paint(){
+    const names = ['首页', '课程', '网页设计'];
+    const show = level === 0 ? names : names.slice(0, 2);
+    crumbsEl.innerHTML = show.map((n, i) => {
+      if (i === show.length - 1) return '<span class="cur" aria-current="page">' + n + '</span>';
+      return '<a href="#" data-level="' + i + '">' + n + '</a>';
+    }).join('<span class="sep" aria-hidden="true"> ' + sep + ' </span>');
+    crumbsEl.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault(); stopRun(); goTo(+a.dataset.level);
+    }));
+    bodyEl.innerHTML = level === 0 ? DETAIL : LIST;
+    bodyEl.querySelectorAll('.crumb-card').forEach(c => c.addEventListener('click', () => { stopRun(); goTo(0); }));
+    const div = bodyEl.previousElementSibling;
+    if (div && div.classList.contains('crumb-div')) div.style.display = document.getElementById('div-tog').checked ? '' : 'none';
+  }
+  function goTo(lv){
+    if (lv === level) return;
+    level = lv;
+    if (reduceMotion){ paint(); return; }
+    bodyEl.classList.add('swap');
+    setTimeout(() => { paint(); bodyEl.classList.remove('swap'); }, fadeMs / 2);
+  }
+  function toRest(){ stopRun(); level = 0; paint(); }
+  // divider line between crumbs and body
+  const hr = document.createElement('hr');
+  hr.className = 'crumb-div'; hr.setAttribute('aria-hidden', 'true');
+  bodyEl.before(hr);
+  document.getElementById('btn-demo').addEventListener('click', () => {
+    toRest();
+    later(() => goTo(1), 600);
+    later(() => goTo(0), 1600);
+  });
+  document.getElementById('btn-reset').addEventListener('click', toRest);
+  choices('sep-seg', d => { sep = d.sep; paint(); });
+  choices('cur-seg', d => { crumbsEl.classList.toggle('gray', d.cur === 'gray'); });
+  choices('speed-seg', d => { fadeMs = +d.ms; bodyEl.style.setProperty('--fade', d.ms + 'ms'); });
+  document.getElementById('div-tog').addEventListener('change', e => { hr.style.display = e.target.checked ? '' : 'none'; });
+  paint();
+
+</script>
+</body>
+</html>

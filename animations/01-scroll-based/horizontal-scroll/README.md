@@ -1,23 +1,23 @@
-# Horizontal Scroll
+# 横向滚动
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/horizontal-scroll/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/horizontal-scroll/)
 
-## What it is
+## 它是什么
 
-Horizontal scroll turns ordinary downward scrolling into sideways movement. A row of panels sits in a long strip inside a tall section; while you scroll through that section, it holds still and the strip slides left, one panel after another, and then the page carries on. You never have to scroll sideways yourself.
+横向滚动把普通的向下滚动变成横向移动。一排面板坐在一个高区域里的长条中；滚动经过这个区域时，它保持不动，长条向左滑动，一个接一个面板，然后页面继续往下。你永远不用自己横向滚动。
 
-## When to use it
+## 什么时候用
 
-- Portfolio project showcases where each panel is a distinct featured work
-- Feature walkthroughs where lateral movement reinforces a "moving through" narrative
-- Timelines, process flows, or numbered steps that benefit from a left-to-right reading order
-- Any context where you want horizontal navigation without requiring users to scroll horizontally or use arrow keys
+- 作品集项目展示，每个面板都是一件独立的代表作
+- 功能导览，横向移动强化了“穿行其中”的叙事
+- 时间线、流程或编号步骤，适合从左到右的阅读顺序
+- 任何想实现横向导航、又不想让用户横向滚动或用方向键的场合
 
-## How it works
+## 工作原理
 
-Two formulas do all the work — pin distance and translateX offset.
+两个公式完成全部工作——固定距离和 translateX 偏移。
 
-**Pin section height** determines how much vertical scroll budget exists:
+**固定区域高度**决定了有多少垂直滚动预算：
 
 ```css
 .stage { container-type: size; }                /* 100cqh is one stage height */
@@ -25,7 +25,7 @@ Two formulas do all the work — pin distance and translateX offset.
 /* 5 panels × a 380px stage = 1900px tall section */
 ```
 
-**Track sizing** — the track must be explicitly wider than its container, and each panel must reference the track's width, not the stage's:
+**轨道尺寸**——轨道必须明确比容器宽，每个面板必须参照轨道的宽度，而不是舞台的宽度：
 
 ```css
 #h-track { display: flex; width: calc(var(--panels) * 100%); }
@@ -35,7 +35,7 @@ Two formulas do all the work — pin distance and translateX offset.
 /* 100% of track ÷ 5 = exactly one stage-width per panel */
 ```
 
-**Translation on scroll:**
+**随滚动平移：**
 
 ```js
 const budget   = pinSection.offsetHeight - stage.clientHeight;
@@ -44,27 +44,27 @@ const maxShift = track.offsetWidth - stage.clientWidth;
 track.style.transform = `translateX(${-progress * maxShift}px)`;
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Number of panels | 5 | Each panel is one box wide, and the strip is as wide as all of them together |
-| Pinned section height | Five box heights | The strip slides while the box scrolls through it; a taller section makes each panel pass more slowly |
-| Lead-in and lead-out | Six tenths of a box height each | The space before and after the section, so you see it arrive, hold still and let go |
+| 面板数量 | 5 | 每个面板一个盒子宽，长条和它们加起来一样宽 |
+| 固定区域高度 | 五个盒子高 | 盒子滚过它时，长条滑动；更高的区域让每个面板经过得更慢 |
+| 前导和尾随 | 各六成盒子高 | 区域前后的空间，让你看到它到来、停住再松开 |
 
-## Production notes
+## 生产注意事项
 
-- **The track must have an explicit width.** Without `width: calc(var(--panels) * 100%)`, the track's `offsetWidth` equals the containing block's width. Then `maxShift = track.offsetWidth - stage.clientWidth = 0` and `translateX` is always zero — the track never moves. This is the single most common failure mode for this pattern.
-- **Panel flex-basis must reference track width, not stage width.** `flex: 0 0 100%` where 100% resolves to the container (the track, not the stage) works correctly only after the track has its explicit width. If the track has no explicit width, the flex-basis also collapses.
-- **No `overflow: hidden` between the scroll container and the sticky inner.** `position: sticky` stops working if any ancestor between the sticky element and the scroll container has `overflow` set to anything other than `visible`. `#pin-inner` is sticky inside `#pin-section` inside `.stage` — none of the intermediate elements should have `overflow: hidden`.
-- **The scroll container needs `position: relative`.** `pinSection.offsetTop` is measured against the nearest *positioned* ancestor, not the nearest scrolling one. If the scroll container is statically positioned, `offsetTop` silently resolves against `<body>` and includes the page header, so `progress` starts late and saturates at 1 before the pin releases — the last panel is never reached.
-- **In a column flex layout, `flex: 1` overrides `height`.** When a side panel stacks below the scroll container on phones, `flex: 1 1 0%` makes the stage's flex-basis its main size, so the fixed `height` is ignored and the stage grows to its full content height. It stops being a scroll container, `scrollTop` is permanently 0, and the whole effect dies. Reset it to `flex: none` inside the mobile media query.
-- **`progress` must be computed from `stage.scrollTop`, not `window.scrollY`.** The scroll container is the internal stage element. Using `window.scrollY` always returns 0.
-- **GSAP ScrollTrigger equivalent:** `ScrollTrigger.create({ trigger, start, end, scrub: true, onUpdate: self => track.style.transform = 'translateX(...)' })`. Horizontal scroll sections also appear in Locomotive Scroll and Lenis as first-class features.
-- **Mobile consideration.** The pin section is five stage heights tall: 1,500px on a 300px phone stage. Test that this feels natural on touch — the ratio of vertical scroll to horizontal travel determines perceived "resistance". Faster travel (fewer panels per px) feels lighter; slower (more panels) can feel sticky.
+- **轨道必须有明确的宽度。** 没有 `width: calc(var(--panels) * 100%)`，轨道的 `offsetWidth` 就等于包含块的宽度。于是 `maxShift = track.offsetWidth - stage.clientWidth = 0`，`translateX` 永远是零——轨道永远不动。这是这种模式最常见的失败原因。
+- **面板的 flex-basis 必须参照轨道宽度，而不是舞台宽度。** `flex: 0 0 100%` 里 100% 解析为容器（轨道，而不是舞台），只有轨道有了明确宽度后才正确。如果轨道没有明确宽度，flex-basis 也会塌掉。
+- **滚动容器和吸顶内层之间不要有 `overflow: hidden`。** 如果吸顶元素和滚动容器之间的任何祖先把 `overflow` 设成 `visible` 以外的值，`position: sticky` 就失效了。`#pin-inner` 在 `#pin-section` 里吸顶，`#pin-section` 在 `.stage` 里——中间的元素都不应该有 `overflow: hidden`。
+- **滚动容器需要 `position: relative`。** `pinSection.offsetTop` 是相对于最近的*定位*祖先测量的，而不是最近的滚动祖先。如果滚动容器是静态定位，`offsetTop` 会悄悄地以 `<body>` 为准算出，包含页面顶栏，于是 `progress` 开始得晚，还没等固定松开就饱和到 1——最后一个面板永远到不了。
+- **在纵向 flex 布局里，`flex: 1` 会覆盖 `height`。** 手机上侧边面板堆在滚动容器下面时，`flex: 1 1 0%` 让舞台的 flex-basis 成为主尺寸，于是固定的 `height` 被忽略，舞台长到内容的完整高度。它不再是滚动容器，`scrollTop` 永远是 0，整个效果就死了。在手机媒体查询里把它重置为 `flex: none`。
+- **`progress` 必须用 `stage.scrollTop` 算，而不是 `window.scrollY`。** 滚动容器是内部的舞台元素。用 `window.scrollY` 永远返回 0。
+- **GSAP ScrollTrigger 等价写法：** `ScrollTrigger.create({ trigger, start, end, scrub: true, onUpdate: self => track.style.transform = 'translateX(...)' })`。横向滚动区域在 Locomotive Scroll 和 Lenis 里也是一等公民功能。
+- **移动端考虑。** 固定区域有五个舞台高：300px 的手机舞台上就是 1,500px。在触摸设备上测试一下这种感觉是否自然——垂直滚动与横向移动的比例决定了感知到的“阻力”。移动得快（每像素面板少）感觉轻；移动得慢（面板多）会感觉粘滞。
 
-## See also
+## 另见
 
-- [Sticky Section](../sticky-section/) — the section holds still while its content changes instead
-- [Scrub Animation](../scrub-animation/) — scrolling moves a plane along its path, both ways
-- [Scrollytelling](../scrollytelling/) — a picture beside the text changes as a story scrolls by
+- [吸顶区域](../sticky-section/) — 区域固定不动，内容在里面变化
+- [滚动 scrub 动画](../scrub-animation/) — 滚动让一架飞机沿路线移动，正反都行
+- [滚动叙事](../scrollytelling/) — 故事滚过时，旁边的图片随之变化

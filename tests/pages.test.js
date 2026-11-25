@@ -12,7 +12,9 @@ const ROOT = path.resolve(__dirname, '..');
 const ANIM = path.join(ROOT, 'animations');
 const read = f => fs.readFileSync(f, 'utf8');
 const count = (s, sub) => s.split(sub).length - 1;
-const words = s => s.trim().split(/\s+/).length;
+// A word is an English word or one Chinese character: a Chinese prompt has almost no spaces, so counting space-separated
+// runs would call a 170-character prompt one word. The English range was 60-130 words; the Chinese prompts run 138-215.
+const words = s => (s.match(/[A-Za-z0-9]+/g) || []).length + (s.match(/[\u4e00-\u9fff]/g) || []).length;
 const isDemoDir = dir => fs.existsSync(path.join(dir, 'index.html'));
 // The part of s from the first `from` up to the next `to` after it ('' when `from` is missing).
 const between = (s, from, to) => {
@@ -51,8 +53,8 @@ const pageOf = d => read(path.join(d.dir, 'index.html'));
 const steps = demos.filter(d => pageOf(d).includes('<main class="hb-page">'));
 const HOME = read(path.join(ROOT, 'index.html'));
 const tryItOf = html => between(html, '<section class="hb-step hb-try"', '<section class="hb-step hb-prompt-step"');
-// The raw first column of the README's Key parameters table.
-const keyParameters = d => sections(read(path.join(d.dir, 'README.md')))['Key parameters'].split('\n')
+// The raw first column of the README's 关键参数 table.
+const keyParameters = d => sections(read(path.join(d.dir, 'README.md')))['关键参数'].split('\n')
   .filter(l => /^\s*\|/.test(l)).slice(2).map(row => (row.split('|')[1] || '').trim()).filter(Boolean);
 
 const ENTRANCE_EXIT = '02-entrance-and-exit';
@@ -61,15 +63,15 @@ const ENTRANCE_EXIT = '02-entrance-and-exit';
 const CONVERTED = [ENTRANCE_EXIT, '05-text-typography', '07-ambient-background', '06-3d-advanced', '04-micro-interactions', '01-scroll-based', '03-page-transitions'];
 
 // The Pause button of a loop page, exactly as in the template; {MODE} is '' (the page pauses itself) or '="css"'.
-const PAUSE = '<button class="hb-play" type="button" id="btn-pause" data-hb-pause{MODE} data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>';
+const PAUSE = '<button class="hb-play" type="button" id="btn-pause" data-hb-pause{MODE} data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>';
 
 // The Show me and Reset buttons of a do-it page, exactly as in the template (Reset only where the demo has a state to reset).
-const SHOW_ME = '<button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>';
-const RESET = '<button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>';
+const SHOW_ME = '<button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>';
+const RESET = '<button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>';
 
 // The Play and Back to top buttons of a scroll page, exactly as in the template.
-const PLAY = '<button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>';
-const TOP = '<button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>';
+const PLAY = '<button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>';
+const TOP = '<button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>';
 
 // Show me belongs to do-it pages and Reset to do-it and loop pages, each exactly as in the template: the shared script picks
 // what to press on arrival by the button it finds, and Reset brings back what the visitor changed. `html` is the whole page
@@ -137,10 +139,10 @@ for (const d of steps) {
     assert.ok(body, 'the body declares the page kind');
     const kind = body[1];
     // A scroll page where reduced motion turns an effect off says so in its own words; the shared script ends the note with
-    // " because your device is set to reduce motion.", so the sentence starts with a capital letter and has no full stop.
+    // "，因为你的设备设置了减弱动态效果。", so the note itself is one Chinese sentence with no 。 and does not end with 。 or whitespace.
     if (body[3] !== undefined) {
       assert.equal(kind, 'scroll', 'only a scroll page has data-hb-motion-note');
-      assert.match(body[3], /^[A-Z][^.]*[^.\s]$/, 'data-hb-motion-note is one sentence with no full stop');
+      assert.match(body[3], /^[^。.]*[^。.\s]$/, 'data-hb-motion-note is one sentence with no full stop');
     }
     for (const old of ['handbook.css', 'handbook.js', 'hb-view', 'hb-side', 'hb-take', 'ah-bar', 'Copy source', 'Read more',
       'class="note"', 'class="kv"', 'class="lbl"', 'class="btn-row"', 'Bricolage', 'PlexMono']) {
@@ -158,13 +160,13 @@ for (const d of steps) {
     const hasTry = html.includes('<section class="hb-step hb-try"');
     assert.match(html, /<p class="hb-cat">\d{2}\.\d{2} · [^<]+<\/p>/);
     const prompt = html.match(/<p class="hb-prompt">([^<]*)<\/p>/)[1];
-    assert.ok(words(prompt) >= 60 && words(prompt) <= 130, `prompt has ${words(prompt)} words`);
-    if (hasTry) assert.ok(prompt.trim().endsWith('Match the settings listed below.'), 'prompt ending');
-    else assert.ok(!prompt.includes('Match the settings listed below.'), 'a page without settings does not point to them');
+    assert.ok(words(prompt) >= 120 && words(prompt) <= 240, `prompt has ${words(prompt)} words`);
+    if (hasTry) assert.ok(prompt.trim().endsWith('按下面列出的设置来做。'), 'prompt ending');
+    else assert.ok(!prompt.includes('按下面列出的设置来做。'), 'a page without settings does not point to them');
     if (!hasTry) {
       // Nothing of a Try it step is left behind (a mistyped Try it tag would otherwise skip every settings check).
       assert.ok(!/hb-try|hb-setting|hb-options/.test(html), 'a page without Try it has no settings markup');
-      assert.ok(!html.includes('Your settings are added at the end.'), 'a page without settings does not promise them under Copy prompt');
+      assert.ok(!html.includes('你的设置会加在末尾。'), 'a page without settings does not promise them under Copy prompt');
     }
     const nums = [...html.matchAll(/<span class="hb-num" aria-hidden="true">(\d+)<\/span>/g)].map(m => Number(m[1]));
     assert.deepEqual(nums, hasTry ? [1, 2, 3] : [1, 2], 'steps are numbered in order');
@@ -235,35 +237,35 @@ for (const d of steps) {
 
   test(`${d.slug}: README is ready for the site`, () => {
     const s = sections(read(path.join(d.dir, 'README.md')));
-    for (const h of ['What it is', 'When to use it', 'Key parameters', 'See also']) assert.ok(s[h], `section ${h}`);
-    assert.ok(!s['What it is'].includes('`'), 'What it is has no code');
-    assert.ok(!s['Key parameters'].includes('`'), 'Key parameters has no code');
-    assert.ok(table(s['Key parameters']).length > 0, 'Key parameters has rows');
-    const links = [...s['See also'].matchAll(/^\s*[-*]\s+\[[^\]]+\]\(([^)\s]+)\)(.*)$/gm)];
-    assert.ok(links.length > 0, 'See also has links');
+    for (const h of ['它是什么', '什么时候用', '关键参数', '另见']) assert.ok(s[h], `section ${h}`);
+    assert.ok(!s['它是什么'].includes('`'), '它是什么 has no code');
+    assert.ok(!s['关键参数'].includes('`'), 'Key parameters has no code');
+    assert.ok(table(s['关键参数']).length > 0, 'Key parameters has rows');
+    const links = [...s['另见'].matchAll(/^\s*[-*]\s+\[[^\]]+\]\(([^)\s]+)\)(.*)$/gm)];
+    assert.ok(links.length > 0, '另见 has links');
     for (const [, href, rest] of links) {
-      assert.ok(isDemoDir(path.resolve(d.dir, href)), `See also link ${href}`);
-      assert.match(rest, /^\s*[—–-]\s*\S/, `See also ${href} has a short description`);
+      assert.ok(isDemoDir(path.resolve(d.dir, href)), `另见 link ${href}`);
+      assert.match(rest, /^\s*[—–-]\s*\S/, `另见 ${href} has a short description`);
     }
   });
 
-  test(`${d.slug}: Try it and the README Key parameters name the same settings`, () => {
+  test(`${d.slug}: Try it and the README 关键参数 name the same settings`, () => {
     if (!pageOf(d).includes('<section class="hb-step hb-try"')) return; // no settings, no Try it step
     const tryIt = tryItOf(pageOf(d));
     const names = [...tryIt.matchAll(/<(p|label) class="hb-setting-name"[^>]*>([^<]*)<\/\1>|<label class="hb-switch-row"><span>([^<]*)<\/span>/g)]
       .map(m => decode((m[2] ?? m[3]).trim()));
     const keys = keyParameters(d);
     assert.ok(names.length > 0, 'Try it has settings');
-    for (const name of names) assert.ok(keys.includes(name), `Try it setting "${name}" is in Key parameters`);
+    for (const name of names) assert.ok(keys.includes(name), `Try it setting "${name}" is in 关键参数`);
     for (const key of keys) assert.ok(names.includes(key), `Key parameter "${key}" is a setting in Try it`);
   });
 
-  test(`${d.slug}: See also links use the titles of the pages they open`, () => {
-    const seeAlso = sections(read(path.join(d.dir, 'README.md')))['See also'];
+  test(`${d.slug}: 另见 links use the titles of the pages they open`, () => {
+    const seeAlso = sections(read(path.join(d.dir, 'README.md')))['另见'];
     for (const [, name, href] of seeAlso.matchAll(/^\s*[-*]\s+\[([^\]]+)\]\(([^)\s]+)\)/gm)) {
       const h1 = read(path.join(path.resolve(d.dir, href), 'index.html')).match(/<h1>([^<]*)<\/h1>/);
       assert.ok(h1, `${href} has a title`);
-      assert.equal(name, decode(h1[1]), `See also ${href}`);
+      assert.equal(name, decode(h1[1]), `另见 ${href}`);
     }
   });
 
@@ -292,7 +294,7 @@ for (const d of steps) {
 
   test(`${d.slug}: the home page card uses the page's title, or the shorter name an owner ruling keeps`, () => {
     // Four 3D & Advanced cards keep a shorter name than their page title, by an owner ruling.
-    const SHORTER = { 'fluid-simulation': 'Fluid Simulation', 'ray-marching-sdf': 'Ray Marching / SDF', 'cloth-simulation': 'Cloth Simulation', 'volumetric-smoke': 'Volumetric Smoke' };
+    const SHORTER = { 'fluid-simulation': '流体模拟', 'ray-marching-sdf': '光线步进 / SDF 场景', 'cloth-simulation': '布料模拟', 'volumetric-smoke': '体积烟雾 / 3D 噪声' };
     const h1 = decode(pageOf(d).match(/<h1>([^<]*)<\/h1>/)[1]);
     const entry = HOME.match(new RegExp(`\\['${d.slug}','((?:[^'\\\\]|\\\\.)*)',`));
     assert.ok(entry, 'home page entry');
@@ -313,7 +315,7 @@ for (const d of steps) {
 const SWITCHED = steps.filter(d => pageOf(d).includes('data-hb-modes'));
 // The mode switch (See inside and Compare), exactly as in the template, between the Watch step's heading and its stage, with
 // a note for See inside and one for Compare after the player bar, both hidden until their mode is pressed.
-const MODES = '<div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes><button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button><button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button><button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button></div>';
+const MODES = '<div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes><button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button><button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button><button type="button" data-hb-mode="compare" aria-pressed="false">对比</button></div>';
 // The notes box exactly: the See inside note, then the Compare note, each a direct child of the box and hidden at first.
 const NOTES_BOX = /<div class="hb-mode-notes" aria-live="polite"><p data-hb-for="inside" hidden>((?:(?!<\/p>)[\s\S])*)<\/p><p data-hb-for="compare" hidden>((?:(?!<\/p>)[\s\S])*)<\/p><\/div>/;
 const sentencesIn = html => decode(html.replace(/<[^>]+>/g, '')).split(/[.!?](?:\s|$)/).filter(s => s.trim()).length;
@@ -443,8 +445,8 @@ test('the do-it pages played with the pointer can be played from the keyboard', 
 // each kind is covered before a page of that kind exists.
 test('Show me belongs to do-it pages and Reset to do-it and loop pages, each exactly as in the template', () => {
   const PAUSE_BUTTON = PAUSE.replace('{MODE}', '');
-  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>Replay</button>';
-  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>';
+  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>重播</button>';
+  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>';
   const barOf = (...items) => `<div class="hb-player">\n      ${items.join('\n      ')}\n    </div>`;
   const check = (kind, html) => assertShowMeAndReset(kind, html, between(html, '<div class="hb-player">', '</div>'));
   const ok = (kind, ...items) => assert.doesNotThrow(() => check(kind, barOf(...items)), `a ${kind} page with ${items.length} controls passes`);
@@ -463,7 +465,7 @@ test('Show me belongs to do-it pages and Reset to do-it and loop pages, each exa
 
   notOk('one Show me control', 'do', barOf(RESET));
   notOk('one Show me control', 'do', barOf(SHOW_ME, SHOW_ME.replace('id="btn-demo"', 'id="btn-demo-2"')));
-  notOk('the Show me button is in the player bar exactly as in the template', 'do', barOf(SHOW_ME.replace('Show me</button>', 'Play</button>')));
+  notOk('the Show me button is in the player bar exactly as in the template', 'do', barOf(SHOW_ME.replace('演示一下</button>', '播放</button>')));
   notOk('on a do-it page the Reset button comes right after Show me', 'do', barOf(SHOW_ME, SLOW, RESET));
   notOk('on a do-it page the Reset button comes right after Show me', 'do', barOf(RESET, SHOW_ME));
   for (const [kind, first] of [['do', SHOW_ME], ['loop', PAUSE_BUTTON]]) {
@@ -478,9 +480,9 @@ test('Show me belongs to do-it pages and Reset to do-it and loop pages, each exa
 // kind is covered before a scroll page exists.
 test('Play, Back to top and the scroller belong to scroll pages, and a scroll page runs once on arrival with no other player control', () => {
   const noIcon = button => button.replace(/<svg[\s\S]*?<\/svg>/, '');
-  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>Replay</button>';
-  const LOOP = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>Loop</span></label>';
-  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>';
+  const REPLAY = '<button class="hb-play" type="button" id="btn-play" data-hb-replay>重播</button>';
+  const LOOP = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>';
+  const SLOW = '<label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>';
   const pageOf = (bar, stage = '') => `<div class="stage">${stage}</div>\n    <div class="hb-player">\n      ${bar.join('\n      ')}\n    </div>`;
   const run = (kind, html, autoplay = true) => assertScrollControls(kind, html, between(html, '<div class="hb-player">', '</div>'), autoplay);
   const ok = (kind, html) => assert.doesNotThrow(() => run(kind, html), `a ${kind} page passes`);
@@ -498,8 +500,8 @@ test('Play, Back to top and the scroller belong to scroll pages, and a scroll pa
   // or class fails), and Back to top right after Play.
   const EXACT = 'Play and Back to top are in the player bar exactly as in the template';
   notOk(EXACT, 'scroll', `<div class="stage">${PLAY}</div>\n<div class="hb-player">\n${TOP}\n</div>`);
-  notOk(EXACT, 'scroll', pageOf([PLAY.replace('Play</button>', 'Scroll</button>'), TOP]));
-  notOk(EXACT, 'scroll', pageOf([PLAY, TOP.replace('Back to top</button>', 'Top</button>')]));
+  notOk(EXACT, 'scroll', pageOf([PLAY.replace('播放</button>', '滚动</button>'), TOP]));
+  notOk(EXACT, 'scroll', pageOf([PLAY, TOP.replace('回到顶部</button>', '顶部</button>')]));
   notOk(EXACT, 'scroll', pageOf([noIcon(PLAY), TOP]));
   notOk(EXACT, 'scroll', pageOf([PLAY, noIcon(TOP)]));
   notOk(EXACT, 'scroll', pageOf([PLAY.replace('id="btn-scroll"', 'id="btn-play"'), TOP]));
@@ -534,7 +536,7 @@ test('every guided-steps page and the home page link the same version of the sha
 // the mark and presses it there. The home page reads the page without running it, and on a phone the shared script counts the
 // marked choice instead of the pressed one, so a card's Copy prompt copies what the page copies on the same screen.
 test('a setting that starts lower on phones marks that choice data-hb-phone, and the page script starts there from the mark', () => {
-  const PHONE_DEFAULTS = { 'gpgpu-particle-system': ['count-seg', '16,000'], 'cloth-simulation': ['detail-seg', 'Low'], 'audio-visualizer': ['bars-seg', 'Some'] };
+  const PHONE_DEFAULTS = { 'gpgpu-particle-system': ['count-seg', '16,000'], 'cloth-simulation': ['detail-seg', '低'], 'audio-visualizer': ['bars-seg', '一些'] };
   for (const slug of Object.keys(PHONE_DEFAULTS)) assert.ok(steps.some(d => d.slug === slug), `${slug} is a guided-steps page`);
   for (const d of steps) {
     const html = pageOf(d), where = `${d.cat}/${d.slug}`;
@@ -561,7 +563,7 @@ test('a setting that starts lower on phones marks that choice data-hb-phone, and
 
 // The footer of every page: the site's name, a link to the source on GitHub (in a new tab) and Back to top.
 test('every guided-steps page has the same footer, with a link to the source on GitHub', () => {
-  const FOOTER = '<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>';
+  const FOOTER = '<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>';
   assert.ok(steps.length > 0, 'there are guided-steps pages');
   assert.deepEqual(steps.filter(d => count(pageOf(d), FOOTER) !== 1 || count(pageOf(d), '<footer') !== 1).map(d => `${d.cat}/${d.slug}`), [],
     'pages without exactly this footer');
@@ -570,9 +572,9 @@ test('every guided-steps page has the same footer, with a link to the source on 
 // The Star link at the end of every page's top bar and the star row under its prompt card, the same on every page
 // (docs/superpowers/specs/2026-10-12-star-button-design.md).
 const STAR_ICON = '<svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>';
-const STAR_HREF = 'href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"';
-const BAR_STAR = `<a class="hb-star" ${STAR_HREF} aria-label="Star on GitHub">${STAR_ICON}<span>Star on GitHub</span></a>`;
-const STAR_ROW = `<div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" ${STAR_HREF}>${STAR_ICON}Star on GitHub</a></div>`;
+const STAR_HREF = 'href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"';
+const BAR_STAR = `<a class="hb-star" ${STAR_HREF} aria-label="在 GitHub 上点星">${STAR_ICON}<span>在 GitHub 上点星</span></a>`;
+const STAR_ROW = `<div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" ${STAR_HREF}>${STAR_ICON}在 GitHub 上点星</a></div>`;
 test('every guided-steps page asks for a star at the end of its top bar and under its prompt card', () => {
   const lastAfter = (part, piece, before) => part.trimEnd().endsWith(piece) &&
     part.slice(0, part.lastIndexOf(piece)).trimEnd().endsWith(before);
@@ -786,8 +788,8 @@ test('the home page uses Schibsted Grotesk and asks what to animate', () => {
   assert.ok(HOME.includes("url('assets/fonts/schibsted-latin.woff2')"), 'Latin font file');
   assert.ok(HOME.includes("url('assets/fonts/schibsted-latin-ext.woff2')"), 'Latin Extended font file');
   for (const old of ['Bricolage', 'PlexMono', 'var(--mono)', '--mono:']) assert.ok(!HOME.includes(old), `still uses ${old}`);
-  assert.ok(HOME.includes('<h1 class="h1" id="hero-title">What do you want to animate?</h1>'), 'heading');
-  assert.ok(HOME.includes('Pick a place, or describe it in your own words. Every animation plays live, and each one comes with a ready-made prompt for your AI assistant.'), 'intro line');
+  assert.ok(HOME.includes('<h1 class="h1" id="hero-title">你想做什么动画？</h1>'), 'heading');
+  assert.ok(HOME.includes('选一个位置，或者用自己的话描述。每个动画都能在线播放，还附带可直接复制给 AI 助手的提示词。'), 'intro line');
 });
 
 // Every place the number of animations is written is compared with the cards in CATS: the home page (its head too), the root
@@ -799,10 +801,10 @@ const numberIn = (text, pattern) => { const m = String(text).match(pattern); ret
 
 test('the counts written on the home page match its cards', () => {
   const cards = totalCards();
-  assert.ok(HOME.includes(`${cards} free animations · no coding needed`), 'hero pill');
-  assert.ok(HOME.includes(`<span id="more-label">Browse all ${cards} animations</span>`), 'Browse all button');
-  assert.ok(HOME.includes(`<p class="foot-t">${cards} web animations with live demos and copyable prompts.</p>`), 'footer');
-  assert.ok(between(HOME, '<noscript>', '</noscript>').includes(`All ${cards} are still easy to reach`), 'no-JavaScript note');
+  assert.ok(HOME.includes(`${cards} 个免费动画 · 不用写代码`), 'hero pill');
+  assert.ok(HOME.includes(`<span id="more-label">浏览全部 ${cards} 个动画</span>`), 'Browse all button');
+  assert.ok(HOME.includes(`<p class="foot-t">${cards} 个网页动画，带在线演示和可复制提示词。</p>`), 'footer');
+  assert.ok(between(HOME, '<noscript>', '</noscript>').includes(`全部 ${cards} 个动画仍然很容易找到`), 'no-JavaScript note');
   // The head: what search engines and social sites show.
   const head = between(HOME, '<head>', '</head>');
   const meta = attr => (head.match(new RegExp(`<meta ${attr} content="([^"]*)">`)) || [])[1];
@@ -818,7 +820,7 @@ test('the counts written on the home page match its cards', () => {
   };
   for (const [where, text] of Object.entries(texts)) {
     assert.ok(text, `the home page has its ${where}`);
-    assert.equal(numberIn(text, /(\d+) web animation techniques/i), cards, `${where}: ${text}`);
+    assert.equal(numberIn(text, /(\d+) 个网页动画效果/), cards, `${where}: ${text}`);
   }
 });
 
@@ -826,14 +828,14 @@ test('the counts written on the home page match its cards', () => {
 // heading, each as "- **[Name](its page on the live site)** — description": Name and description are the card's, word for
 // word, and the folder the link names holds the page. Every problem is listed at once, so one run shows them all.
 test('the Full catalog in the root README lists every card once, in home order, linked to its live page', () => {
-  const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
-  const ENTRY = /^- \*\*\[([^\]]+)\]\(https:\/\/matinmonshizadeh\.github\.io\/animation-handbook\/(animations\/([^/()\s]+)\/([^/()\s]+)\/)\)\*\* — (.+)$/;
+  const LIVE = 'https://animation.xizanghuapi.cn/';
+  const ENTRY = /^- \*\*\[([^\]]+)\]\(https:\/\/animation\.xizanghuapi\.cn\/(animations\/([^/()\s]+)\/([^/()\s]+)\/)\)\*\* — (.+)$/;
   const cats = homeConst('CATS');
   // Each card by the path of its page, "animations/<category folder>/<slug>/", in the order of CATS.
   const cards = new Map(cats.flatMap(cat => cat.entries.map(([slug, name, desc]) => [`${cat.folder}/${slug}/`, { cat, name, desc }])));
   const problems = [], listed = [];
   let heading = null; // the category whose "### NN · Name · N techniques" heading the line is under
-  for (const line of sections(read(path.join(ROOT, 'README.md')))['Full catalog'].split('\n')) {
+  for (const line of sections(read(path.join(ROOT, 'README.md')))['完整目录'].split('\n')) {
     const h = line.match(/^### (\d{2}) · /);
     if (h) { heading = cats.find(cat => cat.n === h[1]); continue; }
     if (!line.startsWith('- ')) continue;
@@ -861,29 +863,29 @@ test('the Full catalog in the root README lists every card once, in home order, 
 test('the counts written in the root README match the cards', () => {
   const cats = homeConst('CATS'), cards = totalCards();
   const readme = read(path.join(ROOT, 'README.md'));
-  assert.equal(numberIn(readme, /<img src="docs\/hero\.webp" alt="[^"]*?(\d+) web animation techniques/), cards, "README: the picture's alt text");
+  assert.equal(numberIn(readme, /<img src="docs\/hero\.webp" alt="[^"]*?(\d+) 个网页动画效果/), cards, "README: the picture's alt text");
   // Every picture the README shows (img src and source srcset) is in the repository.
   for (const [, file] of readme.matchAll(/\s(?:src|srcset)="(docs\/[^"]+)"/g)) assert.ok(fs.existsSync(path.join(ROOT, file)), `README: ${file} is in the repository`);
-  assert.equal(numberIn(readme, /^\*\*A visual reference of (\d+) web animation techniques/m), cards, 'README: the intro line');
+  assert.equal(numberIn(readme, /^\*\*(\d+) 个网页动画效果的可视化参考/m), cards, 'README: the intro line');
   assert.equal(numberIn(readme, /badge\/techniques-(\d+)-/), cards, 'README: the techniques badge');
-  assert.equal(numberIn(readme, /^All (\d+) techniques, each linked to its live demo\.$/m), cards, 'README: the Full catalog line');
-  for (const [said] of readme.matchAll(/\d+ web animation techniques/gi)) assert.equal(numberIn(said, /(\d+)/), cards, `README: "${said}"`);
+  assert.equal(numberIn(readme, /^全部 (\d+) 个动画，每个都链接到在线演示。$/m), cards, 'README: the Full catalog line');
+  for (const [said] of readme.matchAll(/\d+ 个网页动画效果/g)) assert.equal(numberIn(said, /(\d+)/), cards, `README: "${said}"`);
   // Each category's count, in the Categories table, in its heading in the Full catalog and in the summary that opens its list.
-  const rows = table(sections(readme)['Categories']);
-  const headings = [...readme.matchAll(/^### (\d{2}) · (.+?) · (\d+) techniques$/gm)];
-  const summaries = [...readme.matchAll(/^<details><summary>Browse all (\d+) techniques in (.+?)<\/summary>$/gm)];
+  const rows = table(sections(readme)['分类']);
+  const headings = [...readme.matchAll(/^### (\d{2}) · (.+?) · (\d+) 个动画$/gm)];
+  const summaries = [...readme.matchAll(/^<details><summary>浏览「(.+?)」的全部 (\d+) 个动画<\/summary>$/gm)];
   assert.equal(rows.length, cats.length, 'README: one Categories row per category');
   assert.equal(headings.length, cats.length, 'README: one Full catalog heading per category');
-  assert.equal(summaries.length, cats.length, 'README: one "Browse all N techniques in …" summary per category');
+  assert.equal(summaries.length, cats.length, 'README: one "浏览「…」的全部 N 个动画" summary per category');
   for (const cat of cats) {
     const row = rows.find(r => r[0] === cat.n), heading = headings.find(h => h[1] === cat.n);
-    const summary = summaries.find(s => decode(s[2]) === cat.name);
+    const summary = summaries.find(s => decode(s[1]) === cat.name);
     assert.ok(row && row[1].startsWith(`[${cat.name}]`), `README: a Categories row for ${cat.n} ${cat.name}`);
     assert.equal(Number(row[2]), cat.entries.length, `README: the Categories count of ${cat.n} ${cat.name}`);
     assert.ok(heading && heading[2] === cat.name, `README: a Full catalog heading for ${cat.n} ${cat.name}`);
     assert.equal(Number(heading[3]), cat.entries.length, `README: the heading "${heading[0]}"`);
-    assert.ok(summary, `README: a "Browse all N techniques in ${cat.name}" summary`);
-    assert.equal(Number(summary[1]), cat.entries.length, `README: the summary "${summary[0]}"`);
+    assert.ok(summary, `README: a "浏览「${cat.name}」的全部 N 个动画" summary`);
+    assert.equal(Number(summary[2]), cat.entries.length, `README: the summary "${summary[0]}"`);
     // The line under each heading is the category's description on the home page.
     const line = between(readme, heading[0], '<details>').match(/<sub>([^<]*)<\/sub>/);
     assert.ok(line && decode(line[1]) === cat.desc, `README: the line under "${heading[0]}" is the home page's description of ${cat.name}`);
@@ -905,19 +907,19 @@ test('the no-JavaScript list links every animation once, in home order, under it
 // llms.txt: the handbook as one plain list, for AI tools that read a site without running its scripts.
 // tools/update-sitemap.mjs writes it from the cards and the Famous effects page.
 test('llms.txt lists every card once, in the order of CATS under its group, with its live address and its line, then the Famous effects page', () => {
-  const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
+  const LIVE = 'https://animation.xizanghuapi.cn/';
   const text = read(path.join(ROOT, 'llms.txt')).replace(/\r\n/g, '\n');
   const cats = homeConst('CATS'), cards = cats.flatMap(cat => cat.entries.map(([slug, name, desc]) => ({ name, address: `${LIVE}${cat.folder}/${slug}/`, desc })));
-  assert.ok(text.startsWith('# Animation Handbook\n'), 'llms.txt starts with the title');
+  assert.ok(text.startsWith('# 动画手册\n'), 'llms.txt starts with the title');
   assert.match(text, new RegExp(`^> .*\\b${cards.length}\\b`, 'm'), 'the summary under the title gives the count');
   const lines = text.split('\n').filter(line => line.startsWith('- [') && line.includes(`](${LIVE}animations/`));
   assert.equal(lines.length, cards.length, 'one line per card');
   cards.forEach((card, i) => assert.equal(lines[i], `- [${card.name}](${card.address}): ${card.desc}`, `line ${i + 1}`));
   const headings = text.split('\n').filter(line => line.startsWith('## '));
-  assert.deepEqual(headings, [...cats.map(cat => `## ${cat.name}`), '## Famous effects', '## Optional'], 'the groups in home order, then Famous effects and Optional');
+  assert.deepEqual(headings, [...cats.map(cat => `## ${cat.name}`), '## 知名效果', '## 可选'], 'the groups in home order, then 知名效果 and 可选');
   // The Famous effects page with its own description (white space squeezed), after the last card.
   const lede = decode(read(path.join(ROOT, 'famous', 'index.html')).match(/<meta name="description" content="([^"]+)">/)[1]).replace(/\s+/g, ' ').trim();
-  assert.ok(text.includes(`## Famous effects\n\n- [Famous effects](${LIVE}famous/): ${lede}\n`), 'the Famous effects line under its own heading');
+  assert.ok(text.includes(`## 知名效果\n\n- [知名效果](${LIVE}famous/): ${lede}\n`), 'the 知名效果 line under its own heading');
   assert.doesNotMatch(text, /skill/i, 'llms.txt says nothing of the AI skill, which is gone');
 });
 
@@ -930,12 +932,12 @@ test('the counts written in the issue template, the 404 page and the sitemap mat
   const cards = totalCards();
   const template = read(path.join(ROOT, '.github/ISSUE_TEMPLATE/config.yml'));
   assert.equal(numberIn(template, /See all (\d+) techniques/), cards, 'config.yml: the link to the live handbook');
-  assert.equal(numberIn(read(path.join(ROOT, '404.html')), />Browse all (\d+) animations</), cards, '404.html: the Browse all link');
+  assert.equal(numberIn(read(path.join(ROOT, '404.html')), />浏览全部 (\d+) 个动画</), cards, '404.html: the Browse all link');
   // The sitemap lists two URLs more than the total: the home page and the Famous effects page, first and in that order, each
   // address once.
   const sitemap = read(path.join(ROOT, 'sitemap.xml'));
   assert.equal(count(sitemap, '<url>'), cards + 2, 'sitemap.xml lists the home page, the Famous effects page and every animation');
-  const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
+  const LIVE = 'https://animation.xizanghuapi.cn/';
   const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map(m => m[1]);
   assert.deepEqual(locs.slice(0, 2), [LIVE, `${LIVE}famous/`], 'the home page, then Famous effects');
   assert.equal(new Set(locs).size, locs.length, 'each address once');
@@ -952,10 +954,10 @@ test('the 404 page stays out of search results and every address in it works at 
   assert.ok(html.includes('<meta name="robots" content="noindex">'), 'noindex');
   const addresses = [...html.matchAll(/\s(?:href|src|action)="([^"]*)"/g), ...html.matchAll(/url\(\s*['"]?([^'")\s]+)/g)].map(m => m[1]);
   assert.ok(addresses.length > 0, 'the page has addresses to check');
-  for (const address of addresses) assert.match(address, /^(?:\/animation-handbook\/|https:\/\/|#)/, address);
+  for (const address of addresses) assert.match(address, /^(?:\/|https:\/\/|#)/, address);
   // Each file the page loads or links on the site is in the repository (a folder address stands for its index.html).
-  for (const address of addresses.filter(a => a.startsWith('/animation-handbook/'))) {
-    const file = address.replace(/^\/animation-handbook\//, '').replace(/[?#].*$/, '');
+  for (const address of addresses.filter(a => a.startsWith('/') && !a.startsWith('//'))) {
+    const file = address.replace(/^\//, '').replace(/[?#].*$/, '');
     assert.ok(fs.existsSync(path.join(ROOT, file === '' || file.endsWith('/') ? file + 'index.html' : file)), `${address} is in the repository`);
   }
 });
@@ -968,13 +970,14 @@ test('the 404 page sends a mistyped address where it belongs and never off the s
   for (; end < html.length; end++) { if (html[end] === '{') depth++; else if (html[end] === '}' && --depth === 0) break; }
   const whereTo = vm.runInNewContext('(' + html.slice(start, end + 1) + ')');
   const cases = [
-    ['/animation-handbook/animations/02-entrance-and-exit/Rotate-In/', '?x=1#y', { go: '/animation-handbook/animations/02-entrance-and-exit/rotate-in/?x=1#y' }],
-    ['/animation-handbook/animations/', '', { go: '/animation-handbook/?view=all#results' }],
-    ['/animation-handbook/animations/02-entrance-and-exit/', '', { go: '/animation-handbook/?view=all#results' }],
-    ['/animation-handbook/animations/02-entrance-and-exit/rotate-inn/', '', { words: 'rotate inn' }],
-    ['/animation-handbook/animations%2F02-entrance-and-exit%2Frotate-in/', '', { words: 'rotate in' }],
-    ['/animation-handbook/12345', '', { words: '' }],
-    ['/FOO/Bar', '', { words: 'Bar' }],
+    ['/animations/02-entrance-and-exit/Rotate-In/', '?x=1#y', { go: '/animations/02-entrance-and-exit/rotate-in/?x=1#y' }],
+    ['/animation-handbook/animations/02-entrance-and-exit/Rotate-In/', '?x=1#y', { go: '/animations/02-entrance-and-exit/rotate-in/?x=1#y' }],
+    ['/animations/', '', { go: '/?view=all#results' }],
+    ['/animations/02-entrance-and-exit/', '', { go: '/?view=all#results' }],
+    ['/animations/02-entrance-and-exit/rotate-inn/', '', { words: 'rotate inn' }],
+    ['/animations%2F02-entrance-and-exit%2Frotate-in/', '', { words: 'rotate in' }],
+    ['/12345', '', { words: '' }],
+    ['/FOO/Bar', '', { go: '/foo/bar' }],
     ['//evil.example/X', '', { words: 'X' }]
   ];
   for (const [where, rest, want] of cases) assert.deepEqual({ ...whereTo(where, rest) }, want, where + rest);
@@ -988,17 +991,17 @@ test('the 404 page sends /finder and /find to the finder, keeping only its answe
   for (; end < html.length; end++) { if (html[end] === '{') depth++; else if (html[end] === '}' && --depth === 0) break; }
   const whereTo = vm.runInNewContext('(' + html.slice(start, end + 1) + ')');
   const cases = [
-    ['/animation-handbook/finder', '', { go: '/animation-handbook/?view=find' }],
-    ['/animation-handbook/find/', '', { go: '/animation-handbook/?view=find' }],
-    ['/animation-handbook/Finder/', '?what=text&when=scroll&how=draw#top', { go: '/animation-handbook/?view=find&what=text&when=scroll&how=draw' }],
-    ['/animation-handbook/FIND', '?q=fade&how=fade&utm_source=x', { go: '/animation-handbook/?view=find&how=fade' }],
-    ['/animation-handbook/finder', '?what=%3Cb%3E', { go: '/animation-handbook/?view=find' }],
-    ['/animation-handbook/finder', '?view=find&all=1&xwhat=a&what=a%2Fb&how=fade', { go: '/animation-handbook/?view=find&how=fade' }],
-    ['/animation-handbook/finders', '', { words: 'finders' }],
-    ['/animation-handbook/animations/finder/', '', { words: 'finder' }]
+    ['/finder', '', { go: '/?view=find' }],
+    ['/find/', '', { go: '/?view=find' }],
+    ['/Finder/', '?what=text&when=scroll&how=draw#top', { go: '/?view=find&what=text&when=scroll&how=draw' }],
+    ['/FIND', '?q=fade&how=fade&utm_source=x', { go: '/?view=find&how=fade' }],
+    ['/finder', '?what=%3Cb%3E', { go: '/?view=find' }],
+    ['/finder', '?view=find&all=1&xwhat=a&what=a%2Fb&how=fade', { go: '/?view=find&how=fade' }],
+    ['/finders', '', { words: 'finders' }],
+    ['/animations/finder/', '', { words: 'finder' }]
   ];
   for (const [where, rest, want] of cases) assert.deepEqual({ ...whereTo(where, rest) }, want, where + rest);
-  assert.ok(html.includes('<a class="way" href="/animation-handbook/?view=find">Find an animation by what you saw</a>'), 'the third way back');
+  assert.ok(html.includes('<a class="way" href="/?view=find">按你见过的样子找动画</a>'), 'the third way back');
 });
 
 // Where the bracket that opens at HOME[from] ('[' or '{') is closed. It steps over strings and // comments, so a quote or bracket
@@ -1086,24 +1089,24 @@ function homeSearch() {
 test('the search finds what a visitor describes, and each Popular suggestion keeps its first result', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
   const shown = Number(HOME.match(/const PAGE=(\d+);/)[1]);
-  // The search box's own example: a button that springs back as it is pressed comes first, and Bounce In is on the first page.
-  const example = HOME.match(/<input id="q"[^>]* placeholder="For example: ([^"]+)">/)[1];
+  // The search box's own example: a button that springs back as it is pressed comes first, and 弹跳进入 is on the first page.
+  const example = HOME.match(/<input id="q"[^>]* placeholder="例如：([^"]+)">/)[1];
   const found = names(example);
-  assert.equal(found[0], 'Button Press Scale', `"${example}": ${found.slice(0, shown).join(', ')}`);
-  assert.ok(found.slice(0, shown).includes('Bounce In'), `"${example}" shows Bounce In on the first page: ${found.slice(0, shown).join(', ')}`);
-  const first = { 'text that types itself': 'Typewriter Effect', 'loading spinner': 'Loading Spinner', 'background with moving stars': 'Starfield / Space Particles',
-    'confetti when done': 'Success Confetti', 'menu that slides in': 'Drawer / Panel Slide', fade: 'Fade In / Fade Out' };
+  assert.equal(found[0], '按钮按压缩放', `"${example}": ${found.slice(0, shown).join(', ')}`);
+  assert.ok(found.slice(0, shown).includes('弹跳进入'), `"${example}" shows 弹跳进入 on the first page: ${found.slice(0, shown).join(', ')}`);
+  const first = { '自己打字的文字': '打字机效果', '加载旋转': '加载旋转指示', '星空背景': '星空',
+    '完成时放彩带': '成功彩带', '抽屉菜单': '抽屉滑出', '淡入': '淡入淡出' };
   for (const [text, name] of Object.entries(first)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
-  // A Parallax card first, and the two cards that fake depth without the word parallax come too.
-  const parallax = names('parallax');
-  assert.match(parallax[0], /Parallax/, `"parallax": ${parallax.join(', ')}`);
-  for (const name of ['2.5D / Pseudo-3D', 'Depth-Map Photo']) assert.ok(parallax.includes(name), `"parallax" finds ${name}: ${parallax.join(', ')}`);
-  const change = page.search('page change animation')[0];
-  assert.equal(change.cat.name, 'Page Transitions', `"page change animation": ${change.name} first`);
+  // A 视差 card first, and the 视差 cards from other groups come too.
+  const parallax = names('视差');
+  assert.match(parallax[0], /视差/, `"视差": ${parallax.join(', ')}`);
+  for (const name of ['视差 3D 倾斜', '网格 / 圆点图案视差']) assert.ok(parallax.includes(name), `"视差" finds ${name}: ${parallax.join(', ')}`);
+  const change = page.search('页面切换')[0];
+  assert.equal(change.cat.name, '页面切换', `"页面切换": ${change.name} first`);
   // The Popular suggestions, in the hero and in the Nothing-found panel, each with the first result it had before the groups.
-  const popular = { 'fade in': 'Fade In / Fade Out', 'typing text': 'Kinetic Typography', 'loading spinner': 'Loading Spinner', parallax: 'Parallax Depth-of-Field',
-    confetti: 'Success Confetti' };
-  for (const panel of [between(HOME, '<p class="pop"><span>Popular:</span>', '</p>'), between(HOME, '<div class="empty" id="empty"', '</div>')]) {
+  const popular = { '淡入': '淡入淡出', '打字文字': '打字机效果', '加载旋转': '加载旋转指示', '视差': '视差滚动',
+    '彩带': '成功彩带' };
+  for (const panel of [between(HOME, '<p class="pop"><span>热门：</span>', '</p>'), between(HOME, '<div class="empty" id="empty"', '</div>')]) {
     assert.deepEqual([...panel.matchAll(/data-q="([^"]*)"/g)].map(m => m[1]), Object.keys(popular), 'the Popular suggestions');
   }
   for (const [text, name] of Object.entries(popular)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
@@ -1111,9 +1114,9 @@ test('the search finds what a visitor describes, and each Popular suggestion kee
 
 test('a typed word also finds the cards that use another word of its group, after every card that has the word itself', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  // Words a visitor may type that no card uses.
-  for (const [text, name] of [['wobble', 'Error Shake'], ['popup', 'Modal Expand'], ['mouse', 'Cursor Follower'], ['loader', 'Loading Spinner'],
-    ['scrolltrigger', 'Scroll-Triggered Animation'], ['gsap scrolltrigger', 'Scroll-Triggered Animation']]) {
+  // Words a visitor may type: each finds its card, whether the word is in the name or only in the description.
+  for (const [text, name] of [['抖动', '错误抖动'], ['弹窗', '弹窗展开'], ['指针', '光标跟随'], ['加载', '加载旋转指示'],
+    ['滚动触发', '滚动触发动画']]) {
     assert.ok(names(text).includes(name), `"${text}" finds ${name}: ${names(text).join(', ')}`);
   }
   // Each word of every group, typed alone: the cards with the typed word itself come first, then the ones found through the group.
@@ -1122,7 +1125,7 @@ test('a typed word also finds the cards that use another word of its group, afte
     const found = page.search(text), others = found.findIndex(e => !has(e));
     assert.ok(others < 0 || found.slice(others).every(e => !has(e)), `"${text}": ${found.map(e => e.name + (has(e) ? '' : ' (group)')).join(', ')}`);
   }
-  for (const [text, name] of [['tap', 'Click / Tap Ripple'], ['click', 'Click / Tap Ripple'], ['elastic', 'Elastic Transition'], ['springy', 'Bounce In']]) {
+  for (const [text, name] of [['点击', '点击涟漪'], ['弹性', '弹性过渡'], ['弹跳', '弹跳进入']]) {
     assert.equal(names(text)[0], name, `"${text}": ${names(text).join(', ')}`);
   }
 });
@@ -1151,19 +1154,22 @@ test('every extra search word belongs to a card, in home order, and says somethi
 
 test('everyday words that no card says find the card a visitor means', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  const first = { shine: 'Shimmer Effect', aos: 'Reveal on Scroll', sidebar: 'Drawer / Panel Slide', lightbox: 'Modal Expand',
-    snackbar: 'Toast Notification', alert: 'Toast Notification', mask: 'Clip-Path Reveal', thinking: 'Typing Indicator',
-    stepper: 'Progress Animation', filter: 'FLIP Technique', tabs: 'Segmented Control', accordian: 'Accordion Open/Close',
-    skelton: 'Skeleton Loader', countup: 'Counter Animation', kenburns: 'Ken Burns Effect', darkmode: 'Theme Toggle Morph',
-    offcanvas: 'Drawer / Panel Slide', colour: 'Scroll-Driven Background Color', 'shiny card': 'Holographic Card', hint: 'Tooltip Reveal' };
+  // 'colour' is out: it found its card through the English name "color", which the translation took away; WORDS has no 'colour'.
+  const first = { shine: '微光扫过效果', aos: '滚动显现', sidebar: '抽屉滑出', lightbox: '弹窗展开',
+    snackbar: '轻提示', alert: '轻提示', mask: '剪裁路径揭示', thinking: '正在输入指示',
+    stepper: '进度动画', filter: 'FLIP 技巧', tabs: '分段控制器', accordian: '手风琴展开/收起',
+    skelton: '骨架屏', countup: '数字滚动计数', kenburns: '肯·伯恩斯效果', darkmode: '主题切换变形',
+    offcanvas: '抽屉滑出', 'shiny card': '微光扫过效果', hint: '提示气泡浮现' };
   for (const [text, name] of Object.entries(first)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
-  const among = { sparkle: ['Shimmer Effect', 'Holographic Card'], navbar: ['Hide-on-Scroll Header', 'Hamburger Menu Toggle', 'Scrollspy Navigation'],
-    carousel: ['3D Carousel', 'Snap Scrolling', 'Rotate Word Carousel'], gallery: ['3D Carousel', 'Horizontal Scroll'], grey: ['Skeleton Loader'] };
+  // 'sparkle' and 'carousel' each find one card now: the other cards were found through their English names, not WORDS.
+  // 'grey' is out: it found Skeleton Loader through the English word "grey" in its description.
+  const among = { sparkle: ['微光扫过效果'], navbar: ['滚动侦测导航', '滚动隐藏顶栏', '汉堡菜单切换'],
+    carousel: ['滚动吸附'], gallery: ['3D 轮播', '横向滚动'] };
   for (const [text, wanted] of Object.entries(among)) for (const name of wanted) assert.ok(names(text).includes(name), `"${text}" finds ${name}: ${names(text).join(', ')}`);
-  // A misspelled "parallax" finds the Parallax cards.
-  for (const text of ['paralax', 'parallex']) assert.match(names(text)[0] || '', /Parallax/, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
+  // A misspelled "parallax" finds nothing now: it was found through the SAME group against the English names, which are Chinese
+  // now, so the misspelling cover lives in 'accordian' and 'skelton' above.
   // "speed" keeps its ending, so it does not find the Audio Visualizer's "spectrum".
-  assert.ok(!names('speed').includes('Audio Visualizer'), `"speed": ${names('speed').slice(0, 5).join(', ')}`);
+  assert.ok(!names('speed').includes('音频可视化'), `"speed": ${names('speed').slice(0, 5).join(', ')}`);
 });
 
 // The handbook has no card for these yet, and an honest empty result offers Ask for it. When one of them gets its card, take it
@@ -1184,10 +1190,10 @@ test('an extra word counts only when all of it, or all but its ending, is typed'
   for (const text of ['bar', 'progress bar', 'search bar', 'tab bar']) {
     assert.ok(!names(text).includes('View Transitions API'), `"${text}" finds the View Transitions API: ${names(text).slice(0, 5).join(', ')}`);
   }
-  assert.ok(!names('water').includes('Ink Spread Reveal'), `"water" is not "watercolor": ${names('water').slice(0, 5).join(', ')}`);
+  assert.ok(!names('water').includes('墨水扩散揭示'), `"water" is not "watercolor": ${names('water').slice(0, 5).join(', ')}`);
   // The whole word, or the word without its ending, still finds its card.
-  for (const [text, name] of [['pageturn', 'Page Curl'], ['barba', 'View Transitions API'], ['tabs', 'Segmented Control'],
-    ['celebrating', 'Success Confetti'], ['snowflake', 'Snow / Rain'], ['watercolor', 'Ink Spread Reveal']]) {
+  for (const [text, name] of [['pageturn', '翻页卷角'], ['barba', 'View Transitions API'], ['tabs', '分段控制器'],
+    ['celebrating', '成功彩带'], ['snowflake', '雪 / 雨'], ['watercolor', '墨水扩散揭示']]) {
     assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
   }
 });
@@ -1195,26 +1201,28 @@ test('an extra word counts only when all of it, or all but its ending, is typed'
 // First results that an extra word must not take away from the card that has the typed word in its own name.
 test('the extra words leave these first results as they were', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  const first = { succeed: 'Success Confetti', 'text highlight': 'Highlighter Sweep', 'lava lamp': 'Morphing Blob', drop: 'Ink Spread Reveal',
-    'card flip': '3D Flip Card', 'image zoom': 'Zoom Into Image', 'button hover': 'Hover State Animation', stroke: 'Handwriting Draw' };
+  // 'succeed', 'text highlight', 'drop', 'button hover' and 'stroke' find nothing now: they matched English names and
+  // descriptions. The queries below are the ones that still put the same cards first.
+  const first = { celebrating: '成功彩带', '荧光笔': '荧光笔扫过', 'lava lamp': '变形色块', '墨水': '墨水扩散揭示',
+    'card flip': 'FLIP 技巧', 'image zoom': '放大镜', '悬停': '悬停状态动画', '手写': '手写描绘' };
   for (const [text, name] of Object.entries(first)) assert.equal(names(text)[0], name, `"${text}": ${names(text).slice(0, 5).join(', ')}`);
 });
 
 test('of two cards with the same score, the one that has more of the typed words comes first', () => {
   const page = homeSearch(), names = text => page.search(text).map(e => e.name);
-  // Zoom Into Image has "zoom" and "scroll"; Parallax Scrolling says "scroll" three times and comes earlier on the home page.
-  assert.equal(names('zoom on scroll')[0], 'Zoom Into Image', names('zoom on scroll').slice(0, 5).join(', '));
+  // 放大镜 has "zoom" and "scroll"; 视差滚动 says "scroll" three times and comes earlier on the home page.
+  assert.equal(names('zoom on scroll')[0], '放大镜', names('zoom on scroll').slice(0, 5).join(', '));
 });
 
 test('Nothing matches offers Ask for it: a link to the GitHub form with the typed words filled in', () => {
   const panel = between(HOME, '<div class="empty" id="empty" hidden>', '</div>');
-  assert.ok(panel.includes('<p class="empty-ask">Not in the handbook yet? <a class="pillbtn" id="empty-gh" href="https://github.com/matinmonshizadeh/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">Ask for it on GitHub</a></p>'), panel);
+  assert.ok(panel.includes('<p class="empty-ask">手册里还没有？ <a class="pillbtn" id="empty-gh" href="https://github.com/BuDingSM/animation-handbook/issues/new?template=animation_not_here.yml" target="_blank" rel="noopener">去 GitHub 提需求</a></p>'), panel);
   const url = new URL(homeSearch().askURL('dock that grows & shrinks #1'));
-  assert.equal(url.origin + url.pathname, 'https://github.com/matinmonshizadeh/animation-handbook/issues/new');
+  assert.equal(url.origin + url.pathname, 'https://github.com/BuDingSM/animation-handbook/issues/new');
   assert.deepEqual([...url.searchParams.keys()], ['template', 'title', 'answers']);
   assert.equal(url.searchParams.get('template'), 'animation_not_here.yml');
   assert.equal(url.searchParams.get('title'), '[not here] dock that grows & shrinks #1');
-  assert.equal(url.searchParams.get('answers'), 'Searched for “dock that grows & shrinks #1” — https://matinmonshizadeh.github.io/animation-handbook/?q=dock%20that%20grows%20%26%20shrinks%20%231');
+  assert.equal(url.searchParams.get('answers'), '搜索了「dock that grows & shrinks #1” — https://animation.xizanghuapi.cn/?q=dock%20that%20grows%20%26%20shrinks%20%231');
   // Only fields the form has are filled.
   const form = read(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'animation_not_here.yml'));
   assert.match(form, /^\s+id: answers\r?$/m);
@@ -1243,7 +1251,7 @@ test('the home page head gives search engines and social sites one title, one de
   for (const attr of ['property="og:title"', 'name="twitter:title"']) assert.equal(meta(attr), title, attr);
   const description = meta('name="description"');
   assert.ok(description && description.length <= 160, `the description has at most 160 characters (${description && description.length}): ${description}`);
-  assert.match(description, /ready-made prompt for your AI assistant/, 'the description names the prompt');
+  assert.match(description, /可复制的提示词/, 'the description names the prompt');
   for (const attr of ['property="og:description"', 'name="twitter:description"']) assert.equal(meta(attr), description, attr);
   assert.equal(ld.description, description, 'JSON-LD description');
   const holder = read(path.join(ROOT, 'LICENSE')).match(/^Copyright \(c\) \d{4} (.+)$/m)[1].trim();
@@ -1270,19 +1278,19 @@ test('every place has one tile, one phone-bar chip and one count, and the markup
   }
 });
 
-// A group's key, in its chip and in the address (?cat=): its name in small letters, every run of other characters a hyphen.
-const groupKey = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// A group's key, in its chip and in the address (?cat=): the key field in CATS.
+const groupKey = cat => cat.key;
 
 test('the chips under the results heading are All and the seven groups in home order, each with its group color', () => {
   const cats = homeConst('CATS');
   const row = between(HOME, '<div class="spots" id="spots"', '</div>');
-  assert.match(row, /^<div class="spots" id="spots" role="group" aria-label="Groups">/, 'the row is a group named Groups');
+  assert.match(row, /^<div class="spots" id="spots" role="group" aria-label="分组">/, 'the row is a group named Groups');
   assert.equal(count(row, '<button'), cats.length + 1, 'All and one chip for each group, nothing else');
   const chips = [...row.matchAll(/<button type="button" class="spot" data-cat="([^"]*)" aria-pressed="(true|false)">(?:<i class="(c\d)" aria-hidden="true"><\/i>)?([^<]*)<\/button>/g)]
     .map(m => ({ key: m[1], pressed: m[2], dot: m[3] || '', name: decode(m[4]) }));
   // All, the first chip, names no group and starts pressed: it is Start.
-  assert.deepEqual(chips, [{ key: '', pressed: 'true', dot: '', name: 'All' },
-    ...cats.map(cat => ({ key: groupKey(cat.name), pressed: 'false', dot: cat.cat.replace('-cat', ''), name: cat.name }))]);
+  assert.deepEqual(chips, [{ key: '', pressed: 'true', dot: '', name: '全部' },
+    ...cats.map(cat => ({ key: cat.key, pressed: 'false', dot: cat.cat.replace('-cat', ''), name: cat.name }))]);
   const tags = homeTags();
   assert.equal(tags.filter(tag => tagAttr(tag, 'data-cat') !== undefined).length, cats.length + 1, 'no other button names a group');
   assert.equal(tags.filter(tag => tagHasClass(tag, 'spot') && tagAttr(tag, 'data-place') !== undefined).length, 0, 'no chip under the results heading names a place');
@@ -1291,12 +1299,12 @@ test('the chips under the results heading are All and the seven groups in home o
   assert.ok(cssRules(css).some(rule => rule.selector === '.spot i' && /(^|;)\s*background:\s*var\(--g2\)/.test(rule.body)), 'the dot is drawn in the group color (--g2)');
 });
 
-// The address of a view, as the page reads it: the page's own slugify, CAT and fromURL() run with the page's CATS and places.
+// The address of a view, as the page reads it: the page's own CAT and fromURL() run with the page's CATS and places.
 function homeAddress(search) {
   const line = marker => { const at = HOME.indexOf(marker); assert.ok(at >= 0, `${marker} in index.html`); return HOME.slice(at, HOME.indexOf('\n', at)); };
   const start = HOME.indexOf('function fromURL(');
   assert.ok(start >= 0, 'function fromURL in index.html');
-  const code = `${line('const slugify=')}\n${line('const CAT=')}\n${HOME.slice(start, blockEnd(HOME.indexOf('{', start)) + 1)}\nfromURL()`;
+  const code = `${line('const CAT=')}\n${HOME.slice(start, blockEnd(HOME.indexOf('{', start)) + 1)}\nfromURL()`;
   const next = vm.runInNewContext(code, { CATS: homeConst('CATS'), PLACE_LIST: homeConst('PLACE_LIST'), FIND_Q: [], URLSearchParams, location: { search } });
   return JSON.parse(JSON.stringify(next));
 }
@@ -1304,7 +1312,7 @@ function homeAddress(search) {
 test('an address with ?cat= opens that group; a search or a place wins over it, and a name that is no group opens All animations', () => {
   const cats = homeConst('CATS');
   for (const cat of cats) {
-    const key = groupKey(cat.name), next = homeAddress('?cat=' + key);
+    const key = cat.key, next = homeAddress('?cat=' + key);
     assert.deepEqual({ cat: next.cat, view: next.view, place: next.place, q: next.q, all: next.all }, { cat: key, view: '', place: '', q: '', all: false }, `?cat=${key}`);
   }
   assert.equal(homeAddress('?cat=micro-interactions&all=1').all, true, 'all=1 shows the whole group');
@@ -1324,7 +1332,7 @@ test('the home page shows a group by the same paging, heading and address rules 
   const script = HOME.slice(HOME.indexOf('const state={'), HOME.indexOf('// ---------- The finder (?view=find) ----------'));
   assert.ok(script.includes("const state={q:'',place:'',cat:'',view:'',all:false,what:'',when:'',how:''};"), 'the view names its group (cat)');
   assert.ok(script.includes('const isFiltered=()=>!!(state.q||state.place||state.cat||state.view);'), 'a group counts as a picked view (Clear shows, the first eight cards)');
-  assert.ok(script.includes("list=ALL.filter(e=>e.cat===CAT[state.cat]);title=CAT[state.cat].name;sub=list.length+' animations';"), 'its cards, its name as the heading, its count');
+  assert.ok(script.includes("list=ALL.filter(e=>e.cat===CAT[state.cat]);title=CAT[state.cat].name;sub=list.length+' 个动画';"), 'its cards, its name as the heading, its count');
   assert.ok(script.includes('spotsEl.hidden=!!(state.q||state.place||state.view);'), 'the chips show at Start and on a group only');
   assert.ok(script.includes("else if(state.cat)p.push('cat='+state.cat);"), 'the address names the group');
   assert.ok(script.includes("if(state.all&&(state.q||state.place||state.cat||state.view==='find'))p.push('all=1');"), 'and Show all adds all=1');
@@ -1356,7 +1364,7 @@ test('the home page keeps its GitHub button on phones as a round star, and leave
 // cards name their pages' index.html. With three links the footer's row wraps on the narrowest phones.
 test('the home page footer links the Famous effects page', () => {
   const footer = between(HOME, '<footer class="wrap foot">', '</footer>');
-  assert.equal(count(footer, '<a class="lnk" href="famous/">Famous effects</a>'), 1, 'one Famous effects link in the footer');
+  assert.equal(count(footer, '<a class="lnk" href="famous/">知名效果</a>'), 1, 'one Famous effects link in the footer');
   assert.ok(HOME.includes(`if(FROM_DISK)document.querySelectorAll('a[href="famous/"]').forEach(a=>a.setAttribute('href','famous/index.html'));`),
     'opened from disk, the link opens famous/index.html');
   assert.ok(cssRules(between(HOME, '<style>', '</style>')).some(rule => rule.selector === '.foot .nav' && /(^|;)\s*flex-wrap:\s*wrap/.test(rule.body)),

@@ -1,18 +1,18 @@
-# Ray Marching / SDF Scene
+# 光线步进 / SDF 场景
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ray-marching-sdf/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/ray-marching-sdf/)
 
-## What it is
-Ray marching draws a 3D scene without any 3D models. Each shape is a formula that gives the distance to its surface, and for every pixel the shader steps a ray forward by that distance until it touches something, then lights that point. Because the shapes are formulas, they can melt together, be carved out of each other or repeat forever.
+## 它是什么
+光线步进不用任何 3D 模型就能画出 3D 场景。每个形状都是一个给出到它表面距离的公式，对每个像素，着色器按那个距离让一条光线向前走，直到碰到东西，再照亮那个点。因为形状是公式，它们可以融在一起、互相挖空，或永远重复。
 
-## When to use it
-- Complex animated 3D shapes that are difficult to model as meshes (fractals, boolean blends, organic morphs)
-- Fullscreen shader art and generative visuals
-- Educational demonstrations of 3D math without Three.js overhead
-- Shadertoy-style creative coding in the browser
+## 什么时候用
+- 难以用网格建模的复杂动态 3D 形状（分形、布尔混合、有机变形）
+- 全屏着色器艺术和生成式视觉
+- 不用 Three.js 开销的 3D 数学教学演示
+- 浏览器里 Shadertoy 风格的创意编码
 
-## How it works
-**Core ray march loop** — advances a ray until it's within epsilon of a surface:
+## 工作原理
+**核心光线步进循环**——让一条光线前进，直到它离表面只有一个极小值：
 
 ```glsl
 float rayMarch(vec3 ro, vec3 rd) {  // ray origin, ray direction
@@ -27,7 +27,7 @@ float rayMarch(vec3 ro, vec3 rd) {  // ray origin, ray direction
 }
 ```
 
-**SDF primitives** — the building blocks:
+**SDF 图元**——基本构件：
 
 ```glsl
 float sdSphere(vec3 p, float r) { return length(p) - r; }
@@ -43,7 +43,7 @@ float sdTorus(vec3 p, vec2 t) {
 }
 ```
 
-**Smooth-minimum** blends two SDFs, creating the organic merging effect:
+**平滑最小值**混合两个 SDF，产生有机的融合效果：
 
 ```glsl
 float smin(float a, float b, float k) {
@@ -52,7 +52,7 @@ float smin(float a, float b, float k) {
 }
 ```
 
-**Normal via finite differences** — sample SDF in 6 directions:
+**用有限差分求法线**——在 6 个方向上采样 SDF：
 
 ```glsl
 vec3 getNormal(vec3 p) {
@@ -65,24 +65,24 @@ vec3 getNormal(vec3 p) {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Scene | Blend | Blend melts a sphere, a box and a ring together; Cut-out carves a box out of a sphere, with a small ball inside; Endless repeats a carved box across the floor without end |
-| Camera speed | Normal | How fast the camera circles the shapes: once in about 18 seconds at slow, 10 at normal and 6 at fast |
-| Soft shadows | off | Casts a second ray toward the light from every surface point, for soft shadows; the most costly option |
-| Corner shading | on | Darkens creases and corners where surfaces meet, by testing a few points just above each surface |
-| Detail | Medium | The most steps a ray may take: low is 24, medium 48 and high 96; phones take two thirds as many |
-| Step count view | off | Colors each pixel by how many steps its ray took: edges and near misses take the most |
+| 场景 | 融合 | 融合把一个球、一个方块和一个圆环融在一起；挖空从一个球里挖出一个方块，里面还有一个小球；无尽复制让一个挖空的方块在地板上无尽重复 |
+| 镜头速度 | 普通 | 镜头绕形状转一圈的速度：慢约 18 秒，普通 10 秒，快 6 秒 |
+| 柔和阴影 | 关 | 从每个表面点向光源再投一条光线，做出柔和阴影；最耗性能的选项 |
+| 角落阴影 | 开 | 在每个表面上方测试几个点，让表面相接的折痕和角落变暗 |
+| 细节 | 中等 | 一条光线最多走多少步：低是 24 步，中等 48 步，高是 96 步；手机上是三分之二 |
+| 步数视图 | 关 | 按每条光线走的步数给每个像素上色：边缘和差点碰到的地方步数最多 |
 
-## Production notes
-- **Shadertoy convention**: uniforms are `iTime`, `iResolution`, `iMouse`. Porting Shadertoy code to WebGL requires renaming these to your own uniform names and adding the WebGL boilerplate (vertex shader + quad).
-- **Performance scales with pixels and with the work per step**: every step of every ray evaluates the whole scene formula, so each extra shape or operation adds to every step, and a 4K display costs 4× what 1080p does. The demo caps its canvas at about 300,000 pixels and lets the browser scale it up; on phones it also draws at 0.7 of the stage and takes two thirds of the steps.
-- **Soft shadows and AO**: both require additional rays per fragment (shadow ray, AO samples). Soft shadows are expensive — 20 shadow-march steps per lit pixel doubles the total march work. Toggle off on low-end devices.
-- **`mediump` precision**: complex distance functions with large-scale repetition can lose precision at `mediump`. Use `highp float` for SDF scenes with repetition patterns or fine geometry.
-- **Three.js alternative**: Three.js with `ShaderMaterial` passes the same uniforms to the same fragment shader — the GLSL is identical, only the WebGL boilerplate changes.
+## 生产注意事项
+- **Shadertoy 约定**：uniform 是 `iTime`、`iResolution`、`iMouse`。把 Shadertoy 代码移植到 WebGL 需要把它们改成自己的 uniform 名，并加上 WebGL 样板（顶点着色器 + 四边形）。
+- **性能随像素和每步的工作量缩放**：每条光线的每步都会计算整个场景公式，所以每多一个形状或运算都会加到每步上，4K 显示器的成本是 1080p 的 4 倍。演示把画布封顶在约 300000 像素，让浏览器把它放大；手机上还按舞台的 0.7 绘制，步数取三分之二。
+- **柔和阴影和 AO**：两者每个片元都需要额外的光线（阴影光线、AO 采样）。柔和阴影很贵——每个受光像素 20 步阴影步进会让总步进工作量翻倍。低端设备上关掉。
+- **`mediump` 精度**：带大尺度重复的复杂距离函数在 `mediump` 下会丢失精度。带重复图案或精细几何的 SDF 场景用 `highp float`。
+- **Three.js 替代方案**：带 `ShaderMaterial` 的 Three.js 把同样的 uniform 传给同样的片元着色器——GLSL 完全相同，只有 WebGL 样板不同。
 
-## See also
-- [Volumetric Smoke / 3D Noise](../volumetric-smoke/) — rays that add up smoke instead of stopping at a surface
-- [WebGL Shader Animation](../webgl-shader-animation/) — simpler shaders on the same setup
-- [Fluid / Liquid Simulation](../fluid-simulation/) — the same melting of shapes, in 2D
+## 另见
+- [体积烟雾 / 3D 噪声](../volumetric-smoke/) — 累加烟雾而不是停在表面的光线
+- [WebGL 着色器动画](../webgl-shader-animation/) — 同样设置上的更简单着色器
+- [流体模拟](../fluid-simulation/) — 同样的形状融化，在 2D 里

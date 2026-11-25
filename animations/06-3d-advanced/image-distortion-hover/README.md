@@ -1,18 +1,18 @@
-# Image Distortion on Hover
+# 悬停图片扭曲
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/)
 
-## What it is
-Image distortion on hover bends a picture around the pointer. A WebGL shader draws the image, and near the pointer each pixel is read from a slightly shifted spot, so the picture seems to ripple, bulge, swirl or break into squares there, while the image itself never changes. The bending fades away after the pointer leaves.
+## 它是什么
+悬停图片扭曲在指针周围弯曲图片。WebGL 着色器画出图片，指针附近的每个像素从略微偏移的位置读取，所以图片在那里像是起涟漪、鼓起来、漩涡转动或碎成方块，而图片本身从不改变。指针离开后弯曲慢慢消失。
 
-## When to use it
-- Agency portfolio grids where each project card distorts on hover to signal interactivity
-- Hero images that respond to cursor presence with a subtle liquid animation
-- Product showcase tiles that feel "alive" when browsed
-- Any static image that needs mouse interactivity without JavaScript-heavy animation
+## 什么时候用
+- 代理公司作品集网格，每张项目卡片悬停时扭曲，表明可以交互
+- 对光标有反应、带微妙液体动画的主视觉图片
+- 浏览时感觉“活着”的产品展示瓷贴
+- 任何需要鼠标交互、又不想用大量 JavaScript 动画的静态图片
 
-## How it works
-The core operation is a UV displacement in the fragment shader. The pixel at UV coordinate `uv` samples the texture at `uv + displacement(uv, mouseUV)`:
+## 工作原理
+核心操作是片元着色器里的 UV 位移。UV 坐标 `uv` 处的像素在 `uv + displacement(uv, mouseUV)` 处采样纹理：
 
 ```glsl
 // Ripple distortion: concentric waves from mouse position
@@ -33,7 +33,7 @@ void main() {
 }
 ```
 
-The `uPhase` uniform advances each frame to animate the ripple outward even after the mouse stops. A separate **amplitude** term is what fades: it is pinned to 1 while the pointer is over the stage and decays exponentially once the pointer leaves, so the distortion settles back to the undisplaced image rather than snapping off.
+`uPhase` uniform 每帧前进，让涟漪即使在鼠标停下后仍然向外扩散。真正淡出的是另一项**振幅**：指针在舞台上时它固定为 1，指针离开后指数衰减，所以扭曲会平滑回到未位移的图片，而不是一下子关掉。
 
 ```js
 // Phase always advances; amplitude decays when the pointer is gone
@@ -43,7 +43,7 @@ gl.uniform1f(uPhase, phase);
 gl.uniform1f(uStrength, STRENGTH * amp);
 ```
 
-For a **procedural texture** (no external image required), generate the pattern in the same shader:
+**程序化纹理**（不需要外部图片）可以在同一个着色器里生成图案：
 
 ```glsl
 vec3 pattern(vec2 uv) {
@@ -52,30 +52,30 @@ vec3 pattern(vec2 uv) {
 }
 ```
 
-In the demo the pattern stands still, as a real image would: its time value stays at 0, and only the distortion moves. Once the pointer has gone and the fade has finished, the demo stops drawing, and the pointer or Show me starts it again.
+演示里图案是静止的，和真实图片一样：它的时间值保持在 0，只有扭曲在动。指针离开、淡出完成后，演示停下绘制，指针或「演示一下」会重新启动它。
 
-The picture also takes keyboard focus, and the keys stand in for the pointer: keyboard focus bends the picture in its middle (or where it last bent, while that fades), and each press of an arrow key moves that spot 6% of the way across the picture (a key held down repeats). Escape or moving focus away lets the bending fade, as the pointer leaving does.
+图片也可以获得键盘焦点，方向键代替指针：键盘焦点在图片中间（或上次弯曲的地方，正在淡出时）弯曲图片，每按一次方向键，那个点就向该方向移动图片宽度的 6%（按住会重复移动）。按 Escape 或把焦点移走会让弯曲淡出，和指针离开时一样。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Effect | Ripple | Ripple sends rings out from the pointer; Push bulges the picture outward; Liquid swirls it; Pixels breaks it into squares |
-| Strength | Medium | How far the picture bends: Ripple shifts it by up to 2% of its width and height at gentle, 4% at medium and 7% at strong; Push shifts it 1.6 times as far and Liquid 0.6 times, and Pixels makes blocks up to 1%, 1.7% or 2.9% of the picture's width and height. Stronger looks more dramatic but harder to read |
-| Size | Medium | How wide an area bends: a circle around the pointer whose radius is 15% of the picture's height at small, 25% at medium and 40% at large; the bending fades from full at the pointer to none at its edge |
-| Fade-out speed | Normal | How fast the bending fades after the pointer leaves: each second it loses about three fifths of its strength at slow, about four fifths at normal and nine tenths at fast |
-| Moving ripples | on | With Ripple, the rings keep moving outward while the pointer rests; off, they stand still |
+| 效果 | 涟漪 | 涟漪从指针处向外送出圆环；推开让图片向外鼓起；液体让它漩涡转动；像素块把它碎成方块 |
+| 强度 | 中等 | 图片弯曲的程度：涟漪在轻柔时最多移动宽和高的 2%，中等 4%，强烈 7%；推开移动 1.6 倍，液体 0.6 倍，像素块做出的方块最大是图片宽和高的 1%、1.7% 或 2.9%。越强看起来越夸张，但越难读 |
+| 大小 | 中等 | 弯曲的区域有多宽：指针周围的一个圆，半径在小是图片高度的 15%，中等 25%，大是 40%；弯曲从指针处的全额渐变到边缘处的零 |
+| 消退速度 | 普通 | 指针离开后弯曲消失的速度：慢时每秒失去约五分之三的强度，普通约五分之四，快是十分之九 |
+| 涟漪扩散 | 开 | 涟漪时，指针停着不动，圆环仍然继续向外扩散；关掉就静止不动 |
 
-## Production notes
-- **Real images**: replace the procedural `pattern()` function with `texture2D(uTexture, distortedUV)`. Load images into WebGL via `gl.texImage2D()` from an `<img>` or `ImageBitmap`. Same-origin policy applies — external image URLs need CORS headers.
-- **`CLAMP_TO_EDGE`**: set the texture's wrap mode to `gl.CLAMP_TO_EDGE` (both `TEXTURE_WRAP_S` and `TEXTURE_WRAP_T`) so UV values outside [0,1] don't tile or mirror at the image border when distortion pushes UVs out of range.
-- **Pointer, not mouse**: bind `pointermove`/`pointerdown` rather than `mousemove`, or the effect never fires on a phone. The cursor position must be converted to backing-store pixels (multiply by the device pixel ratio used for the canvas) before it reaches the shader, or the distortion center drifts away from the finger on high-DPI screens.
-- **Backing store and DPR**: size the canvas to `clientWidth * dpr` and call `gl.viewport()` after every resize. Uncapped DPR is expensive for a fullscreen fragment shader — this demo caps it at 2, and at 1.5 on phones. Resizing clears the drawing buffer, so a demo that is not drawing every frame (this one stops at rest) has to repaint after a resize or it goes black.
-- **Context loss**: a GPU reset or a restored tab fires `webglcontextlost`. Without a listener (and a `preventDefault()` so `webglcontextrestored` follows) the canvas dies permanently. Shaders, buffers and uniform locations all have to be rebuilt on restore.
-- **CSS-only alternative**: CSS `filter: blur()` and `transform: translate()` on pseudo-elements can approximate push distortion for a single element at low intensity. WebGL is needed for per-pixel wave and liquid effects.
-- **hover-effect-curtains / Curtains.js**: production libraries that wrap this exact pattern. They handle texture loading, canvas sizing, and the shader boilerplate. The GLSL fragment shader is identical to what this demo uses.
-- **Shader Park**: a higher-level tool for declaring distortion effects with a JavaScript-like syntax that compiles to GLSL. Suitable for creative applications where writing raw GLSL is a barrier.
+## 生产注意事项
+- **真实图片**：把程序化的 `pattern()` 函数换成 `texture2D(uTexture, distortedUV)`。用 `gl.texImage2D()` 从 `<img>` 或 `ImageBitmap` 把图片载入 WebGL。同源策略适用——外部图片 URL 需要 CORS 头。
+- **`CLAMP_TO_EDGE`**：把纹理的包裹模式设为 `gl.CLAMP_TO_EDGE`（`TEXTURE_WRAP_S` 和 `TEXTURE_WRAP_T` 都要），这样扭曲把 UV 推出范围时，图片边缘不会平铺或镜像。
+- **用指针，不用鼠标**：绑定 `pointermove`/`pointerdown` 而不是 `mousemove`，否则手机上效果永远不会触发。光标位置在到达着色器之前必须换算成后备存储像素（乘以画布用的设备像素比），否则高 DPI 屏上扭曲中心会偏离手指。
+- **后备存储和 DPR**：画布按 `clientWidth * dpr` 设置大小，每次调整大小后调用 `gl.viewport()`。不封顶的 DPR 对全屏片元着色器来说很贵——演示封顶在 2，手机上 1.5。调整大小会清空绘制缓冲，所以不每帧绘制的演示（这个在静止时停下）必须在调整大小后重绘，否则会变黑。
+- **上下文丢失**：GPU 重置或恢复的标签页会触发 `webglcontextlost`。没有监听器（以及 `preventDefault()`，这样 `webglcontextrestored` 才会跟上），画布会永久死亡。恢复时着色器、缓冲和 uniform 位置都必须重建。
+- **纯 CSS 替代**：伪元素上的 CSS `filter: blur()` 和 `transform: translate()` 可以在低强度下近似推开扭曲，针对单个元素。逐像素的波浪和液体效果需要 WebGL。
+- **hover-effect-curtains / Curtains.js**：包装了这个确切模式的生产库。它们处理纹理加载、画布大小和着色器样板。GLSL 片元着色器与演示用的完全相同。
+- **Shader Park**：用类似 JavaScript 的语法声明扭曲效果、再编译成 GLSL 的高层工具。适合写原生 GLSL 有门槛的创意应用。
 
-## See also
-- [WebGL Shader Animation](../webgl-shader-animation/) — the same shader setup, painting patterns
-- [Parallax 3D Tilt](../parallax-3d-tilt/) — a card leans toward the pointer instead of bending
-- [Fluid / Liquid Simulation](../fluid-simulation/) — a liquid look that follows the pointer
+## 另见
+- [WebGL 着色器动画](../webgl-shader-animation/) — 同样的着色器设置，画的是图案
+- [视差 3D 倾斜](../parallax-3d-tilt/) — 一张卡片朝指针倾斜，而不是弯曲
+- [流体模拟](../fluid-simulation/) — 跟随指针的液体外观

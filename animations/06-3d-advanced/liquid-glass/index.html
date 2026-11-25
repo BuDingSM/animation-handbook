@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid Glass — Animation Handbook</title>
-  <meta name="description" content="Drag a glass panel and the picture behind it bends at the edges. Best for cards.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/liquid-glass/">
+  <title>液态玻璃 — 动画手册</title>
+  <meta name="description" content="拖动玻璃面板，身后的画面在边缘弯曲。适合卡片。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/liquid-glass/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Liquid Glass — Animation Handbook">
-  <meta property="og:description" content="Drag a glass panel and the picture behind it bends at the edges. Best for cards.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/liquid-glass/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="液态玻璃 — 动画手册">
+  <meta property="og:description" content="拖动玻璃面板，身后的画面在边缘弯曲。适合卡片。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/liquid-glass/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Liquid Glass — Animation Handbook">
-  <meta name="twitter:description" content="Drag a glass panel and the picture behind it bends at the edges. Best for cards.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Liquid Glass", "name": "Liquid Glass", "description": "Drag a glass panel and the picture behind it bends at the edges. Best for cards.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/liquid-glass/", "inLanguage": "en", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, Liquid Glass"}</script>
+  <meta name="twitter:title" content="液态玻璃 — 动画手册">
+  <meta name="twitter:description" content="拖动玻璃面板，身后的画面在边缘弯曲。适合卡片。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "液态玻璃", "name": "液态玻璃", "description": "拖动玻璃面板，身后的画面在边缘弯曲。适合卡片。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/liquid-glass/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 液态玻璃"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -54,7 +54,7 @@
     /* See inside and Compare. The scene and the glass sit in one box, which fills the stage and lays out as before in Normal.
        See inside draws on the glass, so it all moves and stretches with it: the bend map on its left half, arrows from spots
        across it to where each reads the picture from, and a dashed line where the rim begins. Compare sets an inert copy of the
-       box beside it (stacked on phones), whose glass has the same tint, rim, shadow and Frost but no bend. The captions lie
+       box beside it (stacked on phones), whose glass has the same tint, rim, shadow and frosting but no bend. The captions lie
        under the glass, so they never cover it. */
     .lg-box{position:absolute;inset:0;container-type:size}
     .lg-twin,.lg-key,.lg-half,.lg-x,.lg-mh{display:none}
@@ -85,104 +85,104 @@
        gives it back, down to the shared 260px, and the player bar stays where it is in Chrome. --lg-vh: the small viewport height where known */
     @supports(height:1svh){.stage{--lg-vh:1svh}}@media(min-width:601px){.hb-page .stage.lg-frost{--hb-stage-h:clamp(300px,calc(100 * var(--lg-vh) - 444px),440px)}}@media(min-width:601px) and (max-height:760px){.hb-page .stage.lg-frost{--hb-stage-h:clamp(260px,calc(100 * var(--lg-vh) - 354px),440px)}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../physics-2d/" rel="prev" aria-label="Previous: 2D Physics"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>2D Physics</span></a><a href="../holographic-card/" rel="next" aria-label="Next: Holographic Card"><span><span class="hb-dir">Next: </span>Holographic Card</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../physics-2d/" rel="prev" aria-label="上一个：2D 物理"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>2D 物理</span></a><a href="../holographic-card/" rel="next" aria-label="下一个：全息卡片"><span><span class="hb-dir">下一个：</span>全息卡片</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.24 · 3D &amp; Advanced</p>
-    <h1>Liquid Glass</h1>
-    <p class="hb-lede">Drag a glass panel and the picture behind it bends at the edges. Best for cards.</p>
+    <p class="hb-cat">06.24 · 3D 与高级效果</p>
+    <h1>液态玻璃</h1>
+    <p class="hb-lede">拖动玻璃面板，身后的画面在边缘弯曲。适合卡片。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Drag it</h2><p>Drag the glass or tap where it should go, use the arrow keys, or press Show me.<span id="lg-note" hidden> Frosted here: the bend shows in Chrome or Edge on a computer or Android.</span></p></div>
+      <div><h2 id="hb-watch-title">拖动试试</h2><p>拖动玻璃，或点一下它该去的地方，用方向键也可以，或按「演示一下」。<span id="lg-note" hidden> 这里是磨砂玻璃：弯曲效果只在电脑或安卓上的 Chrome 或 Edge 里显示。</span></p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
       <div class="lg-box" id="lg-box">
-        <div class="lg-scene" aria-hidden="true"><i class="lg-dots"></i><i class="lg-sun"></i><i class="lg-city"></i><i class="lg-sea"></i><i class="lg-ball lg-b1"></i><i class="lg-ball lg-b2"></i><p class="lg-word">Look closer</p></div>
-        <div class="lg-key" aria-hidden="true"><span class="lg-cap" data-hb-caption>Bend map: red sideways, green up and down</span><span class="lg-cap" data-hb-caption>Arrows point to what each spot shows</span><span class="lg-cap" data-hb-caption>Inside the dashed line it barely bends</span></div>
-        <p class="lg-cap lg-half" aria-hidden="true" data-hb-caption>Liquid glass</p>
-        <div class="lg-glass" id="glass" tabindex="0" role="group" aria-roledescription="glass panel" aria-label="Glass over a colorful picture. Drag it, or press the arrow keys to move it."><i class="lg-map" id="lg-map" hidden></i><i class="lg-map lg-mh"></i><svg class="lg-x" aria-hidden="true" focusable="false"><rect class="lg-u"/><rect class="lg-rim"/><path class="lg-u"/><path class="lg-arr"/></svg></div>
+        <div class="lg-scene" aria-hidden="true"><i class="lg-dots"></i><i class="lg-sun"></i><i class="lg-city"></i><i class="lg-sea"></i><i class="lg-ball lg-b1"></i><i class="lg-ball lg-b2"></i><p class="lg-word">仔细看</p></div>
+        <div class="lg-key" aria-hidden="true"><span class="lg-cap" data-hb-caption>弯曲图：红色表示横向，绿色表示上下</span><span class="lg-cap" data-hb-caption>箭头指向每个位置显示的东西</span><span class="lg-cap" data-hb-caption>虚线里面几乎不弯曲</span></div>
+        <p class="lg-cap lg-half" aria-hidden="true" data-hb-caption>液态玻璃</p>
+        <div class="lg-glass" id="glass" tabindex="0" role="group" aria-roledescription="glass panel" aria-label="彩色图片上的玻璃。拖动它，或按方向键移动它。"><i class="lg-map" id="lg-map" hidden></i><i class="lg-map lg-mh"></i><svg class="lg-x" aria-hidden="true" focusable="false"><rect class="lg-u"/><rect class="lg-rim"/><path class="lg-u"/><path class="lg-arr"/></svg></div>
       </div>
       <svg class="lg-defs" aria-hidden="true" focusable="false"><filter id="lg-filter" filterUnits="userSpaceOnUse" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB"><feImage id="lg-img" x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="map"/><feDisplacementMap id="lg-disp" in="SourceGraphic" in2="map" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, a bend map steers the glass (left half: red sideways, green up and down); each arrow points to what its spot shows, so the rim magnifies most.</p>
-      <p data-hb-for="compare" hidden>Plain glass tints the picture without bending it; Liquid glass also reads the picture from further in near its rim, so its edge bends and magnifies. Drag Liquid glass or press Show me.</p>
+      <p data-hb-for="inside" hidden>看内部：弯曲图控制着玻璃（左半边：红色表示横向，绿色表示上下）；每个箭头指向它的位置所显示的东西，所以边缘放得最大。</p>
+      <p data-hb-for="compare" hidden>普通玻璃只给图片着色，不弯曲它；液态玻璃在边缘附近还会从更靠里的地方读取图片，所以边缘会弯曲、放大。拖动「液态玻璃」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and look at the glass, then drag it or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看玻璃的变化，再拖动它或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="bend-lbl">How much it bends</p>
+        <p class="hb-setting-name" id="bend-lbl">弯曲程度</p>
         <div class="seg" id="bend-seg" role="group" aria-labelledby="bend-lbl">
-          <button type="button" data-b=".25" aria-pressed="false">Subtle</button>
-          <button type="button" data-b=".42" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-b=".6" aria-pressed="false">Strong</button>
+          <button type="button" data-b=".25" aria-pressed="false">轻微</button>
+          <button type="button" data-b=".42" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-b=".6" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">How far the rounded edge pulls in the picture behind it.</p>
+        <p class="hb-hint">圆角边缘把身后的画面拉进来多远。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="frost-lbl">Frost</p>
+        <p class="hb-setting-name" id="frost-lbl">磨砂程度</p>
         <div class="seg" id="frost-seg" role="group" aria-labelledby="frost-lbl">
-          <button type="button" data-f="0" data-fb="3" class="on" aria-pressed="true">Clear</button>
-          <button type="button" data-f="1.5" data-fb="8" aria-pressed="false">Light</button>
-          <button type="button" data-f="4" data-fb="16" aria-pressed="false">Frosted</button>
+          <button type="button" data-f="0" data-fb="3" class="on" aria-pressed="true">透明</button>
+          <button type="button" data-f="1.5" data-fb="8" aria-pressed="false">轻微</button>
+          <button type="button" data-f="4" data-fb="16" aria-pressed="false">磨砂</button>
         </div>
-        <p class="hb-hint">How much the glass blurs what is behind it.</p>
+        <p class="hb-hint">玻璃把身后的东西模糊多少。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="tint-lbl">Tint</p>
+        <p class="hb-setting-name" id="tint-lbl">着色</p>
         <div class="swatches" id="tint-sw" role="group" aria-labelledby="tint-lbl">
-          <button type="button" aria-pressed="false" aria-label="Pink" data-c="#ff6f8b" data-p="20" style="background:#ff6f8b"></button>
-          <button type="button" class="on" aria-pressed="true" aria-label="White" data-c="#f4f4f2" data-p="9" style="background:#f4f4f2"></button>
-          <button type="button" aria-pressed="false" aria-label="Blue" data-c="#58a6ff" data-p="20" style="background:#58a6ff"></button>
-          <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" data-p="20" style="background:#d2a8ff"></button>
-          <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" data-p="20" style="background:#56d364"></button>
-          <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" data-p="20" style="background:#ffa657"></button>
+          <button type="button" aria-pressed="false" aria-label="粉色" data-c="#ff6f8b" data-p="20" style="background:#ff6f8b"></button>
+          <button type="button" class="on" aria-pressed="true" aria-label="白色" data-c="#f4f4f2" data-p="9" style="background:#f4f4f2"></button>
+          <button type="button" aria-pressed="false" aria-label="蓝色" data-c="#58a6ff" data-p="20" style="background:#58a6ff"></button>
+          <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" data-p="20" style="background:#d2a8ff"></button>
+          <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" data-p="20" style="background:#56d364"></button>
+          <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" data-p="20" style="background:#ffa657"></button>
         </div>
-        <p class="hb-hint">The color the glass adds.</p>
+        <p class="hb-hint">玻璃加上的颜色。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="shape-lbl">Shape</p>
+          <p class="hb-setting-name" id="shape-lbl">形状</p>
           <div class="seg" id="shape-seg" role="group" aria-labelledby="shape-lbl">
-            <button type="button" data-s="card" class="on" aria-pressed="true">Card</button>
-            <button type="button" data-s="pill" aria-pressed="false">Pill</button>
-            <button type="button" data-s="circle" aria-pressed="false">Circle</button>
+            <button type="button" data-s="card" class="on" aria-pressed="true">卡片</button>
+            <button type="button" data-s="pill" aria-pressed="false">胶囊</button>
+            <button type="button" data-s="circle" aria-pressed="false">圆形</button>
           </div>
-          <p class="hb-hint">A pill suits a menu bar; a circle works like a lens.</p>
+          <p class="hb-hint">胶囊形适合菜单栏；圆形像个放大镜。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Shows the bend map</span><input class="hb-switch" type="checkbox" role="switch" id="map-tog" autocomplete="off"></label>
-          <p class="hb-hint">The picture that steers the bend: red moves it sideways, green up and down.</p>
+          <label class="hb-switch-row"><span>显示弯曲图</span><input class="hb-switch" type="checkbox" role="switch" id="map-tog" autocomplete="off"></label>
+          <p class="hb-hint">控制弯曲的图片：红色左右移动，绿色上下移动。</p>
         </div>
       </div>
     </details>
@@ -191,41 +191,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a liquid glass panel to [the card or menu you want to float over a picture]. The panel shows what is behind it bent and magnified near its rounded edges, like thick curved glass, with a soft highlight along the rim. Bend it with an SVG displacement filter applied to what is behind the panel, which Chromium browsers support; other browsers get blurred, tinted glass with the same highlight. Dragging with the pointer or a finger moves it, and so do the arrow keys; it stretches a little as it moves and wobbles back when it stops. Use transforms only, so it stays smooth. If the visitor has reduced motion turned on, let it jump instead of gliding, with no stretch or wobble. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想让它浮在图片上的卡片或菜单]加一块液态玻璃面板。面板会把身后的东西在圆角边缘附近弯曲、放大，像厚厚的弧形玻璃，边缘还有一道柔和的高光。用 SVG 位移滤镜对面板身后的东西做弯曲，Chromium 浏览器支持这个做法；其他浏览器会得到同样带高光的模糊、有色玻璃。用指针或手指拖动可以移动它，方向键也可以；移动时它会微微拉伸，停下后晃回来。只用变换来做，这样才能保持流畅。如果访客打开了减弱动态效果，就让它直接跳过去，不要滑动、拉伸或晃动。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Floating menus</li><li>Cards over photos</li><li>Tab bars</li><li>Media controls</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long text</li><li>Plain backgrounds</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>悬浮菜单</li><li>照片上的卡片</li><li>标签栏</li><li>媒体控件</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长文本</li><li>纯色背景</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const stage=document.getElementById('stage'),box=document.getElementById('lg-box'),glass=document.getElementById('glass'),mapEl=document.getElementById('lg-map');
 const filt=document.getElementById('lg-filter'),fImg=document.getElementById('lg-img'),fDisp=document.getElementById('lg-disp');
@@ -244,16 +244,16 @@ const mapHalf=glass.querySelector('.lg-mh'),[rimU,rimEl,arrU,arrEl]=glass.queryS
 // Compare's first half: a copy of the box with the scene and a plain glass (no map, no bend), made once, inert and hidden from
 // screen readers. It takes no input: place() gives its glass the real glass's place and stretch, so the two move in step.
 const twin=document.createElement('div'),plain=document.createElement('div'),plainName=box.querySelector('.lg-half').cloneNode(true);
-twin.className='lg-box lg-twin';twin.inert=true;twin.setAttribute('aria-hidden','true');plain.className='lg-glass lg-plain';plainName.textContent='Plain glass';
+twin.className='lg-box lg-twin';twin.inert=true;twin.setAttribute('aria-hidden','true');plain.className='lg-glass lg-plain';plainName.textContent='普通玻璃';
 twin.append(box.querySelector('.lg-scene').cloneNode(true),plainName,plain);box.before(twin);
 // What the glass says it shows in each mode; where the bend cannot be drawn, the notes say what shows instead
 let mode='normal';
 const NAMES={normal:glass.getAttribute('aria-label'),
-  inside:'Glass over a colorful picture, its left half showing the bend map, with arrows pointing to what each spot shows. Drag it, or press the arrow keys to move it.',
-  compare:'Liquid glass over a colorful picture, beside the same glass without the bend. Drag it, or press the arrow keys to move it.'};
+  inside:'彩色图片上的玻璃，左半边显示着弯曲图，箭头指向每个位置显示的东西。拖动它，或按方向键移动它。',
+  compare:'彩色图片上的液态玻璃，旁边是同一块没有弯曲的玻璃。拖动它，或按方向键移动它。'};
 if(!REFRACT){
-  document.querySelector('[data-hb-for="inside"]').textContent='Inside, a bend map would steer the glass (left half: red sideways, green up and down); this browser shows frosted glass, so only the arrows point to what each spot would show.';
-  document.querySelector('[data-hb-for="compare"]').textContent='This browser cannot draw the bend, so Plain glass and Liquid glass look the same here; open the page in Chrome or Edge on a computer or Android to see the edge bend.';
+  document.querySelector('[data-hb-for="inside"]').textContent='看内部：弯曲图本来会控制玻璃（左半边：红色表示横向，绿色表示上下）；这个浏览器显示的是磨砂玻璃，所以只有箭头指向每个位置会显示的东西。';
+  document.querySelector('[data-hb-for="compare"]').textContent='这个浏览器画不出弯曲，所以「普通玻璃」和「液态玻璃」在这里看起来一样；在电脑或安卓上的 Chrome 或 Edge 里打开这个页面，就能看到边缘弯曲。';
 }
 
 // How a spot of the glass, (X, Y) from its middle, reads the picture: its shift as a share of the deepest one, or null outside the
@@ -276,10 +276,10 @@ function drawMap(){
     d[k]=v?128-127*v[0]/(1+MAG):128;d[k+1]=v?128-127*v[1]/(1+MAG):128;d[k+2]=128;d[k+3]=255;
   }
   g.putImageData(img,0,0);const url=c.toDataURL();fImg.setAttribute('href',url);mapEl.style.backgroundImage=mapHalf.style.backgroundImage='url('+url+')';
-  for(const el of [filt,fImg]){el.setAttribute('width',gw);el.setAttribute('height',gh);}drawSpots();setBend();
+  for(const el of [filt,fImg]){el.setAttribute('width',gw);el.setAttribute('height',gh);}drawSpots();set弯曲程度();
 }
 // The filter shifts a pixel by up to half its scale; at the very edge that is the bend times the rim's width
-function setBend(){fDisp.setAttribute('scale',(2*bend*Math.min(gw,gh)*.35*(1+MAG)).toFixed(1));vars.setProperty('--lg-rim',Math.round(bend*70-6)+'px');drawArrows();}
+function set弯曲程度(){fDisp.setAttribute('scale',(2*bend*Math.min(gw,gh)*.35*(1+MAG)).toFixed(1));vars.setProperty('--lg-rim',Math.round(bend*70-6)+'px');drawArrows();}
 // See inside: spots about every 16px (further apart on a big glass, so the long arrows at the rim stay clear of the next spot),
 // each with bendAt()'s shift, and the dashed line where the rim begins (the rim's width in from the edge)
 let spots=[];
@@ -384,7 +384,7 @@ function choices(id,pick){
     pick(btn.dataset);
   }));
 }
-choices('bend-seg',d=>{bend=+d.b;setBend();});
+choices('bend-seg',d=>{bend=+d.b;set弯曲程度();});
 choices('frost-seg',d=>{vars.setProperty('--lg-blur',d.f+'px');vars.setProperty('--lg-fb',d.fb+'px');});
 choices('tint-sw',d=>{vars.setProperty('--lg-tint',d.c);vars.setProperty('--lg-tp',d.p+'%');});
 choices('shape-seg',d=>{shape=d.s;gw=0;layout();});

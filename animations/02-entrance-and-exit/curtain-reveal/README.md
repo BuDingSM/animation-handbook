@@ -1,19 +1,19 @@
-# Curtain Reveal
+# 幕布揭示
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/curtain-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/curtain-reveal/)
 
-## What it is
+## 它是什么
 
-A curtain reveal happens in three steps: a solid panel slides across the content to cover it, pauses, then slides off the far side to show it. Unlike a clip-path reveal, the content really is hidden behind the moving panel and then uncovered, so the eye notices a clear before and after. It is theatrical on purpose and suits content that deserves the drama.
+幕布揭示分三步：一块纯色面板滑过内容盖住它，停顿，然后从另一边滑走，露出它。和剪裁路径揭示不同，内容是真的藏在移动的面板后面再被揭开，所以眼睛会注意到一个清晰的前后变化。它是故意做得戏剧化的，适合配得上这种戏剧感的内容。
 
-## When to use it
-- Page and section transitions where a colored panel wipes across between views
-- Hero intros that dramatize the first appearance of a headline or logo
-- "Split" curtain effects where two halves part to reveal what is behind them
-- Portfolio and editorial sites where the transition itself is part of the brand
+## 什么时候用
+- 页面和章节切换，彩色面板在视图之间擦过
+- 主视觉开场，把标题或 Logo 的第一次出现戏剧化
+- 「分开」的幕布效果，两半分开，露出后面的东西
+- 作品集和编辑类网站，过渡本身就是品牌的一部分
 
-## How it works
-The curtain is an absolutely-positioned bar sitting above the content on `z-index: 2`, moved entirely with `transform: translateX/Y`. It starts off-screen, slides to `translateX(0)` to cover, then to `translateX(101%)` to leave. The three positions are driven by classes:
+## 工作原理
+幕布是一条绝对定位的横条，在 `z-index: 2` 上盖在内容上方，完全用 `transform: translateX/Y` 移动。它从屏幕外开始，滑到 `translateX(0)` 盖住，再滑到 `translateX(101%)` 离开。三个位置由类来驱动：
 
 ```css
 .curtain[data-axis=h] { inset: 0 auto 0 0; width: 100%; transform: translateX(-101%); }
@@ -21,7 +21,7 @@ The curtain is an absolutely-positioned bar sitting above the content on `z-inde
 .curtain[data-axis=h].c-out { transform: translateX(101%); } /* exits far side */
 ```
 
-JavaScript sequences the stages with nested timers — enter, hold for `pause`, then exit — so the reveal happens *while the bar is on screen*:
+JavaScript 用嵌套计时器安排各个阶段——进入、按 `pause` 停住、再退出——所以揭示发生在*横条还在屏幕上*的时候：
 
 ```js
 curtain.classList.add('c-in');                 // stage A: cover
@@ -33,27 +33,27 @@ setTimeout(() => {                             // stage B: pause
 }, dur);
 ```
 
-Both sides uses two half-width panels that start off opposite edges, meet in the middle and go back. The `101%` (rather than `100%`) guarantees the bar clears the edge completely with no sub-pixel seam.
+「两边」用两块半宽的面板，从相对的边缘出发，在中间汇合再回去。`101%`（而不是 `100%`）保证横条完全越过边缘，不留亚像素的缝。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Comes in from | Left | Which way the panel travels; Both sides sends two panels that meet in the middle, then part |
-| Speed | Normal | Time for one pass: slow is 800ms, normal 500ms and fast 300ms; the whole reveal takes about two passes plus the pause |
-| Pause while covered | Short | How long the panel covers everything: none, short (300ms) or long (800ms); the pause is what makes the change register |
-| Curtain color | Dark | The panel's color; strong contrast with the content makes the reveal more dramatic |
+| 从哪边进入 | 左 | 面板往哪个方向走；「两边」会派出两块在中间汇合再分开的面板 |
+| 速度 | 普通 | 一趟的时间：「慢」是 800ms，「普通」500ms，「快」300ms；整个揭示大约是两趟加上停顿 |
+| 遮住时停顿 | 短 | 面板盖住一切的时间：无、短（300ms）或长（800ms）；停顿就是让变化被注意到的关键 |
+| 幕布颜色 | 深色 | 面板的颜色；与内容对比强烈会让揭示更夸张 |
 
-## Production notes
-- **Overshoot the edge with `101%`.** Ending an exit exactly at `100%` can leave a 1px sliver on fractional-DPI displays; the extra percent is the standard fix.
-- **The content behind is never hidden from the DOM** — only visually covered. If the reveal gates *loading*, swap the underlying content during the `pause` stage while the bar hides the switch, so users never see the change happen.
-- **Guard against re-entry.** Each play clears the timers of the one before, so a second trigger can't start a new sequence mid-animation and desync the stages — important for any multi-stage, timer-driven effect.
-- **Reduced motion:** a play skips the cover-and-uncover pass entirely under `prefers-reduced-motion` — the content simply stays visible the whole time, so the panel never flashes across it.
-- **Library equivalents:** GSAP timelines are the natural fit — `.to(curtain, { x: 0 }).to(curtain, { x: '101%' }, '+=0.3')` chains the stages with a built-in pause; Framer Motion sequences variants via `AnimatePresence`; Motion One's `animate` accepts a keyframe array with `offset` and `delay` to script the three beats.
+## 生产注意事项
+- **用 `101%` 超过边缘。**退出正好停在 `100%` 时，在分数 DPI 的显示器上可能留下一条 1px 的缝；多出来的这百分之一是标准的修法。
+- **后面的内容永远不会从 DOM 里藏起来**——只是视觉上被盖住。如果揭示是给*加载*把门的，在 `pause` 阶段、横条遮住切换的时候换掉下面的内容，这样用户永远看不到变化发生的那一刻。
+- **防止重入。**每次播放都会清除上一次的计时器，这样第二次触发就不能在动画中途开始一个新序列、打乱各个阶段——对任何多阶段、计时器驱动的效果都很重要。
+- **减弱动态：**在 `prefers-reduced-motion` 下，播放会完全跳过盖住再揭开的过程——内容一直保持可见，面板永远不会从它上面闪过。
+- **库里的等价写法：**GSAP 的时间线最合适——`.to(curtain, { x: 0 }).to(curtain, { x: '101%' }, '+=0.3')` 用内置的停顿把各个阶段串起来；Framer Motion 通过 `AnimatePresence` 给变体排顺序；Motion One 的 `animate` 接受带 `offset` 和 `delay` 的关键帧数组，来安排这三拍。
 
-## See also
-- [Clip-Path Reveal](../clip-path-reveal/) — a shape uncovers it, with no panel
-- [Slide Up Reveal](../slide-up-reveal/) — text rises from behind an invisible edge
-- [Slide In](../slide-in/) — travels into place from one edge
-- [Split Text Reveal](../split-text-reveal/) — text appears piece by piece
-- [Overlay Wipe](../../03-page-transitions/overlay-wipe/) — a colored panel that hides a whole page change
+## 另见
+- [剪裁路径揭示](../clip-path-reveal/) — 一个形状揭开它，没有面板
+- [上滑揭示](../slide-up-reveal/) — 文字从一条看不见的边缘后方升起
+- [滑入](../slide-in/) — 从一边滑入到位
+- [拆字揭示](../split-text-reveal/) — 文字一块一块出现
+- [覆盖擦除](../../03-page-transitions/overlay-wipe/) — 一块彩色面板遮住整个页面切换

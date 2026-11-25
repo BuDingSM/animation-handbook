@@ -1,18 +1,18 @@
-# Ink Spread Reveal
+# 墨水扩散揭示
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/ink-spread-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/ink-spread-reveal/)
 
-## What it is
-An ink spread reveal uncovers a picture the way ink spreads on damp paper. The picture starts hidden under a plain paper-colored layer, drops land one after another, and each spreads into a blot with an uneven edge; the blots grow, merge and finally show the whole picture. Each blot races outward at first and slows as it soaks in, which is what makes it read as ink rather than as a shape growing.
+## 它是什么
+墨水扩散揭示用墨在潮湿纸上扩散的方式揭开一张图片。图片开始时藏在一层素色的纸色图层下面，墨滴一个接一个落下，每滴扩散成一个边缘不平整的墨渍；墨渍长大、汇合，最终显示整张图片。每个墨渍开始时向外冲得很快，洇开时慢慢变慢，这让它读起来像墨水，而不是一个在变大的形状。
 
-## When to use it
-- The opening picture of an art, illustration or portfolio site
-- A featured artwork or photo that deserves a slower entrance
-- Intros for stories, posters and event pages with a hand-made look
-- Section openers on pages about painting, calligraphy or print
+## 什么时候用
+- 艺术、插画或作品集网站的开场图片
+- 值得慢慢入场的精选艺术品或照片
+- 故事、海报和活动页面的开场，手工感
+- 绘画、书法或版画页面的章节开场
 
-## How it works
-The picture sits under an SVG mask. The mask holds one white blot per drop: white shows the picture and everything else stays paper. Each blot is made once, from a circle whose radius wanders with a few slow waves and a few small fast ones, so its edge looks uneven and feathery; Splashy adds small drops thrown around it. A seeded random sequence makes the same blots on every redraw.
+## 工作原理
+图片坐在一个 SVG 遮罩下面。遮罩里每滴墨对应一个白色墨渍：白色显示图片，其他地方保持纸色。每个墨渍只做一次，由一个圆做成，它的半径随着几个慢波和几个小快波游走，所以边缘看起来不平整、带毛边；「飞溅」会在它周围加上甩出去的小墨滴。一个带种子的随机序列让每次重画都做出同样的墨渍。
 
 ```js
 // One blot of radius 1: a circle whose radius wanders with six waves, the slow ones larger. wob is how far it may wander.
@@ -31,7 +31,7 @@ function unitBlot(rand, wob, dots) {
 }
 ```
 
-Each blot's full size is worked out so the blots cover the whole picture together: every spot of the picture belongs to its nearest drop, and that drop's blot is made large enough to reach the farthest of its spots, even where its outline dips in (the radius is divided by the outline's smallest reach). The blot then grows by scaling that same shape from where its drop lands, with an ease that starts fast and slows down, each drop a moment after the one before:
+每个墨渍的完整尺寸都算过，让墨渍合起来盖住整张图片：图片的每个点都属于离它最近的那滴墨，那滴墨的墨渍做得足够大，能到达它最远的那个点，即使轮廓在那里凹进去（半径除以轮廓最小的到达距离）。墨渍然后从它落下的地方开始，通过缩放同一个形状长大，缓动先快后慢，每滴比前一滴晚一会儿：
 
 ```js
 grows.forEach(el => el.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }],
@@ -47,26 +47,26 @@ grows.forEach(el => el.animate([{ transform: 'scale(0)' }, { transform: 'scale(1
 </svg>
 ```
 
-A dark copy of each blot, 4% larger, sits under the picture and shows as a rim just ahead of it. When the last blot has grown, Loop holds the picture, fades it back to paper and plays again. Under reduced motion the whole picture fades in instead.
+每个墨渍的一个深色副本，大 4%，坐在图片下面，显示为紧贴在前面的一圈边。最后一个墨渍长完后，循环按住图片，把它淡回纸色，再播放一次。减弱动态时，整张图片改为淡入。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Where the ink lands | Several drops | One drop lands in the middle; several drops are three that land in turn across the picture; from a corner, three drops land one after another from the top left toward the bottom right |
-| Speed | Normal | How long it takes to cover the picture: slow is about 3.6 seconds (each blot grows for 2.6 seconds, the drops half a second apart), normal 2.5 seconds (1.8 seconds, a third of a second apart) and fast 1.5 seconds (1.1 seconds, a fifth of a second apart) |
-| Edge | Ragged | Smooth grows round circles; ragged lets each outline wander by about a tenth of its radius; splashy adds nine small drops around each blot (five on phones) |
-| Dark ink edge | on | A dark copy of each blot, a little larger, shows as a rim just ahead of the picture; off, the picture shows with no rim |
+| 墨落在哪 | 几滴 | 「一滴」落在中间；「几滴」是三滴依次落在图片上；「从角落开始」是三滴从左上到右下依次落下 |
+| 速度 | 普通 | 盖住图片要多长时间：「慢」大约 3.6 秒（每个墨渍长 2.6 秒，墨滴间隔半秒），「普通」2.5 秒（1.8 秒，间隔三分之一秒），「快」1.5 秒（1.1 秒，间隔五分之一秒） |
+| 边缘 | 粗糙 | 「平滑」长出圆形的圆；「粗糙」让每个轮廓游走大约十分之一个半径；「飞溅」在每个墨渍周围加九个小墨滴（手机上五个） |
+| 深色墨边 | 开 | 每个墨渍的一个深色副本，稍大一点，显示为紧贴在前面的一圈边；关掉，图片显示时没有边 |
 
-## Production notes
-- **A mask is repainted.** Animating the shapes inside an SVG mask repaints the masked picture on every frame. That is fine for one picture of this size; for a full-screen hero on slow phones, draw the blots on a canvas and use it as a `mask-image`, or reveal a canvas copy of the picture directly.
-- **Scale, never redraw.** Build each blot's outline once and grow it with `transform: scale()`. Rewriting the path every frame makes the browser parse and lay it out again.
-- **Cover the corners.** Blots that look big enough in the middle often leave the corners as paper. Size each blot from the spots it has to reach, or let the last drop be the largest.
-- **Reduced motion.** Fade the picture in instead of growing blots.
-- **GSAP** grows the blots with `gsap.fromTo(".grow", { scale: 0 }, { scale: 1, duration: 1.8, ease: "power3.out", stagger: 0.36, transformOrigin: "0 0" })`; set the origin so each grows from its drop. **Framer Motion** animates each blot `<motion.path>` inside a `<mask>` from `scale: 0` to `scale: 1` with `transition={{ delay: i * 0.36, ease: [0.15, 0.7, 0.25, 1] }}`.
-- **Real ink.** A scanned ink blot or a short ink video used as a luminance mask looks richest; keep it small and fall back to the drawn blots.
+## 生产注意事项
+- **遮罩会被重绘。**给 SVG 遮罩里的形状做动画，每帧都会重绘被遮罩的图片。对一张这个尺寸的图片来说没问题；慢手机上的全屏主视觉，把墨渍画在 canvas 上，用它作 `mask-image`，或者直接揭示图片的一个 canvas 副本。
+- **缩放，永远不要重画。**每个墨渍的轮廓只建一次，用 `transform: scale()` 让它长大。每帧重写路径会让浏览器重新解析、重新布局。
+- **盖住角落。**中间看起来够大的墨渍常常会把角落留成纸色。按每个墨渍必须到达的点来定尺寸，或者让最后一滴最大。
+- **减弱动态。**改为把图片淡入，而不是让墨渍长大。
+- **GSAP** 用 `gsap.fromTo(".grow", { scale: 0 }, { scale: 1, duration: 1.8, ease: "power3.out", stagger: 0.36, transformOrigin: "0 0" })` 让墨渍长大；设置原点，让每个从它落下的地方长大。**Framer Motion** 给 `<mask>` 里的每个墨渍 `<motion.path>` 做动画，从 `scale: 0` 到 `scale: 1`，`transition={{ delay: i * 0.36, ease: [0.15, 0.7, 0.25, 1] }}`。
+- **真墨水。**扫描的墨渍或一段短的墨水视频用作亮度遮罩，看起来最丰富；保持它小一点，画出来的墨渍作后备。
 
-## See also
-- [Clip-Path Reveal](../clip-path-reveal/) — a clean shape grows to uncover a picture
-- [Circle Reveal](../../03-page-transitions/circle-reveal/) — one circle grows from a click to show the next page
-- [Curtain Reveal](../curtain-reveal/) — a colored panel covers it, then slides away
-- [Fade In / Fade Out](../fade-in-out/) — the plain fade this becomes under reduced motion
+## 另见
+- [剪裁路径揭示](../clip-path-reveal/) — 一个干净的形状长大，揭开一张图片
+- [圆形揭示](../../03-page-transitions/circle-reveal/) — 一个圆从点击处长大，显示下一页
+- [幕布揭示](../curtain-reveal/) — 一块彩色面板盖住它，然后滑走
+- [淡入淡出](../fade-in-out/) — 减弱动态时这个效果变成的单纯淡入淡出

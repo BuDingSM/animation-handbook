@@ -252,7 +252,7 @@ inside an entry's "Production notes" section, never as their own entry.
    nothing (dock, chart, checkbox), take it out there.
 7. Update `animations/<category>/README.md` (its list of pages, and any other table there that names pages, such
    as 07's Implementation summary) and the root `README.md` catalog (the card's name, linked to its live page
-   `https://matinmonshizadeh.github.io/animation-handbook/animations/<category>/<slug>/`, and its one-line
+   `https://animation.xizanghuapi.cn/animations/<category>/<slug>/`, and its one-line
    description, in home page order); the page's own README has `[Live demo](<that address>)` on the line under its
    title. Update the technique count wherever it is written: the root `README.md` (the total and the category's
    count), the home page (its title and meta tags too), `.github/ISSUE_TEMPLATE/config.yml` and `404.html` (its

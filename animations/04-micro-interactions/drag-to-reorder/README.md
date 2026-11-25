@@ -1,18 +1,18 @@
-# Drag to Reorder
+# 拖动排序
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/drag-to-reorder/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/drag-to-reorder/)
 
-## What it is
-Drag to reorder lets people change the order of a list by picking an item up and moving it. The item lifts above the others and follows the pointer, and each item it passes slides aside to open a gap where it will land; letting go settles it into that gap. The same move works from the keyboard: pick the item up, move it with the arrow keys and put it down.
+## 它是什么
+拖动排序让人们拿起一个项目、移动它，来改变列表的顺序。项目抬到其他项目上方，跟随指针，经过的每个项目都会滑开，让出它要落下的空位；松开，它就落进那个空位。同样的操作可以用键盘完成：拿起项目，用方向键移动，再放下。
 
-## When to use it
-- To-do lists, playlists and priority rankings, where the order itself means something
-- Editors for menus, navigation links, form fields or dashboard widgets
-- Short lists, up to a screen or so, where dragging is quicker than pressing "Move up" again and again
-- Touch-first lists, as long as a grip or a short press starts the drag so the page can still scroll
+## 什么时候用
+- 待办清单、播放列表和优先级排序，顺序本身就有意义
+- 菜单、导航链接、表单字段或仪表盘小部件的编辑器
+- 短列表，大约一屏以内，拖动比反复按“上移”更快
+- 触屏优先的列表，只要用手柄或短按开始拖动，页面仍然能滚动
 
-## How it works
-Every row is placed at the top of the list and moved to its slot with a transform: `--i` holds the slot, and the stylesheet turns it into a `translateY` with a transition, so a new order never changes the layout. The held row follows the pointer with an inline transform and no transition, and the rows it passes get a new `--i`, so they slide:
+## 工作原理
+每一行都放在列表顶部，用变换移到它的位置：`--i` 存着位置，样式表把它变成带过渡的 `translateY`，所以新顺序永远不会改变布局。拿着的行用内联变换跟随指针，没有过渡，经过的行得到新的 `--i`，于是滑开：
 
 ```js
 // The rows between where the held one started and slot `to` slide one slot toward the gap it left.
@@ -30,7 +30,7 @@ function follow(y){
 }
 ```
 
-On release, `drop()` clears the inline transform, so the row slides from under the pointer into its slot, and the list's real order follows: the rows it passed are moved to its other side with `insertBefore`, so the held row never leaves the document and keeps its keyboard focus. Moving an element in the document ends any transition it is in the middle of, so a row still sliding aside would jump to its slot. `keepSlides()` uses the FLIP idea against that: it reads where each row is drawn before the move, gives it that place back as a still transform after the move, then lets go, so the slide carries on from there. Reset puts the whole list back in order through it too, so the rows slide home:
+松开时，`drop()` 清除内联变换，于是行从指针下方滑进它的位置，列表的真实顺序也跟上：经过的行用 `insertBefore` 移到它的另一边，这样拿着的行永远不离开文档，并保持键盘焦点。移动文档里的元素会结束它正在进行的过渡，所以还在滑开的行会跳到它的位置。`keepSlides()` 用 FLIP 的想法来对付这一点：它先读出每行画在哪里，移动后把那个位置作为静止变换还给它，然后放开，滑动就从那里继续。重置也是通过它把整个列表恢复顺序，于是行滑回家：
 
 ```js
 function keepSlides(rows,move){
@@ -40,26 +40,26 @@ function keepSlides(rows,move){
 }
 ```
 
-The lift is a `scale` on the row's inner card plus a shadow on a pseudo-element whose opacity fades in, so no shadow is ever animated.
+抬起是行内卡片上的 `scale`，加伪元素上不透明度淡入的阴影，所以阴影永远不用做动画。
 
-Pointer Events cover mouse, pen and touch with one code path, and `setPointerCapture` keeps the row following even when the pointer leaves it. A mouse lifts the row at once. A finger lifts it at once from the grip, which has `touch-action: none`, but from the rest of the row only after a 300ms press, so a quick swipe over the list still scrolls the page (the row has `touch-action: pan-y`); once a row is held, a `touchmove` listener that is not passive calls `preventDefault`, so the browser does not scroll under it. On the keyboard each grip is a button: Space or Enter picks the task up and puts it down, the arrow keys move it one slot, Escape puts it back, and a polite live region reads each step aloud.
+指针事件用一套代码路径覆盖鼠标、触控笔和触摸，`setPointerCapture` 让行即使指针离开它也能跟随。鼠标立刻抬起行。手指从手柄（`touch-action: none`）立刻抬起，从行的其他地方则要在按压 300ms 后才抬起，这样在列表上快速滑动仍然能滚动页面（行有 `touch-action: pan-y`）；一旦拿着一行，一个非被动的 `touchmove` 监听器会调用 `preventDefault`，浏览器就不会在它下面滚动。键盘上每个手柄都是一个按钮：空格键或 Enter 拿起任务、放下任务，方向键移动一个位置，Esc 放回去，礼貌的实时区域会大声读出每一步。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Slide speed | Normal | How fast the passed items slide aside and the dropped one settles: slow is 420ms, normal 220ms and fast 120ms |
-| How much it lifts | Subtle | Subtle grows the held item by 2% with a soft shadow 8px below it; strong grows it by 6%, tilts it 1.5° and deepens the shadow to 18px below it |
-| Drags by the handle only | off | Only the grip starts a drag; when off, the whole row does, after a short press on touch screens |
+| 滑动速度 | 普通 | 经过的项目滑开、放下的项目落定有多快：慢是 420ms，普通 220ms，快 120ms |
+| 抬起多少 | 轻微 | 轻微让拿着的项目变大 2%，在下方 8px 处有一道柔和的阴影；强烈让它变大 6%、倾斜 1.5°，阴影加深到下方 18px 处 |
+| 仅用手柄拖动 | 关 | 只有手柄能开始拖动；关时，整行都可以，触屏上短按之后开始 |
 
-## Production notes
-- **Save the order once, on drop.** Move the items with transforms while the drag lasts and rewrite the list (and send it to the server) only when the item is dropped; rebuilding the list on every pointer move makes it flicker and loses the pointer capture.
-- **Rows of different heights**: the demo's rows share one height, so a slot is a fixed distance. With mixed heights, measure each row and add up the heights before the target slot, or move the element in the DOM at each slot change and animate the jump with FLIP.
-- **Long lists**: scroll the container when the held item nears its top or bottom edge, and offer "Move to top" or a position field when the list is longer than a screen, since a long drag is tiring and easy to drop early.
-- **Accessibility**: give every item a keyboard way to move, announce pick up, each move, drop and cancel in a live region, and keep focus on the moved item. Never rely on the drag alone.
-- **Reduced motion**: keep the reorder and drop the slides; with `prefers-reduced-motion: reduce` the items jump straight to their places, and the keyboard way already moves one slot per key press.
-- **Library equivalents**: SortableJS for plain JavaScript (its `handle` and `delay` options match the switch and the touch press here), dnd-kit's sortable preset and @hello-pangea/dnd for React (both announce moves for screen readers), Framer Motion's `Reorder.Group` and `Reorder.Item`, and GSAP's Draggable when you want your own physics.
+## 生产注意事项
+- **只在放下时保存一次顺序。** 拖动期间用变换移动项目，只在项目放下时重写列表（并发送到服务器）；每次指针移动都重建列表会让它闪烁，还会丢失指针捕获。
+- **不同高度的行**：演示的行高度相同，所以一个位置是固定距离。高度混合时，测量每一行，把目标位置之前各行的高度加起来，或者每次改变位置时在 DOM 里移动元素，用 FLIP 给跳跃做动画。
+- **长列表**：拿着的项目靠近容器顶部或底部边缘时滚动容器；列表超过一屏时，提供“移到顶部”或位置输入框，因为长拖动很累、容易提前掉落。
+- **无障碍**：给每个项目一个用键盘移动的办法，在实时区域里播报拿起、每次移动、放下和取消，并让焦点留在被移动的项目上。绝不要只靠拖动。
+- **减弱动态效果**：保留重排，去掉滑动；`prefers-reduced-motion: reduce` 下项目直接跳到它们的位置上，键盘方式本来就是每次按键移动一个位置。
+- **库的等价物**：纯 JavaScript 用 SortableJS（它的 `handle` 和 `delay` 选项对应这里的开关和触屏按压），React 用 dnd-kit 的 sortable 预设和 @hello-pangea/dnd（两者都会向读屏软件播报移动），Framer Motion 的 `Reorder.Group` 和 `Reorder.Item`，想要自己的物理效果时用 GSAP 的 Draggable。
 
-## See also
-- [Swipe to Dismiss](../swipe-to-dismiss/) — the sideways drag that removes an item
-- [Pull to Refresh](../pull-to-refresh/) — a drag down that reloads a list
-- [FLIP Technique](../../03-page-transitions/flip-technique/) — cards that glide to their new places when the order changes
+## 另见
+- [滑动删除](../swipe-to-dismiss/) — 移除项目的横向拖动
+- [下拉刷新](../pull-to-refresh/) — 向下拉动、重新加载列表
+- [FLIP 技巧](../../03-page-transitions/flip-technique/) — 顺序变化时滑到新位置的卡片

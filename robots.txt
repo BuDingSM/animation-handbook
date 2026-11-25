@@ -29,4 +29,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://matinmonshizadeh.github.io/animation-handbook/sitemap.xml
+Sitemap: https://animation.xizanghuapi.cn/sitemap.xml

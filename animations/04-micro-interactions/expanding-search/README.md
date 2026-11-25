@@ -1,18 +1,18 @@
-# Expanding Search
+# 搜索框展开
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/expanding-search/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/expanding-search/)
 
-## What it is
-An expanding search shows only a search icon until it is needed. Pressing the icon opens a search field out of it, over the links beside it, and puts the cursor inside; Escape, the close button or clicking away closes it again. It saves room in a busy toolbar while keeping search one press away.
+## 它是什么
+展开搜索在需要之前只显示一个搜索图标。按下图标，搜索框从图标处打开，盖住旁边的链接，并把光标放进去；Esc、关闭按钮或点击别处会再关掉它。它在拥挤的工具栏里省地方，同时让搜索一按就到。
 
-## When to use it
-- Toolbars and headers that are short on room
-- Mobile headers, where a full search box would crowd the logo and the menu
-- Documentation and help sites, where search is used now and then
-- Dashboards and admin tools with many controls in one bar
+## 什么时候用
+- 地方紧张的工具栏和页眉
+- 移动端页眉，完整的搜索框会挤占标志和菜单
+- 时不时用搜索的文档和帮助网站
+- 一条栏里有很多控制的仪表盘和管理工具
 
-## How it works
-The field is laid out at its full size from the start and never changes size. A `clip-path` with rounded corners hides all of it except a 44px circle over the icon; opening animates the clip until the whole field shows, starting from the icon's side, so nothing beside it is laid out again. `visibility` follows the clip: it turns on at once when the field opens, and only after the closing clip has ended when it closes, so a closed field can be neither clicked nor reached with Tab.
+## 工作原理
+输入框从一开始就按完整大小布局，大小永远不变。一个带圆角的 `clip-path` 藏起它全部，只留图标上方一个 44px 的圆；打开时动画裁剪，直到整个输入框显示，从图标那侧开始，所以旁边的东西都不用重新布局。`visibility` 跟着裁剪走：打开时立刻开启，关闭时等关闭裁剪结束才关闭，所以关掉的输入框既不能点击，也不能用 Tab 到达：
 
 ```css
 .sfield {
@@ -43,26 +43,26 @@ field.addEventListener('focusout', e => {             // leaving it: the focus w
 });
 ```
 
-The icon stays on top of the field. As the field opens, the icon's background turns see-through and its glass turns and fades away while the close button's cross turns in under it, so one seems to become the other; the links under the field fade out. While the field is open the icon lets presses through and is `inert`, so Tab cannot land on something hidden, and the field shows its focus with an inset ring while anything inside it has the focus. A press on the field around the text box (its glass or its edge) cancels the `mousedown` and puts the cursor back in the box, so it does not count as leaving. Show me opens the field and types into it without moving the real focus, so it never opens a phone's keyboard; a press or a Tab into the field while it runs hands the field to the visitor, still open. Under reduced motion the transitions are switched off and the field opens and closes at once.
+图标留在输入框上方。输入框打开时，图标的背景变透明，它的放大镜旋转淡出，关闭按钮的叉号在它下面转进来，所以一个看起来变成了另一个；输入框下面的链接淡出。输入框打开时，图标让按压穿过，并且是 `inert` 的，Tab 就落不到藏起来的东西上；输入框里面有焦点时，用内嵌的圆环显示它的焦点。在输入框周围（它的放大镜或边缘）按一下会取消 `mousedown`，把光标放回框里，这样就不算离开。「演示一下」会打开输入框并输入，但不移动真正的焦点，所以永远不会打开手机的键盘；运行时按压或按 Tab 进入输入框，会把输入框交给访客，仍然开着。减弱动态效果下，过渡会被关掉，输入框立刻打开和关闭。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Opens toward | Left | Left puts the icon at the right end of the toolbar and grows the field leftward over the links; Right puts the icon beside the logo and grows the field rightward |
-| Speed | Normal | How long the field takes to open or close: slow is 450ms, normal 280ms and fast 160ms; much slower and typing has to wait for it |
-| Closes when you leave it | On | On closes the field as soon as the focus moves away, by a click elsewhere or Tab; off keeps it open until Escape or the close button |
+| 展开方向 | 左 | 左：把图标放在工具栏右端，输入框向左长出来，盖住链接；右：把图标放在标志旁边，输入框向右长出来 |
+| 速度 | 普通 | 输入框打开或关闭要花多长时间：慢是 450ms，普通 280ms，快 160ms；再慢，打字就得等它 |
+| 离开时收起 | 开 | 开：焦点一离开就关掉输入框，无论是点别处还是按 Tab；关：一直开着，直到按 Esc 或关闭按钮 |
 
-## Production notes
-- **Never animate the width**: a growing `width` makes the browser lay out the whole toolbar again on every frame, so the items beside it jitter and slower phones drop frames. A clip (or a `scaleX()` background layer with the text faded in after it) only repaints the field.
-- **Phones**: iOS Safari zooms the page in on a field whose text is smaller than 16px, so the demo uses 16px on touch screens. On very narrow screens, consider opening the search as a bar over the whole header instead.
-- **Keep the keyboard's place**: give the focus back to the icon after Escape or the close button, keep the closed field out of the Tab order (`visibility: hidden` after the closing clip, or `inert`), and make the covered icon `inert` while the field is open.
-- **Names for screen readers**: the icon button needs a name ("Search") and `aria-expanded`, the field needs a label (visually hidden is fine), and its container `role="search"` or a `<form role="search">`.
-- **Text left behind**: decide what leaving a field that holds text does. The demo closes it and keeps the text for next time; some sites keep a field with text open.
-- **GSAP**: `gsap.fromTo(field, { clipPath: "inset(0% 0% 0% 90% round 22px)" }, { clipPath: "inset(0% 0% 0% 0% round 22px)", duration: 0.28, ease: "power3.out" })`; keep the same units on both ends so the values can be blended.
-- **Framer Motion**: `<motion.div animate={{ clipPath: open ? "inset(0% 0% 0% 0% round 22px)" : "inset(0% 0% 0% 90% round 22px)" }} transition={{ duration: 0.28 }} />`.
+## 生产注意事项
+- **绝不要动画宽度**：变大的 `width` 让浏览器每一帧都重新布局整个工具栏，旁边的项目会抖动，慢手机会掉帧。裁剪（或 `scaleX()` 背景层，文字在它后面淡入）只重绘输入框。
+- **手机**：iOS Safari 会在文字小于 16px 的输入框上把页面放大，所以演示在触屏上用 16px。很窄的屏幕上，可以考虑把搜索打开成盖住整个页眉的横条。
+- **保留键盘的位置**：Esc 或关闭按钮后把焦点还给图标，关掉的输入框不要留在 Tab 顺序里（关闭裁剪后的 `visibility: hidden`，或 `inert`），输入框打开时让被盖住的图标变成 `inert`。
+- **读屏软件的名字**：图标按钮需要名字（“搜索”）和 `aria-expanded`，输入框需要标签（视觉隐藏也可以），容器需要 `role="search"` 或 `<form role="search">`。
+- **留下的文字**：决定离开一个有文字的输入框会怎样。演示会关掉它，下次保留文字；有些网站会让有文字的输入框保持打开。
+- **GSAP**：`gsap.fromTo(field, { clipPath: "inset(0% 0% 0% 90% round 22px)" }, { clipPath: "inset(0% 0% 0% 0% round 22px)", duration: 0.28, ease: "power3.out" })`；两端保持同样的单位，这样值才能混合。
+- **Framer Motion**：`<motion.div animate={{ clipPath: open ? "inset(0% 0% 0% 0% round 22px)" : "inset(0% 0% 0% 90% round 22px)" }} transition={{ duration: 0.28 }} />`。
 
-## See also
-- [Hamburger Menu Toggle](../hamburger-menu-toggle/) — an icon turns into an X as its menu opens
-- [Form Field Morph](../form-field-morph/) — a field's label moves out of the way as you type
-- [Focus Ring Animation](../focus-ring/) — a ring shows where the keyboard is
-- [Drawer / Panel Slide](../drawer-slide/) — a hidden panel slides in when it is needed
+## 另见
+- [汉堡菜单切换](../hamburger-menu-toggle/) — 菜单打开时图标变成叉号
+- [表单字段变形](../form-field-morph/) — 输入时字段的标签让开
+- [焦点环动画](../focus-ring/) — 显示键盘位置的圆环
+- [抽屉滑出](../drawer-slide/) — 需要时滑入的隐藏面板

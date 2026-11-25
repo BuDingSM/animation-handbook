@@ -1,23 +1,24 @@
-# Page Transitions
+# 页面切换
 
-Full-page transitions between routes or views — crossfades, slides, portals, morphs, and the View Transitions API.
+路由或视图之间的整页切换——交叉淡入淡出、滑动、传送门、变形和 View Transitions API。
 
-## Entries
+## 全部动画
 
-- [View Transitions API](view-transitions-api/) — The browser animates the change between two pages for you. Best for web apps.
-- [Shared Element Transition](shared-element-transition/) — A picture grows from the list into the next page's header. Best for galleries.
-- [Morph Transition](morph-transition/) — The logo changes shape to match each page you visit. Best for brand marks.
-- [Crossfade Transition](crossfade/) — The old page fades out as the new one fades in. Best for calm page changes.
-- [Slide Transition](slide-transition/) — Pages slide across, and going back slides the other way. Best for step flows.
-- [Zoom Transition](zoom-transition/) — The pages zoom as they swap, as if moving in depth. Best for opening details.
-- [Flash / Light Leak Transition](flash-transition/) — A burst of light hides the moment the page changes. Best for bold, lively sites.
-- [Blur Transition](blur-transition/) — The old page blurs away and the new one comes into focus. Best for photo sites.
-- [Elastic Transition](elastic-transition/) — The new page slides in, goes too far and springs back. Best for playful apps.
-- [Portal / Tunnel Zoom](portal-zoom/) — The next page opens out of a circle you click. Best for big reveals.
-- [Dissolve Transition](dissolve/) — The page breaks into tiles that give way to the next. Best for photo galleries.
-- [FLIP Technique](flip-technique/) — Cards glide to their new places when the layout changes. Best for sorting lists.
-- [Circle Reveal](circle-reveal/) — Pages grow from any spot you click and shrink back into it. Best for app navigation.
-- [Overlay Wipe](overlay-wipe/) — A colored panel sweeps over the page as it changes. Best for portfolio sites.
-- [Page Curl](page-curl/) — The page peels back from its corner like paper. Best for digital magazines.
-- [Cube Transition](cube-transition/) — The pages sit on a cube that turns to show the next. Best for photo stories.
-- [Pixelate Transition](pixelate-transition/) — The page breaks into big pixels, then sharpens into the next. Best for galleries.
+- [View Transitions API](view-transitions-api/) — 浏览器帮你完成两个页面之间的切换动画。最适合 Web 应用。
+- [共享元素过渡](shared-element-transition/) — 图片从列表放大，进入下一页的页眉。最适合图库。
+- [变形过渡](morph-transition/) — Logo 随你访问的每个页面变换形状。最适合品牌标志。
+- [交叉淡入淡出过渡](crossfade/) — 旧页面淡出，新页面同时淡入。最适合平静的页面切换。
+- [滑动过渡](slide-transition/) — 页面横向滑入，返回时反向滑出。最适合分步流程。
+- [缩放过渡](zoom-transition/) — 页面切换时缩放，仿佛在纵深中移动。最适合打开详情。
+- [闪光 / 漏光过渡](flash-transition/) — 一道闪光遮住页面切换的瞬间。最适合大胆活泼的网站。
+- [模糊过渡](blur-transition/) — 旧页面模糊淡出，新页面逐渐清晰。最适合摄影网站。
+- [弹性过渡](elastic-transition/) — 新页面滑入时冲过头再弹回来。最适合趣味应用。
+- [传送门 / 隧道缩放](portal-zoom/) — 下一页从你点击的圆圈中展开。最适合重大揭示。
+- [溶解过渡](dissolve/) — 页面碎成小块，让位给下一页。最适合图片画廊。
+- [FLIP 技巧](flip-technique/) — 布局变化时卡片滑到新位置。最适合排序列表。
+- [圆形揭示](circle-reveal/) — 页面从你点击的任意位置展开，收回时缩回该处。最适合应用导航。
+- [覆盖擦除](overlay-wipe/) — 一块彩色面板扫过页面完成切换。最适合作品集网站。
+- [翻页卷角](page-curl/) — 页面像纸一样从角落卷起。最适合数字杂志。
+- [立方体过渡](cube-transition/) — 页面贴在立方体上，旋转展示下一页。最适合图片故事。
+- [像素化过渡](pixelate-transition/) — 页面碎成大像素，再清晰成下一页。最适合画廊。
+- [加载开场](preloader/) — 进站先看到 Logo 和百分比，到 100% 幕布拉开。最适合品牌开场和重型页面。

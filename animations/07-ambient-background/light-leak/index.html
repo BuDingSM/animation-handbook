@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Light Leak — Animation Handbook</title>
-  <meta name="description" content="Warm light washes in from a corner at random times. Best for photo sites.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/light-leak/">
+  <title>漏光 — 动画手册</title>
+  <meta name="description" content="温暖的光线不定时地从角落漫入。最适合照片类网站。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/07-ambient-background/light-leak/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Light Leak — Animation Handbook">
-  <meta property="og:description" content="Warm light washes in from a corner at random times. Best for photo sites.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/light-leak/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="漏光 — 动画手册">
+  <meta property="og:description" content="温暖的光线不定时地从角落漫入。最适合照片类网站。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/07-ambient-background/light-leak/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Light Leak — Animation Handbook">
-  <meta name="twitter:description" content="Warm light washes in from a corner at random times. Best for photo sites.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Light Leak", "name": "Light Leak", "description": "Warm light washes in from a corner at random times. Best for photo sites.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/light-leak/", "inLanguage": "en", "articleSection": "Ambient & Background", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Ambient & Background, Light Leak"}</script>
+  <meta name="twitter:title" content="漏光 — 动画手册">
+  <meta name="twitter:description" content="温暖的光线不定时地从角落漫入。最适合照片类网站。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "漏光", "name": "漏光", "description": "温暖的光线不定时地从角落漫入。最适合照片类网站。", "url": "https://animation.xizanghuapi.cn/animations/07-ambient-background/light-leak/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 漏光"}</script>
   <style>
     :root{--ui-accent:#ffce5a;--leak-dur:1.2s;--leak-op:.55}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -79,110 +79,110 @@
     .tk{position:absolute;left:0;bottom:0;width:4px;height:100%;border-radius:2px 2px 0 0;background:var(--lk);transform-origin:50% 100%}
     @media(max-width:600px){.lab{font-size:12px}.stage[data-hb-mode="inside"] .photo-mock{height:clamp(56px,22%,90px)}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../scanline/" rel="prev" aria-label="Previous: Scanline Effect"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Scanline Effect</span></a><a href="../starfield/" rel="next" aria-label="Next: Starfield / Space Particles"><span><span class="hb-dir">Next: </span>Starfield / Space Particles</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../scanline/" rel="prev" aria-label="上一个：扫描线效果"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>扫描线效果</span></a><a href="../starfield/" rel="next" aria-label="下一个：星空"><span><span class="hb-dir">下一个：</span>星空</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">07.06 · Ambient &amp; Background</p>
-    <h1>Light Leak</h1>
-    <p class="hb-lede">Warm light washes in from a corner at random times. Best for photo sites.</p>
+    <p class="hb-cat">07.06 · 氛围与背景</p>
+    <h1>漏光</h1>
+    <p class="hb-lede">温暖的光线不定时地从角落漫入。最适合照片类网站。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>Leaks come at random, a few seconds apart. Pause it to look closely, or turn on slow motion to see each leak fade.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>漏光随机出现，间隔几秒。点「暂停」仔细看看，或打开慢动作，看每一次漏光淡出。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
       <div class="scene">
-        <div class="photo-mock"><div class="photo-cap">ambient · atmospheric · analog warmth</div></div>
+        <div class="photo-mock"><div class="photo-cap">氛围 · 大气感 · 胶片暖调</div></div>
       </div>
       <div class="leak dir-tl" id="leak" aria-hidden="true"></div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-pause" data-hb-pause="css" data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause="css" data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed lines show how far the glow reaches from its corner. The graph shows one leak: it fades in, holds, fades out, then stays dark for a random while.</p>
-      <p data-hb-for="compare" hidden>Evenly timed lights up after the same wait, at the same strength, like a machine. At random varies both, like a real film camera; the marks under each photo are its last leaks.</p>
+      <p data-hb-for="inside" hidden>内部画面里，虚线表示光晕从角落延伸多远。图表展示一次漏光：淡入、保持、淡出，然后随机暗一段时间。</p>
+      <p data-hb-for="compare" hidden>定时均匀每次都在同样的等待后、以同样的强度亮起，像机器一样。随机出现则两者都变，像真正的胶片相机；每张照片下面的标记是它最近几次的漏光。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="dir-lbl">Comes from</p>
+        <p class="hb-setting-name" id="dir-lbl">光从哪里来</p>
         <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
-          <button type="button" data-dir="dir-tl" class="on" aria-pressed="true">Top left</button>
-          <button type="button" data-dir="dir-tr" aria-pressed="false">Top right</button>
-          <button type="button" data-dir="dir-bl" aria-pressed="false">Bottom left</button>
-          <button type="button" data-dir="dir-br" aria-pressed="false">Bottom right</button>
-          <button type="button" data-dir="dir-h" aria-pressed="false">Down the middle</button>
+          <button type="button" data-dir="dir-tl" class="on" aria-pressed="true">左上</button>
+          <button type="button" data-dir="dir-tr" aria-pressed="false">右上</button>
+          <button type="button" data-dir="dir-bl" aria-pressed="false">左下</button>
+          <button type="button" data-dir="dir-br" aria-pressed="false">右下</button>
+          <button type="button" data-dir="dir-h" aria-pressed="false">中间竖向</button>
         </div>
-        <p class="hb-hint">Where the light spills in.</p>
+        <p class="hb-hint">光线漫入的位置。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="gap-lbl">Time between leaks</p>
+        <p class="hb-setting-name" id="gap-lbl">漏光间隔</p>
         <div class="seg" id="gap-seg" role="group" aria-labelledby="gap-lbl">
-          <button type="button" data-min="0.5" data-max="1.5" aria-pressed="false">Short</button>
-          <button type="button" data-min="1" data-max="3" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-min="3" data-max="8" aria-pressed="false">Long</button>
+          <button type="button" data-min="0.5" data-max="1.5" aria-pressed="false">短</button>
+          <button type="button" data-min="1" data-max="3" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-min="3" data-max="8" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">Gaps are random within the range, so it never feels timed.</p>
+        <p class="hb-hint">间隔在范围内随机，所以永远不会觉得是定时好的。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="2000" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="1200" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="700" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="2000" aria-pressed="false">慢</button>
+          <button type="button" data-ms="1200" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="700" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly each leak fades in and out.</p>
+        <p class="hb-hint">每次漏光淡入淡出的速度。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="bri-lbl">Brightness</p>
+          <p class="hb-setting-name" id="bri-lbl">亮度</p>
           <div class="seg" id="bri-seg" role="group" aria-labelledby="bri-lbl">
-            <button type="button" data-bri="0.3" aria-pressed="false">Dim</button>
-            <button type="button" data-bri="0.55" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-bri="0.8" aria-pressed="false">Bright</button>
+            <button type="button" data-bri="0.3" aria-pressed="false">暗</button>
+            <button type="button" data-bri="0.55" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-bri="0.8" aria-pressed="false">明亮</button>
           </div>
-          <p class="hb-hint">Each leak peaks a little below this, at random.</p>
+          <p class="hb-hint">每次漏光的峰值都随机地略低于这个值。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" class="on" aria-pressed="true" aria-label="Amber" data-c="#ffa532" style="background:#ffa532"></button>
-            <button type="button" aria-pressed="false" aria-label="Gold" data-c="#ffce5a" style="background:#ffce5a"></button>
-            <button type="button" aria-pressed="false" aria-label="Rose" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="Magenta" data-c="#ff5ca8" style="background:#ff5ca8"></button>
-            <button type="button" aria-pressed="false" aria-label="Cyan" data-c="#5ad1ff" style="background:#5ad1ff"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="琥珀色" data-c="#ffa532" style="background:#ffa532"></button>
+            <button type="button" aria-pressed="false" aria-label="金色" data-c="#ffce5a" style="background:#ffce5a"></button>
+            <button type="button" aria-pressed="false" aria-label="玫瑰色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="品红色" data-c="#ff5ca8" style="background:#ff5ca8"></button>
+            <button type="button" aria-pressed="false" aria-label="青色" data-c="#5ad1ff" style="background:#5ad1ff"></button>
           </div>
-          <p class="hb-hint">Warm colors look like film; cyan looks cooler.</p>
+          <p class="hb-hint">暖色看起来像胶片；青色看起来更冷。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Floating light spots</span><input class="hb-switch" type="checkbox" role="switch" id="spots-tog" autocomplete="off"></label>
-          <p class="hb-hint">Soft spots of light drift up after each leak.</p>
+          <label class="hb-switch-row"><span>漂浮的光斑</span><input class="hb-switch" type="checkbox" role="switch" id="spots-tog" autocomplete="off"></label>
+          <p class="hb-hint">每次漏光后，柔和的光斑向上漂移。</p>
         </div>
       </div>
     </details>
@@ -191,41 +191,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a light leak effect to [the photo, video or section you want it over]. Place a soft glow of light, classically warm amber, spilling in from one corner or down the middle, in a see-through layer that clicks pass through, and fade it in and out every so often, like stray light reaching the film in an old camera. Make the gaps between leaks random and vary each leak's strength a little, because evenly timed leaks look fake. Keep each leak soft, so it never looks like a flash. If the visitor has reduced motion turned on, keep the glow still and faint. Match the settings listed below.</p>
+      <p class="hb-prompt">给[想要加上漏光效果的照片、视频或区域]加上漏光效果。放一道柔和的光晕，经典的暖琥珀色，从一个角落或中间竖向漫入，放在可以让点击穿透的透明层里，每隔一会儿淡入淡出，就像杂光射进老相机的胶片。让每次漏光之间的间隔随机，每次的强度也略有不同，因为定时均匀的漏光看起来很假。让每次漏光都保持柔和，绝不像闪光。如果访客开启了减弱动态效果，就让光晕静止而微弱。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Photo and film sites</li><li>Portfolios</li><li>Music pages</li><li>Lifestyle brands</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Dashboards</li><li>Long reading pages</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>照片和电影网站</li><li>作品集</li><li>音乐页面</li><li>生活方式品牌</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>仪表盘</li><li>长文阅读页</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage');
   const leak=document.getElementById('leak');
@@ -346,16 +346,16 @@
   // ── See inside and Compare: built once, shown only in their mode; Normal never touches them. They draw from the page's own numbers:
   // the glow's stops, the fade, the gap range, the brightness, and the timer chain's next, due and left.
   const motionOk=!matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const TOP=.85,EVEN=.875,CORNERS={'dir-tl':'top left','dir-tr':'top right','dir-bl':'bottom left','dir-br':'bottom right'};
+  const TOP=.85,EVEN=.875,CORNERS={'dir-tl':'左上','dir-tr':'右上','dir-bl':'左下','dir-br':'右下'};
   const scene=stage.querySelector('.scene'),leakCS=getComputedStyle(leak),txt=(e,s)=>{if(e.textContent!==s)e.textContent=s};
   const cap=(cls,s='')=>`<span class="lab ${cls}" data-hb-caption aria-hidden="true">${s}</span>`;
   // Compare: a name and a row of five ticks in each half. The left half is a copy of the scene (inert, no ids) with its own leak layer.
-  scene.insertAdjacentHTML('beforeend',cap('half-name cmp-only','At random')+'<div class="ticks cmp-only" aria-hidden="true">'+'<i class="tk"></i>'.repeat(5)+'</div>');
+  scene.insertAdjacentHTML('beforeend',cap('half-name cmp-only','随机出现')+'<div class="ticks cmp-only" aria-hidden="true">'+'<i class="tk"></i>'.repeat(5)+'</div>');
   const sceneA=scene.cloneNode(true);
   stage.insertAdjacentHTML('beforeend','<div class="half" aria-hidden="true"><div class="leak"></div><div class="spots"></div></div><div class="spots b"></div>');
   const half=stage.querySelector('.half'),hostA=half.querySelector('.spots'),hostB=stage.querySelector('.spots.b');
   twinLeak=half.querySelector('.leak');half.inert=true;half.prepend(sceneA);
-  txt(sceneA.querySelector('.half-name'),'Evenly timed');
+  txt(sceneA.querySelector('.half-name'),'定时均匀');
   const ticksB=scene.querySelector('.ticks'),rowA=[...sceneA.querySelectorAll('.tk')],rowB=[...ticksB.children];
   // See inside: the graph, the glow's words and the dashed lines over the whole box
   scene.insertAdjacentHTML('beforeend','<div class="graph in-only" aria-hidden="true">'+cap('g1')+'<div class="plot"><svg><path class="ax"/><path class="ceil"/><path class="gap"/><path class="curve"/><circle class="dot" r="5"/></svg></div>'+cap('g2')+'</div>'+cap('cap-shape in-only'));
@@ -388,8 +388,8 @@
     ceil.setAttribute('d',`M${x(0)} ${y(intensity)}H${x(T)}`);
     curve.setAttribute('d',`M${x(0)} ${b}C${x(d*.42)} ${b} ${x(d*.58)} ${p} ${x(d)} ${p}H${x(d+200)}C${x(d*1.42+200)} ${p} ${x(d*1.58+200)} ${b} ${x(2*d+200)} ${b}H${m}`);
     gap.setAttribute('d',`M${m} ${b}H${x(T)}`);
-    txt(g1,'One leak: fades in, holds, fades out'+(bokehOn?', then light spots float up':''));
-    txt(g2,`then dark for a random ${minGap} to ${maxGap} seconds`);
+    txt(g1,'一次漏光：淡入、保持、淡出'+(bokehOn?'，然后光斑向上漂浮':''));
+    txt(g2,`然后随机暗 ${minGap} 到 ${maxGap} 秒`);
     G={x,y,d,pk,T};
   }
   // The dot: across with the time since this leak began (the wait under way, less what is left of it, so it stops when the chain is held),
@@ -472,16 +472,16 @@
   function setNotes(){
     const still=!motionOk&&paused,band=curDir()==='dir-h';
     txt(notes.inside,still
-      ?`Inside, shown still: the dashed lines show ${band?'where the glow is brightest':'how far the glow reaches'}, and the graph shows one leak fading in, holding and fading out, then a random dark wait.`
-      :band?words.inside.replace('how far the glow reaches from its corner','where the glow is brightest, down the middle'):words.inside);
-    txt(notes.compare,still?'Shown still: the marks under each photo are its last five leaks, equal and evenly spaced in Evenly timed, uneven in At random.':words.compare);
+      ?`内部静止画面：虚线表示${band?'光晕最亮的地方':'光晕延伸的范围'}，图表展示一次漏光淡入、保持、淡出，然后随机暗一段时间。`
+      :band?words.inside.replace('光晕从角落延伸多远','光晕最亮的地方，在中间竖向'):words.inside);
+    txt(notes.compare,still?'静止画面：每张照片下面的标记是它最近五次的漏光，定时均匀里等长等距，随机出现里长短不一。':words.compare);
   }
   function refresh(){
     vars.setProperty('--lk',curColor+'1)');
     const dir=curDir();
     if(mode==='inside'){
       scene.classList.toggle('flip',dir[4]==='b');scene.dataset.side=dir==='dir-h'?'c':dir[5]==='l'?'r':'l';
-      txt(capShape,dir==='dir-h'?'Brightest down the middle':`Light from the ${CORNERS[dir]} corner, gone by the outer line`);
+      txt(capShape,dir==='dir-h'?'中间最亮':`光从${CORNERS[dir]}角漫入，在外线处消失`);
       drawLines();drawGraph();placeDot();
     }
     if(mode==='compare'){eReplan();placeTicks()}

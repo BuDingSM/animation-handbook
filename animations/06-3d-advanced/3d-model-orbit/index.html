@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Model Orbit — Animation Handbook</title>
-  <meta name="description" content="A lit 3D shape spins, or turns to face your pointer. Best for product views.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/3d-model-orbit/">
+  <title>3D 模型环绕 — 动画手册</title>
+  <meta name="description" content="带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/3d-model-orbit/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="3D Model Orbit — Animation Handbook">
-  <meta property="og:description" content="A lit 3D shape spins, or turns to face your pointer. Best for product views.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/3d-model-orbit/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="3D 模型环绕 — 动画手册">
+  <meta property="og:description" content="带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/3d-model-orbit/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="3D Model Orbit — Animation Handbook">
-  <meta name="twitter:description" content="A lit 3D shape spins, or turns to face your pointer. Best for product views.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D Model Orbit", "name": "3D Model Orbit", "description": "A lit 3D shape spins, or turns to face your pointer. Best for product views.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/3d-model-orbit/", "inLanguage": "en", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, 3D Model Orbit"}</script>
+  <meta name="twitter:title" content="3D 模型环绕 — 动画手册">
+  <meta name="twitter:description" content="带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D 模型环绕", "name": "3D 模型环绕", "description": "带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/3d-model-orbit/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 3D 模型环绕"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--sun:#ffd35c;--pill:rgba(6,10,16,.92);--ink:#f4f4f2}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -42,116 +42,116 @@
     .stage[data-hb-mode="compare"].stack .cap.second{left:10px;top:calc(50% + 6px)}
     .stage.no-gl .cap,.stage.no-gl .sunlay{display:none!important}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../scroll-driven-3d-rotation/" rel="next" aria-label="Next: Scroll-Driven 3D Rotation"><span><span class="hb-dir">Next: </span>Scroll-Driven 3D Rotation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../scroll-driven-3d-rotation/" rel="next" aria-label="下一个：滚动驱动 3D 旋转"><span><span class="hb-dir">下一个：</span>滚动驱动 3D 旋转</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.01 · 3D &amp; Advanced</p>
-    <h1>3D Model Orbit</h1>
-    <p class="hb-lede">A lit 3D shape spins, or turns to face your pointer. Best for product views.</p>
+    <p class="hb-cat">06.01 · 3D 与高级效果</p>
+    <h1>3D 模型环绕</h1>
+    <p class="hb-lede">带光照的 3D 形状会自己旋转，或转向你的指针。适合产品展示。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。暂停可以仔细看，打开慢动作能看清每一步。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <canvas id="cvs" role="img" aria-label="A lit 3D shape turning on a dark background"></canvas>
+      <canvas id="cvs" role="img" aria-label="一个带光照的 3D 形状，在深色背景上转动"></canvas>
       <svg class="sunlay" aria-hidden="true"><line class="sline"/><g class="sung"><circle r="6"/><path d="M0-9v-5M0 9v5M-9 0h-5M9 0h5M-6.4-6.4l-3.5-3.5M6.4 6.4l3.5 3.5M-6.4 6.4l-3.5 3.5M6.4-6.4l3.5-3.5"/></g></svg>
-      <span class="cap in lit sunl" aria-hidden="true" data-hb-caption>Light shines from here</span>
-      <span class="cap in keya" aria-hidden="true" data-hb-caption>White lines: its flat triangles</span>
-      <span class="cap in lit keyb" aria-hidden="true" data-hb-caption>Sides facing the light are brightest</span>
-      <span class="cap half first" aria-hidden="true" data-hb-caption>Flat color</span>
-      <span class="cap half second" aria-hidden="true" data-hb-caption>Lit</span>
+      <span class="cap in lit sunl" aria-hidden="true" data-hb-caption>光从这里照过来</span>
+      <span class="cap in keya" aria-hidden="true" data-hb-caption>白线：它的平面三角形</span>
+      <span class="cap in lit keyb" aria-hidden="true" data-hb-caption>朝向光的面最亮</span>
+      <span class="cap half first" aria-hidden="true" data-hb-caption>纯色</span>
+      <span class="cap half second" aria-hidden="true" data-hb-caption>打光</span>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the white lines are the flat triangles the shape is built from. The light shines from the sun mark, so the sides facing it are brightest.</p>
-      <p data-hb-for="compare" hidden>Flat color paints every triangle the same, so the shape looks like a flat cutout. Lit shades each side by how it faces the light, so it reads as solid.</p>
+      <p data-hb-for="inside" hidden>看内部：白线是组成形状的平面三角形。光从太阳标记处照过来，所以朝向它的面最亮。</p>
+      <p data-hb-for="compare" hidden>纯色会把每个三角形涂成一样的颜色，形状看起来像平面的剪纸。打光会按每个面朝向光的角度给它着色，形状看起来就是实心的。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="shape-lbl">Shape</p>
+        <p class="hb-setting-name" id="shape-lbl">形状</p>
         <div class="seg" id="shape-seg" role="group" aria-labelledby="shape-lbl">
-          <button type="button" data-shape="cube" class="on" aria-pressed="true">Cube</button>
-          <button type="button" data-shape="sphere" aria-pressed="false">Sphere</button>
-          <button type="button" data-shape="torus" aria-pressed="false">Ring</button>
-          <button type="button" data-shape="tetra" aria-pressed="false">Pyramid</button>
+          <button type="button" data-shape="cube" class="on" aria-pressed="true">立方体</button>
+          <button type="button" data-shape="sphere" aria-pressed="false">球体</button>
+          <button type="button" data-shape="torus" aria-pressed="false">圆环</button>
+          <button type="button" data-shape="tetra" aria-pressed="false">金字塔</button>
         </div>
-        <p class="hb-hint">The object that is drawn and lit.</p>
+        <p class="hb-hint">要画出来并打光的物体。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="move-lbl">Movement</p>
+        <p class="hb-setting-name" id="move-lbl">运动方式</p>
         <div class="seg" id="move-seg" role="group" aria-labelledby="move-lbl">
-          <button type="button" data-mode="orbit" class="on" aria-pressed="true">Spins</button>
-          <button type="button" data-mode="mouse" aria-pressed="false">Follows the pointer</button>
+          <button type="button" data-mode="orbit" class="on" aria-pressed="true">自己旋转</button>
+          <button type="button" data-mode="mouse" aria-pressed="false">跟随指针</button>
         </div>
-        <p class="hb-hint">Or it turns to face your pointer or finger.</p>
+        <p class="hb-hint">或者它转向你的指针或手指。</p>
       </div>
       <div class="hb-setting" id="speed-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-sy="0.5" data-sx="0.12" aria-pressed="false">Slow</button>
-          <button type="button" data-sy="0.8" data-sx="0.2" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-sy="1.3" data-sx="0.32" aria-pressed="false">Fast</button>
+          <button type="button" data-sy="0.5" data-sx="0.12" aria-pressed="false">慢</button>
+          <button type="button" data-sy="0.8" data-sx="0.2" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-sy="1.3" data-sx="0.32" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How fast it spins.</p>
+        <p class="hb-hint">它转得有多快。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting" id="tumble-setting">
-          <label class="hb-switch-row"><span>Tumbles as it spins</span><input class="hb-switch" type="checkbox" role="switch" id="tumble-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">Also rolls it forward, so the top and bottom show.</p>
+          <label class="hb-switch-row"><span>边转边翻滚</span><input class="hb-switch" type="checkbox" role="switch" id="tumble-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">还会向前翻滚，让顶部和底部露出来。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="dist-lbl">Distance</p>
+          <p class="hb-setting-name" id="dist-lbl">距离</p>
           <div class="seg" id="dist-seg" role="group" aria-labelledby="dist-lbl">
-            <button type="button" data-dist="2.6" aria-pressed="false">Close</button>
-            <button type="button" data-dist="3" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-dist="4.2" aria-pressed="false">Far</button>
+            <button type="button" data-dist="2.6" aria-pressed="false">近</button>
+            <button type="button" data-dist="3" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-dist="4.2" aria-pressed="false">远</button>
           </div>
-          <p class="hb-hint">How close the camera is; closer looks bigger.</p>
+          <p class="hb-hint">镜头离得有多近；越近看起来越大。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" aria-pressed="false" aria-label="Pink" data-color="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-color="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-color="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-color="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-color="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-color="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-color="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-color="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-color="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-color="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-color="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-color="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The color of the object.</p>
+          <p class="hb-hint">物体的颜色。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Edges only</span><input class="hb-switch" type="checkbox" role="switch" id="wire-tog" autocomplete="off"></label>
-          <p class="hb-hint">Draws the triangles' edges instead of a lit surface.</p>
+          <label class="hb-switch-row"><span>只显示边</span><input class="hb-switch" type="checkbox" role="switch" id="wire-tog" autocomplete="off"></label>
+          <p class="hb-hint">画出组成形状的三角形的边，而不是打光的表面。</p>
         </div>
       </div>
     </details>
@@ -160,41 +160,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a spinning 3D object to [the product or shape you want to show]. Draw it with WebGL: store the shape as triangles and light every point with a soft base light, a direct light and a shiny highlight, so it reads as solid. Turn it around its own axis so every side comes into view, or let it turn to face the pointer, which a tap or a sideways drag should also do on touch screens. Change its size by moving the camera closer or further, not by changing the lens. If the visitor has reduced motion turned on, show the object still. Match the settings listed below.</p>
+      <p class="hb-prompt">在[你想展示的产品或形状]上加一个旋转的 3D 物体。用 WebGL 画它：把形状存成三角形，用柔和的基础光、直射光和闪亮的高光照亮每个点，让它看起来是实心的。让它绕自己的轴转动，每一面都能看到；或者让它转向指针，触屏上轻触或横向拖动也要能做到。想改变大小就把镜头移近或移远，不要改镜头本身。如果访客打开了减弱动态效果，就让物体静止不动。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Product showcases</li><li>Hero sections</li><li>Logos</li><li>3D previews</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long reading pages</li><li>Low-power devices</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>产品展示</li><li>主视觉区域</li><li>标志</li><li>3D 预览</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长阅读页面</li><li>低性能设备</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 // ─── Shaders ───────────────────────────────────────────────────────────────
 const VS=`
@@ -301,7 +301,7 @@ let W,H,gl,prog,posBuf,nrmBuf,idxBuf,lineBuf,idxCount,lineCount;
 const TILT=.3; // the forward tilt it starts with, and returns to when the shape changes: at 0 a ring is seen edge-on
 let raf=null,paused=false,last=null,clock=0,rx=TILT,ry=0;
 let MODE='orbit',SHAPE='cube',WIRE=false,DIST=3,SX=.2,SY=.8,COLOR=[88/255,166/255,255/255];
-let rollSpeed=.2,tumbles=true;
+let roll速度=.2,tumbles=true;
 let mouseNX=0,mouseNY=0;
 // See inside and Compare: what the box shows, the angles it draws, and where the pointer is
 const FOV=Math.PI/4,LIGHT=[2,3,4],CLEAR=[.024,.039,.063,1];
@@ -319,13 +319,13 @@ function sh(t,s){
 }
 function init(){
   gl=cvs.getContext('webgl');
-  if(!gl){fail('WebGL is unavailable in this browser, so there is nothing to render.');return;}
+  if(!gl){fail('这个浏览器不支持 WebGL，所以没什么可渲染的。');return;}
   const vs=sh(gl.VERTEX_SHADER,VS),fs=sh(gl.FRAGMENT_SHADER,FS);
-  if(!vs||!fs){fail('Shader compilation failed — the log is in the browser console.');return;}
+  if(!vs||!fs){fail('着色器编译失败——日志在浏览器控制台里。');return;}
   prog=gl.createProgram();
   gl.attachShader(prog,vs);gl.attachShader(prog,fs);
   gl.linkProgram(prog);
-  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(prog));fail('Shader program failed to link — the log is in the browser console.');return;}
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(prog));fail('着色器程序链接失败——日志在浏览器控制台里。');return;}
   gl.useProgram(prog);
   gl.enable(gl.DEPTH_TEST);gl.clearColor(...CLEAR);
   posBuf=gl.createBuffer();nrmBuf=gl.createBuffer();idxBuf=gl.createBuffer();lineBuf=gl.createBuffer();
@@ -450,13 +450,13 @@ const NAME_H=34,SUN_Y=20,SUN_R=14; // the strip that holds a Compare half's name
 const q=sel=>stage.querySelector(sel),noteEl={},NOTE0={};
 const sunG=q('.sung'),sunLine=q('.sline'),sunLbl=q('.sunl'),keyA=q('.keya'),keyB=q('.keyb');
 document.querySelectorAll('[data-hb-for]').forEach(p=>{noteEl[p.dataset.hbFor]=p;NOTE0[p.dataset.hbFor]=p.textContent;});
-const EDGE_NOTE={inside:'Inside, the lines are the flat triangles the shape is built from. Edges only is on, so you see all of them, front and back, with no light.',
-  compare:'Edges only is on, so Flat color and Lit both draw bare edges with no light. Turn it off in Try it to see them differ.'};
+const EDGE_NOTE={inside:'看内部：线条是组成形状的平面三角形。「只显示边」打开了，所以你能看到全部的线，正面和背面都有，没有光照。',
+  compare:'「只显示边」打开了，所以「纯色」和「打光」画的都是光秃秃的边，没有光照。在「试一试」里关掉它，就能看到它们的区别。'};
 const NAMES={normal:cvs.getAttribute('aria-label'),
-  inside:'The shape dimmed, with white lines along the flat triangles it is built from and a sun mark where the light comes from',
-  compare:'The same shape twice: painted one flat color, and lit so each side has its own shade',
-  insideEdges:"The shape's edges only: every flat triangle it is built from, front and back",
-  compareEdges:"The same shape's edges twice; with Edges only on, both look alike"};
+  inside:'形状变暗了，沿着组成它的平面三角形画着白线，太阳标记处就是光的来源',
+  compare:'同一个形状画两次：涂成一种纯色，和打光后每个面有自己的明暗',
+  insideEdges:"只有形状的边：组成它的每个平面三角形，正面和背面都有",
+  compareEdges:"同一个形状的边画两次；「只显示边」打开时，两边看起来一样"};
 let side=true,CX=0,CY=0,KEEP=0,KEEPY=1e9;
 const SCENE=[[0,0,0,0],[0,0,0,0]],DEVH=[[0,0,0,0],[0,0,0,0]],DEVS=[[0,0,0,0],[0,0,0,0]];
 
@@ -490,7 +490,7 @@ function place(el,spots){
   el.style.display='none';
 }
 // See inside: the sun mark sits where the light really comes from (its slant on the screen: up and to the right), near the top edge,
-// and the dashed line runs from it to the shape's outer reach, which grows and shrinks with Distance and the shape.
+// and the dashed line runs from it to the shape's outer reach, which grows and shrinks with 距离 and the shape.
 function layoutInside(){
   const cw=stage.clientWidth,ch=stage.clientHeight,L=Math.hypot(LIGHT[0],LIGHT[1]),c=LIGHT[0]/L,sn=LIGHT[1]/L;
   CX=cw/2;CY=ch/2;
@@ -511,7 +511,7 @@ function refreshViews(){
   if(VIEW==='normal')return;
   stage.classList.toggle('wired',WIRE);
   for(const k in noteEl){const t=WIRE?EDGE_NOTE[k]:NOTE0[k];if(noteEl[k].textContent!==t)noteEl[k].textContent=t;}
-  const a=WIRE?'Lines: its flat triangles':'White lines: its flat triangles';
+  const a=WIRE?'线条：它的平面三角形':'白线：它的平面三角形';
   if(keyA.textContent!==a)keyA.textContent=a;
   layoutViews();
   if(VIEW==='compare'&&MODE==='mouse'&&driven)cmpAim();
@@ -541,11 +541,11 @@ function choices(id,pick){
   }));
 }
 const speedSetting=document.getElementById('speed-setting'),tumbleSetting=document.getElementById('tumble-setting');
-function setRoll(){SX=tumbles?rollSpeed:0;}
+function setRoll(){SX=tumbles?roll速度:0;}
 choices('shape-seg',d=>{if(!gl||d.shape===SHAPE)return;SHAPE=d.shape;loadGeometry(SHAPE);rx=TILT;ry=0;if(paused){spun=0;driven=false;}refreshViews();redraw();});
-// Speed and Tumbles only matter while it spins
+// 速度 and Tumbles only matter while it spins
 choices('move-seg',d=>{MODE=d.mode;speedSetting.hidden=tumbleSetting.hidden=MODE!=='orbit';if(VIEW!=='normal'){refreshViews();redraw();}});
-choices('speed-seg',d=>{SY=+d.sy;rollSpeed=+d.sx;setRoll();});
+choices('speed-seg',d=>{SY=+d.sy;roll速度=+d.sx;setRoll();});
 document.getElementById('tumble-tog').addEventListener('change',e=>{tumbles=e.target.checked;setRoll();});
 choices('dist-seg',d=>{DIST=+d.dist;refreshViews();redraw();});
 choices('color-sw',d=>{

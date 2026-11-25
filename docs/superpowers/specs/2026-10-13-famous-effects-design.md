@@ -87,7 +87,7 @@ No famous site's page change could be confirmed (the famous ones are in apps), s
   blur; the line under it and the buttons follow, then a large picture of the app, tilted slightly back, comes into
   focus the same way.
 - **Made with:** Split Text Reveal ("Words in turn"), Blur In ("Out of the blur"), Stagger Reveal ("Part after part").
-- **Prompt (113 words):** Add a focus-in opening to [the headline, the line under it and the main picture at the top of your page]. As the page opens, show the headline's words one after another, each fading in while it rises a little and sharpens out of a soft blur; then let the line under it, the buttons and the main picture follow the same way, in order. Keep each step short, so the whole opening is over in about a second and nobody waits to read. Animate only fading, blur and small moves, and use less blur on phones, where it costs more. If the visitor has reduced motion turned on, show everything at once.
+- **Prompt (113 words):** Add a focus-in opening to [the headline, the line under it and the main picture at the top of your page]. As the page opens, show the headline's words one after another, each fading in while it rises a little and sharpens out of a soft blur; then let the line under it, the buttons and the main picture follow the same way, in order. Keep each step short, so the whole opening is over in 大约一秒 and nobody waits to read. Animate only fading, blur and small moves, and use less blur on phones, where it costs more. If the visitor has reduced motion turned on, show everything at once.
 
 ### 5 · Apple: The menu that drops in, link by link (`#apple-menu` · Menus & forms · press)
 
@@ -128,7 +128,7 @@ No famous site's page change could be confirmed (the famous ones are in apps), s
 - **Seen on** [x.com](https://x.com/), the heart under any post. **Confirm live** (the owner, signed in, at the review). Sources: [CSS-Tricks, 2016-06-29](https://css-tricks.com/recreating-the-twitter-heart-animation/)
   (the burst taken apart); posts of February 2026 show special versions of the like animation still running.
 - **What you see:** Press the heart and it shrinks for an instant, pops back a little too big and settles in pink-red,
-  while a circle of color swells into a thin ring and small colored dots burst out and fade, all within about a second.
+  while a circle of color swells into a thin ring and small colored dots burst out and fade, all within 大约一秒.
 - **Made with:** Heart / Like Burst ("Pop and dots"), Click / Tap Ripple ("The ring").
 - **Prompt (120 words):** Add a like button with a burst to [the heart button on your posts]. When it is pressed, the heart shrinks for an instant, then pops back a little too big and settles as it fills with color, while a circle of color swells into a thin ring and small dots burst out from its center and fade. Unliking takes the color away with no burst. Keep it all under a second and draw it over the button, so nothing around it moves. A tap on a touch screen and Enter or Space on the keyboard work the same, and screen readers hear whether the post is liked. If the visitor has reduced motion turned on, only change the color.
 
@@ -258,7 +258,7 @@ One centered column, at most 1040px wide, between the home page's top bar and fo
 - **Cards** look like the home page's, written as HTML (its `CATS` name and line, its page's link, `data-slug`); in
   place of the home page's place, the label on the preview says what the animation makes here (one to three words). No
   Copy prompt on these cards: the entry has one prompt. Three across from 761px, two below.
-- **Copy prompt** copies the prompt as shown, brackets included, reads "Copied" for about two seconds and shows the home
+- **Copy prompt** copies the prompt as shown, brackets included, reads "Copied" for 大约两秒 and shows the home
   page's toast ("Prompt copied. Paste it into your AI assistant."). Where the clipboard is refused it selects the prompt
   and reads "Press Ctrl+C to copy" (⌘C on Apple devices), as on the demo pages. On phones a prompt shows five lines and
   "Show the full prompt", in the demo pages' words.

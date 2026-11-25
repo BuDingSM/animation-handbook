@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>标签页切换 — 动画手册</title>
+  <meta name="description" content="点页签切换内容，底线跟着滑过去。最适合价格页和设置页。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/tabs/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="标签页切换 — 动画手册">
+  <meta property="og:description" content="点页签切换内容，底线跟着滑过去。最适合价格页和设置页。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/tabs/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="标签页切换 — 动画手册">
+  <meta name="twitter:description" content="点页签切换内容，底线跟着滑过去。最适合价格页和设置页。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "标签页切换", "name": "标签页切换", "description": "点页签切换内容，底线跟着滑过去。最适合价格页和设置页。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/tabs/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 标签页切换"}</script>
+  <style>
+    :root{--ui-accent:#6ea8ff;--ui-muted:#8a8a92}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{position:relative;background:#0b0b0d;overflow:hidden}
+    .tabs-wrap{position:absolute;inset:0;background:#17171c;padding:22px 22px 16px;display:flex;flex-direction:column}
+    .tab-bar{position:relative;display:flex;gap:4px;border-bottom:2px solid rgba(255,255,255,.12);margin-bottom:18px}
+    .tab{position:relative;border:0;background:none;color:var(--ui-muted);font-family:inherit;font-weight:600;font-size:15px;padding:10px 14px 12px;cursor:pointer;white-space:nowrap}
+    .tab.on{color:var(--ui-accent);font-weight:700}
+    .underline{position:absolute;bottom:-2px;left:0;height:4px;width:60px;background:var(--ui-accent);border-radius:2px;transition:left .25s cubic-bezier(.65,0,.35,1),width .25s cubic-bezier(.65,0,.35,1)}
+    .tab-panels{position:relative;flex:1;min-height:0}
+    .panel{display:none;color:#e8e8ea;font:500 14px/1.7 var(--hb-font)}
+    .panel.on{display:block}
+    .panel h3{font:700 17px/1.4 var(--hb-font);color:#f4f4f2;margin-bottom:8px}
+    .panel .price{font:700 26px/1.2 var(--hb-font);color:#f4f4f2;margin:6px 0 8px}
+    .panel .price small{font:500 13px/1.4 var(--hb-font);color:var(--ui-muted)}
+    .panel ul{padding-left:18px}
+    .panel li{margin-bottom:4px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .panel.anim-fade{animation:fadeIn .2s linear}
+    .panel.anim-slide{animation:fadeUp .2s ease-out}
+    .cap{position:absolute;z-index:5;padding:3px 8px;border-radius:6px;background:rgba(11,11,13,.92);color:#f4f4f2;font:600 13px/1.25 var(--hb-font);white-space:nowrap;pointer-events:none;display:none}
+    .stage[data-hb-mode="inside"] .cap{display:block}
+    .cap.a{top:64px;left:50%;transform:translateX(-50%)}
+    .cap.b{bottom:18px;left:22px}
+    .cap.c{top:14px;right:14px}
+    .compare-view{display:none;width:100%;height:100%}
+    .stage[data-hb-mode="compare"] .demo-main,.stage[data-hb-mode="compare"] .cap{display:none!important}
+    .stage[data-hb-mode="compare"] .compare-view{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+    .stage[data-hb-mode="compare"] .compare-view::after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px solid rgba(244,244,242,.12)}
+    .cmp-half{position:relative;overflow:hidden}
+    .cmp-half .tabs-wrap{position:absolute;inset:0;padding:14px 14px 10px}
+    .cmp-half .tab{font-size:13px;padding:8px 10px 10px}
+    .cmp-half .panel{font-size:13px}
+    .cmp-tag{position:absolute;bottom:8px;left:8px;z-index:6;padding:3px 8px;border-radius:6px;background:rgba(11,11,13,.92);color:#f4f4f2;font:600 12px/1.25 var(--hb-font);white-space:nowrap;pointer-events:none}
+    @media(prefers-reduced-motion:reduce){.underline{transition:none}.panel.anim-fade,.panel.anim-slide{animation:none}}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
+</head>
+<body class="hb" data-hb-kind="do" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../popover/" rel="prev" aria-label="上一个：弹出气泡"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>弹出气泡</span></a><a href="../filter-chips/" rel="next" aria-label="下一个：筛选标签"><span><span class="hb-dir">下一个：</span>筛选标签</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.52 · 微交互</p>
+    <h1>标签页切换</h1>
+    <p class="hb-lede">点页签切换内容，底线跟着滑过去。最适合价格页和设置页。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点一个页签，内容就换过去，底线跟着滑过去，或按「演示一下」换到下一个。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+
+    <div class="stage">
+      <div class="demo-main" style="display:contents">
+<div class="tabs-wrap" id="tabs-main">
+        <div class="tab-bar" role="tablist"><button class="tab on" type="button" role="tab" data-i="0" aria-selected="true">概览</button><button class="tab" type="button" role="tab" data-i="1" aria-selected="false">价格</button><button class="tab" type="button" role="tab" data-i="2" aria-selected="false">评价</button><span class="underline"></span></div>
+        <div class="tab-panels"><div class="panel on" role="tabpanel"><h3>概览</h3><p>这是一款给小团队用的记账工具：记一笔只要三秒，月底自动出报表。</p></div><div class="panel" role="tabpanel"><h3>价格</h3><p class="price">¥29 <small>/ 月</small></p><p>按月付，随时退订；按年付打八折。</p></div><div class="panel" role="tabpanel"><h3>评价</h3><p>“记账第一次没坚持不下去。”—— 4.8 分，2,314 条评价。</p></div></div>
+      </div>
+      </div>
+      <p class="cap a" aria-hidden="true" data-hb-caption>底线跟着滑过去</p>
+      <p class="cap b" aria-hidden="true" data-hb-caption>内容淡入淡出</p>
+      <p class="cap c" aria-hidden="true" data-hb-caption>选中的是蓝色加粗</p>
+      <div class="compare-view"><div class="cmp-half"></div><div class="cmp-half"></div></div>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>内部：点页签时，底线用 0.25 秒滑到新页签下面，同时变宽或变窄；旧内容 0.2 秒淡出，0.1 秒后新内容从下面 8 像素处淡入。</p>
+      <p data-hb-for="compare" hidden>左边瞬间切换：底线直接跳过去，内容直接换。右边底线滑过去：你看得到它从一个页签移到下一个。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="count-lbl">页签数量</p>
+        <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
+          <button type="button" data-n="2" aria-pressed="false">两个</button>
+          <button type="button" data-n="3" class="on" aria-pressed="true">三个</button>
+          <button type="button" data-n="4" aria-pressed="false">四个</button>
+        </div>
+        <p class="hb-hint">顶上放几个页签。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="speed-lbl">底线速度</p>
+        <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
+          <button type="button" data-ms="150" aria-pressed="false">快</button>
+          <button type="button" data-ms="250" class="on" aria-pressed="true">中</button>
+          <button type="button" data-ms="400" aria-pressed="false">慢</button>
+        </div>
+        <p class="hb-hint">底线滑到新页签用的时间。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="content-lbl">内容切换</p>
+        <div class="seg" id="content-seg" role="group" aria-labelledby="content-lbl">
+          <button type="button" data-mode="fade" class="on" aria-pressed="true">淡入</button>
+          <button type="button" data-mode="slide" aria-pressed="false">滑动</button>
+        </div>
+        <p class="hb-hint">新内容怎么来：淡入还是从下面滑上来。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[你的价格页或设置页，比如概览、价格、评价]加上标签页切换。顶上放三个页签，下面是一条 2 像素的分隔线和一条 4 像素的蓝色底线。点一个页签，底线用 0.25 秒滑到它下面，同时变宽或变窄；选中的页签变成蓝色加粗，其他的是灰色。内容先在 0.2 秒内淡出，0.1 秒后新内容从下面 8 像素处淡入。只给底线的位置和宽度、内容的不透明度做动画。如果访客开了减弱动态效果，就让内容直接换，不要滑动和淡入。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>价格页</li><li>设置页</li><li>商品详情</li><li>同一位置的多组内容</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>页签之间差别很大的页面</li><li>需要同时对比的内容</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  const stage=document.querySelector('.stage');
+  const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let tabCount=3,durMs=250,contentMode='fade',mode='normal';
+  const LABELS=['概览','价格','评价','详情'];
+  const PANELS=[
+    '<h3>概览</h3><p>这是一款给小团队用的记账工具：记一笔只要三秒，月底自动出报表。</p>',
+    '<h3>价格</h3><p class="price">¥29 <small>/ 月</small></p><p>按月付，随时退订；按年付打八折。</p>',
+    '<h3>评价</h3><p>“记账第一次没坚持不下去。”—— 4.8 分，2,314 条评价。</p>',
+    '<h3>详情</h3><ul><li>支持 iOS、安卓和网页</li><li>数据存在本地，也能同步</li><li>导出 CSV 和 PDF</li></ul>'
+  ];
+  function initTabs(wrap,opts){
+    const S={tabCount:opts.tabCount??tabCount,durMs:opts.durMs??durMs,contentMode:opts.contentMode??contentMode,animated:opts.animated??true};
+    let active=0;
+    const bar=wrap.querySelector('.tab-bar'),under=wrap.querySelector('.underline'),panelsBox=wrap.querySelector('.tab-panels');
+    function build(){
+      bar.querySelectorAll('.tab').forEach(t=>t.remove());
+      panelsBox.querySelectorAll('.panel').forEach(p=>p.remove());
+      LABELS.slice(0,S.tabCount).forEach((l,i)=>{
+        const b=document.createElement('button');
+        b.className='tab'+(i===active?' on':'');b.type='button';b.setAttribute('role','tab');
+        b.dataset.i=i;b.setAttribute('aria-selected',String(i===active));b.textContent=l;
+        b.addEventListener('click',()=>select(i));
+        bar.insertBefore(b,under);
+      });
+      PANELS.slice(0,S.tabCount).forEach((h,i)=>{
+        const p=document.createElement('div');
+        p.className='panel'+(i===active?' on':'');p.setAttribute('role','tabpanel');p.innerHTML=h;
+        panelsBox.appendChild(p);
+      });
+      moveUnder(false);
+    }
+    function moveUnder(animate){
+      const btn=bar.querySelectorAll('.tab')[active];if(!btn)return;
+      under.style.transition=!motionOk||!S.animated||!animate?'none':`left ${S.durMs}ms cubic-bezier(.65,0,.35,1), width ${S.durMs}ms cubic-bezier(.65,0,.35,1)`;
+      under.style.left=btn.offsetLeft+'px';under.style.width=btn.offsetWidth+'px';
+    }
+    function select(i){
+      if(i===active&&wrap.querySelectorAll('.panel')[i])return;
+      const tabs=bar.querySelectorAll('.tab'),panels=panelsBox.querySelectorAll('.panel');
+      tabs.forEach((t,k)=>{t.classList.toggle('on',k===i);t.setAttribute('aria-selected',String(k===i))});
+      panels.forEach((p,k)=>{p.classList.toggle('on',k===i);p.classList.remove('anim-fade','anim-slide')});
+      active=i;moveUnder(true);
+      const p=panels[i];
+      if(p&&motionOk&&S.animated){p.classList.add(S.contentMode==='slide'?'anim-slide':'anim-fade')}
+    }
+    wrap._tabs={select,next:()=>select((active+1)%S.tabCount),reset:()=>select(0),
+      set:(k,v)=>{S[k]=v;if(k==='tabCount'){active=Math.min(active,S.tabCount-1);build()}}};
+    build();
+    return wrap._tabs;
+  }
+  const mainCtl=initTabs(document.getElementById('tabs-main'),{});
+  document.getElementById('btn-demo').addEventListener('click',()=>mainCtl.next());
+  document.getElementById('btn-reset').addEventListener('click',()=>mainCtl.reset());
+  function choices(id,pick){
+    const buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);
+    }));
+  }
+  choices('count-seg',d=>{tabCount=+d.n;mainCtl.set('tabCount',tabCount)});
+  choices('speed-seg',d=>{durMs=+d.ms;mainCtl.set('durMs',durMs)});
+  choices('content-seg',d=>{contentMode=d.mode;mainCtl.set('contentMode',contentMode)});
+  let cmpBuilt=false;
+  function buildCompare(){
+    if(cmpBuilt)return;cmpBuilt=true;
+    const halves=document.querySelectorAll('.cmp-half');
+    [['瞬间切换',false],['底线滑过去',true]].forEach(([label,animated],i)=>{
+      const tag=document.createElement('p');tag.className='cmp-tag';tag.textContent=label;halves[i].appendChild(tag);
+      const clone=document.getElementById('tabs-main').cloneNode(true);
+      clone.removeAttribute('id');
+      halves[i].appendChild(clone);
+      initTabs(clone,{animated});
+    });
+  }
+  document.addEventListener('hb:mode',e=>{mode=e.detail.mode;if(mode==='compare')buildCompare()});
+  addEventListener('resize',()=>{const u=document.querySelector('#tabs-main .underline');if(u){const b=document.querySelector('#tabs-main .tab.on');if(b){u.style.left=b.offsetLeft+'px';u.style.width=b.offsetWidth+'px'}}});
+
+</script>
+</body>
+</html>

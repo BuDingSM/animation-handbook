@@ -1,20 +1,20 @@
-# Abstract Geometric Motion
+# 抽象几何动效
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/abstract-geometric-motion/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/abstract-geometric-motion/)
 
-## What it is
-Abstract geometric motion is an endless loop of simple shapes that exists just to be watched: polygons slowly turning, rings spreading out from the center, slanted bars sliding by, or wavy lines with color flowing along them. There is no story and nothing to click. Like a screensaver or a music visualizer, it is meant to stay calm and pleasant to look at for a long time.
+## 它是什么
+抽象几何动效是由简单图形组成的无尽循环，纯粹为了观看而存在：多边形围绕中心慢慢旋转，圆环从中心扩散，斜条滑过，或波浪线带着色彩流动。没有故事，也没有什么可点击的。像屏保或音乐可视化一样，它就是要长时间保持平静、赏心悦目。
 
-## When to use it
-- "Now playing" and music player backgrounds where the visual should pulse with the content
-- Focus and meditation app backgrounds where motion guides attention inward
-- Digital art installations and kiosk displays where the screen must never show a static image
-- Empty states and loading screens where the environment should feel designed, not blank
+## 什么时候用
+- “正在播放”和音乐播放器背景，画面应该随内容起伏
+- 专注和冥想应用的背景，运动引导注意力向内
+- 数字艺术装置和自助终端屏幕，屏幕绝不能显示静态画面
+- 空状态和加载画面，环境应该感觉是设计过的，而不是空白的
 
-## How it works
-All four presets run on a shared `requestAnimationFrame` loop with a global time counter `t`. Each 60th of a second that passes adds `speed * 0.01` to it and grows every ring by `speed * 2` pixels, however many frames that takes, so a 120 Hz screen or a slow frame does not change the speed. Each preset renders to a `<canvas>` element.
+## 工作原理
+四种预设都在一个共享的 `requestAnimationFrame` 循环里运行，用一个全局时间计数器 `t`。每过去六十分之一秒，就给它加上 `speed * 0.01`，每个圆环长大 `speed * 2` 像素，不管需要多少帧，所以 120 Hz 的屏幕或掉帧都不会改变速度。每种预设都渲染到一个 `<canvas>` 元素上。
 
-**Rotating polygons** — regular polygons with increasing vertex counts, each rotating at a slightly different rate:
+**旋转的多边形**——顶点数递增的正多边形，每个以略微不同的速度旋转：
 
 ```js
 function drawPolygons(t) {
@@ -35,7 +35,7 @@ function drawPolygons(t) {
 }
 ```
 
-**Concentric expanding rings** — rings spawn from center, expand outward, and fade:
+**同心扩散的圆环**——圆环从中心生成、向外扩散、淡出：
 
 ```js
 // Spawn a new ring on a fixed interval of t, so spacing stays even at any speed
@@ -52,9 +52,9 @@ rings.forEach(ring => {
 rings = rings.filter(r => r.r < Math.max(W, H));
 ```
 
-Choosing Rings starts with six rings already spread across the stage, so the pattern shows at once instead of growing from an empty stage.
+选择圆环时，一开始就有六个圆环已经铺在舞台上，所以图案立刻就能看到，而不是从空舞台慢慢长出来。
 
-**Color-flow lines** — sine-wave curves with animated `lineDashOffset` so colors appear to travel along the path:
+**色彩流动的线**——正弦波曲线，用动态的 `lineDashOffset` 让颜色看起来沿着路径流动：
 
 ```js
 ctx.setLineDash([40, 60]);
@@ -66,27 +66,27 @@ ctx.stroke();
 ctx.setLineDash([]);
 ```
 
-**The sliding bars and the flowing dashes** keep their own distance counters, `barX` and `dashPhase`, which grow by `40 * speed` and `30 * speed` each time `t` grows by 1. Adding to a counter, rather than multiplying `t` by the speed, means changing the speed never makes the bars or the dashes jump.
+**滑动的条形和流动的虚线**有自己的距离计数器 `barX` 和 `dashPhase`，`t` 每增长 1，它们分别增长 `40 * speed` 和 `30 * speed`。用累加计数器而不是把 `t` 乘以速度，意味着改变速度永远不会让条形或虚线跳变。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Pattern | Polygons | Turning polygons, rings spreading from the center, sliding bars, or wavy lines with flowing color |
-| Speed | Normal | How fast everything moves: the innermost polygon turns once in about 150 seconds at slow, 87 at normal and 52 at fast (the outer ones faster), the rings spread 42, 72 or 120px a second and the bars slide 3, 9 or 24px a second; avoid fast behind content |
-| Number of shapes | Medium | How many polygons, bars or lines: few is 3, medium 6 and many 10 (the Lines pattern draws twice as many); on Rings it sets how many colors the rings use |
-| Colors | Cool | Cool blues, warm ambers, bright neon or grays |
-| Thicker lines | off | Draws the lines 1.5px wide instead of 0.8px, so the shapes stand out more |
+| 图案 | 多边形 | 旋转的多边形、从中心扩散的圆环、滑动的条形，或带着流动色彩的波浪线 |
+| 速度 | 普通 | 整体移动的速度：最里面的多边形慢速约 150 秒转一圈，普通 87 秒，快速 52 秒（外面的更快），圆环每秒扩散 42、72 或 120px，条形每秒滑动 3、9 或 24px；放在内容后面时避免快速 |
+| 形状数量 | 中等 | 多边形、条形或线条有多少：少是 3 个，中等 6 个，多是 10 个（线条图案画两倍）；在圆环图案里，它决定圆环用多少种颜色 |
+| 颜色 | 冷色 | 冷蓝色、暖琥珀色、明亮的霓虹色或灰色 |
+| 更粗的线条 | 关 | 线条画成 1.5px 宽而不是 0.8px，图形更醒目 |
 
-## Production notes
-- **Canvas vs SVG vs CSS**: canvas is ideal for complex animated geometry that changes every frame. SVG SMIL animation works for a few elements but becomes expensive with many independently animated paths. CSS is impractical for runtime-generated geometry.
-- **`t += speed * 0.01` not `Date.now()`**: relative time increments (adding to a counter) are frame-rate-independent in spirit and easier to control than absolute timestamps. For truly frame-rate-independent motion, multiply by the actual frame delta.
-- **Infinite seamless looping**: nothing restarts. Every preset draws from values that only grow (`t`, and the bars' and dashes' own counters), and the bars wrap around the stage with `%`, so there is no reset moment.
-- **`lineDashOffset` for color flow**: animating `lineDashOffset` is a classic SVG/canvas trick for drawing paths that appear to have flowing color or motion along their length. The dash pattern stays fixed in the path's local coordinate space; the offset moves the starting point.
-- **Music visualizer pairing**: replace the time-based `t` with audio frequency data from the Web Audio API's `AnalyserNode`. The shapes then pulse and change size in response to the audio spectrum.
-- **Three.js equivalent**: `LineSegments`, `MeshLine`, and custom `ShaderMaterial` can recreate all four presets in a 3D context with camera movement adding the third dimension.
+## 生产注意事项
+- **Canvas 与 SVG 与 CSS**：canvas 最适合每帧都变的复杂动态几何图形。SVG SMIL 动画对少量元素有效，但独立动态路径多了就很耗性能。CSS 不适合运行时生成的几何图形。
+- **`t += speed * 0.01`，而不是 `Date.now()`**：相对时间增量（累加计数器）本质上与帧率无关，也比绝对时间戳更容易控制。想要真正与帧率无关的运动，就乘以实际的帧间隔。
+- **无限无缝循环**：什么都不会重启动。每种预设都从只会增长的值（`t`，以及条形和虚线自己的计数器）画起，条形用 `%` 绕过舞台，所以没有重置时刻。
+- **用 `lineDashOffset` 实现色彩流动**：给 `lineDashOffset` 做动画是经典的 SVG/canvas 技巧，可以画出看起来有色彩沿长度流动或运动的路径。虚线图案固定在路径的局部坐标空间里；偏移量移动的是起点。
+- **搭配音乐可视化**：把基于时间的 `t` 换成 Web Audio API 的 `AnalyserNode` 提供的音频频率数据。图形就会随音频频谱起伏、改变大小。
+- **Three.js 等价实现**：`LineSegments`、`MeshLine` 和自定义 `ShaderMaterial` 可以在 3D 场景中重现全部四种预设，相机移动增加了第三个维度。
 
-## See also
-- [Ambient Ripple Effect](../ambient-ripple/) — rings spreading from a few spots, on their own
-- [WebGL Shader Animation](../../06-3d-advanced/webgl-shader-animation/) — patterns drawn by the graphics card
-- [Noise-Based Motion](../../06-3d-advanced/noise-based-motion/) — smooth, natural-looking random motion
-- [Audio Visualizer](../../06-3d-advanced/audio-visualizer/) — bars that move to the music, from bass to treble
+## 另见
+- [环境涟漪](../ambient-ripple/) — 圆环从几个点自己扩散开来
+- [WebGL 着色器动画](../../06-3d-advanced/webgl-shader-animation/) — 由显卡绘制的图案
+- [噪声驱动运动](../../06-3d-advanced/noise-based-motion/) — 平滑、自然的随机运动
+- [音频可视化](../../06-3d-advanced/audio-visualizer/) — 随音乐舞动的条形，从低音到高音

@@ -1,19 +1,19 @@
-# Hold to Confirm
+# 长按确认
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hold-to-confirm/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/hold-to-confirm/)
 
-## What it is
-Hold to confirm is a button that acts only after it has been held down for a moment. While it is held, a fill grows across it or around it; when the fill is full, the action runs and a tick shows. Letting go early drains the fill and nothing happens, so a stray tap or click can never delete anything.
+## 它是什么
+长按确认是一个按钮，只有按住一会儿后才会执行操作。按住时，填充会横跨它或绕着它增长；填满时，操作执行，并显示一个对勾。提前松开会让填充流回去，什么都不发生，所以一次手滑的点按或点击永远删不掉任何东西。
 
-## When to use it
-- Deleting files, projects or messages that cannot be restored
-- Closing an account or canceling a plan
-- Sending money or confirming a payment on a phone
-- Emergency and alert buttons that must not go off by accident
-- Places where a confirm dialog would interrupt too much, but a single tap is too easy
+## 什么时候用
+- 删除无法恢复的文件、项目或消息
+- 关闭账号或取消订阅
+- 在手机上汇款或确认付款
+- 绝不能意外触发的紧急和提醒按钮
+- 确认对话框太打断、但单次点按又太容易的地方
 
-## How it works
-One number, `p`, says how full the button is, from 0 to 1. A frame loop moves it by the time that has passed: up while the button is held, down while it is not. The same number drives both looks, so the Fill style setting only changes which one is shown:
+## 工作原理
+一个数字 `p` 表示按钮有多满，从 0 到 1。一个帧循环按过去的时间移动它：按住时上升，松开时下降。同一个数字驱动两种样子，所以“填充样式”设置只改变显示哪一种：
 
 ```js
 let p = 0, holding = false, last = null;
@@ -34,28 +34,28 @@ function frame(ts) {
 .ring .rf { stroke-dasharray: 1; stroke-dashoffset: 1; }
 ```
 
-Pressing and letting go come from the pointer and from the keyboard. The pointer is captured on `pointerdown`, so the press continues if the finger slides off the button, and `pointerup`, `pointercancel` and `lostpointercapture` all count as letting go. Space and Enter start a hold on `keydown` (ignoring the repeats a held key sends) and end it on `keyup` or `blur`. Letting go before the fill is full restarts a short shake animation on the button's wrapper (so it never fights the press scale on the button itself) and fades in a hint to keep holding. When the fill is full the trash icon and label crossfade to a tick and Drafts deleted, and a `role="status"` region says so; in the demo everything drains back a second later so it can be tried again. Under reduced motion the fill is drawn in quarters (`Math.floor(p * 4) / 4`), so it steps instead of sliding, and the shake is skipped.
+按住和松开来自指针和键盘。指针在 `pointerdown` 时被捕获，所以手指滑出按钮后按压还会继续；`pointerup`、`pointercancel` 和 `lostpointercapture` 都算松开。空格键和 Enter 在 `keydown` 时开始一次按住（忽略按住按键发送的重复事件），在 `keyup` 或 `blur` 时结束。在填充满之前松开，会在按钮的包装上重新启动一段短的抖动动画（这样它永远不会和按钮本身的按压缩放打架），并淡入一条“继续按住”的提示。填充满时，垃圾桶图标和标签会交叉淡出，变成对勾和“草稿已删除”，一个 `role="status"` 区域会播报；演示里一秒后所有东西又流回去，这样可以再试一次。减弱动态效果下，填充按四分之一画（`Math.floor(p * 4) / 4`），所以它是一步一步走，而不是滑动，抖动也跳过。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How long to hold | Medium | How long the button must be held before it acts: short is 0.8 seconds, medium 1.5 and long 2.5; under about half a second it no longer guards against a stray tap, over three seconds it feels stuck |
-| Fill style | Bar | Bar fills the whole button from left to right; Ring fills a ring around a round button, clockwise from the top |
-| Shakes if let go early | On | A short side-to-side shake when the button is let go before it is full; the hint to keep holding shows either way |
-| How fast it drains | Quickly | How long a full fill takes to run back out when it is let go: quickly is 0.4 seconds, slowly 1.5 |
+| 按住时长 | 中等 | 按钮执行前必须按住多长时间：短是 0.8 秒，中等 1.5 秒，长是 2.5 秒；不到大约半秒，它就不再能防止手滑点按；超过三秒会感觉卡住 |
+| 填充样式 | 横条 | 横条从左到右填满整个按钮；圆环绕着圆形按钮从顶部顺时针填满 |
+| 提前松开会抖动 | 开 | 在填充满之前松开按钮时，短暂地左右抖动一下；“继续按住”的提示无论如何都会显示 |
+| 流失速度 | 很快 | 松开时，满格的填充跑回去要花多长时间：很快是 0.4 秒，慢慢是 1.5 秒 |
 
-## Production notes
-- **Offer a second way**: some people cannot hold a press steadily, and some assistive technology sends a click with no press at all. Keep another path to the same action, such as a confirm dialog or an undo, and say in the button's label or description that it needs a press and hold.
-- **Keyboard**: a held key repeats `keydown`, so ignore events with `e.repeat`, and treat `keyup` and `blur` as letting go, or Tab pressed during a hold leaves the button filling with nothing held.
-- **Touch**: `touch-action: none` stops the browser from turning a finger that drifts a little into a scroll, which would cancel the pointer. `-webkit-touch-callout: none`, `user-select: none` and a `contextmenu` handler that calls `preventDefault()` keep a long press from opening the callout, selecting text or showing the menu. Always listen for `pointercancel`.
-- **Time, not frames**: move the fill by elapsed time. A loop that adds a fixed amount each frame fills twice as fast on a 120 Hz screen and half as fast on a phone that drops to 30 Hz.
-- **Say what happened**: announce the result in a `role="status"` live region ("Old drafts deleted"), and the early let-go too, since the hint and the shake are visual.
-- **GSAP**: `const t = gsap.to(fill, { scaleX: 1, duration: 1.5, ease: "none", paused: true, onComplete: confirm })`, then `t.timeScale(1).play()` on press and `t.timeScale(4).reverse()` on release.
-- **Framer Motion**: with `useAnimate()`, call `animate(fill, { scaleX: 1 }, { duration: 1.5, ease: "linear" })` on press and keep its controls; on release stop them and animate `scaleX` back to 0, and run the action in the first animation's `.then()` only if it was not stopped.
+## 生产注意事项
+- **提供第二种方式**：有些人无法稳定地按住，有些辅助技术只发送没有按压的点击。保留同一操作的另一条路，比如确认对话框或撤销，并在按钮的标签或描述里说明它需要按住。
+- **键盘**：按住按键会重复发送 `keydown`，所以忽略带 `e.repeat` 的事件，把 `keyup` 和 `blur` 当作松开，否则按住期间按 Tab 会让按钮在无人按住的情况下继续填充。
+- **触摸**：`touch-action: none` 阻止浏览器把手指的一点漂移变成滚动，那会取消指针。`-webkit-touch-callout: none`、`user-select: none` 和一个调用 `preventDefault()` 的 `contextmenu` 处理函数，可以防止长按打开提示框、选中文字或显示菜单。一定要监听 `pointercancel`。
+- **按时间，不按帧**：按经过的时间移动填充。每一帧固定加一点的循环，在 120 Hz 屏幕上填充速度快一倍，在掉到 30 Hz 的手机上慢一半。
+- **说出发生了什么**：在 `role="status"` 的实时区域里播报结果（“旧草稿已删除”），提前松开也要播报，因为提示和抖动都是视觉上的。
+- **GSAP**：`const t = gsap.to(fill, { scaleX: 1, duration: 1.5, ease: "none", paused: true, onComplete: confirm })`，然后按下时 `t.timeScale(1).play()`，松开时 `t.timeScale(4).reverse()`。
+- **Framer Motion**：用 `useAnimate()`，按下时调用 `animate(fill, { scaleX: 1 }, { duration: 1.5, ease: "linear" })` 并保留它的控制器；松开时停掉它们，把 `scaleX` 动画回 0；只有在动画没有被停掉时，才在第一个动画的 `.then()` 里执行操作。
 
-## See also
-- [Button Press Scale](../button-press-scale/) — the button shrinks while it is pressed
-- [Progress Animation](../progress-animation/) — bars and rings that fill to show progress
-- [Error Shake](../error-shake/) — a shake that says the input was wrong
-- [Checkmark Draw](../checkmark-draw/) — a tick that draws itself once a task is done
-- [Button Loading States](../button-loading-states/) — a button that waits with a spinner, then shows a tick or a cross
+## 另见
+- [按钮按压缩放](../button-press-scale/) — 按下时按钮缩小
+- [进度动画](../progress-animation/) — 填满以显示进度的横条和圆环
+- [错误抖动](../error-shake/) — 表示输入错了的抖动
+- [对勾绘制](../checkmark-draw/) — 任务完成后自己画出来的对勾
+- [按钮加载状态](../button-loading-states/) — 带旋转指示等待的按钮，然后显示对勾或叉号

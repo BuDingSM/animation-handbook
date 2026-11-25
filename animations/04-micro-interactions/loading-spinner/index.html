@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading Spinner — Animation Handbook</title>
-  <meta name="description" content="Six small shapes loop to show that something is loading. Best for short waits.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/loading-spinner/">
+  <title>加载旋转指示 — 动画手册</title>
+  <meta name="description" content="六个小图形循环转动，表示正在加载。适合用在短暂等待时。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/loading-spinner/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Loading Spinner — Animation Handbook">
-  <meta property="og:description" content="Six small shapes loop to show that something is loading. Best for short waits.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/loading-spinner/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="加载旋转指示 — 动画手册">
+  <meta property="og:description" content="六个小图形循环转动，表示正在加载。适合用在短暂等待时。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/loading-spinner/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Loading Spinner — Animation Handbook">
-  <meta name="twitter:description" content="Six small shapes loop to show that something is loading. Best for short waits.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Loading Spinner", "name": "Loading Spinner", "description": "Six small shapes loop to show that something is loading. Best for short waits.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/loading-spinner/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Loading Spinner"}</script>
+  <meta name="twitter:title" content="加载旋转指示 — 动画手册">
+  <meta name="twitter:description" content="六个小图形循环转动，表示正在加载。适合用在短暂等待时。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "加载旋转指示", "name": "加载旋转指示", "description": "六个小图形循环转动，表示正在加载。适合用在短暂等待时。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/loading-spinner/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 加载旋转指示"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-muted:#8a8a92;--spd:800ms;--clr:#58a6ff;--sz:40px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -118,97 +118,97 @@
       .cmp .dr-turn{display:block}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../shimmer-effect/" rel="prev" aria-label="Previous: Shimmer Effect"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Shimmer Effect</span></a><a href="../progress-animation/" rel="next" aria-label="Next: Progress Animation"><span><span class="hb-dir">Next: </span>Progress Animation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../shimmer-effect/" rel="prev" aria-label="上一个：微光扫过效果"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>微光扫过效果</span></a><a href="../progress-animation/" rel="next" aria-label="下一个：进度动画"><span><span class="hb-dir">下一个：</span>进度动画</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.11 · Micro-Interactions</p>
-    <h1>Loading Spinner</h1>
-    <p class="hb-lede">Six small shapes loop to show that something is loading. Best for short waits.</p>
+    <p class="hb-cat">04.11 · 微交互</p>
+    <h1>加载旋转指示</h1>
+    <p class="hb-lede">六个小图形循环转动，表示正在加载。适合用在短暂等待时。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己在动。按「暂停」仔细看，或打开「慢动作」看清每一步。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="grid">
         <div class="spin-cell">
           <div class="spin-box">
             <svg class="dr dr-turn" viewBox="0 0 100 100" aria-hidden="true"><path d="M10.2 27A46 46 0 1 1 73 89.8M82.4 93.6L69.5 91.8L74.4 79.8"/></svg>
-            <div class="sp-ring" role="status" aria-label="Loading"></div>
+            <div class="sp-ring" role="status" aria-label="正在加载"></div>
           </div>
-          <div class="spin-label">Ring</div>
-          <p class="spin-cap" id="ring-cap" aria-hidden="true" data-hb-caption>The ring turns a little more than once a second</p>
+          <div class="spin-label">圆环</div>
+          <p class="spin-cap" id="ring-cap" aria-hidden="true" data-hb-caption>圆环每秒转一圈多一点</p>
         </div>
         <div class="spin-cell">
           <div class="spin-box">
             <svg class="dr dr-turn" viewBox="0 0 100 100" aria-hidden="true"><path d="M10.2 27A46 46 0 1 1 73 89.8M82.4 93.6L69.5 91.8L74.4 79.8"/></svg>
-            <div class="sp-dots" role="status" aria-label="Loading">
+            <div class="sp-dots" role="status" aria-label="正在加载">
               <span></span><span></span><span></span><span></span><span></span><span></span>
             </div>
           </div>
-          <div class="spin-label">Orbit</div>
-          <p class="spin-cap" aria-hidden="true" data-hb-caption>Six dots, each fainter than the last, turning as one</p>
+          <div class="spin-label">轨道</div>
+          <p class="spin-cap" aria-hidden="true" data-hb-caption>六个圆点，一个比一个淡，合起来转动</p>
         </div>
         <div class="spin-cell">
           <div class="spin-box">
             <i class="dr dr-circ" style="--k:.8" aria-hidden="true"></i>
-            <svg class="sp-arc" viewBox="0 0 40 40" role="status" aria-label="Loading">
+            <svg class="sp-arc" viewBox="0 0 40 40" role="status" aria-label="正在加载">
               <circle cx="20" cy="20" r="16"/>
             </svg>
           </div>
-          <div class="spin-label">Arc</div>
-          <p class="spin-cap" aria-hidden="true" data-hb-caption>The colored part grows and shrinks as it turns</p>
+          <div class="spin-label">弧线</div>
+          <p class="spin-cap" aria-hidden="true" data-hb-caption>彩色部分边转边变大变小</p>
         </div>
         <div class="spin-cell">
           <div class="spin-box">
             <i class="dr dr-hop top" aria-hidden="true"></i><i class="dr dr-hop base" aria-hidden="true"></i>
-            <div class="sp-bounce" role="status" aria-label="Loading">
+            <div class="sp-bounce" role="status" aria-label="正在加载">
               <span></span><span></span><span></span>
             </div>
           </div>
-          <div class="spin-label">Bounce</div>
-          <p class="spin-cap" aria-hidden="true" data-hb-caption>The same hop, each dot a little later</p>
+          <div class="spin-label">弹跳</div>
+          <p class="spin-cap" aria-hidden="true" data-hb-caption>同样的跳动，每个圆点晚一点</p>
         </div>
         <div class="spin-cell">
           <div class="spin-box">
             <i class="dr dr-circ" style="--k:.8" aria-hidden="true"></i><i class="dr dr-circ" style="--k:1.5" aria-hidden="true"></i>
-            <div class="sp-pulse" role="status" aria-label="Loading"></div>
+            <div class="sp-pulse" role="status" aria-label="正在加载"></div>
           </div>
-          <div class="spin-label">Pulse</div>
-          <p class="spin-cap" aria-hidden="true" data-hb-caption>Grows from the inner circle to the outer one, fading out</p>
+          <div class="spin-label">脉冲</div>
+          <p class="spin-cap" aria-hidden="true" data-hb-caption>从内圈长到外圈，同时淡出</p>
         </div>
         <div class="spin-cell">
           <div class="spin-box">
             <i class="dr dr-sq" style="--k:.455" aria-hidden="true"></i>
-            <div class="sp-square" role="status" aria-label="Loading"></div>
+            <div class="sp-square" role="status" aria-label="正在加载"></div>
           </div>
-          <div class="spin-label">Square</div>
-          <p class="spin-cap" aria-hidden="true" data-hb-caption>Turns half way while shrinking, then grows back</p>
+          <div class="spin-label">方形</div>
+          <p class="spin-cap" aria-hidden="true" data-hb-caption>边缩小边转半圈，再长回来</p>
         </div>
       </div>
       <div class="cmp" aria-hidden="true" inert>
         <div class="half">
-          <p class="spin-half" data-hb-caption>Looks stuck</p>
-          <div class="panel"><p class="panel-title">Your files</p><div class="panel-body"></div></div>
+          <p class="spin-half" data-hb-caption>看起来卡住了</p>
+          <div class="panel"><p class="panel-title">你的文件</p><div class="panel-body"></div></div>
         </div>
         <div class="half">
-          <p class="spin-half" data-hb-caption>With a spinner</p>
-          <div class="panel"><p class="panel-title">Your files</p><div class="panel-body">
+          <p class="spin-half" data-hb-caption>有了旋转指示</p>
+          <div class="panel"><p class="panel-title">你的文件</p><div class="panel-body">
             <div class="spin-box">
               <svg class="dr dr-turn" viewBox="0 0 100 100" aria-hidden="true"><path d="M10.2 27A46 46 0 1 1 73 89.8M82.4 93.6L69.5 91.8L74.4 79.8"/></svg>
               <div class="sp-ring"></div>
@@ -218,54 +218,54 @@
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-pause" data-hb-pause="css" data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause="css" data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each spinner is taken apart: what turns, what fades, and what starts a little later. They all loop until the wait is over.</p>
-      <p data-hb-for="compare" hidden>Looks stuck: an empty box, so you cannot tell whether anything is happening; With a spinner: the turning ring shows the page is still working.</p>
+      <p data-hb-for="inside" hidden>内部：每个旋转指示都被拆开：什么在转，什么在淡出，什么晚一点开始。它们一直循环，直到等待结束。</p>
+      <p data-hb-for="compare" hidden>看起来卡住了：一个空盒子，你看不出有没有在动；有了旋转指示：转动的圆环表示页面还在工作。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1300" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="800" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="500" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1300" aria-pressed="false">慢</button>
+          <button type="button" data-ms="800" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="500" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Fast spinning can feel anxious.</p>
+        <p class="hb-hint">转得太快会让人焦虑。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Size</p>
+        <p class="hb-setting-name" id="size-lbl">大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-px="28" aria-pressed="false">Small</button>
-          <button type="button" data-px="40" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="52" aria-pressed="false">Large</button>
+          <button type="button" data-px="28" aria-pressed="false">小</button>
+          <button type="button" data-px="40" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="52" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Small fits inside a button; large fills an empty area.</p>
+        <p class="hb-hint">小号放得进按钮；大号填满空白区域。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" aria-pressed="false" aria-label="Pink" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-c="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-c="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-c="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-c="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">Pick a color that stands out from the page.</p>
+          <p class="hb-hint">选一个和页面对比明显的颜色。</p>
         </div>
       </div>
     </details>
@@ -274,41 +274,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a loading spinner to [the place where people wait for something to load]. Use a small shape that keeps moving in a steady loop, such as a ring with one colored part turning around, dots circling or dots bouncing in turn, to show that work is going on when you cannot say how long it will take. Show it only for waits longer than about half a second, and tell screen readers that something is loading. If you know how far along the task is, use a progress bar instead. If the visitor has reduced motion turned on, fade it gently instead of spinning. Match the settings listed below.</p>
+      <p class="hb-prompt">给[人们等待加载的地方]加上加载旋转指示。用一个一直在稳定循环里动的小图形，比如一个彩色部分绕圈转动的圆环、绕圈的圆点或轮流弹跳的圆点，表示工作正在进行——当你说不出要等多久时就用它。只在等待超过大约半秒时显示它，并告诉读屏软件正在加载。如果知道任务进行到哪里了，改用进度条。如果访客开启了减弱动态效果，轻轻淡入淡出，不要旋转。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Network waits</li><li>Buttons while sending</li><li>Short waits</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Known-length tasks</li><li>Very quick loads</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>网络等待</li><li>发送中的按钮</li><li>短暂等待</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>已知时长的任务</li><li>很快就加载完</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const vars=document.documentElement.style;
@@ -318,30 +318,30 @@
   const slowTog=document.getElementById('slow-tog'),ringCap=document.getElementById('ring-cap');
   function turnWords(){
     const s=turnMs*(slowTog.checked?3:1)/1000;
-    if(s<.6)return 'twice a second';
-    if(s<1)return 'a little more than once a second';
-    if(s<1.4)return 'about once every second and a quarter';
-    if(s<2)return 'about once every second and a half';
-    if(s<3)return 'about once every two and a half seconds';
-    return 'about once every four seconds';
+    if(s<.6)return '每秒转两次';
+    if(s<1)return '每秒转一圈多一点';
+    if(s<1.4)return '大约每隔一秒一刻转一圈';
+    if(s<2)return '大约每隔一秒半转一圈';
+    if(s<3)return '大约每隔两秒半转一圈';
+    return '大约每隔四秒转一圈';
   }
   function ringWords(){
-    const words='The ring turns '+turnWords();
+    const words='圆环'+turnWords();
     if(ringCap.textContent!==words)ringCap.textContent=words;
   }
   // Under reduced motion the loop starts paused, so both views are stills and their notes say so; once Play moves them the notes
   // say the markup's own words again. hb:pause is sent on every Pause and Play, and once at boot under reduced motion.
   const reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
   const notes=[...document.querySelectorAll('[data-hb-for]')],moving=notes.map(n=>n.textContent),still=[
-    'Inside, each spinner is taken apart, shown still: what turns, what fades, and what starts a little later.',
-    'Shown still: Looks stuck is an empty box; With a spinner has a ring that turns while the page works, so people know to wait.'];
+    '内部：每个旋转指示都被拆开，静止展示：什么在转，什么在淡出，什么晚一点开始。',
+    '静止展示：看起来卡住了是一个空盒子；有了旋转指示有一个圆环在页面工作时转动，所以人们知道要等一等。'];
   let paused=reduceMQ.matches;
   function describe(){
     notes.forEach((n,i)=>{const words=reduceMQ.matches&&paused?still[i]:moving[i];if(n.textContent!==words)n.textContent=words});
   }
   document.addEventListener('hb:pause',e=>{paused=e.detail.paused;describe()});
   // The page's only named picture is the Arc spinner's own, so each view names the box (a group, only while it shows)
-  const names={inside:'Each loading spinner taken apart to show what moves',compare:'A box with no spinner beside the same box with a spinner turning'};
+  const names={inside:'每个旋转指示都被拆开，展示什么在动',compare:'一个没有旋转指示的盒子，旁边是同一个盒子，带着转动的旋转指示'};
   document.addEventListener('hb:mode',e=>{
     const name=names[e.detail.mode];
     if(name){stage.setAttribute('role','group');stage.setAttribute('aria-label',name)}

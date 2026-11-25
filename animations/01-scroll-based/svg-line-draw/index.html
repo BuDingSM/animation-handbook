@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG Line Draw on Scroll — Animation Handbook</title>
-  <meta name="description" content="A line draws itself along a route as you scroll. Best for timelines.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/svg-line-draw/">
+  <title>SVG 线条滚动描绘 — 动画手册</title>
+  <meta name="description" content="线条随滚动沿路线自己画出来。最适合时间线。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/svg-line-draw/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="SVG Line Draw on Scroll — Animation Handbook">
-  <meta property="og:description" content="A line draws itself along a route as you scroll. Best for timelines.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/svg-line-draw/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="SVG 线条滚动描绘 — 动画手册">
+  <meta property="og:description" content="线条随滚动沿路线自己画出来。最适合时间线。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/svg-line-draw/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SVG Line Draw on Scroll — Animation Handbook">
-  <meta name="twitter:description" content="A line draws itself along a route as you scroll. Best for timelines.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SVG Line Draw on Scroll", "name": "SVG Line Draw on Scroll", "description": "A line draws itself along a route as you scroll. Best for timelines.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/svg-line-draw/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, SVG Line Draw on Scroll"}</script>
+  <meta name="twitter:title" content="SVG 线条滚动描绘 — 动画手册">
+  <meta name="twitter:description" content="线条随滚动沿路线自己画出来。最适合时间线。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SVG 线条滚动描绘", "name": "SVG 线条滚动描绘", "description": "线条随滚动沿路线自己画出来。最适合时间线。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/svg-line-draw/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, SVG 线条滚动描绘"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-accent:#6ea8ff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -82,41 +82,41 @@
     .cm-n1{top:8px;left:8px}
     .cm-n2{top:8px;left:calc(50% + 8px)}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../scroll-velocity-skew/" rel="prev" aria-label="Previous: Scroll Velocity Skew"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Scroll Velocity Skew</span></a><a href="../scrollspy-nav/" rel="next" aria-label="Next: Scrollspy Navigation"><span><span class="hb-dir">Next: </span>Scrollspy Navigation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../scroll-velocity-skew/" rel="prev" aria-label="上一个：滚动速度倾斜"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滚动速度倾斜</span></a><a href="../scrollspy-nav/" rel="next" aria-label="下一个：滚动侦测导航"><span><span class="hb-dir">下一个：</span>滚动侦测导航</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.24 · Scroll-Based</p>
-    <h1>SVG Line Draw on Scroll</h1>
-    <p class="hb-lede">A line draws itself along a route as you scroll. Best for timelines.</p>
+    <p class="hb-cat">01.24 · 滚动驱动</p>
+    <h1>SVG 线条滚动描绘</h1>
+    <p class="hb-lede">线条随滚动沿路线自己画出来。最适合时间线。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="A route that draws itself as you scroll">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="一条随滚动自己画出的路线">
       <div class="fx" inert aria-hidden="true"><div class="fx-box">
         <div class="fx-in"><div class="gauge">
-          <span class="cap" data-hb-caption>Scrolled</span><i class="bar bar-s"><i></i></i>
-          <span class="cap" data-hb-caption>Line drawn</span><i class="bar bar-d"><i></i></i>
-          <span class="cap cap-tk" data-hb-caption><i></i><span>Ticks: every tenth<br>of the route</span></span>
+          <span class="cap" data-hb-caption>已滚动</span><i class="bar bar-s"><i></i></i>
+          <span class="cap" data-hb-caption>已画出的线</span><i class="bar bar-d"><i></i></i>
+          <span class="cap cap-tk" data-hb-caption><i></i><span>刻度：路线的每十分之一</span></span>
         </div></div>
         <div class="fx-cmp"><i class="cm-top"></i><i class="cm-div"></i>
-          <span class="cap cm-n1" data-hb-caption>Already drawn</span><span class="cap cm-n2" data-hb-caption>Draws on scroll</span>
+          <span class="cap cm-n1" data-hb-caption>已画好</span><span class="cap cm-n2" data-hb-caption>随滚动画出</span>
         </div>
       </div></div>
       <div class="scene">
@@ -125,58 +125,58 @@
           <path class="guide" d="M 300 80 C 510 160 530 300 340 400 C 150 500 90 620 260 730 C 440 840 520 960 340 1080 C 160 1200 100 1310 290 1410 C 490 1510 510 1650 310 1760 C 110 1870 150 2020 300 2120"/>
           <path id="trail" class="trail" d="M 300 80 C 510 160 530 300 340 400 C 150 500 90 620 260 730 C 440 840 520 960 340 1080 C 160 1200 100 1310 290 1410 C 490 1510 510 1650 310 1760 C 110 1870 150 2020 300 2120"/>
           <g id="wps" class="wps">
-            <g class="wp" data-f="0.05"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="-20" y="1" text-anchor="end">Depart</text><text class="wp-sub" x="-20" y="17" text-anchor="end">km 0 — trailhead</text></g></g>
-            <g class="wp" data-f="0.27"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="20" y="1">River crossing</text><text class="wp-sub" x="20" y="17">km 12 — footbridge</text></g></g>
-            <g class="wp" data-f="0.50"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="20" y="1">Basecamp</text><text class="wp-sub" x="20" y="17">km 27 — overnight</text></g></g>
-            <g class="wp" data-f="0.73"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="-20" y="1" text-anchor="end">Summit ridge</text><text class="wp-sub" x="-20" y="17" text-anchor="end">km 39 — 2 410 m</text></g></g>
-            <g class="wp" data-f="0.95"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="20" y="1">Arrive</text><text class="wp-sub" x="20" y="17">km 46 — journey's end</text></g></g>
+            <g class="wp" data-f="0.05"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="-20" y="1" text-anchor="end">出发</text><text class="wp-sub" x="-20" y="17" text-anchor="end">0 公里 — 步道起点</text></g></g>
+            <g class="wp" data-f="0.27"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="20" y="1">渡河</text><text class="wp-sub" x="20" y="17">12 公里 — 人行桥</text></g></g>
+            <g class="wp" data-f="0.50"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="20" y="1">大本营</text><text class="wp-sub" x="20" y="17">27 公里 — 过夜</text></g></g>
+            <g class="wp" data-f="0.73"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="-20" y="1" text-anchor="end">山脊</text><text class="wp-sub" x="-20" y="17" text-anchor="end">39 公里 — 2410 米</text></g></g>
+            <g class="wp" data-f="0.95"><g class="pop"><circle class="dot" r="7"/><text class="wp-label" x="20" y="1">到达</text><text class="wp-sub" x="20" y="17">46 公里 — 旅程终点</text></g></g>
           </g>
           <g class="tip"><circle r="7"/></g>
           <g class="ticks"><line/><line/><line/><line/><line/><line/><line/><line/><line/></g>
         </svg>
-        <div class="scene-cap">— end of route —</div>
+        <div class="scene-cap">— 路线终点 —</div>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, ticks cut the route into tenths and the bright dot is the pen tip; the bars compare how far you scrolled with how much is drawn. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>Already drawn shows the whole route from the start; Draws on scroll draws the line as you go. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，刻度把路线切成十份，亮点是笔尖；条形比较你滚了多远和画了多少。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>已画好从一开始就显示整条路线；随滚动画出在你滚动时画线。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">感觉</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="linear" class="on" aria-pressed="true">Even</button>
-          <button type="button" data-ease="out" aria-pressed="false">Smooth</button>
+          <button type="button" data-ease="linear" class="on" aria-pressed="true">均匀</button>
+          <button type="button" data-ease="out" aria-pressed="false">平滑</button>
         </div>
-        <p class="hb-hint">Even keeps the tip with your scroll; Smooth runs ahead.</p>
+        <p class="hb-hint">均匀让笔尖跟随你的滚动；平滑会跑在前面。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Shows the stops</span><input class="hb-switch" type="checkbox" role="switch" id="wp-tog" checked autocomplete="off"></label>
-        <p class="hb-hint">Labeled points pop in as the line reaches them.</p>
+        <label class="hb-switch-row"><span>显示站点</span><input class="hb-switch" type="checkbox" role="switch" id="wp-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">带标签的点在路线到达时弹出。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="finish-lbl">Line finishes</p>
+          <p class="hb-setting-name" id="finish-lbl">线完成于</p>
           <div class="seg" id="finish-seg" role="group" aria-labelledby="finish-lbl">
-            <button type="button" data-at="0.7" aria-pressed="false">Early</button>
-            <button type="button" data-at="0.85" aria-pressed="false">Near the end</button>
-            <button type="button" data-at="1" class="on" aria-pressed="true">At the end</button>
+            <button type="button" data-at="0.7" aria-pressed="false">提前</button>
+            <button type="button" data-at="0.85" aria-pressed="false">接近结尾</button>
+            <button type="button" data-at="1" class="on" aria-pressed="true">在结尾</button>
           </div>
-          <p class="hb-hint">Early leaves the whole route on show for a while.</p>
+          <p class="hb-hint">提前完成会让整条路线展示一会儿。</p>
         </div>
       </div>
     </details>
@@ -185,41 +185,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a scroll-drawn route to [your timeline, journey or process steps]. Draw a long winding path down the page with a faint dashed copy underneath, and reveal the solid line in step with the scroll so its tip travels down with the visitor. Measure the path's length once and reveal it by sliding a single dash that is exactly as long as the path. When the settings include them, place labeled stops along the path and pop each one in as the line reaches it; scrolling back up erases the line and hides them again. If the visitor has reduced motion turned on, show each stop without the pop. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的时间线、旅程或流程步骤]加上一条滚动描绘的路线。沿页面画一条长长的蜿蜒路径，下面放一条淡虚线副本，实线按滚动同步显现，让笔尖随访客向下移动。测量一次路径长度，用一条恰好与路径等长的单条虚线滑动来显现它。设置里包含站点时，沿路径放置带标签的站点，线到达每个站点时弹出它；往上滚会擦掉线并再次藏起它们。如果访客开启了减弱动态效果，显示每个站点时不要弹出。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Timelines</li><li>Journey maps</li><li>Process steps</li><li>Delivery tracking</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Short pages</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>时间线</li><li>旅程地图</li><li>流程步骤</li><li>配送跟踪</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>短页面</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage'),trail=document.getElementById('trail'),map=document.getElementById('map');
   const wpTog=document.getElementById('wp-tog');
@@ -229,12 +229,12 @@
   // See inside and Compare. The mode is drawn at once, wherever the box is; nothing here scrolls, moves focus or presses a control.
   let mode='normal',easeMode='linear',completeAt=1;
   const LABELS={
-    normal:'A route that draws itself as you scroll',
-    inside:'A route that draws itself as you scroll, cut into tenths, with its pen tip and bars for how far you scrolled and how much is drawn',
-    compare:'The route split down the middle: already drawn on the left, drawing as you scroll on the right'
+    normal:'滚动时自己描出来的路线',
+    inside:'一条随滚动自己画出的路线，切成十份，附带笔尖和表示你滚了多远、画了多少的条形',
+    compare:'路线从中间分开：左边已画好，右边随滚动画出'
   };
   const compareNote=document.querySelector('[data-hb-for="compare"]'),COMPARE_NOTE=compareNote.textContent;
-  const AHEAD_NOTE='Here the line runs ahead of the box, so Already drawn and Draws on scroll often match where you look. Pick Even and At the end in Try it to see the tip.';
+  const AHEAD_NOTE='线跑到盒子前面了，所以已画好和随滚动画出在你看的地方常常一样。在“试一试”里选均匀和在结尾处完成，看笔尖。';
   function setNote(){compareNote.textContent=easeMode==='linear'&&completeAt===1?COMPARE_NOTE:AHEAD_NOTE}
   document.addEventListener('hb:mode',e=>{
     mode=e.detail.mode;

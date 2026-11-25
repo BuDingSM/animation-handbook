@@ -1,18 +1,18 @@
-# Flocking
+# 鸟群
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flocking/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/flocking/)
 
-## What it is
-Flocking makes a crowd of simple dots move like one flock of birds or a school of fish, with no leader and no plan. Each bird sees only the birds near it and follows three rules: keep a little room from the closest ones, fly the way its neighbors fly, and drift toward the middle of the group. Those three local rules are enough to make the whole flock swirl, split and join again; Craig Reynolds named the birds "boids" when he described them in 1986.
+## 它是什么
+鸟群让一群简单的圆点像一群鸟或一群鱼一样整体移动，没有领头，也没有计划。每只鸟只看得见附近的鸟，遵循三条规则：与最近的鸟保持一点距离、按邻居的方向飞、向群体的中间靠拢。这三条局部规则就足以让整个鸟群盘旋、分开再汇合；Craig Reynolds 在 1986 年描述它们时，把这些鸟叫做“boids”。
 
-## When to use it
-- A calm, living background behind a hero headline
-- Nature, travel and outdoor brands: birds, fish, insects, drones
-- Games, art pages and generative-design showcases
-- Articles that explain swarms, crowds or emergent behavior
+## 什么时候用
+- 主视觉标题后面安静、有生命力的背景
+- 自然、旅行和户外品牌：鸟、鱼、昆虫、无人机
+- 游戏、艺术页面和生成式设计展示
+- 讲解蜂群、人群或涌现行为的文章
 
-## How it works
-Every move, each bird gathers the birds within its view radius `R` that are in front of it or beside it (a bird has a blind spot right behind it), and turns by up to three steering pulls:
+## 工作原理
+每一步，每只鸟收集视野半径 `R` 内、位于它前方或侧面的鸟（一只鸟正后方有个盲区），再按最多三股转向拉力转向：
 
 ```js
 function step(k) {                       // k: the length of this move in 60 Hz frames, at most 1.05
@@ -40,7 +40,7 @@ function step(k) {                       // k: the length of this move in 60 Hz 
 }
 ```
 
-Each pull is Reynolds steering: the change of velocity that would point the bird at full speed in the wanted direction, capped so a bird can only turn so sharply in one move:
+每股拉力都是 Reynolds 转向：让鸟以全速指向想要的方向所需的速度变化，封顶后一只鸟一步只能转这么急：
 
 ```js
 function steer(b, dx, dy, cap, weight) {
@@ -52,40 +52,40 @@ function steer(b, dx, dy, cap, weight) {
 }
 ```
 
-The demo adds two more pulls. Inside a margin along each edge a bird turns back, harder the deeper it is in the margin, so the flock curves away from the edges instead of piling up against them. With Flees the pointer on, a bird near the pointer or a finger steers straight away from it with four times the usual turn.
+演示还加了两股拉力。沿每条边缘的留白里，鸟会往回转，越深入留白转得越急，所以鸟群会从边缘处弯回来，而不是堆在边缘上。打开「躲开指针」后，指针或手指附近的鸟会以四倍于平常的转向直直躲开。
 
-**Time, not frames.** The loop draws at most once per 16 ms and flies the birds for the time since the last drawn frame, counted in 60 Hz frames (capped at 50 ms), so they fly at the same speed on a 30, 60 or 120 Hz screen; slow motion counts a third of it. A frame more than 5% longer than one 60 Hz frame is flown as several equal moves, none longer than 1.05 of a 60 Hz frame (the 5% keeps a frame that comes a little late to one move). So a bird never turns much harder in one move than it would at 60 Hz, and a 30 Hz screen, with two moves of exactly one frame, flies exactly the 60 Hz path:
+**按时间，不按帧。**循环最多每 16ms 画一次，按自上次绘制以来的时间（以 60 Hz 帧计，封顶 50ms）让鸟飞，所以它们在 30、60 或 120 Hz 的屏幕上飞得一样快；慢动作只算它的三分之一。比一帧 60 Hz 的帧长 5% 以上的一帧，会飞成几步等长的移动，每步不超过 1.05 个 60 Hz 帧（这 5% 让来得稍晚一丝的帧仍算一步）。于是鸟一步转的弯永远不会比 60 Hz 时急多少，30 Hz 的屏幕以恰好一帧的两步，飞出与 60 Hz 完全相同的路径：
 
 ```js
 function advance(k) { const n = Math.max(1, Math.ceil(k - 0.05)); for (let i = 0; i < n; i++) step(k / n); }
 ```
 
-**Drawing.** Every bird is an arrowhead pointed along its velocity; all of them go into one path that is filled once per frame.
+**绘制。**每只鸟是沿速度方向的箭头；所有鸟放进一条路径，每帧填充一次。
 
-**A flock from the first picture.** A new flock starts at random places and then flies three seconds (180 moves) before it is first drawn, so the first picture, and the still one shown under reduced motion, already shows flocks.
+**第一张图就有鸟群。**新的鸟群从随机位置出发，先飞三秒（180 步）再第一次画出来，所以第一张图、以及减弱动态下显示的静止图，呈现的已经是鸟群。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Flock size | Medium | How many birds fly: small is 70, medium 150 and large 280; phones fly 35, 70 and 130 |
-| How close they fly | Normal | The room each bird keeps around it and how hard it follows its neighbors: loose keeps 32px and follows gently, normal keeps 22px, tight keeps 15px and follows hard. The pulls toward their heading and their middle weigh 0.7 and 0.3 at loose, 1 and 0.5 at normal and 1.2 and 0.9 at tight, against 2 for keeping apart; the room shrinks in proportion on a stage under 380px tall or wide, to 65% at the least |
-| Flees the pointer | on | Birds within 90px of the pointer or a finger steer straight away from it |
-| Speed | Normal | The top speed, in pixels per 60th of a second: slow is 1.3, normal 2 and fast 3 (78, 120 and 180px a second); no bird flies slower than 55% of it. It shrinks in proportion on a stage under 380px tall or wide, to 65% at the least |
-| Shows one bird's view | off | Rings one bird with the 50px radius it looks within and the dashed room it keeps, and links it to every neighbor it follows |
+| 鸟群大小 | 中等 | 飞着几只鸟：小是 70 只，中等 150 只，大是 280 只；手机上飞 35、70 和 130 只 |
+| 飞得多近 | 普通 | 每只鸟在身边留出的空间，以及它跟随邻居的力度：松散留 32px、跟随得轻柔，普通留 22px，紧密留 15px、跟随得用力。朝向邻居方向和朝向它们中间的拉力，松散时权重是 0.7 和 0.3，普通时 1 和 0.5，紧密时 1.2 和 0.9，而保持距离的权重是 2；在高或宽不到 380px 的舞台上，空间按比例缩小，最少到 65% |
+| 躲开指针 | 开 | 指针或手指 90px 内的鸟会直直躲开 |
+| 速度 | 普通 | 最高速度，以每六十分之一秒的像素计：慢是 1.3，普通 2，快是 3（每秒 78、120 和 180px）；没有鸟飞得比它慢 55%。在高或宽不到 380px 的舞台上按比例缩小，最少到 65% |
+| 显示一只鸟的视野 | 关 | 用 50px 半径的圆圈出一只鸟和它保持的虚线空间，并连上它跟随的每个邻居 |
 
-All distances and speeds shrink by up to 35% on small stages, such as on phones.
+在手机这样的小舞台上，所有距离和速度最多缩小 35%。
 
-## Production notes
-- **Every bird checks every other bird**, so the work grows with the square of the flock: 280 birds is about 78,000 checks a move, still under 2 ms. For thousands of birds, put them in a grid of cells the size of the view radius and check only the nine cells around each bird, or move the flock on the graphics chip (three.js has a well-known GPU birds example).
-- **Edges**: wrapping birds around to the opposite edge is simpler, but a flock then splits at the edge. Turning back inside a margin keeps every flock in view.
-- **A speed floor** (55% of the top speed here) keeps birds from hovering in place, which looks wrong for birds; fish can go slower.
-- **Weights decide the look**: more pull toward the middle and the heading makes tight, dense murmurations; more room and less pull make loose, drifting groups.
-- **Libraries**: p5.js and Processing ship classic flocking examples; game engines and three.js do it in 3D. GSAP and Framer Motion animate fixed paths, not agents, so flocking is written by hand or taken from a simulation library.
-- **Phones** fly about half as many birds, which keeps the frame time low and the small stage readable.
-- **Reduced motion**: show the flock still. Because the demo flies three seconds before its first picture, the still frame shows real flocks instead of scattered birds.
+## 生产注意事项
+- **每只鸟都要检查其他每只鸟**，所以工作量随鸟群的平方增长：280 只鸟一步约 78000 次检查，仍在 2ms 以内。几千只鸟时，把它们放进与视野半径等大的格子，只检查每只鸟周围九个格子，或者把鸟群移到显卡上（three.js 有个著名的 GPU 鸟群示例）。
+- **边缘**：把鸟绕到对面边缘更简单，但鸟群会在边缘处断开。在留白里往回转能让每个鸟群都留在视野里。
+- **速度下限**（这里是最高速度的 55%）让鸟不会悬停在原地，那样看起来不像鸟；鱼可以飞得更慢。
+- **权重决定观感**：朝中间和朝向的拉力越大，椋鸟群越紧密、越密集；空间越大、拉力越小，群体越松散、越漂移。
+- **库**：p5.js 和 Processing 自带经典的鸟群示例；游戏引擎和 three.js 能在 3D 里做。GSAP 和 Framer Motion 动画的是固定路径，不是智能体，所以鸟群要手写或用模拟库。
+- **手机**飞的鸟大约只有一半，这样帧时间低，小舞台也更清晰。
+- **减弱动态**：让鸟群静止。因为演示在第一张图之前先飞了三秒，静止帧呈现的是真正的鸟群，而不是散落的鸟。
 
-## See also
-- [Canvas Particle Effect](../canvas-particle-effect/) — dots that drift and react to the pointer, without following each other
-- [Flow Field](../../07-ambient-background/flow-field/) — particles that ride invisible currents instead of their neighbors
-- [GPGPU Particle System](../gpgpu-particle-system/) — tens of thousands of particles moved on the graphics chip
-- [Game of Life](../../07-ambient-background/game-of-life/) — cells on a grid that live and die by their neighbors
+## 另见
+- [Canvas 粒子效果](../canvas-particle-effect/) — 漂移并对指针有反应的圆点，但不跟随彼此
+- [流场](../../07-ambient-background/flow-field/) — 乘着看不见的水流而不是跟随邻居的粒子
+- [GPGPU 粒子系统](../gpgpu-particle-system/) — 在显卡上移动的数万个粒子
+- [生命游戏](../../07-ambient-background/game-of-life/) — 网格上按邻居生死的细胞

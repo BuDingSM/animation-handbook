@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morph Transition — Animation Handbook</title>
-  <meta name="description" content="The logo changes shape to match each page you visit. Best for brand marks.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/morph-transition/">
+  <title>变形过渡 — 动画手册</title>
+  <meta name="description" content="Logo 随你访问的每个页面变换形状。最适合品牌标志。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/03-page-transitions/morph-transition/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Morph Transition — Animation Handbook">
-  <meta property="og:description" content="The logo changes shape to match each page you visit. Best for brand marks.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/morph-transition/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="变形过渡 — 动画手册">
+  <meta property="og:description" content="Logo 随你访问的每个页面变换形状。最适合品牌标志。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/03-page-transitions/morph-transition/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Morph Transition — Animation Handbook">
-  <meta name="twitter:description" content="The logo changes shape to match each page you visit. Best for brand marks.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Morph Transition", "name": "Morph Transition", "description": "The logo changes shape to match each page you visit. Best for brand marks.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/morph-transition/", "inLanguage": "en", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Morph Transition"}</script>
+  <meta name="twitter:title" content="变形过渡 — 动画手册">
+  <meta name="twitter:description" content="Logo 随你访问的每个页面变换形状。最适合品牌标志。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "变形过渡", "name": "变形过渡", "description": "Logo 随你访问的每个页面变换形状。最适合品牌标志。", "url": "https://animation.xizanghuapi.cn/animations/03-page-transitions/morph-transition/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 变形过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -76,31 +76,31 @@
     .l-br{right:8px;bottom:8px}
     .nm{white-space:nowrap}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../shared-element-transition/" rel="prev" aria-label="Previous: Shared Element Transition"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Shared Element Transition</span></a><a href="../crossfade/" rel="next" aria-label="Next: Crossfade Transition"><span><span class="hb-dir">Next: </span>Crossfade Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../shared-element-transition/" rel="prev" aria-label="上一个：共享元素过渡"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>共享元素过渡</span></a><a href="../crossfade/" rel="next" aria-label="下一个：交叉淡入淡出过渡"><span><span class="hb-dir">下一个：</span>交叉淡入淡出过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.03 · Page Transitions</p>
-    <h1>Morph Transition</h1>
-    <p class="hb-lede">The logo changes shape to match each page you visit. Best for brand marks.</p>
+    <p class="hb-cat">03.03 · 页面切换</p>
+    <h1>变形过渡</h1>
+    <p class="hb-lede">Logo 随你访问的每个页面变换形状。最适合品牌标志。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click Gallery or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「画廊」或「关于」，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
       <div class="mini-nav">
@@ -113,49 +113,49 @@
         <div class="vin" aria-hidden="true" inert>
           <svg class="big" viewBox="0 0 100 100"><path class="o-from"/><path class="o-to"/><g class="lines"></g><path class="o-live"/><g class="dots"></g><circle class="ring" r="5"/></svg>
           <p class="lbl l-tl" data-hb-caption></p><p class="lbl l-tr" data-hb-caption></p>
-          <p class="lbl l-bl" data-hb-caption>Each of 12 points slides straight to its partner</p><p class="lbl l-br" data-hb-caption></p>
+          <p class="lbl l-bl" data-hb-caption>12 个点各自沿直线滑向对应的点</p><p class="lbl l-br" data-hb-caption></p>
         </div>
         <div class="vcmp" aria-hidden="true" inert>
-          <div class="half"><svg class="big" viewBox="0 0 100 100"><path class="o-from"/><path class="o-live"/></svg><p class="lbl nm" data-hb-caption>Order reversed</p></div>
-          <div class="half"><svg class="big" viewBox="0 0 100 100"><path class="o-from"/><path class="o-live"/></svg><p class="lbl nm" data-hb-caption>Same order</p></div>
+          <div class="half"><svg class="big" viewBox="0 0 100 100"><path class="o-from"/><path class="o-live"/></svg><p class="lbl nm" data-hb-caption>顺序颠倒</p></div>
+          <div class="half"><svg class="big" viewBox="0 0 100 100"><path class="o-from"/><path class="o-live"/></svg><p class="lbl nm" data-hb-caption>顺序相同</p></div>
         </div>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the logo is drawn large: each of its 12 points slides straight to its partner in the next shape, from one dashed outline to the other. Click Gallery or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Order reversed lists the new shape's points backward, so the outline folds through itself; Same order gives each point its partner and it flows. Click Gallery or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，Logo 被放大画出：它的 12 个点各自沿直线滑向下一个形状中对应的点，从一个虚线轮廓到另一个。点「画廊」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「顺序颠倒」把新形状的点按相反顺序列出，轮廓会从中间折过去；「顺序相同」让每个点都有对应的点，轮廓顺畅流动。点「画廊」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1100" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="700" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="400" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1100" aria-pressed="false">慢</button>
+          <button type="button" data-ms="700" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="400" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the logo takes to change shape.</p>
+        <p class="hb-hint">Logo 变换形状需要多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">感觉</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-          <button type="button" data-ease="springy" aria-pressed="false">Springy</button>
-          <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">Gentle</button>
-          <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+          <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+          <button type="button" data-ease="springy" aria-pressed="false">弹性</button>
+          <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">轻柔</button>
+          <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
         </div>
-        <p class="hb-hint">Springy stretches a little past the new shape.</p>
+        <p class="hb-hint">「弹性」会拉伸得比新形状稍大一点。</p>
       </div>
     </div>
   </section>
@@ -163,41 +163,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a morphing logo to [your logo or icon, and the pages it belongs to]. Give each page its own shape for the logo, and when the visitor changes page, let the outline flow from the old shape into the new one while the page content fades across. Draw every shape with the same number of points in the same order, so each point has a partner to move to and the outline never tears or twists. Move the points yourself on every frame, because CSS cannot blend two different shapes. If the visitor has reduced motion turned on, switch to the new shape at once. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的 Logo 或图标，以及它所属的页面]加上变形 Logo。给每个页面配一个 Logo 形状，访客切换页面时，让轮廓从旧形状流动到新形状，同时页面内容淡入淡出。每个形状都用相同数量、相同顺序的点来画，这样每个点都有对应的移动目标，轮廓不会撕裂或扭曲。每一帧都自己移动这些点，因为 CSS 无法混合两个不同的形状。如果访客开启了减弱动态效果，就直接换成新形状。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Logos</li><li>Brand marks</li><li>Icons that change state</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Detailed pictures</li><li>Text</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>Logo</li><li>品牌标志</li><li>会变形的图标</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>细节丰富的图片</li><li>文字</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PI2=Math.PI*2,cx=50,cy=50;
   function pts2path(pts){return'M '+pts.map(([x,y])=>`${x.toFixed(2)} ${y.toFixed(2)}`).join(' L ')+' Z'}
@@ -211,9 +211,9 @@
 
   const SHAPES=[{pts:circle12,color:'#58a6ff'},{pts:hex12,color:'#56d364'},{pts:star12,color:'#ffa657'}];
   const PAGES=[
-    {name:'Home',shape:0,bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
-    {name:'Gallery',shape:1,bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',shape:2,bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
+    {name:'首页',shape:0,bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
+    {name:'画廊',shape:1,bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',shape:2,bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
   ];
   const nav=document.getElementById('nav'),area=document.getElementById('page-area');
   const morphPath=document.getElementById('morph-path'),slowTog=document.getElementById('slow-tog');
@@ -225,8 +225,8 @@
   const pages=[],navBtns=[];
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent='Shown still and large: the logo caught during a change, each of its 12 points on the straight line to its partner in the next shape.';
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still, part way through a change: Order reversed is pulled out of shape as its points cross over; Same order keeps the outline whole.';
+    document.querySelector('[data-hb-for="inside"]').textContent='静止画面，放大显示：Logo 停在变形半途，它的 12 个点各自在通往下一个形状中对应点的直线上。';
+    document.querySelector('[data-hb-for="compare"]').textContent='静止画面，停在切换半途：「顺序颠倒」在点交叉时把形状拉变形；「顺序相同」保持轮廓完整。';
   }
 
   PAGES.forEach((p,i)=>{
@@ -327,7 +327,7 @@
   // See inside and Compare. Both are drawn from SHAPES with the same blend() as the logo, in the frame step that moves it (render).
   // At rest, or under reduced motion, they hold a pose: the shape on show changing to the star (About: to the circle), POSE of the
   // way along the Feel's curve. A change under way, and the hold of a Show me run, shows that change itself.
-  const NAMES=['circle','hexagon','star'],POSE=.4,NS='http://www.w3.org/2000/svg';
+  const NAMES=['圆形','六边形','星形'],POSE=.4,NS='http://www.w3.org/2000/svg';
   // The new shape's points listed the other way round: the top and the bottom one stay, every other point swaps with its mirror image
   SHAPES.forEach(s=>{s.rev=s.pts.map((_,i)=>s.pts[(12-i)%12])});
   const vin=area.querySelector('.vin'),halves=[...area.querySelectorAll('.half')];
@@ -344,7 +344,7 @@
     dots[i].setAttribute('r',2.6);
   }
   let drawn=-1,colored='',coloredIn='';
-  function words(ms){return ms<=450?'about half a second':ms<=800?'about three quarters of a second':ms<=1300?'about a second':ms<=2400?'about two seconds':'about three seconds'}
+  function words(ms){return ms<=450?'约半秒':ms<=800?'约四分之三秒':ms<=1300?'约一秒':ms<=2400?'约两秒':'约三秒'}
   function paint(){
     if(mode==='normal')return;
     const posed=!motionOk||!chg||(!animating&&!wayBack);
@@ -363,10 +363,10 @@
           lines[i].setAttribute('x1',x);lines[i].setAttribute('y1',y);lines[i].setAttribute('x2',B.pts[i][0]);lines[i].setAttribute('y2',B.pts[i][1]);
         });
         iRing.setAttribute('cx',A.pts[0][0]);iRing.setAttribute('cy',A.pts[0][1]);
-        lFrom.textContent='From: '+NAMES[a];lFrom.style.setProperty('--c',A.color);
-        lTo.textContent='To: '+NAMES[b];lTo.style.setProperty('--c',B.color);
+        lFrom.textContent='从：'+NAMES[a];lFrom.style.setProperty('--c',A.color);
+        lTo.textContent='到：'+NAMES[b];lTo.style.setProperty('--c',B.color);
         // Under reduced motion the page snaps, and its words say so
-        lTime.textContent=motionOk?'Takes '+words(dur*(slowTog.checked?3:1)):'Reduced motion: it snaps at once';
+        lTime.textContent=motionOk?'耗时'+words(dur*(slowTog.checked?3:1)):'减弱动态：直接切换到位';
       }else cFrom.forEach(e=>e.setAttribute('d',from));
     }
     const live=blend(A.pts,B.pts,et);

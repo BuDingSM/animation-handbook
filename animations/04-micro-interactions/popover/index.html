@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹出气泡 — 动画手册</title>
+  <meta name="description" content="点一下，带箭头的小面板跳出来。最适合详情说明和快捷操作。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/popover/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="弹出气泡 — 动画手册">
+  <meta property="og:description" content="点一下，带箭头的小面板跳出来。最适合详情说明和快捷操作。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/popover/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="弹出气泡 — 动画手册">
+  <meta name="twitter:description" content="点一下，带箭头的小面板跳出来。最适合详情说明和快捷操作。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "弹出气泡", "name": "弹出气泡", "description": "点一下，带箭头的小面板跳出来。最适合详情说明和快捷操作。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/popover/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 弹出气泡"}</script>
+  <style>
+    :root{--ui-accent:#6ea8ff;--ui-muted:#8a8a92}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{position:relative;background:#0b0b0d;overflow:hidden}
+    .pop-wrap{position:absolute;inset:0;background:#17171c}
+    .toolbar{position:absolute;top:26px;left:26px;display:flex;align-items:center;gap:14px}
+    .doc-title{font:700 16px/1.4 var(--hb-font);color:#f4f4f2}
+    .pop-btn{min-height:40px;padding:0 18px;border:1px solid var(--ui-accent);border-radius:8px;background:transparent;color:var(--ui-accent);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+    .pop{position:absolute;width:260px;background:#fff;color:#16161a;border-radius:10px;border:1px solid #e4e4e8;box-shadow:0 8px 22px rgba(0,0,0,.35);padding:14px 16px;opacity:0;pointer-events:none}
+    .pop.open{opacity:1;pointer-events:auto}
+    .pop.dir-right{left:230px;top:16px}
+    .pop.dir-down{left:26px;top:84px}
+    .pop-arrow{position:absolute;width:14px;height:14px;background:#fff;border:1px solid #e4e4e8;transform:rotate(45deg)}
+    .dir-right .pop-arrow{left:-8px;top:26px;border-right:0;border-top:0}
+    .dir-down .pop-arrow{left:60px;top:-8px;border-left:0;border-bottom:0}
+    .pop-title{font:700 15px/1.4 var(--hb-font);margin-bottom:6px}
+    .pop-text{font:500 13px/1.5 var(--hb-font);color:#55555c;margin-bottom:12px}
+    .pop-actions{display:flex;justify-content:flex-end;gap:8px}
+    .pop-actions button{min-height:34px;padding:0 14px;border-radius:7px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer}
+    .pop-cancel{border:1px solid #d4d4d8;background:#fff;color:#16161a}
+    .pop-ok{border:0;background:var(--ui-accent);color:#fff}
+    .cap{position:absolute;z-index:5;padding:3px 8px;border-radius:6px;background:rgba(11,11,13,.92);color:#f4f4f2;font:600 13px/1.25 var(--hb-font);white-space:nowrap;pointer-events:none;display:none}
+    .stage[data-hb-mode="inside"] .cap{display:block}
+    .cap.a{top:120px;left:26px}
+    .cap.b{bottom:18px;left:26px}
+    .cap.c{top:14px;right:14px}
+    .compare-view{display:none;width:100%;height:100%}
+    .stage[data-hb-mode="compare"] .demo-main,.stage[data-hb-mode="compare"] .cap{display:none!important}
+    .stage[data-hb-mode="compare"] .compare-view{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+    .stage[data-hb-mode="compare"] .compare-view::after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px solid rgba(244,244,242,.12)}
+    .cmp-half{position:relative;overflow:hidden}
+    .cmp-half .pop-wrap{position:absolute;inset:0}
+    .cmp-half .toolbar{top:16px;left:14px}
+    .cmp-half .pop{width:210px}
+    .cmp-half .pop.dir-right{left:150px;top:10px}
+    .cmp-half .pop.dir-down{left:14px;top:66px}
+    .cmp-tag{position:absolute;bottom:8px;left:8px;z-index:6;padding:3px 8px;border-radius:6px;background:rgba(11,11,13,.92);color:#f4f4f2;font:600 12px/1.25 var(--hb-font);white-space:nowrap;pointer-events:none}
+    @media(prefers-reduced-motion:reduce){.pop{transition:none}}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
+</head>
+<body class="hb" data-hb-kind="do" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../bottom-sheet/" rel="prev" aria-label="上一个：底部抽屉"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>底部抽屉</span></a><a href="../tabs/" rel="next" aria-label="下一个：标签页切换"><span><span class="hb-dir">下一个：</span>标签页切换</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.51 · 微交互</p>
+    <h1>弹出气泡</h1>
+    <p class="hb-lede">点一下，带箭头的小面板跳出来。最适合详情说明和快捷操作。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点「详情」，带箭头的小面板跳出来；点「确定」或外面就关掉，或按「演示一下」。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+
+    <div class="stage">
+      <div class="demo-main" style="display:contents">
+<div class="pop-wrap" id="pop-main">
+        <div class="toolbar"><span class="doc-title">设计稿 v3</span><button class="pop-btn" type="button" aria-expanded="false">详情</button></div>
+        <div class="pop dir-right" role="dialog" aria-label="详情">
+          <span class="pop-arrow" aria-hidden="true"></span>
+          <p class="pop-title">设计稿 v3</p>
+          <p class="pop-text">上周五更新，改了 3 处配色，导出了新的切图。</p>
+          <div class="pop-actions"><button class="pop-cancel" type="button">取消</button><button class="pop-ok" type="button">确定</button></div>
+        </div>
+      </div>
+      </div>
+      <p class="cap a" aria-hidden="true" data-hb-caption>箭头指着按钮</p>
+      <p class="cap b" aria-hidden="true" data-hb-caption>点外面也能关</p>
+      <p class="cap c" aria-hidden="true" data-hb-caption>0.3 秒出现</p>
+      <div class="compare-view"><div class="cmp-half"></div><div class="cmp-half"></div></div>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>内部：小面板从按钮旁边 6 像素外滑进来，0.3 秒；左边的箭头指着按钮，说明这块面板属于它；点外面或「确定」就关掉。</p>
+      <p data-hb-for="compare" hidden>左边直接出现：小面板一下子就摆在那里。右边带动画：它从按钮旁边滑进来，你看得到它是从哪里来的。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="dir-lbl">出现方向</p>
+        <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
+          <button type="button" data-dir="right" class="on" aria-pressed="true">向右</button>
+          <button type="button" data-dir="down" aria-pressed="false">向下</button>
+        </div>
+        <p class="hb-hint">小面板出现在按钮的哪一边。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="speed-lbl">出现速度</p>
+        <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
+          <button type="button" data-ms="200" aria-pressed="false">快</button>
+          <button type="button" data-ms="300" class="on" aria-pressed="true">中</button>
+          <button type="button" data-ms="500" aria-pressed="false">慢</button>
+        </div>
+        <p class="hb-hint">小面板跳出来用的时间。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="style-lbl">出现方式</p>
+        <div class="seg" id="style-seg" role="group" aria-labelledby="style-lbl">
+          <button type="button" data-style="slide" class="on" aria-pressed="true">滑入</button>
+          <button type="button" data-style="fade" aria-pressed="false">淡入</button>
+          <button type="button" data-style="scale" aria-pressed="false">放大</button>
+        </div>
+        <p class="hb-hint">小面板怎么来：滑进来、淡进来还是长出来。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[你的按钮，比如详情按钮]加上弹出气泡。点一下按钮，带箭头的小面板在按钮旁边跳出来，0.3 秒，箭头指着按钮，说明这块面板属于它。面板里放标题、两行说明和取消、确定两个按钮；点确定、取消或面板外面就关掉。小面板出现时从按钮方向滑进来 6 像素，同时淡入。如果访客开了减弱动态效果，就让面板直接出现和消失，不要滑动。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>详情说明</li><li>快捷操作</li><li>筛选和排序</li><li>头像旁边的菜单</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>内容很长的表单</li><li>手机上的大面板</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  const stage=document.querySelector('.stage');
+  const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let dir='right',durMs=300,style='slide',mode='normal';
+  function initPop(wrap,opts){
+    const btn=wrap.querySelector('.pop-btn'),pop=wrap.querySelector('.pop'),
+      ok=wrap.querySelector('.pop-ok'),cancel=wrap.querySelector('.pop-cancel');
+    const S={dir:opts.dir??dir,durMs:opts.durMs??durMs,style:opts.style??style,animated:opts.animated??true};
+    function place(){
+      pop.classList.remove('dir-right','dir-down');pop.classList.add('dir-'+S.dir);
+    }
+    function from(){
+      if(S.style==='fade')return 'translate(0,0)';
+      if(S.style==='scale')return 'scale(.96)';
+      return S.dir==='right'?'translateX(6px)':'translateY(-6px)';
+    }
+    function open(){
+      place();
+      pop.style.transition=!motionOk||!S.animated?'none':`opacity ${S.durMs}ms ease-out, transform ${S.durMs}ms cubic-bezier(.22,1,.36,1)`;
+      pop.style.transform=from();pop.style.opacity='0';
+      void pop.offsetWidth;
+      pop.classList.add('open');pop.style.transform='none';pop.style.opacity='1';
+      btn.setAttribute('aria-expanded','true');
+    }
+    function close(){
+      pop.style.transition=!motionOk||!S.animated?'none':`opacity ${S.durMs*.7}ms ease-in, transform ${S.durMs*.7}ms ease-in`;
+      pop.classList.remove('open');pop.style.opacity='0';pop.style.transform=from();
+      btn.setAttribute('aria-expanded','false');
+    }
+    btn.addEventListener('click',e=>{e.stopPropagation();pop.classList.contains('open')?close():open()});
+    ok.addEventListener('click',close);cancel.addEventListener('click',close);
+    wrap._pop={open,close,set:(k,v)=>{S[k]=v;if(k==='dir')place()}};
+    place();
+    return wrap._pop;
+  }
+  const mainCtl=initPop(document.getElementById('pop-main'),{});
+  document.addEventListener('click',e=>{
+    const wrap=document.getElementById('pop-main');
+    if(!wrap.contains(e.target)&&wrap.querySelector('.pop').classList.contains('open'))mainCtl.close();
+  });
+  document.getElementById('btn-demo').addEventListener('click',()=>mainCtl.open());
+  document.getElementById('btn-reset').addEventListener('click',()=>mainCtl.close());
+  function choices(id,pick){
+    const buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);
+    }));
+  }
+  choices('dir-seg',d=>{dir=d.dir;mainCtl.set('dir',dir)});
+  choices('speed-seg',d=>{durMs=+d.ms;mainCtl.set('durMs',durMs)});
+  choices('style-seg',d=>{style=d.style;mainCtl.set('style',style)});
+  let cmpBuilt=false;
+  function buildCompare(){
+    if(cmpBuilt)return;cmpBuilt=true;
+    const halves=document.querySelectorAll('.cmp-half');
+    [['直接出现',false],['带动画出现',true]].forEach(([label,animated],i)=>{
+      const tag=document.createElement('p');tag.className='cmp-tag';tag.textContent=label;halves[i].appendChild(tag);
+      const clone=document.getElementById('pop-main').cloneNode(true);
+      clone.removeAttribute('id');clone.querySelector('.pop').classList.remove('open');
+      clone.querySelector('.pop').style.opacity='0';
+      halves[i].appendChild(clone);
+      initPop(clone,{animated});
+    });
+  }
+  document.addEventListener('hb:mode',e=>{mode=e.detail.mode;if(mode==='compare')buildCompare()});
+
+</script>
+</body>
+</html>

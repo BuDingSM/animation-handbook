@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outline to Fill — Animation Handbook</title>
-  <meta name="description" content="Hollow letters fill with color, as a wipe or a fade. Best for big headlines.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/outline-to-fill/">
+  <title>描边填充 — 动画手册</title>
+  <meta name="description" content="空心字以擦除或淡入的方式填满颜色。最适合大标题。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/05-text-typography/outline-to-fill/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Outline to Fill — Animation Handbook">
-  <meta property="og:description" content="Hollow letters fill with color, as a wipe or a fade. Best for big headlines.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/outline-to-fill/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="描边填充 — 动画手册">
+  <meta property="og:description" content="空心字以擦除或淡入的方式填满颜色。最适合大标题。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/05-text-typography/outline-to-fill/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Outline to Fill — Animation Handbook">
-  <meta name="twitter:description" content="Hollow letters fill with color, as a wipe or a fade. Best for big headlines.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Outline to Fill", "name": "Outline to Fill", "description": "Hollow letters fill with color, as a wipe or a fade. Best for big headlines.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/outline-to-fill/", "inLanguage": "en", "articleSection": "Text & Typography", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Text & Typography, Outline to Fill"}</script>
+  <meta name="twitter:title" content="描边填充 — 动画手册">
+  <meta name="twitter:description" content="空心字以擦除或淡入的方式填满颜色。最适合大标题。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "描边填充", "name": "描边填充", "description": "空心字以擦除或淡入的方式填满颜色。最适合大标题。", "url": "https://animation.xizanghuapi.cn/animations/05-text-typography/outline-to-fill/", "inLanguage": "zh-CN", "articleSection": "文字与排版", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画、CSS 动画、文字与排版、描边填充"}</script>
   <style>
     :root{--ui-accent:#ff6f8b;--fill-dur:900ms;--fill-ease:ease-in-out;--stroke-color:#ff6f8b;--fill-color:#ff6f8b;--stroke-w:2px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -111,141 +111,141 @@
     .twin .fill-layer{transition:none!important}
     @media(prefers-reduced-motion:reduce){.fill-layer,.stroke-only,.fill-only,.otf-edge{transition:none!important}.fill-layer{clip-path:inset(0%)!important}.stroke-fade-wrap.filled .fill-only{opacity:1!important}.stroke-fade-wrap.filled .stroke-only{opacity:0!important}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../text-gradient-animation/" rel="prev" aria-label="Previous: Text Gradient Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Text Gradient Animation</span></a><a href="../enter-exit-typography/" rel="next" aria-label="Next: Enter/Exit Typography"><span><span class="hb-dir">Next: </span>Enter/Exit Typography</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../text-gradient-animation/" rel="prev" aria-label="上一个：文字渐变动画"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>文字渐变动画</span></a><a href="../enter-exit-typography/" rel="next" aria-label="下一个：入场退场排版"><span><span class="hb-dir">下一个：</span>入场退场排版</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">05.09 · Text &amp; Typography</p>
-    <h1>Outline to Fill</h1>
-    <p class="hb-lede">Hollow letters fill with color, as a wipe or a fade. Best for big headlines.</p>
+    <p class="hb-cat">05.09 · 文字与排版</p>
+    <h1>描边填充</h1>
+    <p class="hb-lede">空心字以擦除或淡入的方式填满颜色。最适合大标题。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It plays by itself. Turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它会自动播放。打开慢动作可以看清动作的每个部分。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="otf-item wipe">
-        <p class="var-label">Wipe</p>
+        <p class="var-label">擦除</p>
         <div class="otf-wrap" id="otf-wrap">
           <div class="otf-text outline-layer" id="outline-layer">OUTLINE</div>
           <div class="otf-text fill-layer" id="fill-layer" aria-hidden="true">OUTLINE</div>
         </div>
-        <p class="otf-cap otf-name" data-hb-caption aria-hidden="true">Wipes</p>
-        <p class="otf-cap otf-note" data-hb-caption aria-hidden="true">Half way through the fill</p>
+        <p class="otf-cap otf-name" data-hb-caption aria-hidden="true">擦除填满</p>
+        <p class="otf-cap otf-note" data-hb-caption aria-hidden="true">填充进行到一半时</p>
       </div>
       <div class="otf-item fade">
-        <p class="var-label">Fade</p>
+        <p class="var-label">淡入</p>
         <div class="stroke-fade-wrap" id="stroke-wrap">
           <div class="otf-text stroke-only" id="stroke-only">OUTLINE</div>
           <div class="otf-text fill-only" id="fill-only" aria-hidden="true">OUTLINE</div>
         </div>
       </div>
-      <p class="otf-cap" data-hb-caption aria-hidden="true">Hollow copy, always on top</p>
+      <p class="otf-cap" data-hb-caption aria-hidden="true">空心副本，始终在上面</p>
       <p class="otf-cap" data-hb-caption aria-hidden="true"></p>
-      <p class="otf-cap" data-hb-caption aria-hidden="true">Fade: the hollow copy fades out as the filled one fades in</p>
+      <p class="otf-cap" data-hb-caption aria-hidden="true">淡入：空心副本淡出的同时，填充副本淡入</p>
       <p class="otf-cap" data-hb-caption aria-hidden="true"></p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Replay</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>Loop</span></label>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Here the word's two copies are pulled apart: hollow on top, filled below. The wipe uncovers the filled copy through a growing window; the fade swaps the two by fading.</p>
-      <p data-hb-for="compare" hidden>Snaps fills the hollow letters in a single jump. Wipes pours the color in, so you see the fill travel across the letters.</p>
+      <p data-hb-for="inside" hidden>这里把这个词的两个副本拉开了：上面是空心的，下面是填满的。擦除通过一个不断变大的窗口揭开填充副本；淡入淡出则通过渐变来切换两者。</p>
+      <p data-hb-for="compare" hidden>「瞬间填满」一下子把空心字母填满。「擦除填满」把颜色倒进来，所以你能看到填充在字母间流动。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and the animation plays again.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="dir-lbl">Fill direction</p>
+        <p class="hb-setting-name" id="dir-lbl">填充方向</p>
         <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
-          <button type="button" data-dir="up" class="on" aria-pressed="true">Bottom up</button>
-          <button type="button" data-dir="down" aria-pressed="false">Top down</button>
-          <button type="button" data-dir="right" aria-pressed="false">Left to right</button>
-          <button type="button" data-dir="left" aria-pressed="false">Right to left</button>
-          <button type="button" data-dir="center" aria-pressed="false">From the middle</button>
+          <button type="button" data-dir="up" class="on" aria-pressed="true">自下而上</button>
+          <button type="button" data-dir="down" aria-pressed="false">自上而下</button>
+          <button type="button" data-dir="right" aria-pressed="false">从左到右</button>
+          <button type="button" data-dir="left" aria-pressed="false">从右到左</button>
+          <button type="button" data-dir="center" aria-pressed="false">从中间</button>
         </div>
-        <p class="hb-hint">Where the wipe starts; the fade fills all at once.</p>
+        <p class="hb-hint">擦除从哪里开始；淡入会同时填满。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1500" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="900" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="550" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1500" aria-pressed="false">慢</button>
+          <button type="button" data-ms="900" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="550" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the letters take to fill.</p>
+        <p class="hb-hint">字母填满要花多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="thick-lbl">Outline thickness</p>
+        <p class="hb-setting-name" id="thick-lbl">描边粗细</p>
         <div class="seg" id="thick-seg" role="group" aria-labelledby="thick-lbl">
-          <button type="button" data-px="1" aria-pressed="false">Thin</button>
-          <button type="button" data-px="2" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="4" aria-pressed="false">Thick</button>
+          <button type="button" data-px="1" aria-pressed="false">细</button>
+          <button type="button" data-px="2" class="on" aria-pressed="true">中</button>
+          <button type="button" data-px="4" aria-pressed="false">粗</button>
         </div>
-        <p class="hb-hint">Thin looks precise; thick looks bold and graphic.</p>
+        <p class="hb-hint">细的看起来精确，粗的看起来醒目又有图形感。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">感觉</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-            <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">Gentle</button>
-            <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+            <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+            <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">柔和</button>
+            <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
           </div>
-          <p class="hb-hint">Gentle eases in and out; Even keeps one pace.</p>
+          <p class="hb-hint">柔和是两头慢、中间快；均匀是保持一个速度。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="outline-color-lbl">Outline color</p>
+          <p class="hb-setting-name" id="outline-color-lbl">描边颜色</p>
           <div class="swatches" id="outline-color-sw" role="group" aria-labelledby="outline-color-lbl">
-            <button type="button" class="on" aria-pressed="true" aria-label="Pink" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-c="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" aria-pressed="false" aria-label="Blue" data-c="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="粉色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-c="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" aria-pressed="false" aria-label="蓝色" data-c="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The color of the letters' edges.</p>
+          <p class="hb-hint">字母边缘的颜色。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="fill-color-lbl">Fill color</p>
+          <p class="hb-setting-name" id="fill-color-lbl">填充颜色</p>
           <div class="swatches" id="fill-color-sw" role="group" aria-labelledby="fill-color-lbl">
-            <button type="button" class="on" aria-pressed="true" aria-label="Pink" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-c="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" aria-pressed="false" aria-label="Blue" data-c="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="粉色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-c="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" aria-pressed="false" aria-label="蓝色" data-c="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The color that pours into the letters.</p>
+          <p class="hb-hint">灌进字母里的颜色。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-setting-name" for="txt-in">Your text</label>
+          <label class="hb-setting-name" for="txt-in">你的文字</label>
           <input class="hb-text" type="text" id="txt-in" value="OUTLINE" maxlength="10" autocomplete="off">
-          <p class="hb-hint">Short words work best, up to 10 letters.</p>
+          <p class="hb-hint">短词效果最好，最多 10 个字母。</p>
         </div>
       </div>
     </details>
@@ -254,41 +254,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add an outline-to-fill effect to [your headline or logo word]. The text should start hollow, with only the outline of each letter showing, then fill with color. The fill can wipe in from one side, like paint, or fade in everywhere at once, like ink soaking through. Draw the outline and the filled text as two layers in exactly the same place so the letters never shift. Use large, heavy letters so there is enough inside each one to fill. The text must stay readable by screen readers. If the visitor has reduced motion turned on, show the filled text straight away. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的标题或标志词]加一个描边填充效果。文字一开始是空心的，只显示每个字母的轮廓，然后填满颜色。填充可以像油漆一样从一侧擦入，也可以像墨水浸透一样同时在各处淡入。把描边和填充文字画成完全重合的两层，这样字母绝不会移位。用又大又粗的字母，每个字母内部才有足够空间可填。文字必须始终能被屏幕阅读器读到。如果访客开启了减弱动态效果，直接显示填充好的文字。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Big headlines</li><li>Logos</li><li>Posters</li><li>Section titles</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Small text</li><li>Body text</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>大标题</li><li>标志</li><li>海报</li><li>章节标题</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>小字</li><li>正文</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const fillLayer=document.getElementById('fill-layer');
@@ -308,7 +308,7 @@
   const twinItem=wipeItem.cloneNode(true);
   twinItem.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
   twinItem.classList.add('twin');twinItem.inert=true;twinItem.setAttribute('aria-hidden','true');
-  twinItem.querySelector('.otf-name').textContent='Snaps';twinItem.querySelector('.otf-note').remove();
+  twinItem.querySelector('.otf-name').textContent='瞬间填满';twinItem.querySelector('.otf-note').remove();
   wipeItem.before(twinItem);
   const twinFill=twinItem.querySelector('.fill-layer');
   const ghost=document.createElement('div'),win=document.createElement('div');
@@ -319,14 +319,14 @@
   const caps=[...stage.querySelectorAll(':scope > .otf-cap')],[,cFill,cFade,cTime]=caps,fadeLong=cFade.textContent;
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent='Shown still, half way through the fill: the filled copy is partly uncovered by its window, and the Fade row is part way from outline to fill.';
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still, half way through the fill: Snaps is already full, while Wipes is filled only part of the way.';
+    document.querySelector('[data-hb-for="inside"]').textContent='静止显示在填充进行到一半时：填充副本被它的窗口揭开了一部分，「淡入」那一行正从描边过渡到填充的中途。';
+    document.querySelector('[data-hb-for="compare"]').textContent='静止显示在填充进行到一半时：「瞬间填满」已经填满了，而「擦除填满」只填了一部分。';
   }
   // The Feel choices as the numbers of their speed curves (the browser's own), and the words for the captions
   const CURVES={'ease-out':[0,0,.58,1],'ease-in-out':[.42,0,.58,1],linear:[0,0,1,1]};
-  const FEEL={'ease-out':', starting fast and easing out','ease-in-out':', easing in and out',linear:' at one steady pace'};
-  const SIDE={up:'from below',down:'from above',right:'from the left',left:'from the right',center:'from the middle'};
-  const SECS={1:'half a second',2:'a second',3:'a second and a half',5:'two and a half seconds',9:'four and a half seconds'}; // by half seconds
+  const FEEL={'ease-out':'，开始快、结束慢','ease-in-out':'，两头慢、中间快',linear:'，保持匀速'};
+  const SIDE={up:'下方',down:'上方',right:'左侧',left:'右侧',center:'中间'};
+  const SECS={1:'半秒',2:'一秒',3:'一个半秒',5:'两个半秒',9:'四个半秒'}; // by half seconds
 
   function dur(){return slowTog.checked?ms*3:ms}
   function apply(){
@@ -433,9 +433,9 @@
     else{
       const beside=stage.clientWidth>=560,rest=posed||!beside;
       stage.dataset.otf=beside?'beside':'above';
-      cFill.textContent=(beside?'Filled copy, uncovered by a window ':'Filled copy, window ')+SIDE[dir];
-      cFade.textContent=beside?fadeLong:'Fade: hollow fades out, filled fades in';
-      cTime.textContent=rest?'Shown half way through the fill':'Both take about '+SECS[Math.round(dur()/500)]+FEEL[ease];
+      cFill.textContent=(beside?'填充副本，由窗口从':'填充副本，窗口从')+SIDE[dir]+(beside?'揭开':'');
+      cFade.textContent=beside?fadeLong:'淡入：空心淡出，填充淡入';
+      cTime.textContent=rest?'显示在填充进行到一半时':'两者都大约用'+SECS[Math.round(dur()/500)]+FEEL[ease];
       cTime.hidden=false;
       caps.forEach((c,i)=>{c.style.left=c.style.top='0px';c.style.maxWidth=(i<3&&beside?250:stage.clientWidth-16)+'px'});
       const h=caps.map(c=>c.offsetHeight+4);

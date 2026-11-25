@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Success Confetti — Animation Handbook</title>
-  <meta name="description" content="Confetti bursts from the button when a task is done. Best for big moments.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/">
+  <title>成功彩带 — 动画手册</title>
+  <meta name="description" content="任务完成时，按钮处迸出彩带。适合用在重要时刻。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Success Confetti — Animation Handbook">
-  <meta property="og:description" content="Confetti bursts from the button when a task is done. Best for big moments.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="成功彩带 — 动画手册">
+  <meta property="og:description" content="任务完成时，按钮处迸出彩带。适合用在重要时刻。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Success Confetti — Animation Handbook">
-  <meta name="twitter:description" content="Confetti bursts from the button when a task is done. Best for big moments.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Success Confetti", "name": "Success Confetti", "description": "Confetti bursts from the button when a task is done. Best for big moments.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Success Confetti"}</script>
+  <meta name="twitter:title" content="成功彩带 — 动画手册">
+  <meta name="twitter:description" content="任务完成时，按钮处迸出彩带。适合用在重要时刻。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "成功彩带", "name": "成功彩带", "description": "任务完成时，按钮处迸出彩带。适合用在重要时刻。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 成功彩带"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ok:#3fb950}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -52,83 +52,83 @@
     .half.first{left:10px}.half.second{left:calc(50% + 10px)}
     @media(max-width:600px){.cap{padding:3px 7px;font-size:12px;line-height:16px}.stage[data-hb-mode="compare"] .order-btn{padding:18px 14px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../heart-burst/" rel="prev" aria-label="Previous: Heart / Like Burst"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Heart / Like Burst</span></a><a href="../skeleton-loader/" rel="next" aria-label="Next: Skeleton Loader"><span><span class="hb-dir">Next: </span>Skeleton Loader</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../heart-burst/" rel="prev" aria-label="上一个：点赞爱心迸发"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>点赞爱心迸发</span></a><a href="../skeleton-loader/" rel="next" aria-label="下一个：骨架屏"><span><span class="hb-dir">下一个：</span>骨架屏</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.08 · Micro-Interactions</p>
-    <h1>Success Confetti</h1>
-    <p class="hb-lede">Confetti bursts from the button when a task is done. Best for big moments.</p>
+    <p class="hb-cat">04.08 · 微交互</p>
+    <h1>成功彩带</h1>
+    <p class="hb-lede">任务完成时，按钮处迸出彩带。适合用在重要时刻。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click or tap Place order (again for another burst), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击「下单」（再点一次再迸发一次），或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <canvas id="cv" aria-hidden="true"></canvas>
-      <button class="order-btn" type="button"><span class="check" aria-hidden="true">✓</span><span id="btn-lbl">Place order</span></button>
-      <p class="cap in fan" aria-hidden="true" data-hb-caption>Shot upward inside a medium fan</p>
-      <p class="cap in pull" aria-hidden="true" data-hb-caption>Gravity pulls every piece down steadily</p>
-      <p class="cap in path" aria-hidden="true" data-hb-caption>Each piece rises, slows, then falls and fades over about two seconds</p>
-      <p class="cap in spin" aria-hidden="true" data-hb-caption>Each one spins as it flies</p>
-      <p class="cap half first" aria-hidden="true" data-hb-caption>Check only</p>
-      <p class="cap half second" aria-hidden="true" data-hb-caption>With confetti</p>
+      <button class="order-btn" type="button"><span class="check" aria-hidden="true">✓</span><span id="btn-lbl">下单</span></button>
+      <p class="cap in fan" aria-hidden="true" data-hb-caption>在中等扇形里向上喷出</p>
+      <p class="cap in pull" aria-hidden="true" data-hb-caption>重力让每块碎片稳稳落下</p>
+      <p class="cap in path" aria-hidden="true" data-hb-caption>每块碎片上升、减速，然后在大约两秒内落下、淡出</p>
+      <p class="cap in spin" aria-hidden="true" data-hb-caption>每块飞的时候都在旋转</p>
+      <p class="cap half first" aria-hidden="true" data-hb-caption>只有对勾</p>
+      <p class="cap half second" aria-hidden="true" data-hb-caption>带彩带</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the fan shows where the pieces are shot, the arrows the pull that brings them down, and the dashed lines a few of their paths. Click Place order, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Check only: the button turns green with a check; With confetti: pieces also shoot up from it, spin, fall and fade. Click Place order, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：扇形表示碎片从哪里发射，箭头表示把它们拉下来的力，虚线是其中几条的路径。点击「下单」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>只有对勾：按钮变成绿色，带一个对勾；带彩带：碎片也从它上面喷出，旋转、落下、淡出。点击「下单」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="amount-lbl">Amount of confetti</p>
+        <p class="hb-setting-name" id="amount-lbl">彩带数量</p>
         <div class="seg" id="amount-seg" role="group" aria-labelledby="amount-lbl">
-          <button type="button" data-n="60" aria-pressed="false">Some</button>
-          <button type="button" data-n="120" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-n="200" aria-pressed="false">Lots</button>
+          <button type="button" data-n="60" aria-pressed="false">一些</button>
+          <button type="button" data-n="120" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-n="200" aria-pressed="false">很多</button>
         </div>
-        <p class="hb-hint">More pieces look fuller but cost more on phones.</p>
+        <p class="hb-hint">碎片越多看起来越满，但手机上越耗性能。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="spread-lbl">Spread</p>
+        <p class="hb-setting-name" id="spread-lbl">扩散范围</p>
         <div class="seg" id="spread-seg" role="group" aria-labelledby="spread-lbl">
-          <button type="button" data-deg="60" aria-pressed="false">Narrow</button>
-          <button type="button" data-deg="110" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-deg="170" aria-pressed="false">Wide</button>
+          <button type="button" data-deg="60" aria-pressed="false">窄</button>
+          <button type="button" data-deg="110" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-deg="170" aria-pressed="false">宽版</button>
         </div>
-        <p class="hb-hint">Narrow shoots up like a fountain; wide fills a dome.</p>
+        <p class="hb-hint">窄像喷泉一样向上喷；宽会填满一个穹顶。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="fall-lbl">Fall speed</p>
+        <p class="hb-setting-name" id="fall-lbl">下落速度</p>
         <div class="seg" id="fall-seg" role="group" aria-labelledby="fall-lbl">
-          <button type="button" data-g="0.15" aria-pressed="false">Floaty</button>
-          <button type="button" data-g="0.28" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-g="0.45" aria-pressed="false">Heavy</button>
+          <button type="button" data-g="0.15" aria-pressed="false">轻飘</button>
+          <button type="button" data-g="0.28" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-g="0.45" aria-pressed="false">沉重</button>
         </div>
-        <p class="hb-hint">How quickly the pieces fall back down.</p>
+        <p class="hb-hint">碎片落回来的速度。</p>
       </div>
     </div>
   </section>
@@ -136,41 +136,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a confetti burst to [the action that completes something important, such as placing an order]. When it succeeds, turn the button into a clear success state with a check mark and a short confirmation, and fire small colored rectangles from the button: they shoot upward in a fan, spin, slow down, fall and fade. Save it for real milestones, not everyday clicks. Draw the pieces on one layer and stop drawing once the last one has faded or fallen out of view. If the visitor has reduced motion turned on, show the success state without the confetti. Match the settings listed below.</p>
+      <p class="hb-prompt">给[完成重要事情的操作，比如「下单」]加上彩带迸发。成功时，把按钮变成带对勾和简短确认的、清晰的成功状态，从按钮发射彩色小矩形：它们在扇形里向上喷出，旋转、减速、落下、淡出。只在真正的里程碑用，不要用在日常点击上。把碎片画在一个图层上，最后一块淡出或落出视野后就停止绘制。如果访客开启了减弱动态效果，只显示成功状态，不要彩带。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Orders placed</li><li>Sign-ups finished</li><li>Milestones</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Everyday clicks</li><li>Serious tasks</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>已下订单</li><li>注册完成</li><li>里程碑</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>日常点击</li><li>严肃的任务</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage'),btn=document.querySelector('.order-btn'),check=btn.querySelector('.check'),
         lbl=document.getElementById('btn-lbl'),cv=document.getElementById('cv'),ctx=cv.getContext('2d'),
@@ -243,7 +243,7 @@
   // The click and Show me both come through here; the button stays done, so every further click fires another burst.
   function face(done){
     btn.classList.toggle('done',done);twin.classList.toggle('done',done);
-    lbl.textContent=twinLbl.textContent=done?'Order placed':'Place order';
+    lbl.textContent=twinLbl.textContent=done?'已下单':'下单';
   }
   function place(){face(true);if(!reduce.matches)fire()}
   function back(){face(false)}
@@ -295,14 +295,14 @@
   choices('fall-seg',d=>{gravity=+d.g});
 
   // See inside and Compare. HOLD: how long the end of a run stays in view before the still comes back (ms). POSE: the still's moment,
-  // a quarter of a second after launch, in 60 Hz steps (a piece is at 0.88 of its strength then). SEED: the fixed series of random
+  // 四分之一秒 after launch, in 60 Hz steps (a piece is at 0.88 of its strength then). SEED: the fixed series of random
   // numbers the still's burst comes from, so every still is the same. MID: the middle of the launch speeds, which the sample paths use.
   const HOLD=700,POSE=15,SEED=1,MID=9.5,DASH=[5,5],NODASH=[];
-  const FANS={60:'a narrow fan',110:'a medium fan',170:'a wide fan'},PULLS={.15:'gently',.28:'steadily',.45:'hard'};
+  const FANS={60:'窄扇形',110:'中等扇形',170:'宽扇形'},PULLS={.15:'轻轻',.28:'稳稳',.45:'用力'};
   const [capFan,capPull,capPath,capSpin]=stage.querySelectorAll('.cap.in');
   // Under reduced motion both views are still pictures, and their notes say so (the page's own words otherwise)
-  const STILL={inside:'Inside, shown still: the fan shows where the pieces would be shot, the arrows the pull on them and the lines their paths. With reduced motion on, no confetti flies.',
-    compare:'Shown still: Check only turns green with a check; With confetti also sends pieces flying. With reduced motion on, both only turn green.'};
+  const STILL={inside:'看内部、静止展示：扇形是碎片射出的方向，箭头是拉力，线是路径。开启减弱动态效果后，没有彩纸飞出。',
+    compare:'Shown still: 只有对勾 turns green with a check; 带彩带 also sends pieces flying. With reduced motion on, both only turn green.'};
   const noteTexts=[...document.querySelectorAll('[data-hb-for]')].map(n=>[n,n.textContent]);
   function noteWords(){for(const [n,t] of noteTexts){const w=reduce.matches?STILL[n.dataset.hbFor]:t;if(n.textContent!==w)n.textContent=w}}
   noteWords();reduce.addEventListener('change',noteWords);
@@ -396,8 +396,8 @@
       if(k){used.push(k);if(el){el.style.left=k.l+'px';el.style.top=k.t+'px'}}
       return k;
     };
-    capFan.textContent='Shot upward inside '+FANS[spreadDeg];
-    capPull.textContent='Gravity pulls every piece down '+PULLS[gravity];
+    capFan.textContent='在'+FANS[spreadDeg]+'里向上喷出';
+    capPull.textContent='重力让每块碎片'+PULLS[gravity]+'落下';
     put(capFan,fit(capFan,W-2*m),[[w=>x-w/2,()=>m]]);
     // the fan reaches the top of the box and fades out along the way, so a piece that flies past its end is not outside it
     G.R=y-m;

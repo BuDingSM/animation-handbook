@@ -1,18 +1,18 @@
-# Volumetric Smoke / 3D Noise
+# 体积烟雾 / 3D 噪声
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/volumetric-smoke/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/volumetric-smoke/)
 
-## What it is
-Volumetric smoke is drawn as a real 3D cloud rather than a flat picture. For every pixel, a ray passes through a cloud of smooth noise and adds up how much smoke it meets, shading each part by how much smoke lies between it and the light. That gives soft edges and depth, which is how films draw smoke, fog and clouds.
+## 它是什么
+体积烟雾是按真正的 3D 云画出来的，而不是一张平面图。对每个像素，一条光线穿过一片平滑噪声的云，累加它遇到的烟雾量，再按它与光源之间的烟雾量给每个部分上色。这带来柔和的边缘和深度，电影就是这样画烟雾、雾和云的。
 
-## When to use it
-- Atmospheric background effects: rising smoke, volumetric fog, cloud formations
-- Sci-fi or fantasy environments where volumetric haze sets mood
-- Data visualization where density/volume is the visual metaphor
-- Animated title cards and hero sections with environmental effects
+## 什么时候用
+- 氛围背景效果：上升的烟雾、体积雾、云的形态
+- 体积薄雾营造氛围的科幻或奇幻环境
+- 密度/体积是视觉隐喻的数据可视化
+- 带环境效果的动态标题卡和主视觉区
 
-## How it works
-For each pixel, a ray is marched through 3D space. At each step, the density of the noise field is sampled and accumulated. Light attenuation is computed by casting a short shadow ray toward the light:
+## 工作原理
+对每个像素，一条光线在 3D 空间里步进。每步采样噪声场的密度并累加。光衰减通过向光源投一条短阴影光线算出：
 
 ```glsl
 void main() {
@@ -45,7 +45,7 @@ void main() {
 }
 ```
 
-**3D noise density function** — fBm over the rising smoke shape:
+**3D 噪声密度函数**——上升烟雾形状上的 fBm：
 
 ```glsl
 float smokeDensity(vec3 p, float t) {
@@ -58,31 +58,31 @@ float smokeDensity(vec3 p, float t) {
 }
 ```
 
-`rise` grows every frame by the frame's time × the speed, on the page, so changing the speed never makes the smoke jump.
+`rise` 每帧按该帧的时间 × 速度增长，在页面上算，所以改变速度永远不会让烟雾跳动。
 
-Wherever `src` has faded to almost nothing the function returns before the noise, so the five noise samples are only taken where there can be smoke. That, together with the smaller canvas described under Mobile cost, keeps the demo smooth on laptops and phones.
+`src` 淡到几乎没有的地方，函数在噪声之前就返回了，所以五次噪声采样只发生在可能有烟雾的地方。再加上“手机成本”里说的更小的画布，演示在笔记本和手机上都保持流畅。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Thickness | Medium | How dense the smoke is: thin is 0.6 times as dense as medium and thick 1.7 times, so the thickest wisps hide about a third of what is behind at thin, half at medium and 70% at thick; thin looks wispy |
-| Speed | Normal | How fast the smoke rises: its pattern moves about 3% of the box's height a second at slow, 5% at normal and 9% at fast |
-| Detail | Medium | How many steps each ray takes: low is 16, medium 32 and high 64 (48 on phones); fewer steps leave visible stripes |
-| Smoke color | Gray blue | The color of the lit smoke; the shadowed parts are darker shades of it |
-| Wind | on | The smoke drifts slowly to one side, about 2% of the box's height a second, while the plume stays in place |
-| Fine grain | on | Starts each ray at a slightly random point, which turns the stripes that few steps leave into fine grain |
+| 粗细 | 中等 | 烟雾有多浓：稀薄是中等的 0.6 倍，浓厚是 1.7 倍，所以最浓的烟缕在稀薄时遮住身后约三分之一，中等时一半，浓厚时 70%；稀薄看起来缥缈 |
+| 速度 | 普通 | 烟雾上升的速度：图案每秒移动盒子高度的约 3%（慢）、5%（普通）和 9%（快） |
+| 细节 | 中等 | 每条光线走多少步：低是 16 步，中等 32 步，高是 64 步（手机上 48 步）；步数越少，条纹越明显 |
+| 烟雾颜色 | 灰蓝色 | 被照亮的烟雾的颜色；阴影部分是它的深色 |
+| 风 | 开 | 烟雾慢慢向一侧飘，每秒约盒子高度的 2%，烟柱留在原地 |
+| 细颗粒 | 开 | 每条光线从略微随机的点开始，把步数少留下的条纹变成细颗粒 |
 
-## Production notes
-- **Precision**: the `sin`-based hash multiplies by 43758.5, which overflows the usable range of a 16-bit `mediump` float and collapses the noise to flat blocks on many mobile GPUs. Request `highp` in the fragment shader (guarded by `GL_FRAGMENT_PRECISION_HIGH`) or swap the hash for an integer-free variant with a smaller multiplier.
-- **Mobile cost**: this is fill-rate bound — every fragment runs up to `steps x (fbm + 3 shadow taps)`, so the demo trims it three ways. `smokeDensity` returns before the noise wherever the plume has faded out. The backing store is capped at about 65,000 pixels and the browser scales it up to the stage, which suits soft smoke; it never exceeds 1 CSS pixel per fragment either. On phones (screens 600px wide or less, or 500px tall or less when held sideways) the backing store is also at most 0.75 of the stage and the march at most 48 steps. Honoring a 3x phone DPR would multiply the cost ninefold.
-- **Context loss**: a GPU reset, a backgrounded tab on mobile, or a driver hiccup fires `webglcontextlost`. Without a listener the canvas goes permanently black with no error. Preventing the default event and rebuilding shaders and buffers on `webglcontextrestored` is the production path; this demo takes the simpler route of stopping the loop and showing a message.
-- **Step count vs quality**: each additional march step increases pixel cost linearly. 32 steps is generally sufficient for soft smoke; use 64 only for hero-quality renders. Add blue-noise dithering to random-offset each ray's start, breaking up banding artifacts at low step counts. The offset has to be a fraction of a *full step* to help — jittering by a few thousandths of a unit is invisible.
-- **Shadow rays**: the 3-step shadow march adds 3× extra density samples per lit pixel. Toggle off on low-end devices. For production, pre-compute a voxelized shadow map and sample it instead.
-- **Real-time fire and smoke**: game engines use particle systems with additive-blended sprite sheets for fire/smoke, which is faster than ray marching. Ray-marched volumes are used in offline rendering (films, VFX) and cinematic-quality game cutscenes.
-- **Three.js `FogExp2`**: for simple atmosphere, Three.js's built-in exponential fog is computationally free (depth-based fog applied in the vertex shader). Use volumetric ray marching only when fog must have specific 3D shape.
-- **Temporal accumulation**: real-time volumetric engines (Unreal Engine's Volumetric Fog) spread the ray march samples across multiple frames and blend results. This reduces per-frame cost by 4–8× at the cost of minor ghosting artifacts during fast camera motion.
+## 生产注意事项
+- **精度**：基于 `sin` 的哈希乘以 43758.5，会溢出 16 位 `mediump` 浮点数的可用范围，在许多手机 GPU 上把噪声塌成平块。在片元着色器里请求 `highp`（用 `GL_FRAGMENT_PRECISION_HIGH` 守卫），或把哈希换成乘数更小的不用整数的变体。
+- **手机成本**：这是填充率受限的——每个片元最多跑 `步数 ×（fbm + 3 次阴影采样）`，所以演示从三方面削减。`smokeDensity` 在烟柱淡出的地方会在噪声之前返回。后备存储封顶在约 65000 像素，浏览器把它放大到舞台，柔和的烟雾正适合；每个片元也绝不超过 1 个 CSS 像素。手机上（宽 600px 及以下，或横持时高 500px 及以下）后备存储还最多是舞台的 0.75，步进最多 48 步。按 3 倍手机 DPR 画会让成本变成九倍。
+- **上下文丢失**：GPU 重置、手机上的后台标签页或驱动故障会触发 `webglcontextlost`。没有监听器，画布会永久变黑且没有报错。阻止默认事件、在 `webglcontextrestored` 里重建着色器和缓冲是生产路径；演示走了更简单的路：停掉循环并显示一条消息。
+- **步数与质量**：每多一步步进，像素成本线性增加。柔和的烟雾一般 32 步就够了；只有主视觉质量的渲染才用 64 步。加上蓝噪声抖动，随机偏移每条光线的起点，打散低步数下的条带瑕疵。偏移必须是*整步*的一小部分才有用——抖动几个千分之一单位是看不见的。
+- **阴影光线**：3 步阴影步进给每个受光像素增加 3 倍的密度采样。低端设备上关掉。生产环境预先计算体素化的阴影图再采样。
+- **实时火焰和烟雾**：游戏引擎用带加色混合精灵图的粒子系统做火焰/烟雾，比光线步进快。光线步进的体积用在离线渲染（电影、VFX）和电影级游戏过场里。
+- **Three.js 的 `FogExp2`**：简单的大气用 Three.js 内置的指数雾，计算上免费（顶点着色器里按深度应用的雾）。只有雾必须有特定 3D 形状时才用体积光线步进。
+- **时间累积**：实时体积引擎（虚幻引擎的 Volumetric Fog）把光线步进采样分散到多帧再混合结果。每帧成本降低 4–8 倍，代价是快速镜头运动时有轻微的重影瑕疵。
 
-## See also
-- [Ray Marching / SDF Scene](../ray-marching-sdf/) — rays that stop at surfaces instead of adding up smoke
-- [Noise-Based Motion](../noise-based-motion/) — the same kind of noise, on a flat canvas
-- [Fluid / Liquid Simulation](../fluid-simulation/) — a soft, liquid look drawn by a shader
+## 另见
+- [光线步进 / SDF 场景](../ray-marching-sdf/) — 停在表面而不是累加烟雾的光线
+- [噪声驱动运动](../noise-based-motion/) — 同一种噪声，在平面画布上
+- [流体模拟](../fluid-simulation/) — 用着色器画出的柔和液体外观

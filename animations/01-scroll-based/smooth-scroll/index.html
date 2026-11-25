@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smooth (Inertia) Scroll — Animation Handbook</title>
-  <meta name="description" content="Scrolling glides to a stop instead of jumping. Best for portfolio sites.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/smooth-scroll/">
+  <title>平滑（惯性）滚动 — 动画手册</title>
+  <meta name="description" content="滚动滑到停下，而不是一下跳到位。最适合作品集网站。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/smooth-scroll/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Smooth (Inertia) Scroll — Animation Handbook">
-  <meta property="og:description" content="Scrolling glides to a stop instead of jumping. Best for portfolio sites.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/smooth-scroll/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="平滑（惯性）滚动 — 动画手册">
+  <meta property="og:description" content="滚动滑到停下，而不是一下跳到位。最适合作品集网站。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/smooth-scroll/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Smooth (Inertia) Scroll — Animation Handbook">
-  <meta name="twitter:description" content="Scrolling glides to a stop instead of jumping. Best for portfolio sites.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Smooth (Inertia) Scroll", "name": "Smooth (Inertia) Scroll", "description": "Scrolling glides to a stop instead of jumping. Best for portfolio sites.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/smooth-scroll/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Smooth (Inertia) Scroll"}</script>
+  <meta name="twitter:title" content="平滑（惯性）滚动 — 动画手册">
+  <meta name="twitter:description" content="滚动滑到停下，而不是一下跳到位。最适合作品集网站。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "平滑（惯性）滚动", "name": "平滑（惯性）滚动", "description": "滚动滑到停下，而不是一下跳到位。最适合作品集网站。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/smooth-scroll/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 平滑（惯性）滚动"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-border:rgba(255,255,255,.09)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -83,83 +83,83 @@
     @media(prefers-reduced-motion:reduce){.stage[data-hb-mode="compare"] .hint{display:none}}
     @media(max-width:600px){.track{width:14px}.gap{right:30px}.head{right:26px}.c-key,.c-rule{right:46px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../scroll-image-sequence/" rel="prev" aria-label="Previous: Scroll Image Sequence"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Scroll Image Sequence</span></a><a href="../text-fill-on-scroll/" rel="next" aria-label="Next: Text Fill on Scroll"><span><span class="hb-dir">Next: </span>Text Fill on Scroll</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../scroll-image-sequence/" rel="prev" aria-label="上一个：滚动图片序列"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滚动图片序列</span></a><a href="../text-fill-on-scroll/" rel="next" aria-label="下一个：滚动文字填充"><span><span class="hb-dir">下一个：</span>滚动文字填充</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.21 · Scroll-Based</p>
-    <h1>Smooth (Inertia) Scroll</h1>
-    <p class="hb-lede">Scrolling glides to a stop instead of jumping. Best for portfolio sites.</p>
+    <p class="hb-cat">01.21 · 滚动驱动</p>
+    <h1>平滑（惯性）滚动</h1>
+    <p class="hb-lede">滚动滑到停下，而不是一下跳到位。最适合作品集网站。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll or drag inside the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动或拖动，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <div class="viewport" id="viewport" tabindex="0" role="region" aria-label="Cards that glide as you scroll">
+      <div class="viewport" id="viewport" tabindex="0" role="region" aria-label="随滚动滑动的卡片">
         <div class="content" id="content">
-          <div class="card"><div class="card-num" aria-hidden="true">01</div><h3 class="card-title">It catches your scroll</h3><p class="card-body">Instead of letting the browser jump, the box catches each turn of the wheel or swipe and turns it into a place to go.</p></div>
-          <div class="card"><div class="card-num" aria-hidden="true">02</div><h3 class="card-title">Where to go, where it is</h3><p class="card-body">It keeps two positions: where you asked to go, and where the content is now. The gap between them is the glide.</p></div>
-          <div class="card"><div class="card-num" aria-hidden="true">03</div><h3 class="card-title">A little closer each frame</h3><p class="card-body">Many times a second, the content moves part of the way toward where you asked to go, so it speeds off and then eases in.</p></div>
-          <div class="card"><div class="card-num" aria-hidden="true">04</div><h3 class="card-title">It slides the content</h3><p class="card-body">The content moves as one piece instead of being scrolled, which keeps the movement smooth.</p></div>
-          <div class="card"><div class="card-num" aria-hidden="true">05</div><h3 class="card-title">Momentum comes free</h3><p class="card-body">Flick and let go: the content keeps gliding after your hand stops, then settles.</p></div>
-          <div class="card"><div class="card-num" aria-hidden="true">06</div><h3 class="card-title">Mind the trade-offs</h3><p class="card-body">Taking over scrolling can break keyboard scrolling, links to headings and find-in-page. Use it with care, and turn it off for visitors who ask for less motion.</p></div>
+          <div class="card"><div class="card-num" aria-hidden="true">01</div><h3 class="card-title">它接住你的滚动</h3><p class="card-body">盒子不让浏览器跳过去，而是接住滚轮的每一转或每一次滑动，把它变成一个要去的地方。</p></div>
+          <div class="card"><div class="card-num" aria-hidden="true">02</div><h3 class="card-title">要去哪里，现在在哪里</h3><p class="card-body">它保持两个位置：你要去的地方，和内容现在的地方。两者之间的差距就是滑动。</p></div>
+          <div class="card"><div class="card-num" aria-hidden="true">03</div><h3 class="card-title">每帧靠近一点</h3><p class="card-body">每秒很多次，内容向你要去的地方移动一部分路程，所以它先加速冲出去、然后缓缓停下。</p></div>
+          <div class="card"><div class="card-num" aria-hidden="true">04</div><h3 class="card-title">它滑动内容</h3><p class="card-body">内容作为一个整体移动，而不是被滚动，这样运动保持平滑。</p></div>
+          <div class="card"><div class="card-num" aria-hidden="true">05</div><h3 class="card-title">动量是免费的</h3><p class="card-body">一划就放手：手停下后内容继续滑动，然后停稳。</p></div>
+          <div class="card"><div class="card-num" aria-hidden="true">06</div><h3 class="card-title">注意取舍</h3><p class="card-body">接管滚动可能破坏键盘滚动、标题链接和页内查找。谨慎使用，并为要求减少动态效果的访客关掉它。</p></div>
         </div>
       </div>
       <div class="rail" aria-hidden="true"><div class="rail-fill" id="fill"></div></div>
-      <div class="hint" id="hint" aria-hidden="true">Drag or scroll ↑↓</div>
+      <div class="hint" id="hint" aria-hidden="true">拖动或滚动 ↑↓</div>
       <div class="views" aria-hidden="true">
         <div class="track"><i class="mk was"></i><i class="mk now"></i><i class="mk goal"></i></div>
         <i class="gap"></i><svg class="head" viewBox="0 0 13 9"><path d="M1 1H12L6.5 8Z"/></svg>
-        <span class="cap c-in c-key" data-hb-caption><span class="c-eg">Example: half way through a glide</span><span><i class="sw goal"></i>Dashed: where you asked to go</span><span><i class="sw now"></i>Solid: where it is now</span><span><i class="sw was"></i>Faint: where it started</span></span>
-        <span class="cap c-in c-rule" data-hb-caption><span>60 times a second, it moves</span><span>about a tenth of the way</span></span>
-        <span class="cap c-cmp c-one" data-hb-caption>Browser's own</span>
-        <span class="cap c-cmp c-two" data-hb-caption>Glides</span>
-        <span class="cap c-pose" data-hb-caption><span>Half way through a glide</span><span>that takes about half a second</span></span>
+        <span class="cap c-in c-key" data-hb-caption><span class="c-eg">示例：滑动进行到一半</span><span><i class="sw goal"></i>虚线：你要去的地方</span><span><i class="sw now"></i>实线：现在的地方</span><span><i class="sw was"></i>淡色：开始的地方</span></span>
+        <span class="cap c-in c-rule" data-hb-caption><span>每秒 60 次，它移动</span><span>大约十分之一的路程</span></span>
+        <span class="cap c-cmp c-one" data-hb-caption>浏览器自己的</span>
+        <span class="cap c-cmp c-two" data-hb-caption>滑动</span>
+        <span class="cap c-pose" data-hb-caption><span>滑动进行到一半</span><span>需要大约半秒</span></span>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed mark is where you asked to go, the solid one where the content is; each step closes part of the gap, so it eases in. Scroll, drag or press Show me.</p>
-      <p data-hb-for="compare" hidden>Browser's own jumps straight to where you asked; Glides follows and eases in, shown at rest half way through a glide. Scroll, drag or press Show me.</p>
+      <p data-hb-for="inside" hidden>在内部，虚线标记是你要去的地方，实线标记是内容现在的地方；每一步都缩小一部分差距，所以它缓缓停下。滚动、拖动或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>浏览器自己的直接跳到你要去的地方；滑动会跟随并缓缓停下，静止时显示在滑动进行到一半的状态。滚动、拖动或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="glide-lbl">Glide</p>
+        <p class="hb-setting-name" id="glide-lbl">滑动</p>
         <div class="seg" id="glide-seg" role="group" aria-labelledby="glide-lbl">
-          <button type="button" data-ease="0.05" aria-pressed="false">Long</button>
-          <button type="button" data-ease="0.09" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-ease="0.16" aria-pressed="false">Short</button>
+          <button type="button" data-ease="0.05" aria-pressed="false">长</button>
+          <button type="button" data-ease="0.09" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-ease="0.16" aria-pressed="false">短</button>
         </div>
-        <p class="hb-hint">How long the content keeps moving after you stop.</p>
+        <p class="hb-hint">你停下后，内容继续移动多久。</p>
       </div>
       <div class="hb-setting" data-hb-skip>
-        <label class="hb-switch-row"><span>Normal scrolling</span><input class="hb-switch" type="checkbox" role="switch" id="native-tog" autocomplete="off"></label>
-        <p class="hb-hint">Turn it on to compare with the browser's own scroll.</p>
+        <label class="hb-switch-row"><span>普通滚动</span><input class="hb-switch" type="checkbox" role="switch" id="native-tog" autocomplete="off"></label>
+        <p class="hb-hint">打开它，与浏览器自己的滚动比较。</p>
       </div>
     </div>
   </section>
@@ -167,41 +167,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add smooth scrolling to [the scrolling area or page you want to glide]. Catch the visitor's wheel, swipe and drag and turn each one into a target position, then on every frame move the content part of the remaining distance toward that target, so it glides and slows to a stop instead of jumping. Make that part exponential in the time since the last frame (one minus a fixed fraction to the power of that time), so the pace is the same on every screen. Move the content with a transform and keep a custom scrollbar in step with it. Keep keyboard scrolling, links to headings and find-in-page working. If the visitor has reduced motion turned on, use the browser's normal scrolling with no glide. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想让它滑动的滚动区域或页面]加上平滑滚动。接住访客的滚轮、滑动和拖动，把每一次都变成一个目标位置，然后每帧把内容向目标移动剩下距离的一部分，让它滑动并慢慢停下，而不是跳过去。让那一部分按自上一帧以来的时间指数变化（1 减去一个固定分数的该时间次方），这样在任何屏幕上速度都一样。用变换移动内容，并让自定义滚动条与它同步。保持键盘滚动、标题链接和页内查找正常工作。如果访客开启了减弱动态效果，用浏览器普通的滚动，不滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Portfolio sites</li><li>Brand pages</li><li>Scroll stories</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Documentation</li><li>Forms</li><li>Dashboards</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>作品集网站</li><li>品牌页面</li><li>滚动故事</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>文档</li><li>表单</li><li>仪表盘</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const viewport=document.getElementById('viewport'),content=document.getElementById('content');
   const fill=document.getElementById('fill'),hint=document.getElementById('hint'),nativeChk=document.getElementById('native-tog');
@@ -279,7 +279,7 @@
     viewport.removeEventListener('scroll',onNativeScroll);
     viewport.classList.remove('native');
     measure();current=target=viewport.scrollTop||current;viewport.scrollTop=0;
-    mode='smooth';hint.textContent='Drag or scroll ↑↓';draw(current);
+    mode='smooth';hint.textContent='拖动或滚动 ↑↓';draw(current);
     viewport.addEventListener('wheel',onWheel,{passive:false});
     viewport.addEventListener('pointerdown',onDown);viewport.addEventListener('pointermove',onMove);
     viewport.addEventListener('pointerup',onUp);viewport.addEventListener('pointercancel',onUp);
@@ -294,7 +294,7 @@
     cancelAnimationFrame(raf);raf=0;onUp();
   }
   function enableNative(){
-    disableSmooth();mode='native';hint.textContent='Normal scrolling';
+    disableSmooth();mode='native';hint.textContent='普通滚动';
     content.style.transform='';viewport.classList.add('native');
     viewport.scrollTop=current;measure();
     viewport.addEventListener('scroll',onNativeScroll,{passive:true});
@@ -351,14 +351,14 @@
   const mk=[$('.mk.was'),$('.mk.now'),$('.mk.goal')],gap=$('.gap'),head=$('.head'),rule=$('.c-rule');
   const notes=[...document.querySelectorAll('[data-hb-for]')];
   const NOTES={glide:notes.map(n=>n.textContent),
-    native:['Inside, with Normal scrolling on the content goes straight where you ask, so the two marks stay together. Turn it off in Try it to see the glide.',
-      "Normal scrolling is on, so Browser's own and Normal scrolling move the same. Turn it off in Try it, then scroll or press Show me."],
-    still:['Shown still: as your device asks, the box scrolls the normal way; the marks show a glide half way, dashed where you asked to go, solid where the content would be.',
-      "Shown still: Browser's own is already where you asked, while Glides would be only half way there. As your device asks, the box scrolls the normal way."]};
-  const NAMES={normal:viewport.getAttribute('aria-label'),inside:'Cards that glide, with marks for where you asked to go and where the content is',
-    compare:"The cards twice, one above the other: the browser's own scroll, and the glide"};
+    native:['在内部，打开普通滚动时，内容直接去到你要去的地方，所以两个标记保持在一起。在“试一试”里关掉它，看滑动。',
+      '普通滚动打开了，所以浏览器自己的和普通滚动移动得一样。在“试一试”里关掉它，再滚动或按「演示一下」。'],
+    still:['静止显示：如你的设备所要求，盒子按普通方式滚动；标记显示滑动进行到一半，虚线是你要去的地方，实线是内容会在的地方。',
+      '静止显示：浏览器自己的已经到了你要去的地方，而滑动只会到一半。如你的设备所要求，盒子按普通方式滚动。']};
+  const NAMES={normal:viewport.getAttribute('aria-label'),inside:'滑动的卡片，附带你要去的地方和内容现在的地方的标记',
+    compare:'卡片出现两次，一上一下：浏览器自己的滚动，以及滑动'};
   // Each Glide as a beginner says it: the share it moves in a 60th of a second, and how long a whole glide takes
-  const WORDS={0.05:['a twentieth','about a second'],0.09:['a tenth','about half a second'],0.16:['a sixth','about a third of a second']};
+  const WORDS={0.05:['二十分之一','大约一秒'],0.09:['十分之一','大约半秒'],0.16:['六分之一','大约三分之一秒']};
   let view='normal',glideFrom=0,posed=false,poseTimer=0,twin=null,twinContent=null,twinFill=null,thumbH=0;
 
   function calm(){return!raf&&!dragging&&!showTimer&&!returning}
@@ -371,8 +371,8 @@
   // The words that follow the settings and reduced motion (the markup holds Medium's, gliding)
   function words(){
     const still=nativeChk.disabled,nat=mode==='native'&&!still,w=WORDS[ease],say=(el,t)=>{if(el.textContent!==t)el.textContent=t};
-    say(rule.children[0],nat?'Normal scrolling:':'60 times a second, it moves');say(rule.children[1],nat?'jumps straight there':`about ${w[0]} of the way`);
-    say($('.c-two'),nat?'Normal scrolling':'Glides');say($('.c-pose').children[1],'that takes '+w[1]);
+    say(rule.children[0],nat?'普通滚动：':'每秒 60 次，它移动');say(rule.children[1],nat?'直接跳到那里':`大约 ${w[0]} 的路程`);
+    say($('.c-two'),nat?'普通滚动':'滑动');say($('.c-pose').children[1],'需要'+w[1]);
     $('.c-key').lastElementChild.style.display=nat?'none':''; // no faint mark with Normal scrolling, so no entry for it
     notes.forEach((n,i)=>say(n,NOTES[still?'still':nat?'native':'glide'][i]));
   }

@@ -1,18 +1,18 @@
-# Lightning
+# 闪电
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/lightning/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/lightning/)
 
-## What it is
-Lightning draws jagged bolts that strike from the clouds to the ground every few seconds, flicker once and fade, while the sky lights up softly behind them. Each bolt is new: it starts as a straight line that is split again and again, every split pushing its middle aside by a little less, which gives the big bends and the fine jitter of real lightning. A click or tap makes a bolt strike where the visitor points.
+## 它是什么
+闪电画出锯齿状的闪电，每隔几秒从云层劈到地面，闪烁一次、淡出，天空在后面柔和地亮起。每道闪电都是新的：它从一条直线开始，一次次分裂，每次分裂把中点推开一点、一次比一次少，这造出真实闪电的大弯曲和细抖动。点击或轻触会让闪电劈在访客指的地方。
 
-## When to use it
-- Game sites and trailers that want a dramatic opening
-- Storm, weather and night themes
-- Event and launch intros with a burst of energy
-- Halloween and fantasy pages
+## 什么时候用
+- 想要戏剧性开场的游戏网站和预告片
+- 暴风雨、天气和夜晚主题
+- 有能量迸发的活动和发布开场
+- 万圣节和奇幻页面
 
-## How it works
-A bolt is built once per strike, by midpoint displacement. It starts as one segment from a point in the clouds to the spot it strikes. Each round splits every segment in two and pushes the new midpoint sideways, at random, by up to a set distance; that distance halves every round. Seven rounds turn the straight line into 129 points: the first rounds make the large bends, the later ones the fine jitter. Every round is kept, so the demo's See inside can draw them one after another:
+## 工作原理
+每道闪电用中点位移一次建成。它从云层中的一点到劈中点的一段开始。每轮把每段分成两段，把新中点随机横向推出最多设定距离；那个距离每轮减半。七轮把直线变成 129 个点：前几轮造出大弯曲，后几轮造出细抖动。每轮都保留下来，所以演示的“看里面”可以一轮一轮画出来：
 
 ```js
 function split(x0, y0, x1, y1, rounds, off) {
@@ -29,28 +29,28 @@ function split(x0, y0, x1, y1, rounds, off) {
 }
 ```
 
-The first push is about a fifth of the bolt's length. Forks start at points along the finished bolt and are split five times on their own, shorter and thinner. Once built, the whole strike is moved sideways, or narrowed, so that it stays inside the box (in Compare, inside its half). Each bolt is drawn twice on the canvas, with no shadow blur: a wide, faint stroke in the bolt's color for the glow, then a thin one on top in that color mixed halfway to white. Its brightness follows the time since the strike: full, dim, full again within a fifth of a second, then a fade to nothing by half a second. The sky's light is a white layer over the scene whose opacity is that brightness times 0.3, so it is never more than 30% white; a still bolt, and every bolt under reduced motion, keeps a steady 10% glow instead. See inside lights the sky once, falling softly from 15%, when it draws the glow. Rain is a set of short lines moved by the time that passed; the clouds are two soft layers slid sideways with transforms.
+第一次推出大约是闪电长度的五分之一。分叉从成品闪电沿线的点开始，自己分裂五次，更短、更细。建成后，整个闪电横向移动或收窄，让它留在盒子里面（比较模式里留在它那一半）。每道闪电在画布上画两次，不用阴影模糊：先用闪电颜色画一条宽而淡淡的描画作为辉光，再在上面画一条细的，是那个颜色与白色对半混合。它的亮度跟随劈下后的时间：五分之一秒内全亮、变暗、再全亮，然后在半秒内淡到没有。天空的光是场景上的一层白色，不透明度是亮度的 0.3 倍，所以永远不超过 30% 的白；静止的闪电，以及减少动态下的每道闪电，改用稳定的 10% 辉光。“看里面”在画辉光时让天空亮一次，从 15% 柔和落下。雨是一组按流逝时间移动的短线；云是两层用变换横向滑动的柔和层。
 
-**Safety.** A strike starts at least 1.5 seconds after the one before, whatever is pressed: a click that comes sooner waits its turn. One strike flashes twice (bright, dim, bright), so the scene never flashes more than twice in any second, well within the limit of three that keeps flashing content safe for people with photosensitive epilepsy.
+**安全。**一次闪电至少在上一次 1.5 秒后才开始，不管按了什么：来得更早的点击要排队等候。一次闪电闪两次（亮、暗、亮），所以场景每秒闪烁不超过两次，远在三次的限制内，这个限制让闪烁内容对光敏性癫痫人群保持安全。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How often | Sometimes | The wait between strikes, picked at random: rarely is 5 to 8 seconds, sometimes 2.6 to 4.4 seconds and often 1.6 to 2.4 seconds; never less than 1.5 seconds |
-| Branches | Some | How many thinner forks split off the bolt: few is 2, some 4 and many 7 |
-| Bolt color | White | The color of the glow and of the core, which is that color mixed halfway to white: white, blue or violet |
-| Lights up the sky | on | The sky turns at most 30% white with each strike and follows its flicker (in See inside one soft fall from 15% when the glow is drawn; a steady 10% glow behind a still bolt and under reduced motion); off, only the bolt flashes |
-| Rain | on | 160 thin raindrops fall at a slant (70 on phones); off, the sky is clear of rain |
+| 多久一次 | 有时 | 闪电之间的等待时间，随机选取：很少是 5 到 8 秒，有时 2.6 到 4.4 秒，经常 1.6 到 2.4 秒；永远不少于 1.5 秒 |
+| 分支 | 一些 | 从闪电分出的较细分叉有多少：少是 2 个，一些是 4 个，多是 7 个 |
+| 闪电颜色 | 白色 | 辉光和核心的颜色，核心是那个颜色与白色对半混合：白色、蓝色或紫色 |
+| 照亮天空 | 开 | 天空每次闪电最多变 30% 白，并跟随它的闪烁（“看里面”时在画辉光时从 15% 柔和落下一次；静止闪电后面和减少动态下是稳定的 10% 辉光）；关时只有闪电闪烁 |
+| 雨 | 开 | 160 滴细雨斜落（手机上 70 滴）；关时天空没有雨 |
 
-## Production notes
-- **Flash safely.** Keep strikes at least a second and a half apart, cap the sky's light (here 30% white) and never flash a large area at full white. Under reduced motion, show a still bolt and fade bolts in and out with no flicker, the sky at a steady 10% glow, never pulsing.
-- **No shadow blur.** Canvas `shadowBlur` on a long path is slow on phones; a wide, faint stroke under the bright one gives the glow for the cost of one more line.
-- **Build once per strike.** The bolt's points are worked out when it strikes, not every frame; each frame only draws the saved lines.
-- **Layers that need no redraw.** The clouds and hills are elements of their own, moved with transforms or not at all; only the rain is drawn every frame; the bolt's canvas is drawn again only while a strike flashes or See inside builds it.
-- **Libraries.** Three.js and PixiJS draw the same polylines as lines or meshes with additive blending; GSAP can drive the flicker and the sky's opacity with a short timeline.
+## 生产注意事项
+- **安全闪光。**闪电间隔至少一秒半，限制天空的光（这里是 30% 白），永远不要让大面积以全白闪烁。减少动态下，显示静止的闪电，闪电淡入淡出、没有闪烁，天空保持稳定的 10% 辉光，永远不脉动。
+- **不用阴影模糊。**画布上的 `shadowBlur` 在长路径上手机上很慢；亮描画下面一条宽而淡淡的描画，只多一条线的代价就给出辉光。
+- **每次闪电建成一次。**闪电的点在劈下时算出，不是每帧；每帧只画保存的线。
+- **不需要重绘的层。**云和山丘是自己的元素，用变换移动或完全不动；只有雨是每帧画的；闪电的画布只在闪电闪烁或“看里面”构建它时才重画。
+- **库。**Three.js 和 PixiJS 用叠加混合把同样的折线画成线条或网格；GSAP 可以用短时间线驱动闪烁和天空的不透明度。
 
-## See also
-- [Fireworks](../fireworks/) — bright strokes with a soft glow on a canvas
-- [Snow / Rain](../snow-rain/) — rain and snow falling over a scene
-- [Flash / Light Leak Transition](../../03-page-transitions/flash-transition/) — a flash kept within safe limits
-- [Fire Effect](../fire-effect/) — a canvas effect over a dark box, flames instead of bolts
+## 另见
+- [烟花](../fireworks/) — 画布上带柔和辉光的明亮描画
+- [雪 / 雨](../snow-rain/) — 场景上落下的雨和雪
+- [闪光 / 漏光过渡](../../03-page-transitions/flash-transition/) — 保持在安全限制内的闪光
+- [火焰效果](../fire-effect/) — 深色盒子上的画布效果，是火焰而不是闪电

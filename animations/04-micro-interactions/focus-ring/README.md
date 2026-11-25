@@ -1,18 +1,18 @@
-# Focus Ring Animation
+# 焦点环动画
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/focus-ring/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/focus-ring/)
 
-## What it is
-A focus ring is the outline that shows which item the keyboard is on. Animating it, so the ring closes in around each item as you press Tab, makes every move easier to follow. It shows when the keyboard is used (and when you click into a text field, since you type there next), so people who click buttons and links with a mouse do not see rings appear.
+## 它是什么
+焦点环是显示键盘在哪个项目上的轮廓。给它做动画，让圆环在每次按 Tab 时收拢到每个项目周围，每次移动都更容易跟上。它在使用键盘时显示（点进文本字段时也会显示，因为接下来要在那里打字），所以用鼠标点击按钮和链接的人不会看到圆环出现。
 
-## When to use it
-- Every interactive element on every page — focus rings are mandatory for WCAG 2.4.7 compliance
-- Forms where keyboard navigation between fields must be clearly tracked
-- Navigation menus and modal dialogs where Tab order needs visual confirmation
-- Any site with keyboard-reliant users (power users, accessibility needs, screen reader users)
+## 什么时候用
+- 每个页面上的每个交互元素——焦点环是 WCAG 2.4.7 合规的必需项
+- 键盘在字段之间导航必须清晰跟踪的表单
+- Tab 顺序需要视觉确认的导航菜单和模态对话框
+- 任何有依赖键盘的用户（高级用户、无障碍需求、读屏软件用户）的网站
 
-## How it works
-Remove the browser's default outline entirely, then rebuild it using `:focus-visible` with an animation:
+## 工作原理
+完全去掉浏览器默认的轮廓，然后用 `:focus-visible` 加动画重建它：
 
 ```css
 :root {
@@ -44,7 +44,7 @@ Remove the browser's default outline entirely, then rebuild it using `:focus-vis
 }
 ```
 
-The animation interpolates `outline-offset` from a larger value inward — the ring appears to contract onto the element, drawing the eye. A glow variant adds `box-shadow` for a softer look:
+动画把 `outline-offset` 从更大的值向内插值——圆环看起来收缩到元素上，吸引眼球。辉光变体加 `box-shadow`，看起来更柔和：
 
 ```css
 .focusable:focus-visible {
@@ -54,22 +54,22 @@ The animation interpolates `outline-offset` from a larger value inward — the r
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Ring style | Solid | Solid is a plain outline; Dashed draws it in dashes; Glow adds a soft halo, a band of the ring's color at 18% opacity reaching 5px out from the item; Wide fills the gap between the item and the ring, making one thick band |
-| Speed | Normal | How long the ring takes to close in from 8px further out: slow is 220ms, normal 140ms and fast 80ms; fast enough not to feel delayed, slow enough to see |
-| Ring thickness | Medium | Thin is 1px, medium 2px and thick 4px; 2px or more is easy to see |
-| Ring gap | Small | The space between the ring and the item: none, 3px or 6px; 2 to 4px looks natural |
+| 圆环样式 | 实心 | 实心是普通的轮廓；虚线用短划画出来；辉光加一圈柔和的光晕，是圆环颜色 18% 不透明度、从项目向外 5px 的带子；宽版填满项目和圆环之间的间隙，变成一条粗带 |
+| 速度 | 普通 | 圆环从 8px 外收拢要花多长时间：慢是 220ms，普通 140ms，快 80ms；快到感觉不延迟，慢到能看见 |
+| 圆环粗细 | 中等 | 细是 1px，中等 2px，粗是 4px；2px 或更粗容易看见 |
+| 圆环间距 | 小 | 圆环和项目之间的空隙：无、3px 或 6px；2 到 4px 看起来自然 |
 
-## Production notes
-- **Never use `:focus` alone** — it fires on mouse clicks in all browsers, creating unwanted rings that designers suppress by setting `outline: none` globally, breaking keyboard access entirely. `:focus-visible` solves both problems.
-- **Do not globally `outline: none`** — this removes keyboard navigation visibility for all users and is a WCAG failure. Only remove it on elements where you're rebuilding the ring yourself.
-- **Browser support**: `:focus-visible` is supported in all modern browsers (Chrome 86+, Firefox 85+, Safari 15.4+). For older browsers, use the `focus-visible` polyfill from WICG.
-- **Framer Motion**: focus ring animations are best kept in CSS — JS animation of outline-offset is less performant. Framer Motion's `whileFocus` works for `box-shadow` glow variants.
-- **Design tokens**: expose ring color as a design token. Systems like Radix UI and shadcn/ui wire focus ring color to the theme's primary accent automatically.
+## 生产注意事项
+- **绝不要只用 `:focus`**——它在所有浏览器里的鼠标点击时都会触发，产生设计师不想要的圆环，于是他们全局设置 `outline: none`，彻底破坏键盘访问。`:focus-visible` 同时解决了这两个问题。
+- **不要全局 `outline: none`**——这会去掉所有用户的键盘导航可见性，是 WCAG 失败。只有在你自己重建圆环的元素上才去掉它。
+- **浏览器支持**：`:focus-visible` 在所有现代浏览器里都支持（Chrome 86+、Firefox 85+、Safari 15.4+）。旧浏览器请用 WICG 的 `focus-visible` polyfill。
+- **Framer Motion**：焦点环动画最好留在 CSS 里——JS 动画 outline-offset 性能较差。Framer Motion 的 `whileFocus` 适合 `box-shadow` 辉光变体。
+- **设计令牌**：把圆环颜色公开为设计令牌。Radix UI 和 shadcn/ui 这样的系统会自动把焦点环颜色连到主题的主强调色上。
 
-## See also
-- [Form Field Morph](../form-field-morph/) — the label moves up when a field is focused
-- [Hover State Animation](../hover-state/) — items react when the pointer is over them
-- [Button Press Scale](../button-press-scale/) — the button shrinks while it is pressed
+## 另见
+- [表单字段变形](../form-field-morph/) — 字段获得焦点时标签上移
+- [悬停状态动画](../hover-state/) — 指针在上面时项目会有反应
+- [按钮按压缩放](../button-press-scale/) — 按下时按钮会缩小

@@ -1,18 +1,18 @@
-# WebGL Shader Animation
+# WebGL 着色器动画
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/webgl-shader-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/webgl-shader-animation/)
 
-## What it is
-A shader animation draws a moving picture entirely on the graphics chip. One small program runs for every pixel, every frame, and works out that pixel's color from its position and the time, so the whole pattern is made of math, with no images. Each of the four patterns in the demo is one such program.
+## 它是什么
+着色器动画完全在显卡上画出动态画面。一个小程序每帧为每个像素运行一次，按像素的位置和时间算出它的颜色，所以整个图案都是数学做出来的，没有图片。演示里的四种图案各是这样一个程序。
 
-## When to use it
-- Full-canvas animated backgrounds that need GPU-level performance
-- Generative art and creative coding where patterns emerge from math
-- Loading screens and transitions with zero asset overhead
-- Brand expressions using procedural color and motion
+## 什么时候用
+- 需要 GPU 级性能的全画布动态背景
+- 图案从数学里产生的生成艺术和创意编码
+- 零素材开销的加载画面和过渡
+- 用程序化颜色和运动表达品牌
 
-## How it works
-The entire setup is a quad covering the screen. The fragment shader receives the pixel coordinate and global time as uniforms:
+## 工作原理
+整个设置就是一个盖住屏幕的四边形。片元着色器以 uniform 接收像素坐标和全局时间：
 
 ```js
 // Minimal WebGL boilerplate for a shader demo
@@ -37,7 +37,7 @@ function render(ts) {
 }
 ```
 
-**Plasma** — the simplest pattern; nested sine functions over UV coordinates, and the sum picks a hue (`hsv()` turns a hue, a saturation and a brightness into a color):
+**等离子**——最简单的图案；UV 坐标上的嵌套正弦函数，它们的和挑出一个色相（`hsv()` 把色相、饱和度和亮度变成颜色）：
 
 ```glsl
 void main() {
@@ -52,7 +52,7 @@ void main() {
 }
 ```
 
-**Cells (Voronoi)** — cellular pattern using nearest-neighbor distance in a grid; the point in each cell drifts slowly as time runs on:
+**细胞（Voronoi）**——用网格里最近邻距离做的细胞图案；每个细胞里的点随时间慢慢漂移：
 
 ```glsl
 float voronoi(vec2 p) {
@@ -67,23 +67,23 @@ float voronoi(vec2 p) {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Pattern | Plasma | Plasma adds up sine waves into flowing color; Waves bends striped color; Cells splits the plane into cells around moving points; Kaleidoscope mirrors one slice around the middle |
-| Speed | Normal | How fast time runs in the pattern: slow is 0.6, normal 1 and fast 1.6 times real time, so the plasma's colors drift once around the rainbow in about 33 seconds at slow, 20 at normal and 12.5 at fast |
-| Reacts to the pointer | off | Each pattern bends around the pointer or a finger in its own way; in Kaleidoscope the pointer sets the number of slices |
+| 图案 | 等离子 | 等离子把正弦波加起来变成流动的颜色；波浪弯曲条纹状的颜色；细胞把平面分成围绕移动点的细胞；万花筒把一片围绕中心镜像 |
+| 速度 | 普通 | 图案里时间流逝的速度：慢是真实时间的 0.6 倍，普通 1 倍，快是 1.6 倍，所以等离子的颜色绕彩虹一圈，慢约 33 秒，普通 20 秒，快 12.5 秒 |
+| 对指针有反应 | 关 | 每种图案都以自己的方式在指针或手指周围弯曲；万花筒里指针决定切片的数量 |
 
-## Production notes
-- **Always check `COMPILE_STATUS` and `LINK_STATUS`.** A shader that fails to compile throws nothing and logs nothing — `gl.drawArrays` just quietly draws nothing and you get a black canvas. Read `getShaderInfoLog` / `getProgramInfoLog` and put the message somewhere a human will see it. This demo renders the compile log into the stage; break a shader on purpose and you get the GLSL error, not a black box.
-- **Handle context loss.** `webglcontextlost` fires on a GPU reset, a driver update, or a backgrounded tab that the OS reclaims. Call `preventDefault()` on it — otherwise the context never comes back — then rebuild buffers, programs and uniform locations in `webglcontextrestored`. Every GL object from the old context is gone.
-- **Size the backing store in device pixels**, not CSS pixels: `canvas.width = clientWidth * dpr`. Then update `gl.viewport(0, 0, canvas.width, canvas.height)` in the same place — forgetting the viewport is the classic resize bug, and it stretches or crops the scene instead of failing loudly.
-- **Shadertoy**: all four patterns in this demo are canonical Shadertoy exercises. The site has a live GLSL editor, a large library of community shaders, and a standard uniform convention (`iTime`, `iResolution`, `iMouse`).
-- **Canvas resolution**: shader cost scales with pixel count. At 4K, a complex shader runs 4× slower than at 1080p. Use `devicePixelRatio` carefully — rendering at 0.5× device pixels and upscaling often looks fine for background shaders.
-- **`mediump` vs `highp`**: `precision mediump float` is required on mobile. Some shaders produce visible banding at `mediump` — switch to `precision highp float` for patterns with fine detail.
-- **Mouse uniform**: add `uniform vec2 uMouse` and pass `e.clientX / W, e.clientY / H` to make any shader interactive without rewriting the core algorithm.
+## 生产注意事项
+- **始终检查 `COMPILE_STATUS` 和 `LINK_STATUS`。**编译失败的着色器不抛错也不记日志——`gl.drawArrays` 只是悄悄什么也不画，你得到一块黑画布。读 `getShaderInfoLog` / `getProgramInfoLog`，把消息放到人能看到的地方。演示把编译日志渲染进舞台；故意弄坏一个着色器，你会得到 GLSL 错误，而不是黑盒子。
+- **处理上下文丢失。**GPU 重置、驱动更新或操作系统回收的后台标签页会触发 `webglcontextlost`。在上面调用 `preventDefault()`——否则上下文永远回不来——然后在 `webglcontextrestored` 里重建缓冲、程序和 uniform 位置。旧上下文的每个 GL 对象都不见了。
+- **按设备像素设置后备存储大小**，不是 CSS 像素：`canvas.width = clientWidth * dpr`。然后在同一个地方更新 `gl.viewport(0, 0, canvas.width, canvas.height)`——忘记视口是经典的调整大小 bug，它会拉伸或裁剪场景，而不是大声报错。
+- **Shadertoy**：演示里的四种图案都是经典的 Shadertoy 练习。这个网站有实时 GLSL 编辑器、庞大的社区着色器库和标准的 uniform 约定（`iTime`、`iResolution`、`iMouse`）。
+- **画布分辨率**：着色器成本随像素数缩放。4K 下复杂着色器的运行速度是 1080p 下的四分之一。谨慎使用 `devicePixelRatio`——按 0.5 倍设备像素渲染再放大，背景着色器常常看起来没问题。
+- **`mediump` 与 `highp`**：手机上要求 `precision mediump float`。有些着色器在 `mediump` 下会产生可见的条带——细节精细的图案改用 `precision highp float`。
+- **鼠标 uniform**：加上 `uniform vec2 uMouse`，传入 `e.clientX / W, e.clientY / H`，不用重写核心算法就能让任何着色器可交互。
 
-## See also
-- [Fluid / Liquid Simulation](../fluid-simulation/) — blobs drawn by the same one-surface shader setup
-- [Ray Marching / SDF Scene](../ray-marching-sdf/) — a whole 3D scene drawn by one shader
-- [Noise-Based Motion](../noise-based-motion/) — moving patterns drawn on a 2D canvas instead
+## 另见
+- [流体模拟](../fluid-simulation/) — 同样的单面着色器设置画出的色块
+- [光线步进 / SDF 场景](../ray-marching-sdf/) — 一个着色器画出的整个 3D 场景
+- [噪声驱动运动](../noise-based-motion/) — 在 2D 画布上画出的动态图案

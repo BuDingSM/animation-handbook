@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Our version: The play button that rises</title>
+<title>我们的版本：升起来的播放按钮</title>
 <style>
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -18,7 +18,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 html{background:#0b0b0f;overflow:hidden}
-body{color:#f4f4f2;font:400 15px/1.4 'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+body{color:#f4f4f2;font:400 15px/1.4 'Schibsted Grotesk','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei','WenQuanYi Micro Hei','Droid Sans Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
 .stage{position:relative;height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:var(--py) var(--px);background:radial-gradient(90% 120% at 20% 0,#14172a,#0b0b0f 70%)}
 .wrap{display:grid;gap:clamp(8px,2.5vh,14px);width:max-content;max-width:100%;margin:0 auto}
 h1{padding-left:4px;font-size:clamp(17px,2.2vw,22px);font-weight:700;line-height:1.2;letter-spacing:-.02em}
@@ -70,13 +70,13 @@ h1{padding-left:4px;font-size:clamp(17px,2.2vw,22px);font-weight:700;line-height
 </head>
 <body>
 <main class="stage" id="stage">
-  <div class="wrap" role="group" aria-label="A shelf of playlist cards. Point at a card, or reach it with the keyboard, and a play button rises into the corner of its cover.">
-    <h1>Playlists for today</h1>
+  <div class="wrap" role="group" aria-label="一排歌单卡片。指向一张卡片，或用键盘走到它那里，播放按钮就会升到封面的一角。">
+    <h1>今天的歌单</h1>
     <ul class="row">
-      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#ffce5a,#ff9d5c 42%,#ff6f8b 76%,#6b2c6e)"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="36" cy="37" r="19" fill="#fff" fill-opacity=".92"/><path d="M0 68q22-11 44 0t56-3v35H0z" fill="#0b0b0f" fill-opacity=".2"/><path d="M8 80q20-8 40 0t44-4" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="Morning mix">Morning mix</a></p><p class="s">32 songs</p><button type="button" class="play" aria-label="Play Morning mix" data-t="Morning mix"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
-      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#b98cff,#6a5bd0 42%,#252a78 76%,#12153c)"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="68" cy="29" r="12" fill="#ffce5a" fill-opacity=".95"/><path d="M0 100 45 56h10l45 44z" fill="#0b0b0f" fill-opacity=".3"/><path d="M50 60v6M50 72v9M50 87v13" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2.4" stroke-linecap="round"/><path d="M12 36h26M20 46h18" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="Night drive">Night drive</a></p><p class="s">18 songs</p><button type="button" class="play" aria-label="Play Night drive" data-t="Night drive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
-      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#ff6f8b,#b98cff 50%,#4a2f94 80%,#1c1650)"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#fff" fill-opacity=".92"><circle cx="34" cy="40" r="12"/><circle cx="50" cy="34" r="15"/><circle cx="65" cy="42" r="11"/><rect x="26" y="42" width="49" height="12" rx="6"/></g><path d="M33 64l-3 9M47 66l-3 9M62 64l-3 9M40 78l-3 8" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="Rainy day">Rainy day</a></p><p class="s">41 songs</p><button type="button" class="play" aria-label="Play Rainy day" data-t="Rainy day"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
-      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#5fd88a,#3fd6c4 34%,#1f6f86 68%,#10283f)"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M24 44h38v12a19 19 0 0 1-38 0z" fill="#fff" fill-opacity=".92"/><path d="M62 48h6a7 7 0 0 1 0 14h-8" fill="none" stroke="#fff" stroke-opacity=".92" stroke-width="4"/><path d="M34 36q-4-6 0-12M44 36q-4-6 0-12M54 36q-4-6 0-12" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="Slow coffee">Slow coffee</a></p><p class="s">27 songs</p><button type="button" class="play" aria-label="Play Slow coffee" data-t="Slow coffee"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
+      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#ffce5a,#ff9d5c 42%,#ff6f8b 76%,#6b2c6e)"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="36" cy="37" r="19" fill="#fff" fill-opacity=".92"/><path d="M0 68q22-11 44 0t56-3v35H0z" fill="#0b0b0f" fill-opacity=".2"/><path d="M8 80q20-8 40 0t44-4" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="清晨混搭">清晨混搭</a></p><p class="s">32 首歌</p><button type="button" class="play" aria-label="播放清晨混搭" data-t="清晨混搭"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
+      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#b98cff,#6a5bd0 42%,#252a78 76%,#12153c)"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="68" cy="29" r="12" fill="#ffce5a" fill-opacity=".95"/><path d="M0 100 45 56h10l45 44z" fill="#0b0b0f" fill-opacity=".3"/><path d="M50 60v6M50 72v9M50 87v13" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2.4" stroke-linecap="round"/><path d="M12 36h26M20 46h18" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="夜晚驾车">夜晚驾车</a></p><p class="s">18 首歌</p><button type="button" class="play" aria-label="播放夜晚驾车" data-t="夜晚驾车"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
+      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#ff6f8b,#b98cff 50%,#4a2f94 80%,#1c1650)"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#fff" fill-opacity=".92"><circle cx="34" cy="40" r="12"/><circle cx="50" cy="34" r="15"/><circle cx="65" cy="42" r="11"/><rect x="26" y="42" width="49" height="12" rx="6"/></g><path d="M33 64l-3 9M47 66l-3 9M62 64l-3 9M40 78l-3 8" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="雨天">雨天</a></p><p class="s">41 首歌</p><button type="button" class="play" aria-label="播放雨天" data-t="雨天"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
+      <li class="card"><div class="cover" style="background:linear-gradient(140deg,#5fd88a,#3fd6c4 34%,#1f6f86 68%,#10283f)"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M24 44h38v12a19 19 0 0 1-38 0z" fill="#fff" fill-opacity=".92"/><path d="M62 48h6a7 7 0 0 1 0 14h-8" fill="none" stroke="#fff" stroke-opacity=".92" stroke-width="4"/><path d="M34 36q-4-6 0-12M44 36q-4-6 0-12M54 36q-4-6 0-12" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round"/></svg></div><p class="t"><a href="#" data-t="慢咖啡">慢咖啡</a></p><p class="s">27 首歌</p><button type="button" class="play" aria-label="播放慢咖啡" data-t="慢咖啡"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></li>
     </ul>
   </div>
   <p class="note" id="note" role="status"></p>
@@ -105,7 +105,7 @@ document.addEventListener('focusin', e => { const c = cardOf(e.target); if (!c |
 document.addEventListener('focusout', () => { foc = null; paint(); });
 document.addEventListener('click', e => {
   const b = e.target.closest && e.target.closest('.play, .t a'); if (!b) return;
-  e.preventDefault(); say((b.matches('.play') ? 'Play pressed: ' : 'Opened: ') + b.dataset.t);
+  e.preventDefault(); say((b.matches('.play') ? '已按下播放：' : '已打开：') + b.dataset.t);
 });
 
 // Show me: a dot comes in, rests on the first card, crosses to the second, rests there and leaves. The cards take their state from it.

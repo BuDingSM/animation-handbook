@@ -1,19 +1,19 @@
-# Enter/Exit Typography
+# 入场退场排版
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/)
 
-## What it is
-Enter/exit typography shows short phrases one at a time in the same place. Each phrase comes in, holds still long enough to be read, then leaves before the next one arrives. Every phrase has its own way in and out, such as sliding, growing, blurring or wiping, and the last one stays on screen when the sequence ends.
+## 它是什么
+入场退场排版在同一个地方一次展示一句短语。每句短语进来、静止停留到够读完，然后在下一句到来之前离开。每句短语都有自己的进出方式，比如滑动、放大、模糊或擦除，序列结束时最后一句留在屏幕上。
 
-## When to use it
-- Sequential brand statements and manifesto sections
-- Automated slideshow-style content that cycles without user interaction
-- App onboarding flows that walk through a narrative step by step
-- Ambient display screens and digital signage
-- Hero sections with a rotating message queue
+## 什么时候用
+- 连续的品牌宣言和宣言式段落
+- 自动循环、无需用户互动的幻灯片式内容
+- 一步一步讲故事的应用引导流程
+- 氛围展示屏和数字标牌
+- 带有轮换信息队列的主视觉区域
 
-## How it works
-Each phrase has a three-timer chain: enter animation fires, then after the enter duration a hold timer starts, then after the hold duration the exit animation fires, and finally after the exit duration `done()` is called to advance to the next phrase:
+## 工作原理
+每句短语有一个三计时器链：进场动画触发，然后在进场时长之后停留计时器开始，再在停留时长之后退场动画触发，最后在退场时长之后调用 `done()` 进入下一句短语：
 
 ```js
 function show(phrase, done) {
@@ -33,7 +33,7 @@ function show(phrase, done) {
 }
 ```
 
-Each enter/exit pair is a `@keyframes` rule:
+每对进场/退场都是一条 `@keyframes` 规则：
 
 ```css
 .enter-slide-right { animation: eSR 500ms ease-out forwards; }
@@ -43,23 +43,23 @@ Each enter/exit pair is a `@keyframes` rule:
 @keyframes xSL { from { opacity:1; transform:translateX(0) }    to { opacity:0; transform:translateX(60px) } }
 ```
 
-One play shows the phrases in order and leaves the last one on screen. While Loop is on, the last phrase exits too and the play starts again from the first.
+一次播放按顺序展示短语，最后一句留在屏幕上。循环开启时，最后一句也会退场，播放从第一句重新开始。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Entrance speed | Normal | How long each phrase takes to arrive: slow is 800ms, normal 500ms and fast 300ms; fast feels energetic, slow feels deliberate |
-| Time on each phrase | Medium | How long each phrase holds still: short is 1200ms, medium 2000ms and long 3200ms; it must be longer than it takes to read the phrase |
-| Exit speed | Normal | How long each phrase takes to leave: slow is 650ms, normal 400ms and fast 250ms; exits are usually shorter than entrances |
+| 进场速度 | 普通 | 每句短语进来需要的时间：慢速 800ms，普通 500ms，快速 300ms；快速感觉有活力，慢速感觉郑重 |
+| 每句短语的停留时间 | 中 | 每句短语静止停留的时间：短 1200ms，中 2000ms，长 3200ms；必须比读完这句短语需要的时间长 |
+| 退场速度 | 普通 | 每句短语离开需要的时间：慢速 650ms，普通 400ms，快速 250ms；退场通常比进场短 |
 
-## Production notes
-- **Hold duration is the most important parameter**: the animation is wasted if phrases don't have enough time to be read. A 5-word phrase needs at least 1000ms hold, preferably 1500–2000ms. Test by reading the phrase aloud at a comfortable pace — if you can't finish before the exit starts, extend the hold.
-- **Directional continuity**: if a phrase exits upward, the next phrase entering from below creates a sense of being on the same vertical track. If a phrase exits left and the next enters from the right, it implies the user is moving "forward" through a sequence. These are conventions from film editing.
-- **Auto-pause on tab blur**: use `document.addEventListener('visibilitychange', ...)` to pause the sequence when the tab loses focus. Phrases that advance while the user is away result in missed messages.
-- **`prefers-reduced-motion`**: replace all motion with instant swaps — `display: none` → `display: block`. The text sequence still cycles, just without animation.
-- **Framer Motion**: `<AnimatePresence>` handles enter/exit lifecycles for React components elegantly. Each phrase is conditionally rendered and gets `initial`, `animate`, and `exit` props.
+## 生产注意事项
+- **停留时间是最重要的参数**：如果短语没有足够的时间被读完，动画就白做了。一句 5 个词的短语至少需要 1000ms 的停留，最好 1500–2000ms。用舒服的速度把短语大声读出来测试——如果在退场开始前读不完，就延长停留。
+- **方向连续性**：如果一句短语向上退场，下一句从下方进来，会让人感觉在同一条垂直轨道上。如果一句短语向左退场，下一句从右边进来，就暗示用户正在“向前”通过一个序列。这些都是电影剪辑里的惯例。
+- **标签失焦时自动暂停**：用 `document.addEventListener('visibilitychange', ...)` 在标签失去焦点时暂停序列。用户不在时还在推进的短语，会导致信息被错过。
+- **`prefers-reduced-motion`**：把所有动作换成即时切换——`display: none` → `display: block`。文字序列仍然循环，只是没有动画。
+- **Framer Motion**：`<AnimatePresence>` 优雅地处理 React 组件的进场/退场生命周期。每句短语按条件渲染，并拿到 `initial`、`animate` 和 `exit` 属性。
 
-## See also
-- [Kinetic Typography](../kinetic-typography/) — words that each move in their own way
-- [Rotate Word Carousel](../rotate-word-carousel/) — one word in a sentence keeps changing
-- [Text Morphing](../text-morphing/) — one word changes into the next, letter by letter
+## 另见
+- [动态排版](../kinetic-typography/) — 词语逐个以各自的方式进出
+- [轮换词轮播](../rotate-word-carousel/) — 句子中的一个词不断换成下一个
+- [文字变形](../text-morphing/) — 一个词逐字变成下一个词

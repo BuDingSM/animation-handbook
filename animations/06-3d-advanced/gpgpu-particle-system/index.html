@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPGPU Particle System — Animation Handbook</title>
-  <meta name="description" content="Tens of thousands of particles flow on the graphics chip. Best for hero effects.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/">
+  <title>GPGPU 粒子系统 — 动画手册</title>
+  <meta name="description" content="数万个粒子在显卡上流动。适合主视觉特效。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/gpgpu-particle-system/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="GPGPU Particle System — Animation Handbook">
-  <meta property="og:description" content="Tens of thousands of particles flow on the graphics chip. Best for hero effects.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="GPGPU 粒子系统 — 动画手册">
+  <meta property="og:description" content="数万个粒子在显卡上流动。适合主视觉特效。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/gpgpu-particle-system/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GPGPU Particle System — Animation Handbook">
-  <meta name="twitter:description" content="Tens of thousands of particles flow on the graphics chip. Best for hero effects.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GPGPU Particle System", "name": "GPGPU Particle System", "description": "Tens of thousands of particles flow on the graphics chip. Best for hero effects.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/gpgpu-particle-system/", "inLanguage": "en", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, GPGPU Particle System"}</script>
+  <meta name="twitter:title" content="GPGPU 粒子系统 — 动画手册">
+  <meta name="twitter:description" content="数万个粒子在显卡上流动。适合主视觉特效。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GPGPU 粒子系统", "name": "GPGPU 粒子系统", "description": "数万个粒子在显卡上流动。适合主视觉特效。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/gpgpu-particle-system/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, GPGPU 粒子系统"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -38,101 +38,101 @@
     @media (max-width:600px),(max-height:500px){.store{right:116px;max-width:calc(100% - 140px)}}
     @media (max-width:360px){.cap{font-size:12px;line-height:16px;padding:3px 7px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../ray-marching-sdf/" rel="prev" aria-label="Previous: Ray Marching / SDF Scene"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Ray Marching / SDF Scene</span></a><a href="../image-distortion-hover/" rel="next" aria-label="Next: Image Distortion on Hover"><span><span class="hb-dir">Next: </span>Image Distortion on Hover</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../ray-marching-sdf/" rel="prev" aria-label="上一个：光线步进 / SDF 场景"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>光线步进 / SDF 场景</span></a><a href="../image-distortion-hover/" rel="next" aria-label="下一个：悬停图片扭曲"><span><span class="hb-dir">下一个：</span>悬停图片扭曲</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.13 · 3D &amp; Advanced</p>
-    <h1>GPGPU Particle System</h1>
-    <p class="hb-lede">Tens of thousands of particles flow on the graphics chip. Best for hero effects.</p>
+    <p class="hb-cat">06.13 · 3D 与高级效果</p>
+    <h1>GPGPU 粒子系统</h1>
+    <p class="hb-lede">数万个粒子在显卡上流动。适合主视觉特效。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。暂停可以仔细看，打开慢动作能看清每一步。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <canvas id="cvs" role="img" aria-label="Tens of thousands of glowing points flowing across a dark background"></canvas>
+      <canvas id="cvs" role="img" aria-label="深色背景上流动的数万个发光点"></canvas>
       <canvas class="marks" aria-hidden="true"></canvas>
-      <p class="cap gp store" aria-hidden="true" data-hb-caption>Every particle is one pixel of this square: red, how far across; green, how far up</p>
-      <div class="gp key" aria-hidden="true"><p class="cap ring" data-hb-caption>Ringed: one particle and its pixel</p><p class="cap rule" data-hb-caption>Arrows: which way the rule pushes, at each spot</p></div>
-      <p class="cap side first" aria-hidden="true" data-hb-caption>About 4,000</p>
+      <p class="cap gp store" aria-hidden="true" data-hb-caption>每个粒子都是这个方块里的一个像素：红色表示横向多远，绿色表示纵向多高</p>
+      <div class="gp key" aria-hidden="true"><p class="cap ring" data-hb-caption>圈住的：一个粒子和它的像素</p><p class="cap rule" data-hb-caption>箭头：规则在每个位置推动的方向</p></div>
+      <p class="cap side first" aria-hidden="true" data-hb-caption>约 4,000 个</p>
       <p class="cap side second" aria-hidden="true" data-hb-caption>65,000</p>
       <div class="no-wgl2" id="no-wgl2"></div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, every particle lives as one pixel of the small square, its place stored as a color. The graphics chip moves them all at once, each the way the arrows point.</p>
-      <p data-hb-for="compare" hidden>About 4,000 and 65,000 follow the same rule at the same speed; only the count differs. The graphics chip moves every particle at once, so even the bigger count stays smooth.</p>
+      <p data-hb-for="inside" hidden>看内部：每个粒子都是小方块里的一个像素，它的位置存成一种颜色。显卡会同时移动所有粒子，每个都按箭头指的方向移动。</p>
+      <p data-hb-for="compare" hidden>约 4,000 个和 65,000 个遵循同样的规则、同样的速度；区别只有数量。显卡会同时移动每个粒子，所以数量再多也能保持流畅。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="move-lbl">Movement</p>
+        <p class="hb-setting-name" id="move-lbl">运动方式</p>
         <div class="seg" id="move-seg" role="group" aria-labelledby="move-lbl">
-          <button type="button" data-behavior="0" class="on" aria-pressed="true">Flow</button>
-          <button type="button" data-behavior="1" aria-pressed="false">Swirl</button>
-          <button type="button" data-behavior="2" aria-pressed="false">Attract</button>
-          <button type="button" data-behavior="3" aria-pressed="false">Orbit</button>
+          <button type="button" data-behavior="0" class="on" aria-pressed="true">流动</button>
+          <button type="button" data-behavior="1" aria-pressed="false">漩涡</button>
+          <button type="button" data-behavior="2" aria-pressed="false">吸引</button>
+          <button type="button" data-behavior="3" aria-pressed="false">环绕</button>
         </div>
-        <p class="hb-hint">The rule every particle follows.</p>
+        <p class="hb-hint">每个粒子都遵循的规则。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="count-lbl">Number of particles</p>
+        <p class="hb-setting-name" id="count-lbl">粒子数量</p>
         <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
           <button type="button" data-n="128" data-hb-phone aria-pressed="false">16,000</button>
           <button type="button" data-n="256" class="on" aria-pressed="true">65,000</button>
           <button type="button" data-n="320" aria-pressed="false">100,000</button>
         </div>
-        <p class="hb-hint">Phones start with 16,000; more can be slow there.</p>
+        <p class="hb-hint">手机默认从 16000 个开始；再多在手机上会变慢。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-spd="0.35" aria-pressed="false">Slow</button>
-          <button type="button" data-spd="0.6" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-spd="1" aria-pressed="false">Fast</button>
+          <button type="button" data-spd="0.35" aria-pressed="false">慢</button>
+          <button type="button" data-spd="0.6" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-spd="1" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How hard the rule pushes the particles.</p>
+        <p class="hb-hint">规则推粒子的力度有多大。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Color</p>
+          <p class="hb-setting-name" id="color-lbl">颜色</p>
           <div class="seg" id="color-seg" role="group" aria-labelledby="color-lbl">
-            <button type="button" data-mode="0" class="on" aria-pressed="true">One color</button>
-            <button type="button" data-mode="1" aria-pressed="false">By speed</button>
-            <button type="button" data-mode="2" aria-pressed="false">Shifting</button>
+            <button type="button" data-mode="0" class="on" aria-pressed="true">单色</button>
+            <button type="button" data-mode="1" aria-pressed="false">按速度</button>
+            <button type="button" data-mode="2" aria-pressed="false">渐变</button>
           </div>
-          <p class="hb-hint">One color, by speed, or slowly shifting colors.</p>
+          <p class="hb-hint">单色、按速度着色，或颜色慢慢变化。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Trails</span><input class="hb-switch" type="checkbox" role="switch" id="trail-tog" autocomplete="off"></label>
-          <p class="hb-hint">Each particle leaves a fading streak.</p>
+          <label class="hb-switch-row"><span>拖影</span><input class="hb-switch" type="checkbox" role="switch" id="trail-tog" autocomplete="off"></label>
+          <p class="hb-hint">每个粒子身后会留下一道渐渐消失的拖影。</p>
         </div>
       </div>
     </details>
@@ -141,41 +141,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a GPU particle system to [the section you want it in]. Keep every particle's position and speed in a floating-point texture, one pixel per particle, and move them all at once in a shader that reads one texture and writes the other, swapping them after each pass, one pass per 60th of a second so it runs at the same speed on every screen. Then draw each particle as a tiny point, following a flowing field, a swirl, a pull to the middle or an orbit. That keeps tens of thousands of particles smooth. Start with far fewer on phones, and show a clear message where WebGL 2 is missing. If the visitor has reduced motion turned on, show one still frame. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想放它的版块]加一个 GPU 粒子系统。把每个粒子的位置和速度存在一张浮点纹理里，一个像素对应一个粒子，再用着色器同时移动所有粒子：着色器读一张纹理、写另一张，每轮过后交换，每 60 分之一秒一轮，这样在任何屏幕上速度都一样。然后把每个粒子画成一个小点，跟着流动场、漩涡、向中心的拉力或环绕运动。这样数万个粒子也能保持流畅。手机上一开始用的粒子要少得多，没有 WebGL 2 的地方要显示一条清楚的提示。如果访客打开了减弱动态效果，就显示一帧静止画面。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Hero effects</li><li>Data art</li><li>Launch pages</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Behind text</li><li>Low-power devices</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>主视觉特效</li><li>数据艺术</li><li>发布页面</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>文字后面</li><li>低性能设备</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 // Physics shader (WebGL2 GLSL ES 3.00)
 const PHYSICS_VS=`#version 300 es
@@ -253,7 +253,7 @@ void main(){vec4 p=texelFetch(uPos,ivec2(floor((gl_FragCoord.xy-uBox.xy)*uN/uBox
 
 const stage=document.getElementById('stage'),cvs=document.getElementById('cvs'),noWgl2=document.getElementById('no-wgl2');
 const slowTog=document.getElementById('slow-tog');
-const NO_WGL2_MSG='This demo needs WebGL 2, which this browser does not offer. Try a recent Chrome, Firefox or Safari.';
+const NO_WGL2_MSG='这个演示需要 WebGL 2，这个浏览器不支持。试试新版的 Chrome、Firefox 或 Safari。';
 // Phones are screens up to 600px wide, or up to 500px tall when held sideways. They start with the 16k texture: 65k points
 // is too much fill for a phone, and the visitor can still pick more. 16k is the count marked data-hb-phone, which the home
 // page's Copy prompt reads on phones too.
@@ -264,7 +264,7 @@ let idxBuf=null,particleCount=0,PT=1.5,shaderErr='';
 // See inside and Compare: the mode, the square's program, the particle followed, Compare's small system, the marks, the names
 let mode='normal',insetProg=null,follow=null,small=null;
 const marksCvs=stage.querySelector('.marks'),mctx=marksCvs.getContext('2d'),one=new Float32Array(4);
-const LABELS={normal:cvs.getAttribute('aria-label'),inside:'Glowing points flowing, with arrows for the rule that pushes them and a small square where every point is stored as one pixel'};
+const LABELS={normal:cvs.getAttribute('aria-label'),inside:'流动的发光点，箭头表示推动它们的规则，还有一个小方块，每个点都以一个像素的形式存在'};
 
 // The pressed count follows the start (this runs before the shared script reads the settings for "Your settings")
 document.querySelectorAll('#count-seg button').forEach(b=>{
@@ -273,8 +273,8 @@ document.querySelectorAll('#count-seg button').forEach(b=>{
 });
 names(); // Compare's half names and note for this start (on phones about 1,000 beside 16,000)
 
-function mk(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){shaderErr=gl.getShaderInfoLog(x)||'the shader did not compile';console.error(shaderErr);}return x;}
-function mkProg(vs,fs){const p=gl.createProgram();gl.attachShader(p,mk(gl.VERTEX_SHADER,vs));gl.attachShader(p,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS)){shaderErr=gl.getProgramInfoLog(p)||'the shaders did not link';console.error(shaderErr);}return p;}
+function mk(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){shaderErr=gl.getShaderInfoLog(x)||'着色器没有编译成功';console.error(shaderErr);}return x;}
+function mkProg(vs,fs){const p=gl.createProgram();gl.attachShader(p,mk(gl.VERTEX_SHADER,vs));gl.attachShader(p,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS)){shaderErr=gl.getProgramInfoLog(p)||'着色器没有链接成功';console.error(shaderErr);}return p;}
 
 // A float texture n pixels square (d: its first data, or null), and a framebuffer that draws into a texture
 function makeTex(n,d){
@@ -319,7 +319,7 @@ function init(){
   fadeProg=mkProg(PHYSICS_VS,FADE_FS);
   insetProg=mkProg(PHYSICS_VS,INSET_FS);
   // A failed compile otherwise shows as a silent black canvas — say so instead
-  if(shaderErr){fail('Shader failed to build: '+shaderErr);return false;}
+  if(shaderErr){fail('着色器构建失败：'+shaderErr);return false;}
   // Full-screen quad shared by the physics pass and the trail fade
   qBuf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,qBuf);
   gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
@@ -361,7 +361,7 @@ function render(ts){
   if(!passes)return;
   last=ts;owed+=due-passes;
   const unit=slowTog.checked?1/3:1;
-  // In Compare every pass moves the small system too: the same clock, rule, Speed and step
+  // In Compare every pass moves the small system too: the same clock, rule, 速度 and step
   for(let i=0;i<passes;i++){simT+=unit/60;physics(simT,unit);if(mode==='compare'&&small)physics(simT,unit,small);}
   paint(simT,false,passes);
 }
@@ -511,12 +511,12 @@ function marks(t,b,f){
   c.beginPath();if(ll>d+10*k){c.moveTo(ix+ux*d,iy+uy*d);c.lineTo(f.x-ux*10*k,f.y-uy*10*k);}c.moveTo(f.x+10*k,f.y);c.arc(f.x,f.y,10*k,0,Math.PI*2);c.rect(ix-6*k,iy-6*k,12*k,12*k);
   both('rgba(6,10,16,.85)','#ffd84d',4.5,2);
 }
-// Compare's half names, its note and the canvas's name, from the counts as they are (the second from Number of particles)
+// Compare's half names, its note and the canvas's name, from the counts as they are (the second from 粒子数量)
 function names(){
-  const first='About '+((small?small.n:PHONE.matches?32:64)===64?'4,000':'1,000'),second=document.querySelector('#count-seg .on').textContent;
+  const first='约 '+((small?small.n:PHONE.matches?32:64)===64?'4,000':'1,000'),second=document.querySelector('#count-seg .on').textContent;
   stage.querySelector('.side.first').textContent=first;stage.querySelector('.side.second').textContent=second;
-  document.querySelector('[data-hb-for="compare"]').textContent=`${first} and ${second} follow the same rule at the same speed; only the count differs. The graphics chip moves every particle at once, so even the bigger count stays smooth.`;
-  LABELS.compare=`The same flow twice: ${first.toLowerCase()} points beside ${second}`;
+  document.querySelector('[data-hb-for="compare"]').textContent=`${first} 个和 ${second} 个遵循同样的规则、同样的速度；区别只有数量。显卡会同时移动每个粒子，所以数量再多也能保持流畅。`;
+  LABELS.compare=`同样的流动画两次：一边是${first} 个粒子，另一边是${second} 个`;
   if(mode==='compare')cvs.setAttribute('aria-label',LABELS.compare);
 }
 
@@ -553,7 +553,7 @@ if(init()){
     e.preventDefault();
     if(raf!==null){cancelAnimationFrame(raf);raf=null;}
     gl=null;tex0=tex1=idxBuf=null;
-    noWgl2.textContent='WebGL context lost — waiting for the browser to restore it.';
+    noWgl2.textContent='WebGL 上下文丢失了——正在等待浏览器恢复它。';
     noWgl2.style.display='flex';
   });
   cvs.addEventListener('webglcontextrestored',()=>{
@@ -581,7 +581,7 @@ choices('count-seg',d=>{
 choices('speed-seg',d=>{SPD=+d.spd;});
 choices('color-seg',d=>{if(+d.mode===COLOR_MODE)return;COLOR_MODE=+d.mode;repaint();});
 document.getElementById('trail-tog').addEventListener('change',e=>{TRAILS=e.target.checked;repaint();});
-// See inside's arrows follow Movement and Speed at once, paused too; a new count renames Compare's second half and copies the first
+// See inside's arrows follow 运动方式 and 速度 at once, paused too; a new count renames Compare's second half and copies the first
 ['move-seg','speed-seg'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{if(mode==='inside'&&paused&&gl)paint(simT,true);}));
 document.getElementById('count-seg').addEventListener('click',()=>{names();if(mode==='compare'&&gl){makeSmall();repaint();}});
 </script>

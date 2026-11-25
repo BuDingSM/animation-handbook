@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heart / Like Burst — Animation Handbook</title>
-  <meta name="description" content="The heart pops and fills as small hearts burst out. Best for like buttons.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/heart-burst/">
+  <title>点赞爱心迸发 — 动画手册</title>
+  <meta name="description" content="爱心弹出并填满，同时迸出小爱心。适合用在点赞按钮上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/heart-burst/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Heart / Like Burst — Animation Handbook">
-  <meta property="og:description" content="The heart pops and fills as small hearts burst out. Best for like buttons.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/heart-burst/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="点赞爱心迸发 — 动画手册">
+  <meta property="og:description" content="爱心弹出并填满，同时迸出小爱心。适合用在点赞按钮上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/heart-burst/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Heart / Like Burst — Animation Handbook">
-  <meta name="twitter:description" content="The heart pops and fills as small hearts burst out. Best for like buttons.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Heart / Like Burst", "name": "Heart / Like Burst", "description": "The heart pops and fills as small hearts burst out. Best for like buttons.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/heart-burst/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Heart / Like Burst"}</script>
+  <meta name="twitter:title" content="点赞爱心迸发 — 动画手册">
+  <meta name="twitter:description" content="爱心弹出并填满，同时迸出小爱心。适合用在点赞按钮上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "点赞爱心迸发", "name": "点赞爱心迸发", "description": "爱心弹出并填满，同时迸出小爱心。适合用在点赞按钮上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/heart-burst/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 点赞爱心迸发"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--like:#ff5470}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -51,87 +51,87 @@
     .stage[data-hb-mode="compare"] .cap.half{display:block;top:10px}
     .twin .heart{margin:16px}.twin.on .heart{color:var(--like)}
     .half.first{left:10px}.half.second{left:calc(50% + 10px)}
-    /* The still both views rest on, a quarter of a second into a like: the hearts filled, the real one held at that point of its pop */
+    /* The still both views rest on, 四分之一秒 into a like: the hearts filled, the real one held at that point of its pop */
     .stage[data-hb-mode="inside"].posed .heart,.stage[data-hb-mode="compare"].posed .heart{color:var(--like)}
     .stage[data-hb-mode="inside"].posed .like-btn path,.stage[data-hb-mode="compare"].posed .like-btn path{transform-box:view-box;
       transform-origin:12px 12px;animation:pop .5s cubic-bezier(.22,1,.36,1) -.25s paused}
     @media(max-width:600px){.cap{padding:3px 7px;font-size:12px;line-height:16px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../toggle-switch/" rel="prev" aria-label="Previous: Toggle / Switch Slide"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Toggle / Switch Slide</span></a><a href="../success-confetti/" rel="next" aria-label="Next: Success Confetti"><span><span class="hb-dir">Next: </span>Success Confetti</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../toggle-switch/" rel="prev" aria-label="上一个：开关滑动"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>开关滑动</span></a><a href="../success-confetti/" rel="next" aria-label="下一个：成功彩带"><span><span class="hb-dir">下一个：</span>成功彩带</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.07 · Micro-Interactions</p>
-    <h1>Heart / Like Burst</h1>
-    <p class="hb-lede">The heart pops and fills as small hearts burst out. Best for like buttons.</p>
+    <p class="hb-cat">04.07 · 微交互</p>
+    <h1>点赞爱心迸发</h1>
+    <p class="hb-lede">爱心弹出并填满，同时迸出小爱心。适合用在点赞按钮上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click or tap the heart to like it and again to unlike it, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击爱心来点赞，再点一次取消点赞，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <canvas id="cv" aria-hidden="true"></canvas>
       <div class="like-wrap">
-        <button class="like-btn" type="button" aria-pressed="false" aria-label="Like">
+        <button class="like-btn" type="button" aria-pressed="false" aria-label="点赞">
           <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21S3.25 15.4 3.25 9.6C3.25 6.9 5.2 5 7.7 5c1.8 0 3.3 1 4.3 2.7C13 6 14.5 5 16.3 5c2.5 0 4.45 1.9 4.45 4.6C20.75 15.4 12 21 12 21z"/></svg>
         </button>
         <span class="ring" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
       </div>
-      <div class="count">Likes <b id="count">128</b></div>
-      <p class="cap in up" aria-hidden="true" data-hb-caption>Each piece flies out, a little upward</p>
-      <p class="cap in end" aria-hidden="true" data-hb-caption>Gravity bends its path down as it fades</p>
-      <p class="cap in rings" aria-hidden="true" data-hb-caption>The heart squashes to the inner ring, swells to the outer, then settles</p>
-      <p class="cap in time" aria-hidden="true" data-hb-caption>All over in about three quarters of a second</p>
-      <p class="cap half first" aria-hidden="true" data-hb-caption>Color only</p>
-      <p class="cap half second" aria-hidden="true" data-hb-caption>Pops and bursts</p>
+      <div class="count">点赞 <b id="count">128</b></div>
+      <p class="cap in up" aria-hidden="true" data-hb-caption>每块碎片飞出去，微微向上</p>
+      <p class="cap in end" aria-hidden="true" data-hb-caption>重力在它淡出时把路径向下弯</p>
+      <p class="cap in rings" aria-hidden="true" data-hb-caption>爱心压到内环，胀到外环，然后落定</p>
+      <p class="cap in time" aria-hidden="true" data-hb-caption>大约四分之三秒内全部结束</p>
+      <p class="cap half first" aria-hidden="true" data-hb-caption>只有颜色</p>
+      <p class="cap half second" aria-hidden="true" data-hb-caption>弹出并迸发</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the lines are the paths the pieces fly, pulled down as they fade; the rings show how the heart squashes and swells. Click the heart, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Shown just after a like: Color only fills the heart; Pops and bursts also pops it and sprays small hearts. Click the heart, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：线条是碎片飞行的路径，在淡出时被拉下来；圆环表示爱心怎么压扁又胀大。点击爱心，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>点赞后立刻的样子：只有颜色会填满爱心；弹出并迸发还会让它弹起、喷出小爱心。点击爱心，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="num-lbl">Number of hearts</p>
+        <p class="hb-setting-name" id="num-lbl">爱心数量</p>
         <div class="seg" id="num-seg" role="group" aria-labelledby="num-lbl">
-          <button type="button" data-n="10" aria-pressed="false">Few</button>
-          <button type="button" data-n="18" class="on" aria-pressed="true">Some</button>
-          <button type="button" data-n="32" aria-pressed="false">Many</button>
+          <button type="button" data-n="10" aria-pressed="false">少</button>
+          <button type="button" data-n="18" class="on" aria-pressed="true">一些</button>
+          <button type="button" data-n="32" aria-pressed="false">多</button>
         </div>
-        <p class="hb-hint">More pieces make a bigger celebration.</p>
+        <p class="hb-hint">碎片越多，庆祝越大。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="far-lbl">How far they fly</p>
+        <p class="hb-setting-name" id="far-lbl">飞多远</p>
         <div class="seg" id="far-seg" role="group" aria-labelledby="far-lbl">
-          <button type="button" data-px="60" aria-pressed="false">Short</button>
-          <button type="button" data-px="90" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="140" aria-pressed="false">Far</button>
+          <button type="button" data-px="60" aria-pressed="false">短</button>
+          <button type="button" data-px="90" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="140" aria-pressed="false">远</button>
         </div>
-        <p class="hb-hint">How far the pieces travel before they fade.</p>
+        <p class="hb-hint">碎片在淡出前飞多远。</p>
       </div>
     </div>
   </section>
@@ -139,41 +139,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a like button with a burst to [the heart or favorite button you want to reward]. When the visitor likes something, the heart quickly squashes, overshoots a little and settles as it fills with color, while a spray of tiny hearts and dots flies out from its center, arcs down and fades. Unliking simply removes the color, with no burst. Draw the burst on one layer over the button and stop drawing once the last piece has faded. Tell screen readers whether it is liked. If the visitor has reduced motion turned on, only fill the heart, with no pop or burst. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想奖励的爱心或收藏按钮]加上带迸发的点赞按钮。访客点赞时，爱心迅速压扁、稍微过头、再落定，同时填满颜色；一小簇爱心和圆点从中心喷出，划出弧线落下、淡出。取消点赞只是去掉颜色，没有迸发。把迸发画在按钮上方的一个图层上，最后一块碎片淡出后就停止绘制。告诉读屏软件是否已点赞。如果访客开启了减弱动态效果，只填满爱心，没有弹出或迸发。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Like buttons</li><li>Favorites</li><li>Bookmarks</li><li>Reactions</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Delete buttons</li><li>Neutral toggles</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>点赞按钮</li><li>收藏</li><li>收藏</li><li>表情回应</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>删除按钮</li><li>中性开关</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage'),btn=document.querySelector('.like-btn'),heart=btn.querySelector('.heart'),
         cv=document.getElementById('cv'),ctx=cv.getContext('2d'),countEl=document.getElementById('count'),
@@ -304,7 +304,7 @@
   choices('far-seg',d=>{spread=+d.px;redraw()});
 
   // See inside and Compare. HOLD: how long the end of a like stays in view before the still comes back (ms). POSE: the still's moment,
-  // a quarter of a second into a like, in 60 Hz steps (as the heart's held pop in the style). SEED: the fixed series of random numbers
+  // 四分之一秒 into a like, in 60 Hz steps (as the heart's held pop in the style). SEED: the fixed series of random numbers
   // the still's burst comes from, so every still is the same. REACH: how far the heart reaches from its center, as a share of its box.
   const HOLD=700,POSE=15,SEED=347,REACH=.38;
   const [capUp,capEnd,capRings,capTime]=stage.querySelectorAll('.cap.in');
@@ -316,8 +316,8 @@
   const twin=document.createElement('div'),twinHeart=heart.cloneNode(true),twinCount=countEl.parentElement.cloneNode(true),twinNum=twinCount.firstElementChild;
   twin.className='twin';twin.inert=true;twin.setAttribute('aria-hidden','true');twinNum.removeAttribute('id');twin.append(twinHeart,twinCount);stage.append(twin);
   // Under reduced motion both views are still pictures, and their notes say so (the page's own words otherwise)
-  const STILL={inside:'Inside, shown still: the lines are the paths the pieces would fly and the rings how the heart would pop. With reduced motion on, a like only fills the heart.',
-    compare:'Shown still, just after a like: Color only fills the heart; Pops and bursts also pops it and sprays small hearts. With reduced motion on, both only fill.'};
+  const STILL={inside:'内部，静止展示：线条是碎片将会飞行的路径，圆环是爱心将会弹起的样子。开启减弱动态效果时，点赞只会填满爱心。',
+    compare:'Shown still, just after a like: 只有颜色 fills the heart; 弹出并迸发 also pops it and sprays small hearts. With reduced motion on, both only fill.'};
   const noteTexts=[...document.querySelectorAll('[data-hb-for]')].map(n=>[n,n.textContent]);
   function noteWords(){for(const [n,t] of noteTexts)n.textContent=reduce.matches?STILL[n.dataset.hbFor]:t}
   noteWords();reduce.addEventListener('change',noteWords);
@@ -369,7 +369,7 @@
   // farthest path that ends low on the left inside the box (else in the lower left corner)
   function place(){
     const s=STEPS*FRAME*(slowTog.checked?3:1)/1000;
-    capTime.textContent='All over in about '+(s<.9?'three quarters of a second':s<1.5?'a second':s<2.5?'two seconds':'three seconds');
+    capTime.textContent='大约这么久结束：'+(s<.9?'three quarters of 一秒':s<1.5?'一秒':s<2.5?'两秒':'三秒');
     if(mode!=='inside')return;
     const W=stage.clientWidth,H=stage.clientHeight,[x,y]=origin(),R=REACH*heart.clientWidth*HIGH,m=8,g=6;
     const sb=stage.getBoundingClientRect(),cb=countEl.parentElement.getBoundingClientRect();

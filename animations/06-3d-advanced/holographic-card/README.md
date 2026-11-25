@@ -1,18 +1,18 @@
-# Holographic Card
+# 全息卡片
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/holographic-card/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/holographic-card/)
 
-## What it is
-A holographic card copies the rainbow foil of a rare trading card. As the card tilts toward the pointer, a sheet of rainbow colors slides across it and lights up the picture beneath, the way real foil catches the light, and a spot of glare follows the pointer. It is a stack of flat layers moved by the browser's own 3D transforms, with no image files and no 3D library.
+## 它是什么
+全息卡片模仿稀有收藏卡上的彩虹箔片。卡片朝指针倾斜时，一片彩虹色滑过卡面，照亮下面的图片，就像真正的箔片迎着光，一处光斑跟着指针走。它是一叠平面图层，靠浏览器自己的 3D 变换移动，没有图片文件，也没有 3D 库。
 
-## When to use it
-- Trading card games and collectible pages, where the foil marks a rare card
-- Membership, loyalty and gift cards that should feel premium
-- Badges and rewards the visitor has earned, shown off in a profile
-- Product launch, ticket or pass cards that invite a closer look
+## 什么时候用
+- 集换式卡牌游戏和收藏品页面，箔片标志着稀有卡
+- 应该显得高端的会员卡、忠诚卡和礼品卡
+- 用户在个人资料里炫耀的徽章和奖励
+- 邀请人凑近细看的产品发布、门票或通行证卡片
 
-## How it works
-The card is four layers stacked in one box, each clipped to the card's rounded corners: the picture, the foil, the glare and the text panels. The demo draws its picture as an inline SVG; on a real site it is an image.
+## 工作原理
+卡片是叠在一个盒子里的四层，每层都裁剪到卡片的圆角：图片、箔片、光斑和文字面板。演示的图片画成内联 SVG；真实网站上它是一张图片。
 
 ```html
 <div class="card">
@@ -25,7 +25,7 @@ The card is four layers stacked in one box, each clipped to the card's rounded c
 </div>
 ```
 
-The foil is a sheet of rainbow streaks with clear gaps, twice the card's size so it has room to slide. `mix-blend-mode: color-dodge` makes it brighten whatever lies under each streak, so dark parts of the picture glint only a little and light parts flare into color, which is what makes it read as foil rather than a colored film. The glare is a white spot the size of the card with a bright middle; `mix-blend-mode: plus-lighter` adds its light to the picture, so it reads as a highlight under the pointer rather than a haze. The text panels come next and are solid, so neither the foil nor the full glare ever sits under the text. A faint copy of the glare, the gloss, lies over the panels at a quarter of the glare's strength at most, which lights them too and keeps their dimmest text above 5:1:
+箔片是一片带透明间隙的彩虹条纹，有卡片两倍大，留出滑动的空间。`mix-blend-mode: color-dodge` 让它提亮每条条纹下面的东西，所以图片暗的地方只闪一点，亮的地方会爆出颜色，这正是它读起来像箔片而不是彩色薄膜的原因。光斑是一处和卡片等大的白色光点，中间最亮；`mix-blend-mode: plus-lighter` 把它的光加到图片上，所以它读起来是指针下的高光，而不是雾气。文字面板接着来，是实心的，所以箔片和完整的光斑永远不会压在文字下面。光斑的一个淡淡副本——光泽——以最多光斑四分之一的强度盖在面板上，同样照亮它们，让最暗的文字保持在 5:1 以上：
 
 ```css
 .stage { perspective: 1000px;                       /* depth for the tilt, on the parent */
@@ -44,7 +44,7 @@ The foil is a sheet of rainbow streaks with clear gaps, twice the card's size so
 .np, .ip { background: var(--hc-panel); }           /* the solid text panels */
 ```
 
-Each pointer move turns into three numbers: `x` and `y`, where the pointer is across the card from -0.5 to 0.5, and `h`, 1 while the pointer is on the card and 0 when it leaves. One function draws them, and it changes only transforms and opacities, so the browser moves layers it has already painted instead of painting anything again:
+每次指针移动变成三个数字：`x` 和 `y`，指针在卡片上的位置，从 -0.5 到 0.5；`h`，指针在卡片上时是 1，离开时是 0。一个函数画出它们，只改变换和不透明度，所以浏览器移动的是已经画好的图层，而不是重新绘制：
 
 ```js
 // T: the lean at the card's edges in degrees (How far it tilts). G: the glare's strength (Glare).
@@ -57,14 +57,14 @@ spot.style.opacity    = G * h;
 gloss.style.opacity   = 0.25 * G * h;                             // a quarter at most, over the text panels
 ```
 
-The shown numbers glide toward the pointer's instead of jumping to them. Each frame closes 14% of the gap for every 60th of a second that passed, so the glide takes the same time on a 60, 120 or 30 Hz screen, and the loop stops once the numbers arrive:
+显示的数字会滑向指针的数字，而不是跳过去。每帧按流逝的每六十分之一秒弥合 14% 的差距，所以滑行在 60、120 或 30 Hz 的屏幕上耗时相同，数字一到就停下循环：
 
 ```js
 const k = 1 - Math.pow(1 - 0.14, dt / (1000 / 60));   // dt: the milliseconds since the last frame
 sx += (ax - sx) * k;  sy += (ay - sy) * k;  sh += (ah - sh) * k;
 ```
 
-The pointer is measured against the card's own place, its untransformed box, not the tilted outline the visitor sees, which moves under a resting pointer and would make the card twitch at its edges. The foil patterns are masks on the foil layer: the same sliding rainbow, seen only through scattered dots (six dot tilings of different sizes, so no grid shows) or through fine diagonal lines. The masks stay put while the sheet slides beneath them, so each dot or line flares as a streak passes under it:
+指针按卡片自己的位置（未变换的盒子）测量，而不是按用户看到的倾斜轮廓，后者会在静止的指针下面移动，让卡片在边缘处抽搐。箔片图案是箔片层上的遮罩：同一片滑动的彩虹，只透过散落的圆点（六种不同大小的圆点平铺，看不出网格）或细斜线看到。遮罩不动，彩片在下面滑动，所以每个圆点或线条都会在条纹经过下面时闪亮：
 
 ```css
 .card[data-foil=glitter] .foil { mask: radial-gradient(circle at 30% 40%, #000 0 1px, transparent 1.7px) 0 0 / 17px 23px,
@@ -72,31 +72,31 @@ The pointer is measured against the card's own place, its untransformed box, not
 .card[data-foil=lines]   .foil { mask: repeating-linear-gradient(60deg, #000 0 1.4px, transparent 1.4px 4.2px); }
 ```
 
-**Shows the layers** turns the card to one side, gives it `transform-style: preserve-3d` and brings each layer forward by its place in the stack, 30px apart: while a number `sp` glides from 0 to 1, the script writes `translateZ(${30 * i * sp}px)` on layer `i`. It writes those only while the layers move apart or together; a custom property on the card could carry `sp` instead, but the card gets a new style every frame and would pass it down to every layer each time. The foil and the glare are drawn with no blend mode there, so each sheet shows as it is; the glare stays lit at rest, up and to the right where its sheet reaches past the picture, and the gloss is left out. Each layer clips itself, which is why the card can hold them in 3D: `overflow: hidden` on the card itself would flatten them back into one plane.
+**「显示图层」**把卡片转向一侧，给它 `transform-style: preserve-3d`，按每层在叠放中的位置把每层向前带 30px：当数字 `sp` 从 0 滑到 1 时，脚本在第 `i` 层上写 `translateZ(${30 * i * sp}px)`。只在图层分开或合拢时才写这些；卡片上的自定义属性也可以承载 `sp`，但卡片每帧都有新样式，每次都会传给每一层。箔片和光斑在那里不带混合模式绘制，所以每片都按原样显示；光斑在静止时保持亮着，偏上偏右，盖过图片的地方，而光泽被省掉。每层自己裁剪，这正是卡片能在 3D 里装下它们的原因：卡片本身的 `overflow: hidden` 会把它们压回一个平面。
 
-**Show me** moves the same numbers along a figure of eight for 3.2 seconds (`x = 0.42 sin 2πe`, `y = 0.34 sin 4πe`, with `e` the eased progress), lit as it goes, and ends with the card flat. A press, key or wheel turn in the stage, or the visitor's own pointer moving over it, stops the run, and the card follows the visitor from where it was.
+**「演示一下」**让同样的数字沿 8 字形走 3.2 秒（`x = 0.42 sin 2πe`，`y = 0.34 sin 4πe`，`e` 是缓动后的进度），一路亮着，最后卡片放平。舞台里的一按、一键或滚轮转动，或用户自己的指针移过卡面，都会停掉这次运行，卡片从停下的地方开始跟随用户。
 
-The card also takes keyboard focus, and the keys stand in for the pointer. Keyboard focus lights the card where it aims (its middle at rest), each press of an arrow key moves the aim 6% of the way across the card (a key held down repeats), and Escape or moving focus away lets it settle, as the pointer leaving does.
+卡片也可以获得键盘焦点，方向键代替指针。键盘焦点在瞄准的地方点亮卡片（静止时是中间），每按一次方向键，瞄准点就向该方向移动卡片宽度的 6%（按住会重复移动），按 Escape 或把焦点移走会让它落定，和指针离开时一样。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Foil pattern | Smooth | Smooth shows the rainbow as soft bands; Glitter lets it through scattered dots and Lines through fine diagonal lines, like the sparkle and etched foils of real cards |
-| How far it tilts | Medium | How far the card leans at its edges: gentle is 6°, medium 12° and strong 20°; much more and the text on the card gets hard to read mid-tilt |
-| Glare | Soft | The spot of light under the pointer: off, soft (55% strength, a little over half) or bright (full strength); a copy at a quarter of that strength lights the text panels |
-| Shows the layers | off | Turns the card to one side and spreads its four layers apart, so the picture, the foil, the glare and the text panels show one above the other |
+| 箔片图案 | 平滑 | 平滑把彩虹显示为柔和的色带；闪粉让它透过散落的圆点，细线让它透过细斜线，像真实卡片上的闪粉箔和蚀刻箔 |
+| 倾斜幅度 | 中等 | 卡片在边缘处倾斜多远：轻柔是 6°，中等 12°，强烈 20°；再大一些，卡片上的文字在倾斜中途就难读了 |
+| 光斑 | 柔和 | 指针下的光斑：关、柔和（55% 强度，略过一半）或明亮（全强度）；以四分之一强度的副本照亮文字面板 |
+| 显示图层 | 关 | 把卡片转向一侧，把四层分开，图片、箔片、光斑和文字面板一层层叠着显示 |
 
-## Production notes
-- **Performance**: only transforms and opacities change, so following the pointer does not repaint the card from frame to frame. Many holographic card demos move their gradients with `background-position` driven by CSS variables, which repaints the whole card, every layer, on every pointer move: it shows on phones and adds up across a grid. A blend mode on a moving layer still costs the graphics chip a little every frame, so animate only the card under the pointer and leave the rest of a grid flat.
-- **Blending stays on the card**: `mix-blend-mode` mixes a layer with everything painted under it in its stacking context. The card's transform makes it a stacking context of its own, so the foil mixes only with the card's picture; a card that has no transform at rest needs `isolation: isolate`, or the foil also lights up the page behind it.
-- **Text contrast**: keep text on solid panels above the foil and the glare. Color dodge lightens a dark background a long way under a bright streak, and an added glare whitens it, so text laid straight on the foil can lose its contrast at some angles. A light over the panels themselves has to stay faint: white at a quarter strength over the demo's dimmest text (#bdb7e6 on #110e27) still leaves 5.4:1.
-- **Touch**: Pointer Events cover mouse, pen and touch. `touch-action: none` on the card lets a finger drag tilt it instead of scrolling the page; under reduced motion the demo sets it back to `auto`, since the card no longer tilts. A finger that slides off the card keeps it leaning toward that edge until it lifts.
-- **Masks and blending**: Chrome and Edge before 120 and Safari before 15.4 need the `-webkit-mask` prefix; the demo writes both. `plus-lighter` is the newest of these blend modes (Chrome and Firefox added it in 2022); a browser without it draws the glare with plain blending, fainter but in the same place.
-- **Libraries**: VanillaTilt.js does the tilt and a glare (`glare: true`, `"max-glare"`), and Atropos adds layers at different depths; both leave the foil to your CSS. In React, Framer Motion's `useMotionValue` and `useSpring` drive the same transforms, and GSAP's `quickTo` gives the same eased follow.
-- **Reduced motion**: the card stays flat and nothing slides. Pointing at it, or Show me, fades the foil and the glare brighter where they are, and they fade back afterwards.
+## 生产注意事项
+- **性能**：只有变换和不透明度在变，所以跟随指针不会让卡片逐帧重绘。许多全息卡片演示用 CSS 变量驱动 `background-position` 来移动渐变，每次指针移动都会重绘整张卡片、每一层：手机上看得出来，在网格里还会累加。移动图层上的混合模式仍然每帧耗一点显卡，所以只给指针下的卡片做动画，网格里其余的保持平放。
+- **混合留在卡片上**：`mix-blend-mode` 把一层与它所在层叠上下文里下面画好的所有东西混合。卡片的变换让它自己成为层叠上下文，所以箔片只与卡片的图片混合；静止时没有变换的卡片需要 `isolation: isolate`，否则箔片也会照亮卡片后面的页面。
+- **文字对比度**：文字放在箔片和光斑之上的实心面板上。颜色减淡会在亮条纹下面把深色背景提亮很多，加上光斑会把它变白，所以直接放在箔片上的文字在某些角度会失去对比度。面板本身的光必须保持微弱：演示最暗的文字（#110e27 上的 #bdb7e6）上四分之一强度的白光，仍然留有 5.4:1。
+- **触摸**：Pointer Events 覆盖鼠标、手写笔和触摸。卡片上的 `touch-action: none` 让手指拖动时倾斜卡片而不是滚动页面；减弱动态下演示把它设回 `auto`，因为卡片不再倾斜。滑出卡片的手指会让卡片一直朝那条边倾斜，直到抬起。
+- **遮罩和混合**：120 之前的 Chrome 和 Edge、15.4 之前的 Safari 需要 `-webkit-mask` 前缀；演示两种都写了。`plus-lighter` 是这些混合模式里最新的（Chrome 和 Firefox 在 2022 年加入）；没有它的浏览器用普通混合画光斑，淡一些但位置相同。
+- **库**：VanillaTilt.js 做倾斜和光斑（`glare: true`、`"max-glare"`），Atropos 在不同深度加图层；两者都把箔片留给你的 CSS。React 里，Framer Motion 的 `useMotionValue` 和 `useSpring` 驱动同样的变换，GSAP 的 `quickTo` 给出同样的缓动跟随。
+- **减弱动态**：卡片保持平放，什么也不滑动。指向它或按下「演示一下」，箔片和光斑会在原地变亮，然后再暗回去。
 
-## See also
-- [Parallax 3D Tilt](../parallax-3d-tilt/) — the same tilt toward the pointer, with a plain light instead of foil
-- [3D Flip Card](../flip-card-3d/) — a card turns over in 3D to show its back
-- [Spotlight Hover Glow](../../04-micro-interactions/spotlight-hover/) — a soft glow follows the pointer across a grid of cards
-- [Animated Gradient Border](../../04-micro-interactions/gradient-border/) — a band of colors runs around the edge of a card
+## 另见
+- [视差 3D 倾斜](../parallax-3d-tilt/) — 同样朝指针倾斜，用普通的光而不是箔片
+- [3D 翻转卡片](../flip-card-3d/) — 一张卡片在 3D 中翻过来露出背面
+- [聚光灯悬停辉光](../../04-micro-interactions/spotlight-hover/) — 柔和的光晕跟随指针划过卡片网格
+- [渐变边框动画](../../04-micro-interactions/gradient-border/) — 一条彩色带绕着卡片边缘流动

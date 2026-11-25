@@ -1,28 +1,28 @@
-# Text Fill on Scroll
+# 滚动文字填充
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/text-fill-on-scroll/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/text-fill-on-scroll/)
 
-## What it is
+## 它是什么
 
-Text fill on scroll lights a paragraph up word by word as you scroll, as if it were being read at your pace. The paragraph holds still while you scroll through its section, and how far you have scrolled decides how many words are lit, so stopping holds the sentence mid-read and scrolling back un-reads it.
+滚动文字填充在你滚动时让一段文字逐词亮起来，好像按你的节奏在读。段落固定不动，你滚动经过它的区域，滚了多远决定亮了多少词，所以停下会让句子停在读到一半，往上滚会把它一个词一个词地读回去。
 
-## When to use it
+## 什么时候用
 
-- Manifesto or mission statements that should be *read at scroll pace*, not skimmed
-- Landing-page passages where each claim should land before the next appears
-- Long-form intros that need a moment of focus before the content starts
-- Anywhere a block of copy is the hero and deserves the reader's cadence
+- 宣言或使命陈述，应该*按滚动节奏读*，而不是略读
+- 落地页段落，每个主张应该在下一个出现之前落定
+- 长篇开头，在内容开始前需要一个专注的时刻
+- 任何一段文案是主角、值得读者节奏的地方
 
-## How it works
+## 工作原理
 
-The paragraph is split into one `<span>` per word at build time. Each frame maps scroll progress to a word index; a word is lit when its index is behind that point:
+段落在构建时按词拆成一个个 `<span>`。每帧把滚动进度映射到词的序号；词的序号在那个点后面时就亮起：
 
 ```js
 const p      = clamp(stage.scrollTop / maxScroll, 0, 1);
 const filled = Math.floor((p / COMPLETE_AT) * wordCount);
 ```
 
-The important part is what *doesn't* happen: the frame handler never rewrites every span. It remembers the last filled count and touches only the words between the old and new positions:
+重要的是*没有发生*的事：帧处理器从不重写每个 span。它记住上次填充的数量，只碰旧位置和新位置之间的词：
 
 ```js
 const lo = Math.min(filled, lastFilled), hi = Math.max(filled, lastFilled);
@@ -30,28 +30,28 @@ for (let i = lo; i < hi; i++) words[i].classList.toggle('on', i < filled);
 lastFilled = filled;
 ```
 
-On a normal scroll step that is one or two class toggles instead of fifty, and an idle frame costs nothing. A short CSS `color` transition on each word softens the flip without fighting the per-frame logic, since the class — not the color — is what changes per frame. When a jump changes more than a quarter of the words at once (Back to top, or Play starting over), the transition is switched off for that one change, so the old state does not linger.
+在一次普通滚动步进里，这只是一两次类切换而不是五十次，空闲帧不花任何代价。每个词上短暂的 CSS `color` 过渡让翻转变柔和，又不与每帧逻辑冲突，因为每帧变化的是类——不是颜色。当一次跳跃同时改变超过四分之一的词（回到顶部，或播放重新开始）时，过渡会为那一次变化关掉，所以旧状态不会残留。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Highlights the current word | on | The next word to fill shows in the highlight color, like a reading cursor |
-| Fill finishes | Normal | How far through the scrolling the last word lights: early at 70%, normal at 90% and at the end at 100%; finishing early leaves a moment to read the whole text |
-| Highlight color | Blue | The color of the word being filled |
+| 高亮当前词 | 开 | 下一个要填充的词以高亮颜色显示，像阅读光标一样 |
+| 填充完成于 | 普通 | 滚动进行到多远时最后一个词点亮：提前在 70%，普通在 90%，在结尾在 100%；提前完成会留一点时间读完整段文字 |
+| 高亮颜色 | 蓝色 | 正在填充的词的颜色 |
 
-## Production notes
+## 生产注意事项
 
-- **Guard the writes.** The naive version loops all spans every scroll event and re-sets each one's class. With guarded writes only the delta is touched, which is what keeps this cheap at any paragraph length.
-- **`background-clip: text` is the one-element alternative.** A gradient background with `background-clip:text` and a scroll-driven `background-position` fills text with zero spans and sub-word smoothness. The tradeoffs: no per-word hooks (no cursor highlight, no word callbacks), and gradient positioning across wrapped lines is fiddly. Choose spans when you need word-level control, clip when you need silk.
-- **Keep the dim state readable.** The unread text still has to be perceivable — a dim value near-invisible against the background means the reader faces a blank panel and no cue that content exists. Keep some contrast in the unread state; the demo's default is deliberately legible.
-- **Text stays real.** Splitting into spans keeps the copy selectable, findable, and visible to assistive tech — never rasterize or duplicate the text for this effect. Screen readers ignore the color sweep entirely, which is the correct behavior.
-- **Granularity.** Per-letter splitting looks smoother but multiplies DOM nodes and write counts by ~6; per-word is the sweet spot for paragraphs. GSAP's SplitText and the `Intl.Segmenter` API both handle locale-correct splitting in production.
-- **Cache layout reads.** `scrollHeight`/`clientHeight` are measured once and on resize — never inside the scroll handler, where they force a reflow per event.
+- **守住写入。**天真的版本在每个滚动事件里循环所有 span 并重新设置每个的类。用有守卫的写入只碰变化的部分，这才是让它在任何段落长度下都便宜的原因。
+- **`background-clip: text` 是单元素的替代方案。**渐变背景配 `background-clip:text` 和滚动驱动的 `background-position`，用零个 span 填充文字，平滑到词以下。代价是：没有逐词钩子（没有光标高亮、没有词回调），而且渐变在换行间的定位很别扭。需要词级控制时选 span，需要丝滑时选 clip。
+- **保持暗淡状态可读。**未读的文字仍然必须能被感知——暗到几乎看不见的值意味着读者面对一块空白面板，没有任何提示表明有内容存在。在未读状态保留一些对比度；演示的默认值是特意做成可读的。
+- **文字保持真实。**拆成 span 让文案保持可选、可查找、对辅助技术可见——绝不要为这个效果把文字栅格化或复制。屏幕阅读器完全忽略颜色扫过，这是正确的行为。
+- **粒度。**按字母拆分看起来更平滑，但 DOM 节点和写入次数会乘以约 6 倍；按词是段落的最佳平衡。GSAP 的 SplitText 和 `Intl.Segmenter` API 都能在生产环境处理符合语言环境的拆分。
+- **缓存布局读取。**`scrollHeight`/`clientHeight` 只测量一次和在 resize 时——绝不在滚动处理器里，那里每次事件都会强制重排。
 
-## See also
+## 另见
 
-- [Reveal on Scroll](../reveal-on-scroll/) — whole cards appear as they scroll into view; this is the continuous version for one paragraph
-- [Scrub Animation](../scrub-animation/) — scroll position drives a drawing, both ways
-- [Kinetic Typography](../../05-text-typography/kinetic-typography/) — words that each move in their own way, on a timer instead of the scroll
-- [Highlighter Sweep](../../05-text-typography/highlighter-sweep/) — marker color sweeps behind the key words, on a timer instead of the scroll
+- [滚动显现](../reveal-on-scroll/) — 整张卡片滚动进入视野时出现；这是针对一段文字的连续版本
+- [滚动 scrub 动画](../scrub-animation/) — 滚动位置驱动一幅画，来回都可以
+- [动态排版](../../05-text-typography/kinetic-typography/) — 每个词以自己的方式移动，按计时器而不是滚动
+- [荧光笔扫过](../../05-text-typography/highlighter-sweep/) — 荧光笔颜色在关键词后面扫过，按计时器而不是滚动

@@ -30,6 +30,52 @@ The main steps of Animation Handbook, newest first, with the number of animation
   from the start.
 - A new animation, Lightning (176 in all): jagged bolts strike from the clouds and light up the sky, with See inside and
   Compare from the start.
+- A new animation, Preloader (177 in all): a logo and a percentage count up, then the screen lifts away, with See inside and
+  Compare from the start.
+- A new animation, Easing (178 in all): speed changes through a move instead of staying constant, with See inside and
+  Compare from the start.
+- A new animation, Overshoot (179 in all): a pointer swings past its target and settles back, with See inside and
+  Compare from the start.
+- A new animation, Squash and Stretch (180 in all): a ball squashes as it lands and stretches as it takes off, with See inside and
+  Compare from the start.
+- A new animation, Anticipation (181 in all): a shape pulls back before it shoots forward, with See inside and
+  Compare from the start.
+- A new animation, Follow-Through (182 in all): a flag and tail keep swinging after the body stops, with See inside and
+  Compare from the start.
+- A new animation, Bottom Sheet (183 in all): a panel slides up from the bottom of the screen, with See inside and
+  Compare from the start.
+- A new animation, Popover (184 in all): a small panel with an arrow pops out beside a button, with See inside and
+  Compare from the start.
+- A new animation, Tabs (185 in all): an underline slides across as tab contents swap, with See inside and
+  Compare from the start.
+- A new animation, Filter Chips (186 in all): chips toggle filters and fade the cards that no longer match, with See inside and
+  Compare from the start.
+- A new animation, Stepper (187 in all): plus and minus buttons change a number with a small pop, with See inside and
+  Compare from the start.
+- A new animation, Pagination (188 in all): a marker slides across page numbers as the list swaps, with See inside and
+  Compare from the start.
+- A new animation, Breadcrumbs (189 in all): a trail shows where you are and takes you back up, with See inside and
+  Compare from the start.
+- A new animation, Inline Validation (190 in all): a field says right or wrong while you type, with See inside and
+  Compare from the start.
+- A new animation, Lightbox (191 in all): a photo opens large over a dimmed page, with See inside and
+  Compare from the start.
+- A new animation, Hotspots (192 in all): pulsing dots on a picture open notes about each part, with See inside and
+  Compare from the start.
+- A new animation, Countdown Timer (193 in all): digits roll as the time left ticks down, with See inside and
+  Compare from the start.
+- A new animation, Text Mask (194 in all): heavy letters cut out to show a moving seascape inside, with See inside and
+  Compare from the start.
+- A new animation, Underline Animation (195 in all): an underline grows from the left when you hover a link, with See inside and
+  Compare from the start.
+- A new animation, Wiggle (196 in all): a bell jitters in small irregular shakes, with See inside and
+  Compare from the start.
+- A new animation, Ping-Pong Loop (197 in all): a shape travels out and comes back along the same path, with See inside and
+  Compare from the start.
+- A new animation, Repeater (198 in all): one shape is copied around a circle and turns, with See inside and
+  Compare from the start.
+- A new animation, Kaleidoscope (199 in all): an eight-way mirrored pattern turns and spreads, with See inside and
+  Compare from the start.
 - See inside and Compare on every animation page: See inside shows the parts that make the effect (guides, hidden layers,
   the numbers made visible), and Compare shows it beside a version without its key idea.
 - Famous effects becomes a gallery: each effect opens in a pop-up with our own working version of it, and its address

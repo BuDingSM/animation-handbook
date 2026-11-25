@@ -1,19 +1,19 @@
-# Clip-Path Reveal
+# 剪裁路径揭示
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/clip-path-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/clip-path-reveal/)
 
-## What it is
+## 它是什么
 
-A clip-path reveal uncovers an element by growing a mask shape until the whole element shows. The element is fully drawn the entire time; only the visible part grows. Because nothing moves or fades, the content stays crisp and in place while a shape wipes across it, which gives the effect its cinematic, editorial feel.
+剪裁路径揭示通过让一个遮罩形状不断变大来揭开元素，直到整个元素都显示出来。元素全程都是完整绘制的，只有可见部分在变大。因为什么都不移动、不淡入淡出，内容在形状擦过去时保持清晰、不动，这让这个效果有了电影感和编辑感。
 
-## When to use it
-- Image and media reveals on scroll (a photo wiped open left-to-right)
-- Hero sections where a directional swipe uncovers the headline block
-- Circular or "iris" reveals expanding from a click point
-- Transitions between full-bleed panels where a shape mask replaces a crossfade
+## 什么时候用
+- 滚动时的图片和媒体揭示（照片从左到右被擦开）
+- 主视觉区块，方向性的擦除揭开标题块
+- 从点击处扩大的圆形或「虹膜」揭示
+- 通栏面板之间的切换，用形状遮罩代替交叉淡入淡出
 
-## How it works
-The surface holds a start `clip-path` that hides it and transitions to an open one when `.in` is added. Both values live in CSS variables so the shape and direction controls can swap them:
+## 工作原理
+表面带有一个起始 `clip-path` 把它藏起来，加上 `.in` 时过渡到打开的那个。两个值都存在 CSS 变量里，形状和方向控件可以替换它们：
 
 ```css
 .surface {
@@ -24,7 +24,7 @@ The surface holds a start `clip-path` that hides it and transitions to an open o
 .surface.in { clip-path: var(--cp-in, inset(0 0% 0 0)); }
 ```
 
-The demo keeps a lookup of shape/direction pairs — the `inset()` values wipe from an edge, while `circle()` and `ellipse()` grow a radius outward from center:
+演示里有一张形状/方向配对的查找表——`inset()` 的值从一条边擦除，而 `circle()` 和 `ellipse()` 从中心向外扩大半径：
 
 ```js
 const CLIPS = {
@@ -38,25 +38,25 @@ const CLIPS = {
 };
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Shape | Edge wipe | Edge wipe uncovers it from one side or from the center; Circle and Oval open from the middle like an iris |
-| Starts from | Left | For the edge wipe, where the reveal begins: left, right, top, bottom or center |
-| Speed | Normal | How long the reveal takes: slow is 1300ms, normal 800ms and fast 500ms; a reveal reads best a little slower than a fade |
-| Feel | Smooth | Smooth slows to a stop instead of snapping; Even keeps one steady pace |
+| 形状 | 边缘擦除 | 「边缘擦除」从一边或从中间揭开它；「圆形」和「椭圆形」像虹膜一样从中间打开 |
+| 从哪开始 | 左 | 对边缘擦除来说，揭示从哪里开始：左、右、上、下或中间 |
+| 速度 | 普通 | 揭示要多长时间：「慢」是 1300ms，「普通」800ms，「快」500ms；揭示比淡入稍慢一点，读起来最好 |
+| 感觉 | 平滑 | 「平滑」慢慢停下，而不是戛然而止；「均匀」保持一个稳定的速度 |
 
-## Production notes
-- **Interpolate compatible shapes only.** CSS can animate `inset`→`inset`, `circle`→`circle`, or `polygon`→`polygon` (with the same vertex count), but it cannot tween *between* shape functions. Keep `out` and `in` the same function, as the demo does.
-- **`clip-path` paints, it does not composite.** It is far cheaper than animating layout, but heavier than `opacity`/`transform`; on a huge full-screen element with a complex `polygon`, test on mobile and simplify the shape if frames drop.
-- **Clipped content stays in the accessibility tree.** Unlike a curtain overlay, the text under a clip-path is still present and selectable throughout — good for SEO and screen readers, but it means the "hidden" content is not truly hidden from assistive tech.
-- **Reduced motion:** the demo removes the clip animation under `prefers-reduced-motion` and falls back to an opacity fade, so no wipe plays.
-- **Library equivalents:** GSAP `gsap.to(el, { clipPath: 'inset(0 0% 0 0)' })`; Framer Motion animate the `clipPath` string; Motion One `animate(el, { clipPath: [...] })`. GSAP's older approach used `-webkit-clip-path` for Safari — modern targets no longer need the prefix.
+## 生产注意事项
+- **只在兼容的形状之间插值。**CSS 可以给 `inset`→`inset`、`circle`→`circle` 或 `polygon`→`polygon`（顶点数相同）做动画，但不能在形状函数*之间*补间。像演示这样，让 `out` 和 `in` 保持同一个函数。
+- **`clip-path` 是绘制，不是合成。**它比给布局做动画便宜得多，但比 `opacity`/`transform` 重；在一个巨大的全屏元素上用复杂的 `polygon` 时，在手机上测试一下，掉帧就简化形状。
+- **被裁剪的内容留在无障碍树里。**和幕布覆盖层不同，clip-path 下面的文字全程都还在、还能选中——对 SEO 和屏幕阅读器是好事，但也意味着「藏着」的内容对辅助技术来说并不是真的藏着。
+- **减弱动态：**在 `prefers-reduced-motion` 下，演示去掉裁剪动画，退回到不透明度淡入淡出，不播放擦除。
+- **库里的等价写法：**GSAP 的 `gsap.to(el, { clipPath: 'inset(0 0% 0 0)' })`；Framer Motion 给 `clipPath` 字符串做动画；Motion One 的 `animate(el, { clipPath: [...] })`。GSAP 老的做法给 Safari 用 `-webkit-clip-path`——现代目标不再需要这个前缀。
 
-## See also
-- [Curtain Reveal](../curtain-reveal/) — a colored panel covers it, then slides away
-- [Slide Up Reveal](../slide-up-reveal/) — text rises from behind an invisible edge
-- [Split Text Reveal](../split-text-reveal/) — text appears piece by piece
-- [Fade In / Fade Out](../fade-in-out/) — a plain fade instead of a shape
-- [Ink Spread Reveal](../ink-spread-reveal/) — blots of ink spread and merge to uncover a picture
+## 另见
+- [幕布揭示](../curtain-reveal/) — 一块彩色面板盖住它，然后滑走
+- [上滑揭示](../slide-up-reveal/) — 文字从一条看不见的边缘后方升起
+- [拆字揭示](../split-text-reveal/) — 文字一块一块出现
+- [淡入淡出](../fade-in-out/) — 单纯的淡入淡出，而不是形状
+- [墨水扩散揭示](../ink-spread-reveal/) — 墨渍扩散、汇合，揭开一张图片

@@ -1,18 +1,18 @@
-# Fire Effect
+# 火焰效果
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/fire-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/fire-effect/)
 
-## What it is
-A fire effect fills the bottom of a dark area with flames that flicker, rise and die out, with sparks drifting up. It is made from a small grid of heat values: the bottom row is always as hot as it gets, heat climbs one row at a time with a little sideways wobble, and it cools on the way up, so the hot base turns into tongues of flame. It is the classic fire of early computer games, drawn soft.
+## 它是什么
+火焰效果用闪烁、升腾、熄灭的火焰填满黑暗区域的底部，火花向上飘。它由一个小的热量值网格做成：底行永远是最热的，热量带着一点左右摇摆一次爬一行，上升途中冷却，所以炽热的底部变成了火舌。这是早期电脑游戏的经典火焰，画得很柔和。
 
-## When to use it
-- Game sites and launch pages for games
-- Sale, countdown and event banners that want urgency
-- Night, festival and campfire themes
-- Short intros where a burst of energy fits the brand
+## 什么时候用
+- 游戏网站和游戏发布页
+- 想要紧迫感的促销、倒计时和活动横幅
+- 夜晚、节日和篝火主题
+- 短暂的开场，一股能量迸发符合品牌
 
-## How it works
-The fire is a grid of numbers between 0 (cold) and 1 (hottest), about one cell per five pixels of the box. The bottom row sits just below the box and is set to full heat every step (only its middle, for a campfire). Every other cell passes its heat to the row above: straight up half the time and one cell to the left or the right the rest (more often toward the wind) and, half the time, a little cooler. Where two cells land on the same cell, the later write wins, which favors the side the row is walked toward, so the walk changes direction every step and neither side wins; taking heat from below instead would blur the streaks into level bands. So heat moves up a row each step, runs out about where the flame height says, and leaves hotter streaks where it happened to cool less:
+## 工作原理
+火焰是一个 0（冷）到 1（最热）之间的数字网格，盒子大约每五像素一个格子。底行位于盒子下方，每步都设为满热（篝火只设中间）。其他每个格子把热量传给上面一行：一半时间直直向上，其余时间向左或向右一个格子（更常朝风的方向），一半时间还稍凉一点。两个格子落到同一个格子上时，后写的获胜，这偏向行走方向的那一边，所以行走方向每步都换边，谁也不占优；反过来从下面取热会把条纹模糊成水平带。所以热量每步向上一行，在火焰高度所说的地方耗尽，并在碰巧冷却较少的地方留下更热的条纹：
 
 ```js
 for (let x = 0; x < cols; x++) heat[(rows - 1) * cols + x] = base(x);   // the hidden row: always full heat
@@ -26,7 +26,7 @@ for (let y = 1; y < rows; y++) for (let k = 0; k < cols; k++) {
 }
 ```
 
-Each heat value, blended with its two side neighbors to soften the grain, picks one of 256 colors from the palette, dark when cool and near white when hot. The colors are written into a small canvas with one pixel per cell, and that canvas is the picture: its CSS size is the box's, so the browser stretches it smoothly, which is what makes the flames soft instead of blocky, and costs the script nothing:
+每个热量值与左右两个邻居混合以柔化颗粒感，从调色板里选 256 种颜色之一，凉时深、热时近白。颜色写进一张小的画布，一个格子一个像素，这张画布就是画面：它的 CSS 尺寸就是盒子的尺寸，所以浏览器平滑地拉伸它，这正是火焰柔和而不块状的原因，而且不花脚本任何代价：
 
 ```js
 for (let y = 0; y < rows - 1; y++) for (let x = 0, i = y * cols; x < cols; x++, i++)
@@ -34,27 +34,27 @@ for (let y = 0; y < rows - 1; y++) for (let x = 0, i = y * cols; x < cols; x++, 
 small.getContext('2d').putImageData(image, 0, 0);   // small: a canvas element sized 100% of the box in CSS
 ```
 
-The grid takes fixed steps of a 60th of a second from the time that has passed (at most two a frame), so the fire burns at the same speed on a 60 Hz and a 120 Hz screen; slow motion counts a third of the time. Sparks are drawn into the same small canvas as soft dots that rise from the hot cells, sway and fade, moved by the time itself. A new fire is run 200 steps from a fixed seed before it is first drawn, so it starts full; under reduced motion it waits paused on that full fire.
+网格按流逝的时间以六十分之一秒为固定步长前进（每帧最多两步），所以火焰在 60 Hz 和 120 Hz 屏幕上燃烧速度相同；慢动作只算三分之一的时间。火花作为柔和的圆点画进同一张小画布，从热格子上升、摇摆、淡出，由时间本身驱动。新火焰在首次绘制前从固定种子运行 200 步，所以一开始就是满的；在减少动态下，它停在那团满火上等待。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Flame height | Medium | Where the heat runs out, as a share of the box's height: low is about a third, medium about half and tall about four fifths; taller flames lose less heat per row |
-| Fire shape | Along the edge | Along the edge heats the whole bottom row, so flames burn across the box; campfire heats only its middle third, fading to the sides, so the flames lean in and meet in a point |
-| Colors | Orange | The palette from cool to hot: orange runs from dark red to yellow and white, blue from deep navy to pale blue, green from dark green to pale yellow |
-| Wind | None | Left or right moves half of the heat one extra cell to that side each step, so the flames lean that way |
-| Sparks | on | About 24 sparks a second rise from the flames and fade within one to two and a half seconds (10 a second on phones) |
+| 火焰高度 | 中等 | 热量耗尽的地方，占盒子高度的比例：低大约是三分之一，中等大约一半，高大约五分之四；更高的火焰每行损失的热量更少 |
+| 火焰形状 | 沿边缘 | 沿边缘加热整个底行，所以火焰烧满盒子；篝火只加热中间三分之一，向两侧淡出，所以火焰向内倾斜、汇于一点 |
+| 颜色 | 橙色 | 从凉到热的调色板：橙色从深红到黄白色，蓝色从深海军蓝到淡蓝，绿色从深绿到淡黄 |
+| 风 | 无 | 向左或向右让一半热量每步多向那侧移动一个格子，所以火焰朝那个方向倾斜 |
+| 火花 | 开 | 每秒约 24 颗火花从火焰中升起，在一到两秒半内淡出（手机上每秒 10 颗） |
 
-## Production notes
-- **Keep the grid small.** A grid of about 160 cells across is plenty when it is stretched with smoothing; a cell per pixel costs twenty-five times as much for flames that look the same. The demo uses at most 96 across on phones and half the cells in each half of Compare.
-- **Fixed steps.** A grid that moves one row per frame burns twice as fast on a 120 Hz screen. Step it at a fixed rate from an accumulator, and cap the steps per frame so a slow device slows down instead of falling behind.
-- **One small canvas, stretched by the browser.** Write the colors with `putImageData` into a canvas of one pixel per cell and give the canvas the box's CSS size: the browser scales it on its own, far cheaper than drawing a rectangle per cell or scaling it up with `drawImage` every frame.
-- **Pause out of view.** A fire on a page section that has scrolled away still costs every frame: stop the loop with an `IntersectionObserver` and when the tab is hidden.
-- **Reduced motion.** Show still flames; let the visitor start them with a play control.
-- **Libraries and shaders.** The same fire is a few lines of a WebGL fragment shader with a noise function (for example in Three.js or PixiJS), which suits a full-screen fire; for a small banner, a canvas grid like this one is lighter. Lottie or a short looping video are the usual choices when the fire must look painted.
+## 生产注意事项
+- **保持网格小。**用平滑拉伸时，横向约 160 个格子的网格就足够了；每个像素一个格子要贵 25 倍，火焰看起来却一样。演示在手机上最多用 96 个格子，比较模式的每一半用一半格子。
+- **固定步长。**每帧移动一行的网格在 120 Hz 屏幕上燃烧速度快一倍。用累加器按固定速率步进，并限制每帧步数，让慢设备变慢而不是掉队。
+- **一张小画布，由浏览器拉伸。**用 `putImageData` 把颜色写进一张每个格子一个像素的画布，并给画布盒子的 CSS 尺寸：浏览器自己缩放它，比每个格子画一个矩形或每帧用 `drawImage` 放大便宜得多。
+- **离开视野就暂停。**已经滚动离开的页面部分的火焰仍然每帧都在耗费：用 `IntersectionObserver` 停止循环，标签页隐藏时也停止。
+- **减少动态。**显示静止的火焰；让访客用播放控件启动它们。
+- **库和着色器。**同样的火焰用带噪点函数的 WebGL 片段着色器只需几行（例如在 Three.js 或 PixiJS 里），适合全屏火焰；小横幅用这样的画布网格更轻。火焰必须看起来像画的时候，Lottie 或短循环视频是通常的选择。
 
-## See also
-- [Game of Life](../game-of-life/) — a grid of cells that steps by simple rules
-- [Cloth / Soft-Body Simulation](../../06-3d-advanced/cloth-simulation/) — fixed steps at the same rate on every screen
-- [Volumetric Smoke / 3D Noise](../../06-3d-advanced/volumetric-smoke/) — smoke that drifts and curls
-- [Fireworks](../fireworks/) — sparks that rise, burst and fade
+## 另见
+- [生命游戏](../game-of-life/) — 按简单规则步进的细胞网格
+- [布料模拟](../../06-3d-advanced/cloth-simulation/) — 在每个屏幕上以相同速率固定步进
+- [体积烟雾 / 3D 噪声](../../06-3d-advanced/volumetric-smoke/) — 飘移、卷曲的烟雾
+- [烟花](../fireworks/) — 升起、爆开、淡出的火花

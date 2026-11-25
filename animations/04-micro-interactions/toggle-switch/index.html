@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toggle / Switch Slide — Animation Handbook</title>
-  <meta name="description" content="The knob slides across as the switch turns on or off. Best for settings.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toggle-switch/">
+  <title>开关滑动 — 动画手册</title>
+  <meta name="description" content="开关打开或关闭时，滑块随之滑动。适合用在设置项上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/toggle-switch/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Toggle / Switch Slide — Animation Handbook">
-  <meta property="og:description" content="The knob slides across as the switch turns on or off. Best for settings.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toggle-switch/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="开关滑动 — 动画手册">
+  <meta property="og:description" content="开关打开或关闭时，滑块随之滑动。适合用在设置项上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/toggle-switch/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Toggle / Switch Slide — Animation Handbook">
-  <meta name="twitter:description" content="The knob slides across as the switch turns on or off. Best for settings.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Toggle / Switch Slide", "name": "Toggle / Switch Slide", "description": "The knob slides across as the switch turns on or off. Best for settings.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/toggle-switch/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Toggle / Switch Slide"}</script>
+  <meta name="twitter:title" content="开关滑动 — 动画手册">
+  <meta name="twitter:description" content="开关打开或关闭时，滑块随之滑动。适合用在设置项上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "开关滑动", "name": "开关滑动", "description": "开关打开或关闭时，滑块随之滑动。适合用在设置项上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/toggle-switch/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 开关滑动"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--tog-dur:200ms;--tog-ease:cubic-bezier(.4,0,.2,1);--on-color:#58a6ff}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -135,35 +135,35 @@
     }
     @media(prefers-reduced-motion:reduce){.sw-track,.sw-thumb,.d-track,.d-knob{transition:background .1s!important}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../magnetic-button/" rel="prev" aria-label="Previous: Magnetic Button"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Magnetic Button</span></a><a href="../heart-burst/" rel="next" aria-label="Next: Heart / Like Burst"><span><span class="hb-dir">Next: </span>Heart / Like Burst</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../magnetic-button/" rel="prev" aria-label="上一个：磁吸按钮"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>磁吸按钮</span></a><a href="../heart-burst/" rel="next" aria-label="下一个：点赞爱心迸发"><span><span class="hb-dir">下一个：</span>点赞爱心迸发</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.06 · Micro-Interactions</p>
-    <h1>Toggle / Switch Slide</h1>
-    <p class="hb-lede">The knob slides across as the switch turns on or off. Best for settings.</p>
+    <p class="hb-cat">04.06 · 微交互</p>
+    <h1>开关滑动</h1>
+    <p class="hb-lede">开关打开或关闭时，滑块随之滑动。适合用在设置项上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click or tap a switch to turn it on or off, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击一个开关来打开或关闭它，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="tog-row" style="--r:1">
-        <label class="tog-label" for="sw0">Notifications</label>
+        <label class="tog-label" for="sw0">通知</label>
         <label class="sw">
           <input type="checkbox" id="sw0" checked autocomplete="off">
           <span class="sw-track"></span>
@@ -171,7 +171,7 @@
         </label>
       </div>
       <div class="tog-row tog-lg" style="--r:2">
-        <label class="tog-label" for="sw1">Appearance</label>
+        <label class="tog-label" for="sw1">外观</label>
         <label class="sw sw-lg">
           <input type="checkbox" id="sw1" autocomplete="off">
           <span class="sw-track"></span>
@@ -179,7 +179,7 @@
         </label>
       </div>
       <div class="tog-row" style="--r:3">
-        <label class="tog-label" for="sw2">Auto-save</label>
+        <label class="tog-label" for="sw2">自动保存</label>
         <label class="sw elastic">
           <input type="checkbox" id="sw2" checked autocomplete="off">
           <span class="sw-track"></span>
@@ -195,68 +195,68 @@
           </span>
         </div>
         <div class="caps">
-          <p class="cap" data-hb-caption>Hidden checkbox: holds on or off</p>
-          <p class="cap" data-hb-caption>Track: fills with color when on</p>
-          <p class="cap" data-hb-caption>Knob: slides across in about a fifth of a second, easing in and out</p>
+          <p class="cap" data-hb-caption>隐藏的复选框：保存开或关</p>
+          <p class="cap" data-hb-caption>轨道：打开时填满颜色</p>
+          <p class="cap" data-hb-caption>旋钮：大约五分之一秒内滑过去，缓入缓出</p>
         </div>
       </div></div>
-      <p class="row-cap" aria-hidden="true" data-hb-caption>The whole row is the tap area</p>
-      <p class="side first" aria-hidden="true" data-hb-caption>Flips at once</p>
-      <p class="side second" aria-hidden="true" data-hb-caption>Slides across</p>
-      <p class="when" aria-hidden="true" data-hb-caption>Just after the click</p>
+      <p class="row-cap" aria-hidden="true" data-hb-caption>整行都是点按区域</p>
+      <p class="side first" aria-hidden="true" data-hb-caption>立刻翻转</p>
+      <p class="side second" aria-hidden="true" data-hb-caption>滑过去</p>
+      <p class="when" aria-hidden="true" data-hb-caption>点击后的一瞬间</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the top switch is pulled apart: a hidden checkbox holds on or off, the track changes color and the knob slides across. Click a switch, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Flips at once: the knob jumps and the color snaps; Slides across: the knob glides over, shown just after the click. Click a switch, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：顶部的开关被拆开：隐藏的复选框保存开或关，轨道变色，旋钮滑过去。点击一个开关，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>立刻翻转：旋钮跳过去，颜色啪地换掉；滑过去：旋钮滑过去，在点击后的一瞬间展示。点击一个开关，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="320" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="200" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="120" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="320" aria-pressed="false">慢</button>
+          <button type="button" data-ms="200" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="120" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Fast feels mechanical; slow can feel sluggish.</p>
+        <p class="hb-hint">快感觉机械；慢可能感觉迟钝。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">手感</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-          <button type="button" data-ease="cubic-bezier(.4,0,.2,1)" class="on" aria-pressed="true">Gentle</button>
-          <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+          <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+          <button type="button" data-ease="cubic-bezier(.4,0,.2,1)" class="on" aria-pressed="true">轻柔</button>
+          <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
         </div>
-        <p class="hb-hint">Gentle gives the knob weight; Even feels robotic.</p>
+        <p class="hb-hint">「轻柔」让旋钮有分量；「均匀」感觉像机器人。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Springy knob</span><input class="hb-switch" type="checkbox" role="switch" id="elastic-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">The third switch's knob goes past the end, then settles.</p>
+          <label class="hb-switch-row"><span>回弹旋钮</span><input class="hb-switch" type="checkbox" role="switch" id="elastic-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">第三个开关的旋钮会超过末端，再落定。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">On color</p>
+          <p class="hb-setting-name" id="color-lbl">开启颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" aria-pressed="false" aria-label="Pink" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-c="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-c="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The track color when a switch is on.</p>
+          <p class="hb-hint">开关打开时轨道的颜色。</p>
         </div>
       </div>
     </details>
@@ -265,41 +265,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add an animated toggle switch to [the on/off setting you want to control]. Build it on a real checkbox so it works with the keyboard and screen readers. When it is turned on, the round knob slides across the track and the track fills with color; when it is turned off, both go back. When the settings ask for it, let the knob go slightly past the end and settle, so it feels springy. Make the whole switch and its label easy to tap. If the visitor has reduced motion turned on, move the knob without sliding. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想控制的开/关设置]加上会动的开关滑动。把它建在真正的复选框上，这样它能配合键盘和读屏软件。打开时，圆形旋钮滑过轨道，轨道填满颜色；关闭时，两者都回去。如果设置里要求，让旋钮稍微超过末端再落定，这样感觉有弹性。让整个开关和它的标签都容易点按。如果访客开启了减弱动态效果，移动旋钮时不要滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Settings</li><li>Preferences</li><li>Dark mode switches</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Forms sent later</li><li>More than two options</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>设置</li><li>偏好设置</li><li>深色模式开关</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>稍后发送的表单</li><li>超过两个选项</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const boxes=[...stage.querySelectorAll('.sw input')];
@@ -358,16 +358,16 @@
   // The Feel choices as the numbers of their speed curves (the browser's own), the springy knob's curve, and how long after a click Compare holds (ms)
   const CURVES={'ease-out':[0,0,.58,1],'cubic-bezier(.4,0,.2,1)':[.4,0,.2,1],linear:[0,0,1,1]};
   const SPRING=[.34,1.56,.64,1],POSE_MS=70;
-  const FEEL={'ease-out':'slowing to a stop','cubic-bezier(.4,0,.2,1)':'easing in and out',linear:'at one steady pace'};
+  const FEEL={'ease-out':'慢慢停下','cubic-bezier(.4,0,.2,1)':'缓入缓出',linear:'匀速'};
   const motionMQ=window.matchMedia('(prefers-reduced-motion:reduce)');
   const knobCap=dia.querySelectorAll('.cap')[2];
   const noteIn=document.querySelector('[data-hb-for="inside"]'),noteCmp=document.querySelector('[data-hb-for="compare"]');
   // Notes: the markup's words, the same views shown still, and Compare once the visitor has pressed a switch (its held moment is gone)
   const NOTES={
-    inside:[noteIn.textContent,'Inside, the top switch is pulled apart, shown still: a hidden checkbox holds on or off, the track changes color and the knob moves across at once.'],
-    compare:[noteCmp.textContent,'Shown still, just after a click: Flips at once is already across; Slides across is still on its way. With reduced motion on, both jump.'],
-    live:['Flips at once: the knob jumps and the color snaps; Slides across: the knob glides over. Click a switch, or press Show me.',
-      'With reduced motion on, both halves jump across at once, so they look the same now. Press Show me to see them held just after a click.']
+    inside:[noteIn.textContent,'内部：顶部的开关被拆开，静止展示：隐藏的复选框保存开或关，轨道变色，旋钮立刻滑过去。'],
+    compare:[noteCmp.textContent,'Shown still, just after a click: 立刻翻转 is already across; 滑过去 is still on its way. With reduced motion on, both jump.'],
+    live:['立刻翻转: the knob jumps and the color snaps; 滑过去: the knob glides over. Click a switch, or press Show me.',
+      '开启减弱动态效果时，两半都立刻跳过去，所以现在看起来一样。按「演示一下」，看它们在点击后的一瞬间定格。']
   };
   function put(el,text){if(el.textContent!==text)el.textContent=text}
   function notes(){
@@ -375,10 +375,10 @@
     put(noteIn,NOTES.inside[rm]);
     put(noteCmp,(rm?stage.classList.contains('posed'):wanted)?NOTES.compare[rm]:NOTES.live[rm]);
   }
-  function words(t){return t<=150?'about a tenth of a second':t<=260?'about a fifth of a second':t<=420?'about a third of a second':t<=700?'about half a second':'about a second'}
+  function words(t){return t<=150?'大约十分之一秒':t<=260?'大约五分之一秒':t<=420?'大约三分之一秒':t<=700?'大约半秒':'大约一秒'}
   // The knob's caption follows Speed, Feel and Slow motion
   function describe(){
-    put(knobCap,motionMQ.matches?'Knob: moves across at once; the color fades':'Knob: slides across in '+words(dur*(slowTog.checked?3:1))+', '+FEEL[ease]);
+    put(knobCap,motionMQ.matches?'旋钮：立刻滑过去；颜色淡出':'旋钮：用'+words(dur*(slowTog.checked?3:1))+'滑过去，'+FEEL[ease]);
     notes();
   }
   // The value of a speed curve at a share x of its time: the curve's own t for x found by halving, then its height there

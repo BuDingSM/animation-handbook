@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>热点标注 — 动画手册</title>
+  <meta name="description" content="图上的点一点，弹出对应说明。最适合产品图和示意图。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hotspots/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="热点标注 — 动画手册">
+  <meta property="og:description" content="图上的点一点，弹出对应说明。最适合产品图和示意图。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hotspots/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="热点标注 — 动画手册">
+  <meta name="twitter:description" content="图上的点一点，弹出对应说明。最适合产品图和示意图。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "热点标注", "name": "热点标注", "description": "图上的点一点，弹出对应说明。最适合产品图和示意图。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/hotspots/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，微交互，热点标注"}</script>
+  <style>
+    :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--blue:#3b82f6;--blue-bg:#dbeafe;--ok:#1e9e5a;--err:#e5383b}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    .stage{position:relative;display:flex;align-items:center;justify-content:center;background:#0b0b0d;overflow:hidden;padding:16px}
+    .demo{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;max-width:520px}
+    .inside-panel,.cmp-copy,.cap{display:none}
+    .inside-panel{position:absolute;left:12px;right:12px;top:12px;z-index:8;padding:10px 12px;border:1px solid var(--ui-border);border-radius:8px;background:rgba(11,11,13,.94);color:var(--ui-text);font-size:12px;line-height:1.7;pointer-events:none}
+    .inside-panel b{color:var(--ui-accent)}
+    .stage[data-hb-mode="inside"] .inside-panel{display:block}
+    .stage[data-hb-mode="compare"]{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+    .stage[data-hb-mode="compare"]::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;background:#2a2a30;z-index:7}
+    .stage[data-hb-mode="compare"] .demo{max-width:none;padding:30px 12px 12px}
+    .stage[data-hb-mode="compare"] .cmp-copy{display:flex;position:relative;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:30px 12px 12px}
+    .stage[data-hb-mode="compare"] .cmp-copy *{transition:none!important;animation:none!important}
+    .stage[data-hb-mode="compare"] .cap{display:block;position:absolute;top:8px;z-index:8;padding:2px 8px;border-radius:6px;background:rgba(11,11,13,.92);color:#f4f4f2;font:600 12px/16px var(--hb-font)}
+    .cap.a{left:12px}
+    .cap.b{left:calc(50% + 12px)}
+    @media(prefers-reduced-motion:reduce){.stage *{transition:none!important;animation:none!important}}
+
+
+    .hs-wrap{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .hs-pic{position:relative;width:230px;height:190px;border:1px solid var(--ui-border);border-radius:12px;background:linear-gradient(160deg,#1c2733,#0e141b);overflow:visible}
+    .hs-pic svg{position:absolute;inset:0;width:100%;height:100%}
+    .hs-dot{position:absolute;width:var(--dot,16px);height:var(--dot,16px);margin:calc(var(--dot,16px) / -2) 0 0 calc(var(--dot,16px) / -2);border:0;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:pointer;padding:0;z-index:2}
+    .hs-dot::before{content:"";position:absolute;inset:calc(50% - 4px);border-radius:50%;background:#ff6a3d}
+    .hs-dot::after,.hs-dot i{content:"";position:absolute;inset:0;border:2px solid rgba(255,255,255,.75);border-radius:50%;animation:pulse var(--pulse,1.57s) ease-out infinite;pointer-events:none}
+    .hs-dot i{animation-delay:calc(var(--pulse,1.57s) / 2)}
+    .hs-pic.no-pulse .hs-dot::after,.hs-pic.no-pulse .hs-dot i{display:none}
+    @keyframes pulse{from{transform:scale(1);opacity:.75}to{transform:scale(2.5);opacity:0}}
+    .hs-dot[aria-expanded="true"]{box-shadow:0 0 0 3px rgba(255,157,92,.5),0 2px 8px rgba(0,0,0,.5)}
+    .hs-tip{position:absolute;z-index:3;min-width:136px;max-width:170px;padding:8px 10px;border-radius:8px;background:#f4f4f2;color:#111114;font-size:12px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,.45);opacity:0;transform:translateY(6px);transition:opacity .25s cubic-bezier(.22,1,.36,1),transform .25s cubic-bezier(.22,1,.36,1);pointer-events:none}
+    .hs-tip.show{opacity:1;transform:translateY(0);pointer-events:auto}
+    .hs-tip b{display:block;font-size:12px}
+    .hs-tip::after{content:"";position:absolute;top:50%;width:10px;height:10px;background:#f4f4f2;transform:translateY(-50%) rotate(45deg)}
+    .hs-tip.at-left::after{right:-5px}
+    .hs-tip.at-right::after{left:-5px}
+    .hs-info{display:flex;gap:12px;align-items:baseline;font-size:13px;color:var(--ui-text)}
+    .hs-info b{font-size:14px}
+    .hs-info span{color:var(--ui-muted)}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
+</head>
+<body class="hb" data-hb-kind="do" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../lightbox/" rel="prev" aria-label="上一个：灯箱"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>灯箱</span></a><a href="../countdown-timer/" rel="next" aria-label="下一个：倒计时"><span><span class="hb-dir">下一个：</span>倒计时</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.59 · 微交互</p>
+    <h1>热点标注</h1>
+    <p class="hb-lede">图上的点一点，弹出对应说明。最适合产品图和示意图。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点图上脉动的圆点，看看说明气泡怎么出来；点另一个点换一个，或按「演示一下」。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage">
+
+      <div class="demo">
+        <div class="hs-wrap">
+          <div class="hs-pic" id="hs-pic">
+            <svg viewBox="0 0 230 190" aria-hidden="true">
+              <rect x="70" y="30" width="90" height="130" rx="22" fill="#3a5a78"/>
+              <rect x="70" y="30" width="90" height="130" rx="22" fill="none" stroke="#5b7fa3" stroke-width="2"/>
+              <path d="M95 30 q20 -18 40 0" fill="none" stroke="#5b7fa3" stroke-width="5" stroke-linecap="round"/>
+              <rect x="86" y="86" width="58" height="52" rx="10" fill="#2c4763" stroke="#5b7fa3" stroke-width="2"/>
+              <rect x="102" y="86" width="26" height="8" rx="4" fill="#5b7fa3"/>
+              <rect x="58" y="52" width="14" height="66" rx="7" fill="#2c4763"/>
+              <rect x="158" y="52" width="14" height="66" rx="7" fill="#2c4763"/>
+            </svg>
+            <button type="button" class="hs-dot" style="left:38%;top:26%" data-tip="t1" aria-expanded="false" aria-label="查看说明：加厚肩带"><i aria-hidden="true"></i></button>
+            <button type="button" class="hs-dot" style="left:64%;top:62%" data-tip="t2" aria-expanded="false" aria-label="查看说明：防水前袋"><i aria-hidden="true"></i></button>
+            <div class="hs-tip" id="hs-tip" role="status"><b id="hs-tip-t"></b><span id="hs-tip-b"></span></div>
+          </div>
+          <div class="hs-info"><b>城市通勤背包</b><span>¥299 · 可放 15 寸电脑</span></div>
+        </div>
+      </div>
+      <div class="cmp-copy" aria-hidden="true" inert>
+        <div class="hs-wrap">
+          <div class="hs-pic no-pulse">
+            <svg viewBox="0 0 230 190" aria-hidden="true">
+              <rect x="70" y="30" width="90" height="130" rx="22" fill="#3a5a78"/>
+              <rect x="70" y="30" width="90" height="130" rx="22" fill="none" stroke="#5b7fa3" stroke-width="2"/>
+              <path d="M95 30 q20 -18 40 0" fill="none" stroke="#5b7fa3" stroke-width="5" stroke-linecap="round"/>
+              <rect x="86" y="86" width="58" height="52" rx="10" fill="#2c4763" stroke="#5b7fa3" stroke-width="2"/>
+              <rect x="58" y="52" width="14" height="66" rx="7" fill="#2c4763"/>
+              <rect x="158" y="52" width="14" height="66" rx="7" fill="#2c4763"/>
+            </svg>
+            <span class="hs-dot" style="left:38%;top:26%"></span>
+            <span class="hs-dot" style="left:64%;top:62%"></span>
+          </div>
+          <div class="hs-info"><b>城市通勤背包</b><span>¥299 · 可放 15 寸电脑</span></div>
+        </div>
+      </div>
+      <div class="inside-panel" aria-hidden="true"><b>看内部：</b>1 圆点每 1.57 秒扩出一个白圈，提醒这里可以点。2 点一下：气泡 0.25 秒从下方 6px 处升起来。3 点另一个点：旧气泡消失，新气泡出现。4 再点一次：气泡关掉。</div>
+      <p class="cap a" aria-hidden="true">无动画</p>
+      <p class="cap b" aria-hidden="true">有动画</p>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>内部：圆点每 1.57 秒扩出一个白圈；点一下，气泡 0.25 秒从下方 6px 处升起来；点另一个点，旧气泡消失、新气泡出现；再点一次关掉。按「演示一下」看一遍。</p>
+      <p data-hb-for="compare" hidden>无动画：圆点不会动，气泡突然出现；有动画：圆点脉动提醒你点，气泡从下面升起来。按「演示一下」。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="pulse-lbl">脉冲速度</p>
+        <div class="seg" id="pulse-seg" role="group" aria-labelledby="pulse-lbl">
+          <button type="button" data-ms="800" aria-pressed="false">快</button>
+          <button type="button" data-ms="1570" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="2400" aria-pressed="false">慢</button>
+        </div>
+        <p class="hb-hint">圆点扩出一个白圈要花多长时间。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="pos-lbl">气泡位置</p>
+        <div class="seg" id="pos-seg" role="group" aria-labelledby="pos-lbl">
+          <button type="button" data-pos="auto" class="on" aria-pressed="true">自动</button>
+          <button type="button" data-pos="left" aria-pressed="false">左侧</button>
+          <button type="button" data-pos="right" aria-pressed="false">右侧</button>
+        </div>
+        <p class="hb-hint">气泡出现在圆点的哪一边；自动是靠左的点放左边、靠右的点放右边。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="size-lbl">圆点大小</p>
+        <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
+          <button type="button" data-size="12" aria-pressed="false">小</button>
+          <button type="button" data-size="16" class="on" aria-pressed="true">中</button>
+          <button type="button" data-size="20" aria-pressed="false">大</button>
+        </div>
+        <p class="hb-hint">圆点直径多大，越大越好点。</p>
+      </div>
+
+    </div>
+    <details class="hb-options">
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="hb-settings">
+      <div class="hb-setting">
+        <label class="hb-switch-row"><span>显示脉冲</span><input class="hb-switch" type="checkbox" role="switch" id="pulse-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">圆点定时扩出白圈，提醒这里可以点。</p>
+      </div>
+      </div>
+    </details>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[产品图或示意图]加上热点标注。在图上关键部位放几个会脉动的圆点，点一下，0.25 秒弹出一个说明气泡，从下方 6px 处升起来；点另一个点，旧气泡消失、新气泡出现；再点一次关掉。圆点要够大、好点，气泡不要挡住圆点指着的部位。如果访客开启了减弱动态效果，圆点不要脉动，气泡直接出现。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>产品图</li><li>示意图</li><li>户型图</li><li>地图</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>点太多（超过 5 个）</li><li>说明很长</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let timers = [];
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+  function stopRun(){ timers.forEach(clearTimeout); timers = []; }
+  document.addEventListener('hb:input', stopRun);
+  let mode = 'normal';
+  document.addEventListener('hb:mode', e => { mode = e.detail.mode; });
+  function choices(id, pick){
+    const buttons = document.querySelectorAll('#' + id + ' button');
+    buttons.forEach(b => b.addEventListener('click', () => {
+      buttons.forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
+      pick(b.dataset);
+    }));
+  }
+
+  const pic = document.getElementById('hs-pic');
+  const tip = document.getElementById('hs-tip');
+  const tipT = document.getElementById('hs-tip-t');
+  const tipB = document.getElementById('hs-tip-b');
+  const dots = [...pic.querySelectorAll('.hs-dot')];
+  const TIPS = {
+    t1: ['加厚肩带', '8mm 透气海绵，背久了肩膀不疼。'],
+    t2: ['防水前袋', '雨天放手机和证件，不怕淋湿。'],
+  };
+  let openDot = null, posMode = 'auto';
+  function sideFor(dot){
+    if (posMode !== 'auto') return posMode;
+    return dot.getBoundingClientRect().left - pic.getBoundingClientRect().left < pic.clientWidth / 2 ? 'right' : 'left';
+  }
+  function openTip(dot){
+    const t = TIPS[dot.dataset.tip];
+    tipT.textContent = t[0]; tipB.textContent = t[1];
+    const side = sideFor(dot);
+    tip.classList.remove('at-left', 'at-right');
+    tip.classList.add('at-' + side);
+    const pr = pic.getBoundingClientRect(), dr = dot.getBoundingClientRect();
+    const cx = dr.left - pr.left + dr.width / 2, cy = dr.top - pr.top + dr.height / 2;
+    tip.classList.add('show');
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.left = (side === 'right' ? cx + 12 : cx - 12 - w) + 'px';
+    tip.style.top = Math.max(2, Math.min(pic.clientHeight - h - 2, cy - h / 2)) + 'px';
+    dots.forEach(d => d.setAttribute('aria-expanded', String(d === dot)));
+    openDot = dot;
+  }
+  function closeTip(){
+    tip.classList.remove('show');
+    dots.forEach(d => d.setAttribute('aria-expanded', 'false'));
+    openDot = null;
+  }
+  dots.forEach(d => d.addEventListener('click', e => {
+    e.stopPropagation(); stopRun();
+    if (openDot === d) closeTip(); else openTip(d);
+  }));
+  pic.addEventListener('click', e => { if (e.target === pic) closeTip(); });
+  function toRest(){ stopRun(); closeTip(); }
+  document.getElementById('btn-demo').addEventListener('click', () => {
+    toRest();
+    later(() => openTip(dots[0]), 500);
+    later(() => openTip(dots[1]), 1400);
+    later(() => closeTip(), 2400);
+  });
+  document.getElementById('btn-reset').addEventListener('click', toRest);
+  choices('pulse-seg', d => { pic.style.setProperty('--pulse', d.ms + 'ms'); });
+  choices('pos-seg', d => { posMode = d.pos; if (openDot) openTip(openDot); });
+  choices('size-seg', d => { pic.style.setProperty('--dot', d.size + 'px'); });
+  document.getElementById('pulse-tog').addEventListener('change', e => {
+    pic.classList.toggle('no-pulse', !e.target.checked);
+  });
+  if (reduceMotion) pic.classList.add('no-pulse');
+
+</script>
+</body>
+</html>

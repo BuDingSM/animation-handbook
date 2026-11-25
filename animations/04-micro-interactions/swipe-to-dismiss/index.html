@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swipe to Dismiss — Animation Handbook</title>
-  <meta name="description" content="A card dragged sideways flies off and the list closes up. Best for inboxes.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/swipe-to-dismiss/">
+  <title>滑动删除 — 动画手册</title>
+  <meta name="description" content="卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/swipe-to-dismiss/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Swipe to Dismiss — Animation Handbook">
-  <meta property="og:description" content="A card dragged sideways flies off and the list closes up. Best for inboxes.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/swipe-to-dismiss/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="滑动删除 — 动画手册">
+  <meta property="og:description" content="卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/swipe-to-dismiss/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Swipe to Dismiss — Animation Handbook">
-  <meta name="twitter:description" content="A card dragged sideways flies off and the list closes up. Best for inboxes.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Swipe to Dismiss", "name": "Swipe to Dismiss", "description": "A card dragged sideways flies off and the list closes up. Best for inboxes.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/swipe-to-dismiss/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Swipe to Dismiss"}</script>
+  <meta name="twitter:title" content="滑动删除 — 动画手册">
+  <meta name="twitter:description" content="卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滑动删除", "name": "滑动删除", "description": "卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/swipe-to-dismiss/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 滑动删除"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--del:#f4515b}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -99,73 +99,73 @@
       .stage[data-hb-mode="compare"] .row{height:52px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../error-shake/" rel="prev" aria-label="Previous: Error Shake"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Error Shake</span></a><a href="../hamburger-menu-toggle/" rel="next" aria-label="Next: Hamburger Menu Toggle"><span><span class="hb-dir">Next: </span>Hamburger Menu Toggle</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../error-shake/" rel="prev" aria-label="上一个：错误抖动"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>错误抖动</span></a><a href="../hamburger-menu-toggle/" rel="next" aria-label="下一个：汉堡菜单切换"><span><span class="hb-dir">下一个：</span>汉堡菜单切换</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.22 · Micro-Interactions</p>
-    <h1>Swipe to Dismiss</h1>
-    <p class="hb-lede">A card dragged sideways flies off and the list closes up. Best for inboxes.</p>
+    <p class="hb-cat">04.22 · 微交互</p>
+    <h1>滑动删除</h1>
+    <p class="hb-lede">卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Drag it</h2><p>Drag a message sideways and let go, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">拖动试试</h2><p>把一条消息横向拖动，松开，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="ins" aria-hidden="true">
-        <p class="lbl k1" data-hb-caption>Let go past a dashed mark and it flies off; short of it, it springs back</p>
+        <p class="lbl k1" data-hb-caption>松开超过虚线标记，它就飞出去；不到，就弹回来</p>
         <div class="gauge"><i class="ring"></i><i class="lim l"></i><i class="lim r"></i><i class="dot"></i></div>
-        <div class="spd"><div class="meter"><i class="fill"></i><i class="notch"></i></div><p class="lbl k2" data-hb-caption>Or flick faster than this</p></div>
-        <p class="lbl k3" id="k3" data-hb-caption>The Delete strip waits behind the card</p>
+        <div class="spd"><div class="meter"><i class="fill"></i><i class="notch"></i></div><p class="lbl k2" data-hb-caption>或比这更快地一甩</p></div>
+        <p class="lbl k3" id="k3" data-hb-caption>「删除」条在卡片后面等着</p>
       </div>
-      <p class="lbl half h1" aria-hidden="true" data-hb-caption>Vanishes</p>
-      <p class="lbl half h2" aria-hidden="true" data-hb-caption>Flies off</p>
+      <p class="lbl half h1" aria-hidden="true" data-hb-caption>消失</p>
+      <p class="lbl half h2" aria-hidden="true" data-hb-caption>飞出去</p>
       <div class="list" id="list"></div>
-      <p class="lbl k4" aria-hidden="true" data-hb-caption>Its row closes; the rows below glide up</p>
-      <p class="sr-only" id="del-hint">Press Delete to remove this message.</p>
+      <p class="lbl k4" aria-hidden="true" data-hb-caption>它那行合上；下面的行滑上来</p>
+      <p class="sr-only" id="del-hint">按「删除」删掉这条消息。</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed marks are the delete distance: let go past one, or flick fast, and the card flies off; short of it, it springs back. Drag a message, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Vanishes: the message is gone the moment you let go and the list jumps up; Flies off: it slides away and the list closes up smoothly. Drag a message, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：虚线标记是删除距离：松开超过一个，或快速一甩，卡片就飞出去；不到，就弹回来。拖动一条消息，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>消失：松开的一瞬间消息就不见了，列表跳上去；飞出去：它滑走，列表平滑地合上。拖动一条消息，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="dist-lbl">Distance to delete</p>
+        <p class="hb-setting-name" id="dist-lbl">删除距离</p>
         <div class="seg" id="dist-seg" role="group" aria-labelledby="dist-lbl">
-          <button type="button" data-t="0.2" aria-pressed="false">Short</button>
-          <button type="button" data-t="0.35" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-t="0.5" aria-pressed="false">Long</button>
+          <button type="button" data-t="0.2" aria-pressed="false">短</button>
+          <button type="button" data-t="0.35" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-t="0.5" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">How far to drag before letting go deletes it.</p>
+        <p class="hb-hint">松开删除前要拖多远。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Shows a Delete label</span><input class="hb-switch" type="checkbox" role="switch" id="reveal-tog" checked autocomplete="off"></label>
-        <p class="hb-hint">A red Delete strip shows behind the card as you drag.</p>
+        <label class="hb-switch-row"><span>显示删除标签</span><input class="hb-switch" type="checkbox" role="switch" id="reveal-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">拖动时，卡片后面显示一条红色的「删除」条。</p>
       </div>
     </div>
   </section>
@@ -173,41 +173,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add swipe to dismiss to [the list items people should be able to remove]. While an item is dragged sideways, it follows the finger exactly and fades a little; when the settings include it, a red Delete label shows behind it. On release, remove it if it went far enough or was flicked quickly: it slides off the edge and its row closes up so the list moves up smoothly. Otherwise it springs back into place. Use pointer events so mouse, touch and pen all work, and let up-and-down scrolling still pass through. Offer an undo, and a button for people who cannot drag. If the visitor has reduced motion turned on, remove the row at once without sliding. Match the settings listed below.</p>
+      <p class="hb-prompt">给[人们应该能删掉的列表项]加上滑动删除。项目被横向拖动时，它精确地跟随手指，稍微淡出；如果设置里包含，一条红色的「删除」标签在它后面显示。松开时，如果拖得够远或甩得够快，就删掉它：它滑出边缘，它那行合上，列表平滑地向上移动。否则它弹回原位。用指针事件，让鼠标、触摸和触控笔都能用，并让上下滚动仍然通过。提供撤销，和一个给不能拖动的人用的按钮。如果访客开启了减弱动态效果，立刻删掉那行，不要滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Inboxes</li><li>Notifications</li><li>Chat lists</li><li>To-do lists</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Permanent deletes</li><li>Mouse-only tools</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>收件箱</li><li>通知</li><li>聊天列表</li><li>待办清单</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>永久删除</li><li>仅支持鼠标的工具</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const listEl=document.getElementById('list'),stage=document.querySelector('.stage');
   const resetBtn=document.getElementById('btn-reset'),reduceMq=window.matchMedia('(prefers-reduced-motion:reduce)');
@@ -215,10 +215,10 @@
   const FLICK=0.6,FLICK_MIN=24; // letting go commits when the card moves faster than FLICK px per ms, after at least FLICK_MIN px
   let mode='normal',holding=0; // holding: cards held by a pointer right now
   const DATA=[
-    ['AV','Ava Reyes','Lunch tomorrow? I found a spot'],
-    ['KM','Kai Morgan','Booked the tickets for June'],
-    ['NP','Noor Patel','Sent the revised mockups'],
-    ['SL','Sol Lindqvist','Are we still on for Friday?']
+    ['AV','艾娃·雷耶斯','明天午饭？我找到一家店'],
+    ['KM','凯·摩根','订好了六月的票'],
+    ['NP','努尔·帕特尔','发了修改后的样稿'],
+    ['SL','索尔·林德奎斯特','周五还约吗？']
   ];
 
   function build(){
@@ -226,7 +226,7 @@
     listEl.innerHTML='';
     DATA.forEach((d,i)=>{
       const row=document.createElement('div');row.className='row';
-      row.innerHTML=`<div class="reveal ${showReveal?'':'hidden'}" aria-hidden="true">Delete</div>`+
+      row.innerHTML=`<div class="reveal ${showReveal?'':'hidden'}" aria-hidden="true">删除</div>`+
         `<div class="card" tabindex="0" role="group" data-i="${i}" aria-label="${d[1]}: ${d[2]}" aria-describedby="del-hint"><div class="avatar" aria-hidden="true">${d[0]}</div>`+
         `<div class="meta"><div class="t">${d[1]}</div><div class="s">${d[2]}</div></div></div>`;
       listEl.appendChild(row);
@@ -319,7 +319,7 @@
   }
 
   function checkEmpty(){
-    if(!listEl.querySelector('.row'))listEl.innerHTML='<div class="empty">All cleared. Press Reset to bring them back.</div>';
+    if(!listEl.querySelector('.row'))listEl.innerHTML='<div class="empty">都清掉了。按「重置」把它们带回来。</div>';
   }
 
   // Show me: one run at a time. Every timer of the run goes through later(); stopRun() cancels the whole run.
@@ -388,8 +388,8 @@
   // Compare's left half: an inert copy of the list, made once
   const copyEl=document.createElement('div');
   copyEl.className='list copy';copyEl.inert=true;copyEl.setAttribute('aria-hidden','true');
-  copyEl.innerHTML=DATA.map(d=>`<div class="row"><div class="reveal ${showReveal?'':'hidden'}">Delete</div><div class="card"><div class="avatar">${d[0]}</div>`+
-    `<div class="meta"><div class="t">${d[1]}</div><div class="s">${d[2]}</div></div></div></div>`).join('')+'<div class="empty" hidden>All cleared. Press Reset to bring them back.</div>';
+  copyEl.innerHTML=DATA.map(d=>`<div class="row"><div class="reveal ${showReveal?'':'hidden'}">删除</div><div class="card"><div class="avatar">${d[0]}</div>`+
+    `<div class="meta"><div class="t">${d[1]}</div><div class="s">${d[2]}</div></div></div></div>`).join('')+'<div class="empty" hidden>都清掉了。按「重置」把它们带回来。</div>';
   listEl.before(copyEl);
   const copyRows=[...copyEl.querySelectorAll('.row')],copyEmpty=copyEl.querySelector('.empty'),twins=new Map(); // twins: a real card → its copy
   const gaugeEl=stage.querySelector('.gauge'),dot=gaugeEl.querySelector('.dot'),fill=stage.querySelector('.fill');
@@ -397,10 +397,10 @@
   const RANGE=0.75,SPEED_FULL=FLICK/0.6; // the gauge shows a card up to RANGE of its width each way; the speed bar is full at SPEED_FULL px per ms
   const POSE_FLY=0.2,POSE_CLOSE=0.5;     // 0.1 s after letting go the card has flown this share of its way and the row has closed this share
   let half=0,gx=0,gw=300,speedX=0,speedT=0,holdT=0,poseT=0;
-  const STILL='Shown still, just after letting go: Vanishes has already dropped the message and jumped up; Flies off is still sliding it away and closing the gap.';
-  const FREE='With reduced motion, Vanishes and Flies off both drop a message at once. Reset brings the still back.';
+  const STILL='静止展示，刚松开时：「消失」已经去掉消息并跳上去；「飞出去」还在把消息滑走并合上空隙。';
+  const FREE='减弱动态效果下，「消失」和「飞出去」都会立刻去掉消息。重置会把静止画面带回来。';
   if(reduceMq.matches){
-    noteIn.textContent='Inside, the dashed marks are the delete distance: let go past one, or flick fast, and the message goes; short of it, it comes back. Drag a message, or press Show me.';
+    noteIn.textContent='看内部时，虚线是删除距离：松开超过一条，或快速一甩，消息就走；不到就弹回来。拖一条消息，或按「演示一下」。';
     noteCmp.textContent=STILL;
   }
   function note(posed){ if(reduceMq.matches&&mode==='compare'&&noteCmp.textContent!==(posed?STILL:FREE))noteCmp.textContent=posed?STILL:FREE; }
@@ -488,7 +488,7 @@
   }
   document.addEventListener('hb:mode',e=>{
     mode=e.detail.mode;
-    stage.classList.add('snap'); // the rows change height with the mode at once, not over a third of a second
+    stage.classList.add('snap'); // the rows change height with the mode at once, not over 三分之一秒
     lift();
     if(mode==='compare')syncCopy();
     layout();

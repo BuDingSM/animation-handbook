@@ -1,20 +1,20 @@
-# Text Morphing
+# 文字变形
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-morphing/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-morphing/)
 
-## What it is
-Text morphing changes one word into the next, letter by letter. The letters of the current word slide out of sight, then the letters of the next word slide in from the opposite side; a small delay between letters can send each change across the word like a wave. Each word stays still long enough to read before the next change.
+## 它是什么
+文字变形让一个词逐字变成下一个词。当前词的字母滑出视野，然后下一个词的字母从相反一边滑进来；字母之间的小延迟，可以让每次变化像波浪一样穿过整个词。每个词停留的时间都够读完，然后再进行下一次变化。
 
-## When to use it
-- A single changing word in a static phrase: "We make [websites / apps / brands]"
-- Animated state transitions where a label changes meaning: "Loading → Ready → Error"
-- Thematic cycling between related concepts: OCEAN → RIVER → STREAM
-- Any UI element where a text value changes and the change should feel connected rather than abrupt
+## 什么时候用
+- 静态短语里一个在变的词：“We make [websites / apps / brands]”
+- 标签改变含义时的动画状态过渡：“Loading → Ready → Error”
+- 相关概念之间的主题循环：OCEAN → RIVER → STREAM
+- 任何文字值会变化、而且变化应该感觉连贯而不是突兀的界面元素
 
-## How it works
-Each character occupies its own `<span>`. When transitioning from word A to word B, the outgoing spans receive an exit class; once the last one has left, the incoming spans are built with an enter class that places them on the opposite side, and removing it starts the CSS transition to their resting place.
+## 工作原理
+每个字符占一个自己的 `<span>`。从词 A 变到词 B 时，出去的 span 先拿到退场 class；等最后一个离开后，进来的 span 带着进场 class 建好，放在相反一边，拿掉它就开始向静止位置做 CSS 过渡。
 
-`stepDur` (the Speed setting) and `stepStag` (the Delay between letters) are read once at the start of each change, both three times longer in Slow motion. The delay is 0 by default, so every letter moves together; 30 or 60ms sends the change across the word like a wave. `wait` is `setTimeout` that Pause can hold:
+`stepDur`（速度设置）和 `stepStag`（字母间延迟）在每次变化开始时读一次，慢动作下都是三倍长。延迟默认是 0，所以每个字母一起动；30 或 60ms 会让变化像波浪一样穿过整个词。`wait` 是可以被暂停按住的 `setTimeout`：
 
 ```js
 // in startMorph(): the current letters leave
@@ -60,25 +60,25 @@ function afterExit() {
 .morph-char.enter-from-right { transform: translateX(80%);   opacity: 0; }
 ```
 
-`--morph-dur` is set from `stepDur` at the start of each change (400ms at Normal).
+`--morph-dur` 在每次变化开始时由 `stepDur` 设定（普通速度下是 400ms）。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Slide direction | Up | Up and down look like a slot machine, each letter sliding its own height; left and right slide sideways, 80% of a letter's width; the letters fade out and in as they slide |
-| Delay between letters | None | The gap between one letter moving and the next: none, short (30ms) or long (60ms); none moves every letter together, a delay makes a wave |
-| Speed | Normal | How long each letter takes to slide: slow is 650ms, normal 400ms and fast 250ms |
-| Time on each word | Medium | How long each word stays: short is 900ms, medium 1500ms and long 2400ms; it must be long enough to read |
-| Your words, one per line | OCEAN, RIVER, STORM, LIGHT, SOUND | The words that take turns, shown in capitals |
+| 滑动方向 | 上 | 上下看起来像老虎机，每个字母滑动自己的高度；左右横向滑动，字母宽度的 80%；字母在滑动时淡出淡入 |
+| 字母间延迟 | 无 | 一个字母移动和下一个字母移动之间的间隔：无、短（30ms）或长（60ms）；没有延迟时每个字母一起动，有延迟会形成波浪 |
+| 速度 | 普通 | 每个字母滑动需要的时间：慢速 650ms，普通 400ms，快速 250ms |
+| 每个词的停留时间 | 中 | 每个词停留的时间：短 900ms，中 1500ms，长 2400ms；必须够读完 |
+| 你的词语，每行一个 | OCEAN, RIVER, STORM, LIGHT, SOUND | 轮流出现的词，用大写显示 |
 
-## Production notes
-- **Length mismatch**: this demo sidesteps it — the whole old word leaves before the new one arrives, so words of any length work. A morph that swaps letters in place has to fade the extra letters in or out with opacity only, so the letters around them do not jump.
-- **Fixed-width container**: to prevent layout shift as word length changes, give the rotating word container a fixed or `min-width` based on the longest word. Otherwise sibling elements jump as words swap.
-- **`will-change`**: the demo sets `will-change: transform, opacity` on its letters in the stylesheet, which costs little for one short word whose spans are rebuilt at every change. With many letters on screen, add it just before a change and remove it after, because each promoted span keeps its own layer in GPU memory.
-- **GSAP**: `gsap.to(chars, { y: -50, opacity: 0, stagger: 0.03, duration: 0.4 })` for exits, then rebuild and animate in. GSAP's stagger model is cleaner than per-element `transitionDelay` in JavaScript.
-- **SplitType**: a lightweight library that splits text into `<div>` wrappers per word/char without the overhead of GSAP. Pairs well with this pattern.
+## 生产注意事项
+- **长度不匹配**：这个演示绕开了它——整个旧词先离开，新词再进来，所以任何长度的词都行。原地换字母的变形，必须只用透明度把多余的字母淡入或淡出，这样它们周围的字母才不会跳动。
+- **固定宽度的容器**：为了防止词长变化时布局位移，按最长的词给轮换词容器一个固定或 `min-width`。否则，词一换，旁边的元素就会跳动。
+- **`will-change`**：演示在样式表里给字母设置了 `will-change: transform, opacity`，对一个每次变化都会重建 span 的短词来说，代价很小。屏幕上有许多字母时，在变化前加上它，变化后拿掉，因为每个被提升的 span 都会在 GPU 内存里保留自己的层。
+- **GSAP**：退场用 `gsap.to(chars, { y: -50, opacity: 0, stagger: 0.03, duration: 0.4 })`，然后重建再做进场。GSAP 的 stagger 模型比 JavaScript 里逐个元素的 `transitionDelay` 更干净。
+- **SplitType**：一个轻量库，把文字按词/字符拆成 `<div>` 包装，没有 GSAP 的开销。和这个模式搭配得很好。
 
-## See also
-- [Rotate Word Carousel](../rotate-word-carousel/) — the whole word slides, with no letters split
-- [Scramble / Glitch Text](../scramble-text/) — random symbols lock into the real text
-- [Typewriter Effect](../typewriter-effect/) — text typed one character at a time
+## 另见
+- [轮换词轮播](../rotate-word-carousel/) — 整个词滑动，字母不拆开
+- [乱码/故障文字](../scramble-text/) — 随机符号逐个锁定为真实文字
+- [打字机效果](../typewriter-effect/) — 文字逐字打出

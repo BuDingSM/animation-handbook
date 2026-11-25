@@ -1,18 +1,18 @@
-# Matrix Rain
+# 矩阵雨
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/matrix-rain/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/matrix-rain/)
 
-## What it is
-Matrix rain, also called digital rain, is a background of columns of characters falling down a dark screen. The leading character in each column is bright and the ones behind it fade toward black, so each column looks like a glowing head with a fading tail. It became shorthand for "computers at work" after the film The Matrix (1999).
+## 它是什么
+矩阵雨，也叫数字雨，是字符列在深色屏幕上落下的背景。每列的领头字符明亮，后面的字符向黑色淡出，所以每列看起来像一个发光的头带着渐隐的尾巴。电影《黑客帝国》（1999）之后，它成了“电脑在工作”的速记。
 
-## When to use it
-- Terminal, hacker, or "system online" themed landing pages and hero sections
-- Loading and boot screens for retro-futuristic or cyberpunk interfaces
-- Decorative backdrops behind login panels, 404 pages, or event countdowns
-- Music visualizers and demo-scene style ambient loops
+## 什么时候用
+- 终端、黑客或“系统在线”主题的落地页和主视觉区
+- 复古未来或赛博朋克界面的加载和启动画面
+- 登录面板、404 页面或活动倒计时后面的装饰背景
+- 音乐可视化和演示场景风格的氛围循环
 
-## How it works
-Each column tracks a single vertical position (its "drop"). Every step, the column draws a fresh bright character at its head, then advances one row. The trail is not stored — it is produced by painting a translucent black rectangle over the entire canvas each step, which darkens every previously drawn glyph a little more until it disappears:
+## 工作原理
+每列跟踪一个竖直位置（它的“水滴”）。每步，字符列在头部画一个新鲜明亮的字符，然后前进一步。拖尾不是存储的——它是每步在整个画布上画一个半透明黑色矩形产生的，这让之前画的每个字符再暗一点，直到消失：
 
 ```js
 // Fade the whole canvas slightly instead of clearing it.
@@ -29,28 +29,28 @@ for (let i = 0; i < cols; i++) {
 }
 ```
 
-Because the canvas is never fully cleared, the length of the tail is entirely controlled by the fade opacity: a smaller value leaves glyphs on screen longer (a long tail), a larger value wipes them quickly (a short tail). Columns reset to the top at random once they pass the bottom, so the rain never falls in lockstep.
+因为画布永远不会被完全清空，尾巴的长度完全由淡出不透明度控制：值越小，字符在屏幕上留得越久（长尾巴），值越大，擦除越快（短尾巴）。字符列越过底部后随机回到顶部，所以雨永远不会同步落下。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How often the rain moves down a row: slow is about 18 times a second, normal 28 and fast about 46 |
-| Characters | Japanese | Japanese katakana with the digits 0 to 9 (the film's look), binary 0 and 1, or hexadecimal 0 to F |
-| Trail length | Medium | How long characters linger: short fades 12% a step, medium 7% and long 4% |
-| Character size | Medium | Small is 12px, medium 16px and large 22px; the columns are spaced one character size apart, at least 14px on phones, so larger characters make fewer columns |
-| Glowing leaders | on | A soft glow around each column's leading character |
+| 速度 | 普通 | 雨每秒向下移动一行的次数：慢速约 18 次，普通 28 次，快速约 46 次 |
+| 字符 | 日文 | 日文片假名加数字 0 到 9（电影的样子）、二进制 0 和 1，或十六进制 0 到 F |
+| 轨迹长度 | 中等 | 字符留存多久：短是每步淡 12%，中等 7%，长是 4% |
+| 字符大小 | 中等 | 小是 12px，中等 16px，大是 22px；字符列按一个字符大小的间距排列，手机上至少 14px，所以字符越大列越少 |
+| 发光的领头字符 | 开 | 每列领头字符周围柔和的辉光 |
 
-## Production notes
-- **`fillRect` fade vs `clearRect`**: clearing the canvas each frame gives no trail — you would have to store and redraw every past glyph yourself. Painting a translucent `fillRect` is both the trail mechanism and cheaper, since it is one composited rectangle instead of hundreds of retained cells.
-- **Cap density on mobile**: column count is derived from a minimum pixel pitch, not an unbounded `width / fontSize`. Combined with clamping `devicePixelRatio` to 2, this keeps the per-frame `fillText` count bounded so the effect holds 60fps on mid-range phones. Heavy `shadowBlur` is the most expensive part — it is applied only to the single leader glyph, never the trail.
-- **Pause on hidden tab**: the `requestAnimationFrame` loop is canceled on `visibilitychange` when `document.hidden` is true and restarted when the tab returns, so a background tab burns no CPU or battery.
-- **Reduced motion**: the demo starts paused, showing a screen of rain drawn at once, until the visitor presses Play. In production, show these visitors a still frame.
-- **It is decorative**: real usage should sit behind content with `aria-hidden="true"`, `pointer-events: none`, and enough contrast on the foreground text that the rain does not reduce readability. Treat it as texture, not information.
-- **No library needed**: a 2D canvas, `fillText` and a translucent `fillRect` are the whole effect.
+## 生产注意事项
+- **`fillRect` 淡出与 `clearRect`**：每帧清空画布没有拖尾——你得自己存储、重画每个过去的字符。画半透明的 `fillRect` 既是拖尾机制又更便宜，因为它是一个合成的矩形，而不是几百个保留的格子。
+- **手机上限制密度**：列数由最小像素间距得出，不是无上限的 `width / fontSize`。加上把 `devicePixelRatio` 限制为 2，这让每帧 `fillText` 的数量有上限，效果在中端手机上保持 60fps。重的 `shadowBlur` 是最贵的部分——它只用在单个领头字符上，绝不用在拖尾上。
+- **隐藏标签页时暂停**：`document.hidden` 为真时在 `visibilitychange` 上取消 `requestAnimationFrame` 循环，标签页回来时重启，所以后台标签页不耗 CPU 或电池。
+- **减少动态**：演示开始时是暂停的，显示一次画成的满屏雨，直到访客按下播放。生产环境里，给这些访客显示一帧静止画面。
+- **它是装饰性的**：实际使用应该位于内容后面，带 `aria-hidden="true"`、`pointer-events: none`，前景文字对比度足够，雨不会降低可读性。把它当作质感，而不是信息。
+- **不需要库**：2D 画布、`fillText` 和半透明的 `fillRect` 就是整个效果。
 
-## See also
-- [Starfield / Space Particles](../starfield/) — another canvas background of moving points
-- [Scanline Effect](../scanline/) — dark lines for the same old-terminal mood
-- [Synthwave Grid](../synthwave-grid/) — a neon grid for a retro-future backdrop
-- [ASCII / Halftone](../../06-3d-advanced/ascii-halftone/) — a moving picture redrawn with characters, for the same retro look
-- [Game of Life](../game-of-life/) — a grid of cells that live and die by simple rules
+## 另见
+- [星空](../starfield/) — 另一个移动点的画布背景
+- [扫描线效果](../scanline/) — 同样老终端氛围的深色线条
+- [合成波网格](../synthwave-grid/) — 复古未来背景的霓虹网格
+- [ASCII / 半调](../../06-3d-advanced/ascii-halftone/) — 用字符重画的动态画面，同样复古
+- [生命游戏](../game-of-life/) — 按简单规则生死的细胞网格

@@ -1,18 +1,18 @@
-# Light Leak
+# 漏光
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/light-leak/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/light-leak/)
 
-## What it is
-A light leak is a warm glow that washes in from the edge of the frame and fades away again, like the stray light that reached the film when an old camera was not sealed properly. Real leaks happen at random and vary in strength, so the effect waits a random gap between leaks and peaks at a slightly different brightness each time; evenly timed leaks look like a machine, not a film camera.
+## 它是什么
+漏光是一团暖光从画框边缘漫入、又淡出，像老相机密封不好时到达胶片的杂散光。真实的漏光随机发生、强度各不相同，所以效果在每次漏光之间等待一个随机间隔，每次峰值亮度也略有不同；定时均匀的漏光看起来像机器，不像胶片相机。
 
-## When to use it
-- Editorial and photography portfolio sites where an analog aesthetic is intentional
-- Lifestyle brand pages where "film photography warmth" is part of the brand identity
-- Music video pages and creative agency sites
-- Any context where the sensation of "vintage film" enhances the brand narrative
+## 什么时候用
+- 编辑和摄影作品集网站，模拟美学是特意的
+- 生活方式品牌页面，“胶片摄影的暖意”是品牌标识的一部分
+- 音乐视频页面和创意机构网站
+- “复古胶片”的感觉能增强品牌叙事的任何场景
 
-## How it works
-The leak is an absolutely-positioned overlay with a radial gradient pointing from a corner. CSS `transition` animates the `opacity` from 0 to the peak value, then back to 0. **JavaScript randomizes the timing** — this is the critical detail that separates convincing from mechanical:
+## 工作原理
+漏光是一个绝对定位的叠加层，带一个从角落指向的径向渐变。CSS `transition` 给 `opacity` 做动画，从 0 到峰值，再回到 0。**JavaScript 随机化时间**——这是区分逼真与机械的关键细节：
 
 ```js
 const leak = document.querySelector('.leak');
@@ -37,9 +37,9 @@ function randomGap() {
 setTimeout(flash, randomGap());
 ```
 
-The demo opens on a leak at its peak rather than a dark stage: it lights the glow, finishes the fade at once (`leak.getAnimations().forEach(a => a.finish())`) and starts the chain with `setTimeout(fadeOut, randomGap())`, so the first leak holds for one gap before it fades out.
+演示以一次处于峰值的漏光开场，而不是黑暗的舞台：它点亮光晕，立刻完成淡入（`leak.getAnimations().forEach(a => a.finish())`），并用 `setTimeout(fadeOut, randomGap())` 启动链条，所以第一次漏光保持一个间隔才淡出。
 
-**Gradient for a top-left corner leak**:
+**左上角漏光的渐变**：
 
 ```css
 .leak {
@@ -59,25 +59,25 @@ The demo opens on a leak at its peak rather than a dark stage: it lights the glo
 .leak.active { opacity: var(--leak-peak); }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Comes from | Top left | The corner the glow spills in from, or a band of light down the middle |
-| Time between leaks | Medium | The random dark gap between one leak and the next: short is 0.5–1.5s, medium 1–3s and long 3–8s |
-| Speed | Normal | How long each leak takes to fade in, and again to fade out: slow is 2s, normal 1.2s and fast 0.7s |
-| Brightness | Medium | How strong the glow gets: dim is 30%, medium 55% and bright 80%; each leak peaks at a random 75% to 100% of this |
-| Color | Amber | Amber is the classic leak; gold, rose and magenta are warm too, and cyan looks like a cooler film stock |
-| Floating light spots | off | Three soft spots of light drift up from the bottom and fade with each leak |
+| 光从哪里来 | 左上 | 光晕从哪个角落漫入，或中间竖向的一条光带 |
+| 漏光间隔 | 中等 | 一次漏光与下一次之间的随机黑暗间隔：短是 0.5–1.5 秒，中等 1–3 秒，长是 3–8 秒 |
+| 速度 | 普通 | 每次漏光淡入、再淡出需要的时间：慢速 2 秒，普通 1.2 秒，快速 0.7 秒 |
+| 亮度 | 中等 | 光晕有多强：暗是 30%，中等 55%，明亮是 80%；每次漏光的峰值是这个值的随机 75% 到 100% |
+| 颜色 | 琥珀色 | 琥珀色是经典漏光；金色、玫瑰色和品红也是暖色，青色看起来像更冷的胶片 |
+| 漂浮的光斑 | 关 | 三个柔和的光斑从底部向上漂移，随每次漏光淡出 |
 
-## Production notes
-- **Irregularity is the entire effect**: a light leak that fires every 8 seconds at 0.5 opacity reads as a CSS animation loop, not a film defect. Randomizing both the delay and intensity per occurrence is what creates the analog feel.
-- **Color matters**: gold/amber is the classic light leak color. Cyan suggests a blue-light leak (cooler film stocks). Rose and magenta also exist. Pure white reads as a lens flare, not a leak.
-- **Multiple leaks simultaneously**: real cameras sometimes have multiple leak sources. Adding two or three leak elements with independent random timers increases verisimilitude.
-- **Pausing**: if the page is backgrounded (`document.visibilitychange`), cancel the pending `setTimeout`. Leaks firing when the tab isn't visible are wasted — and they can cause a jarring flash when the user returns.
-- **Framer Motion**: `<motion.div animate={{ opacity: [0, 0.5, 0] }} transition={{ times: [0, 0.5, 1], duration: 1.5 }}` on each flash. Trigger it imperatively with `controls.start()` from JavaScript.
+## 生产注意事项
+- **不规则就是全部效果**：每 8 秒以 0.5 不透明度触发一次的漏光读起来像 CSS 动画循环，不像胶片缺陷。每次出现都随机化延迟和强度，才造出模拟的感觉。
+- **颜色很重要**：金色/琥珀色是经典的漏光颜色。青色暗示蓝光漏光（更冷的胶片）。玫瑰色和品红也存在。纯白读起来像镜头光晕，不是漏光。
+- **同时多次漏光**：真实相机有时有多个漏光源。加两三个带独立随机计时器的漏光元素会增加逼真感。
+- **暂停**：页面被放到后台时（`document.visibilitychange`），取消待处理的 `setTimeout`。标签页不可见时触发漏光是浪费——用户回来时还可能造成刺眼的闪光。
+- **Framer Motion**：每次闪光用 `<motion.div animate={{ opacity: [0, 0.5, 0] }} transition={{ times: [0, 0.5, 1], duration: 1.5 }}`。用 JavaScript 的 `controls.start()` 命令式触发。
 
-## See also
-- [Grain / Film Noise Overlay](../grain-overlay/) — the film grain that pairs with a leak
-- [Scanline Effect](../scanline/) — dark lines over the page, like an old monitor
-- [Glassmorphism Animated](../../06-3d-advanced/glassmorphism-animated/) — frosted glass over moving color
-- [Light Rays](../light-rays/) — soft beams of light that fall from above and slowly sweep
+## 另见
+- [颗粒噪点叠加](../grain-overlay/) — 与漏光搭配的胶片颗粒
+- [扫描线效果](../scanline/) — 页面上的深色线条，像老显示器
+- [动态毛玻璃](../../06-3d-advanced/glassmorphism-animated/) — 移动色彩上的磨砂玻璃
+- [光束](../light-rays/) — 从上方洒落、缓缓扫过的柔和光束

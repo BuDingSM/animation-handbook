@@ -1,19 +1,19 @@
-# Theme Toggle Morph
+# 主题切换变形
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/theme-toggle-morph/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/theme-toggle-morph/)
 
-## What it is
-A theme toggle morph is one icon that turns from a sun into a crescent moon when you switch a site from light to dark. The sun's rays shrink into its center while a hidden circle slides across the sun and cuts it into a crescent, so the two states are clearly the same shape changing. In the demo, a small preview card flips to its dark side at the same time.
+## 它是什么
+主题切换变形是一个图标，在网站从浅色切换到深色时，从太阳变成月牙。太阳的光线缩进中心，同时一个隐藏的圆圈滑过太阳，把它切成月牙，所以两种状态明显是同一个形状在变化。演示里，一张小的预览卡片同时翻到它的深色面。
 
-## When to use it
-- The header or settings control that switches an interface between light and dark mode.
-- Any binary appearance toggle where the two options have natural iconography (sun/moon, on/off, day/night).
-- Places where a plain checkbox would feel abrupt and a short morph makes the state change legible without a full page flash.
+## 什么时候用
+- 在浅色和深色模式之间切换界面的页眉或设置控件。
+- 任何二元外观切换，两个选项有自然的图标（太阳/月亮、开/关、白天/夜晚）。
+- 普通复选框会感觉突兀、短暂变形让状态变化清晰、又没有整页闪烁的地方。
 
-Reach for a plain labeled switch instead when the control sits in a dense form, or when users may not read a sun/moon as "theme" without a text label beside it.
+控件放在密集表单里，或用户可能在没有旁边文字标签时认不出太阳/月亮是“主题”时，改用普通的带标签开关。
 
-## How it works
-The icon is one inline SVG: a filled `disc`, a group of eight `line` rays, and a `mask` containing a movable `cutout` circle. In the light state the cutout sits off the disc, so the disc renders whole and the rays are visible. Toggling adds a `.dark` class that scales the rays to zero from the icon's center and slides the cutout circle over the disc — the mask subtracts that overlap, leaving a crescent. A separate flip card rotates on the same duration and easing. The rays, the disc, the cut-out circle and the card change only `transform` and `opacity`. The icon's color fades from orange to lavender through a `color` transition on the button, which the SVG picks up with `currentColor`.
+## 工作原理
+图标是一个内联 SVG：一个填满的 `disc`、一组八条 `line` 光线，和一个装着可移动 `cutout` 圆圈的 `mask`。浅色状态下，镂空圆圈停在圆盘外面，所以圆盘完整渲染，光线可见。切换会加上一个 `.dark` 类，把光线从图标中心缩放到零，并把镂空圆圈滑过圆盘——遮罩减去重叠的部分，留下一个月牙。一张单独的翻转卡片用同样的时长和缓动旋转。光线、圆盘、镂空圆圈和卡片只改变 `transform` 和 `opacity`。图标的颜色通过按钮上的 `color` 过渡，从橙色淡到淡紫色，SVG 用 `currentColor` 接收它。
 
 ```css
 .icon line{transform-origin:12px 12px;
@@ -28,17 +28,17 @@ The icon is one inline SVG: a filled `disc`, a group of eight `line` rays, and a
 <circle class="disc" cx="12" cy="12" r="5" mask="url(#moon-mask)"/>
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long the change takes: slow is 800ms, normal 500ms and fast 300ms; under about 200ms the crescent forms too fast to see, and over 800ms it drags |
-| Feel | Gentle | Gentle eases in and out; Springy overshoots a little, then settles; Even keeps one steady speed |
+| 速度 | 普通 | 变化要花多长时间：慢是 800ms，普通 500ms，快是 300ms；不到大约 200ms，月牙形成得太快看不清；超过 800ms 会拖沓 |
+| 手感 | 轻柔 | 轻柔缓入缓出；回弹稍微过头，再落定；均匀保持一个稳定的速度 |
 
-## Production notes
-The control is a real `<button>` whose `aria-label` names the *action* ("Switch to dark theme") and changes with each press, so screen readers say what pressing it will do; leave `aria-pressed` off, because a toggle's name must not change and "Switch to light theme, pressed" contradicts itself (for `aria-pressed`, use a fixed name such as "Dark theme"). The preview card is `aria-hidden` since it only illustrates the effect. On first load, read the user's stored preference and fall back to `prefers-color-scheme`: `const dark = localStorage.getItem('theme') === 'dark' || (localStorage.getItem('theme') === null && matchMedia('(prefers-color-scheme: dark)').matches)`, then set the class and the label before the button is interactive to avoid a flash. Persist the choice to `localStorage` on click so it survives reloads. Respect `prefers-reduced-motion: reduce` by dropping the transitions — the icon still snaps to the correct state, just without the morph. Icon sets like Feather ship the sun and moon as separate SVGs; the mask-based morph here is what libraries such as Framer Motion or GSAP would drive by tweening the mask offset and ray scale on the same timeline.
+## 生产注意事项
+控件是一个真正的 `<button>`，它的 `aria-label` 说出*操作*（“切换到深色主题”），每次按下都会变化，这样读屏软件会说出按下它会做什么；不要用 `aria-pressed`，因为切换的名称不能变，“切换到浅色主题，已按下”自相矛盾（用 `aria-pressed` 时，用一个固定的名字，比如“深色主题”）。预览卡片是 `aria-hidden`，因为它只是说明效果。第一次加载时，读取用户保存的偏好，退回到 `prefers-color-scheme`：`const dark = localStorage.getItem('theme') === 'dark' || (localStorage.getItem('theme') === null && matchMedia('(prefers-color-scheme: dark)').matches)`，然后在按钮可交互之前设置类和标签，避免闪烁。点击时把选择存到 `localStorage`，这样重新加载后还在。遵循 `prefers-reduced-motion: reduce`，去掉过渡——图标仍会跳到正确的状态，只是不做变形。Feather 之类的图标集把太阳和月亮作为分开的 SVG 提供；这里基于遮罩的变形，正是 Framer Motion 或 GSAP 会在同一条时间线上补间遮罩偏移和光线缩放来驱动的东西。
 
-## See also
-- [Toggle / Switch Slide](../toggle-switch/) — a switch that slides between on and off
-- [Hamburger Menu Toggle](../hamburger-menu-toggle/) — three lines that turn into an X
-- [Checkmark Draw](../checkmark-draw/) — a tick that draws itself
+## 另见
+- [开关滑动](../toggle-switch/) — 在开和关之间滑动的开关
+- [汉堡菜单切换](../hamburger-menu-toggle/) — 三条线变成叉号
+- [对勾绘制](../checkmark-draw/) — 自己画出来的对勾

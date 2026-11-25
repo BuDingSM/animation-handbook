@@ -1,18 +1,18 @@
-# ASCII / Halftone
+# ASCII / 半调
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/)
 
-## What it is
-An ASCII or halftone effect redraws a picture out of small marks on a grid. The picture is shrunk to one pixel per cell, and each cell's brightness picks a character (brighter cells get characters with more ink) or sets the size of a dot, as in a newspaper photo. Because the picture is read again every frame, it works on anything that moves: a canvas scene, a video or a webcam.
+## 它是什么
+ASCII 或半调效果用网格上的小标记重画一张图片。图片缩小到每个格子一个像素，每个格子的亮度挑一个字符（越亮的格子，墨越多的字符），或决定一个圆点的大小，就像报纸上的照片。因为图片每帧都会重新读取，所以它能用在任何动的东西上：Canvas 场景、视频或摄像头。
 
-## When to use it
-- Retro, terminal and hacker-style looks for tech brands and developer tools
-- Music, game and event pages that want a printed or screen-like texture
-- Hero images and portfolio headers that should feel made rather than photographed
-- Loading or idle screens, where a moving picture turns into a pattern
+## 什么时候用
+- 科技品牌和开发者工具的复古、终端和黑客风格外观
+- 想要印刷或屏幕质感的音乐、游戏和活动页面
+- 应该显得是做出来的、而不是拍出来的主视觉图片和作品集页眉
+- 加载或闲置画面，动态图片在那里变成图案
 
-## How it works
-Every frame, the moving picture is drawn on a tiny hidden canvas, one pixel per cell, and read back. That canvas is made with `willReadFrequently`, so the browser keeps it in memory and reading it is cheap:
+## 工作原理
+每帧，动态图片画在一块很小的隐藏画布上，每个格子一个像素，再读回来。这块画布用 `willReadFrequently` 创建，所以浏览器把它留在内存里，读取很便宜：
 
 ```js
 const src = document.createElement('canvas');
@@ -28,7 +28,7 @@ function level(px, i) {                                  // 0 to 1: how bright t
 }
 ```
 
-**One pattern per mark.** Drawing a character in every cell with `fillText` or `drawImage` costs one call per cell, over 9,000 a frame with small cells. Instead, each mark is drawn once on a tile the size of one cell and turned into a repeating pattern. A run of neighboring cells that share a mark becomes one rectangle, and each mark's rectangles are filled in one go, so a frame is about ten fills:
+**每个标记一种图案。**用 `fillText` 或 `drawImage` 在每个格子里画一个字符，每个格子要一次调用，格子小时一帧要 9000 多次。取而代之，每个标记只在与一个格子等大的瓷砖上画一次，再做成重复图案。相邻且共用一个标记的格子连成一个矩形，每个标记的矩形一次填完，所以一帧大约只有十次填充：
 
 ```js
 const RAMP = ' .-:*+=xo#';                               // from no ink to the most ink
@@ -53,9 +53,9 @@ for (let j = 0; j < rows; j++) {
 for (let n = 1; n <= top; n++) { ctx.fillStyle = pats[n]; ctx.fill(runs[n]); }
 ```
 
-Dots work the same way: twelve tiles hold dots whose area grows evenly from none to one that fills the cell, which is what makes a halftone look right (the eye reads the share of ink, not the radius).
+圆点也是一样的办法：十二块瓷砖上的圆点，面积从没有均匀增大到填满格子，这正是半调看起来对的原因（眼睛读的是墨的占比，不是半径）。
 
-**Color in one step.** The marks are drawn in white on a clear canvas. Then `source-in` paints only where marks already are: with one color, or with the tiny picture itself stretched over the grid without smoothing, so every mark takes the color of its own cell:
+**一步上色。**标记先以白色画在透明画布上。然后 `source-in` 只在已有标记的地方上色：用一种颜色，或者把那张小图片本身不经平滑地拉伸到整个网格上，这样每个标记都取到自己格子的颜色：
 
 ```js
 ctx.globalCompositeOperation = 'source-in';
@@ -64,27 +64,27 @@ else { ctx.fillStyle = ink; ctx.fillRect(0, 0, cvs.width, cvs.height); }
 ctx.globalCompositeOperation = 'source-over';
 ```
 
-The characters are drawn with the site font. Its glyphs are not all the same width, so the ramp uses only characters narrower than a cell (a wide `@` or `%` would be cut off at the tile's edge), ordered by the ink each one measured. The scene's clock moves by the time since the last frame, at most 50 ms, and by a third of it in slow motion.
+字符用网站字体画。它的字形宽度并不都一样，所以字符阶梯只用比格子窄的字符（宽的 `@` 或 `%` 会在瓷砖边缘被切掉），按每个字符实测的墨量排序。场景的时钟按自上一帧以来的时间走，最多 50ms，慢动作里是它的三分之一。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Drawn with | Letters | Letters gives each cell one of ten characters, from a space to a hash sign, by its brightness; dots gives it one of twelve dot sizes, from none to one that fills the cell, in even steps of area |
-| Cell size | Medium | The height of a cell: small is 8px, medium 11px and large 16px, and phones use 10, 14 and 20px; letter cells are 0.7 as wide as they are tall, dot cells are square |
-| Colors | One color | One color paints every mark mint green, or near-black on paper; full color gives each mark the color of its spot in the picture |
-| Shows the original picture | off | Draws the moving picture at 40% under the marks, so you can see what each mark stands for |
-| Light paper | off | A light page with dark marks: each cell's darkness, not its brightness, picks the mark, as in a printed photo |
+| 用什么画 | 字母 | 字母按亮度给每个格子十个字符中的一个，从空格到井号；圆点给它十二种圆点大小中的一个，从没有到填满格子，面积均匀递增 |
+| 格子大小 | 中等 | 一个格子的高度：小是 8px，中等 11px，大是 16px，手机上用 10、14 和 20px；字母格子的宽是高的 0.7 倍，圆点格子是正方形 |
+| 颜色 | 单色 | 单色把每个标记都涂成薄荷绿，浅色纸上是近黑色；全彩让每个标记取画面中自己位置的颜色 |
+| 显示原图 | 关 | 在标记下面以 40% 的不透明度画出动态图片，这样能看出每个标记代表什么 |
+| 浅色纸 | 关 | 浅色纸面配深色标记：每个格子的深浅（而不是亮度）决定标记，就像印出来的照片 |
 
-## Production notes
-- **Count the calls, not the cells**: one `drawImage` per cell cost 36 ms a frame with small cells in a software-rendered test; the pattern fills above draw the same frame in about 4 ms, whatever the cell size.
-- **Video and webcam**: draw the `<video>` into the tiny canvas each frame instead of a scene. A video from another site needs CORS headers, or reading its pixels throws a security error.
-- **Glyphs and fonts**: with a monospace font every character has the same width and any ramp fits; with a proportional font, measure the characters and keep the ones narrower than a cell.
-- **WebGL**: for full-screen effects at high resolution, do it in a fragment shader with a texture of characters. three.js ships an `AsciiEffect` and a `DotScreenShader`; the postprocessing library has ASCII and dot-screen effects.
-- **CSS only**: a still halftone can be a dot pattern made with `radial-gradient` and masked by the image, without any script.
-- **Accessibility**: the marks hide the picture's detail, so put its meaning in text (alt text or an `aria-label`), and keep the effect for decoration.
-- **Reduced motion**: show one still frame; the demo starts paused with the full picture drawn.
+## 生产注意事项
+- **数调用次数，不数格子**：软件渲染测试里，格子小时每个格子一次 `drawImage` 一帧要 36ms；上面的图案填充画同一帧只要约 4ms，格子大小不限。
+- **视频和摄像头**：每帧把 `<video>` 画进那块小画布，而不是画一个场景。来自其他网站的视频需要 CORS 头，否则读取像素会抛安全错误。
+- **字形和字体**：等宽字体里每个字符宽度相同，任何字符阶梯都适用；比例字体要测量字符，只保留比格子窄的。
+- **WebGL**：高分辨率下的全屏效果，用带字符纹理的片元着色器来做。three.js 自带 `AsciiEffect` 和 `DotScreenShader`；postprocessing 库有 ASCII 和圆点屏效果。
+- **纯 CSS**：静止的半调可以是用 `radial-gradient` 做的圆点图案，再由图片遮罩，不用任何脚本。
+- **无障碍**：标记会遮住图片的细节，所以把它的含义写进文字（alt 文本或 `aria-label`），效果本身只做装饰。
+- **减弱动态**：显示一帧静止画面；演示开始时处于暂停状态，画着完整的图片。
 
-## See also
-- [Matrix Rain](../../07-ambient-background/matrix-rain/) — falling characters as a moving background
-- [Image Distortion on Hover](../image-distortion-hover/) — another way to restyle a picture as it moves
-- [Grain / Film Noise Overlay](../../07-ambient-background/grain-overlay/) — a fine texture laid over a picture
+## 另见
+- [矩阵雨](../../07-ambient-background/matrix-rain/) — 落下的字符作为动态背景
+- [悬停图片扭曲](../image-distortion-hover/) — 另一种在图片动起来时重塑它的办法
+- [颗粒噪点叠加](../../07-ambient-background/grain-overlay/) — 铺在图片上的一层细腻质感

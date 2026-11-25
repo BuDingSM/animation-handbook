@@ -1,18 +1,18 @@
-# Success Confetti
+# 成功彩带
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/success-confetti/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/success-confetti/)
 
-## What it is
-A burst of confetti that marks a finished task, such as placing an order. The button turns into a success state, and many small rectangles shoot up from it in a fan, spin, fall and fade. It is a reward: it celebrates the moment but adds no new information.
+## 它是什么
+成功彩带是一阵彩带，标记一个完成的任务，比如「下单」。按钮变成成功状态，很多彩色小矩形从它上面以扇形喷出，旋转、落下、淡出。它是一种奖励：它庆祝这一刻，但不增加新信息。
 
-## When to use it
-- Checkout / "Place order" confirmation, sign-up completion, plan upgrades
-- The final step of a multi-step flow, where the payoff justifies the flourish
-- Achievement and streak moments in learning or fitness apps
-- Once per event, on genuine milestones — confetti on every click trains users to ignore it
+## 什么时候用
+- 结账 / “下单”确认、注册完成、套餐升级
+- 多步流程的最后一步，回报值得这番 flourish
+- 学习或健身应用里的成就和连续打卡时刻
+- 每个事件一次，真正的里程碑——每次点击都放彩带，会训练用户无视它
 
-## How it works
-A `<canvas>` overlay covers the stage. On click you spawn a batch of confetti pieces at the button's center, each fanned around a straight-up base direction by a configurable spread angle. Every frame applies gravity to `vy`, advances position, spins the piece, and drains its life; pieces are retired once faded or off-screen. Every step is multiplied by `k`, the time since the last frame measured in 60 Hz frames: 1 on a 60 Hz screen, 0.5 on a 120 Hz one and 2 on a 30 Hz one, so a piece fades out in about two seconds on all of them:
+## 工作原理
+一个 `<canvas>` 覆盖层盖住舞台。点击时，你在按钮中心生成一批彩带碎片，每块按可配置的扩散角度，围绕笔直向上的基准方向扇开。每一帧对 `vy` 施加重力，推进位置，旋转碎片，消耗生命；碎片淡出或离开屏幕后退役。每一步都乘以 `k`，即按 60 Hz 帧衡量的、距离上一帧的时间：60 Hz 屏幕上是 1，120 Hz 上是 0.5，30 Hz 上是 2，所以一块碎片在所有屏幕上都在大约两秒内淡出：
 
 ```js
 const FRAME = 1000 / 60;   // one frame of a 60 Hz screen, in ms
@@ -49,30 +49,30 @@ function tick(ts) {
 }
 ```
 
-A burst's first frame counts as one 60 Hz frame, and a gap longer than 50ms (a tab coming back from the background) counts as 50ms, so nothing jumps. The demo also takes a step longer than 1.5 frames (as on a 30 Hz screen, or after a dropped frame) in two halves, so the arc stays close to the one a 60 Hz screen draws.
+一次迸发的第一帧算作一帧 60 Hz 的帧，超过 50ms 的间隔（标签页从后台回来）算作 50ms，所以什么都不会跳。演示还把超过 1.5 帧的一步（比如在 30 Hz 屏幕上，或掉帧之后）分成两半走，这样弧线和 60 Hz 屏幕上画的保持接近。
 
-Because the loop reads live `pCount`, `spreadDeg`, and `gravity` values, changing a setting changes the very next burst. Clicking again simply calls `fire()` again — replay is implicit.
+因为循环读取实时的 `pCount`、`spreadDeg` 和 `gravity` 值，改一个设置会改变下一次迸发。再点一次只是再调用一次 `fire()`——重播是隐含的。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Amount of confetti | Medium | How many pieces fly: some is 60, medium 120 and lots 200; above about 200 costs frames on slower phones for little gain |
-| Spread | Medium | How wide the fan is: narrow is 60°, medium 110° and wide 170°; narrow looks like a fountain, wide like a dome |
-| Fall speed | Normal | How strongly the pieces are pulled down: floaty, normal and heavy speed their fall by about 540, 1,000 and 1,600px a second every second, against launch speeds of 360 to 780px a second, so the fastest pieces climb about 560, 300 or 180px before they fall; heavy falls fast, floaty drifts |
+| 彩带数量 | 中等 | 飞出多少块碎片：一些是 60，中等 120，多是 200；超过大约 200，在较慢的手机上耗费帧，收益却很小 |
+| 扩散范围 | 中等 | 扇形有多宽：窄是 60°，中等 110°，宽版是 170°；窄像喷泉，宽像穹顶 |
+| 下落速度 | 普通 | 碎片被往下拉得多厉害：轻飘、普通和沉重让它们的下落每秒加速大约 540、1,000 和 1,600px，而发射速度是每秒 360 到 780px，所以最快的碎片在落下前大约爬升 560、300 或 180px；沉重落得快，轻飘漂浮 |
 
-## Production notes
-- **Time, not frames**: scale every per-frame amount (gravity, spin, fade) by the time since the last frame, and raise the drag factor to the same power (`0.99 ** k`). Without it the burst runs twice as fast on a 120 Hz screen and half as fast on a 30 Hz phone, and anything timed around it, such as the demo's Show me, falls out of step.
-- **Off-screen culling**: filter out pieces once `p.y` passes the stage bottom, not just when faded — otherwise fast-falling confetti keeps consuming CPU below the fold.
-- **One rAF, gated**: start the loop on the first burst and stop it when the array empties. Restart on the next click. Never leave a permanent rAF running for an occasional event.
-- **DPR-aware canvas**: scale the backing store by `devicePixelRatio` (cap ~2) so rectangles have clean edges on retina without quadrupling fill cost on 3x displays.
-- **Rectangles are cheapest**: `fillRect` inside a `translate`/`rotate` beats drawing images or paths per particle. If you need shapes, pre-render sprites to an offscreen canvas once and `drawImage`.
-- **Reduced motion**: skip confetti entirely and show a static success state — the checkmark and "Order placed" label already confirm completion.
-- **canvas-confetti**: the go-to library — `confetti({ particleCount: 120, spread: 110, origin: {x, y} })` handles physics, DPR, and cleanup. Reach for hand-rolled code only when you need custom shapes or tight bundle size.
-- **GSAP / Framer Motion**: both can animate a handful of DOM confetti for light celebrations, but for hundreds of pieces a single canvas is dramatically cheaper than that many animated nodes.
+## 生产注意事项
+- **按时间，不按帧**：把每一帧的量（重力、旋转、淡出）按距离上一帧的时间缩放，阻力系数也要升到同样的幂（`0.99 ** k`）。没有它，迸发在 120 Hz 屏幕上快一倍，在 30 Hz 手机上慢一半，围绕它计时的东西，比如演示里的“演示一下”，都会错位。
+- **屏幕外剔除**：一旦 `p.y` 经过舞台底部就滤掉碎片，不只是淡出时——否则快速下落的彩带会在折叠线下面继续消耗 CPU。
+- **一个 rAF，带门控**：第一次迸发时启动循环，数组空了就停掉。下一次点击时重新启动。永远不要为一个偶尔发生的事件留一个永久运行的 rAF。
+- **DPR 感知的 canvas**：按 `devicePixelRatio`（上限约 2）缩放后备存储，这样矩形在视网膜屏上有干净的边缘，又不会在 3x 显示器上把填充成本翻四倍。
+- **矩形最便宜**：`translate`/`rotate` 里的 `fillRect`，比每个粒子画图片或路径都快。如果需要形状，一次性把精灵预渲染到离屏 canvas 上，再 `drawImage`。
+- **减弱动态效果**：完全跳过彩带，显示静态的成功状态——对勾和“已下单”标签已经确认了完成。
+- **canvas-confetti**：首选库——`confetti({ particleCount: 120, spread: 110, origin: {x, y} })` 处理物理、DPR 和清理。只有需要自定义形状或严格控制包大小时，才手写代码。
+- **GSAP / Framer Motion**：两者都能为轻量庆祝动画少量 DOM 彩带，但对几百块碎片来说，一个 canvas 比那么多动画节点便宜得多。
 
-## See also
-- [Checkmark Draw](../checkmark-draw/) — a quieter way to show success
-- [Button Press Scale](../button-press-scale/) — the button shrinks while it is pressed
-- [Heart / Like Burst](../heart-burst/) — a smaller burst for each like
-- [Modal Expand](../modal-expand/) — a dialog grows from the button that opened it
-- [Fireworks](../../07-ambient-background/fireworks/) — bursts of sparks that keep going, as a background
+## 另见
+- [对勾绘制](../checkmark-draw/) — 更安静的成功表示方式
+- [按钮按压缩放](../button-press-scale/) — 按下时按钮缩小
+- [点赞爱心迸发](../heart-burst/) — 每次点赞的小迸发
+- [弹窗展开](../modal-expand/) — 对话框从打开它的按钮处长出来
+- [烟花](../../07-ambient-background/fireworks/) — 作为背景不停的火花迸发

@@ -1,20 +1,20 @@
-# Infinite Zoom
+# 无限缩放
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/infinite-zoom/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/infinite-zoom/)
 
-## What it is
-An infinite zoom keeps moving into a picture whose middle holds a smaller picture, which holds a smaller one again, so the view seems to dive forever. It is a short loop in disguise: every picture is drawn again at a smaller size inside the frame of the one around it, and the view zooms in by exactly the step between two of them. When the inner picture fills the view it simply takes the outer one's place, so nothing ever jumps.
+## 它是什么
+无限缩放不断钻进一幅画，画的中间装着一幅更小的画，那幅里又装着一幅更小的，所以视野像是在永远向下钻。这是个伪装的短循环：每幅画都以更小的尺寸重画在外面那幅的画框里，视野每次恰好放大两幅之间的步长。里面的画填满视野时，就直接取代外面那幅的位置，所以什么都不会跳。
 
-## When to use it
-- Page intros and hero sections that pull the visitor into the site
-- Stories that go from the big picture to a detail and on into the next chapter
-- Portfolios and galleries where one piece of work opens into the next
-- Music, art and game pages that want an endless, hypnotic background
+## 什么时候用
+- 把用户拉进网站的页面开场和主视觉区
+- 从大画面到细节、再进入下一章的故事
+- 一件作品打开进入下一件的作品集和画廊
+- 想要无尽、催眠般背景的音乐、艺术和游戏页面
 
-## How it works
-**Pictures with a window.** Each picture is drawn over the whole box around a window in its middle: 40% of the box's width and height (`R = 0.4`), so the window has the box's own shape. The next picture is the same full drawing scaled down by `R` about the center of the box, which lands it exactly in that window. In the demo the window is a painting's canvas, a drive-in movie screen, a television's screen, a laptop's screen and a photo; each frame is drawn outside the window, never over it.
+## 工作原理
+**带窗口的图片。**每幅画画满整个盒子，中间留一个窗口：盒子宽和高的 40%（`R = 0.4`），所以窗口和盒子形状相同。下一幅画是同一幅完整图画按 `R` 缩小、以盒子中心为基准，正好落在那个窗口里。演示里窗口是一幅画的画布、汽车影院的银幕、电视的屏幕、笔记本的屏幕和一张照片；每个画框都画在窗口外面，绝不盖住它。
 
-**One number for the whole zoom.** `p`, from 0 to 1, says how far the view has zoomed from picture `at` toward the next one. Picture `j`, counted from the outside, is drawn at scale `R^(j - p)`: the outer one a little larger than the box (up to 2.5 times), the next one up to the box's size, the one after that 40% of it, and so on, until a picture would be smaller than 3 pixels. They are drawn from the outside in, over a dark fill, and each is clipped to its own rectangle less its window, so no picture paints over another and nothing of a picture spills over the frame around it. The edges between two pictures are soft, half in one and half in the other, so without the fill they would keep a little of the frame before:
+**整个缩放只有一个数字。**`p` 从 0 到 1，表示视野从图片 `at` 向下一幅缩放了多远。从外向里数的第 `j` 幅画以 `R^(j - p)` 的比例画出：最外面那幅比盒子稍大（最多 2.5 倍），下一幅最多和盒子一样大，再下一幅是它的 40%，依此类推，直到一幅画小于 3 像素。它们从外向里画，画在深色填充上，每幅裁剪成自己的矩形减去窗口，所以没有一幅会盖住另一幅，也没有任何一幅画会溢出它周围的画框。两幅画之间的边缘是柔和的，一半在这幅、一半在那幅，所以没有填充的话它们会留一点前一幅的画框：
 
 ```js
 const R = 0.4;   // each window holds the next picture at 40% of its size
@@ -42,7 +42,7 @@ function render() {
 }
 ```
 
-**The swap nobody sees.** At `p = 1` the next picture is drawn at scale `R^0 = 1`: it fills the box at exactly its own size, which is how it is drawn as picture `at` at `p = 0`. So when `p` passes 1, the loop takes 1 off `p` and moves `at` on by one, and the frame before and the frame after are the same picture. Zooming out runs `p` backward, and below 0 the picture around the outer one takes over:
+**没人看得见的替换。**`p = 1` 时，下一幅画以 `R^0 = 1` 的比例画出：它以恰好自己的尺寸填满盒子，也就是 `p = 0` 时图片 `at` 的画法。所以 `p` 超过 1 时，循环从 `p` 减掉 1、`at` 加 1，替换前后的那一帧是同一幅画。向外缩放时 `p` 倒着走，低于 0 时外面那幅周围的画接管：
 
 ```js
 const dt = lastT === null ? 0 : Math.min(ts - lastT, 50) * (slow ? 1 / 3 : 1);
@@ -51,34 +51,34 @@ while (p >= 1) { p--; at = (at + 1) % COUNT; }        // the next picture fills 
 while (p < 0) { p++; at = (at + COUNT - 1) % COUNT; } // zooming out, the picture around it is
 ```
 
-**An even speed.** Because the scale is `R` to the power of `p`, and `p` grows with the time, every picture grows by the same factor each second, so the zoom feels steady. Growing the scale by the same amount each second instead would seem to slow down as the picture got bigger.
+**均匀的速度。**因为比例是 `R` 的 `p` 次方，`p` 随时间增长，每幅画每秒都按同样的倍数变大，所以缩放感觉很稳。如果每秒把比例增加同样的量，画越大看起来越慢。
 
-**Time, not frames.** The loop draws at most once per 16 ms and moves `p` by the time since the last drawn frame (at most 50 ms, and a third of it in slow motion), so the zoom has the same speed on a 30, 60 or 120 Hz screen. The first frame after a start, Play or a return to a hidden tab moves nothing. Pause cancels the frame, so the picture stops at once. The stars in the drive-in scene twinkle on the same clock.
+**按时间，不按帧。**循环最多每 16ms 画一次，按自上次绘制以来的时间（最多 50ms，慢动作里是它的三分之一）移动 `p`，所以缩放的在 30、60 或 120 Hz 的屏幕上速度相同。开始、「播放」或从隐藏标签页回来后的第一帧什么也不动。「暂停」取消那一帧，所以画面立刻停住。汽车影院场景里的星星按同一个时钟闪烁。
 
-**Soft light, drawn once.** The shading of each wall, sky or table and the glow of its lamps change slowly across the picture, so they are drawn once per resize into a small canvas a quarter of the box's size, and each frame stretches that canvas over the picture. Copying a picture costs far less than drawing the same gradients every frame.
+**柔和的光，画一次。**每面墙、天空或桌子的阴影和灯光的光晕在画面上变化缓慢，所以每次调整大小时画一次，画进一块只有盒子四分之一大小的小画布，每帧把那块画布拉伸到图片上。复制一张图片比每帧画同样的渐变便宜得多。
 
-**Number of scenes.** The chain takes the first one, three or five pictures in turn, `(at + j) % COUNT`. With one, the painting in the gallery holds the gallery itself: a picture that contains itself, known as the Droste effect.
+**场景数量。**链条轮流取前一、三或五幅画，`(at + j) % COUNT`。只有一幅时，画廊里的画装着画廊本身：一幅包含自己的画，也就是德罗斯特效应。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long each picture takes to grow from its window to the whole box, 2.5 times its size: slow is 7.5 seconds, normal 4.5 and fast 2.5 |
-| Number of scenes | 5 | How many different pictures take turns: one picture holds a copy of itself; three are the gallery, the drive-in and the living room; five add the desk and the photo on a table |
-| Direction | In | In dives into each picture's window; out pulls back, so each picture shrinks into the window of the one around it |
-| Shows the scene edges | off | Outlines the edge of every picture with a dashed line and numbers the ones big enough to read by their place in the chain, so you can see each one grow to the edges of the box and take over |
+| 速度 | 普通 | 每幅画从窗口长到整个盒子（自身大小的 2.5 倍）要多长时间：慢是 7.5 秒，普通 4.5 秒，快是 2.5 秒 |
+| 场景数量 | 5 | 轮流出现几幅不同的画：一幅画装着自己的副本；三幅是画廊、汽车影院和客厅；五幅再加书桌和桌上的照片 |
+| 方向 | 向内 | 向内钻进每幅画的窗口；向外退回来，每幅画缩进外面那幅的窗口里 |
+| 显示场景边缘 | 关 | 用虚线描出每幅画的边缘，并按它在链条里的位置给大到能读数的画编号，这样能看到每幅画长到盒子边缘再接管 |
 
-## Production notes
-- **Your own pictures**: each picture needs its window in the same place, the box's own shape, in its exact middle, or the next picture will not fit it. Artists who make these zooms by hand draw every picture around a copy of the next one, then cut that copy out.
-- **Sharp at full size**: every picture is shown from a speck up to the full box, and the outer one up to 2.5 times larger. Drawn shapes, as in the demo, or SVG stay sharp at every size; photos must be big enough for the full box at the screen's pixel ratio, and should be loaded before the zoom starts.
-- **No frame over the window**: a frame that overlapped the next picture would vanish in one jump at the swap. Keep every frame outside its window.
-- **CSS only**: layers scaled with `transform: scale()` work too (the card for this page on the home page has five, each with its window cut out and growing 2.5 times per step, with an easing that bends each step into the same steady speed), but the browser may draw a layer once at its starting size and enlarge that copy, so it blurs as it grows.
-- **Libraries**: GSAP can tween the zoom value and you draw from it; Three.js does the same with textured planes and a camera that moves toward them. Neither is needed: the whole effect is one number and a loop.
-- **Phones** draw at most 1.5 canvas pixels for every screen pixel and paint each wall in one flat color, without the soft light, which takes about 40% off the work of each frame.
-- **Reduced motion**: show one still frame, the first picture with the pictures inside it, as the demo does; Play still starts the zoom. A steady zoom toward the middle can make some people dizzy, so keep it slow, give it a pause button and do not put long text over it.
+## 生产注意事项
+- **自己的图片**：每幅画的窗口都需要在同一个位置、盒子自己的形状、恰好在正中间，否则下一幅画装不进去。手工做这种缩放的艺术家会围绕下一幅画的副本画每一幅画，再把那个副本剪掉。
+- **满尺寸时清晰**：每幅画从一个小点展示到整个盒子，最外面那幅最多放大 2.5 倍。像演示那样画出来的形状或 SVG 在任何尺寸下都清晰；照片必须够大，能按屏幕像素比填满整个盒子，并应在缩放开始前加载好。
+- **窗口上不要有画框**：盖住下一幅画的画框会在替换时一下子消失。让每个画框都留在自己的窗口外面。
+- **纯 CSS**：用 `transform: scale()` 缩放的图层也可以（首页上这个页面的卡片有五层，每层都挖掉窗口、每步放大 2.5 倍，缓动把每步弯成同样的均匀速度），但浏览器可能按图层的起始尺寸画一次再放大那个副本，所以它变大时会变模糊。
+- **库**：GSAP 可以补间缩放值，你按它来画；Three.js 用带纹理的平面和移向它们的镜头做同样的事。两者都不需要：整个效果就是一个数字加一个循环。
+- **手机**每个屏幕像素最多画 1.5 个画布像素，每面墙只涂一种纯色，没有柔和的光，这样每帧的工作量减少约 40%。
+- **减弱动态**：显示一帧静止画面，第一幅画和里面的画，像演示那样；「播放」仍然会开始缩放。向中间的稳定缩放会让一些人头晕，所以保持慢速，提供暂停按钮，不要在上面放长文字。
 
-## See also
-- [Zoom Into Image](../../01-scroll-based/zoom-into-image/) — scrolling opens a small window until the picture fills the box
-- [Portal / Tunnel Zoom](../../03-page-transitions/portal-zoom/) — the next page opens out of a circle you click
-- [Starfield / Space Particles](../../07-ambient-background/starfield/) — stars stream toward you, another endless dive
-- [2.5D / Pseudo-3D](../2-5d-pseudo-3d/) — flat layers that slide by different amounts to fake depth
-- [Ken Burns Effect](../../07-ambient-background/ken-burns/) — photos slowly zoom and pan, then fade into the next
+## 另见
+- [图片缩放进入](../../01-scroll-based/zoom-into-image/) — 滚动打开一个小窗口，直到图片填满盒子
+- [传送门 / 隧道缩放](../../03-page-transitions/portal-zoom/) — 下一页从你点击的圆圈里展开
+- [星空](../../07-ambient-background/starfield/) — 星星向你飞流而来，另一种无尽的俯冲
+- [2.5D / 伪 3D](../2-5d-pseudo-3d/) — 按不同幅度滑动以假装景深的平面图层
+- [肯·伯恩斯效果](../../07-ambient-background/ken-burns/) — 照片慢慢缩放平移，再淡入下一张

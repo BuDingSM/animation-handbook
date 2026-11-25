@@ -1,7 +1,7 @@
-/* Animation Handbook — page chrome for the guided-steps demo pages.
-   Linked after each demo's own <style>, so these rules win where they overlap.
-   The animation keeps its own styles; this file lays out the page around it:
-   top bar, header, the three steps, About, related cards and footer. */
+/* 动画手册——分步演示页的页面外框。
+   在每个演示自己的 <style> 之后引入，所以重叠的规则以这里为准。
+   动画保留自己的样式；这个文件负责动画之外的页面布局：
+   顶栏、页头、三个步骤、关于、相关卡片和页脚。 */
 
 @font-face{font-family:'Schibsted Grotesk';src:url('../fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap;
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -9,7 +9,7 @@
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 :root{
-  --hb-font:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --hb-font:'Schibsted Grotesk','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei','WenQuanYi Micro Hei','Droid Sans Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;
   --disp:var(--hb-font);--mono:var(--hb-font);
   --hb-bg:#0b0b0d;--hb-panel:#111114;
   --hb-ink:#f4f4f2;--hb-text:#e6e6e8;--hb-soft:#d6d6da;--hb-dim:#adadb2;--hb-muted:#8a8a92;
@@ -19,12 +19,12 @@
 
 body.hb{margin:0;padding:0;background:var(--hb-bg);color:var(--hb-ink);font-family:var(--hb-font);-webkit-font-smoothing:antialiased}
 body.hb :focus-visible{outline:2px solid var(--hb-accent);outline-offset:3px}
-/* Demo styles often set display on their own classes; keep the hidden attribute authoritative. */
+/* 演示样式常在自己的 class 上设 display；以 hidden 属性为准。 */
 body.hb [hidden]{display:none!important}
 .hb-ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* Top bar: always one line. "Animation Handbook" keeps its full text and never shrinks; the pager shrinks instead,
-   and a page name that does not fit is cut with an ellipsis (the link keeps the full name in its aria-label). */
+/* 顶栏：永远一行。「动画手册」保持完整文字、永不收缩；收缩的是翻页器，
+   放不下的页名用省略号截断（链接在 aria-label 里保留全名）。 */
 .hb-bar{position:sticky;top:0;z-index:50;box-sizing:border-box;height:var(--hb-bar);display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:12px;
   padding:0 clamp(8px,3vw,40px);background:rgba(11,11,13,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--hb-line)}
 .hb-bar a{display:inline-flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:0 8px;border-radius:8px;color:var(--hb-dim);
@@ -34,17 +34,17 @@ body.hb [hidden]{display:none!important}
 .hb-mark .g{fill:var(--hb-bg);stroke:var(--hb-ink);stroke-width:1.8}
 .hb-mark .b{fill:var(--hb-ink)}
 .hb-pager{display:flex;gap:4px;min-width:0}
-/* The page name inside a pager link: cut with an ellipsis; the taller line box keeps descenders from being clipped */
+/* 翻页链接里的页名：用省略号截断；较高的行框避免下行字母被裁掉 */
 .hb-pager a > span{min-width:0;overflow:hidden;text-overflow:ellipsis;line-height:1.5}
 .hb-bar .hb-ic{width:16px;height:16px}
-/* The Star link: the last item of the top bar. The pager's auto margin puts the two together at the right end (with
-   space-between alone the pager would sit in the middle). Computers (from 1061px) read "Star on GitHub", screens from 820px
-   to 1060px get a round star, and narrower screens leave it out so the page names keep their room: the star row under the
-   prompt card is theirs. */
+/* 星标链接：顶栏的最后一项。翻页器的 auto margin 把两者并排推到右端（只用
+   space-between 的话翻页器会待在中间）。电脑（1061px 起）显示「在 GitHub 上点星」，820px
+   到 1060px 的屏幕显示一个圆形星标，更窄的屏幕则不显示，好让页名有地方：提示词卡片下方的
+   星标行是它们的。 */
 .hb-bar .hb-pager{margin-left:auto}
 .hb-bar .hb-star{box-sizing:border-box;flex:none;padding:0 14px;border:1px solid var(--hb-edge);border-radius:999px;color:var(--hb-soft)}
 
-/* The page: one centred column */
+/* 页面：一列居中内容 */
 .hb-page{box-sizing:border-box;width:100%;max-width:1040px;margin:0 auto;
   padding:clamp(24px,4vw,40px) clamp(16px,4vw,40px) clamp(40px,6vw,64px);display:flex;flex-direction:column;gap:clamp(32px,4vw,40px)}
 .hb-head{margin:0;display:flex;flex-direction:column;gap:8px}
@@ -52,10 +52,10 @@ body.hb [hidden]{display:none!important}
 .hb-page h1{margin:0;font:800 clamp(40px,6vw,64px)/1 var(--hb-font);letter-spacing:-.035em;color:var(--hb-ink)}
 .hb-lede{margin:0;font:400 clamp(17px,2vw,20px)/1.5 var(--hb-font);color:var(--hb-dim)}
 
-/* Steps */
+/* 步骤 */
 .hb-step{display:flex;flex-direction:column;gap:clamp(16px,2.4vw,24px)}
 .hb-step+.hb-step{padding-top:clamp(28px,4vw,36px);border-top:1px solid var(--hb-line)}
-/* The Watch step's gap is a custom property, read again by the help line beside the mode switch (from 761px, below) */
+/* 「看效果」步骤的间距是一个自定义属性，模式切换旁边的帮助行会再读它（761px 起，见下文） */
 .hb-watch{--hb-watch-gap:16px;gap:var(--hb-watch-gap)}
 .hb-step-head{display:flex;align-items:flex-start;gap:14px}
 .hb-num{flex:none;display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;
@@ -63,69 +63,68 @@ body.hb [hidden]{display:none!important}
 .hb-step-head h2{margin:0;font:700 clamp(22px,2.6vw,26px)/1.2 var(--hb-font);letter-spacing:-.015em;color:var(--hb-ink)}
 .hb-step-head p{margin:4px 0 0;font:400 16px/1.5 var(--hb-font);color:var(--hb-dim)}
 
-/* Step 1: stage and player bar. 420px is roughly everything above and below the stage on the
-   first screen, so on a laptop the stage and the player bar are both visible on arrival.
-   The height is declared twice: browsers that know svh use the second, others keep the vh one. */
+/* 第 1 步：舞台和播放栏。420px 大约是首屏里舞台上下所有内容
+   的高度，所以在笔记本上，打开页面时舞台和播放栏都可见。
+   高度声明了两次：支持 svh 的浏览器用第二个，其他的保留 vh 那个。 */
 .hb-page .stage{box-sizing:border-box;width:100%;min-width:0;margin:0;flex:none;
   height:var(--hb-stage-h,clamp(300px,calc(100vh - 420px),440px));height:var(--hb-stage-h,clamp(300px,calc(100svh - 420px),440px));
   border:1px solid rgba(255,255,255,.1);border-radius:12px}
-/* Overflow belongs to the demo: this default has zero specificity, so a demo's own .stage rule wins
-   (scroll demos scroll inside their stage). A demo that needs another height sets --hb-stage-h or --hb-stage-h-phone. */
+/* 溢出归演示管：这个默认值没有优先级，所以演示自己的 .stage 规则优先
+   （滚动演示在自己的舞台里滚动）。需要其他高度的演示设 --hb-stage-h 或 --hb-stage-h-phone。 */
 :where(.hb-page .stage){min-height:0;overflow:hidden}
 .hb-page .stage.hb-dots{background-image:radial-gradient(rgba(255,255,255,.075) 1px,transparent 1.5px);background-size:24px 24px;background-position:center}
-/* A stage whose text the visitor can change: at least the usual height, and taller when the text needs it */
+/* 文字可由访客改动的舞台：至少保持常规高度，文字需要时更高 */
 .hb-page .stage.hb-grow{height:auto;min-height:clamp(300px,calc(100vh - 420px),440px);min-height:clamp(300px,calc(100svh - 420px),440px)}
-/* The stage clips what sticks out of it, so the site focus ring (drawn 3px outside) would be cut off on anything focusable
-   inside it: there the ring is drawn inward. This selector outranks body.hb :focus-visible. A stage that is itself the
-   scroller is not inside itself, so it keeps the normal ring. */
+/* 舞台会裁掉伸出它的内容，所以站点的焦点环（画在外面 3px 处）在里面任何可聚焦的东西上都会被裁掉：
+   那里的焦点环改为向内画。这个选择器的优先级高于 body.hb :focus-visible。本身就是滚动容器的舞台不在
+   自己里面，所以保留正常的焦点环。 */
 .hb-page .stage :focus-visible{outline-offset:-3px}
 .hb-player{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .hb-play,.hb-toggle{box-sizing:border-box;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;
   border:1px solid rgba(255,255,255,.18);border-radius:8px;background:none;color:var(--hb-ink);font:500 15px/1 var(--hb-font);cursor:pointer}
-/* Under reduced motion the shared script switches Loop and Slow motion off, greys them out and adds a note */
+/* 减弱动态时，共享脚本会关闭「循环」和「慢动作」，把它们变灰，并加一条说明 */
 .hb-toggle.is-disabled{opacity:.45;cursor:not-allowed}
 .hb-toggle.is-disabled .hb-switch{cursor:not-allowed}
-/* The note sits beside the controls when there is room, so it does not push the page down */
+/* 有地方时，说明放在控件旁边，这样不会把页面往下顶 */
 .hb-player-note{flex:1 1 240px;margin:0;font:400 13px/1.4 var(--hb-font);color:var(--hb-muted)}
-/* Pause on loop pages: a pause icon while the demo moves, a play icon while it is paused */
+/* 循环页上的「暂停」：演示在动时显示暂停图标，暂停时显示播放图标 */
 [data-hb-pause] .hb-i-play,[data-hb-pause][data-state="paused"] .hb-i-pause{display:none}
 [data-hb-pause][data-state="paused"] .hb-i-play{display:inline}
-/* Pause and Play keep one width, so the Slow motion switch beside the button does not move when it is pressed */
+/* 「暂停」和「播放」保持同一宽度，这样按下时旁边的「慢动作」开关不会移动 */
 [data-hb-pause]{justify-content:center;min-width:112px}
-/* data-hb-pause="css": the shared script puts hb-paused on the stage, which holds every CSS animation on it */
+/* data-hb-pause="css"：共享脚本把 hb-paused 加到舞台上，定住上面所有的 CSS 动画 */
 .hb-page .stage.hb-paused,.hb-page .stage.hb-paused::before,.hb-page .stage.hb-paused::after,
 .hb-page .stage.hb-paused *,.hb-page .stage.hb-paused *::before,.hb-page .stage.hb-paused *::after{animation-play-state:paused!important}
-/* Scroll pages: while Play scrolls a box, the shared script marks it, and CSS scroll snapping is off for it, or every step would
-   snap and the box would jump from one snap point to the next. !important, so that this rule beats any snap type the page sets
-   without !important (inline or in its own style; a page never sets one with !important), and nothing has to be remembered and
-   written back. When the mark goes the page's own snap type applies again and the browser settles the box on the nearest snap
-   point. */
+/* 滚动页：「播放」滚动盒子时，共享脚本会标记它，CSS 滚动吸附对它关闭，否则每一步都会
+   吸附，盒子会从一个吸附点跳到下一个。加 !important，是为了让这条规则胜过页面自己设的
+   任何吸附类型（行内或自己的样式里；页面从不用 !important 设吸附），这样也不用记住再写回。
+   标记去掉后，页面自己的吸附类型重新生效，浏览器把盒子停在最近的吸附点上。 */
 [data-hb-autoscrolling]{scroll-snap-type:none!important}
 
-/* See inside and Compare: the mode switch (Normal · See inside · Compare) above the stage, and under the player bar the note
-   that says what the stage shows. Normal has no note, and the empty box then takes no room. From 761px the switch sits at the
-   right end of the Watch step's heading row (below), so the stage keeps its place on a laptop's first screen. The switch is a
-   .seg too, and the .seg rules come later in the file: the rules here that must win name .seg.hb-modes. */
+/* 「看内部」和「对比」：舞台上方的模式切换（普通 · 看内部 · 对比），播放栏下方是说明
+   舞台显示内容的注释。「普通」没有注释，空盒子这时不占地方。761px 起，切换放在「看效果」步骤
+   标题行的右端（见下文），这样舞台在笔记本首屏上的位置不变。切换本身也是一个
+   .seg，.seg 的规则在文件后面：这里必须胜出的规则写的是 .seg.hb-modes。 */
 .hb-page .seg.hb-modes{gap:6px}
-/* The empty box is the live region that makes a screen reader read each note out loud, so it stays on the page: display:none would
-   take it out of the accessibility tree, and the first note might not be announced. It is hidden to the eye and taken out of the
-   flow instead, so it takes no room and adds no gap. It counts as empty until a note is un-hidden: any element with data-hb-for,
-   wherever it sits in the box, because that is what the script toggles. */
+/* 空盒子是一个 live region，让屏幕阅读器把每条注释读出来，所以它留在页面上：display:none 会
+   把它移出无障碍树，第一条注释可能就读不出来。它改为视觉上隐藏、脱离文档流，
+   这样既不占地方也不产生间距。它在有注释取消隐藏之前都算空：任何带 data-hb-for 的元素，
+   不管在盒子里的哪个位置，因为脚本切换的就是它。 */
 .hb-mode-notes:not(:has([data-hb-for]:not([hidden]))){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .hb-mode-notes p{margin:0;max-width:72ch;font:400 15px/1.55 var(--hb-font);color:var(--hb-dim)}
 .hb-mode-notes a{color:var(--hb-ink);text-decoration:underline;text-underline-offset:3px}
 
-/* Switches: a checkbox drawn as a track and knob (gradients, so no pseudo-elements on the input) */
+/* 开关：画成轨道加滑块的复选框（用渐变，所以 input 上不用伪元素） */
 .hb-switch{appearance:none;-webkit-appearance:none;flex:none;width:32px;height:20px;margin:0;border-radius:999px;cursor:pointer;
   background:radial-gradient(circle at 10px 50%,var(--hb-ink) 6.5px,transparent 7px) rgba(255,255,255,.22)}
 .hb-switch:checked{background:radial-gradient(circle at 22px 50%,#0b0b0d 6.5px,transparent 7px) var(--hb-accent)}
-/* The label draws the focus ring for its switch; browsers without :has() keep the switch's own ring */
+/* 标签给自己的开关画焦点环；不支持 :has() 的浏览器保留开关自己的焦点环 */
 @supports selector(:has(*)){
   .hb-toggle:has(:focus-visible),.hb-switch-row:has(:focus-visible){outline:2px solid var(--hb-accent);outline-offset:3px}
   .hb-toggle .hb-switch:focus-visible,.hb-switch-row .hb-switch:focus-visible{outline:none}
 }
 
-/* Step 2: settings */
+/* 第 2 步：设置 */
 .hb-settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px}
 .hb-setting{display:flex;flex-direction:column;gap:10px;min-width:0}
 .hb-setting-name{margin:0;font:600 17px/1.3 var(--hb-font);color:var(--hb-ink)}
@@ -156,7 +155,7 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
   box-shadow:inset 0 0 0 2px rgba(255,255,255,.45);cursor:pointer}
 .hb-page .swatches button[aria-pressed="true"]{border-color:var(--hb-ink);box-shadow:inset 0 0 0 3px var(--hb-bg)}
 
-/* Step 3: the prompt card */
+/* 第 3 步：提示词卡片 */
 .hb-card{display:flex;flex-direction:column;gap:20px;padding:clamp(18px,3vw,28px);border:1px solid rgba(255,255,255,.12);border-radius:12px;background:var(--hb-panel)}
 .hb-prompt{margin:0;font:400 17px/1.65 var(--hb-font);color:var(--hb-text)}
 .hb-fill{padding:1px 5px;border-radius:4px;background:rgba(255,255,255,.1);color:var(--hb-ink)}
@@ -173,9 +172,13 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
   border-radius:8px;background:var(--hb-ink);color:#0b0b0d;font:700 16px/1 var(--hb-font);cursor:pointer}
 .hb-copy .hb-i-done,.hb-copy.is-done .hb-i-copy{display:none}
 .hb-copy.is-done .hb-i-done{display:inline}
-/* Under the prompt card: a sentence and an outline Star on GitHub button (full width on phones). Once the visitor has copied the
-   prompt the shared script marks the row is-asked: the sentence brightens and the button's edge and star turn gold, with one
-   small pulse where motion is welcome. */
+.hb-copy.is-done{background:#157a43;color:#fff}
+.hb-copy.is-fail{outline:2px solid #f2c14e;outline-offset:2px}
+.hb-copy-status{flex:1 1 100%;margin:0;min-height:1.4em;font:600 15px/1.4 var(--hb-font);color:#f2c14e}
+.hb-copy.is-done + .hb-copy-status{color:#8ae7ab}
+/* 提示词卡片下方：一句话和一个描边的「在 GitHub 上点星」按钮（手机上全宽）。访客复制过
+   提示词后，共享脚本把这一行标记为 is-asked：句子变亮，按钮的边框和星星变金色，在允许动效的地方
+   轻轻脉冲一下。 */
 .hb-star-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
 .hb-star-row p{flex:1 1 260px;margin:0;font:400 15px/1.5 var(--hb-font);color:var(--hb-dim)}
 .hb-star-btn{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;
@@ -186,7 +189,7 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
 .hb-star-row.is-asked .hb-star-btn .hb-ic{fill:#f2c14e;stroke:#f2c14e}
 @keyframes hb-ask{0%,100%{transform:scale(1)}40%{transform:scale(1.06)}}
 
-/* About and related animations */
+/* 关于和相关动画 */
 .hb-about{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,5vw,48px);padding-top:clamp(28px,4vw,36px);
   border-top:1px solid var(--hb-line)}
 .hb-about h2,.hb-related h2{margin:0 0 12px;font:700 22px/1.2 var(--hb-font);letter-spacing:-.01em;color:var(--hb-ink)}
@@ -202,8 +205,8 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
 .hb-rel b{font:700 18px/1.25 var(--hb-font);color:var(--hb-ink)}
 .hb-rel span{font:400 14px/1.45 var(--hb-font);color:var(--hb-muted)}
 
-/* Footer: the site's name on the left, and its two links (Source on GitHub, Back to top) on the right. On phones the name
-   has a line of its own and the links share the line below it, one at each end. */
+/* 页脚：站点名在左，两个链接（GitHub 上的源码、回到顶部）在右。手机上名字
+   自己占一行，链接共用下面一行，各在一端。 */
 .hb-foot{box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px;
   padding:16px clamp(16px,4vw,40px) 24px;border-top:1px solid var(--hb-line);font:400 14px/1.4 var(--hb-font);color:var(--hb-muted)}
 .hb-foot>span{margin-right:auto}
@@ -226,44 +229,37 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
 @media(max-width:759px){
   .hb-settings,.hb-about{grid-template-columns:minmax(0,1fr)}
 }
-/* From 820px to 1060px the Star link is a round 44px star with no words (its aria-label still names it) */
+/* 820px 到 1060px，星标链接是一个没有文字的 44px 圆形星标（aria-label 仍然标明它） */
 @media(max-width:1060px){
   .hb-bar .hb-star{width:44px;padding:0;justify-content:center}
   .hb-bar .hb-star>span{display:none}
 }
-/* Tablets and phones: the "Previous: " / "Next: " words go, so two page names fit beside the home link */
+/* 平板和手机：「上一个：」/「下一个：」的字去掉，这样两个页名能在首页链接旁边放下 */
 @media(max-width:1024px){
   .hb-bar .hb-dir{display:none}
 }
-/* Below 820px the Star link leaves the top bar: even as a round star it would cut the page names on many pages, and the
-   star row under the prompt card asks instead */
+/* 820px 以下，星标链接离开顶栏：即使是圆形星标，在很多页面上也会截断页名，
+   改由提示词卡片下方的星标行来请求点星 */
 @media(max-width:819px){
   .hb-bar .hb-star{display:none}
 }
-/* The narrowest phones (down to 320px): the full home link and the two chevron links only fit on one line with a little
-   less spacing and type. The home link keeps all its text. */
+/* 最窄的手机（到 320px）：完整的首页链接和两个 chevron 链接只有在间距和字号稍小一点时才能放在一行上。
+   首页链接保留全部文字。 */
 @media(max-width:359px){
   .hb-bar{gap:4px;padding:0 8px}
   .hb-bar .hb-home{font-size:15px}
 }
-/* From 761px the mode switch sits at the right end of the Watch step's heading row (two columns: the heading, the switch), and the
-   help line runs under that row across the whole step, as wide as on a page without the switch. The step is a grid. The heading box
-   and the box around the heading and the help line give way (display: contents: both are plain boxes, so the heading and the help
-   line keep their meaning for screen readers, and the reading order is the page's), and the number, the heading and the help line
-   take places on the grid themselves: the number in the first column over the first two rows, the heading in the first row up to
-   the switch's column, the help line in the second row across every column, both 46px in (the number's 32px and the heading box's
-   14px gap). Nothing in the heading row is taller than the heading line, so the stage stays where it is on a page without the
-   switch: the switch is stretched to that line (its buttons drop the 44px minimum here; up to 760px, in a row of their own, they
-   keep it), and the number reaches into the help line's row, as it does there. The help line keeps its 4px under the heading: it
-   is pulled up by the gap between the step's rows less 4px, read from --hb-watch-gap (16px, and 12px on a short laptop screen).
-   A player bar with one or two controls leaves room beside it, so there the note for the mode in view sits next to the bar, under
-   the switch, and is on a laptop's first screen too. Three columns then: the player bar's own width, the room left over and the
-   switch's width. The heading spans the first two (the room it had before), the stage spans all three, the player bar keeps the
-   start of its row (a note taller than the bar grows the row, not the bar, so the bar does not move) and the note spans the other
-   two. A bar with a third control has no room to spare, and neither has one with the note that reduced motion adds: the note is
-   looked for itself (a bar with one control and that note has only two children), and either way the bar keeps the full row and
-   the note stays under it. An empty notes box is taken out of the flow (above), so it takes no room here either. Up to 760px the
-   note stays under the player bar. */
+/* 761px 起，模式切换放在「看效果」步骤标题行的右端（两列：标题、切换），帮助行
+   在该行下方横贯整个步骤，宽度和没有切换的页面一样。步骤用 grid 布局。标题盒子和
+   包着标题与帮助行的盒子让位（display: contents：两者都是普通盒子，所以标题和帮助行
+   对屏幕阅读器仍有意义，阅读顺序就是页面的顺序），序号、标题和帮助行自己在网格里占位：序号在第一列、跨前两行，标题在第一行、到切换那一列为止，帮助行在第二行、横贯所有列，两者都向内 46px（序号的 32px 加标题盒子的
+   14px 间距）。标题行里没有任何东西比标题行本身高，所以舞台在没有切换的页面上待在原位：
+   切换被拉伸到和标题行一样高（它的按钮在这里去掉 44px 的最小高度；760px 以下，在自己的一行里时保留），
+   序号伸进帮助行的那一行，和在那里一样。帮助行保持在标题下方 4px：它被向上拉了步骤行间距减 4px，从 --hb-watch-gap 读（16px，矮屏笔记本上 12px）。
+   只有一个或两个控件的播放栏旁边还有地方，所以当前模式的注释就放在栏旁边、切换下方，在笔记本首屏上也能看到。这时是三列：播放栏自己的宽度、剩下的空间和
+   切换的宽度。标题横跨前两列（它原来的空间），舞台横跨三列，播放栏保持在自己那一行的开头（比栏高的注释会撑高整行，而不是栏本身，所以栏不动），注释横跨另外
+   两列。有第三个控件的栏没有多余空间，带减弱动态注释的栏也没有：注释本身也要找出来（一个控件加那条注释的栏只有两个子元素），不管怎样栏都占满整行，
+   注释留在它下面。空的注释盒子已脱离文档流（见上文），所以在这里也不占地方。760px 以下，注释留在播放栏下方。 */
 @media(min-width:761px){
   .hb-watch:has(> .hb-modes){display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:20px;align-items:end}
   .hb-watch:has(> .hb-modes) > *{grid-column:1/-1}
@@ -278,21 +274,21 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
   .hb-watch:has(> .hb-modes):not(:has(> .hb-player > :nth-child(3), > .hb-player > .hb-player-note)) > .hb-player{grid-column:1;align-self:start}
   .hb-watch:has(> .hb-modes):not(:has(> .hb-player > :nth-child(3), > .hb-player > .hb-player-note)) > .hb-mode-notes{grid-column:2/-1;align-self:center}
 }
-/* With a coarse pointer (a phone held sideways, a tablet) the mode buttons, only as tall as the heading line from 761px, would be
-   small to tap. So each button's tap area reaches 10px above and below it: an empty ::after that draws nothing and moves nothing.
-   It counts from inside the 1px border, so even with the smallest heading line (26.4px) a finger gets 44.4px. The areas do not
-   widen, so no button takes its neighbor's taps; above the switch is empty page, and below it the help line, which is plain text. */
+/* 粗指针（横着拿的手机、平板）下，模式按钮从 761px 起只有标题行那么高，点按会嫌小。
+   所以每个按钮的点按区域上下各伸出 10px：一个什么都不画、什么都不动的空 ::after。
+   从 1px 边框内侧算起，所以即使标题行最小（26.4px），手指也有 44.4px。区域不加宽，
+   所以没有按钮会抢邻居的点按；切换上方是空白页面，下方是纯文本的帮助行。 */
 @media(min-width:761px) and (pointer:coarse){
   .hb-watch:has(> .hb-modes) > .hb-modes button{position:relative}
   .hb-watch:has(> .hb-modes) > .hb-modes button::after{content:"";position:absolute;inset:-10px 0}
 }
-/* Up to 760px the switch has a row of its own above the stage, its three buttons sharing it equally (.seg.hb-modes outranks the
-   .seg button rule for phones further down) */
+/* 760px 以下，切换在舞台上方自己占一行，三个按钮平分这一行（.seg.hb-modes 的优先级高于
+   下面针对手机的 .seg button 规则） */
 @media(max-width:760px){
   .hb-page .seg.hb-modes button{flex:1 1 0;padding:0 6px}
 }
-/* Short laptop screens (1366×768 leaves about 650px of page): a tighter header and a shorter stage
-   keep the stage and the player bar on the first screen. */
+/* 矮屏笔记本（1366×768 只剩约 650px 的页面）：收紧页头、缩短舞台，
+   让舞台和播放栏留在首屏上。 */
 @media(min-width:601px) and (max-height:760px){
   .hb-page{padding-top:20px;gap:24px}
   .hb-head{gap:6px}
@@ -301,23 +297,23 @@ textarea.hb-text{min-height:88px;padding:10px 12px;resize:vertical}
   .hb-step-head h2{font-size:22px}
   .hb-watch{--hb-watch-gap:12px}
   .hb-page .stage{height:var(--hb-stage-h,clamp(260px,calc(100vh - 330px),440px));height:var(--hb-stage-h,clamp(260px,calc(100svh - 330px),440px))}
-  /* A stage that grows with its text gets the same shorter minimum */
+  /* 随文字长高的舞台用同样的、更短的最小值 */
   .hb-page .stage.hb-grow{min-height:clamp(260px,calc(100vh - 330px),440px);min-height:clamp(260px,calc(100svh - 330px),440px)}
 }
 @media(max-width:600px){
   .hb-page .stage{height:var(--hb-stage-h-phone,300px)}
   .hb-page .stage.hb-grow{min-height:300px}
-  /* With both Previous and Next, phones show only the two chevrons; each link keeps its full name as its label */
+  /* 「上一个」和「下一个」都有时，手机只显示两个 chevron；每个链接仍以全名作为 label */
   .hb-pager:has(a + a) a > span{display:none}
   .hb-step-head{gap:12px}
   .hb-num{width:30px;height:30px;font-size:15px}
   .hb-step-head p{font-size:15px}
-  /* Three controls do not fit on one line at phone widths: Replay takes the first row, the two switches share the
-     second, and the reduced-motion note gets a row of its own. On a loop page Pause and Slow motion share one row. */
+  /* 手机宽度下一行放不下三个控件：「重播」占第一行，两个开关共用第二行，
+   减弱动态的说明自己占一行。循环页上「暂停」和「慢动作」共用一行。 */
   .hb-player{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .hb-play,.hb-player-note{grid-column:1/-1}
   .hb-player:has(> [data-hb-pause] + .hb-toggle) > .hb-play{grid-column:auto}
-  /* Two buttons in the player bar (Show me and Reset, Play and Back to top) share one row */
+  /* 播放栏里的两个按钮（「演示一下」和「重置」、「播放」和「回到顶部」）共用一行 */
   .hb-player:has(> .hb-play + .hb-play) > .hb-play{grid-column:auto}
   .hb-play,.hb-toggle{justify-content:center;gap:8px;padding:0 12px;font-size:14px}
   .hb-page .seg button{flex:1 0 auto;padding:0 10px}

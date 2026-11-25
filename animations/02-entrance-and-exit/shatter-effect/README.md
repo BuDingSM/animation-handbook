@@ -1,20 +1,20 @@
-# Shatter Effect
+# 碎裂效果
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/shatter-effect/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/shatter-effect/)
 
-## What it is
+## 它是什么
 
-A shatter effect breaks an element into sharp pieces that fly apart and fade, as if it were a pane of glass hit at one point. Each piece is a copy of the whole card trimmed to its own shape, so together the pieces look exactly like the card until they move. Here the next card fades in behind them, so the break doubles as the change from one card to the next.
+碎裂效果把一个元素打碎成尖锐的碎片，四散飞开、淡出，就像一块玻璃在一个点上被击中一样。每块都是整张卡片按自己形状裁剪的副本，所以在它们移动之前，合起来看起来和卡片一模一样。在这里，下一张卡片在它们后面淡入，所以碎裂同时也是从一张卡片到下一张的切换。
 
-## When to use it
-- Photo galleries and slideshows, where breaking the current picture brings in the next one
-- Dismissing a card with some drama: a deleted item, a closed offer, a finished task
-- Game moments and quizzes: a wrong answer, a broken block, a cleared level
-- A bold intro, where a cover breaks away to show the page behind it
-- Moments that happen once per visit or per action, not things people see over and over
+## 什么时候用
+- 照片画廊和幻灯片，打碎当前图片会带入下一张
+- 带点戏剧性地关闭一张卡片：删除的项目、关闭的优惠、完成的任务
+- 游戏时刻和测验：答错了、方块碎了、关卡通过了
+- 醒目的开场，封面碎开，露出后面的页面
+- 每次访问或每次操作只发生一次的时刻，不是人们反复看到的东西
 
-## How it works
-The card is cut like glass hit at one point. Rays run from the point of impact to the card's edge, always through the four corners (so the outer pieces end exactly on the edge) and spread evenly in between; rings cross the rays at growing fractions of the distance to the edge, and every crack from one ring to the next bends once, part way along, by at most a third of its room to the nearest ray or ring line, so no piece folds over itself. A piece is the area between two neighboring rays and two neighboring rings. Neighbors share their corners and bends, so the pieces tile the card with no gaps (each piece also notes whether one of its sides is the card's own border):
+## 工作原理
+卡片像被击中一个点的玻璃一样被切开。射线从撞击点跑到卡片的边缘，总是经过四个角（这样外面的碎片正好结束在边缘上），中间均匀散开；圆环在到边缘距离越来越大的分数处穿过射线，从一个圆环到下一个的每条裂纹都会在中途弯一次，最多弯到离最近的射线或圆环线三分之一的空间，这样没有碎片会折到自己身上。一块碎片就是两条相邻射线和两个相邻圆环之间的区域。相邻的碎片共享它们的角和弯折，所以碎片无缝地铺满卡片（每块碎片还会记下它的一边是不是卡片自己的边）：
 
 ```js
 const grid=[rays.map(()=>p),...f.map((k,i)=>rays.map(a=>{
@@ -25,7 +25,7 @@ for(let i=0;i<f.length;i++)rays.forEach((_,k)=>{const n=(k+1)%rays.length,
   q.edge=i===f.length-1;polys.push(q)});
 ```
 
-Every piece is a box around its polygon that holds a copy of the whole card (`cloneNode(true)`), shifted so the copy lines up with the original and clipped to the polygon with `clip-path`. The card's box is measured once with `getBoundingClientRect()` relative to the deck, keeping the fractions of a pixel, so the copies sit exactly where the card is (rounded `offsetTop` and friends put them up to a pixel off). Each polygon is grown by 0.7px so neighbors overlap and no seam shows, and each copy draws only its own cracks (its outline, less any side on the card's border). The pieces are built when the play starts, before anything moves, because that is the costly part; they wait under the card, which is hidden at the break by a zero-length animation, so it keeps time with the pieces' own animations however long that first frame takes:
+每块碎片都是一个包住它多边形的盒子，里面放着整张卡片的一个副本（`cloneNode(true)`），移动过，让副本和原卡片对齐，再用 `clip-path` 裁剪成多边形。卡片的盒子用 `getBoundingClientRect()` 相对于牌组量一次，保留像素的小数部分，这样副本正好坐在卡片所在的位置（取整的 `offsetTop` 之类会让它们偏离最多一个像素）。每个多边形都放大 0.7px，让相邻的碎片重叠、不露缝，每个副本只画自己的裂纹（它的轮廓，减去卡片边上的那一边）。碎片在播放开始、任何东西移动之前就建好，因为那是最耗时的部分；它们在卡片下面等着，卡片在碎裂时被一个零长度的动画藏起来，这样不管第一帧要多长时间，它都和碎片自己的动画保持同步：
 
 ```js
 const el=Object.assign(document.createElement('div'),{className:'shard'}),copy=card.cloneNode(true),o=q.edge?[...q.slice(3),...q.slice(0,3)]:q;
@@ -35,7 +35,7 @@ copy.style.cssText='left:'+(-bx)+'px;top:'+(-by)+'px;width:'+W+'px;height:'+H+'p
 if(start)copy.querySelector('.cracks').innerHTML=['dk','lt'].map(cls=>'<path class="'+cls+'" d="M'+o.map(P).join('L')+(q.edge?'':'Z')+'"/>').join('');
 ```
 
-Each flight is worked out once and sampled into 13 keyframes for the Web Animations API, so the browser plays it by elapsed time and only moves, turns and fades the pieces. Over the flight time `u` (0 to 1) the burst away from the impact slows down (`e` is an ease-out), the upward throw is part of the starting speed, and gravity adds `g·u²/2`; the piece turns all the way and fades over the second half:
+每次飞行都算一次，采样成 13 个关键帧给 Web Animations API，这样浏览器按经过的时间播放，只移动、转动和淡出碎片。在飞行时间 `u`（0 到 1）里，远离撞击点的迸发会慢下来（`e` 是一个 ease-out），向上的抛是起始速度的一部分，重力加上 `g·u²/2`；碎片一路转动，在后一半淡出：
 
 ```js
 for(let k=0;k<=12;k++){
@@ -47,30 +47,30 @@ for(let k=0;k<=12;k++){
 el.animate(frames,{duration:T,delay:start+wave*d/far,fill:'both'});
 ```
 
-Each piece waits until the break (`start`, the time the cracks take), then a little longer the farther it is from the impact, so the break spreads outward; a short flash marks the impact. With the cracks shown, the crack lines are first drawn in an SVG over the card, ring by ring, while the card gives a small jolt. They are a soft dark line under a light one, so they show on both the picture and the caption, and every copy carries the same lines along its own edges: nothing changes at the break, and each piece keeps a light edge where it broke (lines this soft and wide stay clean when a piece tilts; a thin, sharp pair breaks up into a sawtooth). The next card fades in from 45% of the flight. When the last piece has faded, the pieces are removed; Replay or a setting change cancels everything still running (`getAnimations({subtree:true})`) and starts the same break over. Under reduced motion the next card simply fades in over the old one, with no pieces. Slow motion makes the play three times longer; the hold between plays while Loop is on stays the same. If the stage changes size during a play (a resized window, a phone turned sideways), the play ends at once on the next card, because its pieces were placed for the old size; reduced motion switched on during a play ends it the same way. While Loop is on and the stage is scrolled out of view, the next play waits until the stage is back in view (an `IntersectionObserver`), so the Loop builds no copies while nobody can see them.
+每块碎片都等到碎裂（`start`，裂纹用的时间）才动，离撞击点越远，等得越久，这样碎裂会向外扩散；一道短暂的闪光标出撞击点。显示裂纹时，裂纹线先在卡片上方的一个 SVG 里一环一环地画出来，同时卡片轻轻震一下。它们是一条浅色线下面的一条柔和深色线，所以在图片和说明上都看得见，每个副本沿着自己的边带着同样的线：碎裂时什么都不变，每块碎片在它碎开的地方留一条浅色的边（这么柔和、这么宽的线在碎片倾斜时仍然干净；一对又细又锐的线会碎成锯齿）。下一张卡片从飞行的 45% 处开始淡入。最后一块碎片淡出后，碎片就被去掉；「重播」或改设置会取消所有还在运行的东西（`getAnimations({subtree:true})`），重新开始同样的碎裂。减弱动态时，下一张卡片直接在旧的那张上面淡入，没有碎片。慢动作让播放长三倍；循环打开时两次播放之间的停顿保持不变。如果播放中途舞台大小变了（窗口调整了大小、手机横过来了），播放会立刻在下一张卡片上结束，因为它的碎片是按旧尺寸放的；播放中途打开减弱动态也会同样结束它。循环打开、舞台滚动出视野时，下一次播放会等到舞台回到视野里（一个 `IntersectionObserver`），这样循环在没人看的时候不会创建副本。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Number of pieces | Medium | How finely the card breaks: few is about 15 pieces in two rings, medium about 30 in three and many 60 in four (about 46 on phones) |
-| Breaks from | Center | Where the impact is: near the middle (moved a little at random each time) or near the top-left corner; the pieces there are the smallest and fly first |
-| Gravity | Normal | None lets the pieces drift straight outward; normal throws them up a little before they fall; heavy drops them out of view. Over one flight the burst carries the pieces about 1.1, 0.75 or 0.55 card heights outward (none, normal, heavy; further near the impact), and by the end they sit a further 0.6 card heights lower with normal and 2 with heavy. Those drops are what is left once the upward throw is taken off: gravity alone pulls about 1.15 and 2.2 card heights, and the throw takes back about half a card height with normal and a quarter with heavy |
-| Speed | Normal | How long each piece's flight takes: slow is 1700ms, normal 1100ms and fast 700ms; the cracks take about a third of that before the break |
-| Shows the cracks | on | Draws the cracks across the card, ring by ring from the impact, before it breaks; off, it breaks at once |
-| Tumbles in 3D | on | The pieces flip over and fly toward the viewer; off, they spin flat |
+| 碎片数量 | 中等 | 卡片碎得多细：「少」大约是两环 15 块，「中等」大约是三环 30 块，「多」是四环 60 块（手机上大约 46 块） |
+| 从哪碎裂 | 中间 | 撞击点在哪里：靠近中间（每次随机移动一点）或靠近左上角；那里的碎片最小、先飞 |
+| 重力 | 普通 | 「无」让碎片径直向外飘；「普通」在它们落下之前先把它们向上抛一点；「重」让它们掉出视野。一次飞行里，迸发把碎片向外带大约 1.1、0.75 或 0.55 个卡片高度（无、普通、重；靠近撞击点更远），结束时「普通」再低 0.6 个卡片高度，「重」低 2 个。这些下落是去掉向上抛之后剩下的：只有重力时大约拉下 1.15 和 2.2 个卡片高度，抛起抵消了「普通」大约半个卡片高度、「重」四分之一个 |
+| 速度 | 普通 | 每块碎片飞行要多长时间：「慢」是 1700ms，「普通」1100ms，「快」700ms；碎裂前裂纹大约占其中的三分之一 |
+| 显示裂纹 | 开 | 碎裂前从撞击点开始一环一环地在卡片上画出裂纹；关掉就立刻碎开 |
+| 3D 翻滚 | 开 | 碎片翻转着飞向观众；关掉就平着旋转 |
 
-## Production notes
-- **Copies are the cost.** Each piece holds a full copy of the card, so sixty pieces mean sixty copies of its markup. Keep the card light (one picture and a short caption), make the copies only for the card that is about to break, give each copy only its own crack lines (a full crack pattern in every copy is stroked again for every piece) and remove the copies once they have faded. The demo cuts Many a little coarser on phones (a screen up to 600px wide or 500px tall) and skips slivers under 4px² there.
-- **Composited, not repainted.** The pieces animate only `transform` and `opacity`; each `clip-path` is set once and never animated. `contain: layout paint` on each piece keeps its layer to its own small box instead of the whole card.
-- **Build nothing out of view.** Building the copies takes one long frame on a slow phone, so the demo's Loop holds its next play while the stage is off screen; otherwise that frame would land every few seconds while the visitor reads or taps elsewhere on the page.
-- **Build early, swap on the same clock.** Making the copies and starting their animations takes the most time, so do it before anything moves (here while the card is still whole) and keep the pieces under the card. Hide the card with an animation too, not a timer: animations made together start together, while a timer keeps running during a slow first frame and would hide the card too early.
-- **Pictures and video.** A copied `img` shows the same cached picture, but a copied `video` or `canvas` does not carry its current frame: draw that frame to an image first. For any element, html2canvas can turn it into one bitmap that the pieces share as a background, which is also lighter than copying markup.
-- **Accessibility.** The pieces are decoration: keep them hidden from assistive technology (here they sit inside the stage's `role="img"`) and move focus to whatever comes next yourself.
-- **Library equivalents.** GSAP throws the pieces with `gsap.to(pieces, { x, y, rotation, opacity, stagger: { each, from: 'center' } })`, and its Physics2DPlugin adds gravity and velocity; Framer Motion animates each piece's `x`, `y` and `rotate` with a per-piece delay. For hundreds of pieces, or glass that bends the light, a WebGL library such as Three.js draws the card as a texture on triangles.
+## 生产注意事项
+- **副本就是成本。**每块碎片都放着卡片的一个完整副本，所以六十块碎片就是六十份它的标记。保持卡片轻量（一张图片加一句简短的说明），只给马上要碎的卡片做副本，每个副本只给它自己的裂纹线（每个副本里一套完整的裂纹图案会给每块碎片再描一次），碎片淡出后就把副本去掉。演示在手机上把「多」切得稍粗一点（宽 600px 或高 500px 以下的屏幕），并跳过那里小于 4px² 的细条。
+- **合成，不重绘。**碎片只给 `transform` 和 `opacity` 做动画；每个 `clip-path` 只设置一次，永远不做动画。每块碎片上的 `contain: layout paint` 把它的图层限制在自己的小盒子里，而不是整张卡片。
+- **不要在视野外创建东西。**在慢手机上创建副本要花一帧很长的时间，所以演示的循环在舞台离开屏幕时会按住下一次播放；否则那一帧会每隔几秒就出现一次，而访客正在页面别处阅读或点按。
+- **早点创建，用同一个时钟切换。**创建副本、启动它们的动画最花时间，所以在任何东西移动之前就做（这里是卡片还完整的时候），把碎片留在卡片下面。藏卡片也用动画，不用计时器：一起创建的动画一起开始，而计时器会在缓慢的第一帧里继续走，会过早藏起卡片。
+- **图片和视频。**复制的 `img` 显示同一张缓存图片，但复制的 `video` 或 `canvas` 不会带上它当前的那一帧：先把那一帧画成图片。对于任何元素，html2canvas 可以把它变成一张碎片共享作背景的位图，这也比复制标记更轻。
+- **无障碍。**碎片是装饰：让它们对辅助技术隐藏（这里它们坐在舞台的 `role="img"` 里面），自己把焦点移到接下来要去的地方。
+- **库里的等价写法。**GSAP 用 `gsap.to(pieces, { x, y, rotation, opacity, stagger: { each, from: 'center' } })` 扔碎片，它的 Physics2DPlugin 加上重力和速度；Framer Motion 给每块碎片的 `x`、`y` 和 `rotate` 做动画，每块带自己的延迟。几百块碎片，或者会折射光线的玻璃，用 Three.js 这样的 WebGL 库把卡片画成三角形上的纹理。
 
-## See also
-- [Dissolve Transition](../../03-page-transitions/dissolve/) — a page breaks into tiles that give way to the next one
-- [Split Text Reveal](../split-text-reveal/) — text broken into pieces that arrive one after another
-- [Fade In / Fade Out](../fade-in-out/) — the plain fade this effect becomes under reduced motion
-- [2D Physics](../../06-3d-advanced/physics-2d/) — balls that fall, bounce and pile up under gravity
+## 另见
+- [溶解过渡](../../03-page-transitions/dissolve/) — 一页碎成瓷砖，让给下一页
+- [拆字揭示](../split-text-reveal/) — 文字碎成块，一块接一块到达
+- [淡入淡出](../fade-in-out/) — 减弱动态时这个效果变成的单纯淡入淡出
+- [2D 物理](../../06-3d-advanced/physics-2d/) — 在重力下落下、弹跳、堆起来的球

@@ -1,19 +1,19 @@
-# Progress Animation
+# 进度动画
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/progress-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/progress-animation/)
 
-## What it is
-A progress animation shows how much of a task is done by filling a shape: a bar, a ring or a row of steps. Unlike a spinner, it tells people how much is left, which makes a long wait easier. In the demo, all three are driven by the same percentage.
+## 它是什么
+进度动画通过填充一个形状来显示任务完成了多少：一条横条、一个圆环或一排步骤。和旋转指示不同，它告诉人们还剩多少，这让漫长的等待更容易。在演示里，三种都由同一个百分比驱动。
 
-## When to use it
-- File uploads and downloads where byte progress is available
-- Multi-step forms and onboarding flows (5-step wizard, 3 of 5 complete)
-- Installation and build processes
-- Reading progress indicators on long-form articles
-- Any operation where `loaded / total` can be computed
+## 什么时候用
+- 有字节进度可用的文件上传和下载
+- 多步表单和引导流程（5 步向导，5 步里完成了 3 步）
+- 安装和构建过程
+- 长文章上的阅读进度指示
+- 任何能算出 `loaded / total` 的操作
 
-## How it works
-**Linear bar**: keep the fill as wide as the track and slide it in from the left with `transform: translateX()`; the track's `overflow: hidden` hides the part still outside, and a transform never makes the page lay out again. Move it with a CSS transition, or with `requestAnimationFrame` for easing control:
+## 工作原理
+**直线横条**：让填充和轨道一样宽，用 `transform: translateX()` 从左边滑进来；轨道的 `overflow: hidden` 藏住还在外面的部分，变换永远不会让页面重新布局。用 CSS 过渡移动它，或用 `requestAnimationFrame` 控制缓动：
 
 ```css
 .prog-track { overflow: hidden; border-radius: 4px; }
@@ -41,7 +41,7 @@ function animateProgress(target, duration) {
 }
 ```
 
-**Circular ring** uses `stroke-dashoffset` on an SVG circle. The circumference of a circle with `r=32` is `2π × 32 ≈ 201px`:
+**圆形圆环**在 SVG 圆上用 `stroke-dashoffset`。半径 `r=32` 的圆，周长是 `2π × 32 ≈ 201px`：
 
 ```css
 circle {
@@ -57,7 +57,7 @@ circle {
 circle.style.strokeDashoffset = 201 * (1 - p);
 ```
 
-**Indeterminate bar** (unknown duration): use an infinite sliding animation instead:
+**不确定横条**（不知道时长）：改用无限滑动动画：
 
 ```css
 .indet {
@@ -70,25 +70,25 @@ circle.style.strokeDashoffset = 201 * (1 - p);
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Fills to | 100% | How far one play fills: 50%, 75% or 100% |
-| Speed | Normal | How long the fill takes: slow is 3.2s, normal 2s and fast 1.2s; in a real app it follows the actual progress |
-| Feel | Smooth | Smooth starts fast and slows near the end, which feels natural; Gentle eases in and out; Even fills at one steady pace |
-| Sliding bar | off | For waits of unknown length: a short piece slides along the bar instead of filling it |
-| Fill color | Blue | The color of the bar, the ring and the steps |
+| 填充到 | 100% | 一次播放填充多远：50%、75% 或 100% |
+| 速度 | 普通 | 填满要花多长时间：慢是 3.2 秒，普通 2 秒，快是 1.2 秒；真实应用里它跟随实际进度 |
+| 手感 | 平滑 | 平滑开始快、结尾放慢，感觉自然；轻柔缓入缓出；均匀以一个稳定的节奏填充 |
+| 滑动条 | 关 | 用于不知道多长的等待：沿着横条滑动一小段，而不是填充它 |
+| 填充颜色 | 蓝色 | 横条、圆环和步骤的颜色 |
 
-## Production notes
-- **Don't fake progress**: animating to 90% and stalling while waiting for a response (common pattern) is deceptive and erodes trust. Either animate to an honest checkpoint, or use indeterminate mode.
-- **`transition` vs `rAF`**: CSS `transition` is simpler but can't be paused or reversed mid-flight. `rAF` gives full control — necessary for chunked uploads where progress arrives in bursts.
-- **Accessibility**: wrap the progress bar in `<progress value="60" max="100">` or add `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` attributes.
-- **GSAP**: `gsap.to(fill, { xPercent: -25, duration: 2, ease: "power2.out" })` slides a full-width fill to 75%. For circular rings, animate `strokeDashoffset` directly.
-- **React**: the HTML `<progress>` element is accessible out of the box. Radix UI's `<Progress>` provides a headless, styled alternative.
+## 生产注意事项
+- **不要伪造进度**：动画到 90% 再卡住等响应（常见模式）是骗人的，会损害信任。要么动画到一个诚实的检查点，要么用不确定模式。
+- **`transition` 对比 `rAF`**：CSS `transition` 更简单，但不能在中途暂停或反向。`rAF` 给你完全的控制——分块上传里进度一阵一阵地来时，这很有必要。
+- **无障碍**：把进度条包在 `<progress value="60" max="100">` 里，或加上 `role="progressbar"`、`aria-valuenow`、`aria-valuemin` 和 `aria-valuemax` 属性。
+- **GSAP**：`gsap.to(fill, { xPercent: -25, duration: 2, ease: "power2.out" })` 把一个全宽填充滑到 75%。圆形圆环直接动画 `strokeDashoffset`。
+- **React**：HTML `<progress>` 元素开箱即用就是无障碍的。Radix UI 的 `<Progress>` 提供无头、有样式的替代品。
 
-## See also
-- [Loading Spinner](../loading-spinner/) — a spinner for waits of unknown length
-- [Skeleton Loader](../skeleton-loader/) — gray shapes stand in for the content
-- [Checkmark Draw](../checkmark-draw/) — the success sign once it reaches the end
-- [Progress Bar](../../01-scroll-based/progress-bar/) — a bar that fills as you scroll
-- [Hold to Confirm](../hold-to-confirm/) — a button that fills while you hold it down
+## 另见
+- [加载旋转指示](../loading-spinner/) — 用于不知道多长等待的旋转指示
+- [骨架屏](../skeleton-loader/) — 代替内容的灰色形状
+- [对勾绘制](../checkmark-draw/) — 到达终点后的成功标志
+- [阅读进度条](../../01-scroll-based/progress-bar/) — 随滚动填充的横条
+- [长按确认](../hold-to-confirm/) — 按住时填充的按钮

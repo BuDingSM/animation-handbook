@@ -1,66 +1,80 @@
-# 04 — Micro-Interactions & UI Animation
+# 微交互
 
-Short, user-triggered animations that provide feedback, confirm actions, and communicate state. They start the moment the visitor acts and stay short (see Duration discipline below), so they feel instant, not decorative.
+短暂的、由用户触发的动画——悬停、点击、聚焦、加载状态和界面反馈模式。
 
-## Animations
+## 全部动画
 
-| Demo | Description |
-|------|-------------|
-| [Hover State Animation](hover-state/) | Six ways a card can react when you point at it. Best for buttons and cards. |
-| [Click / Tap Ripple](click-ripple/) | A ripple spreads out from the spot you press. Best for buttons and list items. |
-| [Focus Ring Animation](focus-ring/) | A ring closes in around the item the Tab key reaches. Best for forms and menus. |
-| [Button Press Scale](button-press-scale/) | Shrinks as you press it and springs back as you let go. Best for main buttons. |
-| [Magnetic Button](magnetic-button/) | Leans toward the pointer, then springs home. Best for one main button. |
-| [Toggle / Switch Slide](toggle-switch/) | The knob slides across as the switch turns on or off. Best for settings. |
-| [Heart / Like Burst](heart-burst/) | The heart pops and fills as small hearts burst out. Best for like buttons. |
-| [Success Confetti](success-confetti/) | Confetti bursts from the button when a task is done. Best for big moments. |
-| [Skeleton Loader](skeleton-loader/) | Gray shapes hold the place of content while it loads. Best for feeds and cards. |
-| [Shimmer Effect](shimmer-effect/) | A band of light sweeps over gray placeholders. Best for loading screens. |
-| [Loading Spinner](loading-spinner/) | Six small shapes loop to show that something is loading. Best for short waits. |
-| [Progress Animation](progress-animation/) | A bar, a ring and steps fill up to show progress. Best for uploads. |
-| [Checkmark Draw](checkmark-draw/) | A tick draws itself in a circle once a task succeeds. Best for forms. |
-| [Form Field Morph](form-field-morph/) | The label moves up out of the way as you type. Best for sign-up forms. |
-| [Notification Badge Pulse](badge-pulse/) | A badge on an icon pulses to catch the eye. Best for unread messages. |
-| [Tooltip Reveal](tooltip-reveal/) | A small label fades in after a short pause. Best for icon buttons. |
-| [Drawer / Panel Slide](drawer-slide/) | A side panel slides in over a dimmed page. Best for mobile menus. |
-| [Modal Expand](modal-expand/) | A window grows out of the button you pressed. Best for detail views. |
-| [Accordion Open/Close](accordion/) | Each question opens smoothly to show its answer. Best for FAQ pages. |
-| [Cursor Follower](cursor-follower/) | A dot trails your pointer and flips the colors under it. Best for portfolios. |
-| [Error Shake](error-shake/) | A field shakes side to side when the input is wrong. Best for sign-in forms. |
-| [Swipe to Dismiss](swipe-to-dismiss/) | A card dragged sideways flies off and the list closes up. Best for inboxes. |
-| [Hamburger Menu Toggle](hamburger-menu-toggle/) | Three lines turn into an X as the menu opens. Best for mobile menus. |
-| [Theme Toggle Morph](theme-toggle-morph/) | A sun turns into a moon as the colors switch to dark. Best for theme buttons. |
-| [Copy to Clipboard](copy-to-clipboard/) | Copy turns into a tick and Copied, then changes back. Best for codes and links. |
-| [Star Rating](star-rating/) | Stars fill up to your pointer and pop when you choose. Best for reviews. |
-| [Toast Notification](toast-notification/) | Short messages slide into a corner, then leave on their own. Best for updates. |
-| [Segmented Control](segmented-control/) | A highlight slides to the option you pick. Best for switching views. |
-| [Pull to Refresh](pull-to-refresh/) | Pulling a list down shows a spinner, then new items. Best for feeds. |
-| [Animated Gradient Border](gradient-border/) | A band of colors runs around the edge of a card or button. Best for featured offers. |
-| [Spotlight Hover Glow](spotlight-hover/) | A soft glow follows the pointer and lights card edges. Best for feature grids. |
-| [Add-to-Cart Fly](add-to-cart-fly/) | The product flies into the cart, which bumps and counts up. Best for shops. |
-| [Drag to Reorder](drag-to-reorder/) | Drag an item and the others slide aside to make room. Best for to-do lists. |
-| [Rolling Numbers](rolling-numbers/) | Each digit rolls to its new value, like a mileage counter. Best for prices. |
-| [Typing Indicator](typing-indicator/) | Three dots in a chat bubble move in turn while someone types. Best for chat apps. |
-| [Hold to Confirm](hold-to-confirm/) | A button fills up while you hold it and acts only once it is full. Best for delete buttons. |
-| [Expanding Search](expanding-search/) | A search icon opens into a field, then closes when done. Best for toolbars. |
-| [Button Loading States](button-loading-states/) | The button becomes a spinner, then a tick or a cross. Best for Save buttons. |
-| [Image Trail](image-trail/) | Pictures pop up in a trail behind your pointer, then fade. Best for portfolios. |
-| [Gooey Menu](gooey-menu/) | Small buttons ooze out of a round button like liquid. Best for quick actions. |
-| [Dynamic Island](dynamic-island/) | A black pill grows into a notification, then shrinks back. Best for live updates. |
-| [Before/After Slider](before-after-slider/) | Drag a line across two pictures to compare them. Best for photo edits. |
-| [Magnifier Lens](magnifier-lens/) | A lens follows your pointer and shows the picture up close. Best for product photos. |
-| [Card Deck Swipe](card-deck-swipe/) | Swipe the top card left or right; the next one rises. Best for quick choices. |
+- [悬停状态动画](hover-state/) — 指向卡片时，它有六种反应方式。适合用在按钮和卡片上。
+- [点击涟漪](click-ripple/) — 按下的位置会扩散出一圈涟漪。适合用在按钮和列表项上。
+- [焦点环动画](focus-ring/) — Tab 键到达的项目周围会收拢一个圆环。适合用在表单和菜单上。
+- [按钮按压缩放](button-press-scale/) — 按下时缩小，松开时弹回。适合用在主按钮上。
+- [磁吸按钮](magnetic-button/) — 向指针倾斜，然后弹回原位。适合用在一个主按钮上。
+- [开关滑动](toggle-switch/) — 开关打开或关闭时，滑块随之滑动。适合用在设置项上。
+- [点赞爱心迸发](heart-burst/) — 爱心弹出并填满，同时迸出小爱心。适合用在点赞按钮上。
+- [成功彩带](success-confetti/) — 任务完成时，按钮处迸出彩带。适合用在重要时刻。
+- [骨架屏](skeleton-loader/) — 灰色色块在内容加载时占位。适合用在信息流和卡片上。
+- [微光扫过效果](shimmer-effect/) — 一道光带扫过灰色占位块。适合用在加载界面上。
+- [加载旋转指示](loading-spinner/) — 六个小图形循环转动，表示正在加载。适合用在短暂等待时。
+- [进度动画](progress-animation/) — 进度条、圆环和步骤依次填满，显示进度。适合用在上传场景。
+- [对勾绘制](checkmark-draw/) — 任务成功后，对勾在圆圈里自己画出来。适合用在表单上。
+- [表单字段变形](form-field-morph/) — 开始输入时，标签上移让开。适合用在注册表单上。
+- [通知徽标脉冲](badge-pulse/) — 图标上的徽标脉冲闪动，吸引注意。适合用在未读消息上。
+- [提示气泡浮现](tooltip-reveal/) — 停顿片刻后，小标签淡入出现。适合用在图标按钮上。
+- [抽屉滑出](drawer-slide/) — 侧边面板在变暗的页面上滑入。适合用在移动端菜单上。
+- [弹窗展开](modal-expand/) — 窗口从你按下的按钮处长出来。适合用在详情查看上。
+- [手风琴展开/收起](accordion/) — 每个问题平滑展开，显示答案。适合用在常见问题页面上。
+- [光标跟随](cursor-follower/) — 一个圆点跟随指针，并反转下方颜色。适合用在作品集上。
+- [错误抖动](error-shake/) — 输入错误时，字段左右抖动。适合用在登录表单上。
+- [滑动删除](swipe-to-dismiss/) — 卡片向侧边拖动后飞出，列表随之收拢。适合用在收件箱上。
+- [汉堡菜单切换](hamburger-menu-toggle/) — 三条横线变成叉号，同时菜单打开。适合用在移动端菜单上。
+- [主题切换变形](theme-toggle-morph/) — 颜色切换到深色时，太阳变成月亮。适合用在主题按钮上。
+- [复制到剪贴板](copy-to-clipboard/) — 「复制」变成对勾和「已复制」，然后再变回来。适合用在代码和链接上。
+- [星级评分](star-rating/) — 星星随指针填满，选中时弹出。适合用在评价上。
+- [轻提示](toast-notification/) — 短消息滑入角落，之后自行离开。适合用在更新提醒上。
+- [分段控制器](segmented-control/) — 高亮滑向你选中的选项。适合用在切换视图上。
+- [下拉刷新](pull-to-refresh/) — 向下拉动列表会出现旋转指示，然后出现新内容。适合用在信息流上。
+- [渐变边框动画](gradient-border/) — 一条彩色带绕着卡片或按钮的边缘流动。适合用在精选优惠上。
+- [聚光灯悬停辉光](spotlight-hover/) — 柔和的光晕跟随指针，照亮卡片边缘。适合用在特性网格上。
+- [加入购物车飞入](add-to-cart-fly/) — 商品飞入购物车，购物车抖动并计数加一。适合用在商店里。
+- [拖动排序](drag-to-reorder/) — 拖动一个项目，其他项目滑开让位。适合用在待办清单上。
+- [数字滚动](rolling-numbers/) — 每个数字像里程表一样滚动到新值。适合用在价格上。
+- [正在输入指示](typing-indicator/) — 聊天框里的三个圆点轮流跳动，表示对方正在输入。适合用在聊天应用上。
+- [长按确认](hold-to-confirm/) — 按住按钮时它会逐渐填满，满了才执行操作。适合用在删除按钮上。
+- [搜索框展开](expanding-search/) — 搜索图标展开成输入框，用完后收起。适合用在工具栏上。
+- [按钮加载状态](button-loading-states/) — 按钮变成旋转指示，然后变成对勾或叉号。适合用在保存按钮上。
+- [图片拖尾](image-trail/) — 图片在指针身后接连弹出，然后淡出。适合用在作品集上。
+- [粘性菜单](gooey-menu/) — 小按钮像液体一样从圆形按钮里渗出来。适合用在快捷操作上。
+- [灵动岛](dynamic-island/) — 黑色药丸长成通知，然后再缩回去。适合用在实时更新上。
+- [前后对比滑块](before-after-slider/) — 拖动一条线，横跨两张图片进行对比。适合用在照片编辑上。
+- [放大镜](magnifier-lens/) — 镜头跟随指针，近距离展示图片。适合用在商品照片上。
+- [卡片组滑动](card-deck-swipe/) — 左右滑动顶部卡片，下一张随之升起。适合用在快速选择上。
+- [缓动曲线](easing/) — 速度有快有慢，而不是匀速移动。最适合让任何动作停得自然。
+- [过冲回弹](overshoot/) — 冲过目标一点，再回弹停住。最适合仪表、滑块和需要一点弹性的落点。
+- [挤压与伸展](squash-and-stretch/) — 落地时压扁，起跳时拉长，带出弹性感。最适合小球、角色和活泼的图标。
+- [预备动作](anticipation/) — 先往反方向缩一下，再冲出去。最适合让突然的移动看起来有准备。
+- [跟随动作](follow-through/) — 主体停下了，身上的部件还多晃几下才停。最适合角色、旗帜和挂件。
+- [底部抽屉](bottom-sheet/) — 面板从屏幕底部往上滑出。最适合移动端的详情和操作面板。
+- [弹出气泡](popover/) — 点一下，带箭头的小面板跳出来。最适合详情说明和快捷操作。
+- [标签页切换](tabs/) — 点页签切换内容，底线跟着滑过去。最适合价格页和设置页。
+- [筛选标签](filter-chips/) — 点一下加上或拿掉一个筛选条件。最适合列表和商品筛选。
+- [步进器](stepper/) — 用加减按钮增减数字。最适合购买数量和人数选择。
+- [分页](pagination/) — 用页码切换页面。最适合搜索结果和长列表。
+- [面包屑导航](breadcrumbs/) — 用层级显示现在的位置。最适合文章页和深层级网站。
+- [即时校验](inline-validation/) — 边输边告诉你对还是错。最适合注册和联系表单。
+- [灯箱](lightbox/) — 点缩略图，在变暗的页面上放大看图。最适合作品集和商品图。
+- [热点标注](hotspots/) — 图上的点一点，弹出对应说明。最适合产品图和示意图。
+- [倒计时](countdown-timer/) — 数着离截止还有多久。最适合活动和限时优惠。
 
-## Key concepts
+## 关键概念
 
-**Duration discipline**: Feedback should begin the moment the visitor acts and stay short: about 200ms or less for a hover change and under about 100ms for a press to show. A change that shows a new state, such as a ripple, a morph or a panel opening, usually takes 300–600ms; much longer and feedback starts to feel like decoration.
+**时长纪律**：反馈应该在访客行动的那一刻开始，并保持短暂：悬停变化大约 200ms 或更短，按压显示大约 100ms 或更短。显示新状态的变化，比如涟漪、变形或面板打开，通常需要 300–600ms；再长，反馈就开始感觉像装饰了。
 
-**Asymmetric timing**: press events animate faster than release events (80ms press / 180ms release for button scale). Opening events are slightly slower than closing (280ms open / 220ms close for drawers). The asymmetry matches physical intuition.
+**不对称时长**：按压事件比松开事件动画得更快（按钮缩放按压 80ms / 松开 180ms）。打开事件比关闭稍慢（抽屉打开 280ms / 关闭 220ms）。这种不对称符合物理直觉。
 
-**Touch parity**: every hover-triggered effect needs an `:active` or `pointerdown` equivalent on touch. Use `@media (hover: hover)` to gate hover-only styles.
+**触摸对等**：每个悬停触发的效果，在触摸上都需要一个 `:active` 或 `pointerdown` 的等价物。用 `@media (hover: hover)` 门控只在悬停时用的样式。
 
-**Reduced motion**: all demos respect `prefers-reduced-motion: reduce`. Disable motion, preserve state changes.
+**减弱动态效果**：所有演示都遵循 `prefers-reduced-motion: reduce`。关掉动态效果，保留状态变化。
 
-## See also
-- [02 — Entrance & Exit](../02-entrance-and-exit/) — longer element-level transitions
-- [03 — Page Transitions](../03-page-transitions/) — full-page transition patterns
+## 另见
+- [02 — 入场与退场](../02-entrance-and-exit/) — 更长的元素级过渡
+- [03 — 页面切换](../03-page-transitions/) — 整页过渡模式

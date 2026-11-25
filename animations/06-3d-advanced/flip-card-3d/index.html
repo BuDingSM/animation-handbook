@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Flip Card — Animation Handbook</title>
-  <meta name="description" content="A card turns over in 3D to show its back. Best for profile and product cards.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flip-card-3d/">
+  <title>3D 翻转卡片 — 动画手册</title>
+  <meta name="description" content="卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/flip-card-3d/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="3D Flip Card — Animation Handbook">
-  <meta property="og:description" content="A card turns over in 3D to show its back. Best for profile and product cards.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flip-card-3d/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="3D 翻转卡片 — 动画手册">
+  <meta property="og:description" content="卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/flip-card-3d/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="3D Flip Card — Animation Handbook">
-  <meta name="twitter:description" content="A card turns over in 3D to show its back. Best for profile and product cards.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D Flip Card", "name": "3D Flip Card", "description": "A card turns over in 3D to show its back. Best for profile and product cards.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/flip-card-3d/", "inLanguage": "en", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, 3D Flip Card"}</script>
+  <meta name="twitter:title" content="3D 翻转卡片 — 动画手册">
+  <meta name="twitter:description" content="卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "3D 翻转卡片", "name": "3D 翻转卡片", "description": "卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/flip-card-3d/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 3D 翻转卡片"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--perspective:1200px;--flip-dur:650ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -93,7 +93,7 @@
     .stage[data-hb-mode="inside"] .card:not(.axis-x) .back,.stage[data-hb-mode="inside"] .card:not(.axis-x) .d-b{transform:rotateY(180deg) translateZ(var(--gap))}
     .stage[data-hb-mode="inside"] .card.axis-x .back,.stage[data-hb-mode="inside"] .card.axis-x .d-b{transform:rotateX(180deg) translateZ(var(--gap))}
     .stage[data-hb-mode="inside"].xturn .arrow{rotate:-90deg}
-    /* Compare: two halves, each with its own perspective; "Back shows through" is the copy, which leaves the back face visible from
+    /* Compare: two halves, each with its own perspective; "背面透出来" is the copy, which leaves the back face visible from
        behind, so the back is painted over the front (mirrored). Each card keeps the 156 x 218 layout that holds its text on one line
        and is scaled to its half. */
     .stage[data-hb-mode="compare"]{perspective:none;padding:0 8px;--cmp-top:34px}
@@ -115,31 +115,31 @@
       .stage[data-hb-mode="compare"] .copy .card.axis-x:not(.flipped) .back{transform:rotateX(180deg)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../morphing-blob/" rel="prev" aria-label="Previous: Morphing Blob"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Morphing Blob</span></a><a href="../carousel-3d/" rel="next" aria-label="Next: 3D Carousel"><span><span class="hb-dir">Next: </span>3D Carousel</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../morphing-blob/" rel="prev" aria-label="上一个：变形色块"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>变形色块</span></a><a href="../carousel-3d/" rel="next" aria-label="下一个：3D 轮播"><span><span class="hb-dir">下一个：</span>3D 轮播</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.18 · 3D &amp; Advanced</p>
-    <h1>3D Flip Card</h1>
-    <p class="hb-lede">A card turns over in 3D to show its back. Best for profile and product cards.</p>
+    <p class="hb-cat">06.18 · 3D 与高级效果</p>
+    <h1>3D 翻转卡片</h1>
+    <p class="hb-lede">卡片在 3D 中翻过来，露出背面。适合个人和产品卡片。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click or tap the card to turn it over, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击或轻触卡片把它翻过来，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
       <div class="half real" id="half"><div class="tilt" id="tilt">
@@ -147,88 +147,88 @@
           <div class="face front">
             <div class="avatar">AV</div>
             <div class="name">Ava Reyes</div>
-            <div class="role">Motion Engineer</div>
-            <div class="hint">Tap or click to flip →</div>
+            <div class="role">动态工程师</div>
+            <div class="hint">点一下或点击翻转 →</div>
           </div>
           <div class="face back">
-            <div class="over">Details</div>
+            <div class="over">详情</div>
             <div class="rows">
-              <div class="row"><span>Team</span><span>Interface Systems</span></div>
-              <div class="row"><span>Location</span><span>Lisbon</span></div>
-              <div class="row"><span>Focus</span><span>CSS 3D · WebGL</span></div>
-              <div class="row"><span>Joined</span><span>2021</span></div>
+              <div class="row"><span>团队</span><span>界面系统</span></div>
+              <div class="row"><span>地点</span><span>里斯本</span></div>
+              <div class="row"><span>专注</span><span>CSS 3D · WebGL</span></div>
+              <div class="row"><span>加入于</span><span>2021</span></div>
             </div>
-            <div class="hint">← Flip back</div>
+            <div class="hint">← 翻回去</div>
           </div>
         </div>
       </div></div>
-      <span class="cap cmp-name" data-hb-caption>Back shows through</span>
-      <span class="cap cmp-name two" data-hb-caption>Back hidden</span>
-      <span class="cap in-cap" data-hb-caption>Two faces, back to back (pulled apart here)</span>
-      <span class="cap in-cap" data-hb-caption>The back starts turned away</span>
-      <span class="cap in-cap" data-hb-caption>Dashed: a face pointing away is hidden</span>
-      <span class="cap in-cap" data-hb-caption>Turns on this line in about two thirds of a second</span>
+      <span class="cap cmp-name" data-hb-caption>背面透出来</span>
+      <span class="cap cmp-name two" data-hb-caption>藏起背面</span>
+      <span class="cap in-cap" data-hb-caption>两面背靠背（这里拉开了）</span>
+      <span class="cap in-cap" data-hb-caption>背面一开始就是转过去的</span>
+      <span class="cap in-cap" data-hb-caption>虚线：背对着的面被藏起来</span>
+      <span class="cap in-cap" data-hb-caption>绕这条线转动，大约三分之二秒</span>
       <svg class="lead" aria-hidden="true"><path/><path/><path/><path/><circle r="3"/><circle r="3"/><circle r="3"/><circle r="3"/></svg>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the two faces are pulled apart: the back starts turned away, the card turns around the gold line, and the face pointing away is hidden (dashed). Click the card or press Show me.</p>
-      <p data-hb-for="compare" hidden>Back shows through: without hiding the face pointing away, the back covers the front, mirrored until it turns; Back hidden: each face shows only from its own side. Click the card or press Show me.</p>
+      <p data-hb-for="inside" hidden>看内部：两面被拉开了：背面一开始就是转过去的，卡片绕着金线转动，背对着的那一面会被藏起来（虚线）。点击卡片或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>背面透出来：如果不藏起背对着的那一面，背面会盖住正面，在转过去之前都是镜像的；藏起背面：每面只从自己那一侧显示。点击卡片或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="axis-lbl">Flip direction</p>
+        <p class="hb-setting-name" id="axis-lbl">翻转方向</p>
         <div class="seg" id="axis-seg" role="group" aria-labelledby="axis-lbl">
-          <button type="button" data-axis="y" class="on" aria-pressed="true">Sideways</button>
-          <button type="button" data-axis="x" aria-pressed="false">Up and over</button>
+          <button type="button" data-axis="y" class="on" aria-pressed="true">横向</button>
+          <button type="button" data-axis="x" aria-pressed="false">上下翻</button>
         </div>
-        <p class="hb-hint">Sideways turns like a page; up and over like a flap.</p>
+        <p class="hb-hint">横向翻像翻书；上下翻像翻盖。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1000" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="650" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="400" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1000" aria-pressed="false">慢</button>
+          <button type="button" data-ms="650" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="400" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long one turn takes.</p>
+        <p class="hb-hint">翻一次要多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="depth-lbl">3D depth</p>
+        <p class="hb-setting-name" id="depth-lbl">3D 景深</p>
         <div class="seg" id="depth-seg" role="group" aria-labelledby="depth-lbl">
-          <button type="button" data-px="2000" aria-pressed="false">Subtle</button>
-          <button type="button" data-px="1200" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="600" aria-pressed="false">Strong</button>
+          <button type="button" data-px="2000" aria-pressed="false">轻微</button>
+          <button type="button" data-px="1200" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="600" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">Strong looks closer and more dramatic.</p>
+        <p class="hb-hint">强烈看起来更近、更夸张。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Flips on hover</span><input class="hb-switch" type="checkbox" role="switch" id="hover-tog" autocomplete="off"></label>
-          <p class="hb-hint">Pointing flips it; a tap still flips it on phones.</p>
+          <label class="hb-switch-row"><span>悬停翻转</span><input class="hb-switch" type="checkbox" role="switch" id="hover-tog" autocomplete="off"></label>
+          <p class="hb-hint">指向就能翻转；手机上轻触照样能翻。</p>
         </div>
         <div class="hb-setting">
-          <p class="hb-setting-name" id="tilt-lbl">Tilt toward the pointer</p>
+          <p class="hb-setting-name" id="tilt-lbl">朝指针倾斜</p>
           <div class="seg" id="tilt-seg" role="group" aria-labelledby="tilt-lbl">
-            <button type="button" data-deg="0" aria-pressed="false">Off</button>
-            <button type="button" data-deg="10" class="on" aria-pressed="true">Gentle</button>
-            <button type="button" data-deg="18" aria-pressed="false">Strong</button>
+            <button type="button" data-deg="0" aria-pressed="false">关</button>
+            <button type="button" data-deg="10" class="on" aria-pressed="true">轻柔</button>
+            <button type="button" data-deg="18" aria-pressed="false">强烈</button>
           </div>
-          <p class="hb-hint">The card leans toward a hovering pointer.</p>
+          <p class="hb-hint">卡片会朝悬停的指针倾斜。</p>
         </div>
       </div>
     </details>
@@ -237,41 +237,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a 3D flip to [the card you want to turn over]. Place the front and back faces in the same spot, turn the back face around so it faces away, and hide whichever face points away from the viewer. Clicking, tapping or pressing Enter turns the card over in 3D to show its back, and again to show its front. Give the card's container a 3D perspective so the turn has depth. When the settings include it, pointing at the card can flip it too, and the card can lean toward a hovering pointer. If the visitor has reduced motion turned on, swap the faces with a quick fade instead of turning. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想翻过来的卡片]加一个 3D 翻转效果。把正面和背面的两面放在同一个位置，背面先转过去背对着人，再把背对观众的那一面藏起来。点击、轻触或按回车键，卡片会在 3D 中翻过去露出背面，再按一次回到正面。给卡片的容器加上 3D 透视，让翻转有景深。如果设置里有，指向卡片也可以翻转它，卡片还能朝悬停的指针倾斜。如果访客打开了减弱动态效果，就用快速淡入淡出换面，不要翻转。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Profile cards</li><li>Product cards</li><li>Flashcards</li><li>Quiz answers</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long text</li><li>Key information</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>个人卡片</li><li>产品卡片</li><li>单词卡片</li><li>测验答案</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长文本</li><li>关键信息</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage');
   const tilt=document.getElementById('tilt');
@@ -402,13 +402,13 @@
   const VX=12,VY=-28,GAP=.2,AW=40,AH=24;
   const notes={inside:document.querySelector('[data-hb-for="inside"]'),compare:document.querySelector('[data-hb-for="compare"]')};
   const NOTE={inside:notes.inside.textContent,compare:notes.compare.textContent};
-  const STILL={inside:['Shown still, a third of the way through a turn: the two faces are pulled apart, the back starts turned away, and the face pointing away is hidden (dashed).',
-      'Shown still, a third of the way back through a turn: the two faces are pulled apart, the back now faces you, and the face pointing away is hidden (dashed).'],
-    compare:['Shown still: Back shows through has the back on top of the front, mirrored, since nothing hides the face pointing away; Back hidden shows the front.',
-      'Shown still, turned over: both cards show the details facing the right way. Turn it back, and Back shows through covers its front with the back, mirrored.']};
+  const STILL={inside:['静止时，转到三分之一处：两面被拉开了，背面一开始就是转过去的，背对着的那一面被藏起来了（虚线）。',
+      '静止时，往回转到三分之一处：两面被拉开了，背面现在朝向你，背对着的那一面被藏起来了（虚线）。'],
+    compare:['静止时：「背面透出来」是背面盖在正面上面，还是镜像的，因为没有任何东西藏起背对着的面；「藏起背面」只显示正面。',
+      '静止时，已经翻过去了：两张卡片都正面朝向正确地显示着详情。翻回来，「背面透出来」会用背面盖住正面，还是镜像的。']};
   function say(el,t){if(el.textContent!==t)el.textContent=t}
-  const SECONDS=[[500,'under half a second'],[800,'about two thirds of a second'],[1100,'about a second'],[1500,'just over a second'],[2500,'about two seconds']];
-  const seconds=ms=>(SECONDS.find(([m])=>ms<m)||[0,'about three seconds'])[1];
+  const SECONDS=[[500,'不到半秒'],[800,'大约三分之二秒'],[1100,'大约一秒'],[1500,'一秒出头'],[2500,'大约两秒']];
+  const seconds=ms=>(SECONDS.find(([m])=>ms<m)||[0,'大约三秒'])[1];
   function draw(){
     if(mode!=='inside'){half.style.transform=half.style.translate='';stage.style.removeProperty('--gap')}
     if(mode!=='compare')[half,copy].forEach(h=>h.style.removeProperty('--cs'));
@@ -426,7 +426,7 @@
     const W=stage.clientWidth,H=stage.clientHeight,cw=card.offsetWidth,ch=card.offsetHeight,xt=stage.classList.contains('xturn');
     const P=parseFloat(getComputedStyle(stage).perspective)||1200,rm=reduce.matches,vy=rm?0:VY,turn=rm?(card.classList.contains('flipped')?120:60):0;
     const g=cw*GAP,ext=Math.max(10,ch*.05),caps=[...stage.querySelectorAll('.in-cap')];
-    say(caps[3],'Turns on this line in '+seconds(flipMs*(slowTog.checked?3:1)));
+    say(caps[3],'沿这条线翻转，用时'+seconds(flipMs*(slowTog.checked?3:1)));
     // a point of the card (x right, y down, z toward the viewer; t: it turns with the card) as the viewer sees it, from the stage's middle
     const pr=(x,y,z,s,t)=>{let p=[x*s,y*s,z*s];if(t&&turn)p=rotate(p,xt,turn);p=rotate(rotate(p,0,vy),1,VX);const k=P/(P-p[2]);return[p[0]*k,p[1]*k]};
     // the gold line and its arrow stand in front of the faces (z), shifted so that, seen from here, they run through the card's middle

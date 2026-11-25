@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stacking Cards — Animation Handbook</title>
-  <meta name="description" content="Cards stick at the top and pile into a deck. Best for step-by-step stories.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/stacking-cards/">
+  <title>层叠卡片 — 动画手册</title>
+  <meta name="description" content="卡片吸顶并叠成一摞。最适合分步讲述。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/stacking-cards/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Stacking Cards — Animation Handbook">
-  <meta property="og:description" content="Cards stick at the top and pile into a deck. Best for step-by-step stories.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/stacking-cards/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="层叠卡片 — 动画手册">
+  <meta property="og:description" content="卡片吸顶并叠成一摞。最适合分步讲述。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/stacking-cards/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Stacking Cards — Animation Handbook">
-  <meta name="twitter:description" content="Cards stick at the top and pile into a deck. Best for step-by-step stories.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Stacking Cards", "name": "Stacking Cards", "description": "Cards stick at the top and pile into a deck. Best for step-by-step stories.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/stacking-cards/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Stacking Cards"}</script>
+  <meta name="twitter:title" content="层叠卡片 — 动画手册">
+  <meta name="twitter:description" content="卡片吸顶并叠成一摞。最适合分步讲述。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "层叠卡片", "name": "层叠卡片", "description": "卡片吸顶并叠成一摞。最适合分步讲述。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/stacking-cards/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 层叠卡片"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--scale-step:0.10;--peek:14px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -128,91 +128,91 @@
         background:none;border-color:#b87800;border-radius:12px}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
-<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="The cards stack without shrinking">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../fly-in-fly-out-contact-list/" rel="prev" aria-label="Previous: Fly-in Fly-out Contact List"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Fly-in Fly-out Contact List</span></a><a href="../scroll-trigger/" rel="next" aria-label="Next: Scroll-Triggered Animation"><span><span class="hb-dir">Next: </span>Scroll-Triggered Animation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="卡片叠放而不缩小">
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../fly-in-fly-out-contact-list/" rel="prev" aria-label="上一个：联系人列表飞入飞出"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>联系人列表飞入飞出</span></a><a href="../scroll-trigger/" rel="next" aria-label="下一个：滚动触发动画"><span><span class="hb-dir">下一个：</span>滚动触发动画</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.06 · Scroll-Based</p>
-    <h1>Stacking Cards</h1>
-    <p class="hb-lede">Cards stick at the top and pile into a deck. Best for step-by-step stories.</p>
+    <p class="hb-cat">01.06 · 滚动驱动</p>
+    <h1>层叠卡片</h1>
+    <p class="hb-lede">卡片吸顶并叠成一摞。最适合分步讲述。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="A stack of project cards">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="一摞项目卡片">
       <div class="lay" id="lay" aria-hidden="true" inert>
         <span class="mid"></span><span id="ticks"></span>
-        <p class="cap in-a" data-hb-caption>Where each card stops</p>
-        <p class="cap in-b" data-hb-caption id="cap-full">Full size before it shrank</p>
-        <p class="cap cmp-a" data-hb-caption>Scroll past</p>
-        <p class="cap cmp-b" data-hb-caption>Stack up</p>
+        <p class="cap in-a" data-hb-caption>每张卡片停在哪里</p>
+        <p class="cap in-b" data-hb-caption id="cap-full">缩小前的完整尺寸</p>
+        <p class="cap cmp-a" data-hb-caption>滚走</p>
+        <p class="cap cmp-b" data-hb-caption>叠起来</p>
       </div>
       <div class="copy" id="copy" aria-hidden="true" inert></div>
       <div class="spacer"></div>
       <div id="cards"></div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed lines mark where each card stops, a strip lower than the last, and faint outlines show each covered card's full size. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>In Scroll past, cards go by like a plain list; in Stack up, each sticks at the top and the next slides over it, leaving a strip. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，虚线标记每张卡片停的地方，一张比一张低一条；淡轮廓显示每张被盖住卡片的完整尺寸。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>在滚走里，卡片像普通列表一样过去；在叠起来里，每张吸在顶部，下一张从它上面滑过，留出一条。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="peek-lbl">Edge that shows</p>
+        <p class="hb-setting-name" id="peek-lbl">露出的边</p>
         <div class="seg" id="peek-seg" role="group" aria-labelledby="peek-lbl">
-          <button type="button" data-peek="0" aria-pressed="false">None</button>
-          <button type="button" data-peek="8" aria-pressed="false">Small</button>
-          <button type="button" data-peek="14" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-peek="20" aria-pressed="false">Large</button>
+          <button type="button" data-peek="0" aria-pressed="false">无</button>
+          <button type="button" data-peek="8" aria-pressed="false">小</button>
+          <button type="button" data-peek="14" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-peek="20" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">The strip of each card left showing above the next.</p>
+        <p class="hb-hint">每张卡片在下一张上面留出的一条。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="shrink-lbl">How much cards shrink</p>
+        <p class="hb-setting-name" id="shrink-lbl">卡片缩小多少</p>
         <div class="seg" id="shrink-seg" role="group" aria-labelledby="shrink-lbl">
-          <button type="button" data-step="0.05" aria-pressed="false">A little</button>
-          <button type="button" data-step="0.10" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-step="0.12" aria-pressed="false">A lot</button>
+          <button type="button" data-step="0.05" aria-pressed="false">一点</button>
+          <button type="button" data-step="0.10" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-step="0.12" aria-pressed="false">很多</button>
         </div>
-        <p class="hb-hint">Covered cards shrink so the deck looks deep.</p>
+        <p class="hb-hint">被盖住的卡片缩小，让一摞看起来有深度。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="count-lbl">Number of cards</p>
+          <p class="hb-setting-name" id="count-lbl">卡片数量</p>
           <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
             <button type="button" data-count="3" aria-pressed="false">3</button>
             <button type="button" data-count="5" class="on" aria-pressed="true">5</button>
             <button type="button" data-count="7" aria-pressed="false">7</button>
           </div>
-          <p class="hb-hint">More cards make a taller deck and a longer scroll.</p>
+          <p class="hb-hint">卡片越多，一摞越高，滚动越长。</p>
         </div>
       </div>
     </details>
@@ -221,50 +221,50 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add stacking cards to [your set of project or step cards]. Make each card stick to the top of the scrolling area so the next card slides up over it, and push each later card down by the offset in the settings so a strip of the cards underneath stays visible, like a deck. As a card is covered, shrink it slightly from its top edge, so buried cards look farther away. Leave some room after the last card so the finished deck stays on screen. Use scroll-driven animations where the browser supports them, with a small script as the fallback. If the visitor has reduced motion turned on, let the cards stack without shrinking. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的一组项目卡片或步骤卡片]加上层叠卡片。让每张卡片吸在滚动区域顶部，下一张卡片从它上面滑过，并按设置里的偏移把每张后面的卡片往下推，让下面卡片的一条留在可见，像一摞牌。卡片被盖住时，从它的顶边略微缩小，让埋在下面的卡片看起来更远。最后一张卡片后面留一点空间，让完成的一摞留在屏幕上。浏览器支持时用滚动驱动动画，用小脚本做回退。如果访客开启了减弱动态效果，让卡片叠起来但不缩小。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Portfolios</li><li>Case studies</li><li>Onboarding steps</li><li>Feature tours</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long text</li><li>Many cards</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>作品集</li><li>案例研究</li><li>新手引导步骤</li><li>功能导览</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长文字</li><li>很多卡片</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const ALL_CARDS=[
-    {num:'01',title:'Harbor House', sub:'Architecture',body:'A timber home on the edge of the water.',      ac:'#aa632b',vis:'linear-gradient(135deg,#f5ede0,#e8d0a8)'},
-    {num:'02',title:'Night Market', sub:'Photography', body:'Forty evenings of food stalls and lanterns.',  ac:'#37835b',vis:'linear-gradient(135deg,#d4ede2,#a8d8bc)'},
-    {num:'03',title:'Field Notes',  sub:'Journal',     body:'Small drawings from a year of walks.',         ac:'#3a70a8',vis:'linear-gradient(135deg,#ccdff0,#a0c4e4)'},
-    {num:'04',title:'Slow Roast',   sub:'Brand',       body:'A new look for a family coffee roaster.',      ac:'#90701e',vis:'linear-gradient(135deg,#f0e8c0,#e0d098)'},
-    {num:'05',title:'North Line',   sub:'Maps',        body:'A clearer map for a busy train network.',      ac:'#548034',vis:'linear-gradient(135deg,#d4e8c0,#b0d490)'},
-    {num:'06',title:'Open Studio',  sub:'Workshop',    body:'Two days of making things by hand.',           ac:'#8a3a68',vis:'linear-gradient(135deg,#f0d0e4,#e0a8c8)'},
-    {num:'07',title:'Tide Tables',  sub:'App',         body:'Daily tides for every beach on the coast.',    ac:'#3a5aa0',vis:'linear-gradient(135deg,#ccd4f0,#a0b0e8)'},
+    {num:'01',title:'Harbor House', sub:'建筑',body:'水边的一座木屋。',      ac:'#aa632b',vis:'linear-gradient(135deg,#f5ede0,#e8d0a8)'},
+    {num:'02',title:'Night Market', sub:'摄影', body:'四十个夜晚的小吃摊和灯笼。',  ac:'#37835b',vis:'linear-gradient(135deg,#d4ede2,#a8d8bc)'},
+    {num:'03',title:'Field Notes',  sub:'期刊',     body:'一年散步里的小速写。',         ac:'#3a70a8',vis:'linear-gradient(135deg,#ccdff0,#a0c4e4)'},
+    {num:'04',title:'Slow Roast',   sub:'品牌',       body:'一家家族咖啡烘焙商的新形象。',      ac:'#90701e',vis:'linear-gradient(135deg,#f0e8c0,#e0d098)'},
+    {num:'05',title:'North Line',   sub:'地图',        body:'繁忙铁路网更清晰的地图。',      ac:'#548034',vis:'linear-gradient(135deg,#d4e8c0,#b0d490)'},
+    {num:'06',title:'Open Studio',  sub:'工作坊',    body:'两天手工制作。',           ac:'#8a3a68',vis:'linear-gradient(135deg,#f0d0e4,#e0a8c8)'},
+    {num:'07',title:'Tide Tables',  sub:'应用',         body:'海岸每片海滩的每日潮汐。',    ac:'#3a5aa0',vis:'linear-gradient(135deg,#ccd4f0,#a0b0e8)'},
   ];
   const stage=document.getElementById('stage'),cardsEl=document.getElementById('cards');
   const supportsSDCA=CSS.supports('animation-timeline','scroll()');
@@ -281,7 +281,7 @@
           <div class="card-title">${d.title}</div>
           <div class="card-sub">${d.sub}</div>
           <div class="card-body">${d.body}</div>
-          <div class="card-btn" aria-hidden="true">View project →</div>
+          <div class="card-btn" aria-hidden="true">查看项目 →</div>
         </div>
         <div class="card__visual" style="background:${d.vis}"></div></div>`;
 
@@ -348,21 +348,21 @@
   // The notes: the markup's own words for the default, other words for no edge and for reduced motion
   const WORDS=[...notes].map(n=>n.textContent);
   const NOTES={
-    inside0:'Inside, with no edge showing every card stops on the same line and hides the last; outlines show each card\'s full size as it is covered. Scroll the box or press Play to watch.',
-    compare0:'In Scroll past, cards go by like a plain list; in Stack up, each sticks at the top and the next slides over it and hides it. Scroll the box or press Play to watch.',
-    stillIn:'Shown without shrinking: the dashed lines mark where each card stops, a strip lower than the last; the inner outlines show how small each covered card would get.',
-    stillIn0:'Shown without shrinking: with no edge showing, every card stops on the same line, and the next one hides the last completely.',
-    stillCmp:'Without shrinking: in Scroll past, cards go by like a plain list; in Stack up, each sticks at the top and the next slides over it. Scroll the box or press Play to watch.',
-    stillCmp0:'Without shrinking: in Scroll past, cards go by like a list; in Stack up, each sticks and the next slides over and hides it. Scroll the box or press Play to watch.'
+    inside0:'在内部，没有露出的边时，每张卡片都停在同一条线上，盖住上一张；轮廓显示每张卡片被盖住时的完整尺寸。滚动盒子或按「播放」观看。',
+    compare0:'在滚走里，卡片像普通列表一样过去；在叠起来里，每张吸在顶部，下一张从它上面滑过、盖住它。滚动盒子或按「播放」观看。',
+    stillIn:'不缩小显示：虚线标记每张卡片停的地方，一张比一张低一条；内轮廓显示每张被盖住的卡片会缩到多小。',
+    stillIn0:'不缩小显示：没有露出的边时，每张卡片都停在同一条线上，下一张把上一张完全盖住。',
+    stillCmp:'不缩小：在滚走里，卡片像普通列表一样过去；在叠起来里，每张吸在顶部，下一张从它上面滑过。滚动盒子或按「播放」观看。',
+    stillCmp0:'不缩小：在滚走里，卡片像列表一样过去；在叠起来里，每张吸住，下一张滑过并盖住它。滚动盒子或按「播放」观看。'
   };
   function describe(){
     const rm=motionMQ.matches,none=peekPx===0;
     notes[0].textContent=rm?(none?NOTES.stillIn0:NOTES.stillIn):(none?NOTES.inside0:WORDS[0]);
     notes[1].textContent=rm?(none?NOTES.stillCmp0:NOTES.stillCmp):(none?NOTES.compare0:WORDS[1]);
-    capFull.textContent=rm?'How small it would get':'Full size before it shrank';
+    capFull.textContent=rm?'它会缩到多小':'缩小前的完整尺寸';
   }
-  const LABELS={normal:stage.getAttribute('aria-label'),inside:'The stack of cards with a line where each card stops and the full size of each covered card',
-    compare:'The cards twice: scrolling past as a plain list, and stacking into a deck'};
+  const LABELS={normal:stage.getAttribute('aria-label'),inside:'带每张卡片停在哪里的线和每张被盖住卡片完整尺寸的卡片摞',
+    compare:'卡片出现两次：像普通列表一样滚走的，以及叠成一摞的'};
   document.addEventListener('hb:mode',e=>{
     mode=e.detail.mode;stage.setAttribute('aria-label',LABELS[mode]);
     ticks.forEach(t=>t.classList.remove('on'));lit=[];cov=[];update();

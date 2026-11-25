@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drawer / Panel Slide — Animation Handbook</title>
-  <meta name="description" content="A side panel slides in over a dimmed page. Best for mobile menus.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/drawer-slide/">
+  <title>抽屉滑出 — 动画手册</title>
+  <meta name="description" content="侧边面板在变暗的页面上滑入。适合用在移动端菜单上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/drawer-slide/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Drawer / Panel Slide — Animation Handbook">
-  <meta property="og:description" content="A side panel slides in over a dimmed page. Best for mobile menus.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/drawer-slide/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="抽屉滑出 — 动画手册">
+  <meta property="og:description" content="侧边面板在变暗的页面上滑入。适合用在移动端菜单上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/drawer-slide/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Drawer / Panel Slide — Animation Handbook">
-  <meta name="twitter:description" content="A side panel slides in over a dimmed page. Best for mobile menus.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Drawer / Panel Slide", "name": "Drawer / Panel Slide", "description": "A side panel slides in over a dimmed page. Best for mobile menus.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/drawer-slide/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Drawer / Panel Slide"}</script>
+  <meta name="twitter:title" content="抽屉滑出 — 动画手册">
+  <meta name="twitter:description" content="侧边面板在变暗的页面上滑入。适合用在移动端菜单上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "抽屉滑出", "name": "抽屉滑出", "description": "侧边面板在变暗的页面上滑入。适合用在移动端菜单上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/drawer-slide/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 抽屉滑出"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--drawer-w:min(280px,80%);--open-dur:280ms;--close-dur:220ms;--open-ease:ease-out;--close-ease:ease-in;--backdrop-op:0.5}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -104,7 +104,7 @@
     @media(max-width:360px){.stage[data-hb-mode="inside"]{padding:4px;gap:4px}}
     @media(min-width:761px){.stage[data-hb-mode="inside"] .box{width:58%}.stage[data-hb-mode="inside"] .keys{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:4px 6px}}
     /* Compare: on the left a copy whose menu is simply there, on the right the real app. At rest the real drawer and sheet are caught
-       part way in, as far as the page's own opening curve takes them in a tenth of a second, with an arrow in front of the drawer. */
+       part way in, as far as the page's own opening curve takes them in 十分之一秒, with an arrow in front of the drawer. */
     .stage[data-hb-mode="compare"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:#2a2a30}
     .stage[data-hb-mode="compare"] .twin{display:flex}
     .stage[data-hb-mode="compare"] .box{background:#0b0b0d}
@@ -137,37 +137,37 @@
     /* A short stage cannot hold the open menu and a half's name below it: each drawer gives up some width, so the name sits beside it */
     @media(min-width:601px) and (max-height:620px){.stage[data-hb-mode="compare"]{--drawer-w:min(280px,58%)}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../tooltip-reveal/" rel="prev" aria-label="Previous: Tooltip Reveal"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Tooltip Reveal</span></a><a href="../modal-expand/" rel="next" aria-label="Next: Modal Expand"><span><span class="hb-dir">Next: </span>Modal Expand</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../tooltip-reveal/" rel="prev" aria-label="上一个：提示气泡浮现"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>提示气泡浮现</span></a><a href="../modal-expand/" rel="next" aria-label="下一个：弹窗展开"><span><span class="hb-dir">下一个：</span>弹窗展开</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.17 · Micro-Interactions</p>
-    <h1>Drawer / Panel Slide</h1>
-    <p class="hb-lede">A side panel slides in over a dimmed page. Best for mobile menus.</p>
+    <p class="hb-cat">04.17 · 微交互</p>
+    <h1>抽屉滑出</h1>
+    <p class="hb-lede">侧边面板在变暗的页面上滑入。适合用在移动端菜单上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Press the menu button, then close the drawer with × or a swipe, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>按菜单按钮，再用 × 或滑动关掉抽屉，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
       <div class="box" id="box">
         <div class="app-header">
-          <button class="hamburger" id="open-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">☰</button>
-          <div class="app-title">Atlas App</div>
+          <button class="hamburger" id="open-btn" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="drawer">☰</button>
+          <div class="app-title">Atlas 应用</div>
         </div>
         <div class="app-body">
           <div class="content-line w100"></div><div class="content-line w80"></div>
@@ -177,87 +177,87 @@
         <div class="backdrop" id="backdrop" aria-hidden="true"></div>
         <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu" tabindex="-1" inert>
           <div class="drawer-header">
-            <div class="drawer-title">Menu</div>
-            <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
+            <div class="drawer-title">菜单</div>
+            <button class="close-btn" id="close-btn" type="button" aria-label="关闭菜单">×</button>
           </div>
           <div class="drawer-body">
-            <div class="nav-item active">Home</div>
-            <div class="nav-item">Gallery</div>
-            <div class="nav-item">About</div>
-            <div class="nav-item">Contact</div>
+            <div class="nav-item active">首页</div>
+            <div class="nav-item">图库</div>
+            <div class="nav-item">关于</div>
+            <div class="nav-item">联系</div>
           </div>
         </div>
         <span class="park" aria-hidden="true"></span><span class="arrow in" aria-hidden="true"></span><span class="arrow out" aria-hidden="true"></span>
-        <p class="half" aria-hidden="true" data-hb-caption>Slides in</p>
+        <p class="half" aria-hidden="true" data-hb-caption>滑入</p>
       </div>
       <div class="keys" aria-hidden="true">
         <div class="kr">
-          <p class="cap" data-hb-caption><i class="ico ico-park"></i><span>Waits <i class="more">here, </i>off the screen</span></p>
-          <p class="cap" id="cap-dim" data-hb-caption><i class="ico ico-dim"></i><span>Dims the page</span></p>
+          <p class="cap" data-hb-caption><i class="ico ico-park"></i><span>等在<i class="more">这里，</i>屏幕外面</span></p>
+          <p class="cap" id="cap-dim" data-hb-caption><i class="ico ico-dim"></i><span>让页面变暗</span></p>
         </div>
         <div class="kr">
-          <p class="cap" data-hb-caption><i class="ico ico-in"></i><span>Slides in, slowing<i class="more"> down</i><br><b id="t-in">a quarter of a second</b></span></p>
-        <p class="cap" data-hb-caption><i class="ico ico-out"></i><span>Slides out, speeding<i class="more"> up</i><br><b id="t-out">a fifth of a second</b></span></p>
+          <p class="cap" data-hb-caption><i class="ico ico-in"></i><span>滑入，减速<i class="more">下来</i><br><b id="t-in">四分之一秒</b></span></p>
+        <p class="cap" data-hb-caption><i class="ico ico-out"></i><span>滑出，加速<i class="more">起来</i><br><b id="t-out">五分之一秒</b></span></p>
         </div>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the drawer waits just off the screen, outlined where it parks; opening slides it in over the page, slowing as it lands. Press the menu button, or Show me.</p>
-      <p data-hb-for="compare" hidden>Appears at once: the menu is simply there; Slides in: it comes in from the edge, so you see where it lives. Press the menu button, or Show me.</p>
+      <p data-hb-for="inside" hidden>内部：抽屉在屏幕外面等着，停放的位置用轮廓标出；打开时它滑入页面上方，落下时减速。按菜单按钮，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>立刻出现：菜单就直接在那里；滑入：它从边缘进来，所以你能看到它住在哪里。按菜单按钮，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="side-lbl">Slides in from</p>
+        <p class="hb-setting-name" id="side-lbl">滑入方向</p>
         <div class="seg" id="side-seg" role="group" aria-labelledby="side-lbl">
-          <button type="button" data-side="left" class="on" aria-pressed="true">Left</button>
-          <button type="button" data-side="right" aria-pressed="false">Right</button>
-          <button type="button" data-side="top" aria-pressed="false">Top</button>
-          <button type="button" data-side="bottom" aria-pressed="false">Bottom</button>
+          <button type="button" data-side="left" class="on" aria-pressed="true">左</button>
+          <button type="button" data-side="right" aria-pressed="false">右</button>
+          <button type="button" data-side="top" aria-pressed="false">上</button>
+          <button type="button" data-side="bottom" aria-pressed="false">下</button>
         </div>
-        <p class="hb-hint">The edge the drawer comes in from.</p>
+        <p class="hb-hint">抽屉从哪条边进来。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="open-lbl">Opening speed</p>
+        <p class="hb-setting-name" id="open-lbl">打开速度</p>
         <div class="seg" id="open-seg" role="group" aria-labelledby="open-lbl">
-          <button type="button" data-ms="450" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="280" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="170" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="450" aria-pressed="false">慢</button>
+          <button type="button" data-ms="280" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="170" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">It slows down as it arrives, like a panel landing.</p>
+        <p class="hb-hint">到达时它会减速，像一块面板落下。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="close-lbl">Closing speed</p>
+        <p class="hb-setting-name" id="close-lbl">关闭速度</p>
         <div class="seg" id="close-seg" role="group" aria-labelledby="close-lbl">
-          <button type="button" data-ms="350" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="220" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="130" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="350" aria-pressed="false">慢</button>
+          <button type="button" data-ms="220" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="130" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">It speeds up as it leaves, so closing feels quick.</p>
+        <p class="hb-hint">离开时它会加速，所以关起来感觉很快。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="dim-lbl">Page dimming</p>
+          <p class="hb-setting-name" id="dim-lbl">页面变暗程度</p>
           <div class="seg" id="dim-seg" role="group" aria-labelledby="dim-lbl">
-            <button type="button" data-op="0" aria-pressed="false">None</button>
-            <button type="button" data-op="0.25" aria-pressed="false">Light</button>
-            <button type="button" data-op="0.5" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-op="0.7" aria-pressed="false">Dark</button>
+            <button type="button" data-op="0" aria-pressed="false">无</button>
+            <button type="button" data-op="0.25" aria-pressed="false">轻</button>
+            <button type="button" data-op="0.5" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-op="0.7" aria-pressed="false">深</button>
           </div>
-          <p class="hb-hint">How dark the page behind the drawer gets.</p>
+          <p class="hb-hint">抽屉后面的页面变多暗。</p>
         </div>
       </div>
     </details>
@@ -266,41 +266,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a slide-in drawer to [the menu or panel you want to open]. It waits just beyond one edge of the screen and slides in over the page when its button is pressed; when the settings include it, the page behind it dims. Let it slow down as it arrives, like a panel sliding to a stop, and speed up as it leaves, so closing feels quicker than opening. Close it with a close button, a tap on the page beside it, the Escape key or a swipe back toward its edge. Move only its position, and keep keyboard focus inside it while it is open. If the visitor has reduced motion turned on, show and hide it without sliding. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想打开的菜单或面板]加上滑入抽屉。它在屏幕一边外面等着，按下按钮就滑入页面上方；如果设置里有，它后面的页面会变暗。到达时让它减速，像一块面板滑到停下；离开时加速，这样关起来比打开感觉更快。用关闭按钮、点旁边的页面、Esc 键，或向它那条边滑动来关掉它。只移动它的位置，打开时把键盘焦点留在里面。如果访客开启了减弱动态效果，直接显示和隐藏它，不要滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Mobile menus</li><li>Filters</li><li>Settings panels</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Short messages</li><li>Main content</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>移动端菜单</li><li>筛选器</li><li>设置面板</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>短消息</li><li>主要内容</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const drawer=document.getElementById('drawer');
   const backdrop=document.getElementById('backdrop');
@@ -321,7 +321,7 @@
   twin.querySelectorAll('button').forEach(b=>{const t=document.createElement('span');t.className=b.className;t.textContent=b.textContent;b.replaceWith(t)});
   const tDrawer=twin.querySelector('.drawer'),tBackdrop=twin.querySelector('.backdrop');
   ['role','aria-modal','aria-label','tabindex','inert'].forEach(a=>tDrawer.removeAttribute(a));
-  twin.querySelector('.half').textContent='Appears at once';
+  twin.querySelector('.half').textContent='立刻出现';
   box.before(twin);
 
   function open(){
@@ -427,9 +427,9 @@
   choices('dim-seg',d=>{dimOp=+d.op;vars.setProperty('--backdrop-op',d.op)});
 
   // The two views. See inside draws the key from the page's own numbers; Compare's rest pose catches the real drawer and sheet where
-  // the page's own opening curve has taken them a tenth of a second after the press (judged by progress, so Slow motion leaves it be).
+  // the page's own opening curve has taken them 十分之一秒 after the press (judged by progress, so Slow motion leaves it be).
   let mode='normal',posed=false,settleAt=0,poseTimer=0;
-  const SECS={130:'an eighth of a second',170:'a sixth of a second',220:'a fifth of a second',280:'a quarter of a second',350:'a third of a second',390:'under half a second',450:'nearly half a second',510:'half a second',660:'over half a second',840:'nearly a second',1050:'about a second',1350:'over a second'};
+  const SECS={130:'八分之一秒',170:'六分之一秒',220:'五分之一秒',280:'四分之一秒',350:'三分之一秒',390:'不到半秒',450:'将近半秒',510:'半秒',660:'超过半秒',840:'将近一秒',1050:'大约一秒',1350:'超过一秒'};
   const tIn=document.getElementById('t-in'),tOut=document.getElementById('t-out'),capDim=document.getElementById('cap-dim');
   const probe=document.body.appendChild(document.createElement('i'));
   probe.style.cssText='position:absolute;visibility:hidden;width:0;height:0';
@@ -461,8 +461,8 @@
   function setText(el,t){if(el.textContent!==t)el.textContent=t}
   function notes(){
     if(motionOk)return;
-    setText(nIn,isOpen?'Inside, the outline marks where the drawer waits; your device is set to reduce motion, so it appears over the page at once.':'Inside, shown still: the drawer waits just off the screen, outlined where it parks; with motion on, it slides in over the page, slowing as it lands.');
-    setText(nCmp,posed||!isOpen?'Shown still: Appears at once is already open; Slides in is caught part way in from its edge.':'Appears at once and Slides in both show the open menu, because your device is set to reduce motion. Close it to see the still again.');
+    setText(nIn,isOpen?'内部：轮廓标出抽屉等待的位置；你的设备设置了减弱动态效果，所以它会立刻出现在页面上方。':'内部，静止展示：抽屉在屏幕外面等着，停放的位置用轮廓标出；有动态效果时，它滑入页面上方，落下时减速。');
+    setText(nCmp,posed||!isOpen?'静止画面：「立刻出现」已经打开；「滑入」在从边缘进来的半路上被定格。':'「立刻出现」和「滑入」都显示打开的菜单，因为你的设备设置了减弱动态效果。关掉它可以再看静止画面。');
   }
   document.addEventListener('hb:mode',e=>{mode=e.detail.mode;words();pose();measure()});
   addEventListener('resize',measure);

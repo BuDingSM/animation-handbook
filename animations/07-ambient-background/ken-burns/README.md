@@ -1,18 +1,18 @@
-# Ken Burns Effect
+# 肯·伯恩斯效果
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/ken-burns/)
+[在线演示](https://animation.xizanghuapi.cn/animations/07-ambient-background/ken-burns/)
 
-## What it is
-The Ken Burns effect brings still photos to life by slowly zooming and panning across them, the way a documentary camera moves over a printed photograph. Each photo drifts toward something worth looking at, and the next one fades in before the move ends, so the picture never stops moving. It is named after the filmmaker who made the technique famous in his documentaries.
+## 它是什么
+肯·伯恩斯效果让静态照片活起来，慢慢缩放、平移扫过它们，就像纪录片相机在印好的照片上移动。每张照片朝值得看的东西漂移，下一张在移动结束前淡入，所以画面永不停歇。它以让这项技术在纪录片中出名的电影人命名。
 
-## When to use it
-- Hero slideshows on travel, hotel and property sites
-- Story and about pages that walk through a few photos
-- Event and wedding pages with a handful of strong pictures
-- Slow backgrounds behind a heading, where a still photo would feel flat
+## 什么时候用
+- 旅行、酒店和房产网站的主视觉幻灯片
+- 讲几张照片的故事和关于页面
+- 有几张好照片的活动和婚礼页面
+- 标题后面缓慢的背景，静态照片会感觉太平
 
-## How it works
-Each photo is drawn larger than its frame (here one and a half times, the strongest zoom any setting uses) and is only ever scaled down from there, so it stays sharp. One CSS keyframe timeline per photo moves it from a start framing to an end framing with transforms only; the two framings are custom properties that the script works out from the settings:
+## 工作原理
+每张照片画得比它的画框大（这里是一倍半，任何设置用的最强缩放），之后只从那里缩小，所以保持清晰。每张照片一条 CSS 关键帧时间线，只用变换把它从起始取景移到结束取景；两个取景是脚本根据设置算出的自定义属性：
 
 ```css
 .slide { animation: kb-fade calc(var(--T) * 3) linear infinite; animation-delay: var(--d); }
@@ -23,32 +23,32 @@ Each photo is drawn larger than its frame (here one and a half times, the strong
   38.1% { opacity: 1; } 38.11%, 100% { opacity: 0; z-index: 1; } }
 ```
 
-Three slides share one cycle three photos long, each starting a photo's time after the one before. A slide fades in on top of the previous one for a seventh of its time, shows, then stays underneath while the next one fades in over it, and is hidden until its turn comes again; its photo keeps moving the whole time it can be seen. A framing is a zoom and the point of the photo that sits in the middle of the frame. That point is kept far enough from the photo's edges that the photo always covers the frame, and because the transform moves in a straight line between two framings that both cover it, every moment in between covers it too:
+三张幻灯片共享一个三张照片长的周期，每张在前一张一个照片时间后开始。一张幻灯片在前一张上面淡入七分之一的时间，展示，然后留在下面，下一张在它上面淡入，再隐藏起来直到轮到它；它的照片在能被看见的整个时间里一直移动。一个取景是一个缩放和照片中位于画框中央的点。那个点与照片边缘保持足够远，照片永远盖住画框，而且因为变换在两个都盖住它的取景之间直线移动，中间的每个时刻也都盖住它：
 
 ```js
 const fit = (z, [x, y]) => { const h = .5 / z; return { z, x: Math.min(1 - h, Math.max(h, x)), y: Math.min(1 - h, Math.max(h, y)) }; };
 const photoT = f => `translate(${(.5 - f.x * f.z) / ZMAX * 100}%, ${(.5 - f.y * f.z) / ZMAX * 100}%) scale(${f.z / ZMAX})`;
 ```
 
-Zooming in starts near the photo's middle and ends closer on its point of interest; zooming out does the reverse. Pause and Slow motion simply hold or slow every CSS animation in the box. Under reduced motion each photo holds the end of its move and the photos only fade from one to the next.
+放大从照片中间附近开始，在兴趣点上结束得更近；缩小则相反。暂停和慢动作只是定住或放慢盒子里的每个 CSS 动画。在减少动态下，每张照片停在移动的终点，照片之间只淡入淡出。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Which way it zooms | Both | In zooms every photo in, toward its point of interest; out starts close and pulls back; both zooms the first and third photos in and the second out |
-| How much it moves | Medium | Subtle zooms from 1.04 to 1.16 times and drifts less than half of the way toward the point of interest; medium zooms from 1.06 to 1.3 times and drifts three quarters of the way; strong zooms from 1.08 to 1.5 times and drifts all the way |
-| Time on each photo | Medium | Short is 5 seconds, medium 7 seconds and long 10 seconds; each fade takes a seventh of that, about a second at medium |
-| Shows a caption | off | On, each photo's name sits in the lower left corner and stays still while the photo moves |
+| 缩放方向 | 两者兼有 | 放大让每张照片都朝兴趣点放大；缩小从近处开始拉远；两者兼有让第一和第三张照片放大、第二张缩小 |
+| 移动幅度 | 中等 | 微妙是从 1.04 倍缩放到 1.16 倍，朝兴趣点漂移不到一半路程；中等是从 1.06 倍到 1.3 倍，漂移四分之三路程；强烈是从 1.08 倍到 1.5 倍，一直漂移到底 |
+| 每张照片的时间 | 中等 | 短是 5 秒，中等 7 秒，长是 10 秒；每次淡入淡出占七分之一，中等时约一秒 |
+| 显示说明文字 | 关 | 打开时，每张照片的名字位于左下角，照片移动时保持不动 |
 
-## Production notes
-- **Draw big, scale down.** A browser draws a layer once and then scales it; scaling it up past the size it was drawn at makes it soft. Give the photo the size it reaches at the strongest zoom and scale it down from there, or use a picture with enough pixels for the closest framing.
-- **Never let an edge show.** Keep the zoom above one and the framing's center at least half a frame away from the photo's edges, at both ends of the move.
-- **Keep text still.** Put headings and captions in a layer of their own above the moving photo, never inside it, so they stay sharp and easy to read.
-- **One timeline, many photos.** Driving every photo from the same cycle with its own delay keeps the fades and moves in step with no script running each frame; changing the time only changes one custom property.
-- **Reduced motion.** Hold each photo still and change photos with a slow fade.
-- **Library equivalents.** GSAP: `gsap.fromTo(photo, { scale: 1.06, xPercent: 0 }, { scale: 1.3, xPercent: -8, duration: 8, ease: "none" })` in a timeline that crossfades the slides. Framer Motion: animate `scale`, `x` and `y` on the photo with `transition={{ duration: 8, ease: "linear" }}` and wrap the slides in `AnimatePresence`.
+## 生产注意事项
+- **画大、缩小。**浏览器画一次图层然后缩放它；缩放到超过绘制尺寸会变软。给照片它在最强缩放时达到的尺寸，再从那里缩小，或用像素足够多的图片满足最近的取景。
+- **永远不要露出边缘。**缩放保持在一倍以上，取景中心在移动两端都离照片边缘至少半个画框远。
+- **文字保持不动。**把标题和说明文字放在移动照片上面单独的一层里，永远不要放在里面，这样它们保持清晰、易读。
+- **一条时间线，多张照片。**用同一周期加各自延迟驱动每张照片，让淡入淡出和移动保持同步，不用每帧运行脚本；改时间只改一个自定义属性。
+- **减少动态。**每张照片定住不动，用慢淡入淡出换照片。
+- **库的等价实现。**GSAP：在淡入淡出幻灯片的时间线里用 `gsap.fromTo(photo, { scale: 1.06, xPercent: 0 }, { scale: 1.3, xPercent: -8, duration: 8, ease: "none" })`。Framer Motion：用 `transition={{ duration: 8, ease: "linear" }}` 给照片的 `scale`、`x` 和 `y` 做动画，把幻灯片包在 `AnimatePresence` 里。
 
-## See also
-- [Aurora / Northern Lights](../aurora/) — a calm loop made of CSS keyframes
-- [Infinite Zoom](../../06-3d-advanced/infinite-zoom/) — an endless dive into pictures inside pictures
-- [Zoom Into Image](../../01-scroll-based/zoom-into-image/) — a picture that opens up as you scroll
+## 另见
+- [极光](../aurora/) — 由 CSS 关键帧做成的平静循环
+- [无限缩放](../../06-3d-advanced/infinite-zoom/) — 无尽潜入画中画
+- [图片缩放进入](../../01-scroll-based/zoom-into-image/) — 随滚动打开的图片

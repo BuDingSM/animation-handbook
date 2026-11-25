@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bounce In — Animation Handbook</title>
-  <meta name="description" content="Lands with a springy bounce. Best for badges and success messages.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/bounce-in/">
+  <title>弹跳进入 — 动画手册</title>
+  <meta name="description" content="带着弹簧般的弹跳落定。适合徽章和成功提示。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/bounce-in/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Bounce In — Animation Handbook">
-  <meta property="og:description" content="Lands with a springy bounce. Best for badges and success messages.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/bounce-in/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="弹跳进入 — 动画手册">
+  <meta property="og:description" content="带着弹簧般的弹跳落定。适合徽章和成功提示。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/bounce-in/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bounce In — Animation Handbook">
-  <meta name="twitter:description" content="Lands with a springy bounce. Best for badges and success messages.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Bounce In", "name": "Bounce In", "description": "Lands with a springy bounce. Best for badges and success messages.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/bounce-in/", "inLanguage": "en", "articleSection": "Entrance & Exit", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Entrance & Exit, Bounce In"}</script>
+  <meta name="twitter:title" content="弹跳进入 — 动画手册">
+  <meta name="twitter:description" content="带着弹簧般的弹跳落定。适合徽章和成功提示。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "弹跳进入", "name": "弹跳进入", "description": "带着弹簧般的弹跳落定。适合徽章和成功提示。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/bounce-in/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，弹跳进入"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--ui-muted:#8a8a92;--dur:1100ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -92,44 +92,44 @@
     @media(prefers-reduced-motion:reduce){.card.in{animation:none!important;opacity:1;transform:none}.card.out{animation:none!important;opacity:0}}
   </style>
   <style id="kf-style"></style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../flip-in/" rel="prev" aria-label="Previous: Flip In"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Flip In</span></a><a href="../rotate-in/" rel="next" aria-label="Next: Rotate In"><span><span class="hb-dir">Next: </span>Rotate In</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../flip-in/" rel="prev" aria-label="上一个：翻转进入"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>翻转进入</span></a><a href="../rotate-in/" rel="next" aria-label="下一个：旋转进入"><span><span class="hb-dir">下一个：</span>旋转进入</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">02.12 · Entrance &amp; Exit</p>
-    <h1>Bounce In</h1>
-    <p class="hb-lede">Lands with a springy bounce. Best for badges and success messages.</p>
+    <p class="hb-cat">02.12 · 入场与退场</p>
+    <h1>弹跳进入</h1>
+    <p class="hb-lede">带着弹簧般的弹跳落定。适合徽章和成功提示。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It plays by itself. Turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="card" id="card">
         <div class="card-icon">◈</div>
-        <div class="card-title">Bounce Landing</div>
-        <div class="card-sub">A real bounce goes past its size and back, a little less each time.</div>
+        <div class="card-title">弹跳落地</div>
+        <div class="card-sub">真正的弹跳会超过它的尺寸再回来，一次比一次小。</div>
       </div>
       <div class="graph" aria-hidden="true">
-        <span class="lbl full" id="lbl-full" data-hb-caption>Full size</span>
-        <span class="lbl big" id="lbl-big" data-hb-caption>Goes about a tenth too big</span>
-        <span class="lbl dip" id="lbl-dip" data-hb-caption>Dips just under</span>
-        <span class="lbl start" id="lbl-start" data-hb-caption>Starts small and see-through</span>
-        <span class="lbl end" id="lbl-end" data-hb-caption>Lands in about a second</span>
+        <span class="lbl full" id="lbl-full" data-hb-caption>完整尺寸</span>
+        <span class="lbl big" id="lbl-big" data-hb-caption>大约大了十分之一</span>
+        <span class="lbl dip" id="lbl-dip" data-hb-caption>刚缩到下面一点</span>
+        <span class="lbl start" id="lbl-start" data-hb-caption>从小且透明开始</span>
+        <span class="lbl end" id="lbl-end" data-hb-caption>约一秒后落定</span>
         <svg viewBox="0 0 300 170">
           <path class="axis" d="M8 16V140H290"/>
           <path class="level" d="M8 40H290"/>
@@ -137,61 +137,61 @@
           <circle class="dot" r="6"/>
         </svg>
       </div>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>No bounce</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Bounces</p>
-      <p class="lbl when" id="when" aria-hidden="true" data-hb-caption>At its biggest, about half a second in</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>无弹跳</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>弹跳</p>
+      <p class="lbl when" id="when" aria-hidden="true" data-hb-caption>在约半秒后达到最大</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Replay</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>Loop</span></label>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the graph shows the card's size over time: it grows past full size, dips just under, then settles. The dot rides the line as the card plays.</p>
-      <p data-hb-for="compare" hidden>No bounce grows smoothly to full size and stops; Bounces grows past its outline, dips under and settles, like it landed. With Loop off, both rest at its biggest moment.</p>
+      <p data-hb-for="inside" hidden>看内部，这张图显示卡片的尺寸随时间变化：它长到比完整尺寸大，缩到稍小一点，然后落定。圆点随着卡片播放沿着线走。</p>
+      <p data-hb-for="compare" hidden>「无弹跳」平滑地长到完整尺寸然后停下；「弹跳」长过它的轮廓，缩回来再落定，就像落了地一样。循环关闭时，两者都在它最大的那一刻停住。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and the animation plays again.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="strength-lbl">Bounce strength</p>
+        <p class="hb-setting-name" id="strength-lbl">弹跳力度</p>
         <div class="seg" id="strength-seg" role="group" aria-labelledby="strength-lbl">
-          <button type="button" data-strength="30" aria-pressed="false">Soft</button>
-          <button type="button" data-strength="60" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-strength="100" aria-pressed="false">Strong</button>
+          <button type="button" data-strength="30" aria-pressed="false">轻</button>
+          <button type="button" data-strength="60" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-strength="100" aria-pressed="false">强</button>
         </div>
-        <p class="hb-hint">How far it grows past full size before settling.</p>
+        <p class="hb-hint">落定之前，它会长到比完整尺寸大多少。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="bounces-lbl">Number of bounces</p>
+        <p class="hb-setting-name" id="bounces-lbl">弹跳次数</p>
         <div class="seg" id="bounces-seg" role="group" aria-labelledby="bounces-lbl">
-          <button type="button" data-bounces="1" class="on" aria-pressed="true">One</button>
-          <button type="button" data-bounces="2" aria-pressed="false">Two</button>
-          <button type="button" data-bounces="3" aria-pressed="false">Three</button>
+          <button type="button" data-bounces="1" class="on" aria-pressed="true">一次</button>
+          <button type="button" data-bounces="2" aria-pressed="false">两次</button>
+          <button type="button" data-bounces="3" aria-pressed="false">三次</button>
         </div>
-        <p class="hb-hint">One usually looks best; more looks cartoonish.</p>
+        <p class="hb-hint">一次通常最好看，多了会显得卡通。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="1100" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="650" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="1100" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="650" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Too fast and the bounce looks like a jitter.</p>
+        <p class="hb-hint">太快了，弹跳会像抖动。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Fades in</span><input class="hb-switch" type="checkbox" role="switch" id="fade-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">Softens the first moment.</p>
+          <label class="hb-switch-row"><span>淡入</span><input class="hb-switch" type="checkbox" role="switch" id="fade-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">让最初的一刻柔和一点。</p>
         </div>
       </div>
     </details>
@@ -200,41 +200,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a bounce-in entrance to [the element you want to animate]. When it appears, it should start small and a little below its final spot, grow slightly past full size, dip just under it, then settle, as if it landed with a small spring. Each bounce is smaller than the one before, like energy running out, and one bounce usually looks best. Unless the settings turn it off, fade it in at the same time. Animate only its position, size and opacity so it stays smooth. If the visitor has reduced motion turned on, show the element without the bounce. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想做动画的元素]加上弹跳进入。出现时，它应该从小一点、比最终位置稍低一点开始，长到比完整尺寸稍大一点，再缩到稍小一点，然后落定，就像带着一个小弹簧落了地。每一次弹跳都比上一次小，就像能量耗尽了一样，一次弹跳通常最好看。除非设置里关掉了，同时让它淡入。只给它的位置、大小和不透明度做动画，这样才流畅。如果访客开了减弱动态效果，就把元素显示出来，不要弹跳。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Success messages</li><li>Badges</li><li>Small pop-ups</li><li>Playful brands</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Formal content</li><li>Large panels</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>成功提示</li><li>徽章</li><li>小弹窗</li><li>活泼的品牌</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>正式内容</li><li>大面板</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const card=document.getElementById('card');
   const stage=card.parentElement;
@@ -314,7 +314,7 @@
     for(let i=0;i<30;i++){t=(lo+hi)/2;if(at(a,c,t)<x)lo=t;else hi=t}
     return at(b,e,t);
   }
-  function words(t){return t<=400?'about a third of a second':t<=700?'about half a second':t<=1200?'about a second':t<=2000?'about two seconds':t<=4000?'about three seconds':'about five seconds'}
+  function words(t){return t<=400?'约三分之一秒':t<=700?'约半秒':t<=1200?'约一秒':t<=2000?'约两秒':t<=4000?'约三秒':'约五秒'}
   // The graph, drawn in the box's own pixels: across is time (the landing, then a little more), up is the card's size from where
   // it starts to the largest any setting reaches, and each step between two stops has the browser's ease. Its words keep their
   // size and stay off the line, so the dot passes them: the biggest one over the first hump, "Full size" above the dashed line and
@@ -324,9 +324,9 @@
     if(!W)return;
     const s=stops(strength/100,bounces),lh=lblBig.offsetHeight,x0=R+2,x1=W-R-2,yt=lh+OFF;
     const over=s[1][1]-1;
-    lblBig.textContent='Goes '+(over<.06?'a little':over>.12?'about a sixth':'about a tenth')+' too big';
-    lblStart.textContent=fadeTog.checked?'Starts small and see-through':'Starts small, already solid';
-    lblEnd.textContent='Lands in '+words(dur());
+    lblBig.textContent='大了'+(over<.06?'一点':over>.12?'大约六分之一':'大约十分之一');
+    lblStart.textContent=fadeTog.checked?'从小且透明开始':'从小开始，已经实色';
+    lblEnd.textContent='在'+words(dur())+'后落定';
     const put=(el,left,top)=>{el.style.left=Math.max(Math.min(left,W-el.offsetWidth),0)+'px';el.style.top=top+'px'};
     const low=lblStart.offsetWidth+lblEnd.offsetWidth+12<=W;   // both words fit under the axis, else "Lands in" goes under the dip
     // Does a word touch the line (or the dot riding it)?
@@ -388,18 +388,18 @@
     const s=stops(strength/100,bounces),[p,size,lift]=s[1],k=curveAt(OUT,p/100);
     card.style.setProperty('--pose',`scale(${size.toFixed(3)}) translateY(${lift}px)`);
     twin.style.setProperty('--pose',`scale(${(s[0][1]+(1-s[0][1])*k).toFixed(3)}) translateY(${(s[0][2]*(1-k)).toFixed(1)}px)`);
-    when.textContent='At its biggest, '+words(dur()*p/100)+' in';
+    when.textContent='在'+words(dur()*p/100)+'后达到最大';
   }
   // The notes say what the picture shows now: the number of bounces, and still under reduced motion
   function note(el,text){if(el.textContent!==text)el.textContent=text}
   function notes(){
     const many=bounces>1,times=bounces===2?'two':'three';
     note(noteIn,motionOk
-      ?`Inside, the graph shows the card's size over time: it ${many?`bounces past full size ${times} times, a little less each time, then settles. The dot rides the line.`:'grows past full size, dips just under, then settles. The dot rides the line as the card plays.'}`
-      :`Shown still: the graph shows the card's size over time, ${many?`bouncing past full size ${times} times, a little less each time, and settling.`:'growing past full size, dipping just under and settling.'}`);
+      ?`看内部，这张图显示卡片的尺寸随时间变化：它${many?`弹过完整尺寸 ${times} 次，一次比一次小，然后落定。圆点沿着线走。`:'长到比完整尺寸大，缩到稍小一点，然后落定。圆点随着卡片播放沿着线走。'}`
+      :`静止画面：这张图显示卡片的尺寸随时间变化，${many?`弹过完整尺寸 ${times} 次，一次比一次小，然后落定。`:'长到比完整尺寸大，缩到稍小一点再落定。'}`);
     note(noteCmp,motionOk
-      ?`No bounce grows smoothly to full size and stops; Bounces ${many?`goes past its outline and back ${times} times, a little less each time.`:'grows past its outline, dips under and settles, like it landed.'} With Loop off, both rest at its biggest moment.`
-      :"Shown still, at the bounce's biggest moment: No bounce is still inside its outline, while Bounces pokes past it.");
+      ?`「无弹跳」平滑地长到完整尺寸然后停下；「弹跳」${many?`弹过它的轮廓又回来 ${times} 次，一次比一次小。`:'长过它的轮廓，缩回来再落定，就像落了地一样。'} 循环关闭时，两者都在它最大的那一刻停住。`
+      :"静止画面，在弹跳最大的那一刻：「无弹跳」还在它的轮廓里面，而「弹跳」已经探出去了。");
   }
   function refresh(){
     notes();

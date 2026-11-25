@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Field Morph — Animation Handbook</title>
-  <meta name="description" content="The label moves up out of the way as you type. Best for sign-up forms.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/">
+  <title>表单字段变形 — 动画手册</title>
+  <meta name="description" content="开始输入时，标签上移让开。适合用在注册表单上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Form Field Morph — Animation Handbook">
-  <meta property="og:description" content="The label moves up out of the way as you type. Best for sign-up forms.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="表单字段变形 — 动画手册">
+  <meta property="og:description" content="开始输入时，标签上移让开。适合用在注册表单上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Form Field Morph — Animation Handbook">
-  <meta name="twitter:description" content="The label moves up out of the way as you type. Best for sign-up forms.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Form Field Morph", "name": "Form Field Morph", "description": "The label moves up out of the way as you type. Best for sign-up forms.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Form Field Morph"}</script>
+  <meta name="twitter:title" content="表单字段变形 — 动画手册">
+  <meta name="twitter:description" content="开始输入时，标签上移让开。适合用在注册表单上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "表单字段变形", "name": "表单字段变形", "description": "开始输入时，标签上移让开。适合用在注册表单上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 表单字段变形"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--field-dur:200ms;--float-dist:22px;--label-scale:0.8;--focus-color:#58a6ff;--box-rise:-12px;--box-scale:0.78}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -77,7 +77,7 @@
     .stage[data-hb-mode="inside"] .in-c{display:block;text-align:right}
     .stage[data-hb-mode="inside"] .float-field::before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:color-mix(in srgb,var(--focus-color) 32%,transparent)}
     @media(min-width:601px){.stage[data-hb-mode="inside"] .form{max-width:min(320px,calc(100% - 240px))}}
-    /* Compare: the copy (Placeholder only) first, left or on top, and the real form second */
+    /* Compare: the copy (只有占位符) first, left or on top, and the real form second */
     .stage[data-hb-mode="compare"]{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:38px 0 8px}
     .stage[data-hb-mode="compare"]::before{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:1px;background:rgba(255,255,255,.14)}
     .stage[data-hb-mode="compare"] .form{width:calc(100% - 24px);margin:0 auto;gap:12px}
@@ -109,31 +109,31 @@
       .stage[data-hb-mode="compare"] .cmp-n.second{left:12px;top:calc(50% + 6px)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../checkmark-draw/" rel="prev" aria-label="Previous: Checkmark Draw"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Checkmark Draw</span></a><a href="../badge-pulse/" rel="next" aria-label="Next: Notification Badge Pulse"><span><span class="hb-dir">Next: </span>Notification Badge Pulse</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../checkmark-draw/" rel="prev" aria-label="上一个：对勾绘制"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>对勾绘制</span></a><a href="../badge-pulse/" rel="next" aria-label="下一个：通知徽标脉冲"><span><span class="hb-dir">下一个：</span>通知徽标脉冲</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.14 · Micro-Interactions</p>
-    <h1>Form Field Morph</h1>
-    <p class="hb-lede">The label moves up out of the way as you type. Best for sign-up forms.</p>
+    <p class="hb-cat">04.14 · 微交互</p>
+    <h1>表单字段变形</h1>
+    <p class="hb-lede">开始输入时，标签上移让开。适合用在注册表单上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click or tap a field and type, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点击一个字段并输入，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="form twin" aria-hidden="true" inert>
@@ -143,19 +143,19 @@
       </div>
       <div class="form">
         <div class="float-field" id="ff-name">
-          <label for="inp-name">Full name</label>
+          <label for="inp-name">全名</label>
           <input id="inp-name" type="text" placeholder=" " autocomplete="off">
           <div class="underline"></div>
-          <span class="gh gh-rest" aria-hidden="true"><i>Full name</i></span><span class="gh gh-up" aria-hidden="true"><i>Full name</i></span>
+          <span class="gh gh-rest" aria-hidden="true"><i>全名</i></span><span class="gh gh-up" aria-hidden="true"><i>全名</i></span>
           <span class="pose-t" aria-hidden="true"></span>
         </div>
         <div class="box-field" id="ff-company">
-          <label for="inp-company">Company</label>
+          <label for="inp-company">公司</label>
           <input id="inp-company" type="text" placeholder=" " autocomplete="off">
-          <span class="gh gh-box" aria-hidden="true"><i>Company</i></span>
+          <span class="gh gh-box" aria-hidden="true"><i>公司</i></span>
         </div>
         <div class="float-field" id="ff-msg">
-          <label for="inp-msg">Message</label>
+          <label for="inp-msg">留言</label>
           <textarea id="inp-msg" placeholder=" " autocomplete="off"></textarea>
           <div class="underline"></div>
         </div>
@@ -163,72 +163,72 @@
       <div class="views" aria-hidden="true">
         <svg><path class="arrow" id="v-arrow"/><path class="lead" id="v-lead"/><path class="dots" id="v-dots"/></svg>
         <span class="cap in-c" id="c-up" data-hb-caption></span>
-        <span class="cap in-c" id="c-stay" data-hb-caption>Stays up while the field has text</span>
-        <span class="cap in-c" id="c-rest" data-hb-caption>Rests inside the field, like a hint</span>
-        <span class="cap in-c" id="c-line" data-hb-caption>A line grows from the left</span>
-        <span class="cap in-c in-box" id="c-box" data-hb-caption>The box style rises inside its border</span>
-        <span class="cap cmp-n" data-hb-caption>Placeholder only</span>
-        <span class="cap cmp-n second" data-hb-caption>Floating label</span>
+        <span class="cap in-c" id="c-stay" data-hb-caption>字段有文字时保持升起</span>
+        <span class="cap in-c" id="c-rest" data-hb-caption>像提示一样待在字段里面</span>
+        <span class="cap in-c" id="c-line" data-hb-caption>一条线从左边长出来</span>
+        <span class="cap in-c in-box" id="c-box" data-hb-caption>方框样式在边框内升起</span>
+        <span class="cap cmp-n" data-hb-caption>只有占位符</span>
+        <span class="cap cmp-n second" data-hb-caption>浮动标签</span>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the label is drawn in both of its places: inside the empty field, and raised and smaller once you click or type. Click a field and type, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Shown with a name typed in: Placeholder only has lost its hint, so you forget what the field was for; Floating label keeps it above the text. Click and type, or Show me.</p>
+      <p data-hb-for="inside" hidden>内部：标签画在它的两个位置上：空字段里面，以及点击或输入后升起变小的样子。点击一个字段并输入，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>输入名字后的样子：只有占位符会丢了提示，让你忘了这个字段是干什么的；浮动标签把它留在文字上方。点击并输入，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="320" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="200" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="120" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="320" aria-pressed="false">慢</button>
+          <button type="button" data-ms="200" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="120" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Slow feels heavy on a long form.</p>
+        <p class="hb-hint">「慢」在长表单上感觉沉重。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="dist-lbl">How far it rises</p>
+        <p class="hb-setting-name" id="dist-lbl">上升多少</p>
         <div class="seg" id="dist-seg" role="group" aria-labelledby="dist-lbl">
-          <button type="button" data-px="16" aria-pressed="false">Low</button>
-          <button type="button" data-px="22" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="28" aria-pressed="false">High</button>
+          <button type="button" data-px="16" aria-pressed="false">低</button>
+          <button type="button" data-px="22" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="28" aria-pressed="false">高</button>
         </div>
-        <p class="hb-hint">Far enough to clear the text you type.</p>
+        <p class="hb-hint">足够高，盖不住你输入的文字。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="scale-lbl">Size when raised</p>
+        <p class="hb-setting-name" id="scale-lbl">升起时大小</p>
         <div class="seg" id="scale-seg" role="group" aria-labelledby="scale-lbl">
-          <button type="button" data-s="0.7" aria-pressed="false">Small</button>
-          <button type="button" data-s="0.8" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-s="0.9" aria-pressed="false">Large</button>
+          <button type="button" data-s="0.7" aria-pressed="false">小</button>
+          <button type="button" data-s="0.8" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-s="0.9" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Smaller stays out of the way; larger reads easily.</p>
+        <p class="hb-hint">小一点不碍事；大一点容易读。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="color-lbl">Focus color</p>
+          <p class="hb-setting-name" id="color-lbl">聚焦颜色</p>
           <div class="swatches" id="color-sw" role="group" aria-labelledby="color-lbl">
-            <button type="button" aria-pressed="false" aria-label="Pink" data-c="#ff6f8b" style="background:#ff6f8b"></button>
-            <button type="button" aria-pressed="false" aria-label="White" data-c="#f4f4f2" style="background:#f4f4f2"></button>
-            <button type="button" class="on" aria-pressed="true" aria-label="Blue" data-c="#58a6ff" style="background:#58a6ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Purple" data-c="#d2a8ff" style="background:#d2a8ff"></button>
-            <button type="button" aria-pressed="false" aria-label="Green" data-c="#56d364" style="background:#56d364"></button>
-            <button type="button" aria-pressed="false" aria-label="Orange" data-c="#ffa657" style="background:#ffa657"></button>
+            <button type="button" aria-pressed="false" aria-label="粉色" data-c="#ff6f8b" style="background:#ff6f8b"></button>
+            <button type="button" aria-pressed="false" aria-label="白色" data-c="#f4f4f2" style="background:#f4f4f2"></button>
+            <button type="button" class="on" aria-pressed="true" aria-label="蓝色" data-c="#58a6ff" style="background:#58a6ff"></button>
+            <button type="button" aria-pressed="false" aria-label="紫色" data-c="#d2a8ff" style="background:#d2a8ff"></button>
+            <button type="button" aria-pressed="false" aria-label="绿色" data-c="#56d364" style="background:#56d364"></button>
+            <button type="button" aria-pressed="false" aria-label="橙色" data-c="#ffa657" style="background:#ffa657"></button>
           </div>
-          <p class="hb-hint">The raised label and the active line or border.</p>
+          <p class="hb-hint">升起的标签和活动的线条或边框。</p>
         </div>
       </div>
     </details>
@@ -237,41 +237,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add floating labels to [the form fields you want to label]. Each label sits inside its field like a placeholder; when the field is focused or has text in it, the label moves up and shrinks so it stays visible above the text, and the field's line or border takes on the focus color. When an empty field loses focus, the label moves back down. Keep a real label element for each field so screen readers announce it, and shrink the label from its left edge so it does not drift sideways. If the visitor has reduced motion turned on, move the label without animating it. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想加标签的表单字段]加上浮动标签。每个标签像占位符一样待在字段里面；字段获得焦点或有了文字时，标签上移并缩小，始终可见地待在文字上方，字段的线条或边框变成聚焦颜色。空字段失去焦点时，标签移回去。每个字段都保留真正的标签元素，这样读屏软件能播报它；从左边缘缩小标签，这样它就不会横向漂移。如果访客开启了减弱动态效果，移动标签时不要做动画。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Sign-up forms</li><li>Sign-in forms</li><li>Checkout</li><li>Settings</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long labels</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>注册表单</li><li>登录表单</li><li>结账</li><li>设置</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长标签</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const form=stage.querySelector('.form:not(.twin)');
@@ -282,7 +282,7 @@
   const slowTog=document.getElementById('slow-tog');
   const vars=document.documentElement.style;
   const parts=[...form.querySelectorAll('label,.underline,input,textarea')]; // what eases; toRest() switches it off for a moment
-  const typed='Ada Lovelace';
+  const typed='埃达·洛夫莱斯';
   let f=200,runTimers=[];
   // See inside and Compare: the copy's texts, the mode on show, whether Show me was pressed by a mode button, whether a press is held in
   // the stage, and the visitor's own text while a run played by a mode button has it set aside
@@ -391,7 +391,7 @@
   const cap={up:$('c-up'),stay:$('c-stay'),rest:$('c-rest'),line:$('c-line'),box:$('c-box')};
   const ghRest=nameWrap.querySelector('.gh-rest i'),ghUp=nameWrap.querySelector('.gh-up i'),ghBox=companyWrap.querySelector('.gh-box i');
   const insideNote=document.querySelector('[data-hb-for="inside"]'),NOTE=insideNote.textContent;
-  const RM_NOTE=NOTE.replace(/\. Click a field.*$/,'; with reduced motion on it moves at once.');
+  const RM_NOTE=NOTE.replace(/\. Click a field.*$/,'；开启减弱动态效果后会立刻移动。');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)'),phoneMQ=matchMedia('(max-width:600px)');
   const say=(el,t)=>{if(el.textContent!==t)el.textContent=t};
   nameWrap.querySelector('.pose-t').textContent=typed;
@@ -399,8 +399,8 @@
     if(mode!=='inside')return;
     say(insideNote,reduce.matches?RM_NOTE:NOTE);
     const root=getComputedStyle(document.documentElement),dist=parseFloat(root.getPropertyValue('--float-dist')),size=parseFloat(root.getPropertyValue('--label-scale')),ms=f*(slowTog.checked?3:1);
-    const time=ms<160?'a tenth of a second':ms<260?'a fifth of a second':ms<480?'a third of a second':ms<800?'half a second':'a second';
-    say(cap.up,`${dist<19?'Rises a little':dist<25?'Rises':'Rises well clear'} and shrinks to ${size<.75?'about two thirds':size<.85?'about four fifths':'nine tenths'} when you click or type, ${reduce.matches?'at once':'in about '+time}`);
+    const time=ms<160?'十分之一秒':ms<260?'五分之一秒':ms<480?'三分之一秒':ms<800?'半秒':'一秒';
+    say(cap.up,`${dist<19?'升起一点':dist<25?'升起':'升得很高、完全让开'}，点击或输入时缩小到${size<.75?'大约三分之二':size<.85?'大约五分之四':'十分之九'}，${reduce.matches?'立刻':'大约用'+time}`);
     const phone=phoneMQ.matches,W=stage.clientWidth,H=stage.clientHeight,sb=stage.getBoundingClientRect();
     const rel=el=>{const r=el.getBoundingClientRect();return{l:r.left-sb.left-stage.clientLeft,t:r.top-sb.top-stage.clientTop,r:r.right-sb.left-stage.clientLeft,b:r.bottom-sb.top-stage.clientTop}};
     form.style.translate='';

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reveal on Scroll — Animation Handbook</title>
-  <meta name="description" content="Cards appear as they cross a line in the box. Best for long landing pages.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reveal-on-scroll/">
+  <title>滚动显现 — 动画手册</title>
+  <meta name="description" content="卡片越过盒子里的一条线时出现。最适合长落地页。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/reveal-on-scroll/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Reveal on Scroll — Animation Handbook">
-  <meta property="og:description" content="Cards appear as they cross a line in the box. Best for long landing pages.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reveal-on-scroll/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="滚动显现 — 动画手册">
+  <meta property="og:description" content="卡片越过盒子里的一条线时出现。最适合长落地页。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/reveal-on-scroll/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Reveal on Scroll — Animation Handbook">
-  <meta name="twitter:description" content="Cards appear as they cross a line in the box. Best for long landing pages.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Reveal on Scroll", "name": "Reveal on Scroll", "description": "Cards appear as they cross a line in the box. Best for long landing pages.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/reveal-on-scroll/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Reveal on Scroll"}</script>
+  <meta name="twitter:title" content="滚动显现 — 动画手册">
+  <meta name="twitter:description" content="卡片越过盒子里的一条线时出现。最适合长落地页。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滚动显现", "name": "滚动显现", "description": "卡片越过盒子里的一条线时出现。最适合长落地页。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/reveal-on-scroll/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 滚动显现"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -118,75 +118,75 @@
     .cap-left{left:12px}
     .cap-right{left:calc(50% + 6px)}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../scrollytelling/" rel="prev" aria-label="Previous: Scrollytelling"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Scrollytelling</span></a><a href="../stagger-reveal/" rel="next" aria-label="Next: Stagger Reveal"><span><span class="hb-dir">Next: </span>Stagger Reveal</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../scrollytelling/" rel="prev" aria-label="上一个：滚动叙事"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滚动叙事</span></a><a href="../stagger-reveal/" rel="next" aria-label="下一个：交错显现"><span><span class="hb-dir">下一个：</span>交错显现</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.12 · Scroll-Based</p>
-    <h1>Reveal on Scroll</h1>
-    <p class="hb-lede">Cards appear as they cross a line in the box. Best for long landing pages.</p>
+    <p class="hb-cat">01.12 · 滚动驱动</p>
+    <h1>滚动显现</h1>
+    <p class="hb-lede">卡片越过盒子里的一条线时出现。最适合长落地页。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box, or press Play. Back to top hides the cards again.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」。回到顶部会再次藏起卡片。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
-      <div class="scroller" id="scroller" data-hb-scroller tabindex="0" role="region" aria-label="Seven cards that appear as you scroll">
+      <div class="scroller" id="scroller" data-hb-scroller tabindex="0" role="region" aria-label="七张随滚动出现的卡片">
         <div class="cards-list" id="cards-list"></div>
       </div>
-      <div id="trigger-line" aria-hidden="true"><div id="trigger-label">trigger</div></div>
+      <div id="trigger-line" aria-hidden="true"><div id="trigger-label">触发线</div></div>
       <div class="tint" aria-hidden="true"></div>
       <div class="names" aria-hidden="true">
-        <span class="cap cap-above" data-hb-caption>At or above the line: shown</span>
-        <span class="cap cap-dash" data-hb-caption>Dashed: where it settles</span>
-        <span class="cap cap-left" data-hb-caption>Always shown</span>
-        <span class="cap cap-right" id="cap-right" data-hb-caption>Shown once</span>
+        <span class="cap cap-above" data-hb-caption>在线上或线以上：显示</span>
+        <span class="cap cap-dash" data-hb-caption>虚线：落定的位置</span>
+        <span class="cap cap-left" data-hb-caption>始终显示</span>
+        <span class="cap cap-right" id="cap-right" data-hb-caption>只显示一次</span>
       </div>
       <div class="divider" aria-hidden="true"></div>
-      <span class="cap cap-below" id="cap-below" data-hb-caption aria-hidden="true">Below: hidden until it crosses</span>
+      <span class="cap cap-below" id="cap-below" data-hb-caption aria-hidden="true">线下：越过之前隐藏</span>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each card below the line waits faintly in its hidden start; past the line it settles on its dashed outline and stays. Press Play to watch, or press Back to top and scroll.</p>
-      <p data-hb-for="compare" hidden>Always shown has every card in place from the start; Shown once keeps each card hidden until it rises past the dashed line. Press Play to watch, or press Back to top and scroll.</p>
+      <p data-hb-for="inside" hidden>在内部，线下的每张卡片都在隐藏起点处淡淡地等着；越过线后落在虚线轮廓上并停住。按「播放」观看，或按「回到顶部」再滚动。</p>
+      <p data-hb-for="compare" hidden>始终显示的每张卡片从一开始就在原位；只显示一次的卡片一直藏着，直到它升过虚线。按「播放」观看，或按「回到顶部」再滚动。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="line-lbl">Trigger line</p>
+        <p class="hb-setting-name" id="line-lbl">触发线</p>
         <div class="seg" id="line-seg" role="group" aria-labelledby="line-lbl">
-          <button type="button" data-line="50" aria-pressed="false">Higher</button>
-          <button type="button" data-line="70" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-line="90" aria-pressed="false">Lower</button>
+          <button type="button" data-line="50" aria-pressed="false">更高</button>
+          <button type="button" data-line="70" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-line="90" aria-pressed="false">更低</button>
         </div>
-        <p class="hb-hint">How far up the box a card must come to appear.</p>
+        <p class="hb-hint">卡片必须升到盒子里多高才会出现。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Plays every time</span><input class="hb-switch" type="checkbox" role="switch" id="repeat-tog" autocomplete="off"></label>
-        <p class="hb-hint">Cards hide again below the line and replay each time.</p>
+        <label class="hb-switch-row"><span>每次都播放</span><input class="hb-switch" type="checkbox" role="switch" id="repeat-tog" autocomplete="off"></label>
+        <p class="hb-hint">卡片回到线下会再次藏起，每次都重新播放。</p>
       </div>
     </div>
   </section>
@@ -194,50 +194,50 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add reveal-on-scroll animations to [the sections or cards on your page]. Keep each element in a hidden starting state, such as faded, shifted, shrunk, blurred or clipped, until it rises past a trigger line inside the view, then let it settle into its normal state. Watch the elements with the browser's intersection observer rather than on every scroll, and count an element that is already above the line as crossed, so a fast scroll never skips one. Reveal each element once, or every time it crosses, as the settings say. If the visitor has reduced motion turned on, show each element without movement. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你页面上的区域或卡片]加上滚动显现动画。让每个元素保持在隐藏的起始状态，比如淡出、移位、缩小、模糊或裁剪，直到它升过视野里的一条触发线，再让它落定到正常状态。用浏览器的 Intersection Observer 监听元素，而不是每次滚动都监听；已经在线上方的元素也算越过，这样快速滚动永远不会跳过任何一个。按设置让每个元素只显现一次，或者每次越过都显现。如果访客开启了减弱动态效果，不用动效显示每个元素。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Landing pages</li><li>Feature lists</li><li>Blog sections</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Key information</li><li>Forms</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>落地页</li><li>功能列表</li><li>博客栏目</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>关键信息</li><li>表单</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const CARDS=[
-    {fx:'fade',      title:'Fade',           body:'Goes from see-through to solid.',                  tag:'Technique 01'},
-    {fx:'slide-up',  title:'Slide Up',       body:'Rises a little as it fades in.',                   tag:'Technique 02'},
-    {fx:'slide-left',title:'Slide from Left',body:'Slides in from the left as it fades in.',          tag:'Technique 03'},
-    {fx:'scale',     title:'Scale In',       body:'Grows from slightly smaller as it fades in.',      tag:'Technique 04'},
-    {fx:'blur',      title:'Blur In',        body:'Sharpens from a blur as it fades in.',             tag:'Technique 05'},
-    {fx:'mask',      title:'Mask Reveal',    body:'Uncovered from left to right.',                    tag:'Technique 06'},
-    {fx:'stagger',   title:'Stagger Group',                                                            tag:'Technique 07'},
+    {fx:'fade',      title:'淡入',           body:'从透明变实。',                  tag:'技巧 01'},
+    {fx:'slide-up',  title:'上滑进入',       body:'淡入时微微上升。',                   tag:'技巧 02'},
+    {fx:'slide-left',title:'从左侧滑入',body:'淡入时从左侧滑入。',          tag:'技巧 03'},
+    {fx:'scale',     title:'缩放进入',       body:'淡入时从稍小长大。',      tag:'技巧 04'},
+    {fx:'blur',      title:'模糊进入',        body:'淡入时从模糊变清晰。',             tag:'技巧 05'},
+    {fx:'mask',      title:'遮罩揭示',    body:'从左到右揭开。',                    tag:'技巧 06'},
+    {fx:'stagger',   title:'交错组',                                                            tag:'技巧 07'},
   ];
   const scroller=document.getElementById('scroller'),stage=scroller.parentNode;
   const repeatTog=document.getElementById('repeat-tog'),triggerLine=document.getElementById('trigger-line');
@@ -298,8 +298,8 @@
     if(mode==='compare')measureRows();
   }
   const NAMES={normal:scroller.getAttribute('aria-label'),
-    inside:'Seven cards that appear as you scroll, with each waiting card\u2019s hidden start and where it will settle',
-    compare:'Seven cards twice: always shown, and appearing as they cross the line'};
+    inside:'七张随滚动出现的卡片，每张等待的卡片都有隐藏起点和落定位置',
+    compare:'七张卡片出现两次：始终显示的，以及越过线时出现的'};
   document.addEventListener('hb:mode',e=>{
     mode=e.detail.mode;
     // Compare's row heights come first: laid out before they are set, the narrow cards are shorter, the scroll length
@@ -381,11 +381,11 @@
   const capBelow=document.getElementById('cap-below'),capRight=document.getElementById('cap-right');
   const insideNote=document.querySelector('[data-hb-for="inside"]'),compareNote=document.querySelector('[data-hb-for="compare"]');
   const WORDS={
-    once:{below:'Below: hidden until it crosses',right:'Shown once',
+    once:{below:'线下：越过之前隐藏',right:'只显示一次',
       inside:insideNote.textContent,compare:compareNote.textContent},
-    every:{below:'Below: hidden, every time',right:'Shown each time',
-      inside:'Inside, each card below the line waits faintly in its hidden start; past the line it settles on its dashed outline, and below it hides again. Scroll the box or press Play to watch.',
-      compare:'Always shown has every card in place; Shown each time hides a card below the dashed line and shows it again each time it rises past. Scroll the box or press Play to watch.'},
+    every:{below:'线下：每次都隐藏',right:'每次都显示',
+      inside:'在内部，线下的每张卡片都在隐藏起点处淡淡地等着；越过线后落在虚线轮廓上，回到线下又藏起来。滚动盒子或按「播放」观看。',
+      compare:'始终显示的每张卡片都在原位；每次都显示的卡片在线下藏起来，每次越过虚线又显示出来。滚动盒子或按「播放」观看。'},
   };
   function describe(){
     const w=WORDS[repeatTog.checked?'every':'once'];

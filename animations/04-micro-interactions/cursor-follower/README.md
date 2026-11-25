@@ -1,18 +1,18 @@
-# Cursor Follower
+# 光标跟随
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/cursor-follower/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/cursor-follower/)
 
-## What it is
-A cursor follower is a small shape that trails the mouse pointer with a slight delay, so it glides after it and eases in as it catches up instead of sticking to it. When it flips the colors of whatever is under it, it stays visible on any background, light over dark areas and dark over light ones, without choosing a color for each.
+## 它是什么
+光标跟随者是一个小图形，带着一点延迟跟在鼠标指针后面，滑行着追赶、赶上时慢慢减速，而不是粘在指针上。它反转下方任何东西的颜色，在任何背景上都看得见——深色区域上是浅色，浅色区域上是深色，不用为每种背景选颜色。
 
-## When to use it
-- Portfolio and agency sites where the cursor itself becomes part of the brand experience
-- Interactive storytelling experiences where cursor reactivity reinforces immersion
-- Landing pages where hover targets expand the follower for tactile feedback
-- Any site where the default OS cursor is too subtle for the intended aesthetic
+## 什么时候用
+- 作品集和代理类网站，光标本身成为品牌体验的一部分
+- 互动讲故事体验，光标反应能加强沉浸感
+- 着陆页，悬停目标会让跟随者变大，给出触感反馈
+- 任何默认操作系统光标太不显眼、不符合预期美感的网站
 
-## How it works
-Track `pointermove` to record target coordinates (`mx`, `my`). Each animation frame, interpolate the follower's position toward the target using a lerp (linear interpolation). The share of the gap to close is scaled by the time since the last frame, so the follower keeps the same pace on a 30, 60 or 120 Hz screen:
+## 工作原理
+跟踪 `pointermove` 来记录目标坐标（`mx`、`my`）。每一帧动画，用线性插值（lerp）把跟随者的位置插向目标。要缩小的差距份额按自上一帧以来的时间缩放，这样跟随者在 30、60 或 120 Hz 的屏幕上保持同样的速度：
 
 ```js
 let mx = 0, my = 0;       // pointer position
@@ -35,9 +35,9 @@ function loop(ts) {
 requestAnimationFrame(loop);
 ```
 
-Each 60 Hz frame closes 15% of the remaining gap between follower and cursor. A frame twice as long closes 28% of it and one half as long about 8%, so the follower reaches ~95% of the way in about 18 frames' worth of time (~300ms) on any screen, producing a smooth lag without ever quite reaching the cursor. The first frame counts as one 60 Hz frame, and a gap longer than 50ms (a tab coming back from the background) counts as 50ms.
+每个 60 Hz 帧会缩小跟随者和光标之间剩余差距的 15%。长一倍的帧缩小 28%，短一半的帧缩小约 8%，所以跟随者在任何屏幕上大约 18 帧的时间（约 300ms）内就能走完约 95% 的路，产生平滑的延迟，永远不会完全追上。第一帧算作一个 60 Hz 帧，超过 50ms 的间隔（标签从后台回来）按 50ms 算。
 
-The `mix-blend-mode: difference` CSS property makes the follower invert whatever background color is beneath it:
+`mix-blend-mode: difference` 这个 CSS 属性让跟随者反转它下方任何背景颜色：
 
 ```css
 #follower {
@@ -58,7 +58,7 @@ The `mix-blend-mode: difference` CSS property makes the follower invert whatever
 #follower.expanded .shape { transform: translate(-50%, -50%) scale(2.5); }
 ```
 
-For hover reactivity, scale the follower up when over interactive targets:
+悬停反应时，在交互目标上把跟随者放大：
 
 ```js
 stage.addEventListener('pointermove', e => {
@@ -66,27 +66,27 @@ stage.addEventListener('pointermove', e => {
 });
 ```
 
-The keyboard drives it too: Tab focuses a see-through layer over the stage, which puts an invisible pointer in its middle (or where the keys last left it), and the arrow keys move that pointer a step at a time (6% of the stage's shorter side, three steps with Shift) through the same code as the mouse, so the dot glides after it and grows over a button. Escape, or a Tab out of the stage, hides the dot as the pointer leaving does.
+键盘也能驱动它：Tab 聚焦舞台上的一层透明层，把一个看不见的指针放在它的中间（或按键最后离开的地方），方向键一次移动一步（舞台较短边的 6%，按住 Shift 一次三步），走的和鼠标同一套代码，所以圆点会滑行着追赶，并在按钮上变大。Esc，或按 Tab 离开舞台，会像指针离开一样隐藏圆点。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Lag | Medium | How closely the dot follows: on a 60 Hz screen each frame closes 35% (short), 15% (medium) or 6% (long) of the gap to the pointer, and other screens close the share that fits their frame time, so the dot gets 95% of the way in about 0.1, 0.3 or 0.8 seconds everywhere; a longer lag feels heavier |
-| Size | Medium | The dot is 20px, 32px or 48px across |
-| Flips the colors under it | on | The dot inverts the colors beneath it, so it stays visible on light and dark areas; off, it is a see-through orange dot |
-| Shape | Circle | A filled circle, a ring or a small square |
-| Grows over buttons | on | The dot grows to two and a half times its size while the pointer is on a button |
+| 延迟 | 中等 | 圆点跟随得有多紧：在 60 Hz 屏幕上，每帧缩小与指针差距的 35%（短）、15%（中等）或 6%（长），其他屏幕按帧时间缩小相应的份额，所以圆点在任何地方大约 0.1、0.3 或 0.8 秒内走完 95% 的路；延迟越长感觉越沉 |
+| 大小 | 中等 | 圆点直径 20px、32px 或 48px |
+| 反转下方颜色 | 开 | 圆点反转下方的颜色，所以在浅色和深色区域都看得见；关时，它是一个半透明的橙色圆点 |
+| 形状 | 圆形 | 圆形、圆环或方形 |
+| 悬停按钮时变大 | 开 | 指针在按钮上时，圆点长到两倍半大小 |
 
-## Production notes
-- **Touch devices**: cursor effects don't apply to touch. Detect `(pointer: coarse)` and hide the follower entirely — never simulate a cursor on touch. The demo sends the dot to each tap only so the effect can be seen on a phone.
-- **Performance**: `position: fixed` + `will-change: transform` promotes the follower to its own GPU layer. The demo moves it with `transform: translate(x, y)` and grows it with `scale()`, so nothing is laid out again while it moves.
-- **Lag calibration**: `ease` is the share for a 60 Hz frame and the demo scales it by the frame time, so `ease = 0.15` gives the same ~300ms lag on a 30, 60 or 120 Hz screen. A plain per-frame lerp gives about 150ms on a 120 Hz display and 600ms on a 30 Hz phone, so the follower feels snappier or heavier from one device to the next.
-- **Cursor hide**: add `cursor: none` to the `body` to hide the OS cursor when the follower is active. Re-enable on touch or when the cursor leaves the window.
-- **GSAP QuickTo**: `const xTo = gsap.quickTo(follower, 'x', { duration: 0.3 })` is GSAP's optimized cursor follower pattern; it works from a duration in seconds, so it is time-based without the `dt` arithmetic.
-- **`@motionone/animate`**: lightweight alternative to GSAP for cursor followers; no tree-shaking overhead.
+## 生产注意事项
+- **触屏设备**：光标效果不适用于触摸。检测 `(pointer: coarse)` 并完全隐藏跟随者——绝不要在触摸上模拟光标。演示把圆点送到每次轻点的位置，只是为了让效果在手机上也能看到。
+- **性能**：`position: fixed` 加 `will-change: transform` 会把跟随者提升到自己的 GPU 层。演示用 `transform: translate(x, y)` 移动它，用 `scale()` 放大它，所以移动时什么都不用重新布局。
+- **延迟校准**：`ease` 是 60 Hz 一帧的份额，演示按帧时间缩放它，所以 `ease = 0.15` 在 30、60 或 120 Hz 屏幕上都给出约 300ms 的延迟。普通的每帧插值在 120 Hz 显示器上约 150ms，在 30 Hz 手机上约 600ms，所以跟随者在不同设备上感觉时快时慢。
+- **隐藏光标**：跟随者激活时，给 `body` 加 `cursor: none` 来隐藏操作系统光标。触摸时，或光标离开窗口时，再恢复。
+- **GSAP QuickTo**：`const xTo = gsap.quickTo(follower, 'x', { duration: 0.3 })` 是 GSAP 优化过的光标跟随者模式；它用秒数表示持续时间，所以是基于时间的，不用算 `dt`。
+- **`@motionone/animate`**：GSAP 的轻量替代品，适合光标跟随者；没有摇树优化的开销。
 
-## See also
-- [Hover State Animation](../hover-state/) — items that react when the pointer is on them
-- [Tooltip Reveal](../tooltip-reveal/) — a label that appears where the pointer rests
-- [Click / Tap Ripple](../click-ripple/) — a ripple from the exact point you click
-- [Image Trail](../image-trail/) — pictures that pop up along the pointer's path and fade
+## 另见
+- [悬停状态动画](../hover-state/) — 指针在上面时有反应的项目
+- [提示气泡浮现](../tooltip-reveal/) — 指针停留处出现的标签
+- [点击涟漪](../click-ripple/) — 从点击的确切位置扩散的涟漪
+- [图片拖尾](../image-trail/) — 沿着指针路径弹出又淡出的图片

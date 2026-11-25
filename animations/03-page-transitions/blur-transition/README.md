@@ -1,18 +1,18 @@
-# Blur Transition
+# 模糊过渡
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/blur-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/blur-transition/)
 
-## What it is
-A blur transition takes the old page out of focus until it disappears, then brings the new page in from a blur to sharp. It looks like a camera pulling focus from one subject to another, so the change reads as a shift of attention rather than a hard cut.
+## 它是什么
+模糊过渡让旧页面失焦直到消失，再把新页面从模糊带到清晰。看起来像相机从一个主体拉焦到另一个主体，所以切换读起来像是注意力的转移，而不是一次硬切。
 
-## When to use it
-- Transitions between visually rich pages where a hard cut feels abrupt
-- Photography, film, and editorial sites where a rack-focus metaphor fits the content
-- Modal or detail views that should feel like the background recedes out of focus
-- User-initiated navigation only — never on autoplaying carousels, where the cost adds up
+## 什么时候用
+- 视觉丰富的页面之间的过渡，硬切显得突兀
+- 摄影、电影和编辑类网站，拉焦的比喻与内容相符
+- 弹窗或详情视图，应该感觉像背景退到焦外
+- 只用于用户主动发起的导航——绝不用在自动播放的轮播上，那里的成本会累积
 
-## How it works
-The outgoing page transitions its `filter` (and optionally `opacity`) up to a maximum blur, then the incoming page is pre-blurred, made active, and transitioned back to `blur(0px)`. Because filter transitions do not compose across an element swap, the incoming page's blur is set with `transition: none`, forced to commit with a reflow, and only then animated to sharp.
+## 工作原理
+离开的页面把 `filter`（以及可选的 `opacity`）过渡到最大模糊，然后进入的页面预先模糊、设为激活、再过渡回 `blur(0px)`。因为滤镜过渡无法跨元素交换合成，进入页面的模糊先以 `transition: none` 设置，强制回流确认，再做动画变清晰：
 
 ```js
 function doTransition(prev, next, dur, ease, maxBlur) {
@@ -35,25 +35,25 @@ function doTransition(prev, next, dur, ease, maxBlur) {
 }
 ```
 
-The Overlaps the two halves setting starts the incoming sharpen at 50% of the outgoing blur instead of waiting for it to finish, cutting the total time by about a quarter while the two halves cross.
+「两半重叠」设置让进入的变清晰在离开的模糊进行到 50% 时就开始，而不是等它结束，在两半交叉的同时把总时间缩短约四分之一。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How blurry it gets | Medium | How much the pages blur at the midpoint: slight is 8px, medium 20px and heavy 35px; above about 30px it is heavy for the browser and can look muddy |
-| Speed | Normal | How long each half takes, blurring out and then sharpening in: slow is 650ms, normal 400ms and fast 250ms |
-| Fades as it blurs | on | Fades each page as it blurs, which hides the swap; off, the pages stay solid and only blur |
-| Overlaps the two halves | off | Starts sharpening the new page halfway through the blur, so the change takes a quarter less time |
-| Feel | Gentle | Gentle feels like a controlled focus pull; Smooth snaps into focus sooner; Even keeps one steady pace |
+| 模糊程度 | 中等 | 页面在中途模糊到什么程度：轻微是 8px，中等 20px，强烈 35px；超过约 30px 后对浏览器来说很重，还可能看起来浑浊 |
+| 速度 | 普通 | 每一半需要多长时间，先模糊出去再变清晰进来：慢是 650ms，普通 400ms，快 250ms |
+| 边模糊边淡入 | 开 | 每页在模糊时也淡入淡出，这样能遮住换页；关时页面保持实色、只模糊 |
+| 两半重叠 | 关 | 在模糊进行到一半时就开始让新页面变清晰，这样切换时间缩短四分之一 |
+| 感觉 | 轻柔 | 轻柔感觉像受控的拉焦；平滑更快地进入焦点；均匀保持一个稳定的速度 |
 
-## Production notes
-- **GPU cost.** Large-radius `filter: blur()` over a full-viewport element is one of the more expensive things you can animate. Keep the blurred region as small as practical, cap the radius on mobile, and avoid running it during scroll.
-- **Commit the start state.** Setting the pre-blur with `transition: none` and then turning the transition on needs a forced reflow in between (reading `offsetWidth`); without it the browser merges the two writes and the page pops in sharp.
-- **Fringing.** Blurring an element with a hard rectangular edge can reveal a faint halo where the blur samples past the bounds. A subtle `overflow: hidden` container or a slight scale keeps the edge clean.
-- **Library equivalents.** The View Transitions API can animate `filter` on `::view-transition-old`/`-new` for the same effect with far less bookkeeping. Framer Motion animates `filter: 'blur(20px)'` to `'blur(0px)'` via `animate`; GSAP does the same through its CSS plugin. Barba.js `leave`/`enter` hooks host the blur-out and sharpen-in halves.
+## 生产注意事项
+- **GPU 成本。**在全视口元素上做大半径 `filter: blur()` 动画是成本最高的操作之一。让模糊区域尽量小，在移动端限制半径，滚动时不要运行它。
+- **确认起始状态。**用 `transition: none` 设置预模糊、再打开过渡，中间需要一次强制回流（读 `offsetWidth`）；没有它，浏览器会合并两次写入，页面直接以清晰状态弹出。
+- **边缘泛光。**模糊一个有硬直角边缘的元素时，模糊在边界外采样，可能会露出一圈淡淡的光晕。一个微妙的 `overflow: hidden` 容器或轻微的缩放能让边缘干净。
+- **等价的库。**View Transitions API 可以在 `::view-transition-old`/`-new` 上做 `filter` 动画，达到同样的效果，记账工作少得多。Framer Motion 通过 `animate` 把 `filter: 'blur(20px)'` 做到 `'blur(0px)'`；GSAP 通过它的 CSS 插件做同样的事。Barba.js 的 `leave`/`enter` 钩子承载模糊出去和变清晰进来的两半。
 
-## See also
-- [Crossfade Transition](../crossfade/) — the plain fade underneath the blur
-- [Flash / Light Leak Transition](../flash-transition/) — a burst of light hides the change
-- [Dissolve Transition](../dissolve/) — tiles hide the change
-- [Zoom Transition](../zoom-transition/) — scale shifts attention instead of focus
+## 另见
+- [交叉淡入淡出过渡](../crossfade/) — 模糊之下的普通淡入淡出
+- [闪光 / 漏光过渡](../flash-transition/) — 一道闪光藏住切换
+- [溶解过渡](../dissolve/) — 瓷砖藏住切换
+- [缩放过渡](../zoom-transition/) — 缩放转移注意力而不是焦点

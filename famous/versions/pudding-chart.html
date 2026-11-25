@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Our version: The chart that changes as you read</title>
+<title>我们的版本：读着读着就变的图表</title>
 <style>
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -12,7 +12,7 @@
 @supports(height:100svh){:root{--H:100svh}}
 *{box-sizing:border-box;margin:0}
 html{background:var(--bg);overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#3c3c4a var(--bg)}
-body{color:var(--ink);font:400 15px/1.45 'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+body{color:var(--ink);font:400 15px/1.45 'Schibsted Grotesk','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei','WenQuanYi Micro Hei','Droid Sans Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
 body::after{content:"";position:fixed;left:0;top:0;width:min(23em,40%);height:72px;z-index:3;pointer-events:none;background:linear-gradient(var(--bg) 40px,#0b0b0f00)}  /* cards leave through a soft edge, clear of the page's Our version label */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .tag{position:fixed;z-index:4;right:14px;top:12px;padding:6px 11px;border-radius:999px;background:#171a27;border:1px solid #2b3047;font-size:12px;line-height:1;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#c3c4d0}
@@ -67,15 +67,15 @@ body::after{content:"";position:fixed;left:0;top:0;width:min(23em,40%);height:72
 </script>
 </head>
 <body>
-<h1 class="sr">A chart that changes as you read</h1>
-<p class="tag">Example data</p>
+<h1 class="sr">读着读着就变的图表</h1>
+<p class="tag">示例数据</p>
 <main>
-  <div class="stage" role="img" aria-label=""><div class="panel"></div><p class="ct"><span>Samples per week</span><span>Samples per group</span></p></div>
+  <div class="stage" role="img" aria-label=""><div class="panel"></div><p class="ct"><span>每周样本数</span><span>每组样本数</span></p></div>
   <ol class="steps">
-    <li class="card"><b>Step 1 of 4</b><p>Each dot is one made-up sample. Keep scrolling, and the loose dots pile up into eight weeks.</p></li>
-    <li class="card"><b>Step 2 of 4</b><p>Three weeks were busier than the rest. Their dots light up while the others fade back.</p></li>
-    <li class="card"><b>Step 3 of 4</b><p>Sort the weeks from busiest to quietest, and the bright ones slide to the front.</p></li>
-    <li class="card"><b>Step 4 of 4</b><p>Group the dots instead: the three busy weeks make one bar, and the other five make another.</p></li>
+    <li class="card"><b>第 1 步，共 4 步</b><p>每个圆点是一个虚构样本。继续滚动，散落的圆点会堆成八周。</p></li>
+    <li class="card"><b>第 2 步，共 4 步</b><p>有三周比其他周更忙。它们的圆点亮起来，其余的暗下去。</p></li>
+    <li class="card"><b>第 3 步，共 4 步</b><p>把各周从最忙排到最闲，亮着的圆点滑到前面。</p></li>
+    <li class="card"><b>第 4 步，共 4 步</b><p>换一种分组：三周忙的合成一条柱子，另外五周合成另一条。</p></li>
     <li class="end" aria-hidden="true"></li>
   </ol>
 </main>
@@ -85,12 +85,12 @@ const stage = $('.stage'), panel = $('.panel'), steps = $('.steps'), cards = [..
 const reduce = matchMedia('(prefers-reduced-motion: reduce)'), FRAME = 1000 / 60;
 const COUNTS = [2, 4, 7, 9, 8, 5, 3, 2], BUSY = [2, 3, 4], NW = COUNTS.length;   // made-up samples per week; the three busiest weeks
 const ORDER = COUNTS.map((_, c) => c).sort((a, b) => COUNTS[b] - COUNTS[a] || a - b), SLOT = COUNTS.map((_, c) => ORDER.indexOf(c));
-const SAY = ['Example chart: loose dots scattered across the box.', 'Example chart: the dots piled up into eight columns, one for each week.',
-  'Example chart: three busy weeks lit in blue, the other dots faded.', 'Example chart: the weeks sorted from busiest to quietest, the three busy ones first.',
-  'Example chart: the dots grouped into two bars, the busy weeks in blue and the other weeks in orange.'];
+const SAY = ['示例图表：松散的圆点散布在整个框里。', '示例图表：圆点堆成八列，每周一列。',
+  '示例图表：三周忙的亮起蓝色，其余圆点变暗。', '示例图表：各周从最忙排到最闲，三周忙的在最前面。',
+  '示例图表：圆点分成两条柱子，忙的几周是蓝色，其余几周是橙色。'];
 let seed = 11; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
 const mk = (cls, text) => { const e = document.createElement('i'); e.className = 'm ' + cls; if (text) e.textContent = text; stage.append(e); return e; };
-const ax = mk('ax'), wl = COUNTS.map((_, c) => mk('l w', c + 1)), vl = ORDER.map(c => mk('l v', c + 1)), gl = ['Busy weeks', 'Other weeks'].map(t => mk('l g', t)), ct = $('.ct');
+const ax = mk('ax'), wl = COUNTS.map((_, c) => mk('l w', c + 1)), vl = ORDER.map(c => mk('l v', c + 1)), gl = ['繁忙的周', '其他周'].map(t => mk('l g', t)), ct = $('.ct');
 const dots = []; let jb = 0, jo = 0;
 COUNTS.forEach((n, c) => { for (let r = 0; r < n; r++) { const busy = BUSY.includes(c); dots.push({ c, r, busy, j: busy ? jb++ : jo++, fx: rnd(), fy: rnd(), dl: rnd(), e: mk('d') }); } });
 const cells = dots.map((_, i) => i);   // each dot gets its own cell of the scattered grid, so no two dots land on each other

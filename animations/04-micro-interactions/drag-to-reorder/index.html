@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drag to Reorder — Animation Handbook</title>
-  <meta name="description" content="Drag an item and the others slide aside to make room. Best for to-do lists.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/drag-to-reorder/">
+  <title>拖动排序 — 动画手册</title>
+  <meta name="description" content="拖动一个项目，其他项目滑开让位。适合用在待办清单上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/drag-to-reorder/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Drag to Reorder — Animation Handbook">
-  <meta property="og:description" content="Drag an item and the others slide aside to make room. Best for to-do lists.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/drag-to-reorder/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="拖动排序 — 动画手册">
+  <meta property="og:description" content="拖动一个项目，其他项目滑开让位。适合用在待办清单上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/drag-to-reorder/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Drag to Reorder — Animation Handbook">
-  <meta name="twitter:description" content="Drag an item and the others slide aside to make room. Best for to-do lists.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Drag to Reorder", "name": "Drag to Reorder", "description": "Drag an item and the others slide aside to make room. Best for to-do lists.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/drag-to-reorder/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Drag to Reorder"}</script>
+  <meta name="twitter:title" content="拖动排序 — 动画手册">
+  <meta name="twitter:description" content="拖动一个项目，其他项目滑开让位。适合用在待办清单上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "拖动排序", "name": "拖动排序", "description": "拖动一个项目，其他项目滑开让位。适合用在待办清单上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/drag-to-reorder/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 拖动排序"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--card:#16161a;--slide:220ms;--row:52px;--gap:8px;--col:244px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -69,90 +69,90 @@
       .stage[data-hb-mode="inside"] .card,.stage[data-hb-mode="compare"] .card{gap:6px;padding-right:8px}.stage[data-hb-mode="inside"] .grip,.stage[data-hb-mode="compare"] .grip{margin-left:0}}
     @media(max-width:359px){:root{--col:116px}}   /* a narrower caption column keeps a few more letters of each task */
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../add-to-cart-fly/" rel="prev" aria-label="Previous: Add-to-Cart Fly"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Add-to-Cart Fly</span></a><a href="../rolling-numbers/" rel="next" aria-label="Next: Rolling Numbers"><span><span class="hb-dir">Next: </span>Rolling Numbers</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../add-to-cart-fly/" rel="prev" aria-label="上一个：加入购物车飞入"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>加入购物车飞入</span></a><a href="../rolling-numbers/" rel="next" aria-label="下一个：数字滚动"><span><span class="hb-dir">下一个：</span>数字滚动</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.33 · Micro-Interactions</p>
-    <h1>Drag to Reorder</h1>
-    <p class="hb-lede">Drag an item and the others slide aside to make room. Best for to-do lists.</p>
+    <p class="hb-cat">04.33 · 微交互</p>
+    <h1>拖动排序</h1>
+    <p class="hb-lede">拖动一个项目，其他项目滑开让位。适合用在待办清单上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Drag it</h2><p>Drag a task up or down and let go (or Tab to its grip, then use Space and the arrow keys), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">拖动试试</h2><p>把任务上下拖动再松开（或按 Tab 到它的手柄上，用空格键和方向键），或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="slots" aria-hidden="true"><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i></div>
       <ul class="list" id="list" aria-label="Today's tasks">
-        <li class="row" style="--i:0"><div class="card"><button class="grip" type="button" aria-label="Move Reply to Sam" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#ff9d5c"></span><span class="label">Reply to Sam</span></div><span class="tip" id="tip" aria-hidden="true"></span></li>
-        <li class="row" style="--i:1"><div class="card"><button class="grip" type="button" aria-label="Move Book the flights" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#58a6ff"></span><span class="label">Book the flights</span></div></li>
-        <li class="row" style="--i:2"><div class="card"><button class="grip" type="button" aria-label="Move Review the draft" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#56d364"></span><span class="label">Review the draft</span></div></li>
-        <li class="row" style="--i:3"><div class="card"><button class="grip" type="button" aria-label="Move Water the plants" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#d2a8ff"></span><span class="label">Water the plants</span></div></li>
+        <li class="row" style="--i:0"><div class="card"><button class="grip" type="button" aria-label="Move 回复山姆" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#ff9d5c"></span><span class="label">回复山姆</span></div><span class="tip" id="tip" aria-hidden="true"></span></li>
+        <li class="row" style="--i:1"><div class="card"><button class="grip" type="button" aria-label="Move 订机票" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#58a6ff"></span><span class="label">订机票</span></div></li>
+        <li class="row" style="--i:2"><div class="card"><button class="grip" type="button" aria-label="Move 审阅草稿" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#56d364"></span><span class="label">审阅草稿</span></div></li>
+        <li class="row" style="--i:3"><div class="card"><button class="grip" type="button" aria-label="Move 给植物浇水" aria-describedby="moves-help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg></button><span class="tag" style="background:#d2a8ff"></span><span class="label">给植物浇水</span></div></li>
       </ul>
-      <p class="sr-only" id="moves-help">Press Space to pick up the task, the up and down arrow keys to move it, and Space again to drop it. Escape puts it back.</p>
+      <p class="sr-only" id="moves-help">按空格键拿起任务，用上下方向键移动，再按空格键放下。Esc 放回去。</p>
       <p class="sr-only" id="status" role="status" aria-live="polite"></p>
       <div class="views" aria-hidden="true">
         <b class="num">1</b><b class="num">2</b><b class="num">3</b><b class="num">4</b>
         <svg><path class="arrow"/><path class="arrow"/><path class="arrow"/><path class="arrow"/></svg>
-        <span class="cap nm" data-hb-caption hidden>Four fixed places</span>
-        <span class="cap nc" data-hb-caption hidden>Slide one place to make room</span>
-        <span class="cap" data-hb-caption hidden>Follows your finger exactly</span>
-        <span class="cap lands" data-hb-caption hidden>Lands here</span>
-        <span class="cap" data-hb-caption hidden>It started here</span>
-        <span class="cap nm" data-hb-caption hidden>Jumps when dropped</span>
-        <span class="cap nm" data-hb-caption hidden>Makes room</span>
+        <span class="cap nm" data-hb-caption hidden>四个固定位置</span>
+        <span class="cap nc" data-hb-caption hidden>移动一个位置让出空间</span>
+        <span class="cap" data-hb-caption hidden>精确跟随你的手指</span>
+        <span class="cap lands" data-hb-caption hidden>落在这里</span>
+        <span class="cap" data-hb-caption hidden>它从这里开始</span>
+        <span class="cap nm" data-hb-caption hidden>放下时跳动</span>
+        <span class="cap nm" data-hb-caption hidden>让出空间</span>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the outlines are four fixed places: the held task follows your finger, and the others move one place to make room before it lands. Drag a task, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Jumps when dropped: nothing moves aside while you drag, then the list jumps; Makes room: the held task lifts and the others move aside. Drag a task, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：轮廓线是四个固定位置：拿着的任务跟随你的手指，其他任务在它落下前移动一个位置让出空间。拖一个任务，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>放下时跳动：拖动时什么都不让开，然后列表突然跳动；让出空间：拿着的任务抬起来，其他任务让开。拖一个任务，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Slide speed</p>
+        <p class="hb-setting-name" id="speed-lbl">滑动速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="420" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="220" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="120" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="420" aria-pressed="false">慢</button>
+          <button type="button" data-ms="220" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="120" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How fast the other tasks slide out of the way.</p>
+        <p class="hb-hint">其他任务滑开让路有多快。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="lift-lbl">How much it lifts</p>
+        <p class="hb-setting-name" id="lift-lbl">抬起多少</p>
         <div class="seg" id="lift-seg" role="group" aria-labelledby="lift-lbl">
-          <button type="button" data-lift="subtle" class="on" aria-pressed="true">Subtle</button>
-          <button type="button" data-lift="strong" aria-pressed="false">Strong</button>
+          <button type="button" data-lift="subtle" class="on" aria-pressed="true">轻微</button>
+          <button type="button" data-lift="strong" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">Strong makes the task you hold grow, tilt and cast a deeper shadow.</p>
+        <p class="hb-hint">「强烈」会让拿着的任务变大、倾斜，并投下更深的阴影。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Drags by the handle only</span><input class="hb-switch" type="checkbox" role="switch" id="grip-tog" autocomplete="off"></label>
-        <p class="hb-hint">Only the grip starts a drag, so a finger on the rest of a row still scrolls the page.</p>
+        <label class="hb-switch-row"><span>仅用手柄拖动</span><input class="hb-switch" type="checkbox" role="switch" id="grip-tog" autocomplete="off"></label>
+        <p class="hb-hint">只有手柄能开始拖动，所以手指放在一行的其他地方仍然能滚动页面。</p>
       </div>
     </div>
   </section>
@@ -160,41 +160,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add drag to reorder to [the list whose order people can change]. Lift the picked-up item and let it follow the pointer exactly; as it passes a neighbor's middle, slide that neighbor into the gap, and on release settle it into place and save the order. Shift the items rather than changing the layout, so it stays smooth. Support the keyboard: Space picks up, the arrow keys move, Space drops and Escape cancels, each step read out to screen readers. On touch screens, start a drag at once from the grip; if the rest of an item can start one too, only after a short press, so swipes still scroll. If the visitor has reduced motion turned on, move items straight to their places. Match the settings listed below.</p>
+      <p class="hb-prompt">给[人们可以改变顺序的列表]加上拖动排序。把拿起的项目抬起来，让它精确跟随指针；它经过邻居的中线时，把邻居滑进空位；松开时，让它落到位置上并保存顺序。移动项目而不是改变布局，这样才平滑。支持键盘：空格键拿起，方向键移动，空格键放下，Esc 取消，每一步都读给读屏软件听。触屏上，从手柄立刻开始拖动；如果项目的其他地方也能开始拖动，要短按之后才开始，这样滑动仍然能滚动。如果访客开启了减弱动态效果，把项目直接移到它们的位置上。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>To-do lists</li><li>Playlists</li><li>Priority rankings</li><li>Menu editors</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Lists sorted by date</li><li>Very long lists</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>待办清单</li><li>播放列表</li><li>优先级排序</li><li>菜单编辑器</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>按日期排序的列表</li><li>很长的列表</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $=id=>document.getElementById(id);
   const list=$('list'),tip=$('tip'),statusEl=$('status'),reduceMq=matchMedia('(prefers-reduced-motion:reduce)');
@@ -209,7 +209,7 @@
   // `order` and from G, what is measured from the page: the list's place and size, the height of a slot and the box's height.
   const stage=document.querySelector('.stage'),SLOTS=[...stage.querySelectorAll('.slot')],NUMS=[...stage.querySelectorAll('.num')],ARROWS=[...stage.querySelectorAll('.arrow')];
   const CAPS=[...stage.querySelectorAll('.cap')],[cFixed,cSlide,cFinger,cLands,cStart,cOne,cTwo]=CAPS;
-  const SPEED={420:'in under half a second',220:'in a fifth of a second',120:'in a tenth of a second'};
+  const SPEED={420:'in under 半秒',220:'五分之一秒内',120:'in 十分之一秒'};
   let mode='normal',G={},slideMs=220,poseTimer=0;
   // Compare's first list is a copy made once: the same rows (the grips are plain spans; nothing has an id, takes focus or is read out) and, after
   // them, a faint copy of each row for the one being held. Its rows only move when the real list is dropped or reset.
@@ -266,9 +266,9 @@
     });
     [cSlide,cFinger,cLands,cStart].forEach(c=>{c.hidden=true});
     if(drag){
-      put(cFinger,stepwise()?'Moves a place at a time':'Follows your finger exactly',mid(0)+drag.y,col,right);
-      put(cLands,'Lands here',mid(to),col,right);
-      if(moved.length)put(cSlide,reduceMq.matches?'Move one place to make room':`Slide one place to make room\n${SPEED[slideMs]}`,mid(moved.reduce((a,m)=>a+m[0],0)/moved.length),col,right);
+      put(cFinger,stepwise()?'Moves a place at a time':'精确跟随你的手指',mid(0)+drag.y,col,right);
+      put(cLands,'落在这里',mid(to),col,right);
+      if(moved.length)put(cSlide,reduceMq.matches?'挪开一格腾出位置':`移动一个位置让出空间\n${SPEED[slideMs]}`,mid(moved.reduce((a,m)=>a+m[0],0)/moved.length),col,right);
     }
     const fh=fit(cFixed)[1],sw=fit(cStart)[0];cStart.hidden=true;
     if(y>=fh+12)cFixed.style.transform=`translate(${x}px,${Math.round((y-fh)/2)}px)`;   // above the list when there is room, else in the column

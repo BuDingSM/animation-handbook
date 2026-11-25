@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Curl — Animation Handbook</title>
-  <meta name="description" content="The page peels back from its corner like paper. Best for digital magazines.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/page-curl/">
+  <title>翻页卷角 — 动画手册</title>
+  <meta name="description" content="页面像纸一样从角落卷起。最适合数字杂志。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/03-page-transitions/page-curl/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Page Curl — Animation Handbook">
-  <meta property="og:description" content="The page peels back from its corner like paper. Best for digital magazines.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/page-curl/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="翻页卷角 — 动画手册">
+  <meta property="og:description" content="页面像纸一样从角落卷起。最适合数字杂志。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/03-page-transitions/page-curl/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Page Curl — Animation Handbook">
-  <meta name="twitter:description" content="The page peels back from its corner like paper. Best for digital magazines.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Page Curl", "name": "Page Curl", "description": "The page peels back from its corner like paper. Best for digital magazines.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/page-curl/", "inLanguage": "en", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Page Curl"}</script>
+  <meta name="twitter:title" content="翻页卷角 — 动画手册">
+  <meta name="twitter:description" content="页面像纸一样从角落卷起。最适合数字杂志。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "翻页卷角", "name": "翻页卷角", "description": "页面像纸一样从角落卷起。最适合数字杂志。", "url": "https://animation.xizanghuapi.cn/animations/03-page-transitions/page-curl/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 翻页卷角"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -82,87 +82,87 @@
     @media(max-width:360px){.stage[data-hb-mode="compare"]{grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr))}
       .stage[data-hb-mode="compare"] .pc{justify-content:flex-start}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../overlay-wipe/" rel="prev" aria-label="Previous: Overlay Wipe"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Overlay Wipe</span></a><a href="../cube-transition/" rel="next" aria-label="Next: Cube Transition"><span><span class="hb-dir">Next: </span>Cube Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../overlay-wipe/" rel="prev" aria-label="上一个：覆盖擦除"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>覆盖擦除</span></a><a href="../cube-transition/" rel="next" aria-label="下一个：立方体过渡"><span><span class="hb-dir">下一个：</span>立方体过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.15 · Page Transitions</p>
-    <h1>Page Curl</h1>
-    <p class="hb-lede">The page peels back from its corner like paper. Best for digital magazines.</p>
+    <p class="hb-cat">03.15 · 页面切换</p>
+    <h1>翻页卷角</h1>
+    <p class="hb-lede">页面像纸一样从角落卷起。最适合数字杂志。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click Work or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「工作」或「关于」，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
       <div class="site" id="site">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"><span class="cap ci-l c-len" id="c-len" aria-hidden="true" data-hb-caption><span>One turn takes</span> <span>about a second</span></span></nav>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"><span class="cap ci-l c-len" id="c-len" aria-hidden="true" data-hb-caption><span>翻一页耗时</span> <span>约一秒</span></span></nav>
         <div class="page-area" id="page-area"><div class="shade" id="shade"></div><div class="flap" id="flap"></div>
           <svg class="ci" id="ci" aria-hidden="true"><g class="halo"><path class="c-path"/><polygon class="c-flap"/><line class="c-thin"/><line class="c-fold"/></g><g class="ink"><path class="c-path"/><polygon class="c-flap"/><line class="c-thin"/><line class="c-fold"/></g><circle class="c-ring" r="18"/><circle class="c-mid" r="4"/><circle class="c-dot" r="6"/></svg>
-          <span class="cap ci-l c-path-l" aria-hidden="true" data-hb-caption>The corner's path</span>
-          <span class="cap ci-l c-fold-l" id="c-fold" aria-hidden="true" data-hb-caption>The fold: halfway along the line</span>
-          <span class="cap ci-l c-flap-l" id="c-flap" aria-hidden="true" data-hb-caption>Flap: the lifted part, folded over</span>
-          <span class="cap side" id="c-side" aria-hidden="true" data-hb-caption>Turns like paper</span>
+          <span class="cap ci-l c-path-l" aria-hidden="true" data-hb-caption>角的路径</span>
+          <span class="cap ci-l c-fold-l" id="c-fold" aria-hidden="true" data-hb-caption>折痕：线段中点处</span>
+          <span class="cap ci-l c-flap-l" id="c-flap" aria-hidden="true" data-hb-caption>翻起的部分：掀起后折过来的部分</span>
+          <span class="cap side" id="c-side" aria-hidden="true" data-hb-caption>像纸一样翻页</span>
         </div>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>The corner travels along the dashed path, and the fold sits halfway between it and where it lies flat; past the fold the page is flipped over. Click Work or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Switches at once simply changes page; Turns like paper folds a page over by its corner to change it. Click Work or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>角沿着虚线路径移动，折痕在它和它平放位置的中点处；折痕之外，页面已经翻过去了。点「工作」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「立即切换」只是换页；「像纸一样翻页」抓住页角把一页翻过去来换页。点「工作」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Turn speed</p>
+        <p class="hb-setting-name" id="speed-lbl">翻页速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1500" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="1000" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="650" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1500" aria-pressed="false">慢</button>
+          <button type="button" data-ms="1000" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="650" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long one page takes to turn over.</p>
+        <p class="hb-hint">翻一页需要多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="way-lbl">Which way it turns</p>
+        <p class="hb-setting-name" id="way-lbl">翻页方向</p>
         <div class="seg" id="way-seg" role="group" aria-labelledby="way-lbl">
-          <button type="button" data-way="both" class="on" aria-pressed="true">Forward and back</button>
-          <button type="button" data-way="fwd" aria-pressed="false">Always forward</button>
-          <button type="button" data-way="back" aria-pressed="false">Always back</button>
+          <button type="button" data-way="both" class="on" aria-pressed="true">前进和后退</button>
+          <button type="button" data-way="fwd" aria-pressed="false">总是前进</button>
+          <button type="button" data-way="back" aria-pressed="false">总是后退</button>
         </div>
-        <p class="hb-hint">Back lays an earlier page down over the one you are on.</p>
+        <p class="hb-hint">「后退」把更早的一页盖到你正在看的页面上。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="shade-lbl">Paper shading</p>
+        <p class="hb-setting-name" id="shade-lbl">纸张阴影</p>
         <div class="seg" id="shade-seg" role="group" aria-labelledby="shade-lbl">
-          <button type="button" data-k="0" aria-pressed="false">Off</button>
-          <button type="button" data-k="0.6" class="on" aria-pressed="true">Soft</button>
-          <button type="button" data-k="1" aria-pressed="false">Strong</button>
+          <button type="button" data-k="0" aria-pressed="false">关</button>
+          <button type="button" data-k="0.6" class="on" aria-pressed="true">柔和</button>
+          <button type="button" data-k="1" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">Shading makes the folded paper look curved.</p>
+        <p class="hb-hint">阴影让折起的纸看起来是弯曲的。</p>
       </div>
     </div>
   </section>
@@ -170,47 +170,47 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a page curl to [the pages you want to turn, such as a magazine]. A forward turn lifts the bottom corner of the current page and turns it over to the left like paper, so the page underneath shows. A turn back runs the same movement in reverse and lays a page down over the current one. Draw the folded part as the back of the sheet, lying over the page along a straight fold that moves with the corner. Paper shading darkens the fold and casts a shadow on the page below. Work out the fold from the corner on every frame, timing the turn by elapsed time. If the visitor has reduced motion turned on, fade between the pages instead. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想翻动的页面，比如一本杂志]加上翻页卷角。向前翻时，掀起当前页面的底角，像纸一样向左翻过去，露出下面的页面。向后翻则反向做同样的动作，把一页盖到当前页面上。把折起的部分画成纸的背面，沿着一条随角移动的直线折痕盖在页面上。纸张阴影会加深折痕，并在下面的页面上投下阴影。每一帧都根据角的位置算出折痕，按经过的时间来计时翻页。如果访客开启了减弱动态效果，改用页面之间的淡入淡出。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Digital magazines</li><li>Picture books</li><li>Menus and brochures</li><li>Photo albums</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Everyday navigation</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>数字杂志</li><li>图画书</li><li>菜单和宣传册</li><li>相册</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>日常导航</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   // back: the color of the back of each sheet, seen on the flap while it turns
   const PAGES=[
-    {name:'Home',bg:'linear-gradient(135deg,#0d1a2e,#192640)',back:'#b7c3dc',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it. Every pixel considered.</p></div>`},
-    {name:'Work',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',back:'#b5cfbb',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',back:'#cbb8dc',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div><div><b>3</b><span>Continents</span></div></div></div>`},
+    {name:'首页',bg:'linear-gradient(135deg,#0d1a2e,#192640)',back:'#b7c3dc',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it. Every pixel considered.</p></div>`},
+    {name:'工作',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',back:'#b5cfbb',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',back:'#cbb8dc',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div><div><b>3</b><span>Continents</span></div></div></div>`},
   ];
   const nav=document.getElementById('nav'),area=document.getElementById('page-area'),shade=document.getElementById('shade'),flap=document.getElementById('flap'),slowTog=document.getElementById('slow-tog');
   const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -231,14 +231,14 @@
   // site starts (a click, Show me, Reset), so one input drives both halves.
   const twin=document.createElement('div');twin.className='site twin';twin.inert=true;twin.setAttribute('aria-hidden','true');
   twin.innerHTML=`<div class="mini-nav">${PAGES.map(p=>`<span class="nav-btn">${p.name}</span>`).join('')}</div>`+
-    `<div class="page-area">${PAGES.map(p=>`<div class="page" style="background:${p.bg}">${p.html}</div>`).join('')}<span class="cap side" data-hb-caption>Switches at once</span></div>`;
+    `<div class="page-area">${PAGES.map(p=>`<div class="page" style="background:${p.bg}">${p.html}</div>`).join('')}<span class="cap side" data-hb-caption>立即切换</span></div>`;
   document.getElementById('site').before(twin);
   const twinPages=[...twin.querySelectorAll('.page')],twinNav=[...twin.querySelectorAll('.nav-btn')],twinSide=twin.querySelector('.side');
   function showTwin(n){twinPages.forEach((el,i)=>el.classList.toggle('active',i===n));twinNav.forEach((b,i)=>b.classList.toggle('active',i===n))}
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent='Shown still, part way through a turn: the corner on its dashed path, the fold halfway between it and where it lies flat, and the flap folded over.';
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still: Switches at once simply changes page; Turns like paper is caught part way, its corner lifted and folded over.';
+    document.querySelector('[data-hb-for="inside"]').textContent='静止画面，停在翻页半途：角在虚线路径上，折痕在它和它平放位置的中点处，翻起的部分已经折过去。';
+    document.querySelector('[data-hb-for="compare"]').textContent='静止画面：「立即切换」只是换页；「像纸一样翻页」停在半途，页角已经掀起并折过去。';
   }
 
   // Drops a timer's id once it fires, so `timers` only holds the ones still waiting.
@@ -309,7 +309,7 @@
     const c={x:w-2*w*p,y:h-.8*h*Math.sin(Math.PI*p)},dx=w-c.x,dy=h-c.y,len=Math.hypot(dx,dy);
     return{w,h,c,len,n:{x:dx/len,y:dy/len},m:{x:(w+c.x)/2,y:(h+c.y)/2}};
   }
-  // The sheet on top at progress p. The fold is the line through m, square to n: halfway between where the corner was and c.
+  // The sheet on top at progress p. 折痕 is the line through m, square to n: halfway between where the corner was and c.
   // What lies past the fold is mirrored over it: the flap. Returns its numbers, with the flap's corners, for See inside's drawing.
   function curl(sheet,p){
     const g=corner(area.clientWidth,area.clientHeight,p),{w,h,len,n,m}=g,box=[{x:0,y:0},{x:w,y:0},{x:w,y:h},{x:0,y:h}];
@@ -407,7 +407,7 @@
   // See inside: the flap's in the bottom row, ending short of the flap's lower edge; the fold's past the fold's foot, under the line
   // to the corner, else beside the fold's top; shorter words where neither fits. Compare: each half's name at the same spot, the
   // bottom corner before the flap, else the one past the fold.
-  const FLAP=['Flap: the lifted part, folded over','The flap'],FOLD=['The fold: halfway along the line','The fold'];
+  const FLAP=['翻起的部分：掀起后折过来的部分','翻起的部分'],FOLD=['折痕：线段中点处','折痕'];
   function place(){
     const w=area.clientWidth,h=area.clientHeight,{c,m,n}=corner(w,h,ease(.45)),E=8,G=10;
     const foldX=y=>m.x-(y-m.y)*n.y/n.x,edgeX=y=>c.x+(foldX(h)-c.x)*(y-c.y)/(h-c.y),past=(x,y)=>(x-m.x)*n.x+(y-m.y)*n.y;
@@ -440,8 +440,8 @@
     draw(curl(sheet,fwd?ease(.45):1-ease(.55)));posed=true;
   }
   // See inside's length words: one turn, three times as long in slow motion
-  const SAY={650:'about two thirds of a second',1000:'about a second',1500:'a second and a half',1950:'about two seconds',3000:'three seconds',4500:'four and a half seconds'};
-  function say(){lenCap.innerHTML='<span>One turn takes</span> <span>'+SAY[dur*(slowTog.checked?3:1)]+'</span>'}
+  const SAY={650:'约三分之二秒',1000:'约一秒',1500:'一秒半',1950:'约两秒',3000:'三秒',4500:'四秒半'};
+  function say(){lenCap.innerHTML='<span>翻一页耗时</span> <span>'+SAY[dur*(slowTog.checked?3:1)]+'</span>'}
   // The mode switch: draws the mode at once. The shared script then presses Show me (not under reduced motion), which plays it.
   document.addEventListener('hb:mode',e=>{mode=e.detail.mode;if(mode!=='normal'){place();if(!animating)draw(null)}pose()});
   // The words and the pose are placed in pixels, so a new size of the window (a phone turned) places them again

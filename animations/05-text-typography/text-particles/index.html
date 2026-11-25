@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Particles — Animation Handbook</title>
-  <meta name="description" content="A word of dots scatters from your pointer and springs back. Best for intros.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-particles/">
+  <title>文字粒子 — 动画手册</title>
+  <meta name="description" content="由圆点组成的词被指针打散，又弹回原位。最适合开场。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/05-text-typography/text-particles/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Text Particles — Animation Handbook">
-  <meta property="og:description" content="A word of dots scatters from your pointer and springs back. Best for intros.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-particles/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="文字粒子 — 动画手册">
+  <meta property="og:description" content="由圆点组成的词被指针打散，又弹回原位。最适合开场。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/05-text-typography/text-particles/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Text Particles — Animation Handbook">
-  <meta name="twitter:description" content="A word of dots scatters from your pointer and springs back. Best for intros.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Text Particles", "name": "Text Particles", "description": "A word of dots scatters from your pointer and springs back. Best for intros.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-particles/", "inLanguage": "en", "articleSection": "Text & Typography", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Text & Typography, Text Particles"}</script>
+  <meta name="twitter:title" content="文字粒子 — 动画手册">
+  <meta name="twitter:description" content="由圆点组成的词被指针打散，又弹回原位。最适合开场。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "文字粒子", "name": "文字粒子", "description": "由圆点组成的词被指针打散，又弹回原位。最适合开场。", "url": "https://animation.xizanghuapi.cn/animations/05-text-typography/text-particles/", "inLanguage": "zh-CN", "articleSection": "文字与排版", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画、CSS 动画、文字与排版、文字粒子"}</script>
   <style>
     :root{--ui-accent:#ff6f8b;--bg:#0b0b0d;--glow:#ff6f8b}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -51,101 +51,101 @@
       .stage[data-hb-mode="compare"]{background:radial-gradient(ellipse 60% 23% at 50% 25%,color-mix(in srgb,var(--glow) 14%,transparent),transparent 72%),radial-gradient(ellipse 60% 23% at 50% 75%,color-mix(in srgb,var(--glow) 14%,transparent),transparent 72%),var(--bg)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../handwriting-draw/" rel="prev" aria-label="Previous: Handwriting Draw"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Handwriting Draw</span></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../handwriting-draw/" rel="prev" aria-label="上一个：手写描绘"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>手写描绘</span></a><a href="../text-mask/" rel="next" aria-label="下一个：文字蒙版"><span><span class="hb-dir">下一个：</span>文字蒙版</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">05.19 · Text &amp; Typography</p>
-    <h1>Text Particles</h1>
-    <p class="hb-lede">A word of dots scatters from your pointer and springs back. Best for intros.</p>
+    <p class="hb-cat">05.19 · 文字与排版</p>
+    <h1>文字粒子</h1>
+    <p class="hb-lede">由圆点组成的词被指针打散，又弹回原位。最适合开场。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Hover it</h2><p>Move your pointer through the word, drag a finger across it (or Tab to it and use the arrow keys), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">悬停试试</h2><p>把指针移到词上划过，用手指拖过它（或按 Tab 聚焦后用方向键），或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <div class="keys" id="keys" tabindex="0" role="group" aria-label="Word of dots: use the arrow keys to push the dots"></div>
-      <canvas id="cvs" role="img" aria-label="The word HELLO, made of small dots"></canvas>
-      <div class="key" aria-hidden="true"><p class="lbl k reach" data-hb-caption>Ring: how far the pointer pushes</p><p class="lbl k" data-hb-caption>Outline: the hidden letters</p></div>
-      <p class="lbl springs" aria-hidden="true" data-hb-caption>Lines: springs pull dots home in about a second</p>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Solid letters</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Dots that scatter</p>
+      <div class="keys" id="keys" tabindex="0" role="group" aria-label="由圆点组成的词：用方向键推动圆点"></div>
+      <canvas id="cvs" role="img" aria-label="由小圆点组成的词 HELLO"></canvas>
+      <div class="key" aria-hidden="true"><p class="lbl k reach" data-hb-caption>圆环：指针能推多远</p><p class="lbl k" data-hb-caption>轮廓：隐藏的字母</p></div>
+      <p class="lbl springs" aria-hidden="true" data-hb-caption>线条：弹簧把圆点拉回原位，大约一秒内</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>实心字母</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>散开的圆点</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the ring is how far the pointer pushes, and each line is a spring pulling a dot back to its home. The dots sit wherever the hidden letters cover a grid.</p>
-      <p data-hb-for="compare" hidden>Solid letters stay as they are wherever the pointer goes. Dots that scatter are pushed away from the pointer and spring back, so the word opens around it.</p>
+      <p data-hb-for="inside" hidden>内部是这样的：圆环是指针能推多远，每条线是一根把圆点拉回原位的弹簧。圆点分布在隐藏字母盖住网格的地方。</p>
+      <p data-hb-for="compare" hidden>「实心字母」无论指针走到哪里都保持原样。「散开的圆点」会被指针推开再弹回来，所以这个词会在指针周围张开。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Dot size</p>
+        <p class="hb-setting-name" id="size-lbl">圆点大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-k="3" aria-pressed="false">Small</button>
-          <button type="button" data-k="4.2" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-k="6" aria-pressed="false">Large</button>
+          <button type="button" data-k="3" aria-pressed="false">小</button>
+          <button type="button" data-k="4.2" class="on" aria-pressed="true">中</button>
+          <button type="button" data-k="6" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Smaller dots sit closer together, so the letters look finer.</p>
+        <p class="hb-hint">圆点越小、排得越密，字母看起来越精细。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="far-lbl">How far they scatter</p>
+        <p class="hb-setting-name" id="far-lbl">散开距离</p>
         <div class="seg" id="far-seg" role="group" aria-labelledby="far-lbl">
-          <button type="button" data-k=".28" aria-pressed="false">Short</button>
-          <button type="button" data-k=".42" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-k=".65" aria-pressed="false">Far</button>
+          <button type="button" data-k=".28" aria-pressed="false">短</button>
+          <button type="button" data-k=".42" class="on" aria-pressed="true">中</button>
+          <button type="button" data-k=".65" aria-pressed="false">远</button>
         </div>
-        <p class="hb-hint">How wide a gap the pointer opens in the word.</p>
+        <p class="hb-hint">指针在词里打开的缺口有多宽。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="pal-lbl">Colors</p>
+        <p class="hb-setting-name" id="pal-lbl">配色</p>
         <div class="seg" id="pal-seg" role="group" aria-labelledby="pal-lbl">
-          <button type="button" data-pal="sunset" class="on" aria-pressed="true">Sunset</button>
-          <button type="button" data-pal="cool" aria-pressed="false">Cool</button>
-          <button type="button" data-pal="rainbow" aria-pressed="false">Rainbow</button>
-          <button type="button" data-pal="white" aria-pressed="false">White</button>
+          <button type="button" data-pal="sunset" class="on" aria-pressed="true">日落</button>
+          <button type="button" data-pal="cool" aria-pressed="false">冷色</button>
+          <button type="button" data-pal="rainbow" aria-pressed="false">彩虹</button>
+          <button type="button" data-pal="white" aria-pressed="false">白色</button>
         </div>
-        <p class="hb-hint">The colors across the word, from left to right.</p>
+        <p class="hb-hint">整个词上的颜色，从左到右。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="back-lbl">How fast they come back</p>
+          <p class="hb-setting-name" id="back-lbl">回弹速度</p>
           <div class="seg" id="back-seg" role="group" aria-labelledby="back-lbl">
-            <button type="button" data-b="slow" aria-pressed="false">Slow</button>
-            <button type="button" data-b="normal" class="on" aria-pressed="true">Normal</button>
-            <button type="button" data-b="fast" aria-pressed="false">Fast</button>
+            <button type="button" data-b="slow" aria-pressed="false">慢</button>
+            <button type="button" data-b="normal" class="on" aria-pressed="true">普通</button>
+            <button type="button" data-b="fast" aria-pressed="false">快</button>
           </div>
-          <p class="hb-hint">How quickly the dots spring back into the letters.</p>
+          <p class="hb-hint">圆点弹回字母里的速度。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-setting-name" for="text-inp">Your text</label>
+          <label class="hb-setting-name" for="text-inp">你的文字</label>
           <input class="hb-text" type="text" id="text-inp" value="HELLO" maxlength="10" autocomplete="off">
-          <p class="hb-hint">Short words work best, up to 10 letters.</p>
+          <p class="hb-hint">短词效果最好，最多 10 个字母。</p>
         </div>
       </div>
     </details>
@@ -154,41 +154,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a text particle effect to [the word or short title you want to animate]. Sample the word's pixels from a hidden canvas on an even grid, placing a dot wherever a letter covers it. Push the dots near the pointer away, so they glow as they fly, and tie each to its home with a spring, so it flies back with a slight wobble once the pointer moves on. Run one frame loop that moves by elapsed time, stop it once every dot is home, and draw fewer dots on phones. On touch screens, a dragged finger pushes the dots the same way. With reduced motion turned on, keep the dots still and only light up those near the pointer. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想做动画的词或短标题]加一个文字粒子效果。在一张隐藏画布上按均匀网格采样这个词的像素，凡是字母盖住的地方就放一个圆点。把指针附近的圆点推开，让它们飞起来时发光，再用弹簧把每个圆点连回原位，这样指针移开后它们会带着轻微晃动飞回来。只用一个按流逝时间推进的帧循环，所有圆点回家后就停下来，手机上画更少的圆点。触屏上，拖动的手指同样能推开圆点。开启减弱动态效果时，让圆点保持静止，只点亮指针附近的圆点。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Hero titles</li><li>Page intros</li><li>Portfolios</li><li>Launch pages</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long text</li><li>Small text</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>主视觉标题</li><li>页面开场</li><li>作品集</li><li>发布页面</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长文本</li><li>小字</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage'),cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d'),txtIn=document.getElementById('text-inp');
   const slowTog=document.getElementById('slow-tog'),reduce=matchMedia('(prefers-reduced-motion: reduce)'),PHONE=matchMedia('(max-width:600px),(max-height:500px)');
@@ -376,11 +376,11 @@
   // The words that change: See inside's ring and springs and both notes (the markup holds the default ones), for How fast they come
   // back and for reduced motion; and the picture's name, which says what the mode on show draws
   const notes=[...document.querySelectorAll('.hb-mode-notes [data-hb-for]')],NOTE=notes.map(p=>p.textContent),reach=document.querySelector('.lbl.reach'),springs=document.querySelector('.lbl.springs');
-  const SOON={slow:'in a second and a half',normal:'in about a second',fast:'in under a second'},STILL=['Shown still: the ring is how far the pointer reaches. With reduced motion on, the dots stay home and only those inside the ring light up.','Shown still: Solid letters ignore the pointer, while Dots that scatter light up around it; with reduced motion on, the dots stay home.'];
+  const SOON={slow:'一个半秒',normal:'大约一秒',fast:'不到一秒'},STILL=['静止显示：圆环是指针能到达的范围。开启减弱动态效果时，圆点都待在原位，只有圆环内的圆点会亮起来。','静止显示：「实心字母」不理会指针，而「散开的圆点」会在指针周围亮起来；开启减弱动态效果时，圆点都待在原位。'];
   function words(){const red=reduce.matches,say=(el,t)=>{if(el.textContent!==t)el.textContent=t};
-    notes.forEach((p,i)=>say(p,red?STILL[i]:NOTE[i]));say(reach,red?'Ring: how far the pointer reaches':'Ring: how far the pointer pushes');
-    say(springs,red?'With reduced motion on, the dots stay home':'Lines: springs pull dots home '+SOON[back]);name();}
-  function name(){const w='The word '+text+', made of small dots';cvs.setAttribute('aria-label',mode==='inside'?w+(reduce.matches?", with the pointer's reach and the hidden letters drawn in":", with the pointer's reach, the springs and the hidden letters drawn in"):mode==='compare'?'The word '+text+' twice: in solid letters, and in small dots that scatter':w);}
+    notes.forEach((p,i)=>say(p,red?STILL[i]:NOTE[i]));say(reach,red?'圆环：指针能到达的范围':'圆环：指针能推多远');
+    say(springs,red?'开启减弱动态效果时，圆点待在原位':'线条：弹簧把圆点拉回原位，用时'+SOON[back]);name();}
+  function name(){const w='由小圆点组成的词 '+text;cvs.setAttribute('aria-label',mode==='inside'?w+(reduce.matches?"，画出了指针的范围和隐藏的字母":"，画出了指针的范围、弹簧和隐藏的字母"):mode==='compare'?'词 '+text+' 显示两次：实心字母一次，散开的小圆点一次':w);}
   // The mode switch draws the mode at once. Compare samples the word again for its second half; Normal's dots are kept and put back when
   // it is left (sampled again if the stage's size or the font changed). The park takes its place, or is lifted in Normal so every dot
   // springs home. Safe to run twice; it presses nothing (the shared script then presses Show me, not under reduced motion).

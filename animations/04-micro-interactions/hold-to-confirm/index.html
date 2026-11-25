@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hold to Confirm — Animation Handbook</title>
-  <meta name="description" content="A button fills up while you hold it and acts only once it is full. Best for delete buttons.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hold-to-confirm/">
+  <title>长按确认 — 动画手册</title>
+  <meta name="description" content="按住按钮时它会逐渐填满，满了才执行操作。适合用在删除按钮上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hold-to-confirm/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Hold to Confirm — Animation Handbook">
-  <meta property="og:description" content="A button fills up while you hold it and acts only once it is full. Best for delete buttons.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hold-to-confirm/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="长按确认 — 动画手册">
+  <meta property="og:description" content="按住按钮时它会逐渐填满，满了才执行操作。适合用在删除按钮上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/hold-to-confirm/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hold to Confirm — Animation Handbook">
-  <meta name="twitter:description" content="A button fills up while you hold it and acts only once it is full. Best for delete buttons.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Hold to Confirm", "name": "Hold to Confirm", "description": "A button fills up while you hold it and acts only once it is full. Best for delete buttons.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/hold-to-confirm/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Hold to Confirm"}</script>
+  <meta name="twitter:title" content="长按确认 — 动画手册">
+  <meta name="twitter:description" content="按住按钮时它会逐渐填满，满了才执行操作。适合用在删除按钮上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "长按确认", "name": "长按确认", "description": "按住按钮时它会逐渐填满，满了才执行操作。适合用在删除按钮上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/hold-to-confirm/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 长按确认"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-muted:#9a9aa2;--red:#c43a36;--red-dim:#2a1416;--red-edge:#6b2a2a;--ring:#ff6b63}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -64,7 +64,7 @@
     /* See inside and Compare: everything they add stays hidden in Normal. */
     .strip,.cp,.lbl{display:none}
     .lbl{padding:2px 7px;border-radius:5px;background:#111114;color:#f4f4f2;font:600 12px/15px var(--hb-font)}
-    /* See inside: a time strip under the hint, on a fixed scale of three seconds (a faint mark every half second). The top bar is
+    /* See inside: a time strip under the hint, on a fixed scale of 三秒 (a faint mark every half second). The top bar is
        the hold (the marker rides it as the fill is drawn); the lower bar is how long a full drain takes, with its arrow toward the start. */
     .stage[data-hb-mode="inside"]{container-type:size;padding:10px}
     .stage[data-hb-mode="inside"] .card{gap:10px;padding:14px 16px}
@@ -94,7 +94,7 @@
       .stage[data-hb-mode="inside"] .card>.strip{grid-column:2;grid-row:1/4}
     }
     /* Compare: on the left a copy whose plain button deletes at the first touch, on the right the real card. At rest the copy stands
-       deleted and the real fill is a quarter of a second in, with its hint (the pose; a press lifts it). Phones stack the halves. */
+       deleted and the real fill is 四分之一秒 in, with its hint (the pose; a press lifts it). Phones stack the halves. */
     .stage[data-hb-mode="compare"]{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;align-items:center;padding:40px 12px 12px}
     .stage[data-hb-mode="compare"]::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:#2a2a30}
     .stage[data-hb-mode="compare"] .card,.stage[data-hb-mode="compare"] .cp{display:flex;justify-self:center;padding:16px 18px;gap:14px}
@@ -113,37 +113,37 @@
       .stage[data-hb-mode="compare"] .side.second{left:12px;top:calc(50% + 8px)}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../typing-indicator/" rel="prev" aria-label="Previous: Typing Indicator"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Typing Indicator</span></a><a href="../expanding-search/" rel="next" aria-label="Next: Expanding Search"><span><span class="hb-dir">Next: </span>Expanding Search</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../typing-indicator/" rel="prev" aria-label="上一个：正在输入指示"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>正在输入指示</span></a><a href="../expanding-search/" rel="next" aria-label="下一个：搜索框展开"><span><span class="hb-dir">下一个：</span>搜索框展开</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.36 · Micro-Interactions</p>
-    <h1>Hold to Confirm</h1>
-    <p class="hb-lede">A button fills up while you hold it and acts only once it is full. Best for delete buttons.</p>
+    <p class="hb-cat">04.36 · 微交互</p>
+    <h1>长按确认</h1>
+    <p class="hb-lede">按住按钮时它会逐渐填满，满了才执行操作。适合用在删除按钮上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Press and hold the button until it fills (or hold Space or Enter on it), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>按住按钮，直到它填满（或在它上面按住空格键或 Enter），或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="card" id="card">
         <div class="file">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
-          <div><p class="name">Old drafts</p><p class="meta">12 files · 48 MB</p></div>
+          <div><p class="name">旧草稿</p><p class="meta">12 个文件 · 48 MB</p></div>
         </div>
         <div class="shaker" id="shaker">
           <button class="hold" id="hold" type="button">
@@ -153,70 +153,70 @@
               <svg class="ic trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
               <svg class="ic tick" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
             </span>
-            <span class="words"><span class="w-hold">Hold to delete</span><span class="w-done" aria-hidden="true">Drafts deleted</span></span>
+            <span class="words"><span class="w-hold">按住删除</span><span class="w-done" aria-hidden="true">草稿已删除</span></span>
           </button>
         </div>
-        <p class="tip" id="tip" aria-hidden="true">Keep holding until it fills</p>
+        <p class="tip" id="tip" aria-hidden="true">一直按住，直到填满</p>
         <div class="strip" aria-hidden="true">
-          <p class="lbl s-fin" data-hb-caption>Deletes only here</p>
+          <p class="lbl s-fin" data-hb-caption>只在这里删除</p>
           <div class="rail"><span class="hbar"><span class="hlit"></span></span><span class="fin"></span><span class="mark"></span></div>
-          <p class="lbl s-hold" data-hb-caption>Hold: about a second and a half</p>
+          <p class="lbl s-hold" data-hb-caption>按住：大约一秒半</p>
           <div class="rail r2"><span class="dbar"></span></div>
-          <p class="lbl s-drain" data-hb-caption>Let go early: it drains back in under half a second, and shakes</p>
-          <p class="lbl s-scale" data-hb-caption>Each mark: half a second</p>
+          <p class="lbl s-drain" data-hb-caption>提前松开：不到半秒内流回去，还会抖一下</p>
+          <p class="lbl s-scale" data-hb-caption>每个标记：半秒</p>
         </div>
       </div>
       <p class="sr-only" id="status" role="status" aria-live="polite"></p>
-      <p class="lbl side first" aria-hidden="true" data-hb-caption>Deletes on tap</p>
-      <p class="lbl side second" aria-hidden="true" data-hb-caption>Hold to confirm</p>
+      <p class="lbl side first" aria-hidden="true" data-hb-caption>点一下就删除</p>
+      <p class="lbl side second" aria-hidden="true" data-hb-caption>长按确认</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>The marker follows the fill along the top bar, and only its end deletes. Hold the button and let go early, or press Show me: it runs back, from full in the lower bar's time.</p>
-      <p data-hb-for="compare" hidden>Deletes on tap: one slip and the drafts are gone. Hold to confirm: a short press only starts the fill, which drains back, and it deletes once full; press the button or Show me.</p>
+      <p data-hb-for="inside" hidden>标记沿着顶部横条跟随填充，只有它的末端会删除。按住按钮并提前松开，或按「演示一下」：它会跑回去，用下面横条的时间从满格开始。</p>
+      <p data-hb-for="compare" hidden>点一下就删除：一次手滑，草稿就没了。长按确认：短按只会开始填充，填充会流回去；满了才删除；按按钮或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="time-lbl">How long to hold</p>
+        <p class="hb-setting-name" id="time-lbl">按住时长</p>
         <div class="seg" id="time-seg" role="group" aria-labelledby="time-lbl">
-          <button type="button" data-ms="800" aria-pressed="false">Short</button>
-          <button type="button" data-ms="1500" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-ms="2500" aria-pressed="false">Long</button>
+          <button type="button" data-ms="800" aria-pressed="false">短</button>
+          <button type="button" data-ms="1500" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-ms="2500" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">How long the button must be held before it acts.</p>
+        <p class="hb-hint">按钮执行前必须按住多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="style-lbl">Fill style</p>
+        <p class="hb-setting-name" id="style-lbl">填充样式</p>
         <div class="seg" id="style-seg" role="group" aria-labelledby="style-lbl">
-          <button type="button" data-s="bar" class="on" aria-pressed="true">Bar</button>
-          <button type="button" data-s="ring" aria-pressed="false">Ring</button>
+          <button type="button" data-s="bar" class="on" aria-pressed="true">横条</button>
+          <button type="button" data-s="ring" aria-pressed="false">圆环</button>
         </div>
-        <p class="hb-hint">A bar fills the button; a ring fills around a round button.</p>
+        <p class="hb-hint">横条填满按钮；圆环绕着圆形按钮填满。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Shakes if let go early</span><input class="hb-switch" type="checkbox" role="switch" id="shake-tog" checked autocomplete="off"></label>
-        <p class="hb-hint">A small shake says the hold was too short.</p>
+        <label class="hb-switch-row"><span>提前松开会抖动</span><input class="hb-switch" type="checkbox" role="switch" id="shake-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">轻轻抖一下，表示按住的时间太短。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="drain-lbl">How fast it drains</p>
+          <p class="hb-setting-name" id="drain-lbl">流失速度</p>
           <div class="seg" id="drain-seg" role="group" aria-labelledby="drain-lbl">
-            <button type="button" data-ms="400" class="on" aria-pressed="true">Quickly</button>
-            <button type="button" data-ms="1500" aria-pressed="false">Slowly</button>
+            <button type="button" data-ms="400" class="on" aria-pressed="true">很快</button>
+            <button type="button" data-ms="1500" aria-pressed="false">慢慢</button>
           </div>
-          <p class="hb-hint">How the fill runs back out when you let go early.</p>
+          <p class="hb-hint">提前松开时，填充怎么流回去。</p>
         </div>
       </div>
     </details>
@@ -225,41 +225,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add hold to confirm to [the button for a risky action, such as Delete]. While the visitor holds it down, a fill grows steadily, and the action runs only once it is full, when a tick shows. If they let go early, the fill drains back, nothing happens and a short hint says to keep holding; when the settings ask for it, the button also shakes. Holding Space or Enter works the same way, and on touch a long press must not open the browser's menu. Grow the fill smoothly by the time held, not per frame, and announce the result to screen readers. If the visitor has reduced motion turned on, fill in a few steps without the shake. Match the settings listed below.</p>
+      <p class="hb-prompt">给[有风险的操作按钮，比如「删除」]加上长按确认。访客按住时，填充会稳步增长；只有满了，操作才会执行，并显示一个对勾。提前松开，填充会流回去，什么都不发生，并有一条简短提示说继续按住；如果设置里要求，按钮还会抖一下。按住空格键或 Enter 效果一样；触屏上长按不能打开浏览器的菜单。按按住的时间平滑地增长填充，而不是按帧，并向读屏软件播报结果。如果访客开启了减弱动态效果，分几步填满，不要抖动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Delete buttons</li><li>Closing an account</li><li>Sending money</li><li>Emergency alerts</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Everyday actions</li><li>Actions with Undo</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>删除按钮</li><li>注销账号</li><li>转账</li><li>紧急提醒</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>日常操作</li><li>可撤销的操作</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $=id=>document.getElementById(id);
   const stage=document.querySelector('.stage'),card=$('card'),hold=$('hold'),fill=$('fill'),rf=$('rf'),tip=$('tip'),shaker=$('shaker'),statusEl=$('status'),shakeTog=$('shake-tog');
@@ -310,15 +310,15 @@
     if(shakeTog.checked&&!reduceMq.matches){shaker.classList.remove('shake');void shaker.offsetWidth;shaker.classList.add('shake')}
     tip.classList.add('on');
     clearTimeout(tipTimer);tipTimer=setTimeout(()=>tip.classList.remove('on'),1600);
-    if(byVisitor)statusEl.textContent='Not deleted. Keep holding until it fills.';
+    if(byVisitor)statusEl.textContent='Not deleted. 一直按住，直到填满.';
     run();
   }
   shaker.addEventListener('animationend',()=>shaker.classList.remove('shake'));
-  // Full: the press is used up (letting go now changes nothing), the tick shows and the file fades; a second later it all drains back.
+  // Full: the press is used up (letting go now changes nothing), the tick shows and the file fades; 一秒 later it all drains back.
   function full(){
     holding=false;done=true;
     hold.classList.remove('down');hold.classList.add('done');card.classList.add('gone');
-    if(byVisitor)statusEl.textContent='Old drafts deleted.';
+    if(byVisitor)statusEl.textContent='旧草稿 deleted.';
     doneTimer=setTimeout(()=>{done=false;hold.classList.remove('done');card.classList.remove('gone');statusEl.textContent='';run()},1000);
   }
 
@@ -368,16 +368,16 @@
   // then). This comes before the button's own pointerdown, so a press on the button takes over the fill where it is.
   document.addEventListener('hb:input',()=>{if(running()||(holding&&!byVisitor))stopRun()});
 
-  // See inside's strip and Compare's copy. The strip stands for three seconds; its bars and words come from How long to hold, How fast
+  // See inside's strip and Compare's copy. The strip stands for 三秒; its bars and words come from How long to hold, How fast
   // it drains and Shakes if let go early, and the marker and the lit part follow the fill exactly as draw() draws it.
   const SPAN=3000,strip=card.querySelector('.strip'),hlit=strip.querySelector('.hlit'),mark=strip.querySelector('.mark');
-  const HOLD_WORDS={800:'under a second',1500:'about a second and a half',2500:'two and a half seconds'};
-  const DRAIN_WORDS={400:'in under half a second',1500:'in up to a second and a half'};
+  const HOLD_WORDS={800:'不到一秒',1500:'大约一秒半',2500:'两秒半'};
+  const DRAIN_WORDS={400:'不到半秒内',1500:'in up to 一秒半'};
   function drawStrip(){
     strip.style.setProperty('--hw',100*holdMs/SPAN+'%');
     strip.style.setProperty('--dw',100*drainMs/SPAN+'%');
     strip.querySelector('.s-hold').textContent='Hold: '+HOLD_WORDS[holdMs];
-    strip.querySelector('.s-drain').textContent='Let go early: it drains back '+DRAIN_WORDS[drainMs]+(shakeTog.checked&&!reduceMq.matches?', and shakes':'');
+    strip.querySelector('.s-drain').textContent='提前松开：它退回去'+DRAIN_WORDS[drainMs]+(shakeTog.checked&&!reduceMq.matches?'，并且抖动':'');
   }
   // Compare's first half: the same card with a plain button, no ids, out of the Tab order and hidden from screen readers
   const cp=card.cloneNode(true);
@@ -394,7 +394,7 @@
     const gone=posed||holding||done||p>0;
     cp.classList.toggle('gone',gone);cpBtn.classList.toggle('done',gone);
   }
-  // The pose: at rest in Compare the real fill is drawn a quarter of a second in (the first quarter under reduced motion) without
+  // The pose: at rest in Compare the real fill is drawn 四分之一秒 in (the first quarter under reduced motion) without
   // touching p; a press lifts it before p is read, and it comes back when the button is empty and no run is pending
   const poseFill=()=>reduceMq.matches?.25:Math.min(1,250/holdMs);
   function pose(){

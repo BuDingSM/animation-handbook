@@ -1,18 +1,18 @@
-# Fluid / Liquid Simulation
+# 流体模拟
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/fluid-simulation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/fluid-simulation/)
 
-## What it is
-This fluid effect looks like liquid but is not a real fluid simulation. A WebGL shader works out, for every pixel, how far it is from a few moving circles, and blends those distances so circles that come close melt into one smooth shape, like drops of mercury or a lava lamp. Circles that drift apart separate cleanly again.
+## 它是什么
+这个流体效果看起来像液体，但并不是真正的流体模拟。WebGL 着色器对每个像素算出它离几个移动圆圈有多远，再把这些距离混合起来，让靠得近的圆圈融成一个平滑的形状，像水银滴或熔岩灯。漂开的圆圈又会干净地分开。
 
-## When to use it
-- Liquid-aesthetic hero backgrounds on health, wellness, and creative product sites
-- Generative branding elements where organic movement signals "alive"
-- Hover effects that make UI elements feel soft and fluid
-- Screensaver-style ambient backgrounds for kiosks or dashboards
+## 什么时候用
+- 健康、身心健康和创意产品网站上液体美学的主视觉背景
+- 生成式品牌元素，有机运动传递“活着”的感觉
+- 让界面元素感觉柔软流畅的悬停效果
+- 自助终端或仪表盘的屏保式氛围背景
 
-## How it works
-Each pixel's color is determined by evaluating the SDF of all metaballs at that pixel's world coordinate. The `smin` (smooth minimum) function blends overlapping SDFs:
+## 工作原理
+每个像素的颜色由它在世界坐标处所有元球的 SDF 决定。`smin`（平滑最小值）函数混合重叠的 SDF：
 
 ```glsl
 // Smooth minimum — merges two distance fields
@@ -40,7 +40,7 @@ void main() {
 }
 ```
 
-Ball positions are animated with parametric sine/cosine curves to ensure continuous, non-repeating-feeling motion:
+圆球的位置按参数化的正弦/余弦曲线运动，保证运动连续、感觉不重复：
 
 ```glsl
 vec2 ballPosition(int i, float t) {
@@ -52,27 +52,27 @@ vec2 ballPosition(int i, float t) {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Melting | Medium | How far apart two blobs start to melt together: a little is 0.03, medium 0.08 and a lot 0.15 of the stage height; a lot gives thick, soft necks |
-| Number of blobs | Medium | Few is 3, medium 5 and many 8 blobs; each one adds work for every pixel |
-| Speed | Normal | How fast the blobs move on their paths: at slow each blob swings from side to side and back every 3 to 10 seconds, at normal every 2 to 6 seconds and at fast every 1.2 to 3.7 seconds, each at its own pace |
-| Blob size | Medium | Each blob's radius: small is 9%, medium 14% and large 20% of the stage height |
-| Color | Blue | The color of the liquid |
-| Glow | on | Adds a soft halo that fades out around the liquid |
-| One blob follows the pointer | on | One blob leaves its path and sits under the pointer or a finger |
+| 融化程度 | 中等 | 两个色块相隔多远时开始融化到一起：一点是舞台高度的 0.03，中等 0.08，很多是 0.15；很多会形成粗而柔软的颈部 |
+| 色块数量 | 中等 | 少是 3 个，中等 5 个，多是 8 个色块；每个色块都会给每个像素增加工作量 |
+| 速度 | 普通 | 色块沿路径移动的速度：慢时每个色块来回摆动一次要 3 到 10 秒，普通 2 到 6 秒，快 1.2 到 3.7 秒，各自的节奏不同 |
+| 色块大小 | 中等 | 每个色块的半径：小是舞台高度的 9%，中等 14%，大是 20% |
+| 颜色 | 蓝色 | 液体的颜色 |
+| 辉光 | 开 | 在液体周围加一圈渐渐淡出的柔和光晕 |
+| 一个色块跟随指针 | 开 | 一个色块离开自己的路径，停在指针或手指下面 |
 
-## Production notes
-- **Real fluid simulation**: Navier-Stokes-based fluid (velocity fields, pressure, diffusion) requires full-screen texture updates per frame. Pavel Dobryakov's WebGL Fluid Simulation (PavelDoGreat on GitHub, open source) is the go-to — it renders truly interactive fluid at 60fps using a series of physics passes.
-- **SDF metaballs are an approximation**: they look fluid but don't conserve volume, don't flow around obstacles, and don't respond to physical forces. For true fluid behavior, use a full simulation library.
-- **Performance**: each additional metaball adds a distance evaluation per pixel. On a 1920×1080 canvas with 8 balls, that's ~16 million SDF evaluations per frame. This is why mobile frame rates drop — use a lower canvas resolution on mobile. The demo caps the backing store at 2× device pixel ratio on desktop and 1.5× on phones (600px wide or less, or 500px tall or less), which is the whole of its quality/cost dial.
-- **Silent shader failure**: a shader that fails to compile throws nothing and logs nothing — you get a black canvas. Always check `COMPILE_STATUS` and `LINK_STATUS` and surface a message, as this demo does.
-- **Context loss**: `webglcontextlost` fires on a GPU reset, a driver update, or a backgrounded tab being restored. Without a listener the canvas stays black permanently. Call `preventDefault()` on the loss event, stop the loop, and rebuild the program on `webglcontextrestored`.
-- **Shadertoy**: the metaball pattern is one of the classic Shadertoy exercises. [shadertoy.com](https://www.shadertoy.com) has hundreds of metaball variants.
-- **`prefers-reduced-motion`**: pause the animation. The blobs should remain visible in their default positions.
+## 生产注意事项
+- **真正的流体模拟**：基于 Navier-Stokes 的流体（速度场、压力、扩散）需要每帧更新全屏纹理。Pavel Dobryakov 的 WebGL Fluid Simulation（GitHub 上的 PavelDoGreat，开源）是首选——它用一系列物理通道以 60fps 渲染真正可交互的流体。
+- **SDF 元球只是近似**：它们看起来像流体，但不守恒体积，不会绕过障碍物，也不会响应物理力。要真正的流体行为，用完整的模拟库。
+- **性能**：每多一个元球，每个像素就多一次距离计算。1920×1080 的画布上有 8 个球，一帧就是约 1600 万次 SDF 计算。这就是手机帧率下降的原因——手机上用更低的画布分辨率。演示把后备存储封顶在桌面 2 倍设备像素比、手机 1.5 倍，这就是它全部的质量/成本调节。
+- **无声的着色器失败**：编译失败的着色器不抛错也不记日志——你只会得到黑画布。始终检查 `COMPILE_STATUS` 和 `LINK_STATUS` 并把消息显示出来，演示就是这样做的。
+- **上下文丢失**：GPU 重置、驱动更新或恢复后台标签页时会触发 `webglcontextlost`。没有监听器，画布会永久变黑。在丢失事件上调用 `preventDefault()`，停掉循环，并在 `webglcontextrestored` 里重建程序。
+- **Shadertoy**：元球图案是经典的 Shadertoy 练习之一。[shadertoy.com](https://www.shadertoy.com) 上有几百种元球变体。
+- **`prefers-reduced-motion`**：暂停动画。色块应停在默认位置保持可见。
 
-## See also
-- [WebGL Shader Animation](../webgl-shader-animation/) — the same one-surface shader setup, painting patterns
-- [Morphing Blob](../morphing-blob/) — the same melting look from blurred circles, without WebGL
-- [Noise-Based Motion](../noise-based-motion/) — smooth noise moves dots and a blob instead
+## 另见
+- [WebGL 着色器动画](../webgl-shader-animation/) — 同样的单面着色器设置，画的是图案
+- [变形色块](../morphing-blob/) — 同样的融化外观，用模糊的圆圈做出，不用 WebGL
+- [噪声驱动运动](../noise-based-motion/) — 平滑噪声移动圆点和色块

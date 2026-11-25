@@ -1,18 +1,18 @@
-# Magnetic Button
+# 磁吸按钮
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/magnetic-button/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/magnetic-button/)
 
-## What it is
-A magnetic button seems to be drawn to the pointer. When the pointer comes close, the button moves part of the way toward it and its label moves a little further, so the label seems to float above the button. When the pointer leaves, the button springs back; it never leaves its place in the layout.
+## 它是什么
+磁吸按钮好像被指针吸住。指针靠近时，按钮向它移动一部分，标签再多移一点，所以标签像浮在按钮上面一样。指针离开时，按钮弹回来；它在布局里的位置永远不会变。
 
-## When to use it
-- Hero CTAs on portfolio and landing pages, where a single button carries most of the attention
-- Primary actions you want to feel responsive and "alive" without being noisy
-- Award-style / agency sites where tactile pointer play is part of the brand
-- Sparingly — one or two magnetic elements per view, not every button
+## 什么时候用
+- 作品集和落地页上的主视觉 CTA，一个按钮承载大部分注意力
+- 想让它感觉灵敏、“活着”又不吵闹的主要操作
+- 触感指针玩法是品牌一部分的获奖风格 / 代理网站
+- 要克制——一屏一两个磁吸元素，不要每个按钮都这样
 
-## How it works
-On every `pointermove` over the stage, you measure the vector from the button's center to the pointer. If the distance is within the activation radius, you translate the button by that vector scaled by a strength factor, with a falloff so the pull eases to zero at the radius edge. The label, inside the button, is moved another 35% of the same offset, so it travels a little further than the button and seems to float above it. The pull is one function that takes a point on the stage, so the mouse and a finger can both call it:
+## 工作原理
+每次 `pointermove` 经过舞台，你都量出从按钮中心到指针的向量。如果距离在激活半径内，就按一个强度系数缩放这个向量来移动按钮，并做衰减，让吸附在半径边缘处缓到零。按钮里面的标签再移动同样偏移的 35%，所以它比按钮走得远一点，像浮在按钮上面一样。吸附是一个接受舞台上一点的函数，所以鼠标和手指都能调用它：
 
 ```js
 function pull(px, py) {
@@ -53,25 +53,25 @@ stage.addEventListener('pointermove', e => { if (e.pointerId === touchId) pointA
 }));
 ```
 
-The spring-back is just a CSS `transition: transform .55s cubic-bezier(.22,1,.36,1)` on the button — when JS clears the offsets, the button eases home on its own. On touch screens, which cannot hover, the same pull follows a finger while it touches the stage, and the button springs home when the finger lifts.
+弹回只是按钮上的一段 CSS `transition: transform .55s cubic-bezier(.22,1,.36,1)`——JS 清掉偏移后，按钮自己缓回原位。触屏上不能悬停，同样的吸附会在手指按住舞台时跟随手指，手指抬起时按钮弹回原位。
 
-The keyboard drives the same `pull()`: with the button focused, a pretend pointer starts at its center and each arrow key press moves it a tenth of Reach, so the button leans toward it and springs home once it is out of reach. Escape, or moving the focus away, sends it home, and Space or Enter presses it as a pointer does.
+键盘驱动的是同一个 `pull()`：按钮聚焦时，一个假想的指针从它的中心开始，每按一次方向键移动作用范围的十分之一，按钮向它倾斜，超出范围后弹回原位。Esc，或把焦点移开，会把它送回家；空格键或 Enter 像指针一样按下它。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Pull strength | Medium | How far the button moves toward the pointer: gentle is 20%, medium 35% and strong 50% of the distance when the pointer is close, a smaller share the farther it is, down to none at the edge of Reach; past about half it feels loose |
-| Reach | Medium | How close the pointer must come before the pull starts: short is 100px, medium 160px and long 240px; too far and the button reacts to unrelated movement |
+| 吸附力度 | 中等 | 按钮向指针移动多远：轻柔是距离的 20%，中等 35%，强烈 50%（指针靠近时），越远占比越小，到作用范围的边缘为零；超过大约一半会感觉松散 |
+| 作用范围 | 中等 | 指针靠多近，吸附才开始：短是 100px，中等 160px，长是 240px；太远，按钮会对无关的移动做出反应 |
 
-## Production notes
-- **Gate on hover capability**: bind the hover magnet only where `window.matchMedia('(hover: hover)').matches`. On touch screens `pointermove` fires only while a finger is down, so pull toward the touch point while it is down and send the button home when it lifts, or fall back to a plain press-scale.
-- **Transform only**: animate `translate`, never `top`/`left`. The button stays on the compositor and the layout never reflows, so it holds 60fps even during rapid pointer movement.
-- **Debounce is unnecessary but rAF helps**: for heavier scenes, batch the transform write inside a `requestAnimationFrame` so multiple `pointermove` events in one frame collapse to a single style write.
-- **Reduced motion**: shorten the transition to a quick, even move, so the button still follows the pointer without the slow glide.
-- **GSAP**: `gsap.quickTo(btn, "x", {duration:.5, ease:"power3"})` is the idiomatic way to do this — it interpolates toward the target every frame instead of snapping, giving smoother lag for free.
-- **Framer Motion**: drive a `useSpring` off the pointer offset and feed it into a `motion.button`'s `x`/`y`; the spring config replaces the CSS easing.
+## 生产注意事项
+- **按悬停能力门控**：只在 `window.matchMedia('(hover: hover)').matches` 的地方绑定悬停磁吸。触屏上 `pointermove` 只在手指按下时触发，所以手指按下时向触摸点吸附，抬起时把按钮送回家，或退回到普通的按压缩放。
+- **只用变换**：动画 `translate`，永远不要用 `top`/`left`。按钮留在合成器上，布局永远不回流，所以即使指针快速移动也能保持 60fps。
+- **防抖没必要，但 rAF 有帮助**：场景更重时，把变换写入批量放进一个 `requestAnimationFrame` 里，这样一帧里的多次 `pointermove` 事件会合并成一次样式写入。
+- **减弱动态效果**：把过渡缩短成快速、均匀的移动，这样按钮仍会跟随指针，没有缓慢的滑行。
+- **GSAP**：`gsap.quickTo(btn, "x", {duration:.5, ease:"power3"})` 是地道的写法——它每一帧都向目标插值，而不是跳过去，免费获得更平滑的滞后。
+- **Framer Motion**：用一个 `useSpring` 跟随指针偏移，传给 `motion.button` 的 `x`/`y`；弹簧配置取代 CSS 缓动。
 
-## See also
-- [Button Press Scale](../button-press-scale/) — the small shrink it also does when pressed
-- [Hover State Animation](../hover-state/) — simpler ways to react to the pointer
-- [Cursor Follower](../cursor-follower/) — a shape that follows the pointer around
+## 另见
+- [按钮按压缩放](../button-press-scale/) — 按下时它也会做的小收缩
+- [悬停状态动画](../hover-state/) — 对指针做出反应的更简单方式
+- [光标跟随](../cursor-follower/) — 一个跟随指针移动的形状

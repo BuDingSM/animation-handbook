@@ -105,12 +105,12 @@ const FILE = path.join(ROOT, 'famous', 'index.html');
 const read = f => fs.readFileSync(f, 'utf8').replace(/\r\n/g, '\n');
 const PAGE = read(FILE);
 const HOME = read(path.join(ROOT, 'index.html'));
-const LIVE = 'https://matinmonshizadeh.github.io/animation-handbook/';
-const REPO = 'https://github.com/matinmonshizadeh/animation-handbook';
+const LIVE = 'https://animation.xizanghuapi.cn/';
+const REPO = 'https://github.com/BuDingSM/animation-handbook';
 const TEMPLATE = `${REPO}/issues/new?template=famous_effect.yml`;
-const TITLE = 'Famous effects — Animation Handbook';
-const LEDE = 'Effects people admire on well-known websites, the handbook animations that make something similar, and a prompt to build your own.';
-const LEGAL = "The Animation Handbook is not connected to any of these sites or their owners, and none of them has reviewed or approved this page. Each effect is described in our own words and shown only with the handbook's own demos.";
+const TITLE = '知名效果 — 动画手册';
+const LEDE = '人们在知名网站上喜欢的效果、做出类似效果的手册动画，以及帮你自己动手做的提示词。';
+const LEGAL = '动画手册与这些网站及其所有者没有任何关联，也没有哪个网站审阅或认可过这个页面。每个效果都用我们自己的话描述，只用手册自己的演示来展示。';
 // The sites the page may name (the twelve entries and the reserves): none belongs in its title or description.
 const SITE_NAMES = ['Stripe', 'Apple', 'Lando Norris', 'Linear', 'Wikipedia', 'ChatGPT', 'OpenAI', 'x.com', 'Spotify', 'YouTube', 'Pudding', 'Medium', 'Rockstar', 'Cursor'];
 const count = (s, sub) => s.split(sub).length - 1;
@@ -141,9 +141,9 @@ test('famous/index.html: one title and one description for search and social sit
   assert.ok(PAGE.includes(`<title>${TITLE}</title>`), 'the title');
   for (const attr of ['property="og:title"', 'name="twitter:title"']) assert.equal(meta(attr), TITLE, attr);
   for (const attr of ['name="description"', 'property="og:description"', 'name="twitter:description"']) assert.equal(meta(attr), LEDE, attr);
-  assert.ok(PAGE.includes('<h1 class="h1">Famous effects</h1>'), 'the heading');
+  assert.ok(PAGE.includes('<h1 class="h1">知名效果</h1>'), 'the heading');
   assert.ok(PAGE.includes(`<p class="fx-lede">${LEDE}</p>`), 'the lede under it');
-  assert.match(PAGE, /<p class="pill">\d+ effects from well-known websites<\/p>/, 'the pill');
+  assert.match(PAGE, /<p class="pill">\d+ 个来自知名网站的效果<\/p>/, 'the pill');
   for (const name of SITE_NAMES) assert.ok(!new RegExp(`\\b${escapeRe(name)}\\b`, 'i').test(`${TITLE} ${LEDE}`), `no "${name}" in the title or description`);
 });
 
@@ -155,8 +155,8 @@ test('famous/index.html: canonical and og:url are its live address, and it share
 
 test('the top bar is the home page\'s, with Famous effects marked as this page', () => {
   const bar = between(PAGE, '<header class="wrap top" id="top">', '</header>');
-  for (const part of ['<a class="brand" href="../">', '<a class="lnk" href="../?view=all">Browse all</a>', '<a class="lnk" href="./" aria-current="page">Famous effects</a>',
-    '<button type="button" class="icon-btn theme-btn" id="theme-toggle" aria-label="Switch between light and dark">',
+  for (const part of ['<a class="brand" href="../">', '<a class="lnk" href="../?view=all">浏览全部</a>', '<a class="lnk" href="./" aria-current="page">知名效果</a>',
+    '<button type="button" class="icon-btn theme-btn" id="theme-toggle" aria-label="切换浅色与深色">',
     `<a class="gh" id="gh-stars" href="${REPO}" target="_blank" rel="noopener">`]) assert.ok(bar.includes(part), part);
   assert.equal(count(MARKUP, 'aria-current='), 1, 'one current page');
 });
@@ -187,7 +187,7 @@ test('the page loads nothing from elsewhere, uses only the site\'s font in its o
   // only while its entry is open, so the markup has none
   for (const [tag] of PAGE.matchAll(/<iframe\b[^>]*>/g)) {
     assert.ok(!/\ssrc=/.test(tag), `a frame with a src: ${tag}`);
-    assert.match(tag, /^<iframe title="Our version: [^"]+" data-src="versions\/[a-z0-9-]+\.html">$/, `a frame is titled and names its version: ${tag}`);
+    assert.match(tag, /^<iframe title="我们的版本：[^"]+" data-src="versions\/[a-z0-9-]+\.html">$/, `a frame is titled and names its version: ${tag}`);
   }
   assert.ok(!/demo-page\.(css|js)/.test(PAGE), 'it links neither shared file');
   for (const [, src] of PAGE.matchAll(/\ssrc="([^"]*)"/g)) assert.ok(isRepoFile(src), `src ${src}`);
@@ -204,7 +204,7 @@ test('the page loads nothing from elsewhere, uses only the site\'s font in its o
 });
 
 test('the only links that leave the site are the entries\' sites, the GitHub repository and its issue template, each in a new tab', () => {
-  const sites = new Set([...PAGE.matchAll(/<p class="fx-seen">Seen on <a href="([^"]+)"/g)].map(m => m[1]));
+  const sites = new Set([...PAGE.matchAll(/<p class="fx-seen">见于 <a href="([^"]+)"/g)].map(m => m[1]));
   for (const [tag, href] of PAGE.matchAll(/<a\b[^>]*\shref="(https?:[^"]*)"[^>]*>/g)) {
     assert.ok(href === REPO || href === TEMPLATE || sites.has(href), `a link that leaves the site: ${href}`);
     assert.match(tag, /\starget="_blank" rel="noopener"/, `${href} opens in a new tab`);
@@ -221,28 +221,28 @@ test('every link inside the site opens a file of the repository, and from disk a
 
 test('the footer is the home page\'s, without the count', () => {
   const foot = between(PAGE, '<footer class="wrap foot">', '</footer>');
-  assert.ok(foot.includes('<p class="foot-t">Web animations with live demos and copyable prompts.</p>'), 'its line, with no number');
-  assert.ok(foot.includes(`<a class="lnk" href="${REPO}" target="_blank" rel="noopener">GitHub</a><a class="lnk" href="#top">Back to top</a>`), 'its links');
+  assert.ok(foot.includes('<p class="foot-t">带在线演示和可复制提示词的网页动画。</p>'), 'its line, with no number');
+  assert.ok(foot.includes(`<a class="lnk" href="${REPO}" target="_blank" rel="noopener">GitHub</a><a class="lnk" href="#top">回到顶部</a>`), 'its links');
   assert.ok(!/\d/.test(textOf(foot)), 'no number in the footer');
 });
 
 test('the page script copies, falls back to the copy keys, shortens prompts on phones and shows the message, in the words of the animation pages and the home page', () => {
   const script = [...PAGE.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
   const shared = read(path.join(ROOT, 'assets', 'js', 'demo-page.js'));
-  for (const words of ['Show the full prompt', 'Show less', 'Press ⌘C to copy', 'Press Ctrl+C to copy']) {
+  for (const words of ['显示完整提示词', '收起', '按 ⌘C 复制', '按 Ctrl+C 复制']) {
     assert.ok(script.includes(`'${words}'`), `the page says "${words}"`);
     assert.ok(shared.includes(`'${words}'`), `as the animation pages do: "${words}"`);
   }
-  assert.ok(script.includes("toast('Prompt copied. Paste it into your AI assistant.')") && HOME.includes("toast('Prompt copied. Paste it into your AI assistant.')"), 'the home page\'s message');
+  assert.ok(script.includes("toast('提示词已复制，粘贴到你的 AI 助手里就能用。')") && HOME.includes("toast('提示词已复制，粘贴到你的 AI 助手里就能用。')"), 'the home page\'s message');
   assert.ok(script.includes("document.execCommand('copy')") && shared.includes("doc.execCommand('copy')"), 'where the clipboard is refused or missing, a hidden text box copies, as on the animation pages');
   assert.ok(script.indexOf("document.execCommand('copy')") < script.indexOf("copyState(btn,'keys')"), 'before the button asks for the copy keys');
-  for (const words of ["'Copy prompt'", "'Copied'"]) assert.ok(script.includes(words), words);
+  for (const words of ["'复制提示词'", "'已复制'"]) assert.ok(script.includes(words), words);
   assert.ok(PAGE.includes('<div class="toast" id="toast" role="status" aria-live="polite">'), 'the message box');
 });
 
 test('Seen one we should add? opens the Famous effect issue template, which asks for the site and what you see in your own words, with no screenshots or code', () => {
-  assert.ok(PAGE.includes(`<a class="fx-suggest" href="${TEMPLATE}" target="_blank" rel="noopener">Suggest it on GitHub<span class="sr"> (opens in a new tab)</span></a>`), 'the Suggest link');
-  assert.ok(PAGE.includes('<p class="fx-note">Each entry was checked on its live site in the year shown; a site may have changed since.</p>'), 'the note on dates');
+  assert.ok(PAGE.includes(`<a class="fx-suggest" href="${TEMPLATE}" target="_blank" rel="noopener">在 GitHub 上推荐<span class="sr">（在新标签页中打开）</span></a>`), 'the Suggest link');
+  assert.ok(PAGE.includes('<p class="fx-note">每一条都是在它显示的年份里，在它的在线网站上核对过的；网站可能已经变了。</p>'), 'the note on dates');
   const yml = read(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'famous_effect.yml'));
   assert.match(yml, /^name: Famous effect$/m, 'its name');
   const field = id => yml.split('\n  - type: ').find(part => part.includes(`\n    id: ${id}\n`)) || '';
@@ -273,7 +273,7 @@ test('make-famous: on the real home page every card builds, but the seven whose 
 
 // ---------- The page: entries, cards and prompts ----------
 const STARTS = ['loop', 'load', 'scroll', 'hover', 'press'];
-const words = s => s.split(/\s+/).filter(Boolean).length;
+const words = s => (s.match(/[A-Za-z0-9]+/g) || []).length + (s.match(/[\u4e00-\u9fff]/g) || []).length;
 // Each entry as { id, site, start, body }, in page order.
 const ENTRIES = [...PAGE.matchAll(/<section class="fx" id="([a-z0-9-]+)" aria-labelledby="\1-t" data-fx-site="([^"]+)" data-fx-start="([a-z]+)">([\s\S]*?)<\/section>/g)]
   .map(m => ({ id: m[1], site: decode(m[2]), start: m[3], body: m[4] }));
@@ -282,7 +282,7 @@ const CARD = /<article class="card (c[1-7])" data-slug="([a-z0-9-]+)"><div class
 // The words that would name an entry's site in a prompt: its name (without a leading "The"), its address and the name in that
 // address. A single letter, as X, is too short to count ("an X" is a shape); its address still counts.
 const siteWords = e => {
-  const href = e.body.match(/<p class="fx-seen">Seen on <a href="([^"]+)"/)[1], host = new URL(href).hostname.replace(/^www\./, '');
+  const href = e.body.match(/<p class="fx-seen">见于 <a href="([^"]+)"/)[1], host = new URL(href).hostname.replace(/^www\./, '');
   return [e.site.replace(/^The /, ''), host, host.split('.').slice(-2)[0]].filter(w => w.length > 1);
 };
 // Whether text holds word as a word of its own (not inside a longer one), ignoring case.
@@ -297,8 +297,8 @@ test('every entry is written as the template says, so the tests below see it', (
 
 for (const e of ENTRIES) {
   test(`${e.id}: seen on its site in the year it was checked, a heading, what you see in 25 to 70 words and what starts it`, () => {
-    const seen = e.body.match(/<p class="fx-seen">Seen on <a href="(https:\/\/[^"]+)" target="_blank" rel="noopener">([^<]+)<span class="sr"> \(opens in a new tab\)<\/span><\/a> in&nbsp;<time datetime="((\d{4})-\d{2}-\d{2})">(\d{4})<\/time><\/p>/);
-    assert.ok(seen, 'Seen on: the site\'s address as a link that opens a new tab, then "in", a no-break space (the year never starts a line) and the year in a <time>');
+    const seen = e.body.match(/<p class="fx-seen">见于 <a href="(https:\/\/[^"]+)" target="_blank" rel="noopener">([^<]+)<span class="sr">（在新标签页中打开）<\/span><\/a>，<time datetime="((\d{4})-\d{2}-\d{2})">(\d{4})<\/time>&nbsp;年<\/p>/);
+    assert.ok(seen, 'Seen on: the site\'s address as a link that opens a new tab, then a comma and the year in a <time>, with 年 kept on the same line by a no-break space');
     const [, href, label, day, year, shown] = seen;
     assert.equal(label, href.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, ''), 'the link shows the address without https:// or www.');
     assert.equal(shown, year, 'the year shown is the year of the day checked');
@@ -309,11 +309,11 @@ for (const e of ENTRIES) {
     const what = e.body.match(/<p class="fx-what">([\s\S]*?)<\/p>/);
     assert.ok(what, 'what you see');
     const n = words(textOf(what[1]));
-    assert.ok(n >= 25 && n <= 70, `what you see has ${n} words, not 25 to 70`);
+    assert.ok(n >= 50 && n <= 120, `what you see has ${n} words, not 50 to 120`);
     assert.ok(!/["“”]/.test(textOf(what[1])), 'what you see quotes no words: it says what shows in our own words');
     assert.ok(STARTS.includes(e.start), `data-fx-start "${e.start}" is one of ${STARTS.join(', ')}`);
     assert.ok(e.site.trim(), 'data-fx-site names the site');
-    assert.ok(e.body.includes('<h3 class="fx-sub">Build it with these animations</h3>') && e.body.includes('<h3 class="fx-sub">A prompt to build something similar</h3>'), 'its two parts');
+    assert.ok(e.body.includes('<h3 class="fx-sub">用这些动画来做</h3>') && e.body.includes('<h3 class="fx-sub">做个类似效果的提示词</h3>'), 'its two parts');
   });
 
   test(`${e.id}: one to three cards, each an animation of the home page with its name, line and page, and a short label`, async () => {
@@ -332,7 +332,7 @@ for (const e of ENTRIES) {
       assert.equal(decode(name), cardName, `${slug}: the home page's name`);
       assert.equal(decode(desc), line, `${slug}: the home page's line`);
       const n = words(decode(label));
-      assert.ok(n >= 1 && n <= 3, `${slug}: the label "${label}" has ${n} words, not 1 to 3`);
+      assert.ok(n >= 1 && n <= 6, `${slug}: the label "${label}" has ${n} characters, not 1 to 6`);
     }
   });
 
@@ -340,45 +340,45 @@ for (const e of ENTRIES) {
     const box = e.body.match(/<div class="fx-pbox"><p class="fx-prompt">([\s\S]*?)<\/p><\/div>/);
     assert.ok(box, 'the prompt in its box');
     const prompt = textOf(box[1]), n = words(prompt);
-    assert.ok(n >= 60 && n <= 130, `${n} words, not 60 to 130`);
-    assert.ok(prompt.startsWith('Add '), 'starts with "Add "');
+    assert.ok(n >= 140 && n <= 220, `${n} words, not 140 to 220`);
+    assert.ok(prompt.startsWith('给'), 'starts with "给"');
     const parts = prompt.match(/\[[^\]]+\]/g) || [];
     assert.ok(parts.length >= 1, 'at least one [part to fill in]');
     assert.equal(count(box[1], '<mark>['), parts.length, 'each [part] is marked');
     assert.ok(!/`|<code|<pre/.test(box[1]), 'no code');
-    assert.ok(!prompt.includes('Match the settings listed below.'), 'the page has no settings to match');
-    assert.match(prompt, /reduced motion/i, 'says what happens under reduced motion');
-    if (e.start === 'hover' || e.start === 'press') assert.match(prompt, /\b(touch|tap|finger)/i, 'names touch, a tap or a finger');
+    assert.ok(!prompt.includes('按下面列出的设置来做。'), 'the page has no settings to match');
+    assert.match(prompt, /减弱动态效果/, 'says what happens under reduced motion');
+    if (e.start === 'hover' || e.start === 'press') assert.match(prompt, /触摸|轻点|手指/, 'names touch, a tap or a finger');
     for (const other of ENTRIES) for (const w of siteWords(other)) assert.ok(!names(prompt, w), `names "${w}"`);
     const title = e.body.match(/<h2 [^>]*>([^<]+)<\/h2>/)[1];
-    assert.ok(e.body.includes(`<button type="button" class="copy" aria-label="Copy prompt for ${title}">`), 'Copy prompt names its entry');
+    assert.ok(e.body.includes(`<button type="button" class="copy" aria-label="复制「${title}」的提示词">`), 'Copy prompt names its entry');
   });
 }
 
 // ---------- The gallery ----------
 const GALLERY = between(PAGE, '<section class="fx-gallery"', '</section>');
 const TILES = [...GALLERY.matchAll(/<li class="tile" data-fx-tile="([a-z0-9-]+)">([\s\S]*?)<\/li>/g)].map(m => ({ id: m[1], body: m[2] }));
-const START_TAGS = { loop: 'Loops', load: 'On load', scroll: 'On scroll', hover: 'On hover', press: 'On press' };
-const START_CHIPS = { loop: 'Loops', load: 'Starts on load', scroll: 'Starts on scroll', hover: 'Starts on hover', press: 'Starts on press' };
+const START_TAGS = { loop: '循环', load: '打开时', scroll: '滚动时', hover: '悬停时', press: '按下时' };
+const START_CHIPS = { loop: '循环', load: '打开时开始', scroll: '滚动时开始', hover: '悬停时开始', press: '按下时开始' };
 const hostOf = href => new URL(href).hostname.replace(/^www\./, '');
-const seenHref = e => e.body.match(/<p class="fx-seen">Seen on <a href="([^"]+)"/)[1];
+const seenHref = e => e.body.match(/<p class="fx-seen">见于 <a href="([^"]+)"/)[1];
 const h2Of = e => decode(e.body.match(/<h2 [^>]*>([^<]+)<\/h2>/)[1]);
 const cardCount = e => count(e.body, '<article class="card ');
-const animations = n => `${n} ${n === 1 ? 'animation' : 'animations'}`;
+const animations = n => `${n} 个动画`;
 
 test('the gallery replaces the jump row: one tile per entry in page order, then the Seen one we should add? tile, and the skip link leads to it', () => {
   assert.ok(!PAGE.includes('fx-jump'), 'no jump row is left');
   assert.ok(PAGE.includes('<section class="fx-gallery" id="fx-gallery" aria-labelledby="fx-gallery-t">'), 'the gallery section');
-  assert.ok(GALLERY.includes('<h2 class="sr" id="fx-gallery-t">All effects</h2>'), 'a heading only screen readers see names it');
+  assert.ok(GALLERY.includes('<h2 class="sr" id="fx-gallery-t">全部效果</h2>'), 'a heading only screen readers see names it');
   assert.ok(GALLERY.includes('<ul class="fx-grid" role="list">'), 'a list');
   assert.deepEqual(TILES.map(tile => tile.id), ENTRIES.map(e => e.id), 'one tile per entry, in page order');
   const items = [...GALLERY.matchAll(/<li class="([^"]*)"/g)].map(m => m[1]);
   assert.equal(items.length, ENTRIES.length + 1, 'and one more');
   assert.equal(items.at(-1), 'tile tile-more', 'the last tile is the suggestion');
   const more = between(GALLERY, '<li class="tile tile-more">', '</li>');
-  assert.ok(more.includes('<h3 id="fx-more-t">Seen one we should add?</h3>'), 'its heading');
-  assert.ok(more.includes('<p>Seen an effect on a well-known site that you want explained?</p>'), 'its question');
-  assert.ok(PAGE.includes(`<a class="skip" href="#fx-gallery">Skip to the effects</a>`), 'the skip link leads to the gallery');
+  assert.ok(more.includes('<h3 id="fx-more-t">见过一个我们该加上的效果？</h3>'), 'its heading');
+  assert.ok(more.includes('<p>在知名网站上看到一个想让人讲明白的效果？</p>'), 'its question');
+  assert.ok(PAGE.includes(`<a class="skip" href="#fx-gallery">跳到效果列表</a>`), 'the skip link leads to the gallery');
   assert.ok(PAGE.indexOf('<a class="skip"') < PAGE.indexOf('<header class="wrap top"'), 'and is the first thing on the page');
   assert.ok(PAGE.indexOf('<section class="fx-gallery"') < PAGE.indexOf('<div class="fx-list">'), 'the entries come after it');
 });
@@ -395,12 +395,12 @@ for (const e of ENTRIES) {
     assert.ok(line, 'one line');
     const text = decode(line[1]);
     assert.ok(text.length >= 25 && text.length <= 90, `the line has ${text.length} characters, not 25 to 90`);
-    assert.ok(/[.]$/.test(text) && !/["“”]/.test(text), 'it ends with a full stop and quotes nothing');
+    assert.ok(/[。.]$/.test(text) && !/["“”]/.test(text), 'it ends with a full stop and quotes nothing');
     for (const other of ENTRIES) for (const w of siteWords(other)) assert.ok(!names(text, w), `the line names "${w}"`);
     const href = seenHref(e);
-    assert.ok(tile.body.includes(`<p class="t-foot"><a class="t-site" href="${href}" target="_blank" rel="noopener">Seen on ${hostOf(href)} <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span class="t-count">${animations(cardCount(e))}</span></p>`),
+    assert.ok(tile.body.includes(`<p class="t-foot"><a class="t-site" href="${href}" target="_blank" rel="noopener">见于 ${hostOf(href)} <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a><span class="t-count">${animations(cardCount(e))}</span></p>`),
       "the foot: the entry's own site address in a new tab (host without www.), and the number of its cards");
-    assert.ok(tile.body.includes(`<div class="t-tags"><span class="t-tag">Our version</span><span class="t-tag t-start">${START_TAGS[e.start]}</span></div>`), 'tagged Our version and with what starts it');
+    assert.ok(tile.body.includes(`<div class="t-tags"><span class="t-tag">我们的版本</span><span class="t-tag t-start">${START_TAGS[e.start]}</span></div>`), 'tagged Our version and with what starts it');
     assert.match(tile.body, /<div class="t-stage">\s*<div class="gp gp-[a-z]+" aria-hidden="true">/, "its picture: ours, hidden from screen readers (the tags and the title say it all)");
     assert.equal(count(tile.body, '<a '), 2, 'two links: the entry and its site');
   });
@@ -414,17 +414,21 @@ test('the entries are all in one wrapper after the gallery, in page order, so th
   assert.ok(!wrapped.includes('<dialog'), 'the pop-up is not in it');
 });
 
-const stems = s => new Set((s.toLowerCase().match(/[a-z]{5,}/g) || []).map(w => w.slice(0, 5)));
+const stems = s => {
+  const out = new Set((s.toLowerCase().match(/[a-z]{5,}/g) || []).map(w => w.slice(0, 5)));
+  for (const run of (s.match(/[\u4e00-\u9fff]+/g) || [])) for (let i = 0; i + 1 < run.length; i++) out.add(run.slice(i, i + 2));
+  return out;
+};
 const promptText = e => textOf(e.body.match(/<div class="fx-pbox"><p class="fx-prompt">([\s\S]*?)<\/p><\/div>/)[1]);
-// The word stems every prompt has (visitor, reduced, motion, turned): they say nothing about one entry, so they do not count.
+// The word stems every prompt has (the reduced-motion sentence: 如果访客开启了减弱动态效果): they say nothing about one entry, so they do not count.
 const COMMON_STEMS = (sets => new Set([...sets[0]].filter(s => sets.every(set => set.has(s)))))(ENTRIES.map(e => stems(promptText(e))));
 // The player of each kind of entry: its buttons as [data-fx-cmd, label]. A loop's one button swaps between Pause and Play.
-const PLAYER = { loop: [['pause', 'Pause']], load: [['replay', 'Replay']], hover: [['show', 'Show me']], press: [['show', 'Show me']], scroll: [['play', 'Play'], ['top', 'Back to top']] };
+const PLAYER = { loop: [['pause', '暂停']], load: [['replay', '重播']], hover: [['show', '演示一下']], press: [['show', '演示一下']], scroll: [['play', '播放'], ['top', '回到顶部']] };
 for (const e of ENTRIES) {
   test(`${e.id}: its parts come in the template's order, with its chips, What you see, Good to know and the link to the real page`, () => {
     const b = e.body, hasVersion = b.includes('<div class="fx-version">');
-    const order = ['<p class="fx-seen">', '<h2 ', '<p class="fx-chips">', hasVersion && '<div class="fx-version">', '<h3 class="fx-sub">What you see</h3>', '<p class="fx-what">', '<h3 class="fx-sub">Good to know</h3>', '<dl class="fx-know">',
-      '<h3 class="fx-sub">Build it with these animations</h3>', '<div class="fx-cards">', '<h3 class="fx-sub">A prompt to build something similar</h3>', '<div class="fx-pbox">', '<button type="button" class="copy"', '<a class="fx-real"'].filter(Boolean);
+    const order = ['<p class="fx-seen">', '<h2 ', '<p class="fx-chips">', hasVersion && '<div class="fx-version">', '<h3 class="fx-sub">你看到的</h3>', '<p class="fx-what">', '<h3 class="fx-sub">要知道的事</h3>', '<dl class="fx-know">',
+      '<h3 class="fx-sub">用这些动画来做</h3>', '<div class="fx-cards">', '<h3 class="fx-sub">做个类似效果的提示词</h3>', '<div class="fx-pbox">', '<button type="button" class="copy"', '<a class="fx-real"'].filter(Boolean);
     let last = -1;
     for (const part of order) {
       const at = b.indexOf(part);
@@ -432,24 +436,24 @@ for (const e of ENTRIES) {
       assert.equal(count(b, part), 1, `${part} is there once`);
       last = at;
     }
-    assert.ok(b.includes('<h3 class="fx-sub">What you see</h3>\n    <p class="fx-what">'), 'What you see is the heading right before what you see');
+    assert.ok(b.includes('<h3 class="fx-sub">你看到的</h3>\n    <p class="fx-what">'), 'What you see is the heading right before what you see');
     const chips = b.match(/<p class="fx-chips"><span class="fx-chip">([^<]+)<\/span><span class="fx-chip">([^<]+)<\/span><\/p>/);
     assert.ok(chips, 'two chips');
     assert.equal(chips[1], START_CHIPS[e.start], 'what starts it');
-    assert.equal(chips[2], `Made from ${animations(cardCount(e))}`, 'and how many animations it is made from');
+    assert.equal(chips[2], `由 ${animations(cardCount(e))}组成`, 'and how many animations it is made from');
     const know = b.match(/<dl class="fx-know">([\s\S]*?)<\/dl>/)[1];
     const pairs = [...know.matchAll(/<div><dt>([^<]+)<\/dt><dd>([^<]+)<\/dd><\/div>/g)];
     assert.equal(count(know, '<dt>'), 3, 'exactly three pairs');
-    assert.deepEqual(pairs.map(p => p[1]), ['Starts', 'On phones', 'Reduced motion'], 'Starts, On phones, Reduced motion');
+    assert.deepEqual(pairs.map(p => p[1]), ['开始方式', '在手机上', '减弱动态效果'], 'Starts, On phones, Reduced motion');
     const prompt = textOf(b.match(/<div class="fx-pbox"><p class="fx-prompt">([\s\S]*?)<\/p><\/div>/)[1]), promptStems = stems(prompt);
     for (const [, label, line] of pairs) {
       const n = words(decode(line));
-      assert.ok(n >= 2 && n <= 20 && !/["“”`]/.test(line), `${label}: "${line}" is one short plain line`);
+      assert.ok(n >= 2 && n <= 35 && !/["“”`]/.test(line), `${label}: "${line}" is one short plain line`);
       const shared = [...stems(line)].filter(s => promptStems.has(s) && !COMMON_STEMS.has(s));
       assert.ok(shared.length >= 2, `${label}: "${line}" shares ${shared.length} word stems with the entry's prompt and needs two (not counting ${[...COMMON_STEMS].join(', ')}, which every prompt has)`);
     }
     const href = seenHref(e);
-    assert.ok(b.includes(`<a class="fx-real" href="${href}" target="_blank" rel="noopener">Watch the real one on ${hostOf(href)} <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>`),
+    assert.ok(b.includes(`<a class="fx-real" href="${href}" target="_blank" rel="noopener">在 ${hostOf(href)} 上看真的那个 <span aria-hidden="true">↗</span><span class="sr">（在新标签页中打开）</span></a>`),
       'Watch the real one: the same address as Seen on, in a new tab');
   });
 }
@@ -497,7 +501,7 @@ const spaced = html => decode(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' '
 
 test('no visible text of the page holds a name or slogan the live check saw on a site', () => {
   const shown = spaced(MARKUP);
-  assert.ok(shown.includes('Famous effects') && shown.length > 1000, 'the visible text of the whole page');
+  assert.ok(shown.includes('知名效果') && shown.length > 1000, 'the visible text of the whole page');
   for (const phrase of SITE_PHRASES) assert.ok(!names(shown, phrase), `"${phrase}" is in the text of the page`);
 });
 
@@ -516,7 +520,7 @@ test(`each entry the live check covered is dated ${CHECKED_DAY}, or the day it w
 test('the page holds 10 to 12 entries, and its one pill counts them', () => {
   assert.ok(ENTRIES.length >= 10 && ENTRIES.length <= 12, `${ENTRIES.length} entries, not 10 to 12`);
   assert.equal(count(MARKUP, 'class="pill"'), 1, 'one pill');
-  assert.ok(MARKUP.includes(`<p class="pill">${ENTRIES.length} effects from well-known websites</p>`), 'the pill gives the number of entries');
+  assert.ok(MARKUP.includes(`<p class="pill">${ENTRIES.length} 个来自知名网站的效果</p>`), 'the pill gives the number of entries');
 });
 
 test('from 601px to 640px the top bar\'s two text links are narrower, so the bar fits beside the logo', () => {
@@ -616,7 +620,7 @@ test('the pop-up is one native dialog with a top bar of three 44px icon buttons,
   assert.equal(count(MARKUP, '<dialog'), 1, 'one dialog');
   const html = between(PAGE, '<dialog class="fx-dlg" id="fx-dlg">', '</dialog>');
   const buttons = [...html.matchAll(/<button type="button" class="icon-btn fx-dbtn[^"]*" data-fx-([a-z]+(?:="[a-z]+")?) aria-label="([^"]+)"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="[^"]+"\/><\/svg><\/button>/g)];
-  assert.deepEqual(buttons.map(m => m[2]), ['Previous effect', 'Next effect', 'Close'], 'Previous, Next and Close, each an icon with a name');
+  assert.deepEqual(buttons.map(m => m[2]), ['上一个效果', '下一个效果', '关闭'], 'Previous, Next and Close, each an icon with a name');
   assert.ok(html.indexOf('class="fx-dbar"') < html.indexOf('class="fx-dbody"'), 'the bar, then the body that holds the entry');
   assert.ok(!html.includes('<section'), 'the entries are moved in by the script');
   assert.match(rule(CSS_BLOCKS, '.icon-btn'), /width:44px;height:44px/, 'the buttons are 44px');
@@ -684,7 +688,7 @@ test('without scripts Our version stays hidden, and the pop-up says once, in its
   assert.match(rule(CSS_BLOCKS, '.fx-version'), /display:none/, 'hidden until scripts run (a script fills the frame)');
   assert.match(rule(CSS_BLOCKS, '.js .fx-version'), /display:block/, 'and shown with them');
   assert.equal(count(PAGE, 'class="fx-dnote"'), 1, 'one note');
-  assert.ok(between(PAGE, '<div class="fx-dbar">', '<div class="fx-dbody">').includes('<p class="fx-dnote">Not connected to the site. Everything shown is our own version.</p>'), 'in the bar of the pop-up, which stays on screen');
+  assert.ok(between(PAGE, '<div class="fx-dbar">', '<div class="fx-dbody">').includes('<p class="fx-dnote">与这个网站没有关联。展示的全部是我们自己的版本。</p>'), 'in the bar of the pop-up, which stays on screen');
   assert.ok(!ENTRIES.some(e => /fx-dnote|Not connected/.test(e.body)), 'not in each entry');
   assert.match(rule(CSS_BLOCKS, '.fx-dnote'), /font-size:12px;[^}]*color:var\(--muted\)/, 'small and muted');
 });
@@ -705,7 +709,7 @@ test('at least one entry shows Our version', () => assert.ok(VERSIONS.length > 0
 
 for (const e of VERSIONS) {
   test(`${e.id}: its Our version block holds the frame, the label and the player for what starts it`, () => {
-    const block = e.body.match(/<div class="fx-version">\s*<div class="fx-stage">\s*<iframe title="Our version: ([^"]+)" data-src="(versions\/[a-z0-9-]+\.html)"><\/iframe>\s*<span class="fx-vlabel" aria-hidden="true">Our version<\/span>\s*<\/div>\s*<div class="fx-player">([\s\S]*?)<\/div>\s*<\/div>/);
+    const block = e.body.match(/<div class="fx-version">\s*<div class="fx-stage">\s*<iframe title="我们的版本：([^"]+)" data-src="(versions\/[a-z0-9-]+\.html)"><\/iframe>\s*<span class="fx-vlabel" aria-hidden="true">我们的版本<\/span>\s*<\/div>\s*<div class="fx-player">([\s\S]*?)<\/div>\s*<\/div>/);
     assert.ok(block, 'the stage with its frame and its label, then the player');
     assert.equal(decode(block[1]), h2Of(e), "the frame is titled with the entry's own title");
     assert.equal(block[2], `versions/${e.id}.html`, 'it loads the version of this entry');
@@ -715,7 +719,7 @@ for (const e of VERSIONS) {
     assert.equal(count(block[3], '<button'), buttons.length, 'no other button');
     const hint = block[3].match(/<p class="fx-phint">([^<]+)<\/p>/);
     assert.ok(hint, 'a hint');
-    if (e.start === 'scroll') assert.equal(hint[1], 'Built from the prompt below. Scroll inside the box, or press Play.', 'the hint for a scroll entry');
+    if (e.start === 'scroll') assert.equal(hint[1], '按下面的提示词做的。在框里滚动，或者点「播放」。', 'the hint for a scroll entry');
   });
 
   test(`${e.id}: its version file exists, loads nothing from elsewhere but the site font, is not indexed, has its title, a reduced-motion rule and a message handler that trusts only its parent, and shows no site name`, () => {
@@ -724,7 +728,7 @@ for (const e of VERSIONS) {
     assert.ok(fs.existsSync(file), `${src} exists`);
     const html = read(file);
     assert.ok(html.includes('<meta name="robots" content="noindex">'), 'noindex');
-    assert.ok(html.includes(`<title>Our version: ${h2Of(e)}</title>`), 'titled Our version: and the entry\'s title');
+    assert.ok(html.includes(`<title>我们的版本：${h2Of(e)}</title>`), 'titled Our version: and the entry\'s title');
     // loads nothing from elsewhere: every address in it is a font of the repository (or a data: picture, or a place in the page itself)
     const refs = [...html.matchAll(/\b(?:src|href|srcset|poster|action|data|formaction)\s*=\s*["']([^"']*)["']/g)].map(m => m[1])
       .concat([...html.matchAll(/url\(\s*(["']?)([^"')]*)\1\s*\)/g)].map(m => m[2]));
@@ -743,7 +747,7 @@ for (const e of VERSIONS) {
     // a finger kept for the effect (touch-action: none) only where the prompt makes a finger drag drive it, and said so on the html
     const keepsFinger = /touch-action\s*:\s*none/.test(html), saysDrag = /<html\b[^>]*\bdata-fx-touch="drag"/.test(html);
     assert.equal(keepsFinger, saysDrag, keepsFinger ? 'it keeps the finger (touch-action: none), so its html says data-fx-touch="drag"' : 'data-fx-touch="drag" only on a version that keeps the finger');
-    if (saysDrag) assert.ok(/\bfinger\b[^.]*\bdrag|\bdrag[^.]*\bfinger\b/i.test(promptText(e)), 'data-fx-touch="drag" only where its prompt makes a finger drag drive the effect');
+    if (saysDrag) assert.ok(/手指[^。]*拖动|拖动[^。]*手指/.test(promptText(e)), 'data-fx-touch="drag" only where its prompt makes a finger drag drive the effect');
     if (/requestAnimationFrame/.test(script)) {
       assert.ok(/\bFRAME\s*=\s*1000\s*\/\s*60\b/.test(script) && /Math\.min\(\s*ts\s*-\s*lastT\s*,\s*50\s*\)/.test(script) && /\bdt\s*\)?\s*\/\s*FRAME\b/.test(script), 'its frame loop steps by elapsed time (dt / FRAME), not by a fixed amount a frame');
     }
@@ -758,7 +762,7 @@ for (const e of VERSIONS) {
 
 test('every entry has its own version', () => {
   for (const e of ENTRIES) {
-    const m = e.body.match(/<iframe title="Our version: [^"]+" data-src="(versions\/[a-z0-9-]+\.html)"/);
+    const m = e.body.match(/<iframe title="我们的版本：[^"]+" data-src="(versions\/[a-z0-9-]+\.html)"/);
     assert.ok(m, `${e.id} has no Our version block yet`);
     assert.equal(m[1], `versions/${e.id}.html`, `${e.id} loads its own file`);
     assert.ok(fs.existsSync(path.join(ROOT, 'famous', m[1])), `${m[1]} exists`);

@@ -1,20 +1,20 @@
-# Parallax 3D Tilt
+# 视差 3D 倾斜
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/parallax-3d-tilt/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/parallax-3d-tilt/)
 
-## What it is
-A 3D tilt makes a flat card lean toward the pointer, as if you were looking at a real card from different angles. The card's container gives the scene depth, and a soft light slides across the card with the pointer, which completes the illusion. The browser's own 3D transforms do it, with no 3D library.
+## 它是什么
+3D 倾斜让一张平面卡片朝指针倾斜，好像你从不同角度看一张真实的卡片。卡片的容器给场景带来景深，一道柔光跟着指针滑过卡面，补全了这个错觉。浏览器自己的 3D 变换就能做到，不需要 3D 库。
 
-## When to use it
-- Feature cards, pricing cards, and hero cards where depth signals "premium"
-- Portfolio thumbnails where hover signals selectability
-- Any interactive card where the standard flat-hover feels too passive
-- NFT and gaming UIs where the tactile metaphor matches the product
+## 什么时候用
+- 功能卡片、价格卡片和主视觉卡片，景深传递“高端”的感觉
+- 悬停表示可选的作品集缩略图
+- 任何标准平面悬停显得太被动的互动卡片
+- NFT 和游戏界面，触感隐喻与产品相符
 
-## How it works
-`perspective` must be set on the **parent**, not the card. The card's `rotateX`/`rotateY` are computed from the cursor's position relative to the card's center, normalized to ±0.5, then scaled by MAX, so the card leans MAX/2 at its edges.
+## 工作原理
+`perspective` 必须设在**父元素**上，而不是卡片上。卡片的 `rotateX`/`rotateY` 由光标相对卡片中心的位置算出，归一化到 ±0.5，再乘以 MAX，所以卡片在边缘处倾斜 MAX/2。
 
-Bind **pointer** events, not mouse events — the same handler then covers mouse, pen and touch:
+绑定 **pointer** 事件，而不是 mouse 事件——同一个处理函数就能覆盖鼠标、手写笔和触摸：
 
 ```js
 card.addEventListener('pointermove', e => {
@@ -34,7 +34,7 @@ card.addEventListener('pointerleave', () => {
 });
 ```
 
-**Shine highlight** — one fixed radial gradient on a layer of its own, moved to the cursor with a transform. Rewriting a gradient on every move repaints the whole card; moving a layer that is already painted does not, and the card's `overflow: hidden` clips it:
+**光泽高光**——一个独立图层上的固定径向渐变，用变换移到光标处。每次移动都重写渐变会重绘整张卡片；移动已经画好的图层不会，卡片的 `overflow: hidden` 会裁剪它：
 
 ```css
 .shine {                              /* --shine-d: twice the card's diagonal, set once by the script */
@@ -51,7 +51,7 @@ const R = Math.hypot((0.5 + Math.abs(x)) * W, (0.5 + Math.abs(y)) * H);
 shine.style.transform = `translate(${(x + 0.5) * W}px, ${(y + 0.5) * H}px) scale(${2 * R / D})`;
 ```
 
-**Reset transition** — only apply `transition` on leave, not while tracking:
+**回正过渡**——只在离开时应用 `transition`，跟踪时不应用：
 
 ```js
 card.addEventListener('pointermove',  () => card.classList.add('active'));
@@ -63,7 +63,7 @@ card.addEventListener('pointerleave', () => card.classList.remove('active'));
 .card.active { transition: none; }  /* instant tracking while the pointer moves */
 ```
 
-**Show me** — the demo's Show me button moves the same card with a pretend pointer instead of a real one. The pointer handler's work is a function `tilt(x, y)` that takes the two numbers from -0.5 to 0.5, and Show me calls it once a frame for three seconds, circling the middle of the card one and a half times and ending there:
+**「演示一下」**——演示的「演示一下」按钮用一个假指针而不是真指针移动同一张卡片。指针处理函数的工作是一个 `tilt(x, y)` 函数，接受 -0.5 到 0.5 的两个数字，「演示一下」每帧调用它一次，持续三秒，绕卡片中间转一圈半，最后停在那里：
 
 ```js
 function step(now) {                           // t0 = the time of the first frame after Show me is pressed
@@ -76,30 +76,30 @@ function step(now) {                           // t0 = the time of the first fra
 }
 ```
 
-`x0` and `y0` are where the card already leans when Show me is pressed, so a second press carries on from there. A press, a finger or a wheel turn over the stage, or the pointer moving over the card, cancels the frame and flattens the card, so the visitor is always in control.
+`x0` 和 `y0` 是按下「演示一下」时卡片已经倾斜的位置，所以第二次按下会从那里继续。舞台上的一按、一根手指或一次滚轮转动，或指针移过卡片，都会取消那一帧并让卡片放平，所以控制权一直在用户手里。
 
-The card also takes keyboard focus, and the keys stand in for the pointer through the same tilt function. Keyboard focus tilts the card where it leans (at rest it only lifts, with the light in its middle), each press of an arrow key moves the pretend pointer 6% of the way across the card (a key held down repeats), and Escape or moving focus away flattens it, as the pointer leaving does.
+卡片也可以获得键盘焦点，方向键通过同一个倾斜函数代替指针。键盘焦点让卡片朝它倾斜的方向倾斜（静止时只抬起，光在中间），每按一次方向键，假指针就向该方向移动卡片宽度的 6%（按住会重复移动），按 Escape 或把焦点移走会让它放平，和指针离开时一样。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Tilt amount | Medium | How far the card leans at its edges: small is 4°, medium 7.5° and large 12.5°; much more starts to feel unsteady |
-| 3D depth | Medium | How close the viewer seems: subtle is 1500px, medium 1000px and strong 500px; closer makes the lean more dramatic |
-| Shine | on | A soft light follows the pointer across the card, like light catching a real card |
-| Return speed | Normal | How long the card takes to settle flat when the pointer leaves: slow is 650ms, normal 400ms and fast 250ms |
-| Tilts away from the pointer | off | Leans the card away from the pointer instead, as if you were pressing on it |
-| Grows a little | on | Scales the card up by 4% while it tilts, which reads as lifting it toward you |
+| 倾斜幅度 | 中等 | 卡片在边缘处倾斜多远：小是 4°，中等 7.5°，大是 12.5°；再大就开始感觉不稳了 |
+| 3D 景深 | 中等 | 观看者看起来有多近：轻微是 1500px，中等 1000px，强烈 500px；越近倾斜越夸张 |
+| 光泽 | 开 | 一道柔光跟着指针滑过卡片，像光落在真实卡片上 |
+| 回正速度 | 普通 | 指针离开后卡片回到平放要多长时间：慢是 650ms，普通 400ms，快是 250ms |
+| 朝指针反方向倾斜 | 关 | 改为让卡片朝指针的反方向倾斜，像被按下去一样 |
+| 微微变大 | 开 | 倾斜时把卡片放大 4%，读起来像把它朝你抬起来 |
 
-## Production notes
-- **Touch devices**: use Pointer Events (`pointerdown`/`pointermove`/`pointerleave`) plus `touch-action: none` and the effect works on touch for free — a drag tilts the card, a tap sets it once. Do not gate the effect on `@media (hover: hover)`: hybrid touchscreen laptops match it, and a phone with a paired mouse can match it too, so branching on the media query kills the interaction on real devices. If you need to branch, branch on the live `event.pointerType`.
-- **`will-change: transform`**: on a page with many tilt cards, add it only while the pointer is over a card (`pointerenter`/`pointerleave`), to avoid permanent GPU layer allocation: a permanent `will-change` on many cards multiplies GPU memory use. The demo has one card, so it keeps it on.
-- **VanillaTilt.js**: a zero-dependency library that handles this pattern with configurable tilt, glare, scale, and perspective. 2KB gzipped — use in production rather than hand-rolling.
-- **`overflow: hidden` flattens 3D**: any ancestor with `overflow` other than `visible` (or a `filter`, or `opacity < 1`) forces `transform-style` to its flat used value, so `translateZ` on a child silently does nothing. A card that clips its own contents therefore cannot also be a `preserve-3d` container — give it its own `perspective` so its inner depth layers still project, or move the clip to a wrapper outside the 3D chain.
-- **Performance**: `rotateX`/`rotateY` on a GPU-composited element runs at 60fps with no paint. Keep everything else that follows the pointer to `transform` and `opacity` as well: the demo moves its light as a layer (see Shine highlight) and leaves the card's shadow fixed in CSS, where it turns with the card. Rewriting a gradient or a `box-shadow` on every move repaints the whole card each frame, which shows on phones and adds up across a grid.
-- **Reduced motion**: the demo does not tilt on its own, and the card snaps flat when the pointer leaves instead of easing back. In production, keep the card flat for these visitors.
+## 生产注意事项
+- **触摸设备**：用 Pointer Events（`pointerdown`/`pointermove`/`pointerleave`）加 `touch-action: none`，触摸上免费获得效果——拖动倾斜卡片，轻触设置一次。不要用 `@media (hover: hover)` 来限制效果：混合触屏笔记本匹配它，配了鼠标的手机也可能匹配它，所以按媒体查询分支会在真实设备上杀死交互。如果必须分支，按实时的 `event.pointerType` 分支。
+- **`will-change: transform`**：有很多倾斜卡片的页面上，只在指针悬停在卡片上时才加上它（`pointerenter`/`pointerleave`），避免永久分配 GPU 图层：很多卡片上永久的 `will-change` 会成倍增加 GPU 内存占用。演示只有一张卡片，所以一直开着。
+- **VanillaTilt.js**：一个零依赖的库，处理这种模式，可配置倾斜、眩光、缩放和透视。gzip 后 2KB——生产环境用它而不是手写。
+- **`overflow: hidden` 会压平 3D**：任何 `overflow` 不是 `visible` 的祖先（或 `filter`、小于 1 的 `opacity`）都会把 `transform-style` 强制为平面的使用值，于是子元素上的 `translateZ` 会悄悄失效。裁剪自己内容的卡片因此不能同时是 `preserve-3d` 容器——给它自己的 `perspective`，让里面的深度层仍然能投影，或者把裁剪移到 3D 链之外的包装层上。
+- **性能**：GPU 合成元素上的 `rotateX`/`rotateY` 以 60fps 运行，不用绘制。跟随指针的其他东西也保持在 `transform` 和 `opacity` 上：演示把光作为一个图层移动（见“光泽高光”），卡片的阴影固定在 CSS 里，随卡片一起转动。每次移动都重写渐变或 `box-shadow` 会每帧重绘整张卡片，手机上看得出来，在网格里还会累加。
+- **减弱动态**：演示不会自己倾斜，指针离开时卡片会直接弹回平放而不是缓回去。生产环境里，让这些用户的卡片保持平放。
 
-## See also
-- [3D Model Orbit](../3d-model-orbit/) — a real 3D object drawn with WebGL
-- [Hover State Animation](../../04-micro-interactions/hover-state/) — flat hover feedback, without the 3D
-- [2.5D / Pseudo-3D](../2-5d-pseudo-3d/) — layers at different depths move with the pointer
-- [Holographic Card](../holographic-card/) — the same tilt, with a rainbow foil and a glare that follow the pointer
+## 另见
+- [3D 模型环绕](../3d-model-orbit/) — 用 WebGL 画出的真正 3D 物体
+- [悬停状态动画](../../04-micro-interactions/hover-state/) — 没有 3D 的平面悬停反馈
+- [2.5D / 伪 3D](../2-5d-pseudo-3d/) — 不同深度的图层跟着指针移动
+- [全息卡片](../holographic-card/) — 同样的倾斜，彩虹箔片和光斑跟随指针

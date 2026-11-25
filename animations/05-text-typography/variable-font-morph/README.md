@@ -1,19 +1,19 @@
-# Variable Font Morph
+# 可变字体变形
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/variable-font-morph/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/variable-font-morph/)
 
-## What it is
-A variable font holds a whole range of styles, such as thin to black, in one file, and each style is just a number. Because of that, the browser can move smoothly from one style to another, so a word can grow heavier or lighter as you watch. In the demo, the word moves between the site font's regular and black weights and leans over by being tilted, since this font has no slanted style of its own.
+## 它是什么
+可变字体把一整套字重（从细到特粗）装进一个文件里，每种样式只是一个数字。正因为这样，浏览器可以平滑地从一种样式移到另一种样式，所以一个词可以在你眼前变粗或变细。在演示里，这个词在网站字体的常规字重和特粗字重之间移动，还会通过倾斜来模拟斜体，因为这个字体本身没有斜体样式。
 
-## When to use it
-- Hero headlines that breathe or pulse on a loop
-- Hover effects where weight increases to signal interactivity
-- Loading states where a spinner is replaced by weight-cycling text
-- Brand expressions where the variable axis is part of the visual identity
-- Interactive sliders that let users configure the weight/width/style live
+## 什么时候用
+- 循环呼吸或跳动的主视觉标题
+- 悬停效果，字重增加表示可以互动
+- 加载状态，用字重循环代替转圈
+- 品牌表达，可变轴本身就是视觉识别的一部分
+- 互动滑块，让用户实时配置字重/字宽/样式
 
-## How it works
-Set `font-variation-settings` on the element and apply a CSS transition. The browser interpolates all axes simultaneously:
+## 工作原理
+在元素上设置 `font-variation-settings` 并加上 CSS 过渡。浏览器会同时插值所有的轴：
 
 ```css
 .headline {
@@ -29,7 +29,7 @@ Set `font-variation-settings` on the element and apply a CSS transition. The bro
 }
 ```
 
-For JavaScript-driven morphing, update a CSS custom property:
+对于 JavaScript 驱动的变形，更新一个 CSS 自定义属性：
 
 ```js
 function apply(wght, slnt) {
@@ -47,7 +47,7 @@ function apply(wght, slnt) {
 }
 ```
 
-For a looping morph between presets, use `setInterval`:
+对于在预设之间循环的变形，用 `setInterval`：
 
 ```js
 const PRESETS = [
@@ -59,23 +59,23 @@ let i = 0;
 setInterval(() => { apply(...Object.values(PRESETS[i++ % PRESETS.length])); }, 1400);   // Speed + an 800ms rest
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long each change takes: slow is 1000ms, normal 600ms and fast 350ms; the word then rests for 800ms before the next |
-| Leans as it changes | on | Some changes also tilt the word by up to 15 degrees; off, only the weight changes |
-| Your text | Type | The word that changes |
+| 速度 | 普通 | 每次变化需要的时间：慢速 1000ms，普通 600ms，快速 350ms；然后这个词休息 800ms 再进行下一次变化 |
+| 变化时倾斜 | 开 | 有些变化还会让词最多倾斜 15 度；关掉的话，只变字重 |
+| 你的文字 | Type | 会变的词 |
 
-## Production notes
-- **Axis ranges are font-specific**: `wght` 100–900 is standard, but Recursive goes to 1000, and some fonts start at 200. Always check the font's documentation or use a variable font inspector (e.g., Wakamai Fondue, wakamaifondue.com).
-- **`font-variation-settings` is all-or-nothing**: if you set `font-variation-settings: 'wght' 700`, all other axes reset to their defaults. Always specify all axes you care about, even if unchanged.
-- **CSS `font-weight` is preferred for weight**: `font-weight: 700` works with variable fonts and is more readable than `font-variation-settings: 'wght' 700`. Use `font-variation-settings` only for non-standard axes (`CASL`, `MONO`, etc.).
-- **Transition performance**: variable font interpolation is handled by the GPU text rendering pipeline in modern browsers. It is not as fast as `transform`/`opacity` animations, but it is generally smooth on mid-range devices for single display elements.
-- **Font loading**: the demo uses the site's own font, Schibsted Grotesk, which every page already loads and which is variable in weight from 400 to 900, so the weight morphs smoothly offline. It has no slant axis, so the lean is a `skewX()` tilt. A font with more axes gives you more to morph: Recursive, for example, adds Casual and slant axes. Self-host it with `@font-face` and `font-display: swap`.
-- **Recommended variable fonts**: Recursive (CASL, MONO, slnt, wght), Inter (wght), Fraunces (opsz, SOFT, WONK, wght), Bricolage Grotesque (opsz, wdth, wght).
-- **Libraries**: GSAP tweens `fontVariationSettings` and `fontWeight` like any other value, which helps when the morph has to keep time with other animations; on its own, a CSS transition is enough, as here.
+## 生产注意事项
+- **轴的范围因字体而异**：`wght` 100–900 是标准，但 Recursive 可以到 1000，有些字体从 200 开始。一定要查字体的文档，或者用可变字体检查工具（例如 Wakamai Fondue，wakamaifondue.com）。
+- **`font-variation-settings` 是全有或全无**：如果你设置了 `font-variation-settings: 'wght' 700`，其他所有的轴都会重置为默认值。一定要把你在意的轴全部写出来，哪怕没有变化。
+- **字重优先用 CSS `font-weight`**：`font-weight: 700` 对可变字体有效，而且比 `font-variation-settings: 'wght' 700` 更易读。只有在非标准轴（`CASL`、`MONO` 等）上才用 `font-variation-settings`。
+- **过渡性能**：现代浏览器里可变字体的插值由 GPU 文字渲染管线处理。它不如 `transform`/`opacity` 动画快，但对单个展示元素来说，在中端设备上一般都很流畅。
+- **字体加载**：演示用的是网站自己的字体 Schibsted Grotesk，每个页面都已经加载了它，而且它的字重从 400 到 900 是可变的，所以字重可以平滑地离线变形。它没有斜体轴，所以倾斜是用 `skewX()` 实现的。轴更多的字体能给你更多可变的东西：比如 Recursive 就增加了 Casual 和斜体轴。用 `@font-face` 和 `font-display: swap` 自己托管它。
+- **推荐的可变字体**：Recursive（CASL、MONO、slnt、wght）、Inter（wght）、Fraunces（opsz、SOFT、WONK、wght）、Bricolage Grotesque（opsz、wdth、wght）。
+- **库**：GSAP 像补间其他值一样补间 `fontVariationSettings` 和 `fontWeight`，这在变形需要和其他动画保持同步时有帮助；单独使用时，一个 CSS 过渡就够了，就像这里这样。
 
-## See also
-- [Text Gradient Animation](../text-gradient-animation/) — colors flow through the letters instead
-- [Kinetic Typography](../kinetic-typography/) — words that each move in their own way
-- [Outline to Fill](../outline-to-fill/) — hollow letters fill with color
+## 另见
+- [文字渐变动画](../text-gradient-animation/) — 颜色在静止的文字中流动
+- [动态排版](../kinetic-typography/) — 词语逐个以各自的方式进出
+- [描边填充](../outline-to-fill/) — 空心字以擦除或淡入的方式填满颜色

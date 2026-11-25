@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cover Card to Fixed Header — Animation Handbook</title>
-  <meta name="description" content="A tall cover shrinks into a slim header as you scroll. Best for articles.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/cover-card-to-fixed-header/">
+  <title>封面卡片变固定顶栏 — 动画手册</title>
+  <meta name="description" content="高封面滚动时收成细顶栏。最适合文章页。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/cover-card-to-fixed-header/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Cover Card to Fixed Header — Animation Handbook">
-  <meta property="og:description" content="A tall cover shrinks into a slim header as you scroll. Best for articles.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/cover-card-to-fixed-header/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="封面卡片变固定顶栏 — 动画手册">
+  <meta property="og:description" content="高封面滚动时收成细顶栏。最适合文章页。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/cover-card-to-fixed-header/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cover Card to Fixed Header — Animation Handbook">
-  <meta name="twitter:description" content="A tall cover shrinks into a slim header as you scroll. Best for articles.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Cover Card to Fixed Header", "name": "Cover Card to Fixed Header", "description": "A tall cover shrinks into a slim header as you scroll. Best for articles.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/cover-card-to-fixed-header/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Cover Card to Fixed Header"}</script>
+  <meta name="twitter:title" content="封面卡片变固定顶栏 — 动画手册">
+  <meta name="twitter:description" content="高封面滚动时收成细顶栏。最适合文章页。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "封面卡片变固定顶栏", "name": "封面卡片变固定顶栏", "description": "高封面滚动时收成细顶栏。最适合文章页。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/cover-card-to-fixed-header/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 封面卡片变固定顶栏"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--cover-min:56px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -106,46 +106,46 @@
     @media(max-width:600px){:root{--cover-min:64px}}
     @media(prefers-reduced-motion:reduce){.cover,.cover-title,.cover-bg,.header-chip,.article-body{will-change:auto}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../reverse-scrolling-columns/" rel="prev" aria-label="Previous: Reverse-Scrolling Columns"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Reverse-Scrolling Columns</span></a><a href="../fly-in-fly-out-contact-list/" rel="next" aria-label="Next: Fly-in Fly-out Contact List"><span><span class="hb-dir">Next: </span>Fly-in Fly-out Contact List</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../reverse-scrolling-columns/" rel="prev" aria-label="上一个：反向滚动列"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>反向滚动列</span></a><a href="../fly-in-fly-out-contact-list/" rel="next" aria-label="下一个：联系人列表飞入飞出"><span><span class="hb-dir">下一个：</span>联系人列表飞入飞出</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.04 · Scroll-Based</p>
-    <h1>Cover Card to Fixed Header</h1>
-    <p class="hb-lede">A tall cover shrinks into a slim header as you scroll. Best for articles.</p>
+    <p class="hb-cat">01.04 · 滚动驱动</p>
+    <h1>封面卡片变固定顶栏</h1>
+    <p class="hb-lede">高封面滚动时收成细顶栏。最适合文章页。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="An article with a tall cover">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="一篇带高封面的文章">
       <div class="scene" id="scene">
 
         <!-- Shown only in See inside (the bars) and Compare (the half names); one zero-height layer that stays at the top of the box -->
         <div class="hud" aria-hidden="true">
           <div class="strip" id="strip">
-            <div class="srow"><span class="slbl" data-hb-caption>Cover shrinks</span><span class="strack"><i class="sbar"><b></b></i></span></div>
-            <div class="srow"><span class="slbl" data-hb-caption>Subtitle fades</span><span class="strack"><i class="sbar"><b></b></i></span></div>
-            <div class="srow"><span class="slbl" data-hb-caption>Author fades</span><span class="strack"><i class="sbar"><b></b></i></span></div>
-            <div class="srow"><span class="slbl" data-hb-caption>Badge appears</span><span class="strack"><i class="sbar"><b></b></i></span></div>
+            <div class="srow"><span class="slbl" data-hb-caption>封面缩小</span><span class="strack"><i class="sbar"><b></b></i></span></div>
+            <div class="srow"><span class="slbl" data-hb-caption>副标题淡出</span><span class="strack"><i class="sbar"><b></b></i></span></div>
+            <div class="srow"><span class="slbl" data-hb-caption>作者淡出</span><span class="strack"><i class="sbar"><b></b></i></span></div>
+            <div class="srow"><span class="slbl" data-hb-caption>徽章出现</span><span class="strack"><i class="sbar"><b></b></i></span></div>
             <span class="slane"><u class="sph"></u></span>
           </div>
-          <p class="hname hn1" data-hb-caption>Scrolls away</p>
-          <p class="hname hn2" data-hb-caption>Shrinks and stays</p>
+          <p class="hname hn1" data-hb-caption>随页面滚走</p>
+          <p class="hname hn2" data-hb-caption>缩小并停留</p>
         </div>
 
         <div class="rows" id="rows"><div class="half" id="half">
@@ -153,12 +153,12 @@
           <div class="cover-bg" id="cover-bg"></div>
           <div class="cover-inner">
             <div class="cover-spacer"></div>
-            <div class="cover-meta" id="cover-meta">Article · 8 min read</div>
-            <p class="cover-title" id="cover-title">The Architecture<br>of Scroll Motion</p>
-            <p class="cover-sub" id="cover-sub">Why a tall cover can fold into a slim bar as you read</p>
+            <div class="cover-meta" id="cover-meta">文章 · 8 分钟读完</div>
+            <p class="cover-title" id="cover-title">滚动动效的<br>架构</p>
+            <p class="cover-sub" id="cover-sub">为什么高封面能在你阅读时折叠成一条细栏</p>
             <div class="cover-author" id="cover-author">
               <div class="avatar"></div>
-              <span class="author-name">Matin M. · May 2026</span>
+              <span class="author-name">Matin M. · 2026 年 5 月</span>
             </div>
           </div>
           <div class="cover-rule" id="cover-rule" aria-hidden="true"></div>
@@ -169,50 +169,50 @@
         </div>
 
         <article class="article-body">
-          <h3>One number drives it all</h3>
-          <p>As you scroll, one number moves from 0 to 1. The cover's height, the size of the title, the fading background and the small author badge all follow that number, so every moment in between looks planned.</p>
-          <blockquote>A header should get out of the way without disappearing.</blockquote>
-          <h3>Everything moves together</h3>
-          <p>The title shrinks toward the top-left corner while the subtitle and the date fade out first, so the slim bar never looks crowded.</p>
-          <p>The author's name fades into the corner of the bar in the second half of the fold, when there is room for it.</p>
-          <h3>Room to read</h3>
-          <p>Once the cover has folded away, only a slim bar stays at the top, with the title and the author, and the rest of the box goes to the text.</p>
-          <p>Scroll back up and the cover opens again, step by step, in exactly the reverse order.</p>
+          <h3>一个数字驱动一切</h3>
+          <p>滚动时，一个数字从 0 走到 1。封面的高度、标题的大小、淡出的背景和小作者徽章都跟着这个数字走，所以中间的每一刻看起来都有安排。</p>
+          <blockquote>顶栏应该让路，但不能消失。</blockquote>
+          <h3>一切同步变化</h3>
+          <p>标题向左上角缩小，副标题和日期先淡出，所以细栏永远不会显得拥挤。</p>
+          <p>作者的名字在折叠的后半段淡入顶栏角落，那时已经有地方放它了。</p>
+          <h3>留出阅读空间</h3>
+          <p>封面折叠起来后，顶部只剩一条细栏，带着标题和作者，盒子里剩下的空间都交给正文。</p>
+          <p>往回滚，封面会一步一步、按完全相反的顺序重新打开。</p>
         </article>
 
-        <p class="end-cue">The end · scroll back up and the cover opens again</p>
+        <p class="end-cue">结尾 · 往回滚，封面会重新打开</p>
         </div></div>
 
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the bars show where along the scroll each part changes, and the line marks where you are: one scroll position sets them all. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>Scrolls away loses the title once the cover leaves; Shrinks and stays folds it into a slim header that keeps the title in view. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，条形图显示每个部分在滚动的哪个位置发生变化，线条标出你的位置：一个滚动位置决定所有变化。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>随页面滚走的封面一旦离开就看不到标题了；缩小并停留的封面会收成一条细顶栏，标题始终可见。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="range-lbl">Shrink distance</p>
+        <p class="hb-setting-name" id="range-lbl">缩小距离</p>
         <div class="seg" id="range-seg" role="group" aria-labelledby="range-lbl">
-          <button type="button" data-range="200" aria-pressed="false">Short</button>
-          <button type="button" data-range="320" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-range="440" aria-pressed="false">Long</button>
+          <button type="button" data-range="200" aria-pressed="false">短</button>
+          <button type="button" data-range="320" class="on" aria-pressed="true">中</button>
+          <button type="button" data-range="440" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">How far you scroll before the cover is fully small.</p>
+        <p class="hb-hint">滚动多远后封面完全变小。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Snaps at halfway</span><input class="hb-switch" type="checkbox" role="switch" id="snap-tog" autocomplete="off"></label>
-        <p class="hb-hint">Jumps from tall to slim instead of shrinking smoothly.</p>
+        <label class="hb-switch-row"><span>中途跳变</span><input class="hb-switch" type="checkbox" role="switch" id="snap-tog" autocomplete="off"></label>
+        <p class="hb-hint">从高到细直接跳变，而不是平滑缩小。</p>
       </div>
     </div>
   </section>
@@ -220,41 +220,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a collapsing cover to [your article or page header]. Start with a tall cover pinned to the top that holds the title, a subtitle, the date and the author. As the visitor scrolls, shrink it into a slim header: the title scales down into the corner, the subtitle and date fade out first, and a small author badge fades in near the end. Unless the settings make it snap, tie every change to one number that runs from 0 to 1 with the scroll, so every moment in between looks planned and scrolling back reverses it. Turn off scroll anchoring on the scrolling area. If the visitor has reduced motion turned on, switch between the tall and slim cover halfway, without animating. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的文章或页面顶栏]加一个可折叠封面。先做一个固定在顶部的高封面，放标题、副标题、日期和作者。访客滚动时，把它收成一条细顶栏：标题缩小到角落，副标题和日期先淡出，结尾处一个小作者徽章淡入。除非设置要求跳变，否则把每个变化都绑到一个随滚动从 0 到 1 的数字上，这样中间的每一刻看起来都有安排，往回滚也能还原。关闭滚动区域的滚动锚定。如果访客开启了减弱动态效果，在中途直接切换高封面和细顶栏，不做动画。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Articles</li><li>Blog posts</li><li>Product pages</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Short pages</li><li>App screens</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>文章</li><li>博客文章</li><li>产品页</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>短页面</li><li>应用界面</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $ = id => document.getElementById(id);
   const cover = $('cover'), coverBg = $('cover-bg'), coverMeta = $('cover-meta');
@@ -369,15 +369,15 @@
   const insideNote = document.querySelector('[data-hb-for="inside"]'), compareNote = document.querySelector('[data-hb-for="compare"]');
   const NOTE = {
     inside:      insideNote.textContent,
-    insideSnap:  'Inside, Snaps at halfway is on, so every part changes at one point, half the shrink distance in; the line marks where you are. Scroll the box or press Play to watch.',
-    insideStill: 'Shown without animation: every part switches at one point, half the shrink distance in, and the line marks where you are as you scroll.',
+    insideSnap:  '在内部，「中途跳变」已开启，所以每个部分都在同一点变化，即缩小距离的一半处；线条标出你的位置。滚动盒子或按「播放」观看。',
+    insideStill: '无动画显示：每个部分都在同一点切换，即缩小距离的一半处，滚动时线条标出你的位置。',
     compare:     compareNote.textContent,
-    compareSnap: 'Scrolls away loses the title once the cover leaves; Shrinks and stays switches to a slim header halfway through the shrink distance. Scroll the box or press Play to watch.',
+    compareSnap: '随页面滚走的封面一旦离开就看不到标题了；缩小并停留的封面会在缩小距离过半时切换成细顶栏。滚动盒子或按「播放」观看。',
   };
   const LABELS = {
     normal:  stage.getAttribute('aria-label'),
-    inside:  'An article whose tall cover shrinks into a header, with bars for where along the scroll each part changes',
-    compare: 'The article twice: a cover that scrolls away, and one that shrinks into a header that stays',
+    inside:  '一篇文章，高封面收成顶栏，条形图显示每个部分在滚动的哪个位置变化',
+    compare: '同一篇文章出现两次：封面随页面滚走的，以及收成顶栏并停留的',
   };
   function describe() {
     insideNote.textContent  = motionMQ.matches ? NOTE.insideStill : snapTog.checked ? NOTE.insideSnap : NOTE.inside;

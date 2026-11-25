@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Distortion on Hover — Animation Handbook</title>
-  <meta name="description" content="The picture ripples and bends around your pointer. Best for portfolio images.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/">
+  <title>悬停图片扭曲 — 动画手册</title>
+  <meta name="description" content="图片在指针周围起涟漪、弯曲。适合作品集图片。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Image Distortion on Hover — Animation Handbook">
-  <meta property="og:description" content="The picture ripples and bends around your pointer. Best for portfolio images.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="悬停图片扭曲 — 动画手册">
+  <meta property="og:description" content="图片在指针周围起涟漪、弯曲。适合作品集图片。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Image Distortion on Hover — Animation Handbook">
-  <meta name="twitter:description" content="The picture ripples and bends around your pointer. Best for portfolio images.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Image Distortion on Hover", "name": "Image Distortion on Hover", "description": "The picture ripples and bends around your pointer. Best for portfolio images.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/image-distortion-hover/", "inLanguage": "en", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, Image Distortion on Hover"}</script>
+  <meta name="twitter:title" content="悬停图片扭曲 — 动画手册">
+  <meta name="twitter:description" content="图片在指针周围起涟漪、弯曲。适合作品集图片。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "悬停图片扭曲", "name": "悬停图片扭曲", "description": "图片在指针周围起涟漪、弯曲。适合作品集图片。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/image-distortion-hover/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, 悬停图片扭曲"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -46,104 +46,104 @@
     .stage.failed .ov,.stage.failed .key,.stage.failed .ptr{display:none!important}
     @media(max-width:600px){.cap{font-size:12px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../gpgpu-particle-system/" rel="prev" aria-label="Previous: GPGPU Particle System"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>GPGPU Particle System</span></a><a href="../cloth-simulation/" rel="next" aria-label="Next: Cloth / Soft-Body Simulation"><span><span class="hb-dir">Next: </span>Cloth / Soft-Body Simulation</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../gpgpu-particle-system/" rel="prev" aria-label="上一个：GPGPU 粒子系统"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>GPGPU 粒子系统</span></a><a href="../cloth-simulation/" rel="next" aria-label="下一个：布料模拟"><span><span class="hb-dir">下一个：</span>布料模拟</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.14 · 3D &amp; Advanced</p>
-    <h1>Image Distortion on Hover</h1>
-    <p class="hb-lede">The picture ripples and bends around your pointer. Best for portfolio images.</p>
+    <p class="hb-cat">06.14 · 3D 与高级效果</p>
+    <h1>悬停图片扭曲</h1>
+    <p class="hb-lede">图片在指针周围起涟漪、弯曲。适合作品集图片。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Hover it</h2><p>Move your pointer over the picture, drag a finger across it (or Tab to it and use the arrow keys), or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">悬停试试</h2><p>把指针移到图片上，拖动手指划过它（或按 Tab 聚焦后用方向键），或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <canvas id="cvs" role="img" tabindex="0" aria-label="A blue, purple and green patterned picture with a faint grid, bending where the pointer touches it. Press the arrow keys to move where it bends."></canvas>
+      <canvas id="cvs" role="img" tabindex="0" aria-label="一张蓝、紫、绿图案的图片，上面有淡淡的网格，指针碰到的地方会弯曲。按方向键可以移动弯曲的位置。"></canvas>
       <canvas class="ov" id="ov" aria-hidden="true"></canvas>
       <div class="key" aria-hidden="true">
-        <span class="cap in-cap" data-hb-caption>Ring: how far the bend reaches</span>
-        <span class="cap in-cap" data-hb-caption>Arrows (drawn longer): which way each spot's color comes from</span>
-        <span class="cap in-cap" data-hb-caption>Thin dashes: where the grid lines really are</span>
-        <span class="cap cmp-cap" data-hb-caption>Untouched</span>
-        <span class="cap cmp-cap" data-hb-caption>Bends</span>
+        <span class="cap in-cap" data-hb-caption>圆圈：弯曲能到多远</span>
+        <span class="cap in-cap" data-hb-caption>箭头（画长了）：每个位置的颜色从哪来</span>
+        <span class="cap in-cap" data-hb-caption>细虚线：网格线真正的位置</span>
+        <span class="cap cmp-cap" data-hb-caption>原样不动</span>
+        <span class="cap cmp-cap" data-hb-caption>弯曲</span>
       </div>
       <svg class="ptr gh" id="gh" viewBox="-1 -1 17 24" aria-hidden="true"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg>
       <svg class="ptr pt" id="pt" viewBox="-1 -1 17 24" aria-hidden="true"><path d="M0 0V19L5 14.5L8.5 22L11.5 20.7L8 13.3H14.5Z"/></svg>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the picture never changes: near the pointer, each spot copies its color from where its arrow points, so the grid bends. The dashed ring is how far the bend reaches.</p>
-      <p data-hb-for="compare" hidden>Untouched ignores the pointer, shown as a ghost. Bends copies each nearby spot's color from a shifted place, so the picture ripples there; point at it, or press Show me.</p>
+      <p data-hb-for="inside" hidden>看内部：图片从不变：指针附近，每个位置都从箭头指的地方复制颜色，所以网格会弯曲。虚线圆圈表示弯曲能到多远。</p>
+      <p data-hb-for="compare" hidden>原样不动会忽略指针，显示成一个影子。「弯曲」会把附近每个位置的颜色从偏移后的地方复制过来，图片就在那里起涟漪；指着它，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="type-lbl">Effect</p>
+        <p class="hb-setting-name" id="type-lbl">效果</p>
         <div class="seg" id="type-seg" role="group" aria-labelledby="type-lbl">
-          <button type="button" data-type="0" class="on" aria-pressed="true">Ripple</button>
-          <button type="button" data-type="1" aria-pressed="false">Push</button>
-          <button type="button" data-type="2" aria-pressed="false">Liquid</button>
-          <button type="button" data-type="3" aria-pressed="false">Pixels</button>
+          <button type="button" data-type="0" class="on" aria-pressed="true">涟漪</button>
+          <button type="button" data-type="1" aria-pressed="false">推开</button>
+          <button type="button" data-type="2" aria-pressed="false">液体</button>
+          <button type="button" data-type="3" aria-pressed="false">像素块</button>
         </div>
-        <p class="hb-hint">Rings, a bulge, a liquid swirl, or big square pixels.</p>
+        <p class="hb-hint">涟漪、凸起、液体漩涡，或大块方形像素。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="str-lbl">Strength</p>
+        <p class="hb-setting-name" id="str-lbl">强度</p>
         <div class="seg" id="str-seg" role="group" aria-labelledby="str-lbl">
-          <button type="button" data-str="4" aria-pressed="false">Gentle</button>
-          <button type="button" data-str="8" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-str="14" aria-pressed="false">Strong</button>
+          <button type="button" data-str="4" aria-pressed="false">轻柔</button>
+          <button type="button" data-str="8" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-str="14" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">How far the picture bends.</p>
+        <p class="hb-hint">图片弯曲的程度。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="rad-lbl">Size</p>
+        <p class="hb-setting-name" id="rad-lbl">大小</p>
         <div class="seg" id="rad-seg" role="group" aria-labelledby="rad-lbl">
-          <button type="button" data-rad="0.15" aria-pressed="false">Small</button>
-          <button type="button" data-rad="0.25" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-rad="0.4" aria-pressed="false">Large</button>
+          <button type="button" data-rad="0.15" aria-pressed="false">小</button>
+          <button type="button" data-rad="0.25" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-rad="0.4" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">How wide an area around the pointer bends.</p>
+        <p class="hb-hint">指针周围有多大一片区域会弯曲。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="dec-lbl">Fade-out speed</p>
+          <p class="hb-setting-name" id="dec-lbl">消退速度</p>
           <div class="seg" id="dec-seg" role="group" aria-labelledby="dec-lbl">
-            <button type="button" data-decay="0.9" aria-pressed="false">Slow</button>
-            <button type="button" data-decay="1.5" class="on" aria-pressed="true">Normal</button>
-            <button type="button" data-decay="2.4" aria-pressed="false">Fast</button>
+            <button type="button" data-decay="0.9" aria-pressed="false">慢</button>
+            <button type="button" data-decay="1.5" class="on" aria-pressed="true">普通</button>
+            <button type="button" data-decay="2.4" aria-pressed="false">快</button>
           </div>
-          <p class="hb-hint">How fast the picture settles after the pointer leaves.</p>
+          <p class="hb-hint">指针离开后，图片多快恢复原样。</p>
         </div>
         <div class="hb-setting" id="ripple-set">
-          <label class="hb-switch-row"><span>Moving ripples</span><input class="hb-switch" type="checkbox" role="switch" id="ripple-tog" checked autocomplete="off"></label>
-          <p class="hb-hint">The rings keep moving outward.</p>
+          <label class="hb-switch-row"><span>涟漪扩散</span><input class="hb-switch" type="checkbox" role="switch" id="ripple-tog" checked autocomplete="off"></label>
+          <p class="hb-hint">涟漪会不断向外扩散。</p>
         </div>
       </div>
     </details>
@@ -152,41 +152,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a hover distortion to [the image you want to react]. Draw the image with a WebGL shader and, in a circle around the pointer, read each pixel from a slightly shifted spot, so the picture seems to ripple, bulge, swirl like liquid or break into squares there while the image itself never changes. The bending fades out smoothly after the pointer leaves. On touch screens, dragging a finger across the image should do the same. If the visitor has reduced motion turned on, keep the image still. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想让它有反应的图片]加一个悬停扭曲效果。用 WebGL 着色器画这张图片，在指针周围的一个圆圈里，让每个像素从稍微偏移的位置取色，这样图片看起来会在那里起涟漪、凸起、像液体一样旋转，或碎成方块，而图片本身从不变。指针离开后，弯曲会平滑地消退。触屏上，手指划过图片也要能做到同样效果。如果访客打开了减弱动态效果，就让图片保持静止。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Portfolio images</li><li>Gallery tiles</li><li>Hero images</li><li>Product photos</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Small thumbnails</li><li>Images with text</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>作品集图片</li><li>画廊卡片</li><li>主视觉图片</li><li>产品照片</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>小缩略图</li><li>带文字的图片</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const VS=`attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}`;
 const FS=`
@@ -250,10 +250,10 @@ const key=document.querySelector('.key'),ov=document.getElementById('ov'),ctx=ov
 const gh=document.getElementById('gh'),pt=document.getElementById('pt');
 const noteIn=document.querySelector('[data-hb-for="inside"]'),noteCmp=document.querySelector('[data-hb-for="compare"]');
 const NOTE_IN=noteIn.textContent,NOTE_CMP=noteCmp.textContent;
-const VERBS=[['bends','ripples'],['bulges','bulges'],['swirls','swirls'],['breaks into squares','breaks into squares']];
+const VERBS=[['弯曲','起涟漪'],['凸起','凸起'],['旋转','旋转'],['碎成方块','碎成方块']];
 const LABELS={normal:cvs.getAttribute('aria-label'),
-  inside:'The patterned picture bending around a resting point, with a dashed ring for how far the bend reaches and arrows for where each spot copies its color from. Press the arrow keys to move where it bends.',
-  compare:'The picture twice: untouched, and bending around the same point. Press the arrow keys to move where it bends.'};
+  inside:'图案图片围绕一个静止的点弯曲，虚线圆圈表示弯曲能到多远，箭头表示每个位置从哪里复制颜色。按方向键可以移动弯曲的位置。',
+  compare:'图片画两次：原样不动，和围绕同一个点弯曲。按方向键可以移动弯曲的位置。'};
 // The picture the bend lives in, in canvas pixels from the box's top left corner (Compare: the second of two, a thin line apart)
 function fr(){
   const w=Math.floor((W-Math.max(2,Math.round(W/500)))/2);
@@ -277,10 +277,10 @@ function now(){
 
 function init(){
   gl=cvs.getContext('webgl');
-  if(!gl){glErr='WebGL is unavailable in this browser, so the distortion shader cannot run.';return false;}
+  if(!gl){glErr='这个浏览器不支持 WebGL，所以扭曲着色器无法运行。';return false;}
   function sh(t,s){
     const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);
-    if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(x)||'shader compile failed');
+    if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(x)||'着色器编译失败');
     return x;
   }
   try{
@@ -288,8 +288,8 @@ function init(){
     gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
     gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
     gl.linkProgram(prog);
-    if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog)||'program link failed');
-  }catch(e){glErr=('Shader failed to build:\n'+e.message).replace(/\0/g,'').trim();return false;}
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog)||'程序链接失败');
+  }catch(e){glErr=('着色器构建失败：\n'+e.message).replace(/\0/g,'').trim();return false;}
   U={};['uRes','uMouse','uO','uT','uStr','uRad','uPhase','uType','uAnimate'].forEach(n=>{U[n]=gl.getUniformLocation(prog,n);});
   const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
   gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
@@ -491,7 +491,7 @@ document.addEventListener('hb:mode',e=>{
 });
 // The notes name what the effect does to the picture
 function words(){
-  const a=NOTE_IN.replace('so the grid bends','so the grid '+VERBS[TYPE][0]),b=NOTE_CMP.replace('picture ripples there','picture '+VERBS[TYPE][1]+' there');
+  const a=NOTE_IN.replace('网格会弯曲','网格会'+VERBS[TYPE][0]),b=NOTE_CMP.replace('图片在那里起涟漪','图片在那里'+VERBS[TYPE][1]);
   if(noteIn.textContent!==a)noteIn.textContent=a;
   if(noteCmp.textContent!==b)noteCmp.textContent=b;
 }

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clip-Path Reveal — Animation Handbook</title>
-  <meta name="description" content="A growing shape uncovers it while it stays still. Best for images and banners.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/clip-path-reveal/">
+  <title>剪裁路径揭示 — 动画手册</title>
+  <meta name="description" content="一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/clip-path-reveal/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Clip-Path Reveal — Animation Handbook">
-  <meta property="og:description" content="A growing shape uncovers it while it stays still. Best for images and banners.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/clip-path-reveal/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="剪裁路径揭示 — 动画手册">
+  <meta property="og:description" content="一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/clip-path-reveal/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Clip-Path Reveal — Animation Handbook">
-  <meta name="twitter:description" content="A growing shape uncovers it while it stays still. Best for images and banners.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Clip-Path Reveal", "name": "Clip-Path Reveal", "description": "A growing shape uncovers it while it stays still. Best for images and banners.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/clip-path-reveal/", "inLanguage": "en", "articleSection": "Entrance & Exit", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Entrance & Exit, Clip-Path Reveal"}</script>
+  <meta name="twitter:title" content="剪裁路径揭示 — 动画手册">
+  <meta name="twitter:description" content="一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "剪裁路径揭示", "name": "剪裁路径揭示", "description": "一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。", "url": "https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/clip-path-reveal/", "inLanguage": "zh-CN", "articleSection": "入场与退场", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画，CSS 动画，入场与退场，剪裁路径揭示"}</script>
   <style>
     :root{--ui-accent:#5fd88a;--mark:#ffa94d;--dur:800ms;--ease:cubic-bezier(.2,.7,.3,1)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -87,107 +87,107 @@
       .stage[data-hb-mode="inside"]:not(.posed) .rim{display:none}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../scale-in/" rel="prev" aria-label="Previous: Scale In / Zoom In"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Scale In / Zoom In</span></a><a href="../curtain-reveal/" rel="next" aria-label="Next: Curtain Reveal"><span><span class="hb-dir">Next: </span>Curtain Reveal</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../scale-in/" rel="prev" aria-label="上一个：缩放进入"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>缩放进入</span></a><a href="../curtain-reveal/" rel="next" aria-label="下一个：幕布揭示"><span><span class="hb-dir">下一个：</span>幕布揭示</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">02.05 · Entrance &amp; Exit</p>
-    <h1>Clip-Path Reveal</h1>
-    <p class="hb-lede">A growing shape uncovers it while it stays still. Best for images and banners.</p>
+    <p class="hb-cat">02.05 · 入场与退场</p>
+    <h1>剪裁路径揭示</h1>
+    <p class="hb-lede">一个不断变大的形状揭开它，自身保持静止。适合图片和横幅。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It plays by itself. Turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="surface" id="surface">
         <div class="surface-bg"></div>
         <div class="surface-grid"></div>
         <div class="surface-text">
-          <div class="surface-label">Clip-Path Reveal</div>
+          <div class="surface-label">裁剪路径显现</div>
           <div class="surface-title">Unmasked</div>
         </div>
       </div>
-      <span class="lbl pin open" aria-hidden="true" data-hb-caption>The opening: only what is inside shows</span>
-      <span class="lbl pin hid" aria-hidden="true" data-hb-caption>Hidden, but already there</span>
-      <span class="lbl name one" aria-hidden="true" data-hb-caption>Slides in</span>
-      <span class="lbl name two" aria-hidden="true" data-hb-caption>Uncovered in place</span>
+      <span class="lbl pin open" aria-hidden="true" data-hb-caption>开口：只有里面的才显示</span>
+      <span class="lbl pin hid" aria-hidden="true" data-hb-caption>藏着，但已经在了</span>
+      <span class="lbl name one" aria-hidden="true" data-hb-caption>滑入</span>
+      <span class="lbl name two" aria-hidden="true" data-hb-caption>原地揭开</span>
       <div class="foot" aria-hidden="true">
-        <span class="lbl keep" data-hb-caption>The picture never moves; only the opening grows</span>
-        <span class="lbl moment" data-hb-caption>A tenth of a second in</span>
+        <span class="lbl keep" data-hb-caption>图片从不移动，只有开口在变大</span>
+        <span class="lbl moment" data-hb-caption>十分之一秒后</span>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Replay</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>Loop</span></label>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the faint picture is the part still hidden: it is already there and never moves. Only the outlined opening grows, uncovering more of it.</p>
-      <p data-hb-for="compare" hidden>Slides in moves the picture through its frame, so you see its far end first. Uncovered in place keeps it still and opens a window over it.</p>
+      <p data-hb-for="inside" hidden>看内部，淡淡的图片是还藏着的部分：它已经在那里了，而且从不移动。只有带轮廓的开口在变大，露出越来越多。</p>
+      <p data-hb-for="compare" hidden>「滑入」让图片穿过它的框移动，所以你先看到它的远端。「原地揭开」让它保持静止，在它上面打开一扇窗。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and the animation plays again.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="shape-lbl">Shape</p>
+        <p class="hb-setting-name" id="shape-lbl">形状</p>
         <div class="seg" id="shape-seg" role="group" aria-labelledby="shape-lbl">
-          <button type="button" data-shape="inset" class="on" aria-pressed="true">Edge wipe</button>
-          <button type="button" data-shape="circle" aria-pressed="false">Circle</button>
-          <button type="button" data-shape="ellipse" aria-pressed="false">Oval</button>
+          <button type="button" data-shape="inset" class="on" aria-pressed="true">边缘擦除</button>
+          <button type="button" data-shape="circle" aria-pressed="false">圆形</button>
+          <button type="button" data-shape="ellipse" aria-pressed="false">椭圆形</button>
         </div>
-        <p class="hb-hint">The shape that opens to reveal it.</p>
+        <p class="hb-hint">打开来揭示它的形状。</p>
       </div>
       <div class="hb-setting" id="dir-setting">
-        <p class="hb-setting-name" id="dir-lbl">Starts from</p>
+        <p class="hb-setting-name" id="dir-lbl">从哪开始</p>
         <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
-          <button type="button" data-dir="left" class="on" aria-pressed="true">Left</button>
-          <button type="button" data-dir="right" aria-pressed="false">Right</button>
-          <button type="button" data-dir="top" aria-pressed="false">Top</button>
-          <button type="button" data-dir="bottom" aria-pressed="false">Bottom</button>
-          <button type="button" data-dir="center" aria-pressed="false">Center</button>
+          <button type="button" data-dir="left" class="on" aria-pressed="true">左</button>
+          <button type="button" data-dir="right" aria-pressed="false">右</button>
+          <button type="button" data-dir="top" aria-pressed="false">上</button>
+          <button type="button" data-dir="bottom" aria-pressed="false">下</button>
+          <button type="button" data-dir="center" aria-pressed="false">中间</button>
         </div>
-        <p class="hb-hint">Which side the wipe begins on.</p>
+        <p class="hb-hint">擦除从哪一边开始。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1300" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="800" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="500" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1300" aria-pressed="false">慢</button>
+          <button type="button" data-ms="800" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="500" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">A reveal reads best a little slower than a fade.</p>
+        <p class="hb-hint">揭示比淡入稍慢一点，读起来最好。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">感觉</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">Smooth</button>
-            <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+            <button type="button" data-ease="cubic-bezier(.2,.7,.3,1)" class="on" aria-pressed="true">平滑</button>
+            <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
           </div>
-          <p class="hb-hint">Smooth slows at the end; Even keeps one pace.</p>
+          <p class="hb-hint">「平滑」在结尾放慢；「均匀」保持一个速度。</p>
         </div>
       </div>
     </details>
@@ -196,41 +196,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a mask reveal to [the image or block you want to reveal]. The element should stay completely still and fully drawn while a shape uncovers it, like a window opening: an edge wipe that starts from one side or from the center, or a circle or oval that opens from the middle. Nothing moves, fades or changes size; only the visible area grows until the whole element shows. A wipe that slows down as it finishes looks calmer than one that stops abruptly. The content must stay accessible even while part of it is hidden. If the visitor has reduced motion turned on, show it fully without the wipe. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想揭示的图片或区块]加上遮罩揭示。元素应该完全静止、完整绘制，同时一个形状像开窗一样揭开它：从一边或从中间开始的边缘擦除，或者从中间打开的圆形或椭圆形。什么都不移动、不淡入淡出、不改变大小，只有可见区域不断变大，直到整个元素都显示出来。结束时慢慢减速的擦除，比戛然而止的看起来更平静。即使一部分还藏着，内容也必须保持可访问。如果访客开了减弱动态效果，就不要擦除，直接完整显示。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Images</li><li>Banners</li><li>Full-width panels</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Small buttons</li><li>Form fields</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>图片</li><li>横幅</li><li>通栏面板</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>小按钮</li><li>表单字段</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const surface=document.getElementById('surface');
   const vars=document.documentElement.style;
@@ -353,11 +353,11 @@
   // The names and notes follow the shape and side; under reduced motion the notes say the views are held
   function words(){
     const grow=kind()==='grow',still=!motionOk;
-    write(names[0],grow?'Grows in':'Slides in');
-    write(notes.inside,still?'Shown still, a tenth of a second in: the faint picture is the part still hidden, already there; only the outlined opening grows over it.':NOTE.inside);
-    write(notes.compare,still?(grow?'Shown still, a tenth of a second in: Grows in shows the whole picture small, while Uncovered in place shows its middle at full size.'
-      :'Shown still, a tenth of a second in: Slides in shows the far end of the picture coming in, while Uncovered in place shows its start, still.')
-      :grow?'Grows in scales the picture up from the middle. Uncovered in place keeps it still at full size and opens a window over it.':NOTE.compare);
+    write(names[0],grow?'放大进入':'滑入');
+    write(notes.inside,still?'静止画面，十分之一秒后：淡淡的图片是还藏着的部分，已经在那里了；只有带轮廓的开口在它上面变大。':NOTE.inside);
+    write(notes.compare,still?(grow?'静止画面，十分之一秒后：「放大进入」把整张图片缩小显示，而「原地揭开」显示它中间的完整尺寸。'
+      :'静止画面，十分之一秒后：「滑入」显示图片的远端正在进来，而「原地揭开」显示它的起点，还静止着。')
+      :grow?'「放大进入」把图片从中间放大。「原地揭开」让它以完整尺寸保持静止，在它上面打开一扇窗。':NOTE.compare);
   }
   // See inside's two pins: one on the opening's edge, one on the hidden part, each in the band above or below the picture with a stem
   // down or up to its spot (shown while the moment is held). Spots are worked out in the picture's pixels from the held clip.

@@ -1,18 +1,18 @@
-# Outline to Fill
+# 描边填充
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/outline-to-fill/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/outline-to-fill/)
 
-## What it is
-Outline to fill starts text as hollow letters, with only the outline of each letter showing, then fills them with color, so the text looks as if it is being inked in. There are two ways to do it, and the demo shows both: a wipe that fills the letters from one side, like paint, and a fade that fills them everywhere at once, like ink soaking in.
+## 它是什么
+描边填充让文字一开始是空心字，只显示每个字母的描边，然后填满颜色，所以文字看起来像正在被涂上墨。有两种做法，演示都展示了：一种是擦除，从一边像油漆一样填满字母；另一种是淡入，像墨水浸透一样同时填满所有地方。
 
-## When to use it
-- Hero words on posters and editorial-style sites where the letterforms themselves are the visual
-- Logo reveals and wordmark animations
-- Section headings that activate on scroll entry
-- Any headline where a simple fade-in would be too plain but full kinetic typography is too complex
+## 什么时候用
+- 海报和编辑风格网站上的主视觉文字，字母形状本身就是视觉
+- Logo 揭示和字标动画
+- 滚动进入时激活的章节标题
+- 任何简单淡入太平淡、完整动态排版又太复杂的标题
 
-## How it works
-`-webkit-text-stroke` creates the hollow outline; a `color: transparent` makes the fill invisible. Two identical text elements are layered — the outline layer always visible, the fill layer revealed by a clip-path animation:
+## 工作原理
+`-webkit-text-stroke` 做出空心描边；`color: transparent` 让填充看不见。两个相同的文字元素叠在一起——描边层始终可见，填充层用裁剪路径动画揭示：
 
 ```html
 <div class="text-wrap">
@@ -46,12 +46,12 @@ Outline to fill starts text as hollow letters, with only the outline of each let
 }
 ```
 
-Trigger the fill in JavaScript:
+在 JavaScript 里触发填充：
 ```js
 document.querySelector('.fill-layer').classList.add('filled');
 ```
 
-Direction variants change the starting `clip-path`:
+方向变体改变起始的 `clip-path`：
 ```css
 /* Bottom to top (default) */
 clip-path: inset(100% 0 0 0);
@@ -66,7 +66,7 @@ clip-path: inset(0 100% 0 0);
 clip-path: inset(50% 0);   /* top+bottom each at 50% = nothing visible */
 ```
 
-For the opacity crossfade variant (no clip-path):
+对于透明度交叉淡入的变体（不用裁剪路径）：
 ```css
 .stroke-only { opacity: 1; transition: opacity 900ms ease; }
 .fill-only   { opacity: 0; transition: opacity 900ms ease; }
@@ -75,24 +75,24 @@ For the opacity crossfade variant (no clip-path):
 .filled .fill-only   { opacity: 1; }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Fill direction | Bottom up | Where the wipe starts: the bottom, the top, the left, the right or the middle; bottom up reads like filling a container, left to right like writing. The fade has no direction |
-| Speed | Normal | How long the fill takes: slow is 1500ms, normal 900ms and fast 550ms |
-| Outline thickness | Medium | How wide the outline is: thin is 1px, medium 2px and thick 4px; thin looks precise, thick looks bold |
-| Feel | Gentle | Gentle eases in and out; Smooth slows to a stop; Even keeps one steady pace |
-| Outline color | Pink | The color of the letters' outline |
-| Fill color | Pink | The color that fills the letters |
-| Your text | OUTLINE | The word that fills, up to 10 letters, shown in capitals |
+| 填充方向 | 自下而上 | 擦除开始的地方：底部、顶部、左侧、右侧或中间；自下而上读起来像在装满一个容器，从左到右像在写字。淡入没有方向 |
+| 速度 | 普通 | 填满需要的时间：慢速 1500ms，普通 900ms，快速 550ms |
+| 描边粗细 | 中 | 描边有多宽：细是 1px，中 2px，粗 4px；细看起来精确，粗看起来醒目 |
+| 感觉 | 柔和 | 柔和是进出都缓和；平滑是慢慢停下来；均匀保持一个稳定的速度 |
+| 描边颜色 | 粉色 | 字母描边的颜色 |
+| 填充颜色 | 粉色 | 填满字母的颜色 |
+| 你的文字 | OUTLINE | 会填满的词，最多 10 个字母，用大写显示 |
 
-## Production notes
-- **`-webkit-text-stroke` is non-standard**: it is supported in all modern browsers (Chrome, Firefox, Safari, Edge) but is not in the CSS specification. The standard alternative is `text-shadow` with a spread — less crisp but more compatible. For production, test the stroke rendering in your target browsers and font size.
-- **Stroke applies outside the fill**: `-webkit-text-stroke` distributes the stroke both inside and outside the character path. At thick values, it can eat into the letterform's counter (interior space). Use thin strokes (1–3px) for body sizes; thicker only for very large display type.
-- **Two-element overhead**: the technique requires two DOM elements per animated word. For many words or dynamic content, consider generating these programmatically or using a single-element approach (CSS mask with SVG text, or Canvas).
-- **GSAP**: animate `clipPath` on the fill layer element directly. `gsap.to(fillLayer, { clipPath: 'inset(0%)', duration: 0.9, ease: 'power2.inOut' })`.
+## 生产注意事项
+- **`-webkit-text-stroke` 是非标准的**：所有现代浏览器（Chrome、Firefox、Safari、Edge）都支持它，但它不在 CSS 规范里。标准替代方案是带扩散的 `text-shadow`——没那么清晰，但兼容性更好。生产中要在目标浏览器和字号下测试描边的渲染。
+- **描边分布在填充之外**：`-webkit-text-stroke` 把描边同时分布在字符路径的内外。在粗值下，它会吃掉字母内部空间（counter）。正文字号用细描边（1–3px）；只有非常大的展示文字才用粗描边。
+- **双元素开销**：这个手法每个动画词需要两个 DOM 元素。对于许多词或动态内容，考虑用程序生成，或者用单元素做法（带 SVG 文字的 CSS 遮罩，或者 Canvas）。
+- **GSAP**：直接给填充层元素的 `clipPath` 做动画。`gsap.to(fillLayer, { clipPath: 'inset(0%)', duration: 0.9, ease: 'power2.inOut' })`。
 
-## See also
-- [Text Gradient Animation](../text-gradient-animation/) — colors flow through the letters instead
-- [Text Clip-Path Reveal](../text-clip-path-reveal/) — whole lines are uncovered the same way
-- [Clip-Path Reveal](../../02-entrance-and-exit/clip-path-reveal/) — a shape uncovers any element
+## 另见
+- [文字渐变动画](../text-gradient-animation/) — 颜色在字母里流动，而不是填满
+- [裁剪揭示文字](../text-clip-path-reveal/) — 整行用同样的方式被揭开
+- [剪裁路径揭示](../../02-entrance-and-exit/clip-path-reveal/) — 一个形状揭开任何元素

@@ -1,7 +1,7 @@
 /* Animation Handbook — shared behaviour for the guided-steps demo pages.
  * Fills in "Your settings", Copy prompt (its text built by pageCopyText, which the home page uses too) and the star ask (the
  * first copy that works marks the star row under the prompt card), the README's
- * "What it is" and "Similar animations", plays the demo on arrival, replays it when a setting changes, runs
+ * “它是什么” and “相似效果”, plays the demo on arrival, replays it when a setting changes, runs
  * Pause and CSS slow motion on loop pages, presses Show me on do-it pages (not on arrival
  * when the visitor has already acted in the stage) and tells the page when the visitor
  * takes over ("hb:input"), and follows reduced motion (Loop and Slow motion greyed out,
@@ -64,7 +64,7 @@
       .replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
   }
 
-  // A README split into { "What it is": "...", ... } by its "## " headings.
+  // A README split into { “它是什么”: "...", ... } by its "## " headings.
   function sections(md) {
     var out = {}, current = null, buf = [];
     String(md).replace(/\r\n?/g, '\n').split('\n').forEach(function (line) {
@@ -105,10 +105,10 @@
       .join(', ');
   }
 
-  // What Copy prompt copies: the prompt, then a blank line and "Settings from the demo: …" when the page has settings.
+  // 「复制提示词」复制的内容：提示词，空一行，然后是有设置时的"演示中的设置：…"。
   function promptWithSettings(prompt, items) {
     var line = settingsLine(items);
-    return prompt + (line ? '\n\nSettings from the demo: ' + line + '.' : '');
+    return prompt + (line ? '\n\n演示中的设置：' + line + '。' : '');
   }
 
   // The prompt as HTML with each [part to fill in] highlighted.
@@ -134,12 +134,12 @@
   // page is a scroll page ({ scroll }: true, or the page's own sentence when reduced motion does something other than take the
   // animation out of it); '' when reduced motion changes nothing there.
   function motionNote(has) {
-    var off = [has.loop && 'Loop', has.slow && 'Slow motion'].filter(Boolean);
+    var off = [has.loop && '循环', has.slow && '慢动作'].filter(Boolean);
     var parts = [];
-    if (has.scroll) parts.push(typeof has.scroll === 'string' ? has.scroll : 'The effects follow the scroll without animating');
-    if (has.pause) parts.push('It starts paused');
-    if (off.length) parts.push(off.join(' and ') + (off.length > 1 ? ' are' : ' is') + ' off');
-    return parts.length ? parts.join(' and ') + ' because your device is set to reduce motion.' : '';
+    if (has.scroll) parts.push(typeof has.scroll === 'string' ? has.scroll : '效果随滚动变化，不播放动画');
+    if (has.pause) parts.push('开始时处于暂停状态');
+    if (off.length) parts.push(off.join('和') + '已关闭');
+    return parts.length ? parts.join('，') + '，因为你的设备设置了减弱动态效果。' : '';
   }
 
   /* ---------- Page behaviour ---------- */
@@ -170,7 +170,7 @@
       return shown ? text(shown) : (control.getAttribute('aria-valuetext') || control.value);
     }
     if (control.matches('input[type=text], textarea')) return quoteText(control.value, 40);
-    if (control.matches('input[type=checkbox]')) return control.checked ? 'on' : 'off';
+    if (control.matches('input[type=checkbox]')) return control.checked ? '开' : '关';
     if (control.matches('select')) return control.selectedOptions[0] ? text(control.selectedOptions[0]) : control.value;
     var active = (phone && control.querySelector('[data-hb-phone]')) || control.querySelector('.on, [aria-pressed="true"]');
     return active ? (active.getAttribute('aria-label') || text(active)) : '';
@@ -191,7 +191,7 @@
   }
 
   // A control counts unless it, or anything between it and the scope, is hidden, skipped or
-  // display:none. Controls inside a closed More options still count: <details> hides them another way.
+  // display:none。收起的「更多选项」里的控件仍然计入：<details> 是另一种隐藏方式。
   function isShown(control, scope, win) {
     for (var node = control; node && node !== scope; node = node.parentElement) {
       if (node.hidden || node.hasAttribute('data-hb-skip')) return false;
@@ -252,7 +252,7 @@
     function copyText() { return pageCopyText(doc, win); }
     function replay() { if (replayCtl) replayCtl.click(); }
 
-    // The prompt: highlight the part to fill in; on phones show five lines until "Show the full prompt".
+    // 提示词：高亮要填的部分；手机上只显示五行，直到点「显示完整提示词」。
     function setUpPrompt() {
       promptEl.innerHTML = markFill(promptText);
       promptEl.id = promptEl.id || 'hb-prompt';
@@ -262,11 +262,11 @@
       toggle.className = 'hb-prompt-more';
       toggle.setAttribute('aria-controls', promptEl.id);
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = 'Show the full prompt';
+      toggle.textContent = '显示完整提示词';
       toggle.addEventListener('click', function () {
         var open = !promptEl.classList.toggle('is-clamped');
         toggle.setAttribute('aria-expanded', String(open));
-        toggle.textContent = open ? 'Show less' : 'Show the full prompt';
+        toggle.textContent = open ? '收起' : '显示完整提示词';
       });
       promptEl.insertAdjacentElement('afterend', toggle);
     }
@@ -284,7 +284,7 @@
     function warnIncomplete() {
       if (!tryStep || !win.console) return;
       readSettings(doc, tryStep, win).forEach(function (s) {
-        if (!s.label || !s.value) win.console.warn('Your settings: this control has no ' + (s.label ? 'value' : 'label') + ' and is left out', s.control);
+        if (!s.label || !s.value) win.console.warn('你的设置：这个控件没有' + (s.label ? '值' : '标签') + '，已略过', s.control);
       });
     }
 
@@ -292,14 +292,47 @@
       var label = copyBtn.querySelector('.hb-copy-label') || copyBtn;
       var original = label.textContent;
       var timer = 0;
+      var status = doc.createElement('p');
+      status.className = 'hb-copy-status';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      copyBtn.insertAdjacentElement('afterend', status);
+      copyBtn.setAttribute('aria-label', original);
       function show(message, done) {
         label.textContent = message;
         copyBtn.classList.toggle('is-done', done);
+        copyBtn.classList.toggle('is-fail', !done && message !== original);
+        copyBtn.setAttribute('aria-label', message);
+        status.textContent = done ? '已复制，可以粘贴到 AI 助手里。'
+          : (message === original ? '' : '没能写入剪贴板。提示词已选中，请' + message + '。');
         win.clearTimeout(timer);
         timer = win.setTimeout(function () {
           label.textContent = original;
           copyBtn.classList.remove('is-done');
-        }, 1500);
+          copyBtn.classList.remove('is-fail');
+          copyBtn.setAttribute('aria-label', original);
+          status.textContent = '';
+        }, done ? 2400 : 6000);
+      }
+      // A clipboard call that never settles must not leave the button saying nothing happened.
+      function withTimeout(promise, ms) {
+        return new Promise(function (resolve, reject) {
+          var settled = false;
+          var wait = win.setTimeout(function () {
+            if (!settled) { settled = true; reject(new Error('timeout')); }
+          }, ms);
+          promise.then(function (value) {
+            if (settled) return;
+            settled = true;
+            win.clearTimeout(wait);
+            resolve(value);
+          }, function (err) {
+            if (settled) return;
+            settled = true;
+            win.clearTimeout(wait);
+            reject(err);
+          });
+        });
       }
       // Where the clipboard API is blocked, copy through an off-screen text box so the settings line still comes along.
       function copyThroughTextBox(textToCopy) {
@@ -326,12 +359,12 @@
         var selection = win.getSelection();
         selection.removeAllRanges();
         selection.addRange(range);
-        show(/Mac|iPhone|iPad/.test(win.navigator.platform || win.navigator.userAgent) ? 'Press ⌘C to copy' : 'Press Ctrl+C to copy', false);
+        show(/Mac|iPhone|iPad/.test(win.navigator.platform || win.navigator.userAgent) ? '按 ⌘C 复制' : '按 Ctrl+C 复制', false);
       }
       // The star ask: a copy that works marks the star row under the card, and the stylesheet lights its button (the mark
       // stays, so the button lights once). The prompt in hand is the moment the page has helped; nothing scrolls or takes focus.
       function copied() {
-        show('Copied', true);
+        show('已复制', true);
         if (starRow) starRow.classList.add('is-asked');
       }
       function fallback(textToCopy) {
@@ -342,7 +375,7 @@
         var textToCopy = copyText();
         var clip = win.navigator.clipboard;
         if (clip && clip.writeText) {
-          clip.writeText(textToCopy).then(copied, function () { fallback(textToCopy); });
+          withTimeout(clip.writeText(textToCopy), 1200).then(copied, function () { fallback(textToCopy); });
         } else {
           fallback(textToCopy);
         }
@@ -350,7 +383,7 @@
     }
 
     // Opened from disk, every link of the page to a folder (the home link, Previous and Next, any other) opens that folder's
-    // index.html instead of its listing. Similar animations is not shown there (the README is not read from disk), so every
+    // index.html instead of its listing. 相似效果 is not shown there (the README is not read from disk), so every
     // link is in place by now.
     function openFoldersAsPages() {
       Array.prototype.forEach.call(doc.querySelectorAll('a[href]'), function (a) {
@@ -359,7 +392,7 @@
       });
     }
 
-    // What it is and Similar animations from the README. Opened from disk, the README link stays.
+    // 它是什么 and 相似效果 from the README. Opened from disk, the README link stays.
     function loadReadme() {
       var what = page.querySelector('.hb-what-text');
       var related = page.querySelector('.hb-related');
@@ -369,9 +402,9 @@
         return res.text();
       }).then(function (md) {
         var s = sections(md);
-        if (s['What it is']) what.innerHTML = paragraphs(s['What it is']);
+        if (s['它是什么']) what.innerHTML = paragraphs(s['它是什么']);
         var list = related && related.querySelector('.hb-rel-list');
-        var cards = seeAlso(s['See also']).filter(function (r) { return isSafeHref(r.href); });
+        var cards = seeAlso(s['另见']).filter(function (r) { return isSafeHref(r.href); });
         if (!list || !cards.length) return;
         list.innerHTML = cards.map(function (r) {
           var desc = r.desc.replace(/^[a-z]/, function (c) { return c.toUpperCase(); });
@@ -400,7 +433,7 @@
       paused = next;
       pauseCtl.setAttribute('data-state', paused ? 'paused' : 'playing');
       var label = pauseCtl.querySelector('.hb-pause-label');
-      if (label) label.textContent = paused ? 'Play' : 'Pause';
+      if (label) label.textContent = paused ? '播放' : '暂停';
       if (stage && pauseCtl.getAttribute('data-hb-pause') === 'css') stage.classList.toggle('hb-paused', paused);
       doc.dispatchEvent(new win.CustomEvent('hb:pause', { detail: { paused: paused } }));
     }

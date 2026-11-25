@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en" data-fx-touch="drag">
+<html lang="zh-CN" data-fx-touch="drag">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Our version: The liquid reveal under the pointer</title>
+<title>我们的版本：指针下的液态揭示</title>
 <style>
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin-ext.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Schibsted Grotesk';src:url('../../assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 html{background:#0b0b0f;color-scheme:dark;overflow:hidden}
-body{color:#f4f4f2;font:400 15px/1.5 'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}
+body{color:#f4f4f2;font:400 15px/1.5 'Schibsted Grotesk','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei','WenQuanYi Micro Hei','Droid Sans Fallback',system-ui,-apple-system,'Segoe UI',sans-serif}
 /* The stage holds two pictures of the same scene, stacked exactly: the night picture, and the day picture that shows only through the blob. */
 .stage{position:relative;width:100%;height:100%;min-height:160px;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 .stage:focus-visible{outline:none}
@@ -36,7 +36,7 @@ body{color:#f4f4f2;font:400 15px/1.5 'Schibsted Grotesk',system-ui,-apple-system
 </script>
 </head>
 <body>
-<div class="stage" id="stage" tabindex="0" role="group" aria-label="A night landscape of hills and pine trees under a pale moon and stars. Move the pointer over it, or press the arrow keys, and a soft blob follows a little behind and shows the same landscape by day, in coral, amber and teal.">
+<div class="stage" id="stage" tabindex="0" role="group" aria-label="一幅夜晚的风景：山丘和松树，头顶是苍白的月亮和星星。把指针移上去，或按方向键，一团柔软的液滴会稍稍落后地跟着指针，露出同一处风景的白天样子——珊瑚色、琥珀色和青色。">
   <div class="pic" id="night" aria-hidden="true"></div>
   <div class="pic glow" aria-hidden="true"><div class="pic day" id="day"></div></div>
   <i class="dot" id="dot" aria-hidden="true"></i>

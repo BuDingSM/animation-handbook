@@ -1,28 +1,28 @@
-# Scrub Animation
+# 滚动 scrub 动画
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scrub-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/scrub-animation/)
 
-## What it is
+## 它是什么
 
-A scrub animation has no play button and no length in seconds: how far you have scrolled decides exactly which moment of the animation shows, like dragging the playhead of a video. Scroll down and it moves forward; scroll back and it moves back. The demo draws the whole flight route up front and fills it in as the plane flies, with a bar and a frame count underneath, so you can always see where you are.
+Scrub 动画没有播放按钮，也没有以秒计的长度：你滚动了多远，决定了动画正好显示哪一刻，就像拖视频的播放头。往下滚就前进；往回滚就后退。演示预先画出整条飞行路线，飞机飞过时把它填满，下面有一条横条和帧数，所以你总能知道自己在哪里。
 
-## When to use it
+## 什么时候用
 
-- Product reveals where the reader controls the pace instead of watching a clip
-- Technical explainers — mechanisms, architecture diagrams — that reward stopping mid-way and inspecting
-- Apple-style feature walkthroughs where each scroll increment advances a story
-- Any animation that must be perfectly reversible and legible at every intermediate state
+- 读者控制节奏、而不是看一段视频的产品展示
+- 值得中途停下仔细看的技术讲解——机械结构、架构图
+- 每次滚动推进一点故事的苹果风格功能导览
+- 任何必须完全可逆、在每个中间状态都清晰可读的动画
 
-## How it works
+## 工作原理
 
-Everything comes from one number. Progress is scroll position over scrollable distance, clamped:
+一切都来自一个数字。进度是滚动位置除以可滚动距离，取上下限：
 
 ```js
 const p = clamp(stage.scrollTop / maxScroll, 0, 1);
 const e = ease(p);                 // the curve is optional; the mapping is the point
 ```
 
-Position and heading are both read from the path itself, so the drawn trail and the moving object can never disagree about where the current frame is:
+位置和朝向都从路径本身读取，所以画出的轨迹和移动的物体永远不会对当前帧在哪里有分歧：
 
 ```js
 const d  = pathLength * e;
@@ -35,27 +35,27 @@ flyer.setAttribute('transform', `translate(${pt.x} ${pt.y}) rotate(${angle})`);
 trail.style.strokeDashoffset = pathLength - d;   // elapsed portion of the route
 ```
 
-The trail uses the standard line-drawing trick: `stroke-dasharray` is set to the full path length, and `stroke-dashoffset` counts down from it, revealing the stroke as progress advances.
+轨迹用标准的线条描绘技巧：`stroke-dasharray` 设为完整路径长度，`stroke-dashoffset` 从它开始倒数，进度推进时露出笔画。
 
-Nothing here is time-based: the Play button under the demo only scrolls the box at a steady speed, and the same code draws each frame. Scroll is one input to a position, not a trigger for playback.
+这里没有任何东西基于时间：演示下面的播放按钮只是让盒子匀速滚动，画每一帧的是同一份代码。滚动是位置的一个输入，而不是播放的触发器。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Feel | Even | How scroll turns into progress: even follows the scroll one to one; gentle eases in and out; smooth slows toward the end; slow start begins slowly and speeds up |
+| 感觉 | 均匀 | 滚动如何变成进度：均匀一对一跟随滚动；轻柔进出都缓和；平滑向结尾放慢；慢启动开始慢、然后加速 |
 
-## Production notes
+## 生产注意事项
 
-- **Scrub is a position, not a playback.** The mental model that causes bugs is treating scroll as a *play* trigger and then trying to reverse it. Compute state from progress every frame and reversal is free — there is no direction to track and no animation object to rewind.
-- **Never gate the update on a state.** Skipping the calculation when the section is "inactive" leaves whatever value it stopped on. Clamping progress to `0–1` instead means the frame resolves correctly no matter how the reader arrived, including jumping straight to the end.
-- **Give the reader the whole timeline.** The failure mode of an abstract scrubbed scene is that the viewer cannot tell where they are or how much is left, so the motion reads as noise. Drawing the full route up front and filling it in turns the animation into its own progress bar.
-- **Keep layout reads out of the frame loop.** `getTotalLength()`, `scrollHeight` and `clientHeight` are measured once and refreshed on resize. Reading them per frame forces a synchronous reflow on every scroll event.
-- **Library equivalents.** GSAP ScrollTrigger with `scrub: true` is the production standard, and `scrub: 0.5` adds a smoothing lag that makes wheel-notch scrolling feel less stepped. Framer Motion's `useScroll` + `useTransform` is the React equivalent; both are wrappers over exactly this progress-to-value mapping.
-- **Accessibility.** The page scrolls the box once on arrival, and not at all under `prefers-reduced-motion: reduce`; after that it moves only when the visitor scrolls, so this is direct manipulation rather than imposed motion. Under reduced motion the demo drops the decorative glow and keeps the mapping, since removing it entirely would leave the control inert rather than calmer.
+- **Scrub 是位置，不是播放。**导致 bug 的心智模型是把滚动当作*播放*触发器，然后再想办法反转它。每帧从进度计算状态，反转就是免费的——没有方向要跟踪，也没有动画对象要倒带。
+- **永远不要按状态开关更新。**区域“不活跃”时跳过计算，会留下它恰好停在的值。改为把进度取上下限到 `0–1`，帧就能正确落定，不管读者怎么到达，包括直接跳到结尾。
+- **给读者整条时间线。**抽象 scrub 场景的失败模式是观众不知道自己在哪里、还剩多少，运动读起来像噪音。预先画出整条路线再把它填满，就把动画变成了它自己的进度条。
+- **布局读取不要进帧循环。**`getTotalLength()`、`scrollHeight` 和 `clientHeight` 只测量一次，尺寸变化时刷新。每帧读它们会在每次滚动事件时强制同步重排。
+- **等效的库。**GSAP ScrollTrigger 用 `scrub: true` 是生产标准，`scrub: 0.5` 加一个平滑延迟，让滚轮刻度的滚动感觉不那么一格一格。Framer Motion 的 `useScroll` + `useTransform` 是 React 里的等效做法；两者都是对这个进度到值的映射的封装。
+- **无障碍。**页面到达时滚动一次盒子，在 `prefers-reduced-motion: reduce` 下完全不滚动；之后只有访客滚动时它才动，所以这是直接操作，而不是强加的运动。在减弱动态效果下，演示去掉装饰性的光晕、保留映射，因为完全去掉它会让控件变得死板而不是更平静。
 
-## See also
+## 另见
 
-- [Scroll-Triggered Animation](../scroll-trigger/) — animations start, follow and pin at set scroll points
-- [Pin Animation](../pin-animation/) — one part holds still while the page scrolls past
-- [Progress Bar](../progress-bar/) — the same scroll progress, shown as a filling bar
+- [滚动触发动画](../scroll-trigger/) — 动画在设定的滚动点开始、跟随并固定
+- [固定动画](../pin-animation/) — 一部分固定不动，页面从它旁边滚过
+- [阅读进度条](../progress-bar/) — 同样的滚动进度，显示为一条填满的横条

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>挤压与伸展 — 动画手册</title>
+  <meta name="description" content="落地时压扁，起跳时拉长，带出弹性感。最适合小球、角色和活泼的图标。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/squash-and-stretch/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="挤压与伸展 — 动画手册">
+  <meta property="og:description" content="落地时压扁，起跳时拉长，带出弹性感。最适合小球、角色和活泼的图标。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/squash-and-stretch/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="挤压与伸展 — 动画手册">
+  <meta name="twitter:description" content="落地时压扁，起跳时拉长，带出弹性感。最适合小球、角色和活泼的图标。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "挤压与伸展", "name": "挤压与伸展", "description": "落地时压扁，起跳时拉长，带出弹性感。最适合小球、角色和活泼的图标。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/squash-and-stretch/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 挤压与伸展"}</script>
+  <style>
+    :root{--ui-accent:#ffd23f;--ui-muted:#8a8a92;--ball:#5fd88a}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{position:relative;display:flex;align-items:center;justify-content:center;background:#0b0b0d;overflow:hidden}
+    .floor{position:absolute;left:8%;right:8%;bottom:64px;border-top:2px solid rgba(244,244,242,.35)}
+    .ball-wrap{position:absolute;left:50%;bottom:64px;width:72px;height:72px;margin-left:-36px}
+    .ball{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b9f5cf,var(--ball) 60%,#2f9e5f)}
+    .ball .face{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);font-size:22px;color:#0b0b0d}
+    .shadow{position:absolute;left:50%;bottom:56px;width:72px;height:10px;margin-left:-36px;border-radius:50%;background:rgba(0,0,0,.55);filter:blur(2px)}
+    .inside-view,.compare-view{display:none;width:100%;height:100%}
+    .stage[data-hb-mode="inside"] .demo-main{display:none}
+    .stage[data-hb-mode="inside"] .inside-view{display:flex;align-items:center;justify-content:center;gap:clamp(16px,5vw,48px)}
+    .stage[data-hb-mode="compare"] .demo-main,.stage[data-hb-mode="compare"] .inside-view{display:none}
+    .stage[data-hb-mode="compare"] .compare-view{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,3vw,32px)}
+    .stage[data-hb-mode="compare"] .compare-view::after{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px solid rgba(244,244,242,.12)}
+    .cmp-half{position:relative}
+    .cmp-half .floor{left:12%;right:12%;bottom:56px}
+    .cmp-half .ball-wrap{bottom:56px;width:60px;height:60px;margin-left:-30px}
+    .cmp-half .shadow{bottom:48px;width:60px;margin-left:-30px}
+    .pose{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .pose .b{width:72px;height:72px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b9f5cf,var(--ball) 60%,#2f9e5f)}
+    .pose .tag{font:600 13px/1.4 var(--hb-font);color:#f4f4f2;text-align:center}
+    .pose .tag small{display:block;color:var(--ui-muted);font-weight:500}
+    @media(prefers-reduced-motion:reduce){.ball-wrap,.ball,.shadow{transition:none}}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
+</head>
+<body class="hb" data-hb-kind="once" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../overshoot/" rel="prev" aria-label="上一个：过冲回弹"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>过冲回弹</span></a><a href="../anticipation/" rel="next" aria-label="下一个：预备动作"><span><span class="hb-dir">下一个：</span>预备动作</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">04.47 · 微交互</p>
+    <h1>挤压与伸展</h1>
+    <p class="hb-lede">落地时压扁，起跳时拉长，带出弹性感。最适合小球、角色和活泼的图标。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己播放。打开慢动作，可以看清动作的每一部分。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage hb-dots">
+      <div class="demo-main" style="display:contents">
+        <div class="floor" aria-hidden="true"></div>
+<div class="shadow" id="sh-main"></div><div class="ball-wrap" id="wrap-main"><div class="ball"><span class="face">● ‿ ●</span></div></div>
+      </div>
+      <div class="inside-view">
+        <div class="pose"><div class="b" style="transform:scale(0.85,1.25)"></div><p class="tag">起跳时拉长<small>飞得越快，拉得越长</small></p></div>
+        <div class="pose"><div class="b"></div><p class="tag">空中是圆形<small>速度慢下来就恢复</small></p></div>
+        <div class="pose"><div class="b" style="transform:scale(1.45,0.6)"></div><p class="tag">落地时压扁<small>压扁多少，横向就宽多少</small></p></div>
+      </div>
+      <div class="compare-view">
+        <div class="cmp-half"><div class="floor" aria-hidden="true"></div>
+<div class="shadow" id="sh-a"></div><div class="ball-wrap" id="wrap-a"><div class="ball"><span class="face">● ‿ ●</span></div></div>
+          <p style="position:absolute;top:10px;left:10px;color:#f4f4f2;font:600 13px/1.4 var(--hb-font);background:rgba(11,11,13,.9);padding:3px 8px;border-radius:6px">硬邦邦的球</p></div>
+        <div class="cmp-half"><div class="floor" aria-hidden="true"></div>
+<div class="shadow" id="sh-b"></div><div class="ball-wrap" id="wrap-b"><div class="ball"><span class="face">● ‿ ●</span></div></div>
+          <p style="position:absolute;top:10px;left:10px;color:#f4f4f2;font:600 13px/1.4 var(--hb-font);background:rgba(11,11,13,.9);padding:3px 8px;border-radius:6px">会压扁的球</p></div>
+      </div>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>看内部：小球有三个样子——起跳时拉长，空中是圆形，落地时压扁。压扁多少，横向就宽多少，这样它的体积看起来才不变。</p>
+      <p data-hb-for="compare" hidden>左边硬邦邦的球只会上下动，看起来像块石头。右边会压扁拉长，看起来像有弹性的橡胶球。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="power-lbl">弹跳力度</p>
+        <div class="seg" id="power-seg" role="group" aria-labelledby="power-lbl">
+          <button type="button" data-power="0.8" aria-pressed="false">轻</button>
+          <button type="button" data-power="0.65" class="on" aria-pressed="true">中</button>
+          <button type="button" data-power="0.5" aria-pressed="false">强</button>
+        </div>
+        <p class="hb-hint">落地时压扁的程度：强会压到一半高。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="count-lbl">弹跳次数</p>
+        <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
+          <button type="button" data-count="1" aria-pressed="false">一次</button>
+          <button type="button" data-count="2" class="on" aria-pressed="true">两次</button>
+          <button type="button" data-count="3" aria-pressed="false">三次</button>
+        </div>
+        <p class="hb-hint">一次比一次跳得低，就像能量耗尽了一样。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
+        <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
+          <button type="button" data-ms="1400" aria-pressed="false">慢</button>
+          <button type="button" data-ms="900" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="550" aria-pressed="false">快</button>
+        </div>
+        <p class="hb-hint">一次弹跳用的时间。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这样的 AI 助手，在你自己的项目里做出这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[你的小球、角色或图标]加上挤压与伸展。让它弹跳时落地压扁、起跳拉长：落地瞬间压到最扁，离地时拉到最长，空中慢慢恢复圆形。压扁多少，横向就宽多少，这样体积看起来不变。影子跟着高度变：飞得越高，影子越小越淡。只给它的位置和形状做动画。如果访客开了减弱动态效果，就让它停在地上，不要弹跳。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>小球和角色</li><li>活泼的图标</li><li>加载中的小动画</li><li>游戏里的跳跃</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>正式的界面元素</li><li>需要保持形状的标志</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  const stage=document.querySelector('.stage');
+  const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const loopTog=document.getElementById('loop-tog'),slowTog=document.getElementById('slow-tog');
+  let power=0.65,count=2,ms=900,mode='normal',timers=[],anims=[];
+  // power: squash depth (1-power = scaleY at impact); height in px
+  const HEIGHT={0.8:70,0.65:110,0.5:150};
+  function dur(){return slowTog.checked?ms*3:ms}
+  function stopAll(){anims.forEach(a=>{try{a.cancel()}catch(e){}});anims=[];timers.forEach(clearTimeout);timers=[]}
+  // One bounce cycle on a wrap/shadow pair. Returns WAAPI animations.
+  function bounce(wrap,shadow,rigid){
+    const h=HEIGHT[power],d=dur(),sy=rigid?1:power,sx=rigid?1:1/power;
+    const frames=[];let t=0;
+    // build: for each bounce, fall (ease-in), squash at impact, rise (ease-out, stretch), land
+    const hs=[1,0.55,0.3].slice(0,count);
+    const step=1/(hs.length*2);
+    let o=0;
+    const push=(off,ty,scx,scy,ease)=>frames.push({offset:off,transform:`translateY(${-ty}px) scale(${scx},${scy})`,easing:ease});
+    push(0,h,1,1,'ease-in');
+    hs.forEach((hh,i)=>{
+      o+=step; // impact
+      push(o,0,sx,sy,'ease-out');
+      o+=step*0.4; // leave ground stretched
+      push(o,0,rigid?1:0.82,rigid?1:1.28,'ease-out');
+      if(i<hs.length-1){o+=step*0.6;push(o,hs[i+1]*h,rigid?1:0.9,rigid?1:1.15,'ease-in')}
+      else{o+=step*0.6;push(o,0,1,1,'ease-out')}
+    });
+    frames[frames.length-1].offset=1;
+    const a=wrap.animate(frames,{duration:d*hs.length,easing:'linear',fill:'forwards'});
+    const sh=shadow.animate([{transform:'scale(1)',opacity:.55,offset:0},{transform:'scale(.5)',opacity:.25,offset:.5},{transform:'scale(1)',opacity:.55,offset:1}],{duration:d*hs.length,easing:'ease-in-out',fill:'forwards'});
+    return [a,sh];
+  }
+  function play(){
+    stopAll();
+    if(!motionOk)return;
+    if(mode==='compare'){
+      anims.push(...bounce(document.getElementById('wrap-a'),document.getElementById('sh-a'),true));
+      anims.push(...bounce(document.getElementById('wrap-b'),document.getElementById('sh-b'),false));
+    }else{
+      anims.push(...bounce(document.getElementById('wrap-main'),document.getElementById('sh-main'),false));
+    }
+    if(loopTog.checked)timers.push(setTimeout(play,dur()*count+700));
+  }
+  document.getElementById('btn-play').addEventListener('click',play);
+  loopTog.addEventListener('change',()=>{if(loopTog.checked)play()});
+  function choices(id,pick){
+    const buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);
+    }));
+  }
+  choices('power-seg',d=>{power=+d.power});
+  choices('count-seg',d=>{count=+d.count});
+  choices('speed-seg',d=>{ms=+d.ms});
+  document.addEventListener('hb:mode',e=>{mode=e.detail.mode});
+
+</script>
+</body>
+</html>

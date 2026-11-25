@@ -1,18 +1,18 @@
-# Zoom Into Image
+# 图片缩放进入
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/zoom-into-image/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/zoom-into-image/)
 
-## What it is
-Zoom into image starts with a small window onto a picture and opens it up to fill the screen as you scroll, as if you were flying into the picture. The picture itself never grows: more of it is simply uncovered, so it stays sharp. The window's rounded corners square off as it opens, and a caption fades in at the end.
+## 它是什么
+图片缩放进入从图片上一个小窗口开始，滚动时打开它填满屏幕，好像你飞进了图片里。图片本身从不长大：只是揭开更多部分，所以保持清晰。窗口的圆角在打开时变方，最后淡入一段说明。
 
-## When to use it
-- Hero-to-content transitions where a preview card should open into an immersive image
-- Editorial or gallery intros that "enter" a featured photograph
-- Section breaks that use a single image as a portal between two parts of a page
-- Any moment where you want the sense of moving *into* an image rather than past it
+## 什么时候用
+- 主视觉到内容的过渡，预览卡片应该打开成一张沉浸式图片
+- 编辑或画廊开头，“进入”一张特色照片
+- 区域分隔，用一张图片作为页面两部分之间的传送门
+- 任何希望有*进入*图片而不是经过图片的感觉的时刻
 
-## How it works
-The image sits in a `position: sticky` container inside a tall section, giving a scroll budget. Progress across that budget is a 0–1 value; the inset percentage and corner radius are both `lerp`ed from their start values down to zero, so the crop expands and its rounded frame squares off simultaneously:
+## 工作原理
+图片放在高区域内的 `position: sticky` 容器里，给出一段滚动预算。这段预算上的进度是一个 0–1 的值；内边距百分比和圆角半径都从起始值 `lerp` 到零，所以裁剪扩大的同时，圆角框也变方：
 
 ```js
 const pinStart = zoomSec.offsetTop, budget = zoomSec.offsetHeight - stageH;
@@ -27,26 +27,26 @@ caption.style.opacity = cap;
 frameBorder.style.opacity = (1 - cap).toFixed(3);   // the starting-frame outline gives way to the caption
 ```
 
-Clipping rather than scaling is the crucial choice: `clip-path` reveals more of the *existing* image at full resolution, so nothing blurs or pixelates the way a `transform: scale()` zoom would. The caption fades in only over the final 12% of the scroll, once the image is essentially full-bleed, and the faint starting-frame outline fades out over the same stretch, so it never crosses the caption.
+裁剪而不是缩放是关键选择：`clip-path` 以全分辨率揭开更多*已有*图片，所以不像 `transform: scale()` 缩放那样变模糊或像素化。说明只在滚动最后 12% 内淡入，此时图片基本已满幅；淡的起始框轮廓在同一段内淡出，所以它从不与说明交叉。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Starting window | Medium | How much of the picture shows at first: small is a window a fifth of the box wide, medium two fifths and large three fifths |
-| Corners | Rounded | How round the window's corners are at the start: square, 16px or 32px; they straighten as the window opens |
-| Shows the starting frame | on | A faint outline stays where the window began, so you can see how far it has opened; it fades out as the caption fades in |
+| 起始窗口 | 中等 | 起初显示图片的多少：小是盒子五分之一宽的窗口，中等五分之二，大五分之三 |
+| 边角 | 圆角 | 窗口起初的边角有多圆：方形、16px 或 32px；窗口打开时它们变直 |
+| 显示起始框 | 开 | 淡轮廓留在窗口开始的地方，让你看到它打开了多远；它随说明淡入而淡出 |
 
-## Production notes
-- **Clip, don't scale**: `clip-path: inset()` reveals real pixels, keeping the image sharp at every step. A `scale()` zoom enlarges a fixed render and softens. Use clipping when the whole image is present and you're uncovering it.
-- **`will-change: clip-path`**: set on the image so the browser prepares for the animating clip. Animating `clip-path` is compositor-friendly on modern engines but still benefits from the hint.
-- **Sticky provides the pin**: the image holds still via `position: sticky` while the tall section scrolls; the clip is the only thing changing, which keeps the effect cheap.
-- **`round` keyword**: `inset(x% round Ypx)` combines the crop and rounded corners in one property, so both animate together off a single progress value.
-- **Reduced motion**: under `prefers-reduced-motion` the CSS forces `clip-path: inset(0%)`, shows the caption immediately and hides the starting-frame outline — the reader gets the final full image with no fly-in.
-- **Library equivalents**: GSAP ScrollTrigger with `scrub` tweening `clipPath` is the direct equivalent and adds easing; Framer Motion animates the `clipPath` style off a `useTransform` of scroll progress in React.
+## 生产注意事项
+- **裁剪，不要缩放**：`clip-path: inset()` 揭开真实像素，让图片每一步都保持清晰。`scale()` 缩放会放大固定渲染并变软。整幅图片都在、你只是在揭开它时，用裁剪。
+- **`will-change: clip-path`**：设在图片上，让浏览器为动画裁剪做准备。在现代引擎上，`clip-path` 动画对合成器友好，但仍然受益于这个提示。
+- **吸顶提供固定**：高区域滚动时，图片通过 `position: sticky` 保持不动；只有裁剪在变化，这让效果很便宜。
+- **`round` 关键字**：`inset(x% round Ypx)` 把裁剪和圆角合并在一个属性里，所以两者随同一个进度值一起动画。
+- **减弱动态效果**：在 `prefers-reduced-motion` 下，CSS 强制 `clip-path: inset(0%)`，立即显示说明并隐藏起始框轮廓——读者直接得到最终的完整图片，没有飞入。
+- **库的等价实现**：GSAP ScrollTrigger 用 `scrub` 补间 `clipPath` 是直接对应的实现，还能加缓动；Framer Motion 在 React 中用滚动进度的 `useTransform` 动画 `clipPath` 样式。
 
-## See also
-- [Sticky Section](../sticky-section/) — the pinning this effect is built on
-- [Scrub Animation](../scrub-animation/) — scroll position drives the movement, both ways
-- [Cover Card to Fixed Header](../cover-card-to-fixed-header/) — a big cover changes shape as you scroll
-- [Parallax Depth-of-Field](../parallax-depth-of-field/) — layers move and blur for depth as you scroll
-- [Infinite Zoom](../../06-3d-advanced/infinite-zoom/) — the view keeps diving into pictures inside pictures on its own
+## 另见
+- [吸顶区域](../sticky-section/) — 这个效果建立在其上的固定
+- [滚动 scrub 动画](../scrub-animation/) — 滚动位置驱动运动，来回都可以
+- [封面卡片变固定顶栏](../cover-card-to-fixed-header/) — 大封面随滚动改变形状
+- [视差景深](../parallax-depth-of-field/) — 图层随滚动移动和模糊，营造深度
+- [无限缩放](../../06-3d-advanced/infinite-zoom/) — 视图自己不断潜入画中画

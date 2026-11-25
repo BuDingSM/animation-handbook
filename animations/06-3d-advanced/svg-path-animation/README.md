@@ -1,18 +1,18 @@
-# SVG Path Animation
+# SVG 路径动画
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/svg-path-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/svg-path-animation/)
 
-## What it is
-An SVG path animation makes a line drawing appear as if drawn by hand. Each line is hidden behind a dash exactly as long as the line, and sliding that dash away uncovers the line from one end to the other. The whole drawing is in the page from the start, with a label, so screen readers can always find it.
+## 它是什么
+SVG 路径动画让线条画看起来像手画出来的一样。每条线藏在一段和线一样长的虚线后面，把虚线滑走，就从一端到另一端露出线条。整幅画从一开始就在页面里，带有标签，所以屏幕阅读器总能找到它。
 
-## When to use it
-- Illustrated icon or logo reveals that "draw in" on page load
-- Signature-style handwriting effects for brand copy
-- Step-completion indicators that fill in as the user progresses
-- Decorative borders and frames that draw themselves around content
+## 什么时候用
+- 页面加载时“画出来”的插画图标或 Logo 揭示
+- 品牌文案的签名式手写效果
+- 随用户进度填满的步骤完成指示
+- 在内容周围自己画出来的装饰边框和画框
 
-## How it works
-Every SVG path has a total stroke length accessible via `path.getTotalLength()`. Setting `stroke-dasharray` to that length creates a dash exactly as long as the entire path. Setting `stroke-dashoffset` to the same length hides it (the gap starts at position 0, covering the whole stroke). Animating offset from full length to 0 reveals the stroke:
+## 工作原理
+每条 SVG 路径都有一个可通过 `path.getTotalLength()` 获得的总描边长度。把 `stroke-dasharray` 设为那个长度，就得到一段与整条路径一样长的虚线。把 `stroke-dashoffset` 设为同样的长度会隐藏它（间隙从位置 0 开始，盖住整个描边）。把偏移从全长动画到 0，就露出描边：
 
 ```js
 const path = document.querySelector('.draw-path');
@@ -29,7 +29,7 @@ path.style.transition = 'stroke-dashoffset 1500ms ease-out';
 path.style.strokeDashoffset = 0;         // fully revealed
 ```
 
-For multiple paths in sequence, the demo starts each line `gap` after the one before: 30% of the drawing time `ms`, so a line begins while the one before it is still drawing. `ms` is the Speed setting (1500ms at Normal, three times longer in Slow motion), `ease` the Feel setting and `rev` the Starts from the other end switch; `later` is `setTimeout` that also keeps the timer's id, so Replay can cancel what is still waiting:
+多条路径按顺序画时，演示让每条线在前一条之后 `gap` 开始：绘制时间 `ms` 的 30%，所以一条线在前一条还没画完时就开始了。`ms` 是「速度」设置（普通 1500ms，慢动作里三倍长），`ease` 是「手感」设置，`rev` 是「从另一端开始」开关；`later` 是还会保存定时器 id 的 `setTimeout`，这样「重播」可以取消还在等待的：
 
 ```js
 const paths = buildPaths(), ms = speed(), gap = ms * 0.3, rev = revTog.checked;
@@ -46,7 +46,7 @@ paths.forEach((path, i) => later(() => {
 }, 20 + i * gap));
 ```
 
-**Fill at end** — once the last line is drawn (`20 + (paths.length - 1) * gap + ms + 50` milliseconds in), a class fades the fill in. The path has to start with `fill: transparent`, not `fill: none`: a fill can only fade from a color, and from `none` it would snap on.
+**最后填充**——最后一条线画完后（`20 + (paths.length - 1) * gap + ms + 50` 毫秒时），一个 class 把填充淡入。路径必须以 `fill: transparent` 开始，而不是 `fill: none`：填充只能从一种颜色淡入，从 `none` 会一下子跳出来。
 
 ```css
 .draw-path { fill: transparent; fill-opacity: .15; stroke: var(--stroke-color); }
@@ -58,26 +58,26 @@ paths.forEach((path, i) => later(() => {
 if (fillTog.checked) paths.forEach(path => { path.style.transition = ''; path.classList.add('fill-done'); });
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Drawing | Icon | What is drawn: a house with a star, a flowing signature, or a circle logo |
-| Speed | Normal | How long each line takes to draw: slow is 2400ms, normal 1500ms and fast 900ms; each next line starts after 30% of that |
-| Line thickness | Medium | Thin is 1px, medium 2px and thick 4px with the drawing at its full 400px width, thinner when it shrinks to fit a smaller box; thin looks precise, thick looks bold |
-| Feel | Smooth | Smooth slows at the end, like a hand finishing a stroke; Gentle eases in and out; Even keeps one pace |
-| Line color | Blue | The color of the lines, and of the fill |
-| Starts from the other end | off | Draws each line from its end back to its start |
-| Fills in at the end | off | Fills the shapes with a light tint of the line color once the lines are drawn |
+| 画什么 | 图标 | 画什么：带星星的房子、流畅的签名，或圆形标志 |
+| 速度 | 普通 | 每条线画出来要多长时间：慢是 2400ms，普通 1500ms，快是 900ms；下一条线在 30% 的时间后开始 |
+| 线条粗细 | 中等 | 绘图在完整 400px 宽时，稀薄是 1px，中等 2px，浓厚 4px，缩小以适应更小的盒子时会变细；细线显得精确，粗线显得醒目 |
+| 手感 | 平滑 | 平滑在结尾放慢，像手收笔一样；轻柔两头缓动；均匀保持一个速度 |
+| 线条颜色 | 蓝色 | 线条的颜色，也是填充的颜色 |
+| 从另一端开始 | 关 | 每条线从末端画回起点 |
+| 最后填充 | 关 | 线画完后，给形状填上线条颜色的淡色 |
 
-## Production notes
-- **`getTotalLength()` is required**: hardcoding `stroke-dasharray` breaks when the path changes. Always measure at runtime. For SVGs loaded asynchronously, measure after the element is added to the DOM.
-- **Path direction**: the stroke draws from the path's start point (first `M` command). To control which end draws first, reverse the path data, or start from a *negative* offset (`-length` → `0`), which hides the stroke the same way but uncovers it from the far end. Animating `0` → `length` is a different effect: it erases an already-drawn path.
-- **`stroke-dasharray` shorthand**: `stroke-dasharray: length length` (repeated) and `stroke-dasharray: length` are equivalent — a single value sets both dash and gap to the same length.
-- **GSAP DrawSVG plugin**: handles `getTotalLength()`, offset calculation, and animation sequencing automatically. Essential for complex multi-path illustrations. `gsap.from(path, { drawSVG: 0 })`.
-- **Framer Motion**: `<motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} />` — `pathLength` is a 0–1 shorthand that internally manages `dasharray`/`dashoffset`.
+## 生产注意事项
+- **必须用 `getTotalLength()`**：硬编码 `stroke-dasharray` 在路径变化时会失效。始终在运行时测量。异步加载的 SVG，在元素加入 DOM 后再测量。
+- **路径方向**：描边从路径的起点（第一个 `M` 命令）开始画。要控制哪一端先画，反转路径数据，或从*负*偏移开始（`-length` → `0`），它以同样的方式隐藏描边，但从远端揭开。`0` → `length` 的动画是另一种效果：它擦掉已经画好的路径。
+- **`stroke-dasharray` 简写**：`stroke-dasharray: length length`（重复）和 `stroke-dasharray: length` 等价——单个值把虚线和间隙都设为同样的长度。
+- **GSAP DrawSVG 插件**：自动处理 `getTotalLength()`、偏移计算和动画排序。复杂的多路径插画必备。`gsap.from(path, { drawSVG: 0 })`。
+- **Framer Motion**：`<motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} />`——`pathLength` 是 0–1 的简写，内部管理 `dasharray`/`dashoffset`。
 
-## See also
-- [Checkmark Draw](../../04-micro-interactions/checkmark-draw/) — the same technique for a success tick
-- [Text Clip-Path Reveal](../../05-text-typography/text-clip-path-reveal/) — lines of text uncovered one by one
-- [Outline to Fill](../../05-text-typography/outline-to-fill/) — hollow letters fill with color
-- [Handwriting Draw](../../05-text-typography/handwriting-draw/) — the same technique writes out a word, stroke by stroke
+## 另见
+- [对勾绘制](../../04-micro-interactions/checkmark-draw/) — 同样的手法，画一个成功对勾
+- [裁剪揭示文字](../../05-text-typography/text-clip-path-reveal/) — 一行行揭开的文字
+- [描边填充](../../05-text-typography/outline-to-fill/) — 空心字填满颜色
+- [手写描绘](../../05-text-typography/handwriting-draw/) — 同样的手法一笔一画写出一个词

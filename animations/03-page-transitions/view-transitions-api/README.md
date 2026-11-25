@@ -1,18 +1,18 @@
 # View Transitions API
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/view-transitions-api/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/view-transitions-api/)
 
-## What it is
-The View Transitions API is a browser feature that animates a change of page for you. You tell the browser when the page is about to change; it takes a picture of the page before and after, then animates from one picture to the other. CSS decides how the pictures move, so the same click can fade, slide, zoom or tilt.
+## 它是什么
+View Transitions API 是浏览器自带的功能，帮你给页面切换做动画。你告诉浏览器页面要变了；它在变化前后各给页面拍一张照，然后在两张照片之间做动画。照片怎么动由 CSS 决定，所以同一次点击可以淡入淡出、滑动、缩放或倾斜。
 
-## When to use it
-- Same-document navigation in SPAs where you swap page content in place
-- Multi-page navigation where you want a native-feeling transition between full documents (with the cross-document variant)
-- Cases where the before/after DOM is complex and hand-animating each element would be error-prone
-- When you want the transition style to be a CSS concern, decoupled from the navigation logic
+## 什么时候用
+- SPA 里的同文档导航，在原地替换页面内容
+- 希望在完整文档之间有原生感过渡的多页面导航（用跨文档变体）
+- 前后 DOM 很复杂、手动给每个元素做动画容易出错的情况
+- 希望过渡样式是 CSS 的事、与导航逻辑解耦的情况
 
-## How it works
-Wrap the DOM mutation in `startViewTransition()`. The browser captures the current frame, runs the callback, captures the new frame, and animates between them. A named region — set with `view-transition-name` — is tracked as its own snapshot pair, and CSS pseudo-elements animate the old and new captures independently:
+## 工作原理
+把 DOM 改动包进 `startViewTransition()`。浏览器截取当前帧，执行回调，截取新帧，再在两者之间做动画。一个命名区域——用 `view-transition-name` 设置——会被当作自己的一对快照来跟踪，CSS 伪元素分别给旧快照和新快照做动画：
 
 ```js
 async function navigate(next){
@@ -40,26 +40,26 @@ async function navigate(next){
 @keyframes vt-in { from{opacity:0} to{opacity:1} }
 ```
 
-Switching the `data-vt` attribute swaps in a different keyframe set (slide, zoom, or a slight tilt), so one code path produces four distinct transitions, and Speed and Feel set the `--vt-dur` and `--vt-ease` custom properties the keyframes read. `t.finished` resolves when the animation completes, which the demo awaits to gate re-entry. The update callback shows the resting state for the current page as it is when the callback runs, so a transition that is skipped (by Reset, or by pressing Show me again) cannot bring back an older page.
+切换 `data-vt` 属性会换入另一组关键帧（滑动、缩放或轻微倾斜），所以一条代码路径能做出四种不同的过渡；速度和感觉设置的是关键帧读取的 `--vt-dur` 和 `--vt-ease` 自定义属性。`t.finished` 在动画完成时兑现，演示会等它完成才允许再次进入。更新回调在运行时展示当前页面的静止状态，所以一次被跳过的过渡（按重置，或再次按「演示一下」）不会带回旧页面。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Transition style | Fade | Fade blends the two pictures; Slide pushes the old one out to the left as the new one comes in from the right, each moving a full width; Zoom shrinks the old one away to 80% as it fades while the new one fades in and settles from slightly larger, 115%; Tilt turns both slightly as they fade: the old one shrinks to 90% and turns 2° counterclockwise, and the new one starts at 90%, turned 2° clockwise |
-| Speed | Normal | How long the change takes: slow is 800ms, normal 500ms and fast 300ms; under about 150ms it reads as an instant swap |
-| Feel | Gentle | Gentle eases in and out; Smooth slows to a stop; Even keeps one steady pace |
+| 切换样式 | 淡入淡出 | 淡入淡出混合两张照片；滑动把旧照片向左推出去，同时新照片从右侧进来，各移动一个完整宽度；缩放把旧照片缩小到 80% 并淡出，同时新照片淡入并从稍大的 115% 落定；倾斜让两者在淡入淡出时都微微转动：旧照片缩小到 90% 并逆时针转 2°，新照片从 90%、顺时针转 2° 开始 |
+| 速度 | 普通 | 切换需要多长时间：慢是 800ms，普通 500ms，快 300ms；低于约 150ms 时看起来像瞬间切换 |
+| 感觉 | 轻柔 | 轻柔先慢后快再慢；平滑减速到停；均匀保持一个稳定的速度 |
 
-## Production notes
-- **Feature-detect** with `'startViewTransition' in document` and fall back to a manual opacity cross-fade — the demo does exactly this, so browsers without the API still get a simple 300ms fade, whatever the Transition style and Speed.
-- **Browser support.** Same-document view transitions — `document.startViewTransition()`, as in this demo — work in Chrome and Edge 111 and later, Safari 18 and Firefox 144. Cross-document ones, turned on for full page loads with `@view-transition { navigation: auto; }`, work in Chrome and Edge 126 and Safari 18.2; check current support for Firefox. Keep the fallback for older browsers.
-- **Suppress the root animation** (`::view-transition-old(root)`) when you only want a sub-region to animate; otherwise the whole page cross-fades underneath your named region.
-- **Every `view-transition-name` must be unique** on the page at capture time. Two elements sharing a name in the same snapshot make the browser skip the transition: the page still changes, with no animation.
-- **Honor reduced motion** — the demo drops straight to `showPage()` with no animation when `prefers-reduced-motion: reduce` is set.
-- **Presses wait for the transition.** While a view transition runs, Chrome sends every press on the page to the root element, so buttons do not respond until it ends (`pointer-events: none` on the transition's pseudo-elements does not change this while the root is captured, as it is by default); keep page transitions short. The demo passes a press over its box on as the visitor taking over, so a click there still stops Show me.
-- **Library equivalents**: Astro's `<ClientRouter />` (named `<ViewTransitions />` before Astro 5) and React's `<ViewTransition>` component, which Next.js's App Router supports, wrap this API for client-side page changes; between full page loads the CSS rule `@view-transition { navigation: auto; }` does it without JavaScript. Barba.js and Swup predate the API and animate the old and new page content themselves; on supported browsers you often no longer need them.
+## 生产注意事项
+- **做特性检测**：用 `'startViewTransition' in document` 检测，没有 API 时回退到手动的不透明度交叉淡入淡出——演示正是这么做的，所以不支持 API 的浏览器仍然能得到一个简单的 300ms 淡入淡出，无论切换样式和速度是什么。
+- **浏览器支持。**同文档视图过渡——像这个演示里的 `document.startViewTransition()`——支持 Chrome 和 Edge 111 及更高版本、Safari 18 和 Firefox 144。跨文档过渡，用 `@view-transition { navigation: auto; }` 为完整页面加载开启，支持 Chrome 和 Edge 126 以及 Safari 18.2；Firefox 的当前支持情况请自行确认。旧浏览器要保留回退。
+- **关掉根动画**（`::view-transition-old(root)`），当你只想让一个子区域动的时候；否则整个页面会在你的命名区域下面交叉淡入淡出。
+- **每个 `view-transition-name` 在截取时必须唯一**。同一张快照里两个元素共用一个名字会让浏览器跳过过渡：页面照样换，只是没有动画。
+- **尊重减弱动态效果**——当设置了 `prefers-reduced-motion: reduce` 时，演示直接用 `showPage()`，不做动画。
+- **按压要等过渡结束。**视图过渡运行时，Chrome 会把页面上的每一次按压都发给根元素，所以在过渡结束前按钮不会响应（过渡伪元素上的 `pointer-events: none` 在根元素被截取时——默认就是这样——不起作用）；让页面过渡保持短暂。演示会把访客在方框上的按压当作接管，所以点那里仍然能停下「演示一下」。
+- **等价的库**：Astro 的 `<ClientRouter />`（Astro 5 之前叫 `<ViewTransitions />`）和 React 的 `<ViewTransition>` 组件（Next.js 的 App Router 支持它）为客户端页面切换封装了这个 API；完整页面加载之间，CSS 规则 `@view-transition { navigation: auto; }` 不用 JavaScript 就能做到。Barba.js 和 Swup 比这个 API 更早，自己给旧页面和新页面内容做动画；在支持的浏览器上，你常常不再需要它们。
 
-## See also
-- [Crossfade Transition](../crossfade/) — the same fade, built by hand
-- [Slide Transition](../slide-transition/) — pages slide, with a sense of direction
-- [Zoom Transition](../zoom-transition/) — three ways to zoom between pages
-- [Shared Element Transition](../shared-element-transition/) — one picture grows into the next page
+## 另见
+- [交叉淡入淡出过渡](../crossfade/) — 同样的淡入淡出，手工实现
+- [滑动过渡](../slide-transition/) — 页面滑动，带有方向感
+- [缩放过渡](../zoom-transition/) — 三种页面间缩放方式
+- [共享元素过渡](../shared-element-transition/) — 一张图片长进下一页

@@ -1,59 +1,60 @@
-# 07 — Ambient & Background
+# 氛围与背景
 
-Passive, looping effects that hold visual interest without demanding attention. Ambient animations run continuously, cycle slowly, and look intentional after two minutes of watching.
+被动的循环效果，不抢注意力也能保持视觉趣味——渐变、粒子、噪点和辉光。
 
-## Animations
+## 全部动画
 
-| Demo | Description |
-|------|-------------|
-| [Animated Gradient Background](animated-gradient-background/) | Colors slowly drift across a soft gradient background. Best for hero sections. |
-| [Mesh Gradient Animation](mesh-gradient/) | Blurred blobs of color drift and melt together. Best for landing pages. |
-| [Aurora / Northern Lights](aurora/) | Blurred bands of light sway like the northern lights. Best for dark backgrounds. |
-| [Grain / Film Noise Overlay](grain-overlay/) | Fine grain flickers over the page, like old film. Best for editorial sites. |
-| [Scanline Effect](scanline/) | Dark lines and a sweeping beam imitate an old TV screen. Best for retro sites. |
-| [Light Leak](light-leak/) | Warm light washes in from a corner at random times. Best for photo sites. |
-| [Starfield / Space Particles](starfield/) | Stars stream toward you out of the dark. Best for space themes. |
-| [Breathing / Pulsing Glow](breathing-glow/) | A soft glow slowly grows and shrinks, like calm breathing. Best for idle states. |
-| [Ambient Ripple Effect](ambient-ripple/) | Rings spread from a few spots, like drops on a still pond. Best for hero areas. |
-| [Floating Elements](floating-elements/) | Small shapes drift slowly, each on its own path. Best for hero backgrounds. |
-| [Grid / Dot Pattern Parallax](grid-dot-pattern-parallax/) | A dot grid shifts gently against your pointer for depth. Best for tech sites. |
-| [Abstract Geometric Motion](abstract-geometric-motion/) | Shapes turn, spread and flow in a calm, endless pattern. Best for music players. |
-| [Particle Constellation](particle-constellation/) | Drifting dots link up with lines whenever they come close. Best for tech sites. |
-| [Flow Field](flow-field/) | Particles ride invisible currents, leaving fading trails. Best for art pages. |
-| [Synthwave Grid](synthwave-grid/) | A glowing grid rolls toward you under a striped sun. Best for music and games. |
-| [Matrix Rain](matrix-rain/) | Columns of glowing characters rain down a dark screen. Best for tech themes. |
-| [Plasma Field](plasma/) | Smooth waves of color flow endlessly, made from math. Best for creative sites. |
-| [Wave Layers](wave-layers/) | Layers of waves drift sideways, each at its own speed. Best for hero sections. |
-| [Snow / Rain](snow-rain/) | Snow drifts down, or rain falls in streaks, over a dark town. Best for seasonal pages. |
-| [Fireworks](fireworks/) | Rockets rise and burst into glowing sparks that fall and fade. Best for celebrations. |
-| [Topographic Lines](topographic-lines/) | Lines like those on a hiking map slowly bend and drift. Best for outdoor brands. |
-| [Light Rays](light-rays/) | Soft beams of light fall from above and slowly sweep across. Best for hero intros. |
-| [Game of Life](game-of-life/) | Cells live and die by their neighbors, and patterns grow. Best for tech sites. |
-| [Ken Burns Effect](ken-burns/) | Photos slowly zoom and pan, then fade into the next. Best for hero slideshows. |
-| [Fire Effect](fire-effect/) | Flames flicker and rise as heat climbs and cools. Best for game and event pages. |
-| [Lightning](lightning/) | Jagged bolts strike from the clouds and light up the sky. Best for dramatic intros. |
+- [动态渐变背景](animated-gradient-background/) — 颜色在柔和的渐变背景上缓缓流动。最适合主视觉区。
+- [网格渐变](mesh-gradient/) — 模糊的彩色色块漂移、交融。最适合落地页。
+- [极光](aurora/) — 模糊的光带如北极光般摇曳。最适合深色背景。
+- [颗粒噪点叠加](grain-overlay/) — 细腻的颗粒在页面上闪烁，如老电影。最适合编辑类网站。
+- [扫描线效果](scanline/) — 深色线条和扫过的光带，模仿老电视屏幕。最适合复古网站。
+- [漏光](light-leak/) — 温暖的光线不定时地从角落漫入。最适合照片类网站。
+- [星空](starfield/) — 星星从黑暗中向你飞来。最适合太空主题。
+- [呼吸光晕](breathing-glow/) — 柔和的光晕缓缓变大变小，如平静的呼吸。最适合闲置状态。
+- [环境涟漪](ambient-ripple/) — 涟漪从几个点扩散开来，如静水面上的水滴。最适合主视觉区。
+- [漂浮元素](floating-elements/) — 小图形缓缓漂移，各走各的路径。最适合主视觉背景。
+- [网格 / 圆点图案视差](grid-dot-pattern-parallax/) — 圆点网格随指针轻轻移动，营造深度感。最适合科技类网站。
+- [抽象几何动效](abstract-geometric-motion/) — 图形旋转、扩散、流动，形成平静无尽的图案。最适合音乐播放器。
+- [粒子星座](particle-constellation/) — 漂移的圆点靠近时用线连起来。最适合科技类网站。
+- [流场](flow-field/) — 粒子沿看不见的水流前进，留下渐隐的轨迹。最适合艺术页面。
+- [合成波网格](synthwave-grid/) — 发光的网格在条纹太阳下向你滚动而来。最适合音乐和游戏。
+- [矩阵雨](matrix-rain/) — 发光的字符列在深色屏幕上落下。最适合科技主题。
+- [等离子场](plasma/) — 平滑的色彩波浪无尽流动，全部由数学生成。最适合创意网站。
+- [波浪层](wave-layers/) — 层层波浪横向漂移，各自速度不同。最适合主视觉区。
+- [雪 / 雨](snow-rain/) — 雪花飘落，或雨丝落下，洒在黑暗的小镇上。最适合季节性页面。
+- [烟花](fireworks/) — 火箭升空，爆成发光的火花，落下消散。最适合庆祝场合。
+- [等高线](topographic-lines/) — 如徒步地图上的线条，缓缓弯曲漂移。最适合户外品牌。
+- [光束](light-rays/) — 柔和的光束从上方洒落，缓缓扫过。最适合主视觉开场。
+- [生命游戏](game-of-life/) — 细胞按邻居生死，图案不断生长。最适合科技类网站。
+- [肯·伯恩斯效果](ken-burns/) — 照片缓缓缩放平移，再淡入下一张。最适合主视觉幻灯片。
+- [火焰效果](fire-effect/) — 火焰闪烁升腾，随热量升降。最适合游戏和活动页面。
+- [闪电](lightning/) — 锯齿状的闪电从云层劈下，照亮天空。最适合戏剧性开场。
+- [摆动](wiggle/) — 小幅度、不停地抖。最适合提醒铃铛和待处理标记。
+- [往返循环](ping-pong-loop/) — 正着走一遍，再倒着走回来。最适合加载指示和装饰。
+- [重复器](repeater/) — 一个形状复制一圈，转着圈排开。最适合装饰图案和加载动画。
+- [万花筒](kaleidoscope/) — 八面对称的图案一边转一边散开。最适合开场背景和装饰。
 
-## The ambient mindset
+## 氛围思维
 
-**Passive**: runs continuously without user triggers. No events, no clicks, no narrative beats.
+**被动**：持续运行，无需用户触发。没有事件、没有点击、没有叙事节拍。
 
-**Long cycles**: 15–30 second loops are normal here. Below 8 seconds, the motion becomes distracting. Above 30 seconds, it's nearly imperceptible. 20 seconds is the sweet spot.
+**长周期**：15–30 秒的循环在这里很正常。短于 8 秒，动效会变得分散注意力。长于 30 秒，几乎察觉不到。20 秒是最佳点。
 
-**Intentional after 2 minutes**: unlike micro-interactions (brief and punchy), ambient effects must remain visually satisfying after extended watching. If you'd want to skip it after 30 seconds, it's too event-driven.
+**两分钟后仍然有意**：与微交互（短暂有力）不同，氛围效果在长时间观看后必须仍然视觉上令人满意。如果 30 秒后你就想跳过它，它就太事件驱动了。
 
-**Seamless loops**: no visible reset point. The loop should be impossible to identify without external timing.
+**无缝循环**：没有可见的重置点。不借助外部计时，应该无法识别出循环。
 
-**Subtlety is the technique**: grain at 8% opacity, parallax at 5% strength, glow at 0.6 opacity. Ambient effects work by being just barely perceptible — the user feels depth and life without being able to point to the source.
+**微妙就是技巧**：颗粒 8% 不透明度、视差 5% 强度、辉光 0.6 不透明度。氛围效果靠几乎察觉不到起作用——用户感受到深度和生气，却指不出源头。
 
-## Implementation summary
+## 实现概要
 
-| Approach | Used by |
-|----------|---------|
-| Pure CSS keyframes | Animated gradient, mesh gradient, aurora, breathing glow, scanline, wave layers, Ken Burns (the script only sets each photo's start and end framing) |
-| CSS transition + JS timers | Light leak (random timing) |
-| JS moving elements with `transform` | Floating elements, grid parallax (pointer events and a slow drift) |
-| Canvas 2D | Grain (or an SVG noise filter), starfield, ambient ripple, abstract geometric, particle constellation, flow field, synthwave grid, matrix rain, plasma, snow and rain, fireworks, topographic lines, light rays, game of life, fire effect, lightning |
+| 方法 | 用于 |
+| 纯 CSS 关键帧 | 动态渐变背景、网格渐变、极光、呼吸光晕、扫描线效果、波浪层、肯·伯恩斯效果（脚本只设定每张照片的起始和结束取景） |
+| CSS 过渡 + JS 计时器 | 漏光（随机时间） |
+| 用 `transform` 移动元素的 JS | 漂浮元素、网格视差（指针事件和缓慢漂移） |
+| Canvas 2D | 颗粒（或 SVG 噪点滤镜）、星空、环境涟漪、抽象几何动效、粒子星座、流场、合成波网格、矩阵雨、等离子场、雪和雨、烟花、等高线、光束、生命游戏、火焰效果、闪电、摆动、往返循环、重复器、万花筒 |
 
-## See also
-- [06 — 3D & Advanced](../06-3d-advanced/) — GPU-intensive effects; WebGL shaders and particles
-- [04 — Micro-Interactions](../04-micro-interactions/) — the opposite end: brief, triggered, reactive
+## 另见
+- [06 — 3D 与高级效果](../06-3d-advanced/) — GPU 密集型效果；WebGL 着色器和粒子
+- [04 — 微交互](../04-micro-interactions/) — 另一端：短暂、触发式、响应式

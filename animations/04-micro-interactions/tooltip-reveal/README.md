@@ -1,18 +1,18 @@
-# Tooltip Reveal
+# 提示气泡浮现
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/tooltip-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/tooltip-reveal/)
 
-## What it is
-A tooltip is a small label that appears next to an item when you point at it or reach it with the keyboard, giving a short explanation that does not fit on the page. It fades in and grows very slightly, and it waits a moment before it shows, so tooltips do not flash while the pointer is only passing over things. When the pointer leaves, it stays for a moment before it fades, so it does not vanish the instant the pointer slips off the item.
+## 它是什么
+提示气泡是一个小标签，在你指向一个项目或用键盘到达它时出现在它旁边，给出页面上放不下的简短说明。它淡入并非常轻微地长大，显示前会等一会儿，这样指针只是经过东西时，提示不会闪现。指针离开后，它会停留一会儿再淡出，不会在指针刚滑出项目时立刻消失。
 
-## When to use it
-- Icon buttons without visible text labels
-- Truncated text that needs to show the full content on hover
-- Form fields with validation rules or format requirements
-- Data visualization elements (chart bars, graph nodes) that show exact values on hover
+## 什么时候用
+- 没有可见文字标签的图标按钮
+- 需要在悬停时显示完整内容的截断文字
+- 带验证规则或格式要求的表单字段
+- 悬停时显示精确值的数据可视化元素（图表条、图形节点）
 
-## How it works
-The tooltip is positioned absolutely relative to the trigger, initially invisible. On hover it fades and scales in after a `setTimeout` delay. On mouse-leave it hides after a short second delay, so it does not vanish the instant the pointer slips off the trigger:
+## 工作原理
+提示气泡相对于触发器绝对定位，一开始看不见。悬停时，它在 `setTimeout` 延迟后淡入并缩放进来。鼠标离开后，它在短暂的第二次延迟后隐藏，这样指针刚滑出触发器时它不会立刻消失：
 
 ```css
 .tooltip {
@@ -66,7 +66,7 @@ trigger.addEventListener('focusout', () => {
 });
 ```
 
-Escape hides a shown tooltip at once, so it can be dismissed without moving the pointer or the focus:
+Esc 会立刻隐藏显示的提示气泡，这样不用移动指针或焦点就能关闭它：
 
 ```js
 document.addEventListener('keydown', e => {
@@ -76,24 +76,24 @@ document.addEventListener('keydown', e => {
 });
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Delay before showing | Medium | How long the pointer must rest before the tooltip shows: none, short (150ms), medium (300ms) or long (600ms); 300ms keeps tooltips from flashing as the pointer passes, and 200ms can work for very small ones |
-| Speed | Normal | How long the fade and the slight grow (from 95% of its size) take: slow is 250ms, normal 150ms and fast 90ms |
-| Delay before hiding | Short | How long the tooltip stays after the pointer leaves: none, short (100ms) or long (300ms); a short pause stops it vanishing the instant the pointer slips off its item |
-| Shows an arrow | off | Adds a small point that aims the tooltip at its item |
+| 显示前延迟 | 中等 | 指针必须停留多长时间，提示气泡才会显示：无、短（150ms）、中等（300ms）或长（600ms）；300ms 让提示不会在指针经过时闪现，200ms 对很小的提示也可以 |
+| 速度 | 普通 | 淡入和轻微长大（从它大小的 95%）要花多长时间：慢是 250ms，普通 150ms，快是 90ms |
+| 隐藏前延迟 | 短 | 指针离开后，提示气泡停留多长时间：无、短（100ms）或长（300ms）；短暂的停顿让它不会在指针刚滑出项目时立刻消失 |
+| 显示箭头 | 关 | 加一个小尖角，把提示气泡对准它的项目 |
 
-## Production notes
-- **The 300ms rule**: without a show delay, every cursor movement across the page triggers tooltip flashes. 300ms is the minimum that feels responsive without being annoying. 200ms can work if the tooltip is very small.
-- **Smart positioning**: the demo positions tooltips in fixed directions. Production implementations need viewport-aware positioning — flip the tooltip when it would overflow the edge. Floating UI (by Atomics Design) handles this automatically.
-- **Touch devices**: tooltips have no hover trigger on touch. Long-press or a dedicated info button is the touch equivalent. The demo uses `touchstart` to toggle visibility as a fallback.
-- **`pointer-events: none`** on the tooltip keeps it from catching the pointer, so it never blocks the item or its neighbors; the cost is that the pointer cannot rest on the tooltip itself, which the WCAG bullet covers.
-- **WCAG 1.4.13 (Content on Hover or Focus)**: the tooltip must be dismissible without moving the cursor (e.g., Escape key), hoverable itself without disappearing, and persistent until the cursor moves away. The demo covers "dismissible": Escape hides a shown tooltip at once. A hide delay helps with "hoverable" only when the tooltip takes the pointer; the demo's tooltips have `pointer-events: none`, so a tooltip that must be hoverable needs pointer events on.
-- **Floating UI / Popper.js**: production-grade positioning library. `computePosition()` with `flip` and `shift` middleware handles all edge cases.
-- **Radix UI Tooltip**: `<Tooltip.Root>`, `<Tooltip.Trigger>`, `<Tooltip.Content>` — fully accessible, WCAG 1.4.13 compliant, animation-ready.
+## 生产注意事项
+- **300ms 规则**：没有显示延迟，鼠标在页面上的每次移动都会触发提示闪现。300ms 是感觉灵敏又不烦人的最小值。提示很小时，200ms 也可以。
+- **智能定位**：演示把提示气泡放在固定方向。生产实现需要感知视口的定位——提示会溢出边缘时翻转它。Floating UI（Atomics Design 出品）自动处理这个。
+- **触屏设备**：触摸上提示没有悬停触发。长按或专门的信息按钮是触摸的等价物。演示用 `touchstart` 切换可见性作为替代。
+- **提示上的 `pointer-events: none`** 让它不会接住指针，所以它永远不会挡住项目或它的邻居；代价是指针不能停在提示本身上面，WCAG 那条覆盖了这个。
+- **WCAG 1.4.13（悬停或聚焦时的内容）**：提示必须不用移动光标就能关闭（比如 Esc 键），本身能被悬停而不消失，持续到光标移开。演示覆盖了“可关闭”：Esc 会立刻隐藏显示的提示气泡。隐藏延迟只有在提示接受指针时才对“可悬停”有帮助；演示的提示有 `pointer-events: none`，所以必须能悬停的提示需要打开指针事件。
+- **Floating UI / Popper.js**：生产级定位库。`computePosition()` 加 `flip` 和 `shift` 中间件，处理所有边缘情况。
+- **Radix UI Tooltip**：`<Tooltip.Root>`、`<Tooltip.Trigger>`、`<Tooltip.Content>`——完全无障碍、符合 WCAG 1.4.13、动画就绪。
 
-## See also
-- [Hover State Animation](../hover-state/) — items that react when the pointer is on them
-- [Notification Badge Pulse](../badge-pulse/) — a dot that pulses to draw the eye
-- [Modal Expand](../modal-expand/) — a full window for content too big for a tooltip
+## 另见
+- [悬停状态动画](../hover-state/) — 指针在上面时有反应的项目
+- [通知徽标脉冲](../badge-pulse/) — 吸引眼睛的脉冲圆点
+- [弹窗展开](../modal-expand/) — 给提示气泡放不下的内容的完整窗口

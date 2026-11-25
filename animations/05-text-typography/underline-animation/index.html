@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下划线动画 — 动画手册</title>
+  <meta name="description" content="移上去，底线从左边长出来。最适合导航链接。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/05-text-typography/underline-animation/">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="下划线动画 — 动画手册">
+  <meta property="og:description" content="移上去，底线从左边长出来。最适合导航链接。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/05-text-typography/underline-animation/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="下划线动画 — 动画手册">
+  <meta name="twitter:description" content="移上去，底线从左边长出来。最适合导航链接。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "下划线动画", "name": "下划线动画", "description": "移上去，底线从左边长出来。最适合导航链接。", "url": "https://animation.xizanghuapi.cn/animations/05-text-typography/underline-animation/", "inLanguage": "zh-CN", "articleSection": "文字与排版", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画、CSS 动画、文字与排版、下划线动画"}</script>
+  <style>
+    :root{--ui-accent:#ff7a1a;--ui-muted:#8a8a92}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    .stage{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#0b0b0d;padding:clamp(16px,3vw,32px)}
+    .stage.dir-left{--ul-in:left;--ul-out:right}
+    .stage.dir-right{--ul-in:right;--ul-out:left}
+    .stage.dir-center{--ul-in:center;--ul-out:center}
+    .ul-site{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;background:#141419;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:16px clamp(16px,4vw,32px)}
+    .ul-logo{color:#f4f4f2;font-weight:800;font-size:18px;white-space:nowrap}
+    .ul-links{display:flex;gap:56px}
+    .ul-link{position:relative;background:none;border:0;color:#f4f4f2;font-family:inherit;font-weight:700;font-size:clamp(16px,3vw,20px);line-height:1.4;padding:6px;cursor:pointer;white-space:nowrap}
+    .ul-link::after{content:"";position:absolute;left:6px;right:6px;bottom:-2px;height:var(--ul-thick,3px);background:var(--ul-color,#ff7a1a);border-radius:2px;
+      transform:scaleX(0);transform-origin:var(--ul-out,right);transition:transform var(--ul-dur,300ms) cubic-bezier(.22,1,.36,1)}
+    .ul-link:hover::after,.ul-link.demo-hover::after,.ul-link:focus-visible::after{transform:scaleX(1);transform-origin:var(--ul-in,left)}
+    .ul-site.plain .ul-link::after{display:none}
+    .ul-site.plain .ul-link:hover,.ul-site.plain .ul-link.demo-hover,.ul-site.plain .ul-link:focus-visible{text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:var(--ul-thick,3px);text-decoration-color:var(--ul-color,#ff7a1a)}
+    /* See inside and Compare. Their panels sit under the main site and only show in their mode. */
+    .ul-inside,.ul-compare{display:none}
+    .stage[data-hb-mode="inside"] .ul-inside{display:flex}
+    .stage[data-hb-mode="compare"] .ul-compare{display:grid}
+    .stage[data-hb-mode="compare"] .ul-site-main{display:none}
+    .ul-inside{flex-direction:column;gap:12px;width:100%;max-width:560px}
+    .ul-row{display:flex;align-items:center;gap:12px;color:#f4f4f2;font-size:13px;line-height:1.65}
+    .ul-track{position:relative;flex:none;width:120px;height:3px;background:rgba(244,244,242,.15);border-radius:2px}
+    .ul-fill{position:absolute;top:0;bottom:0;background:var(--ul-color,#ff7a1a);border-radius:2px}
+    .ul-fill.f0{left:0;width:0}
+    .ul-fill.f1{left:0;width:100%}
+    .ul-fill.f2{right:0;width:45%}
+    .ul-compare{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
+    .ul-half{display:flex;flex-direction:column;gap:6px;min-width:0}
+    .ul-half .ul-links{gap:clamp(12px,3vw,32px)}
+    .ul-half .ul-link{font-size:clamp(14px,2.6vw,18px)}
+    .ul-cap{padding:3px 7px;border-radius:5px;background:rgba(11,11,13,.88);color:#f4f4f2;font:600 13px/1.2 var(--hb-font);white-space:nowrap;align-self:flex-start}
+    @media(max-width:600px){
+      .ul-links{gap:20px}
+      .ul-compare{grid-template-columns:minmax(0,1fr)}
+    }
+    @media(prefers-reduced-motion:reduce){.ul-link::after{transition:none}}
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
+</head>
+<body class="hb" data-hb-kind="do" data-hb-autoplay>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../text-mask/" rel="prev" aria-label="上一个：文字蒙版"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>文字蒙版</span></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
+</nav>
+<main class="hb-page">
+  <header class="hb-head">
+    <p class="hb-cat">05.21 · 文字与排版</p>
+    <h1>下划线动画</h1>
+    <p class="hb-lede">移上去，底线从左边长出来。最适合导航链接。</p>
+  </header>
+
+  <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">1</span>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>把指针移到链接上，或按「演示一下」，看底线从左边长出来。</p></div>
+    </div>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
+    </div>
+    <div class="stage hb-grow dir-left" id="stage">
+      <div class="ul-site ul-site-main">
+        <span class="ul-logo">工作室</span>
+        <nav class="ul-links" aria-label="演示导航">
+          <button type="button" class="ul-link">首页</button>
+          <button type="button" class="ul-link">作品</button>
+          <button type="button" class="ul-link">关于</button>
+          <button type="button" class="ul-link">联系</button>
+        </nav>
+      </div>
+      <div class="ul-inside" aria-hidden="true" inert>
+        <div class="ul-row"><span class="ul-track"><i class="ul-fill f0"></i></span><span>平时：底线宽度是 0，藏在字下面。</span></div>
+        <div class="ul-row"><span class="ul-track"><i class="ul-fill f1"></i></span><span>移上去：0.3 秒从左长到和字一样宽。</span></div>
+        <div class="ul-row"><span class="ul-track"><i class="ul-fill f2"></i></span><span>移开：左端往右收，线从右边退出去。</span></div>
+      </div>
+      <div class="ul-compare" aria-hidden="true" inert>
+        <div class="ul-half">
+          <p class="ul-cap" data-hb-caption>普通下划线</p>
+          <div class="ul-site plain">
+            <nav class="ul-links" aria-label="普通下划线">
+              <button type="button" class="ul-link" tabindex="-1">首页</button>
+              <button type="button" class="ul-link" tabindex="-1">作品</button>
+              <button type="button" class="ul-link" tabindex="-1">关于</button>
+            </nav>
+          </div>
+        </div>
+        <div class="ul-half">
+          <p class="ul-cap" data-hb-caption>会长的下划线</p>
+          <div class="ul-site">
+            <nav class="ul-links" id="cmp-links" aria-label="会长的下划线">
+              <button type="button" class="ul-link" tabindex="-1">首页</button>
+              <button type="button" class="ul-link" tabindex="-1">作品</button>
+              <button type="button" class="ul-link" tabindex="-1">关于</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hb-player">
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
+    </div>
+    <div class="hb-mode-notes" aria-live="polite">
+      <p data-hb-for="inside" hidden>看内部：底线平时宽度是 0，藏在字下面。移上去，它在 0.3 秒里从左长到和字一样宽；移开时，左端往右收，线从右边退出去。</p>
+      <p data-hb-for="compare" hidden>「普通下划线」一出现就是整条，「会长的下划线」从左边长出来，移开时又从右边收回去。</p>
+    </div>
+  </section>
+
+  <section class="hb-step hb-try" aria-labelledby="hb-try-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">2</span>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
+    </div>
+    <div class="hb-settings">
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="dir-lbl">长出的方向</p>
+        <div class="seg" id="dir-seg" role="group" aria-labelledby="dir-lbl">
+          <button type="button" data-dir="left" class="on" aria-pressed="true">从左</button>
+          <button type="button" data-dir="right" aria-pressed="false">从右</button>
+          <button type="button" data-dir="center" aria-pressed="false">从中间</button>
+        </div>
+        <p class="hb-hint">从左长出最常见，符合从左往右读的习惯。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
+        <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
+          <button type="button" data-ms="600" aria-pressed="false">慢</button>
+          <button type="button" data-ms="300" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="150" aria-pressed="false">快</button>
+        </div>
+        <p class="hb-hint">超过半秒会感觉拖沓，太快了又看不清它在长。</p>
+      </div>
+      <div class="hb-setting">
+        <p class="hb-setting-name" id="color-lbl">底线颜色</p>
+        <div class="seg" id="color-seg" role="group" aria-labelledby="color-lbl">
+          <button type="button" data-color="#ff7a1a" class="on" aria-pressed="true">橙色</button>
+          <button type="button" data-color="#58a6ff" aria-pressed="false">蓝色</button>
+          <button type="button" data-color="#56d364" aria-pressed="false">绿色</button>
+        </div>
+        <p class="hb-hint">用网站的主色，底线才像长在页面上。</p>
+      </div>
+    </div>
+    <details class="hb-options">
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="hb-settings">
+        <div class="hb-setting">
+          <p class="hb-setting-name" id="thick-lbl">粗细</p>
+          <div class="seg" id="thick-seg" role="group" aria-labelledby="thick-lbl">
+            <button type="button" data-px="2" aria-pressed="false">细</button>
+            <button type="button" data-px="3" class="on" aria-pressed="true">普通</button>
+            <button type="button" data-px="5" aria-pressed="false">粗</button>
+          </div>
+          <p class="hb-hint">粗线更醒目，但别盖住下一行字。</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
+    <div class="hb-step-head">
+      <span class="hb-num" aria-hidden="true">3</span>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现这个效果。</p></div>
+    </div>
+    <div class="hb-card">
+      <p class="hb-prompt">给[你的导航链接]加上下划线动画。平时链接下面没有线，指针移上去时，一条橙色的底线在 0.3 秒里从左边长到和字一样宽，指针移开时，底线的左端往右收，线从右边退出去。底线用 scaleX 来做，不要改宽度，这样才流畅，线离字 8 像素，粗 3 像素。链接的字是 20 像素的粗体，链接之间隔 56 像素。如果访客开启了减弱动态效果，就直接显示普通的下划线，不要长出来。按下面列出的设置来做。</p>
+      <div class="hb-chips-box" hidden>
+        <p class="hb-chips-title">你的设置</p>
+        <ul class="hb-chips"></ul>
+      </div>
+      <div class="hb-copy-row">
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
+      </div>
+    </div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
+  </section>
+
+  <section class="hb-about" aria-labelledby="hb-what-title">
+    <div class="hb-what">
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
+    </div>
+    <div class="hb-fit">
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>导航链接</li><li>正文里的链接</li><li>菜单</li><li>标签页</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>按钮</li><li>已经带下划线的大段正文</li></ul>
+    </div>
+  </section>
+
+  <section class="hb-related" aria-labelledby="hb-related-title" hidden>
+    <h2 id="hb-related-title">相似效果</h2>
+    <div class="hb-rel-list"></div>
+  </section>
+</main>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
+<script>
+  var stage=document.getElementById('stage');
+  var slowTog=document.getElementById('slow-tog');
+  var motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var mode='normal',dur=300,timers=[];
+  var mainLinks=[].slice.call(stage.querySelectorAll('.ul-site-main .ul-link'));
+  var cmpLinks=[].slice.call(document.getElementById('cmp-links').querySelectorAll('.ul-link'));
+  function clearTimers(){timers.forEach(clearTimeout);timers=[]}
+  function clearHover(){
+    mainLinks.concat(cmpLinks).forEach(function(l){l.classList.remove('demo-hover')});
+  }
+  function later(fn,wait){timers.push(setTimeout(fn,wait))}
+  // The demo: a pretend pointer rests on each link in turn, 大约一秒 each, left to right.
+  function demo(){
+    clearTimers();clearHover();
+    if(!motionOk)return;
+    var links=mode==='compare'?cmpLinks:mainLinks;
+    var step=900*(slowTog.checked?3:1);
+    links.forEach(function(link,i){
+      later(function(){link.classList.add('demo-hover')},i*step);
+      later(function(){link.classList.remove('demo-hover')},(i+1)*step-150);
+    });
+  }
+  function reset(){clearTimers();clearHover()}
+  function setDur(){stage.style.setProperty('--ul-dur',(dur*(slowTog.checked?3:1))+'ms')}
+  // The mode switch: the demo then plays the links that are actually on show.
+  document.addEventListener('hb:mode',function(e){
+    mode=e.detail.mode;
+    reset();
+  });
+  // The visitor's own pointer or key inside the stage stops a Show me run that is under way.
+  document.addEventListener('hb:input',function(){clearTimers()});
+  document.getElementById('btn-demo').addEventListener('click',demo);
+  document.getElementById('btn-reset').addEventListener('click',reset);
+  slowTog.addEventListener('change',setDur);
+  function choices(id,pick){
+    var buttons=document.querySelectorAll('#'+id+' button');
+    buttons.forEach(function(b){b.addEventListener('click',function(){
+      buttons.forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});
+      pick(b.dataset);
+    })});
+  }
+  choices('dir-seg',function(d){
+    stage.classList.remove('dir-left','dir-right','dir-center');
+    stage.classList.add('dir-'+d.dir);
+  });
+  choices('speed-seg',function(d){dur=+d.ms;setDur()});
+  choices('color-seg',function(d){stage.style.setProperty('--ul-color',d.color)});
+  choices('thick-seg',function(d){stage.style.setProperty('--ul-thick',d.px+'px')});
+  setDur();
+</script>
+</body>
+</html>

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tooltip Reveal — Animation Handbook</title>
-  <meta name="description" content="A small label fades in after a short pause. Best for icon buttons.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/tooltip-reveal/">
+  <title>提示气泡浮现 — 动画手册</title>
+  <meta name="description" content="停顿片刻后，小标签淡入出现。适合用在图标按钮上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/tooltip-reveal/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Tooltip Reveal — Animation Handbook">
-  <meta property="og:description" content="A small label fades in after a short pause. Best for icon buttons.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/tooltip-reveal/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="提示气泡浮现 — 动画手册">
+  <meta property="og:description" content="停顿片刻后，小标签淡入出现。适合用在图标按钮上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/tooltip-reveal/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tooltip Reveal — Animation Handbook">
-  <meta name="twitter:description" content="A small label fades in after a short pause. Best for icon buttons.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Tooltip Reveal", "name": "Tooltip Reveal", "description": "A small label fades in after a short pause. Best for icon buttons.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/tooltip-reveal/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Tooltip Reveal"}</script>
+  <meta name="twitter:title" content="提示气泡浮现 — 动画手册">
+  <meta name="twitter:description" content="停顿片刻后，小标签淡入出现。适合用在图标按钮上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "提示气泡浮现", "name": "提示气泡浮现", "description": "停顿片刻后，小标签淡入出现。适合用在图标按钮上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/tooltip-reveal/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 提示气泡浮现"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-text:#f4f4f2;--ui-muted:#8a8a92;--tip-bg:#1c1c22;--tip-dur:150ms}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -113,58 +113,58 @@
     .stage[data-hb-mode="inside"].side .tip-wrap{grid-column:1;justify-self:center}
     .stage[data-hb-mode="inside"].side .strip{grid-column:2;grid-row:1/span 3;align-self:center}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../badge-pulse/" rel="prev" aria-label="Previous: Notification Badge Pulse"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Notification Badge Pulse</span></a><a href="../drawer-slide/" rel="next" aria-label="Next: Drawer / Panel Slide"><span><span class="hb-dir">Next: </span>Drawer / Panel Slide</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../badge-pulse/" rel="prev" aria-label="上一个：通知徽标脉冲"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>通知徽标脉冲</span></a><a href="../drawer-slide/" rel="next" aria-label="下一个：抽屉滑出"><span><span class="hb-dir">下一个：</span>抽屉滑出</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.16 · Micro-Interactions</p>
-    <h1>Tooltip Reveal</h1>
-    <p class="hb-lede">A small label fades in after a short pause. Best for icon buttons.</p>
+    <p class="hb-cat">04.16 · 微交互</p>
+    <h1>提示气泡浮现</h1>
+    <p class="hb-lede">停顿片刻后，小标签淡入出现。适合用在图标按钮上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Hover it</h2><p>Point at an item, tab to it or tap it on a phone, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">悬停试试</h2><p>指向一个项目，按 Tab 到它上面，或在手机上点它，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="tip-wrap" id="tw0">
         <div class="icon-btn" tabindex="0" aria-describedby="tt0">⚙️</div>
-        <div class="tooltip tip-bottom" id="tt0" role="tooltip">Settings — configure your workspace preferences</div>
+        <div class="tooltip tip-bottom" id="tt0" role="tooltip">设置——配置你的工作区偏好</div>
       </div>
       <div class="tip-wrap" id="tw1">
-        <div class="trunc-text" tabindex="0" aria-describedby="tt1">This text is truncat…</div>
-        <div class="tooltip tip-top" id="tt1" role="tooltip">This text is truncated because it is too long for the available space in this layout.</div>
+        <div class="trunc-text" tabindex="0" aria-describedby="tt1">这段文字被截断了……</div>
+        <div class="tooltip tip-top" id="tt1" role="tooltip">这段文字被截断了，因为它对这个布局里的可用空间来说太长了。</div>
       </div>
       <div class="tip-wrap" id="tw2">
-        <input class="help-input" type="text" placeholder="Username" aria-label="Username" aria-describedby="tt2" autocomplete="off">
-        <div class="tooltip tip-right" id="tt2" role="tooltip">3–20 characters. Letters, numbers and underscores only.</div>
+        <input class="help-input" type="text" placeholder="Username" aria-label="用户名" aria-describedby="tt2" autocomplete="off">
+        <div class="tooltip tip-right" id="tt2" role="tooltip">3–20 个字符。只允许字母、数字和下划线。</div>
       </div>
       <div class="tip-wrap" id="tw3">
         <div class="avatar-sm" tabindex="0" aria-describedby="tt3">🧑</div>
-        <div class="tooltip tip-top" id="tt3" role="tooltip">@atlas — joined 2019 · 140 projects</div>
+        <div class="tooltip tip-top" id="tt3" role="tooltip">@atlas — 2019 年加入 · 140 个项目</div>
       </div>
       <div class="strip" aria-hidden="true">
         <div class="tl"><span class="bar f-wait" id="b1"></span><span class="bar f-in" id="b2"></span><span class="bar f-stay" id="b3"></span><span class="bar f-wait" id="b4"></span><span class="bar f-out" id="b5"></span><span class="mk" id="mk"></span></div>
-        <p class="key"><span class="kl f-wait" id="k1" data-hb-caption>Waits about a third of a second</span><span class="kl f-in" id="k2" data-hb-caption>Fades in, about a sixth of a second</span><span class="kl f-stay" data-hb-caption>Stays while you point</span><span class="kl f-out" id="k4" data-hb-caption>Waits a tenth of a second, then fades out</span></p>
+        <p class="key"><span class="kl f-wait" id="k1" data-hb-caption>等大约三分之一秒</span><span class="kl f-in" id="k2" data-hb-caption>淡入，大约六分之一秒</span><span class="kl f-stay" data-hb-caption>在你指向时停留</span><span class="kl f-out" id="k4" data-hb-caption>等十分之一秒，再淡出</span></p>
       </div>
       <div class="views" aria-hidden="true">
-        <span class="lbl in-cap" id="l-ol" data-hb-caption hidden>Hidden here until it shows</span>
-        <span class="lbl cmp-cap n-l" data-hb-caption>Shows at once</span>
-        <span class="lbl cmp-cap n-r" data-hb-caption>Waits a moment</span>
-        <span class="lbl cmp-cap" id="l-pass" data-hb-caption hidden>Passing by</span>
+        <span class="lbl in-cap" id="l-ol" data-hb-caption hidden>藏在这里，直到显示</span>
+        <span class="lbl cmp-cap n-l" data-hb-caption>立刻显示</span>
+        <span class="lbl cmp-cap n-r" data-hb-caption>等一会儿</span>
+        <span class="lbl cmp-cap" id="l-pass" data-hb-caption hidden>经过</span>
         <!-- The trails, the pretend pointer and its ghost over the copy: after the labels, so a pointer is never hidden under one -->
         <svg>
           <path class="trail" id="tr0"/><path class="trail" id="tr1"/>
@@ -174,56 +174,56 @@
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed box is the hidden tip; the bars are its life: it waits, fades in, stays while you point, then waits and fades out. Point at an item, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Shows at once: every tip the pointer passes flashes up; Waits a moment: only the item the pointer rests on shows its tip. Move across the items, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：虚线框是隐藏的提示；横条是它的一生：它等待、淡入、在你指向时停留，然后等待、淡出。指向一个项目，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>立刻显示：指针经过的每个提示都闪现；等一会儿：只有指针停留的项目显示它的提示。划过这些项目，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="show-lbl">Delay before showing</p>
+        <p class="hb-setting-name" id="show-lbl">显示前延迟</p>
         <div class="seg" id="show-seg" role="group" aria-labelledby="show-lbl">
-          <button type="button" data-ms="0" aria-pressed="false">None</button>
-          <button type="button" data-ms="150" aria-pressed="false">Short</button>
-          <button type="button" data-ms="300" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-ms="600" aria-pressed="false">Long</button>
+          <button type="button" data-ms="0" aria-pressed="false">无</button>
+          <button type="button" data-ms="150" aria-pressed="false">短</button>
+          <button type="button" data-ms="300" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-ms="600" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">The pause stops tips flashing as the pointer passes.</p>
+        <p class="hb-hint">停顿让提示不会在指针经过时闪现。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="250" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="150" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="90" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="250" aria-pressed="false">慢</button>
+          <button type="button" data-ms="150" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="90" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly the label fades and grows in.</p>
+        <p class="hb-hint">标签淡入、长出来有多快。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="hide-lbl">Delay before hiding</p>
+          <p class="hb-setting-name" id="hide-lbl">隐藏前延迟</p>
           <div class="seg" id="hide-seg" role="group" aria-labelledby="hide-lbl">
-            <button type="button" data-ms="0" aria-pressed="false">None</button>
-            <button type="button" data-ms="100" class="on" aria-pressed="true">Short</button>
-            <button type="button" data-ms="300" aria-pressed="false">Long</button>
+            <button type="button" data-ms="0" aria-pressed="false">无</button>
+            <button type="button" data-ms="100" class="on" aria-pressed="true">短</button>
+            <button type="button" data-ms="300" aria-pressed="false">长</button>
           </div>
-          <p class="hb-hint">How long the tip stays after the pointer leaves.</p>
+          <p class="hb-hint">指针离开后，提示停留多长时间。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Shows an arrow</span><input class="hb-switch" type="checkbox" role="switch" id="arrow-tog" autocomplete="off"></label>
-          <p class="hb-hint">A small point that aims the tip at its item.</p>
+          <label class="hb-switch-row"><span>显示箭头</span><input class="hb-switch" type="checkbox" role="switch" id="arrow-tog" autocomplete="off"></label>
+          <p class="hb-hint">一个小尖角，把提示对准它的项目。</p>
         </div>
       </div>
     </details>
@@ -232,41 +232,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add tooltips to [the icon buttons, shortened text or fields that need a short explanation]. When the pointer rests on an item, or keyboard focus reaches it, wait a moment, then fade the tooltip in beside it while it grows very slightly from the side facing the item, so it feels light rather than like a pop-up. The wait keeps tooltips from flashing while the pointer only passes by. When the pointer leaves, hide it again, after a pause if the settings include one, and let the Escape key close it at once. On touch screens, show and hide it with a tap. If the visitor has reduced motion turned on, fade it without growing. Match the settings listed below.</p>
+      <p class="hb-prompt">给[需要简短说明的图标按钮、缩短的文字或字段]加上提示气泡。当指针停在一个项目上，或键盘焦点到达它时，等一会儿，再把它旁边的提示气泡淡入，同时从面向项目的那边非常轻微地长出来，这样感觉轻盈，不像弹窗。等待让提示不会在指针只是经过时闪现。指针离开时，再把它藏起来；如果设置里有停顿，就等一下再藏；Esc 键可以立刻关掉它。触屏上，点按可以显示和隐藏它。如果访客开启了减弱动态效果，只淡入淡出，不要长大。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Icon buttons</li><li>Cut-off text</li><li>Form hints</li><li>Chart values</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Key information</li><li>Long text</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>图标按钮</li><li>被截断的文字</li><li>表单提示</li><li>图表数值</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>关键信息</li><li>长文本</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.querySelector('.stage');
   const wraps=[...document.querySelectorAll('.tip-wrap')];
@@ -283,7 +283,7 @@
   const pt=$('pt'),gh=$('gh'),trails=[$('tr0'),$('tr1')],capOl=$('l-ol'),capPass=$('l-pass');
   const reduceMQ=matchMedia('(prefers-reduced-motion: reduce)'),narrowMQ=matchMedia('(max-width:720px)'),phoneMQ=matchMedia('(max-width:600px)');
   const compareNote=document.querySelector('[data-hb-for="compare"]'),COMPARE_NOTE=compareNote.textContent,insideNote=document.querySelector('[data-hb-for="inside"]');
-  const NONE_NOTE='Delay before showing is set to None, so Shows at once and Waits a moment both flash every tip the pointer passes. Pick another delay in Try it.';
+  const NONE_NOTE='「显示前延迟」设为「无」，所以「立刻显示」和「等一会儿」都会让指针经过的每个提示闪现。在「试一试」里选另一个延迟。';
   let mode='normal',cur=0,M={i:-1,ph:'rest'},K=0,X=[],D=[],rp=-1,posed=false,passed=[],mouse=null,mouseIn=false,markRaf=0;
   const copies=[],ols=[];
 
@@ -380,8 +380,8 @@
   }
   // One hover of the gear: its tooltip shows after the delay before showing, stays 1.6 s, then hides after the delay before hiding.
   // At the defaults it is back at rest 2.3 s after the press. In See inside and Compare a pass comes first: a pretend pointer
-  // jumps up the items a tenth of a second apart, on each one show() and then hide(), so the wait is seen keeping the tips from
-  // flashing. The pass is a hold (Slow motion does not lengthen it) and adds a tenth of a second per item.
+  // jumps up the items 十分之一秒 apart, on each one show() and then hide(), so the wait is seen keeping the tips from
+  // flashing. The pass is a hold (Slow motion does not lengthen it) and adds 十分之一秒 per item.
   $('btn-demo').addEventListener('click',()=>{
     stopRun();
     toRest();
@@ -414,14 +414,14 @@
   stage.addEventListener('focusout',()=>setTimeout(sync));
 
   // ---- See inside and Compare ----
-  const say=ms=>[[90,'a tenth of a second'],[150,'about a sixth of a second'],[250,'a quarter of a second'],[300,'about a third of a second'],
-    [450,'about half a second'],[600,'over half a second'],[750,'about three quarters of a second']].reduce((m,w)=>Math.abs(w[0]-ms)<Math.abs(m[0]-ms)?w:m)[1];
+  const say=ms=>[[90,'十分之一秒'],[150,'大约六分之一秒'],[250,'四分之一秒'],[300,'大约三分之一秒'],
+    [450,'大约半秒'],[600,'超过半秒'],[750,'大约四分之三秒']].reduce((m,w)=>Math.abs(w[0]-ms)<Math.abs(m[0]-ms)?w:m)[1];
   const write=(el,text)=>{if(el.textContent!==text)el.textContent=text};
   // The box of an element, and the point where the pointer lands on an item, in the stage's padding box
   function box(el){const s=stage.getBoundingClientRect(),b=el.getBoundingClientRect(),l=b.left-s.left-stage.clientLeft,t=b.top-s.top-stage.clientTop;return{l,t,r:l+b.width,b:t+b.height}}
   function hot(i){const b=box(wraps[i]);return{x:(b.l+b.r)/2+18,y:b.t+(b.b-b.t)*.55}}
   const below=()=>wraps[2].offsetParent?2:3;
-  // How far a tip has faded in after a tenth of a second: a curve close to the CSS "ease" the fade uses
+  // How far a tip has faded in after 十分之一秒: a curve close to the CSS "ease" the fade uses
   const ease=t=>t*(2-t);
   // The bars, one per step of a tip's life, on a time line drawn at one scale (the stay is a made-up length that fades out, since it
   // lasts as long as the pointer stays); with Slow motion the fades are three times as long, as the CSS fade is
@@ -432,9 +432,9 @@
     let x=0;X=[];
     D.forEach((ms,j)=>{X.push(x*K);barEls[j].style.left=x*K+'px';barEls[j].style.width=ms*K+'px';barEls[j].hidden=!ms;x+=ms});
     X.push(x*K);
-    write($('k1'),showDelay?'Waits '+say(showDelay):'No wait: shows at once');
-    write($('k2'),'Fades in, '+say(f));
-    write($('k4'),hideDelay?'Waits '+say(hideDelay)+', then fades out':'Fades out as soon as you leave');
+    write($('k1'),showDelay?'等'+say(showDelay):'不用等：立刻显示');
+    write($('k2'),'淡入，'+say(f));
+    write($('k4'),hideDelay?'等'+say(hideDelay)+'，再淡出':'一离开就淡出');
   }
   // The marker's place at this moment. It runs in real time (the waits as they are, the fades as long as they last); under reduced
   // motion it jumps to the start of each step instead of gliding.
@@ -476,7 +476,7 @@
     }
   }
   // Compare's rest pose, until the real side gets input or a run starts: the pretend pointer has just come up from the item below
-  // onto the cut-off text. The left shows its tip as far faded in as a tenth of a second of the fade gets it (at None the right
+  // onto the cut-off text. The left shows its tip as far faded in as 十分之一秒 of the fade gets it (at None the right
   // does too), the right nothing yet. The pose goes by progress, so Slow motion does not change it.
   function sync(){
     const was=posed;
@@ -500,7 +500,7 @@
       if(mode==='inside')barsDraw();
       ride();
     }
-    write(insideNote,'Inside, the dashed box is the hidden tip; the bars are its life: it '+(showDelay?'waits, fades in':'fades in')+', stays while you point, then '+(hideDelay?'waits and fades out':'fades out')+'. Point at an item, or press Show me.');
+    write(insideNote,'内部：虚线框是隐藏的提示；横条是它的一生：它'+(showDelay?'等待、淡入':'淡入')+'，在你指向时停留，然后'+(hideDelay?'等待、淡出':'淡出')+'。指向一个项目，或按「演示一下」。');
     write(compareNote,showDelay===0?NONE_NOTE:COMPARE_NOTE);
     sync();
   }

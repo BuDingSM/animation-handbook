@@ -1,43 +1,43 @@
-# Magnifier Lens
+# 放大镜
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/magnifier-lens/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/magnifier-lens/)
 
-## What it is
-A magnifier lens shows part of a picture up close: a round or square window follows the pointer and holds an enlarged copy of the picture, placed so the spot under the pointer sits in the lens's middle. It lets people read fine print and check small details without leaving the page or opening a bigger picture.
+## 它是什么
+放大镜把图片的一部分近距离展示出来：一个圆形或方形的窗口跟随指针，里面放着图片的放大复制品，位置要让指针下的点正好在镜头的中间。它让人不用离开页面或打开更大的图片，就能读小字、检查小细节。
 
-## When to use it
-- Product photos: stitching, textures, engravings, labels
-- Maps and floor plans with small names and numbers
-- Artwork and photography, to look at brushwork or grain
-- Technical drawings, diagrams and detailed plans
+## 什么时候用
+- 商品照片：缝线、纹理、刻字、标签
+- 带小地名和数字的地图和平面图
+- 艺术品和摄影，看笔触或颗粒
+- 技术图纸、图表和细节方案
 
-## How it works
-The lens is a small box with rounded corners and hidden overflow, moved to the pointer by a transform. Inside it sits a second copy of the picture, as many times bigger as the zoom. The copy moves the other way, so the point under the pointer lands in the lens's middle:
+## 工作原理
+镜头是一个带圆角、隐藏溢出的小盒子，用变换移到指针处。里面放着图片的第二份复制品，按放大倍数放大。复制品向反方向移动，这样指针下的点会落在镜头的中间：
 
 ```js
 lens.style.transform = `translate(${x - R}px, ${y - R}px)`;        // x, y: the pointer on the picture; R: the lens's radius
 copy.style.transform = `translate(${R - x * Z}px, ${R - y * Z}px)`; // Z: the zoom
 ```
 
-The copy is drawn at its full bigger size, not scaled up with a transform: a layer that is scaled up after it is drawn shows a stretched, blurry picture. Here the drawing is vector, so the bigger copy stays sharp; with photos, the lens loads a larger version of the image. The lens grows in when the pointer arrives and shrinks away when it leaves, a short transition on the lens's scale. A finger shows the lens while it is down, just above the finger so the finger does not cover it, with `touch-action: none` so the drag moves the lens instead of the page. From the keyboard the picture takes focus, which shows the lens in the middle; the arrow keys move it (Shift for bigger steps) and Escape puts it away. Under reduced motion the lens appears and goes without growing, and Show me jumps between the details.
+复制品按它最终的更大尺寸画出来，不是用变换放大后才画：一个画出来后再用变换放大的图层，显示的是拉伸、模糊的图片。这里画的是矢量图，所以更大的复制品保持清晰；用照片时，镜头加载图片的更大版本。指针到达时镜头长出来，离开时缩回去，是镜头缩放上的一段短过渡。手指按下时显示镜头，就在手指上方，这样手指不会挡住它；用 `touch-action: none`，让拖动移动镜头而不是页面。键盘上图片获得焦点，就会显示中间的镜头；方向键移动它（Shift 是更大的步子），Esc 把它收起来。减弱动态效果下镜头出现和消失时不生长，“演示一下”会在细节之间跳动。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Zoom | 3 times | How many times bigger the copy in the lens is than the picture: 2 times, 3 times or 4 times |
-| Lens size | Medium | How wide the lens is: small is 110 pixels across, medium 150 and large 200, a fifth less on phones |
-| Lens shape | Round | Round is a circle; square is a square with slightly rounded corners, which suits maps and plans |
+| 放大倍数 | 3 倍 | 镜头里的复制品比图片大多少倍：2 倍、3 倍或 4 倍 |
+| 镜片大小 | 中等 | 镜头有多宽：小是 110 像素宽，中等 150，大是 200，手机上减少五分之一 |
+| 镜片形状 | 圆形 | 圆形是一个圆；方形是带一点圆角的方形，适合地图和图纸 |
 
-## Production notes
-- **Use a bigger image.** Stretching the same small image only enlarges its pixels and the detail blurs; load a version two to four times larger (with `srcset`, or lazily when the pointer first arrives) and use it as the lens's copy or as its background.
-- **Size it, then move it.** Give the copy its final size in layout and move it only with transforms; scaling it up with a transform after the browser has drawn it as a layer blurs it.
-- **Background-image variant.** A lens can also be a single element whose background is the large image, moved with `background-position`; that repaints the lens on every move, which is fine for small lenses.
-- **Touch and keyboard.** Show the lens above the finger and flip it below near the top edge; put `touch-action: none` on the picture only, so a drag moves the lens and the page still scrolls around it. Give keyboard users focus, arrow keys and Escape.
-- **Libraries.** Drift and many shop themes package the same idea; in a React app, a small custom hook around the same two transforms does it.
-- **Reduced motion.** Let the lens appear and go at once instead of growing.
+## 生产注意事项
+- **用更大的图片。** 拉伸同一张小图片只会放大它的像素，细节会模糊；加载一个大两到四倍的版本（用 `srcset`，或指针第一次到达时懒加载），把它用作镜头的复制品或背景。
+- **先定大小，再移动。** 在布局里给复制品最终的大小，只用变换移动它；浏览器把它画成图层后再用变换放大，会把它弄模糊。
+- **背景图变体。** 镜头也可以是一个元素，背景就是大图，用 `background-position` 移动；每次移动都会重绘镜头，小镜头没问题。
+- **触摸和键盘。** 把镜头显示在手指上方，靠近顶部边缘时翻到下面；只在图片上放 `touch-action: none`，这样拖动移动镜头，页面在它周围仍能滚动。给键盘用户焦点、方向键和 Esc。
+- **库。** Drift 和很多商店主题都打包了同样的想法；React 应用里，围绕同样的两个变换写一个小的自定义 hook 就行。
+- **减弱动态效果。** 让镜头立刻出现和消失，而不是生长。
 
-## See also
-- [Spotlight Hover Glow](../spotlight-hover/) — a light follows the pointer across cards
-- [Cursor Follower](../cursor-follower/) — a shape trails the pointer, from the keyboard too
-- [Liquid Glass](../../06-3d-advanced/liquid-glass/) — a panel bends the picture behind it at its rim
-- [Before/After Slider](../before-after-slider/) — a line dragged across two pictures uncovers one over the other
+## 另见
+- [聚光灯悬停辉光](../spotlight-hover/) — 一道光跟随指针，穿过卡片
+- [光标跟随](../cursor-follower/) — 一个形状拖在指针后面，键盘也能用
+- [液态玻璃](../../06-3d-advanced/liquid-glass/) — 一块面板在边缘处弯曲它后面的图片
+- [前后对比滑块](../before-after-slider/) — 拖动一条线，横跨两张图片进行对比

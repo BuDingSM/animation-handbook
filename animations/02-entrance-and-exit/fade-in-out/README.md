@@ -1,19 +1,19 @@
-# Fade In / Fade Out
+# 淡入淡出
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/fade-in-out/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/fade-in-out/)
 
-## What it is
+## 它是什么
 
-A fade changes an element's opacity between invisible and fully visible: it fades in to appear and fades out to leave. It is the simplest entrance animation and one of the cheapest to run, because the browser only blends a layer it has already drawn. Since nothing moves or changes shape, a fade reads as a neutral appearance rather than a movement.
+淡入淡出改变元素的不透明度，在看不见和完全可见之间切换：淡入出现，淡出离开。它是最简单的入场动画，也是运行成本最低的之一，因为浏览器只需要混合一个已经画好的图层。什么都不移动、也不改变形状，所以淡入淡出读起来是一次中性的出现，而不是一次移动。
 
-## When to use it
-- Modal, tooltip, and popover appearance where a subtle presence change is enough
-- Cross-fading between two states (loading skeleton → loaded content)
-- Softening any harder motion — pair a fade with a slide or scale so the element resolves rather than snaps
-- Route or view transitions where you want change without a spatial metaphor
+## 什么时候用
+- 弹窗、提示框和弹出层的出现，细微的存在变化就够了
+- 两种状态之间的交叉淡入淡出（加载骨架屏 → 加载好的内容）
+- 柔化任何更生硬的动作——把淡入淡出和滑动或缩放搭配起来，让元素是渐渐清晰而不是突然出现
+- 路由或视图切换，想要变化但不要空间隐喻的时候
 
-## How it works
-The card starts at `opacity: 0` and transitions to `1` when an `.in` class is added. The duration and easing are driven by CSS variables so the controls can rewrite them live:
+## 工作原理
+卡片从 `opacity: 0` 开始，加上 `.in` 类时过渡到 `1`。时长和缓动由 CSS 变量驱动，控件可以实时改写它们：
 
 ```css
 .card {
@@ -24,7 +24,7 @@ The card starts at `opacity: 0` and transitions to `1` when an `.in` class is ad
 .card.in { opacity: 1; }
 ```
 
-Toggling the class is all the JS does. To replay cleanly, the demo removes `.in`, forces a reflow with `void card.offsetWidth`, then re-adds it — without that reflow the browser coalesces the remove/add into no change and the transition never fires:
+JS 做的只是切换这个类。为了干净地重播，演示先去掉 `.in`，用 `void card.offsetWidth` 强制重排，再加回来——没有这次重排，浏览器会把去掉和加上合并成没有变化，过渡就永远不会触发：
 
 ```js
 card.classList.remove('in');
@@ -32,21 +32,21 @@ void card.offsetWidth;   // flush styles so the next add restarts the transition
 card.classList.add('in');
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long the fade takes: slow is 1000ms, normal 600ms and fast 350ms; under 150ms a fade barely registers |
-| Feel | Smooth | Smooth starts quickly and settles gently, the natural feel for an entrance; Gentle eases in and out; Even keeps one steady pace |
+| 速度 | 普通 | 淡入淡出要多长时间：「慢」是 1000ms，「普通」600ms，「快」350ms；不到 150ms 的淡入淡出几乎感觉不到 |
+| 感觉 | 平滑 | 「平滑」开始得快、结束得轻柔，是入场最自然的感觉；「轻柔」两头放慢；「均匀」保持一个稳定的速度 |
 
-## Production notes
-- **Animate `opacity`, nothing else.** It is compositor-only, so a fade holds 60fps even on low-end mobile. Fading `visibility` or `display` instead does not animate at all — those are discrete properties.
-- **`display: none` can't be transitioned.** If an element must leave the layout after fading, listen for `transitionend` (or use `transition-behavior: allow-discrete` with `@starting-style`) before removing it, otherwise it vanishes before the fade completes.
-- **Reduced motion:** the demo shortens the fade to a 300ms linear cross-dissolve under `prefers-reduced-motion` rather than killing it — a fade is already gentle, so a faster version stays comfortable.
-- **Library equivalents:** GSAP `gsap.to(el, { opacity: 1 })` or the `.fromTo()` form; Framer Motion `animate={{ opacity: 1 }}` with `AnimatePresence` for exit fades; Motion One `animate(el, { opacity: [0, 1] })`.
+## 生产注意事项
+- **只给 `opacity` 做动画，别的都不动。**它只走合成器，所以即使在低端手机上淡入淡出也能保持 60fps。改给 `visibility` 或 `display` 做淡入淡出则完全不会动——它们是离散属性。
+- **`display: none` 不能过渡。**如果元素淡出后必须离开布局，先监听 `transitionend`（或者用 `transition-behavior: allow-discrete` 配合 `@starting-style`）再移除它，否则它会在淡入淡出完成之前就消失。
+- **减弱动态：**在 `prefers-reduced-motion` 下，演示把淡入淡出缩短为 300ms 的线性交叉溶解，而不是取消它——淡入淡出本来就很轻柔，所以更快的版本仍然舒服。
+- **库里的等价写法：**GSAP 的 `gsap.to(el, { opacity: 1 })` 或 `.fromTo()` 形式；Framer Motion 的 `animate={{ opacity: 1 }}`，退场淡出配合 `AnimatePresence`；Motion One 的 `animate(el, { opacity: [0, 1] })`。
 
-## See also
-- [Slide In](../slide-in/) — travels in from one edge as it fades
-- [Scale In / Zoom In](../scale-in/) — grows from smaller to full size
-- [Blur In](../blur-in/) — sharpens from a blur as it fades in
-- [Clip-Path Reveal](../clip-path-reveal/) — a shape uncovers it, with no fade
+## 另见
+- [滑入](../slide-in/) — 淡入的同时从一边滑进来
+- [缩放进入](../scale-in/) — 从小放大到完整尺寸
+- [模糊渐入](../blur-in/) — 淡入时从模糊中变清晰
+- [剪裁路径揭示](../clip-path-reveal/) — 一个形状揭开它，没有淡入淡出

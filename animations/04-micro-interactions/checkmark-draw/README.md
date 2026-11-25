@@ -1,18 +1,18 @@
-# Checkmark Draw
+# 对勾绘制
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/checkmark-draw/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/checkmark-draw/)
 
-## What it is
-A check mark that draws itself, as if by hand, to confirm that something worked. The circle and the tick are there from the start but hidden, and they are revealed along their length, so the line seems to be drawn. The same trick can draw a red X when something fails.
+## 它是什么
+自己画出来的对勾，像手绘一样，确认某件事成功了。圆圈和对勾从一开始就在那里，只是藏起来了，沿着长度一点点露出来，所以线条看起来像被画出来一样。同样的技巧可以在失败时画一个红叉号。
 
-## When to use it
-- Form submission success state (the button transforms into a checkmark)
-- Payment confirmation screens
-- Step completion indicators in multi-step flows
-- Any binary success/failure state where a visual reward is appropriate
+## 什么时候用
+- 表单提交成功状态（按钮变成对勾）
+- 支付确认界面
+- 多步流程里的步骤完成指示
+- 任何适合用视觉奖励的二元成功/失败状态
 
-## How it works
-Every SVG path has a `getTotalLength()` value — the pixel length of its stroke. Setting `stroke-dasharray` to that length and `stroke-dashoffset` to that same length makes the stroke invisible (the gap covers it entirely). Animating `stroke-dashoffset` to 0 draws the path in:
+## 工作原理
+每条 SVG 路径都有一个 `getTotalLength()` 值——它描边的像素长度。把 `stroke-dasharray` 设为这个长度、`stroke-dashoffset` 也设为同样长度，描边就看不见了（缺口把它完全盖住了）。把 `stroke-dashoffset` 动画到 0，就把路径画出来了：
 
 ```html
 <svg viewBox="0 0 80 80">
@@ -39,9 +39,9 @@ Every SVG path has a `getTotalLength()` value — the pixel length of its stroke
 .drawn .check-mark   { stroke-dashoffset: 0; transition-delay: 200ms; } /* delay after circle */
 ```
 
-The circle draws first (0ms delay), the checkmark follows with a `200ms` delay — creating the sequenced "circle then tick" effect. The delay sits on the `.drawn` rule, so it applies only while drawing in; when the class is removed, both lines draw back out together. The demo sets the delay to 0.4 times the draw time, so it follows the Speed setting.
+圆圈先画（0ms 延迟），对勾带着 `200ms` 延迟跟上——就形成了“先画圆圈、再画对勾”的顺序效果。延迟在 `.drawn` 规则上，所以只在向内画的时候生效；去掉这个类时，两条线会一起画回去。演示把延迟设为画线时间的 0.4 倍，所以它会跟着「速度」设置走。
 
-For paths that aren't simple geometry, measure length in JavaScript:
+对于不是简单几何图形的路径，用 JavaScript 测量长度：
 
 ```js
 const path = document.querySelector('.my-path');
@@ -52,24 +52,24 @@ path.style.strokeDashoffset = length;
 path.style.strokeDashoffset = 0;
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Result | Success | Success draws a circle and a tick and turns the button green; Error draws a red X, shakes it (6, 6, 4 and 4px to alternate sides over 0.4 seconds) and turns the button red |
-| Speed | Normal | How long each line takes to draw: slow is 800ms, normal 500ms and fast 300ms, the tick starting 40% of that time after the circle (the X's second line 30% after its first); 200 to 800ms is easy to follow |
-| Line thickness | Medium | Thin is 2px, medium 4px and thick 7px wide, on an icon 80px across whose circle is 60px wide; thick reads as confident, thin as precise |
-| Feel | Smooth | Smooth slows at the end like a pen lifting off; Gentle eases in and out; Even draws at one steady pace |
-| Tick color | Green | The color of the circle and the tick; the X stays red |
+| 结果 | 成功 | 成功画一个圆圈和对勾，并把按钮变成绿色；失败画一个红叉号，抖一下（0.4 秒内向两侧摆动 6、6、4、4px），并把按钮变成红色 |
+| 速度 | 普通 | 每条线画出来要花多长时间：慢是 800ms，普通 500ms，快 300ms，对勾在圆圈之后 40% 的时间开始（叉号的第二笔在第一笔之后 30%）；200 到 800ms 很容易跟上 |
+| 线条粗细 | 中等 | 细是 2px，中等 4px，粗是 7px，图标 80px 宽，圆圈 60px 宽；粗显得自信，细显得精确 |
+| 手感 | 平滑 | 平滑在结尾放慢，像笔抬起来一样；轻柔是缓入缓出；均匀以一个恒定速度画 |
+| 对勾颜色 | 绿色 | 圆圈和对勾的颜色；叉号保持红色 |
 
-## Production notes
-- **Path length must match `stroke-dasharray`**: if the length is wrong, the path draws partially or overshoots. For computed paths, always use `getTotalLength()` rather than hardcoding.
-- **`stroke-dasharray` on `<polyline>`**: polylines report `getTotalLength()` correctly in all major browsers. Use it for checkmarks; `<path d="M 24,41 L 35,52 L 56,30">` is equivalent.
-- **Error state pairing**: the same technique draws an X for failure. Two crossing `<line>` elements with staggered delays produce a cross-draw effect (the demo's Result setting shows it).
-- **Shake on error**: after drawing the X, `animation: shake 400ms ease` on the container reinforces the rejection.
-- **GSAP**: `gsap.to(path, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" })`. The DrawSVG plugin is more convenient for complex paths.
-- **Framer Motion**: `<motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.5 }} />` — `pathLength` is a 0–1 shorthand for the dashoffset technique.
+## 生产注意事项
+- **路径长度必须和 `stroke-dasharray` 一致**：长度错了，路径会画不全或画过头。对于计算出来的路径，一定要用 `getTotalLength()`，而不是硬编码。
+- **`<polyline>` 上的 `stroke-dasharray`**：多段线在所有主流浏览器里 `getTotalLength()` 都报告正确。对勾就用它；`<path d="M 24,41 L 35,52 L 56,30">` 是等价的。
+- **失败状态配对**：同样的技巧可以给失败画一个叉号。两条交叉的 `<line>` 元素加上错开的延迟，就能做出交叉画出的效果（演示的「结果」设置展示了它）。
+- **出错时抖动**：画完叉号后，在容器上用 `animation: shake 400ms ease`，能加强拒绝的感觉。
+- **GSAP**：`gsap.to(path, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" })`。DrawSVG 插件对复杂路径更方便。
+- **Framer Motion**：`<motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.5 }} />`——`pathLength` 是 dashoffset 技巧的 0–1 简写。
 
-## See also
-- [Progress Animation](../progress-animation/) — shows how much is done before the success
-- [Loading Spinner](../loading-spinner/) — the waiting sign before the tick
-- [Button Press Scale](../button-press-scale/) — the button shrinks while it is pressed
+## 另见
+- [进度动画](../progress-animation/) — 在成功之前显示完成了多少
+- [加载旋转指示](../loading-spinner/) — 对勾之前的等待标志
+- [按钮按压缩放](../button-press-scale/) — 按下时按钮会缩小

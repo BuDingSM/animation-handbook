@@ -1,19 +1,19 @@
-# Rotate In
+# 旋转进入
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/rotate-in/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/rotate-in/)
 
-## What it is
+## 它是什么
 
-Rotate In spins an element around its center as it enters, usually while it grows from small, so it reads as arriving rather than just turning in place. The spin is easiest to follow when the shape looks right at every angle, so it suits round or symmetric marks such as icons, stars, gears and badges, not text or wide rectangles.
+旋转进入让元素进入时绕着自己的中心旋转，通常同时从小放大，所以读起来像是在到达，而不只是在原地转。形状在每个角度看起来都对的时候，旋转最容易跟上，所以它适合圆形或对称的标记，比如图标、星星、齿轮和徽章，不适合文字或宽矩形。
 
-## When to use it
-- Icon and badge reveals — achievement unlocks, status indicators, loading-to-done transitions
-- Logos or emblems where a spin reinforces a "coming together" moment
-- Small decorative elements that can absorb an energetic entrance
-- Anywhere the resting shape is symmetric enough that a mid-spin frame still looks intentional
+## 什么时候用
+- 图标和徽章揭示——成就解锁、状态指示、加载到完成的切换
+- Logo 或徽章，旋转强化了「汇合」的那一刻
+- 能承受一次精力充沛入场的小装饰元素
+- 任何静止形状足够对称、旋转中途的一帧看起来仍然是有意的地方
 
-## How it works
-The element starts rotated and scaled down, then transitions both back to their resting values when the `.in` class is added. A springy easing gives the spin a slight overshoot so it feels like it lands:
+## 工作原理
+元素从旋转、缩小开始，加上 `.in` 类时两者都过渡回静止值。弹回缓动让旋转稍稍超过一点，感觉像落定了一样：
 
 ```css
 .icon{
@@ -24,7 +24,7 @@ The element starts rotated and scaled down, then transitions both back to their 
 .icon.in{opacity:1;transform:rotate(0deg) scale(1)}
 ```
 
-Every setting only changes a custom property. The starting angle is the chosen amount of turn, signed by the direction, and switching the bounce off swaps the springy curve for a smooth one:
+每个设置只改一个自定义属性。起始角度就是选好的旋转量，由方向决定正负，关掉弹跳会把弹回曲线换成平滑曲线：
 
 ```js
 function apply(){
@@ -36,28 +36,28 @@ function apply(){
 }
 ```
 
-A negative starting angle spins clockwise into place and a positive one counter-clockwise; either way the element lands at `rotate(0deg)`. Each play first snaps the icon back to its starting pose with the transition switched off, so a replay always spins in from the beginning. Slow motion multiplies the duration by three.
+负的起始角度顺时针转到位，正的逆时针转到位；不管怎样，元素都会落在 `rotate(0deg)`。每次播放都先在关掉过渡的情况下把图标一下子放回起始姿势，所以重播总是从头开始转进来。慢动作把时长乘以三。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How much it spins | ½ turn | How far it turns on the way in: a quarter turn, half a turn or a full turn |
-| Speed | Normal | How long the spin takes: slow is 1000ms, normal 600ms and fast 350ms |
-| Spin direction | Clockwise | Which way it turns as it lands |
-| Bounce at the end | on | Goes slightly past its resting angle and settles back, so the spin lands instead of gliding to a stop |
-| Grows from small | on | Starts tiny and grows while it spins, which turns a spin into an arrival |
-| Fades in | on | Fades in as it spins instead of appearing at once |
+| 旋转幅度 | 半圈 | 进来时转多远：四分之一圈、半圈或一整圈 |
+| 速度 | 普通 | 旋转要多长时间：「慢」是 1000ms，「普通」600ms，「快」350ms |
+| 旋转方向 | 顺时针 | 落下时往哪个方向转 |
+| 结尾弹一下 | 开 | 稍稍超过静止角度再退回来，这样旋转会落定，而不是滑着停下 |
+| 从小放大 | 开 | 从很小开始，旋转时放大，这样旋转就变成了一次到达 |
+| 淡入 | 开 | 旋转时淡入，而不是一下子出现 |
 
-## Production notes
-- **Symmetry matters**: rotating text or a rectangle looks like it fell over, not like it entered. The demo deliberately uses a symmetric icon so every intermediate frame reads correctly.
-- **Scale sells the arrival**: rotation alone spins the element where it already is; adding `scale(0) → scale(1)` makes it feel like it travels in from nothing. The two combined are what create the "landing" quality.
-- **Decouple opacity timing**: the demo gives the fade its own duration (`--opacity-dur`), so you can, for example, fade in quickly while the spin continues — a fully-transparent spin start can otherwise look like a glitch.
-- **Reduced motion**: the icon drops to a plain 300ms opacity fade with no rotation or scale when `prefers-reduced-motion` is set, and the demo does not loop.
-- **Framer Motion**: animate `rotate` and `scale` together in a variant, with a spring transition for the landing overshoot.
-- **GSAP**: tween `rotation` and `scale` with a `back.out` ease; `back` provides the overshoot in one keyword.
+## 生产注意事项
+- **对称很重要**：旋转文字或矩形看起来像倒下了，而不是进来了。演示故意用了一个对称的图标，这样每一帧中间画面读起来都是对的。
+- **缩放卖的是到达感**：只有旋转是让元素在原地转；加上 `scale(0) → scale(1)` 会让它感觉像是从无到有飞进来的。两者结合才产生了「落定」的感觉。
+- **把不透明度的时间分开**：演示给淡入淡出自己的时长（`--opacity-dur`），这样比如可以在旋转继续的时候快速淡入——否则完全透明的旋转开始可能看起来像故障。
+- **减弱动态**：在 `prefers-reduced-motion` 下，图标退到单纯的 300ms 不透明度淡入淡出，没有旋转或缩放，演示也不循环。
+- **Framer Motion**：在变体里一起给 `rotate` 和 `scale` 做动画，用弹簧过渡来做落定的超过。
+- **GSAP**：用 `back.out` 缓动给 `rotation` 和 `scale` 做补间；`back` 用一个关键词就提供了超过。
 
-## See also
-- [Flip In](../flip-in/) — swings in like a card turning over
-- [Scale In / Zoom In](../scale-in/) — grows from small, with no spin
-- [Bounce In](../bounce-in/) — lands with a springy bounce
+## 另见
+- [翻转进入](../flip-in/) — 像卡片翻面一样摆进来
+- [缩放进入](../scale-in/) — 从小放大，没有旋转
+- [弹跳进入](../bounce-in/) — 带着弹簧般的弹跳落定

@@ -1,21 +1,21 @@
-# Pin Animation
+# 固定动画
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/pin-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/pin-animation/)
 
-## What it is
+## 它是什么
 
-A pin animation holds part of the page still while the rest scrolls past. In the demo, a phone and its text stop in the middle of the box while you scroll through a section three boxes tall, and its four features change as you go; at the end of the section they let go and scroll away. The browser's sticky positioning does the pinning, with no script moving anything.
+固定动画让页面的一部分保持不动，其余部分从它旁边滚过。演示里，一台手机和它的文字在你滚动经过一个三个盒子高的区域时停在盒子中间，它的四个功能随之变化；区域结束时，它们松开手滚走。浏览器的 sticky 定位完成了固定，没有任何脚本在移动东西。
 
-## When to use it
+## 什么时候用
 
-- Apple-style product feature walkthroughs where one UI element stays visible while explanatory copy advances
-- Step-by-step onboarding where a persistent element stays in view through multiple scroll steps
-- Any layout where a visual anchor must be stable while surrounding context changes
-- Tutorial sequences where maintaining spatial continuity aids comprehension
+- Apple 风格的产品功能导览：一个界面元素保持可见，解说文字向前推进
+- 分步新手引导：一个持久元素在多个滚动步骤中保持在视野里
+- 任何视觉锚点必须稳定、周围上下文不断变化的布局
+- 保持空间连续性有助于理解的教程序列
 
-## How it works
+## 工作原理
 
-The pin requires only three things: a tall parent section, a sticky child, and matching heights. The scroll container is `position: relative` so the section's `offsetTop` is measured inside the scroller rather than against the page:
+固定只需要三样东西：一个高的父区域、一个吸顶子元素和匹配的高度。滚动容器是 `position: relative`，所以区域的 `offsetTop` 在滚动器内部测量，而不是以页面为准：
 
 ```css
 .stage {
@@ -33,7 +33,7 @@ The pin requires only three things: a tall parent section, a sticky child, and m
 }
 ```
 
-JavaScript computes which feature to show based on position within the section:
+JavaScript 根据在区域内的位置算出显示哪个功能：
 
 ```js
 const pinStart  = pinSection.offsetTop;   // measured inside the scroll container
@@ -43,23 +43,23 @@ const p = clamp((scrollTop - pinStart) / (pinHeight - viewH), 0, 1);
 const featureIndex = Math.min(3, Math.floor(p * 4));
 ```
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Pinned section | Three box heights | The phone holds still for the two extra box heights; a taller section makes each feature last longer |
-| Number of features | 4 | The features share the pinned scrolling equally |
-| Pinned at | The top of the box | Where the pinned frame sticks; the phone sits in its middle |
+| 固定区域 | 三个盒子高 | 手机在多出来的两个盒子高度里保持不动；更高的区域让每个功能持续更久 |
+| 功能数量 | 4 | 这些功能平分固定的滚动距离 |
+| 固定位置 | 盒子顶部 | 固定框架吸住的位置；手机坐在它的中间 |
 
-## Production notes
+## 生产注意事项
 
-- **The "extra height" is the scroll budget.** A pinned element at `top: 0` stays visible for exactly `(parent height − viewport height)` pixels of scroll. Set the parent height to `viewport_height + scroll_budget`.
-- **GSAP `pin: true`** in ScrollTrigger replicates this behavior and adds smoother feature transitions and timeline scrubbing. Locomotive Scroll and Lenis both support pinned sections natively with their inertia-based scroll.
-- **Performance.** The pinned content is not animating — it is just sticky. Feature swaps are text/class changes. No GPU compositing is required beyond what `position: sticky` establishes.
-- **Accessibility.** Pin sections that scroll silently while content changes can confuse screen reader users. Ensure feature changes are announced via `aria-live` or that the logical reading order is preserved in the DOM.
+- **“多出来的高度”就是滚动预算。** `top: 0` 的固定元素在正好 `(父元素高度 − 视口高度)` 像素的滚动里保持可见。把父元素高度设为 `viewport_height + scroll_budget`。
+- **GSAP 的 `pin: true`** 在 ScrollTrigger 里复制了这种行为，还增加了更平滑的功能过渡和时间线擦除。Locomotive Scroll 和 Lenis 都原生支持带惯性滚动的固定区域。
+- **性能。** 固定内容并没有在动——它只是吸顶。功能切换是文字/class 的变化。除了 `position: sticky` 本身建立的东西，不需要 GPU 合成。
+- **无障碍。** 内容变化时悄悄滚动的固定区域会让屏幕阅读器用户困惑。确保功能变化通过 `aria-live` 播报，或者 DOM 里的逻辑阅读顺序保持不变。
 
-## See also
+## 另见
 
-- [Scrub Animation](../scrub-animation/) — scroll plays an animation forward and back
-- [Scroll-Triggered Animation](../scroll-trigger/) — animations start, follow and pin at set scroll points
-- [Sticky Section](../sticky-section/) — a whole section holds still while its content changes
+- [滚动 scrub 动画](../scrub-animation/) — 滚动让动画正放倒放
+- [滚动触发动画](../scroll-trigger/) — 动画在设定的滚动点开始、跟随并固定
+- [吸顶区域](../sticky-section/) — 整个区域固定不动，内容在里面变化

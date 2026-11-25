@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASCII / Halftone — Animation Handbook</title>
-  <meta name="description" content="A moving picture is redrawn with letters or dots. Best for retro and tech looks.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/">
+  <title>ASCII / 半调 — 动画手册</title>
+  <meta name="description" content="动态画面用字母或圆点重新画出来。适合复古和科技风格。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="ASCII / Halftone — Animation Handbook">
-  <meta property="og:description" content="A moving picture is redrawn with letters or dots. Best for retro and tech looks.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="ASCII / 半调 — 动画手册">
+  <meta property="og:description" content="动态画面用字母或圆点重新画出来。适合复古和科技风格。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ASCII / Halftone — Animation Handbook">
-  <meta name="twitter:description" content="A moving picture is redrawn with letters or dots. Best for retro and tech looks.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ASCII / Halftone", "name": "ASCII / Halftone", "description": "A moving picture is redrawn with letters or dots. Best for retro and tech looks.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/ascii-halftone/", "inLanguage": "en", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, ASCII / Halftone"}</script>
+  <meta name="twitter:title" content="ASCII / 半调 — 动画手册">
+  <meta name="twitter:description" content="动态画面用字母或圆点重新画出来。适合复古和科技风格。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ASCII / 半调", "name": "ASCII / 半调", "description": "动态画面用字母或圆点重新画出来。适合复古和科技风格。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/ascii-halftone/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, ASCII / 半调"}</script>
   <style>
     :root{--ui-accent:#3fd6c4;--night:#07080c;--paper:#f1eadb;--ink-dark:#86e8c1;--ink-paper:#1f1c27}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -32,94 +32,94 @@
     .cap.s{white-space:nowrap}
     .stage[data-hb-mode="inside"] .cap.in,.stage[data-hb-mode="compare"] .cap.cm{display:block}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../flocking/" rel="prev" aria-label="Previous: Flocking"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Flocking</span></a><a href="../physics-2d/" rel="next" aria-label="Next: 2D Physics"><span><span class="hb-dir">Next: </span>2D Physics</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../flocking/" rel="prev" aria-label="上一个：鸟群"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>鸟群</span></a><a href="../physics-2d/" rel="next" aria-label="下一个：2D 物理"><span><span class="hb-dir">下一个：</span>2D 物理</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.22 · 3D &amp; Advanced</p>
-    <h1>ASCII / Halftone</h1>
-    <p class="hb-lede">A moving picture is redrawn with letters or dots. Best for retro and tech looks.</p>
+    <p class="hb-cat">06.22 · 3D 与高级效果</p>
+    <h1>ASCII / 半调</h1>
+    <p class="hb-lede">动态画面用字母或圆点重新画出来。适合复古和科技风格。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It moves by itself. Pause it to look closely at the letters, or turn on slow motion.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。暂停可以仔细看这些字母，或打开慢动作。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
       <canvas id="pic" aria-hidden="true" hidden></canvas>
-      <canvas id="cvs" role="img" aria-label="An evening scene with a sun and rolling hills, redrawn out of letters or dots of different sizes"></canvas>
-      <p class="cap in" id="cap-a" aria-hidden="true" data-hb-caption>The picture, shrunk to one block per cell</p>
-      <p class="cap in" id="cap-b" aria-hidden="true" data-hb-caption>Each block's brightness picks a mark</p>
-      <p class="cap in s" id="cap-c" aria-hidden="true" data-hb-caption>No ink</p>
-      <p class="cap in s" id="cap-d" aria-hidden="true" data-hb-caption>Most ink</p>
-      <p class="cap cm s" id="cap-e" aria-hidden="true" data-hb-caption>Original</p>
-      <p class="cap cm s" id="cap-f" aria-hidden="true" data-hb-caption>Letters</p>
+      <canvas id="cvs" role="img" aria-label="一个有太阳和起伏山丘的傍晚场景，用大小不同的字母或圆点重画出来"></canvas>
+      <p class="cap in" id="cap-a" aria-hidden="true" data-hb-caption>图片缩小了，每个格子一个色块</p>
+      <p class="cap in" id="cap-b" aria-hidden="true" data-hb-caption>每个色块的亮度挑一个标记</p>
+      <p class="cap in s" id="cap-c" aria-hidden="true" data-hb-caption>无墨</p>
+      <p class="cap in s" id="cap-d" aria-hidden="true" data-hb-caption>墨最多</p>
+      <p class="cap cm s" id="cap-e" aria-hidden="true" data-hb-caption>原图</p>
+      <p class="cap cm s" id="cap-f" aria-hidden="true" data-hb-caption>字母</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the picture is shrunk to one block per cell (left); each block's brightness then picks a mark from the strip, from no ink for dark to the most ink for bright.</p>
-      <p data-hb-for="compare" hidden>Original is the smooth moving picture; Letters redraws the same picture, cell by cell, with a mark whose ink matches each cell's brightness.</p>
+      <p data-hb-for="inside" hidden>看内部：图片被缩小成每个格子一个色块（左边）；每个色块的亮度再从色带里挑一个标记，从深色无墨到亮色墨最多。</p>
+      <p data-hb-for="compare" hidden>原图是平滑的动态画面；字母版把同一张画面一个格子一个格子地重画，标记的墨量和每个格子的亮度对应。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="mode-lbl">Drawn with</p>
+        <p class="hb-setting-name" id="mode-lbl">用什么画</p>
         <div class="seg" id="mode-seg" role="group" aria-labelledby="mode-lbl">
-          <button type="button" data-mode="letters" class="on" aria-pressed="true">Letters</button>
-          <button type="button" data-mode="dots" aria-pressed="false">Dots</button>
+          <button type="button" data-mode="letters" class="on" aria-pressed="true">字母</button>
+          <button type="button" data-mode="dots" aria-pressed="false">圆点</button>
         </div>
-        <p class="hb-hint">Brighter spots get letters with more ink, or bigger dots.</p>
+        <p class="hb-hint">越亮的地方，字母墨越多，或圆点越大。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Cell size</p>
+        <p class="hb-setting-name" id="size-lbl">格子大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-size="small" aria-pressed="false">Small</button>
-          <button type="button" data-size="medium" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-size="large" aria-pressed="false">Large</button>
+          <button type="button" data-size="small" aria-pressed="false">小</button>
+          <button type="button" data-size="medium" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-size="large" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Smaller letters or dots show more of the picture; phones use bigger ones.</p>
+        <p class="hb-hint">字母或圆点越小，画面细节越多；手机上会用大一些的。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="color-lbl">Colors</p>
+        <p class="hb-setting-name" id="color-lbl">颜色</p>
         <div class="seg" id="color-seg" role="group" aria-labelledby="color-lbl">
-          <button type="button" data-color="mono" class="on" aria-pressed="true">One color</button>
-          <button type="button" data-color="full" aria-pressed="false">Full color</button>
+          <button type="button" data-color="mono" class="on" aria-pressed="true">单色</button>
+          <button type="button" data-color="full" aria-pressed="false">全彩</button>
         </div>
-        <p class="hb-hint">One color looks like an old screen; full color keeps the picture's colors.</p>
+        <p class="hb-hint">单色像老屏幕；全彩保留画面本身的颜色。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Shows the original picture</span><input class="hb-switch" type="checkbox" role="switch" id="orig-tog" autocomplete="off"></label>
-          <p class="hb-hint">Lays the moving picture faintly under the letters or dots.</p>
+          <label class="hb-switch-row"><span>显示原图</span><input class="hb-switch" type="checkbox" role="switch" id="orig-tog" autocomplete="off"></label>
+          <p class="hb-hint">把动态画面淡淡地衬在字母或圆点下面。</p>
         </div>
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Light paper</span><input class="hb-switch" type="checkbox" role="switch" id="paper-tog" autocomplete="off"></label>
-          <p class="hb-hint">Prints dark marks on light paper, like a newspaper photo.</p>
+          <label class="hb-switch-row"><span>浅色纸</span><input class="hb-switch" type="checkbox" role="switch" id="paper-tog" autocomplete="off"></label>
+          <p class="hb-hint">在浅色纸上印深色标记，像报纸上的照片。</p>
         </div>
       </div>
     </details>
@@ -128,41 +128,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add an ASCII and halftone effect to [the picture or video you want to restyle]. Each frame, draw the picture onto a small hidden canvas with one pixel for every cell of a grid, and read back each pixel's brightness. On the visible canvas, draw a character in every cell, choosing characters with more ink for brighter cells, or draw a dot whose size grows with the brightness, like a printed photo. Color the marks with the picture's own colors or with one color. Copy the characters from a ready-made sheet instead of drawing each character separately every frame, so it stays smooth, and use bigger cells on phones. If the visitor has reduced motion turned on, show one still frame. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想换个风格的图片或视频]加一个 ASCII 和半调效果。每一帧，先把图片画到一张小的隐藏画布上，网格的每个格子对应一个像素，再读回每个像素的亮度。在可见的画布上，每个格子画一个字符，越亮的格子用墨越多的字符；或者画一个圆点，亮度越高圆点越大，像印出来的照片一样。用图片本身的颜色给标记上色，或只用一种颜色。字符从一张现成的字符表里复制，不要每帧都一个个重画，这样才能保持流畅；手机上用更大的格子。如果访客打开了减弱动态效果，就显示一帧静止画面。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Retro and tech sites</li><li>Music and game pages</li><li>Hero images</li><li>Portfolio headers</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Photos people must see clearly</li><li>Long reading pages</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>复古和科技网站</li><li>音乐和游戏页面</li><li>主视觉图片</li><li>作品集页头</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>必须看清的照片</li><li>长阅读页面</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d');
 const pic=document.getElementById('pic'),pctx=pic.getContext('2d');
@@ -242,7 +242,7 @@ function render(){
   else{ctx.fillStyle=PAPER?INK.paper:INK.dark;ctx.fillRect(0,0,cvs.width,cvs.height);}
   ctx.globalCompositeOperation='source-over';
   if(view==='inside')drawInside(px);
-  else if(view==='compare')drawOriginal(gh);
+  else if(view==='compare')draw原图(gh);
   if(ORIG){
     pctx.setTransform(1,0,0,1,0,0);
     if(view==='compare'){pctx.clearRect(0,0,pic.width,pic.height);pctx.save();pctx.beginPath();pctx.rect(x0,0,pic.width-x0,pic.height);pctx.clip();}
@@ -264,7 +264,7 @@ function drawInside(px){
   ctx.drawImage(ramp,0,cvs.height-ramp.height);
 }
 // Compare, after the marks: the smooth picture in the first half, laid out for the same width as the half of marks
-function drawOriginal(gh){
+function draw原图(gh){
   ctx.save();ctx.beginPath();ctx.rect(0,0,x0,cvs.height);ctx.clip();
   ctx.setTransform(dpr,0,0,dpr,0,0);scene(ctx,sw,gh);
   ctx.restore();
@@ -306,16 +306,16 @@ function caps(){
   if(view==='inside'){
     const X=lc*cw/dpr,y=(H-bandH()+4)+'px';
     cap.a.style.cssText=`left:8px;top:8px;max-width:${X-16}px`;
-    setText(cap.b,PAPER?"Each block's darkness picks a mark":"Each block's brightness picks a mark");
+    setText(cap.b,PAPER?"每个色块的深浅挑一个标记":"每个色块的亮度挑一个标记");
     cap.b.style.cssText=`left:${X+8}px;top:8px;max-width:${W-X-16}px`;
     cap.c.style.cssText=`left:${PAD}px;top:${y}`;cap.d.style.cssText=`right:${PAD}px;top:${y}`;
   }else if(view==='compare'){
-    setText(cap.f,MODE==='letters'?'Letters':'Dots');
+    setText(cap.f,MODE==='letters'?'字母':'圆点');
     cap.e.style.cssText='left:8px;top:8px';cap.f.style.cssText=`left:${x0/dpr+8}px;top:8px`;
   }
 }
 // The strip: one gray swatch per step of the ramp (the brightness that step's mark gets; on paper it runs the other way), the
-// mark itself under it, from the same tiles as the picture, and an arrow from "No ink" to "Most ink". Drawn once, not every frame.
+// mark itself under it, from the same tiles as the picture, and an arrow from "无墨" to "墨最多". Drawn once, not every frame.
 function buildRamp(){
   const n=pats.length,w=cvs.width,h=Math.round(bandH()*dpr),g=rctx,pad=PAD*dpr,gap=3*dpr,o=Math.max(1,Math.round(dpr));
   const swW=(w-2*pad-(n-1)*gap)/n,sy=Math.round((PAD+BAR)*dpr),sh=Math.round(SWH*dpr),my=Math.round((PAD+BAR+SWH+GAP)*dpr);
@@ -340,16 +340,16 @@ function buildRamp(){
 // The notes use the markup's words for the moving picture; paused under reduced motion the picture is a still, and says so
 function words(){
   const still=paused&&reduced.matches;
-  setText(noteIn,(still?'Shown still: the':'Inside, the')+' picture is shrunk to one block per cell (left); '+(PAPER
-    ?"on paper each block's darkness picks a mark from the strip, from no ink for light to the most ink for dark."
-    :"each block's brightness then picks a mark from the strip, from no ink for dark to the most ink for bright."));
-  setText(noteCmp,(still?'Shown still: Original is the smooth picture; ':'Original is the smooth moving picture; ')
-    +(MODE==='letters'?'Letters redraws the same picture, cell by cell, with a mark whose ink':'Dots redraws the same picture, cell by cell, with a dot whose size')
-    +" matches each cell's "+(PAPER?'darkness':'brightness')+'.');
+  setText(noteIn,(still?'静止时：':'看内部：')+'图片被缩小成每个格子一个色块（左边）；'+(PAPER
+    ?"在纸上，每个色块的深浅再从色带里挑一个标记，从浅色无墨到深色墨最多。"
+    :"每个色块的亮度再从色带里挑一个标记，从深色无墨到亮色墨最多。"));
+  setText(noteCmp,(still?'静止时：原图是平滑的画面；':'原图是平滑的动态画面；')
+    +(MODE==='letters'?'字母版把同一张画面一个格子一个格子地重画，标记的墨量':'圆点版把同一张画面一个格子一个格子地重画，圆点的大小')
+    +"和每个格子的"+(PAPER?'深浅':'亮度')+'对应。');
 }
 const NAMES={
-  inside:'The scene shrunk to one gray block per cell on the left and redrawn from marks on the right, with a strip showing which mark each brightness gets',
-  compare:['The smooth scene on the left beside the same scene redrawn from letters on the right','The smooth scene on the left beside the same scene redrawn from dots on the right']
+  inside:'场景在左边缩小成每个格子一个灰色块，在右边用标记重画，下面有一条色带，显示每种亮度对应哪个标记',
+  compare:['左边是平滑的场景，右边是同一个场景用字母重画的','左边是平滑的场景，右边是同一个场景用圆点重画的']
 };
 // Draws the current view for the current settings at once (also while paused); relayout: the grid changes too
 function refresh(relayout){

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebGL Shader Animation — Animation Handbook</title>
-  <meta name="description" content="Moving color patterns computed for every pixel. Best for bold backgrounds.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/webgl-shader-animation/">
+  <title>WebGL 着色器动画 — 动画手册</title>
+  <meta name="description" content="逐像素计算的流动色彩图案。适合大胆的背景。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/06-3d-advanced/webgl-shader-animation/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="WebGL Shader Animation — Animation Handbook">
-  <meta property="og:description" content="Moving color patterns computed for every pixel. Best for bold backgrounds.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/webgl-shader-animation/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="WebGL 着色器动画 — 动画手册">
+  <meta property="og:description" content="逐像素计算的流动色彩图案。适合大胆的背景。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/06-3d-advanced/webgl-shader-animation/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WebGL Shader Animation — Animation Handbook">
-  <meta name="twitter:description" content="Moving color patterns computed for every pixel. Best for bold backgrounds.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "WebGL Shader Animation", "name": "WebGL Shader Animation", "description": "Moving color patterns computed for every pixel. Best for bold backgrounds.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/webgl-shader-animation/", "inLanguage": "en", "articleSection": "3D & Advanced", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, 3D & Advanced, WebGL Shader Animation"}</script>
+  <meta name="twitter:title" content="WebGL 着色器动画 — 动画手册">
+  <meta name="twitter:description" content="逐像素计算的流动色彩图案。适合大胆的背景。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "WebGL 着色器动画", "name": "WebGL 着色器动画", "description": "逐像素计算的流动色彩图案。适合大胆的背景。", "url": "https://animation.xizanghuapi.cn/animations/06-3d-advanced/webgl-shader-animation/", "inLanguage": "zh-CN", "articleSection": "3D 与高级效果", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 3D 与高级效果, WebGL 着色器动画"}</script>
   <style>
     :root{--ui-accent:#3fd6c4}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,86 +40,86 @@
     .stage[data-hb-mode="inside"] .pick{display:block}
     .stage.failed .lbl,.stage.failed .pick{display:none!important}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../glassmorphism-animated/" rel="prev" aria-label="Previous: Glassmorphism Animated"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Glassmorphism Animated</span></a><a href="../noise-based-motion/" rel="next" aria-label="Next: Noise-Based Motion"><span><span class="hb-dir">Next: </span>Noise-Based Motion</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../glassmorphism-animated/" rel="prev" aria-label="上一个：动态毛玻璃"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>动态毛玻璃</span></a><a href="../noise-based-motion/" rel="next" aria-label="下一个：噪声驱动运动"><span><span class="hb-dir">下一个：</span>噪声驱动运动</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">06.07 · 3D &amp; Advanced</p>
-    <h1>WebGL Shader Animation</h1>
-    <p class="hb-lede">Moving color patterns computed for every pixel. Best for bold backgrounds.</p>
+    <p class="hb-cat">06.07 · 3D 与高级效果</p>
+    <h1>WebGL 着色器动画</h1>
+    <p class="hb-lede">逐像素计算的流动色彩图案。适合大胆的背景。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。暂停可以仔细看，打开慢动作能看清每一步。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage" id="stage">
-      <canvas id="cvs" role="img" aria-label="A moving pattern of bright colors that fills the stage"></canvas>
+      <canvas id="cvs" role="img" aria-label="一个充满整个画面的、明亮色彩的流动图案"></canvas>
       <div class="gl-msg" id="gl-msg" role="status"></div>
-      <span class="lbl v-in v-top v-a" data-hb-caption aria-hidden="true">Each square: one pixel, made big</span>
+      <span class="lbl v-in v-top v-a" data-hb-caption aria-hidden="true">每个方块：一个像素，放大了</span>
       <span class="pick" aria-hidden="true"></span>
-      <div class="lbl v-in readout" data-hb-caption aria-hidden="true"><span class="rd-h">This pixel<i class="sw"></i></span><span class="rd-x"></span><span class="rd-y"></span><span class="rd-t"></span></div>
-      <span class="lbl v-in v-bot v-a v-line" data-hb-caption aria-hidden="true">Four waves added up pick each color</span>
-      <span class="lbl v-cmp v-top v-a" data-hb-caption aria-hidden="true">Drawn once</span>
-      <span class="lbl v-cmp v-top v-b" data-hb-caption aria-hidden="true">Every frame</span>
-      <span class="lbl v-cmp v-bot v-a clk-a" data-hb-caption aria-hidden="true">Time: stays at the start</span>
-      <span class="lbl v-cmp v-bot v-b clk-b" data-hb-caption aria-hidden="true">Time: 0 seconds and running</span>
+      <div class="lbl v-in readout" data-hb-caption aria-hidden="true"><span class="rd-h">这个像素<i class="sw"></i></span><span class="rd-x"></span><span class="rd-y"></span><span class="rd-t"></span></div>
+      <span class="lbl v-in v-bot v-a v-line" data-hb-caption aria-hidden="true">四个波加起来决定每种颜色</span>
+      <span class="lbl v-cmp v-top v-a" data-hb-caption aria-hidden="true">只画一次</span>
+      <span class="lbl v-cmp v-top v-b" data-hb-caption aria-hidden="true">每一帧</span>
+      <span class="lbl v-cmp v-bot v-a clk-a" data-hb-caption aria-hidden="true">时间：停在开始</span>
+      <span class="lbl v-cmp v-bot v-b clk-b" data-hb-caption aria-hidden="true">时间：0 秒，正在运行</span>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each square is one pixel, made big: the same short formula works out every pixel's color from its place and the time, every frame. Point at a square to read it.</p>
-      <p data-hb-for="compare" hidden>Drawn once is the pattern worked out a single time, so it never changes. Every frame works it out again for each moment, so the colors flow.</p>
+      <p data-hb-for="inside" hidden>看内部：每个方块就是一个像素，放大了：同一条简短的公式会根据每个像素的位置和时间算出它的颜色，每一帧都算。指着一个方块可以读它。</p>
+      <p data-hb-for="compare" hidden>只画一次是把图案算一次，所以它永远不变。每一帧会为每个时刻重新算一遍，所以颜色会流动。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看它动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="pattern-lbl">Pattern</p>
+        <p class="hb-setting-name" id="pattern-lbl">图案</p>
         <div class="seg" id="pattern-seg" role="group" aria-labelledby="pattern-lbl">
-          <button type="button" data-pattern="0" class="on" aria-pressed="true">Plasma</button>
-          <button type="button" data-pattern="1" aria-pressed="false">Waves</button>
-          <button type="button" data-pattern="2" aria-pressed="false">Cells</button>
-          <button type="button" data-pattern="3" aria-pressed="false">Kaleidoscope</button>
+          <button type="button" data-pattern="0" class="on" aria-pressed="true">等离子</button>
+          <button type="button" data-pattern="1" aria-pressed="false">波浪</button>
+          <button type="button" data-pattern="2" aria-pressed="false">细胞</button>
+          <button type="button" data-pattern="3" aria-pressed="false">万花筒</button>
         </div>
-        <p class="hb-hint">Four patterns, each one short formula.</p>
+        <p class="hb-hint">四种图案，每种都是一条简短的公式。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-spd="0.6" aria-pressed="false">Slow</button>
-          <button type="button" data-spd="1" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-spd="1.6" aria-pressed="false">Fast</button>
+          <button type="button" data-spd="0.6" aria-pressed="false">慢</button>
+          <button type="button" data-spd="1" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-spd="1.6" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How fast the pattern moves.</p>
+        <p class="hb-hint">图案移动得有多快。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Reacts to the pointer</span><input class="hb-switch" type="checkbox" role="switch" id="mouse-tog" autocomplete="off"></label>
-          <p class="hb-hint">The pattern bends around your pointer or finger.</p>
+          <label class="hb-switch-row"><span>对指针有反应</span><input class="hb-switch" type="checkbox" role="switch" id="mouse-tog" autocomplete="off"></label>
+          <p class="hb-hint">图案会在你的指针或手指周围弯曲。</p>
         </div>
       </div>
     </details>
@@ -128,41 +128,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 这类 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a moving shader pattern to [the background or section you want it in]. Cover the area with one WebGL surface and write a fragment shader that works out the color of every pixel from its position and the time, so the whole pattern moves as the time runs on: flowing plasma, rippling waves, cells or a kaleidoscope. When the settings include it, let the pointer, or a finger on touch screens, bend the pattern near it. Draw fewer pixels on phones, and show a clear message where WebGL is not available. If the visitor has reduced motion turned on, show one still frame. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想放它的背景或版块]加一个流动的着色器图案。用一块 WebGL 画布盖住整个区域，再写一个片段着色器，根据每个像素的位置和时间算出它的颜色，这样随着时间流逝，整个图案都会动起来：流动的等离子、起伏的波浪、细胞或万花筒。如果设置里有，让指针，或触屏上的手指，让附近的图案弯曲。手机上画的像素少一些，没有 WebGL 的地方要显示一条清楚的提示。如果访客打开了减弱动态效果，就显示一帧静止画面。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Hero backgrounds</li><li>Music and events</li><li>Loading screens</li><li>Art pages</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Behind text</li><li>Low-power devices</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>主视觉背景</li><li>音乐和活动</li><li>加载界面</li><li>艺术页面</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>文字后面</li><li>低性能设备</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const VS=`attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}`;
 
@@ -237,15 +237,15 @@ let cols=1,cell=24,cellDev=24,rMin=0,rMax=0,topY=0,botY=0,sel=[0,0],txtAt=0,swC=
 const ptr={x:0,y:0,on:false};
 const HOME=[.33,.6]; // the views' own bend point (a third across, two fifths down): the square read out before a pointer comes
 const LABELS={normal:cvs.getAttribute('aria-label'),
-  inside:'The moving pattern drawn as big squares, each one pixel worked out from its place and the time, with one pixel read out',
-  compare:'The pattern twice: worked out once and held still, and worked out again every frame'};
-const LINES=['Four waves added up pick each color','Stripes bent by two slow waves',
-  'Each pixel takes the color of its nearest moving point','One slice, mirrored around the middle'];
+  inside:'流动的图案画成大方块，每个像素都按它的位置和时间算出来，并读出其中一个像素',
+  compare:'图案画两次：算一次就定住，和每一帧重新算一遍'};
+const LINES=['四个波加起来决定每种颜色','被两个慢波弯曲的条纹',
+  '每个像素取最近的移动点的颜色','一片，从中间向两边镜像'];
 const $=q=>stage.querySelector(q);
 const ring=$('.pick'),capTop=$('.v-top'),capLine=$('.v-line'),rd=$('.readout'),sw=$('.sw');
 const rdX=$('.rd-x'),rdY=$('.rd-y'),rdT=$('.rd-t'),clkA=$('.clk-a'),clkB=$('.clk-b');
 const noteC=document.querySelector('[data-hb-for="compare"]'),noteWas=noteC.textContent;
-const noteStill='Shown still: Drawn once is the pattern at the start. Every frame is worked out again for each moment; here, a little later.';
+const noteStill='静止时：「只画一次」是开始时的图案。「每一帧」会为每个时刻重新算一遍；这里是稍晚一点的时候。';
 const px=new Uint8Array(4);
 
 // A failed shader is otherwise invisible: the canvas just stays black. The captions go with it.
@@ -286,7 +286,7 @@ function switchShader(idx){
   catch(err){
     if(raf!==null){cancelAnimationFrame(raf);raf=null;}
     prog=null;U=null;
-    fail(SHADERS[idx].name+' shader did not build.\n\n'+err.message);
+    fail(SHADERS[idx].name+' 着色器没有构建成功。\n\n'+err.message);
     return;
   }
   if(prog)gl.deleteProgram(prog);
@@ -374,8 +374,8 @@ function note(){
 }
 const set=(el,s)=>{if(el.textContent!==s)el.textContent=s;};
 function words(s){
-  s=Math.floor(s);const u=s<100?[s,'second']:s<6000?[Math.floor(s/60),'minute']:[Math.floor(s/3600),'hour'];
-  return u[0]+' '+u[1]+(u[0]===1?'':'s');
+  s=Math.floor(s);const u=s<100?[s,'秒']:s<6000?[Math.floor(s/60),'分钟']:[Math.floor(s/3600),'小时'];
+  return u[0]+u[1];
 }
 // The words in the views; the time is written at most four times a second (force: after a press, a resize or a pause).
 function texts(now,force){
@@ -384,11 +384,11 @@ function texts(now,force){
   if(mode==='inside'){
     set(rdX,Math.round((sel[0]+.5)*cell/stage.clientWidth*100)+'% across');
     set(rdY,Math.round((sel[1]+.5)*cell/stage.clientHeight*100)+'% down');
-    set(rdT,'Time: '+words(T));place();
+    set(rdT,'时间：'+words(T));place();
   }else{
     const long=stage.clientWidth>=460; // each half is wide enough for the longer words
-    set(clkA,long?'Time: stays at the start':'Time: the start');
-    set(clkB,'Time: '+words(t2())+(long&&!paused?' and running':''));
+    set(clkA,long?'时间：停在开始':'时间：开始');
+    set(clkB,'时间：'+words(t2())+(long&&!paused?'，正在运行':''));
   }
 }
 
@@ -448,7 +448,7 @@ if(init()){
   cvs.addEventListener('webglcontextlost',e=>{
     e.preventDefault();
     if(raf!==null){cancelAnimationFrame(raf);raf=null;}
-    prog=null;U=null;fail('WebGL context lost. Waiting for the browser to restore it…');
+    prog=null;U=null;fail('WebGL 上下文丢失了。正在等待浏览器恢复它…');
   });
   cvs.addEventListener('webglcontextrestored',()=>{
     if(!init())return;
@@ -456,7 +456,7 @@ if(init()){
     if(!paused)start();
   });
 }else{
-  fail('WebGL is not available in this browser.\n\nThis demo needs a WebGL 1.0 context — the patterns are generated by fragment shaders on the GPU, so there is nothing to fall back to. Try a different browser, or enable hardware acceleration.');
+  fail('这个浏览器不支持 WebGL。\n\n这个演示需要 WebGL 1.0 上下文——图案是由 GPU 上的片段着色器生成的，没有可替代的方案。试试换个浏览器，或打开硬件加速。');
 }
 
 function choices(id,pick){

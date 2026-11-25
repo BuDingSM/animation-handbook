@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pull to Refresh — Animation Handbook</title>
-  <meta name="description" content="Pulling a list down shows a spinner, then new items. Best for feeds.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/pull-to-refresh/">
+  <title>下拉刷新 — 动画手册</title>
+  <meta name="description" content="向下拉动列表会出现旋转指示，然后出现新内容。适合用在信息流上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/pull-to-refresh/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Pull to Refresh — Animation Handbook">
-  <meta property="og:description" content="Pulling a list down shows a spinner, then new items. Best for feeds.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/pull-to-refresh/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="下拉刷新 — 动画手册">
+  <meta property="og:description" content="向下拉动列表会出现旋转指示，然后出现新内容。适合用在信息流上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/pull-to-refresh/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pull to Refresh — Animation Handbook">
-  <meta name="twitter:description" content="Pulling a list down shows a spinner, then new items. Best for feeds.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Pull to Refresh", "name": "Pull to Refresh", "description": "Pulling a list down shows a spinner, then new items. Best for feeds.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/pull-to-refresh/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Pull to Refresh"}</script>
+  <meta name="twitter:title" content="下拉刷新 — 动画手册">
+  <meta name="twitter:description" content="向下拉动列表会出现旋转指示，然后出现新内容。适合用在信息流上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "下拉刷新", "name": "下拉刷新", "description": "向下拉动列表会出现旋转指示，然后出现新内容。适合用在信息流上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/pull-to-refresh/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 下拉刷新"}</script>
   <style>
     :root{--ui-accent:#ff9d5c;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-muted:#8a8a92;--ind:64px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -99,52 +99,52 @@
     .stage[data-hb-mode="compare"] .indicator .spin{flex:none}
     @media(max-width:600px){.lbl{font-size:12px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../segmented-control/" rel="prev" aria-label="Previous: Segmented Control"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Segmented Control</span></a><a href="../gradient-border/" rel="next" aria-label="Next: Animated Gradient Border"><span><span class="hb-dir">Next: </span>Animated Gradient Border</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../segmented-control/" rel="prev" aria-label="上一个：分段控制器"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>分段控制器</span></a><a href="../gradient-border/" rel="next" aria-label="下一个：渐变边框动画"><span><span class="hb-dir">下一个：</span>渐变边框动画</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.29 · Micro-Interactions</p>
-    <h1>Pull to Refresh</h1>
-    <p class="hb-lede">Pulling a list down shows a spinner, then new items. Best for feeds.</p>
+    <p class="hb-cat">04.29 · 微交互</p>
+    <h1>下拉刷新</h1>
+    <p class="hb-lede">向下拉动列表会出现旋转指示，然后出现新内容。适合用在信息流上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Drag it</h2><p>Drag the list down from the top and let go, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">拖动试试</h2><p>从顶部把列表往下拉，松开，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
       <!-- Compare's first half: the same screen, made once, that never moves its list -->
       <div class="twin" aria-hidden="true" inert>
-        <div class="app-bar"><span class="app-title">Updates</span><span class="refresh-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></span></div>
+        <div class="app-bar"><span class="app-title">更新</span><span class="refresh-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></span></div>
         <div class="feed">
           <div class="scroller"><div class="list"></div></div>
           <div class="views">
             <svg><g class="v-tip"><circle r="12"/><circle r="4"/></g></svg>
-            <span class="lbl cmp-l" data-hb-caption>No pull</span>
+            <span class="lbl cmp-l" data-hb-caption>不拉动</span>
           </div>
         </div>
       </div>
       <div class="app-bar">
-        <span class="app-title" id="feed-title">Updates</span>
-        <button class="refresh-btn" id="trigger" type="button" aria-label="Refresh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></button>
+        <span class="app-title" id="feed-title">更新</span>
+        <button class="refresh-btn" id="trigger" type="button" aria-label="刷新"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></button>
       </div>
       <div class="feed">
         <div class="indicator" id="indicator" aria-hidden="true">
           <div class="spin s-ring" id="spin"><span class="ring"></span><span class="dots"><i></i><i></i><i></i></span><span class="bars"><i></i><i></i><i></i><i></i></span></div>
-          <span class="hint" id="hint">Pull to refresh</span>
+          <span class="hint" id="hint">下拉刷新</span>
         </div>
         <div class="scroller" id="scroller" role="region" aria-labelledby="feed-title" tabindex="0"><div class="list" id="list"></div></div>
         <div class="views" id="views" aria-hidden="true">
@@ -153,70 +153,70 @@
             <circle class="v-knob" id="v-knob" r="5"/><g class="v-tip" id="v-tip"><circle r="12"/><circle r="4"/></g>
           </svg>
           <div class="spin s-ring" id="v-spin"><span class="ring"></span><span class="dots"><i></i><i></i><i></i></span><span class="bars"><i></i><i></i><i></i><i></i></span></div>
-          <span class="lbl in-l" id="l-line" data-hb-caption>Let go past this line to refresh</span>
-          <span class="lbl in-l" id="l-list" data-hb-caption>The list: only to the line</span>
-          <span class="lbl in-l" id="l-fing" data-hb-caption>Your finger: almost twice as far</span>
-          <span class="lbl in-l" id="l-spin" data-hb-caption>Then it spins about a second</span>
-          <span class="lbl cmp-l" data-hb-caption>Pull to refresh</span>
+          <span class="lbl in-l" id="l-line" data-hb-caption>松开超过这条线，就会刷新</span>
+          <span class="lbl in-l" id="l-list" data-hb-caption>列表：只到这条线</span>
+          <span class="lbl in-l" id="l-fing" data-hb-caption>你的手指：将近两倍远</span>
+          <span class="lbl in-l" id="l-spin" data-hb-caption>然后它旋转大约一秒</span>
+          <span class="lbl cmp-l" data-hb-caption>下拉刷新</span>
         </div>
       </div>
       <p class="sr-only" id="status" role="status" aria-live="polite"></p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the dashed line is where letting go refreshes; the arrows show your finger moves farther than the list, which resists. Drag the list down, or press Show me.</p>
-      <p data-hb-for="compare" hidden>No pull: the list ignores your finger and new items just pop in; Pull to refresh: it follows, resisting, and spins until new items arrive. Drag the list, or press Show me.</p>
+      <p data-hb-for="inside" hidden>内部：虚线是松开就会刷新的地方；箭头表示你的手指比列表走得更远，列表有阻力。把列表往下拉，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>不拉动：列表无视你的手指，新内容直接弹出来；下拉刷新：它跟着走，有阻力，一直转到新内容到来。拖动列表，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="th-lbl">Pull distance</p>
+        <p class="hb-setting-name" id="th-lbl">下拉距离</p>
         <div class="seg" id="th-seg" role="group" aria-labelledby="th-lbl">
-          <button type="button" data-px="48" aria-pressed="false">Short</button>
-          <button type="button" data-px="64" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-px="80" aria-pressed="false">Long</button>
+          <button type="button" data-px="48" aria-pressed="false">短</button>
+          <button type="button" data-px="64" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-px="80" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">How far to pull before letting go refreshes.</p>
+        <p class="hb-hint">拉多远，松开才会刷新。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="re-lbl">Resistance</p>
+        <p class="hb-setting-name" id="re-lbl">阻力</p>
         <div class="seg" id="re-seg" role="group" aria-labelledby="re-lbl">
-          <button type="button" data-r="1" aria-pressed="false">Low</button>
-          <button type="button" data-r="2" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-r="3" aria-pressed="false">High</button>
+          <button type="button" data-r="1" aria-pressed="false">低</button>
+          <button type="button" data-r="2" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-r="3" aria-pressed="false">高</button>
         </div>
-        <p class="hb-hint">Higher makes the list fight back harder.</p>
+        <p class="hb-hint">越高，列表反抗得越厉害。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="sp-lbl">Spinner</p>
+        <p class="hb-setting-name" id="sp-lbl">旋转指示</p>
         <div class="seg" id="sp-seg" role="group" aria-labelledby="sp-lbl">
-          <button type="button" data-s="ring" class="on" aria-pressed="true">Ring</button>
-          <button type="button" data-s="dots" aria-pressed="false">Dots</button>
-          <button type="button" data-s="bars" aria-pressed="false">Bars</button>
+          <button type="button" data-s="ring" class="on" aria-pressed="true">圆环</button>
+          <button type="button" data-s="dots" aria-pressed="false">圆点</button>
+          <button type="button" data-s="bars" aria-pressed="false">竖条</button>
         </div>
-        <p class="hb-hint">The shape that turns while it refreshes.</p>
+        <p class="hb-hint">刷新时转动的形状。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="du-lbl">Refresh time</p>
+          <p class="hb-setting-name" id="du-lbl">刷新时间</p>
           <div class="seg" id="du-seg" role="group" aria-labelledby="du-lbl">
-            <button type="button" data-ms="700" aria-pressed="false">Short</button>
-            <button type="button" data-ms="1200" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-ms="2000" aria-pressed="false">Long</button>
+            <button type="button" data-ms="700" aria-pressed="false">短</button>
+            <button type="button" data-ms="1200" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-ms="2000" aria-pressed="false">长</button>
           </div>
-          <p class="hb-hint">How long it spins before new items arrive.</p>
+          <p class="hb-hint">新内容到来前，它旋转多长时间。</p>
         </div>
       </div>
     </details>
@@ -225,41 +225,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add pull to refresh to [the scrolling list or feed that should reload]. When the list is already at its top and the visitor drags it down, move it with the finger but make it resist more the further it goes, and show a spinner above it that fades in and turns as it is pulled. Let go past the line and the list stays down while the spinner keeps turning and new items load, then everything slides back up with the new items on top; a shorter pull just springs back. Also offer a refresh button for people who cannot drag. If the visitor has reduced motion turned on, snap back without sliding. Match the settings listed below.</p>
+      <p class="hb-prompt">给[应该重新加载的滚动列表或信息流]加上下拉刷新。列表已经在顶部、访客把它往下拉时，让它跟着手指移动，但越往下拉阻力越大，并在它上面显示一个旋转指示，边拉边淡入、转动。拉过那条线再松开，列表会停在下面，旋转指示继续转动，新内容加载进来，然后所有东西滑回去，新内容在最上面；拉得短一点，就直接弹回去。再给不能拖动的人提供一个刷新按钮。如果访客开启了减弱动态效果，直接弹回，不要滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Feeds</li><li>Inboxes</li><li>Notifications</li><li>Order lists</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Desktop-only pages</li><li>Lists that rarely change</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>信息流</li><li>收件箱</li><li>通知</li><li>订单列表</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>仅桌面端页面</li><li>很少变化的列表</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const $=id=>document.getElementById(id);
   const scroller=$('scroller'),indicator=$('indicator'),spin=$('spin'),hint=$('hint'),listEl=$('list'),statusEl=$('status');
@@ -272,7 +272,7 @@
   let mode='normal',fing=null,posed=false,poseTimer=0,geo=null;
   const feed=scroller.parentElement,twin=document.querySelector('.twin'),twList=twin.querySelector('.list'),twScroller=twin.querySelector('.scroller');
 
-  const SEED=['Design review moved to 3pm','Your order has shipped','Ana replied to your comment','Weekly report is ready','Invoice from Northwind paid','Team notes posted'];
+  const SEED=['设计评审改到下午 3 点','你的订单已发货','安娜回复了你的评论','周报已准备好','Northwind 的发票已付款','团队笔记已发布'];
   function el(tag,cls,text){const e=document.createElement(tag);e.className=cls;if(text)e.textContent=text;return e}
   function card(text,fresh){
     const c=el('div','card '+(fresh?'fresh':'old')),meta=el('div','meta');
@@ -300,7 +300,7 @@
     spin.style.opacity=String(p);
     spin.style.transform='rotate('+(pull*2.2)+'deg) scale('+(0.55+p*0.45)+')';
     indicator.classList.toggle('ready',p>=1);
-    const words=p>=1?'Release to refresh':'Pull to refresh';
+    const words=p>=1?'松开刷新':'下拉刷新';
     if(hint.textContent!==words)hint.textContent=words;
   }
 
@@ -353,7 +353,7 @@
   function finishRefresh(){
     refreshTimer=0;
     n++;
-    listEl.insertBefore(card('New update #'+n+' arrived',true),listEl.firstChild);syncTwin();
+    listEl.insertBefore(card('新更新 #'+n+' 已到达',true),listEl.firstChild);syncTwin();
     scroller.scrollTop=0;
     spin.classList.remove('spinning');
     pull=0;setY(0,true);drawSpin();
@@ -466,8 +466,8 @@
       [['x1',0],['x2',W],['y1',ly],['y2',ly]].forEach(([k,v])=>V.line.setAttribute(k,v));
       V.list.setAttribute('d',arrow(xL,ly));V.fing.setAttribute('d',arrow(xF,y0+F));V.edge.setAttribute('d',arrow(xL,ly)+arrow(xF,y0+F));
       V.still.className=spin.className.replace(/ ?spinning/,'');V.still.style.top=(ly-55)+'px';   // where the real spinner stands with the list at the line
-      say(V.lFing,'Your finger: '+['nearly half as far again','almost twice as far','more than twice as far'][resistance-1]);
-      say(V.lSpin,'Then it spins '+(dur<1000?'under a second':dur<1600?'about a second':'for two seconds'));
+      say(V.lFing,'你的手指：'+['比列表再远将近一半','将近两倍远','超过两倍远'][resistance-1]);
+      say(V.lSpin,'然后它旋转'+(dur<1000?'不到一秒':dur<1600?'大约一秒':'两秒'));
       // Each label takes the first place near what it names that covers no other label, arrow or the line
       const taken=[{x:0,y:ly-3,r:W,b:ly+3},{x:xL-8,y:y0-3,r:xL+8,b:ly+4},{x:xF-8,y:y0-3,r:xF+8,b:y0+F+4}];
       const hit=(a,b)=>a.x<b.r&&b.x<a.r&&a.y<b.b&&b.y<a.b;

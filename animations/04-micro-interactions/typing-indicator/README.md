@@ -1,18 +1,18 @@
-# Typing Indicator
+# 正在输入指示
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/typing-indicator/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/typing-indicator/)
 
-## What it is
-A typing indicator tells people in a conversation that the other person is writing a reply. It is a small chat bubble on their side of the conversation holding three dots that move one after another in a loop, by bouncing, brightening or rising and falling like a wave. When the reply arrives, the message takes the bubble's place.
+## 它是什么
+正在输入指示告诉对话里的人，对方正在写回复。它是对方那一边的一个小聊天框，里面三个圆点轮流移动，弹跳、变亮或像波浪一样起伏。回复到来时，消息取代气泡的位置。
 
-## When to use it
-- Chat and messaging apps, between two people or in a group
-- Support chat, so customers know someone is answering
-- AI assistants, between the question and the first words of the answer
-- Comment threads and shared documents where someone is replying live
+## 什么时候用
+- 两个人或群组之间的聊天和消息应用
+- 支持聊天，让客户知道有人在回答
+- AI 助手，在问题和回答的头几个字之间
+- 有人实时回复的评论串和共享文档
 
-## How it works
-The bubble is an ordinary message bubble holding three dots. All three run the same CSS animation, and each starts a little later than the one before it, so they move in turn; the delays are shares of the round's length, so the pattern keeps its shape at any speed:
+## 工作原理
+气泡是一个普通的装着三个圆点的消息气泡。三个圆点都跑同样的 CSS 动画，每个比前一个晚一点开始，所以它们轮流移动；延迟是这一轮长度的占比，所以任何速度下模式都保持形状：
 
 ```css
 .dot{width:9px;height:9px;border-radius:50%;background:var(--dot);animation:ty-bounce var(--dur) ease-in-out infinite both}
@@ -21,27 +21,27 @@ The bubble is an ordinary message bubble holding three dots. All three run the s
 @keyframes ty-bounce{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(var(--hop));opacity:1}}
 ```
 
-Bounce lifts each dot and lets it fall back, then all three rest for the last part of the round, which reads as bursts of typing. Fade brightens and grows each dot instead of moving it, and wave has no rest: the dots rise and fall without a pause. Only `transform` and `opacity` change, so the dots stay smooth on any device.
+弹跳让每个圆点抬起来再落回去，然后三个圆点在这一轮的最后部分一起停下，读起来像一阵阵输入。淡入淡出让每个圆点变亮、长大，而不是移动；波浪没有停顿：圆点不停地起伏。只有 `transform` 和 `opacity` 在变，所以圆点在任何设备上都保持流畅。
 
-The distances are custom properties (`--hop`, `--lift` and `--small`); under `prefers-reduced-motion: reduce` they are set to no movement at all, so the same keyframes only brighten the dots in turn. Pause and Slow motion act on the CSS animations themselves: the page holds them with `animation-play-state` and slows them with each animation's `playbackRate`. A new speed scales each dot's current time by the same factor as its length, so the dots carry on from where they are instead of jumping.
+距离是自定义属性（`--hop`、`--lift` 和 `--small`）；在 `prefers-reduced-motion: reduce` 下，它们被设为完全不动，所以同样的关键帧只让圆点轮流变亮。暂停和慢动作作用在 CSS 动画本身上：页面用 `animation-play-state` 按住它们，用每个动画的 `playbackRate` 放慢它们。新的速度按和它长度一样的系数缩放每个圆点当前的时间，所以圆点从原来的地方继续，而不是跳动。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| How the dots move | Bounce | Bounce hops each dot 7px up and rests between rounds; fade brightens each dot and grows it from 70% to full size; wave raises and lowers the dots between 2.5px below and 5px above their place, without a rest |
-| Speed | Normal | How long one round of the three dots takes: slow is 1.8 seconds, normal 1.2 seconds and fast 0.8 seconds, each dot starting 15% of a round after the one before |
-| Bubble color | Gray | The color of the other person's bubbles: gray, blue, green or purple; the dots turn light gray or white to stay clear on it |
+| 圆点移动方式 | 弹跳 | 弹跳让每个圆点向上跳 7px，几轮之间停一下；淡入淡出让每个圆点变亮，从 70% 长到全尺寸；波浪让圆点在低于原位 2.5px 和高于原位 5px 之间升降，没有停顿 |
+| 速度 | 普通 | 三个圆点一轮要花多长时间：慢是 1.8 秒，普通 1.2 秒，快是 0.8 秒，每个圆点比前一个晚一轮的 15% 开始 |
+| 气泡颜色 | 灰色 | 对方气泡的颜色：灰色、蓝色、绿色或紫色；圆点变成浅灰或白色，保持清晰 |
 
-## Production notes
-- **Show it only while typing is real**: send a "typing" signal as the person types, hide the bubble a few seconds after the last key press, and replace it with the message when it arrives, so a bubble never hangs on screen for nothing.
-- **Avoid flicker**: wait a moment before showing it and keep it up for at least a second once shown, so short bursts of typing do not make it blink on and off.
-- **Keep the conversation still**: give the bubble the height of a one-line message, so the thread does not jump when it comes and goes.
-- **Accessibility**: give the bubble a text alternative such as "Maya is typing", and if you announce it in a live region, announce it once, not on every key press.
-- **Reduced motion**: keep the dots in place; a gentle change of brightness is enough to show that something is happening.
-- **Library equivalents**: chat kits such as Stream Chat and Sendbird's UIKit come with a typing indicator, Lottie files are common for illustrated versions, and Framer Motion can stagger the three dots with a `delay` per dot.
+## 生产注意事项
+- **只在真的输入时显示**：对方输入时发送一个“正在输入”信号，最后一次按键后几秒隐藏气泡，消息到来时用它替换，这样气泡永远不会无缘无故挂在屏幕上。
+- **避免闪烁**：显示前等一会儿，显示后至少保持一秒，这样短暂的输入不会让它忽明忽暗。
+- **保持对话不动**：给气泡一则一行消息的高度，这样它来去时对话不会跳动。
+- **无障碍**：给气泡一个文字替代，比如“玛雅正在输入”；如果在实时区域里播报它，播报一次，不要每次按键都播报。
+- **减弱动态效果**：让圆点待在原地；亮度的轻微变化就足以表示有事情在发生。
+- **库的等价物**：Stream Chat 和 Sendbird 的 UIKit 之类的聊天套件自带正在输入指示，Lottie 文件在插画版本里很常见，Framer Motion 可以用每个圆点一个 `delay` 来交错三个圆点。
 
-## See also
-- [Loading Spinner](../loading-spinner/) — six small shapes that loop while something loads
-- [Skeleton Loader](../skeleton-loader/) — gray shapes that hold the place of content while it loads
-- [Toast Notification](../toast-notification/) — short messages that slide into a corner
-- [Wavy Text](../../05-text-typography/wavy-text/) — a wave that rolls through a word, letter by letter
+## 另见
+- [加载旋转指示](../loading-spinner/) — 等待时循环的六个小图形
+- [骨架屏](../skeleton-loader/) — 加载时占位的灰色形状
+- [轻提示](../toast-notification/) — 滑进角落的简短消息
+- [波浪文字](../../05-text-typography/wavy-text/) — 一道波浪逐字母滚过一个词

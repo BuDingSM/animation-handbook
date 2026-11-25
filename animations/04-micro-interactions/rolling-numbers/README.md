@@ -1,18 +1,18 @@
-# Rolling Numbers
+# 数字滚动
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/rolling-numbers/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/rolling-numbers/)
 
-## What it is
-Rolling numbers show a changing number the way a car's mileage counter does: each digit sits in a small window over a column of the digits 0 to 9, and when the value changes, the column slides until the new digit is in the window. Only the digits that change move, so a small change turns one wheel and a big jump turns them all.
+## 它是什么
+数字滚动像汽车里程表一样显示一个变化的数字：每个数字坐在 0 到 9 的一列数字上的小窗口里；值变化时，列滑动，直到新数字进入窗口。只有变化的数字会动，所以小的变化只转一个轮子，大的跳动会转全部。
 
-## When to use it
-- Live counts: visitors, likes, followers, items in a cart
-- Prices that change with a plan, a quantity or a currency switch
-- Scores, timers and dashboard figures that update while people watch
-- Any number whose change should be noticed, without a flash or a jump
+## 什么时候用
+- 实时计数：访客、点赞、关注者、购物车里的商品
+- 随方案、数量或货币切换而变化的价格
+- 人们看着更新的分数、计时器和仪表盘数字
+- 任何变化应该被注意到、又不要闪烁或跳动的地方
 
-## How it works
-Each digit is a fixed-width window with `overflow: hidden` over a strip that lists 0 to 9 and then 0 again (drawn by a `::before` with line breaks), and the strip is moved with `translateY`. Every wheel keeps a position that only grows or shrinks; the digit it shows is that position modulo 10, so 7, 17 and -3 all show a 7, and the extra 0 at the end of the strip lets 9 roll on to 0. A change works out how many steps each wheel turns, the way Direction says, and starts the roll from wherever the wheel is drawn now:
+## 工作原理
+每个数字是一个固定宽度的窗口，`overflow: hidden`，盖在一条列出 0 到 9、再列出 0 的长条上（由带换行的 `::before` 画出），长条用 `translateY` 移动。每个轮子保持一个只增长或只缩小的位置；它显示的数字是那个位置对 10 取模，所以 7、17 和 -3 都显示 7；长条末尾多出来的 0，让 9 可以滚到 0。一次变化按方向说的那样，算出每个轮子转多少步，从轮子现在画的位置开始滚动：
 
 ```js
 let steps=(target[i]-shown+10)%10;
@@ -21,7 +21,7 @@ const delay=oneByOne&&w.pos===w.to?n*STAGGER*slow:0;n++;
 w.from=w.pos;w.to+=steps;w.t0=now+delay;w.ms=dur*slow;
 ```
 
-One `requestAnimationFrame` loop places every moving wheel by the time passed since its start, eased out, so a roll takes the same time at any frame rate; the loop stops when every wheel has arrived:
+一个 `requestAnimationFrame` 循环按自开始以来过去的时间、缓出，放置每个正在移动的轮子，所以一次滚动在任何帧率下都花同样的时间；所有轮子都到齐时，循环停止：
 
 ```js
 const k=Math.min(1,Math.max(0,(now-w.t0)/w.ms));
@@ -29,25 +29,25 @@ w.pos=k<1?w.from+(w.to-w.from)*(1-Math.pow(1-k,3)):w.to;
 draw(w);
 ```
 
-Because a roll starts from the drawn position, and a wheel that is still rolling turns toward its new digit at once (it waits for no stagger), a click that comes before the last roll has ended carries on smoothly instead of jumping or pausing. The rolling digits are hidden from screen readers; a polite live region holds the plain number ("2,049"), so it is read once per change rather than as a string of digits; when the visitor stops a Show me run partway, it is given the number left on the stage, unless the press that stopped it was on −1, +1 or Random, which give their own number. Under reduced motion the strip jumps to the new digit and the wheel fades in with a short CSS animation.
+因为滚动从画出的位置开始，一个还在滚动的轮子会立刻转向它的新数字（不等任何交错），所以上一次滚动还没结束时来的一次点击，会平滑地继续下去，而不是跳动或暂停。滚动的数字对读屏软件隐藏；一个礼貌的实时区域里放着普通数字（"2,049"），所以每次变化它只被读一次，而不是被读成一串数字；当访客中途停掉一次“演示一下”时，它会得到留在舞台上的数字，除非停掉它的按压是在 −1、+1 或“随机”上，那些会给出它们自己的数字。减弱动态效果下，长条跳到新数字，轮子用一段短的 CSS 动画淡入。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Roll speed | Normal | How long a digit takes to roll to its new value: slow is 900ms, normal 550ms and fast 300ms |
-| Direction | Shortest | Shortest turns each digit the nearer way round; up turns every digit forward, as a mileage counter does, so 9 to 0 is one step; down turns them back, like a countdown |
-| Digits one after another | on | Each changing digit starts 70ms after the changing digit to its right, so a big change ripples from right to left |
+| 滚动速度 | 普通 | 一个数字滚动到新值要花多长时间：慢是 900ms，普通 550ms，快是 300ms |
+| 方向 | 最短路径 | 最短路径让每个数字走较近的那条路；向上让每个数字向前转，像里程表一样，所以 9 到 0 是一步；向下让它们往回转，像倒计时 |
+| 数字依次滚动 | 开 | 每个变化的数字比它右边的变化数字晚 70ms 开始，所以大的变化会从右到左起伏 |
 
-## Production notes
-- **Equal widths**: give every digit window the same width (or use `font-variant-numeric: tabular-nums`), so the number never shifts sideways while it rolls.
-- **Growing numbers**: the demo keeps four wheels. When a number gains a digit, add a wheel at the left and fade or slide it in; render the wheels from the new number and animate only those whose digit changed.
-- **Formatting**: build the wheels from the formatted string (`Intl.NumberFormat`), keeping separators, currency signs and units as still characters between the wheels.
-- **Accessibility**: hide the rolling digits from assistive technology and keep the real value as text; announce it in a polite live region when the visitor caused the change, not on every automatic update.
-- **Reduced motion**: with `prefers-reduced-motion: reduce`, swap the digits at once, with at most a short fade.
-- **Library equivalents**: NumberFlow (a web component with React, Vue and Svelte versions, which can also pick the roll direction), Odometer.js for plain JavaScript, and Framer Motion's `useSpring` with a strip per digit to build your own; GSAP can tween each strip's position the same way.
+## 生产注意事项
+- **等宽**：给每个数字窗口同样的宽度（或用 `font-variant-numeric: tabular-nums`），这样数字滚动时永远不会左右移动。
+- **变大的数字**：演示保持四个轮子。数字多出一位时，在左边加一个轮子，淡入或滑入；按新数字渲染轮子，只动画数字变了的那些。
+- **格式**：用格式化后的字符串构建轮子（`Intl.NumberFormat`），分隔符、货币符号和单位作为轮子之间静止的字符保留下来。
+- **无障碍**：对辅助技术隐藏滚动的数字，把真实值保留为文字；访客引起变化时，在礼貌的实时区域里播报它，而不是每次自动更新都播报。
+- **减弱动态效果**：在 `prefers-reduced-motion: reduce` 下，立刻换数字，最多加一段短的淡入淡出。
+- **库的等价物**：NumberFlow（一个有 React、Vue 和 Svelte 版本的 web 组件，也可以选滚动方向）、纯 JavaScript 的 Odometer.js，以及 Framer Motion 的 `useSpring`，每个数字一条长条，自己构建；GSAP 可以用同样的方式补间每条长条的位置。
 
-## See also
-- [Counter Animation](../../01-scroll-based/counter-animation/) — numbers that count up when they scroll into view
-- [Rotate Word Carousel](../../05-text-typography/rotate-word-carousel/) — one word in a sentence that keeps swapping for the next
-- [Progress Animation](../progress-animation/) — a bar, a ring and steps that fill up to show progress
-- [Split-Flap Board](../../05-text-typography/split-flap-board/) — tiles flip through the letters, like an old airport board
+## 另见
+- [数字滚动计数](../../01-scroll-based/counter-animation/) — 滚动进视野时向上计数的数字
+- [轮换词轮播](../../05-text-typography/rotate-word-carousel/) — 句子里一个词不停地换成下一个
+- [进度动画](../progress-animation/) — 填满以显示进度的横条、圆环和步骤
+- [翻牌器](../../05-text-typography/split-flap-board/) — 像老机场翻牌一样翻过字母的牌子

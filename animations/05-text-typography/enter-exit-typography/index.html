@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enter/Exit Typography — Animation Handbook</title>
-  <meta name="description" content="Each phrase comes in, stays long enough to read, then leaves. Best for slogans.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/">
+  <title>入场退场排版 — 动画手册</title>
+  <meta name="description" content="每句短语进来、停留足够读完、再离开。最适合标语。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Enter/Exit Typography — Animation Handbook">
-  <meta property="og:description" content="Each phrase comes in, stays long enough to read, then leaves. Best for slogans.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="入场退场排版 — 动画手册">
+  <meta property="og:description" content="每句短语进来、停留足够读完、再离开。最适合标语。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Enter/Exit Typography — Animation Handbook">
-  <meta name="twitter:description" content="Each phrase comes in, stays long enough to read, then leaves. Best for slogans.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Enter/Exit Typography", "name": "Enter/Exit Typography", "description": "Each phrase comes in, stays long enough to read, then leaves. Best for slogans.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/enter-exit-typography/", "inLanguage": "en", "articleSection": "Text & Typography", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Text & Typography, Enter/Exit Typography"}</script>
+  <meta name="twitter:title" content="入场退场排版 — 动画手册">
+  <meta name="twitter:description" content="每句短语进来、停留足够读完、再离开。最适合标语。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "入场退场排版", "name": "入场退场排版", "description": "每句短语进来、停留足够读完、再离开。最适合标语。", "url": "https://animation.xizanghuapi.cn/animations/05-text-typography/enter-exit-typography/", "inLanguage": "zh-CN", "articleSection": "文字与排版", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画、CSS 动画、文字与排版、入场退场排版"}</script>
   <style>
     :root{--ui-accent:#ff6f8b;--enter-dur:500ms;--exit-dur:400ms;--enter-ease:ease-out;--exit-ease:ease-in}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -90,31 +90,31 @@
     .when{bottom:8px}
     .ghost{position:absolute;border:1.5px dashed rgba(244,244,242,.5);border-radius:6px;pointer-events:none}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="once" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../outline-to-fill/" rel="prev" aria-label="Previous: Outline to Fill"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Outline to Fill</span></a><a href="../rotate-word-carousel/" rel="next" aria-label="Next: Rotate Word Carousel"><span><span class="hb-dir">Next: </span>Rotate Word Carousel</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../outline-to-fill/" rel="prev" aria-label="上一个：描边填充"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>描边填充</span></a><a href="../rotate-word-carousel/" rel="next" aria-label="下一个：轮换词轮播"><span><span class="hb-dir">下一个：</span>轮换词轮播</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">05.10 · Text &amp; Typography</p>
-    <h1>Enter/Exit Typography</h1>
-    <p class="hb-lede">Each phrase comes in, stays long enough to read, then leaves. Best for slogans.</p>
+    <p class="hb-cat">05.10 · 文字与排版</p>
+    <h1>入场退场排版</h1>
+    <p class="hb-lede">每句短语进来、停留足够读完、再离开。最适合标语。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It plays by itself. Turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它会自动播放。打开慢动作可以看清动作的每个部分。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
       <div class="band copy" aria-hidden="true" inert><div class="copy-el"><div class="phrase-text"></div></div></div>
@@ -126,60 +126,60 @@
       </div>
       <div class="strip" aria-hidden="true">
         <div class="caps">
-          <p class="lbl cap c1" data-hb-caption><b>Comes in</b><span></span></p>
-          <p class="lbl cap c2" data-hb-caption><b>Holds to be read</b><span></span></p>
-          <p class="lbl cap c3" data-hb-caption><b>Leaves</b><span></span></p>
+          <p class="lbl cap c1" data-hb-caption><b>进场</b><span></span></p>
+          <p class="lbl cap c2" data-hb-caption><b>停留供阅读</b><span></span></p>
+          <p class="lbl cap c3" data-hb-caption><b>离开</b><span></span></p>
         </div>
         <div class="bars"><span class="bar c1"></span><span class="bar c2"></span><span class="bar c3"></span><span class="mark"></span></div>
         <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
       </div>
-      <p class="lbl side s1" aria-hidden="true" data-hb-caption>Swaps at once</p>
-      <p class="lbl side s2" aria-hidden="true" data-hb-caption>Enters and exits</p>
-      <p class="lbl when" aria-hidden="true" data-hb-caption>Part way in</p>
+      <p class="lbl side s1" aria-hidden="true" data-hb-caption>一次换掉</p>
+      <p class="lbl side s2" aria-hidden="true" data-hb-caption>入场退场</p>
+      <p class="lbl when" aria-hidden="true" data-hb-caption>进行到一半时</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Replay</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>Loop</span></label>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-play" data-hb-replay><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重播</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="loop-tog" data-hb-loop autocomplete="off"><span>循环</span></label>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each phrase has three parts on one time line: it comes in, holds still to be read, then leaves. The marker runs through them as each phrase plays.</p>
-      <p data-hb-for="compare" hidden>Swaps at once changes the words with no movement, so each change is a jump. Enters and exits brings each phrase in and takes it out, with the same time to read.</p>
+      <p data-hb-for="inside" hidden>内部是这样的：每句短语在一条时间线上有三个部分：进来、静止下来供人阅读、然后离开。标记会随着每句短语的播放跑过它们。</p>
+      <p data-hb-for="compare" hidden>「一次换掉」不加动作地换词，所以每次变化都是一次跳变。「入场退场」把每句短语带进来再带出去，阅读时间相同。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and the animation plays again.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，动画就会重新播放。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="enter-lbl">Entrance speed</p>
+        <p class="hb-setting-name" id="enter-lbl">进场速度</p>
         <div class="seg" id="enter-seg" role="group" aria-labelledby="enter-lbl">
-          <button type="button" data-ms="800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="500" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="300" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="500" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="300" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly each phrase arrives.</p>
+        <p class="hb-hint">每句短语到来的快慢。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="hold-lbl">Time on each phrase</p>
+        <p class="hb-setting-name" id="hold-lbl">每句短语的停留时间</p>
         <div class="seg" id="hold-seg" role="group" aria-labelledby="hold-lbl">
-          <button type="button" data-ms="1200" aria-pressed="false">Short</button>
-          <button type="button" data-ms="2000" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-ms="3200" aria-pressed="false">Long</button>
+          <button type="button" data-ms="1200" aria-pressed="false">短</button>
+          <button type="button" data-ms="2000" class="on" aria-pressed="true">中</button>
+          <button type="button" data-ms="3200" aria-pressed="false">长</button>
         </div>
-        <p class="hb-hint">How long each phrase holds still to be read.</p>
+        <p class="hb-hint">每句短语静止下来供人阅读的时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="exit-lbl">Exit speed</p>
+        <p class="hb-setting-name" id="exit-lbl">退场速度</p>
         <div class="seg" id="exit-seg" role="group" aria-labelledby="exit-lbl">
-          <button type="button" data-ms="650" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="400" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="250" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="650" aria-pressed="false">慢</button>
+          <button type="button" data-ms="400" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="250" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Exits usually run a little faster than entrances.</p>
+        <p class="hb-hint">退场通常比进场稍快一点。</p>
       </div>
     </div>
   </section>
@@ -187,41 +187,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add an enter-and-exit text sequence to [the short phrases you want to show]. Show one phrase at a time in the same place: each phrase comes in, holds still long enough to be read, then leaves before the next one arrives. Give each phrase its own way in and out, such as sliding, growing, blurring or wiping, and let each exit lead into the next entrance so the sequence feels connected. Leave the last phrase on screen when the sequence ends. Screen readers should hear each phrase as it appears. If the visitor has reduced motion turned on, swap the phrases without movement. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想展示的短语]加一段入场退场文字序列。在同一个位置一次展示一句短语：每句短语进来、静止足够读完的时间，然后在下一句到来之前离开。给每句短语各自的进场和退场方式，比如滑动、放大、模糊或擦除，让每次退场自然地接上下一次进场，使整个序列感觉连贯。序列结束时，把最后一句短语留在屏幕上。屏幕阅读器应该在每句短语出现时读出它。如果访客开启了减弱动态效果，不加动作地切换短语。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Intros</li><li>Brand statements</li><li>Hero messages</li><li>Screens and signage</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long sentences</li><li>Key information</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>开场</li><li>品牌宣言</li><li>主视觉文案</li><li>屏幕与标识</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长句子</li><li>关键信息</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const phraseEl=document.getElementById('phrase-el');
   const phraseText=document.getElementById('phrase-text');
@@ -243,16 +243,16 @@
   let mode='normal',idx=-1,phraseAt=0,leaving=false,ended=false,markRaf=0,geom=[];
   // Under reduced motion both views are still pictures, and their notes say so
   if(!motionOk){
-    document.querySelector('[data-hb-for="inside"]').textContent="Shown still: the three bars are each phrase's parts, coming in, holding to be read and leaving. With reduced motion on, the phrases swap in place but keep these times.";
-    document.querySelector('[data-hb-for="compare"]').textContent='Shown still when a play ends, part way into the last phrase: Swaps at once shows it whole; Enters and exits is still wiping it in.';
+    document.querySelector('[data-hb-for="inside"]').textContent="静止显示：三条横条是每句短语的三个部分——进来、停留供人阅读、离开。开启减弱动态效果时，短语会在原地切换，但保持这些时间。";
+    document.querySelector('[data-hb-for="compare"]').textContent='播放结束时静止显示，停在最后一句短语的中途：「一次换掉」完整显示它；「入场退场」还在把它擦进来。';
   }
 
   const PHRASES=[
     {text:'Everything starts',enter:'enter-slide-right',exit:'exit-slide-up'},
-    {text:'with a blank page.',enter:'enter-slide-up',exit:'exit-blur'},
-    {text:'Then words arrive.',enter:'enter-blur',exit:'exit-slide-left'},
-    {text:'Then motion.',enter:'enter-scale',exit:'exit-scale'},
-    {text:'Then meaning.',enter:'enter-clip',exit:'exit-clip'},
+    {text:'配上一页空白。',enter:'enter-slide-up',exit:'exit-blur'},
+    {text:'然后词语到来。',enter:'enter-blur',exit:'exit-slide-left'},
+    {text:'然后是运动。',enter:'enter-scale',exit:'exit-scale'},
+    {text:'然后是意义。',enter:'enter-clip',exit:'exit-clip'},
   ];
   const allPhaseClasses=[...PHRASES.map(p=>p.enter),...PHRASES.map(p=>p.exit),'state-hidden'];
 
@@ -304,13 +304,13 @@
   // The last phrase with Loop off stays: it never leaves, so its third part is not coming
   function stays(){return idx===PHRASES.length-1&&!leaving&&(!loopTog.checked||!motionOk)}
   function words(t){
-    return t<=420?'a third of a second':t<=520?'under half a second':t<=640?'half a second':t<=800?'over half a second':t<=980?'under a second':
-      t<=1100?'about a second':t<=1450?'just over a second':t<=1800?'a second and a half':t<=2250?'two seconds':t<=2800?'two and a half seconds':
-      t<=3400?'about three seconds':'about '+Math.round(t/1000)+' seconds';
+    return t<=420?'三分之一秒':t<=520?'不到半秒':t<=640?'半秒':t<=800?'半秒多':t<=980?'不到一秒':
+      t<=1100?'大约一秒':t<=1450?'一秒多一点':t<=1800?'一个半秒':t<=2250?'两秒':t<=2800?'两个半秒':
+      t<=3400?'大约三秒':'大约 '+Math.round(t/1000)+' 秒';
   }
   // See inside: bars as long as the three parts, their words, the lit dot, then the places of the captions and the marker
   function drawStrip(){
-    const s=parts(),no=stays(),say=[words(s[0]),words(s[1]),no?'not on the last one':words(s[2])];
+    const s=parts(),no=stays(),say=[words(s[0]),words(s[1]),no?'最后一句不离开':words(s[2])];
     barEls.forEach((b,k)=>{b.style.flexGrow=s[k]});
     barEls[2].classList.toggle('faint',no);
     capEls.forEach((c,k)=>{if(c.lastChild.textContent!==say[k])c.lastChild.textContent=say[k]});

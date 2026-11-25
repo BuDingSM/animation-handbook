@@ -1,21 +1,21 @@
-# SVG Line Draw on Scroll
+# SVG 线条滚动描绘
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/svg-line-draw/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/svg-line-draw/)
 
-## What it is
+## 它是什么
 
-A scroll-drawn line is a long winding route that draws itself as you scroll down it, like a journey being traced on a map. Labeled stops along the way pop in as the line reaches them, and scrolling back up erases the line again. A faint dashed copy of the route shows where it is heading.
+滚动描绘的线是一条长长的蜿蜒路线，你往下滚时它自己画出来，像在地图上描绘一段旅程。沿途带标签的站点在线到达时弹出，往上滚又会擦掉线。路线的一份淡虚线副本显示它要去哪里。
 
-## When to use it
+## 什么时候用
 
-- Journey or route storytelling — travel logs, expedition maps, shipment tracking
-- Timelines where each milestone should appear as the reader arrives at it
-- Process explainers ("how your order gets to you") where a connecting line gives the steps a spatial order
-- Long-form landing pages that need a visual spine tying sections together
+- 旅程或路线故事讲述——旅行日志、探险地图、货运跟踪
+- 时间线，每个里程碑应该在读者到达时出现
+- 流程讲解（“你的订单如何送到你手里”），一条连接线给步骤一个空间顺序
+- 需要一条视觉脊柱把各区域串起来的长篇落地页
 
-## How it works
+## 工作原理
 
-The whole effect is two stroke properties and one number. At init, measure the path once and set `stroke-dasharray` to its full length — the stroke is now a single dash exactly as long as the path, and `stroke-dashoffset` slides it into view:
+整个效果是两个描边属性和一个数字。初始化时测量一次路径，把 `stroke-dasharray` 设为它的全长——描边现在是一条恰好与路径等长的单条虚线，`stroke-dashoffset` 把它滑入视野：
 
 ```js
 const LEN = path.getTotalLength();          // measure ONCE, at init and on resize
@@ -27,9 +27,9 @@ const drawn = Math.min(LEN, LEN * p / COMPLETE_AT);          // COMPLETE_AT belo
 path.style.strokeDashoffset = LEN - drawn;                   // reveal the traveled portion
 ```
 
-`COMPLETE_AT` is 1 by default, so the line finishes as the scroll does and its tip stays inside the box while it is drawn with Even (Smooth draws ahead early in the scroll). A smaller value finishes the line earlier: the rest of the scroll then shows the finished route, but the tip runs ahead of the box, because the route is many boxes tall.
+`COMPLETE_AT` 默认是 1，所以线随滚动完成，笔尖在用均匀绘制时留在盒子内（平滑在滚动早期画得靠前）。更小的值让线更早完成：剩下的滚动显示完成的路线，但笔尖跑到盒子前面去了，因为路线有好几个盒子高。
 
-Waypoints are placed at known fractions of the path, so their positions and trigger points are computed once from those fractions — never per scroll event:
+站点放在路径已知的分数位置上，所以它们的位置和触发点只根据这些分数计算一次——绝不在每个滚动事件里计算：
 
 ```js
 // at init: position each waypoint and store its length threshold and where its dot sits in the scrolling content
@@ -43,31 +43,31 @@ const on = drawn >= wp.len && wp.y - 16 < scrollTop + boxHeight;
 if (on !== wp.on) { wp.on = on; wp.group.classList.toggle('on', on); }
 ```
 
-Each stop is also scaled by `k`, which is 600 divided by the drawing's width on screen, so its dot and labels keep the same size on every screen while the route itself scales.
+每个站点还按 `k` 缩放，`k` 是 600 除以绘图在屏幕上的宽度，所以它的圆点和标签在每块屏幕上保持同样大小，而路线本身缩放。
 
-A stop also waits until it has come into view, meaning its top edge is above the bottom edge of the box. The route is many boxes tall, so the line can be drawn well ahead of the box, and a stop that popped below the bottom edge would pop where nobody can see it; this way its pop plays as it scrolls in. A still picture is the same either way, because a stop that is below the box cannot be seen.
+站点还会等到它进入视野，也就是它的顶边在盒子底边之上。路线有好几个盒子高，所以线可以画到盒子前面很远，在底边下面弹出的站点会在没人能看到的地方弹出；这样它的弹出在它滚进来时播放。静止图片两种情况都一样，因为盒子下面的站点看不见。
 
-The pop itself is CSS — `.on` transitions the waypoint from `scale(.6)` and `opacity: 0` to full size, and scrolling back past a waypoint removes the class so it un-pops. After a jump — Back to top, Play starting again from the top, or any move of more than half a box in one frame — the transition is switched off for that one update, so no stop fades out after the line that led to it has gone. Progress is clamped, never gated: jumping straight to the bottom draws the full route, returning to the top erases it, and there is no state to get stuck in between. A faint dashed copy of the path sits underneath the drawing stroke, so the reader always sees where the route is going before the line gets there.
+弹出本身是 CSS——`.on` 把站点从 `scale(.6)` 和 `opacity: 0` 过渡到完整尺寸，往上滚过站点会去掉这个类，让它取消弹出。跳跃之后——回到顶部、播放从顶部重新开始，或一帧内移动超过半个盒子——过渡会为那一次更新关掉，所以没有站点会在引向它的线消失后才淡出。进度是钳制的，从不设门：直接跳到底部会画出整条路线，回到顶部会擦掉它，中间没有任何会卡住的状态。路径的一份淡虚线副本放在绘制描边的下面，所以读者总能在线到达之前看到路线要去哪里。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Feel | Even | Even keeps the tip of the line level with your scroll; Smooth draws quickly at first and slows toward the end |
-| Shows the stops | on | Five labeled stops pop in as the line reaches them and hide again when you scroll back |
-| Line finishes | At the end | How far through the scrolling the line is complete: early at 70%, near the end at 85% and at the end at 100%; finishing early shows the whole route before you reach the bottom |
+| 感觉 | 均匀 | 均匀让线尖与你的滚动保持齐平；平滑一开始画得快、临近结尾放慢 |
+| 显示站点 | 开 | 五个带标签的站点在线到达时弹出，往上滚时再次藏起 |
+| 线完成于 | 在结尾 | 滚动进行到多远时线完成：提前在 70%，接近结尾在 85%，在结尾在 100%；提前完成会在你到达底部之前显示整条路线 |
 
-## Production notes
+## 生产注意事项
 
-- **Measure once.** `getTotalLength()` forces geometry work; calling it (or reading `scrollHeight`) inside the scroll handler causes layout thrashing. Cache the length and max scroll at init, refresh on debounced resize, and let the per-frame work be pure arithmetic plus one style write.
-- **Never put a CSS transition on a property you write every frame.** `stroke-dashoffset` is set on each animation frame; adding `transition: stroke-dashoffset ...` on top makes the browser animate toward a target that moves every 16 ms — the line lags behind the scroll and smears. Transitions belong on state changes (the waypoint pop), not on scrubbed values.
-- **`pathLength="1"` skips measuring entirely.** Setting the attribute `pathLength="1"` on the path lets you use `stroke-dasharray: 1` and write `stroke-dashoffset = 1 - p` directly — no `getTotalLength()` call at all. This demo measures because the waypoints need real coordinates anyway.
-- **`vector-effect: non-scaling-stroke`** keeps the stroke width constant if the SVG scales responsively; without it, a 3px stroke on a narrow phone render can thin to a hairline.
-- **Label legibility.** `paint-order: stroke` with a background-colored stroke on the `<text>` draws an outline underneath the glyphs, so labels stay readable where the accent line passes behind them — cheaper and crisper than a filter or a backing rect.
-- **Library equivalents.** GSAP's DrawSVGPlugin with ScrollTrigger (`scrub: true`) is the production standard; Framer Motion's `useScroll` + `pathLength` motion value is the React equivalent. Both wrap exactly this dashoffset mapping.
+- **只测量一次。**`getTotalLength()` 会强制做几何计算；在滚动处理器里调用它（或读 `scrollHeight`）会导致布局抖动。在初始化时缓存长度和最大滚动量，在防抖后的 resize 时刷新，每帧的工作只做纯算术加一次样式写入。
+- **绝不要给每帧都写的属性加 CSS 过渡。**`stroke-dashoffset` 在每个动画帧都设置；再加 `transition: stroke-dashoffset ...` 会让浏览器向一个每 16ms 就移动的目标做动画——线会落后于滚动并拖影。过渡属于状态变化（站点弹出），不属于 scrub 的值。
+- **`pathLength="1"` 完全跳过测量。**在路径上设置属性 `pathLength="1"`，就可以用 `stroke-dasharray: 1` 并直接写 `stroke-dashoffset = 1 - p`——完全不用调用 `getTotalLength()`。这个演示要测量，因为站点反正需要真实坐标。
+- **`vector-effect: non-scaling-stroke`** 在 SVG 响应式缩放时保持描边宽度不变；没有它，窄手机上渲染的 3px 描边可能细成一根发丝。
+- **标签可读性。**在 `<text>` 上用 `paint-order: stroke` 加背景色的描边，会在字形下面画一圈轮廓，所以标签在强调线从后面经过的地方仍然可读——比滤镜或衬底矩形更便宜、更清晰。
+- **库的等价实现。**GSAP 的 DrawSVGPlugin 配 ScrollTrigger（`scrub: true`）是生产标准；Framer Motion 的 `useScroll` + `pathLength` 运动值是 React 的等价实现。两者包装的正是这个 dashoffset 映射。
 
-## See also
+## 另见
 
-- [Scrub Animation](../scrub-animation/) — a short pinned path moves as you scroll; here a long path lives in the content
-- [SVG Path Animation](../../06-3d-advanced/svg-path-animation/) — drawings trace themselves over time instead of with the scroll
-- [Scrollytelling](../scrollytelling/) — a picture beside the text changes as a story scrolls by
+- [滚动 scrub 动画](../scrub-animation/) — 一条短的固定路径随你滚动移动；这里一条长路径在内容里
+- [SVG 路径动画](../../06-3d-advanced/svg-path-animation/) — 绘图随时间自己描绘，而不是随滚动
+- [滚动叙事](../scrollytelling/) — 文字旁边的图片随故事滚动而变化

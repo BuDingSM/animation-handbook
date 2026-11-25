@@ -1,18 +1,18 @@
-# Button Press Scale
+# 按钮按压缩放
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/button-press-scale/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/button-press-scale/)
 
-## What it is
-Button press scale makes a button shrink slightly while it is pressed and spring back when it is let go. A screen has no real button travel, so this small shrink stands in for the feel of pushing a physical button, and it confirms that the press registered.
+## 它是什么
+按钮按压缩放让按钮在按住时微微缩小，松开时弹回来。屏幕上没有真正的按钮行程，所以这个小小的缩小代替了按实体按钮的手感，并确认按压已经登记。
 
-## When to use it
-- Primary action buttons (submit, confirm, pay, send)
-- Any button where missing the tap would cause frustration
-- Mobile-first interfaces where touch targets replace mouse clicks
-- Icon buttons that need stronger press confirmation than a ripple alone
+## 什么时候用
+- 主要操作按钮（提交、确认、支付、发送）
+- 任何漏点会让人沮丧的按钮
+- 以触摸目标代替鼠标点击的移动优先界面
+- 需要比涟漪更强的按压确认的图标按钮
 
-## How it works
-Two separate transitions handle press and release with different timings — press is fast, release is slower and optionally springy:
+## 工作原理
+按压和松开用两个不同的过渡处理，时间也不一样——按压快，松开慢一些，还可以选择带回弹：
 
 ```css
 :root {
@@ -46,25 +46,25 @@ btn.addEventListener('keyup',   e => { if (e.key === ' ' || e.key === 'Enter') r
 btn.addEventListener('blur', release);
 ```
 
-The asymmetric timing is the key insight: pressing (80ms) mirrors the physical suddenness of contact; releasing (180ms) mirrors the slower mechanical spring-back of a real button. The glow crossfades a resting shadow on `::before` and a pressed shadow on `::after` by opacity, with the same timing as the size, rather than animating `box-shadow` itself, which repaints on every frame.
+不对称的时间是关键：按压（80ms）对应接触时物理上的突然；松开（180ms）对应真实按钮机械回弹时的缓慢。辉光用不透明度交叉淡入淡出 `::before` 上静止的阴影和 `::after` 上按下的阴影，时间和大小变化相同，而不是直接给 `box-shadow` 做动画——那样每一帧都会重绘。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Press depth | Medium | How small the button gets while held down: light is 97%, medium 95% and deep 90% of its size; smaller than 90% looks broken |
-| Release speed | Normal | How long it takes to spring back: slow is 300ms, normal 180ms and fast 110ms; about twice the press time feels natural |
-| Release feel | Springy | Springy goes a little past full size, then settles; Smooth slows into place; Even keeps one steady pace |
-| Press speed | Normal | How long the shrink takes: slow is 130ms, normal 80ms and fast 50ms; a press should feel instant |
+| 按压深度 | 中等 | 按住时按钮变得有多小：轻是 97%，中等 95%，深是 90%；小于 90% 看起来像坏了 |
+| 松开速度 | 普通 | 弹回要花多长时间：慢是 300ms，普通 180ms，快 110ms；大约是按压时间的两倍，感觉最自然 |
+| 松开手感 | 回弹 | 回弹会稍微超过完整尺寸，再落定；平滑会减速到位；均匀保持一个恒定速度 |
+| 按压速度 | 普通 | 缩小要花多长时间：慢是 130ms，普通 80ms，快 50ms；按压应该感觉立刻生效 |
 
-## Production notes
-- **`pointercancel` handling**: always listen for `pointercancel` in addition to `pointerup`. If the user starts a scroll gesture after pressing, `pointerup` may not fire, leaving the button stuck in its pressed state. Two more ways to get stuck are covered in the snippet: without `setPointerCapture` the release is missed when the pointer has moved off the button, and without the `blur` listener a key held down while Tab moves the focus away sends its `keyup` to the next element.
-- **`touch-action: manipulation`** on the button element suppresses the 300ms tap delay on mobile browsers without needing a separate fast-tap library.
-- **Shadow pairing**: coupling a shadow-shrink to the scale change increases realism — a button that lifts slightly on hover and drops on press mirrors physical button behavior.
-- **`prefers-reduced-motion`**: switch the transitions off for users who request reduced motion, so the button changes size at once instead of animating; the demo does this.
-- **GSAP**: `gsap.to(btn, { scale: 0.95, duration: 0.08, ease: "power1.in" })` on press; `gsap.to(btn, { scale: 1, duration: 0.18, ease: "back.out(1.7)" })` on release.
-- **Framer Motion**: `<motion.button whileTap={{ scale: 0.95 }} />` — single prop, handles press/release automatically.
+## 生产注意事项
+- **`pointercancel` 处理**：除了 `pointerup`，一定要监听 `pointercancel`。如果用户按下后开始滚动手势，`pointerup` 可能不会触发，按钮就会卡在按下状态。片段里还讲了另外两种卡住的办法：没有 `setPointerCapture`，指针移出按钮后就收不到松开；没有 `blur` 监听，按住键时用 Tab 把焦点移开，`keyup` 会发到下一个元素上。
+- **按钮元素上的 `touch-action: manipulation`**：可以去掉移动浏览器上 300ms 的点按延迟，不需要单独的快速点按库。
+- **阴影配对**：把阴影缩小和缩放变化配在一起，真实感更强——悬停时微微抬起、按下时落下的按钮，和实体按钮的行为一致。
+- **`prefers-reduced-motion`**：为要求减弱动态效果的用户关掉过渡，这样按钮会立刻改变大小，而不是做动画；演示就是这样做的。
+- **GSAP**：按下时用 `gsap.to(btn, { scale: 0.95, duration: 0.08, ease: "power1.in" })`；松开时用 `gsap.to(btn, { scale: 1, duration: 0.18, ease: "back.out(1.7)" })`。
+- **Framer Motion**：`<motion.button whileTap={{ scale: 0.95 }} />`——一个属性就够了，按压和松开自动处理。
 
-## See also
-- [Click / Tap Ripple](../click-ripple/) — a ripple spreads from the spot you press
-- [Hover State Animation](../hover-state/) — items react before they are clicked
-- [Checkmark Draw](../checkmark-draw/) — a tick draws itself once the task is done
+## 另见
+- [点击涟漪](../click-ripple/) — 从按下的位置扩散开的涟漪
+- [悬停状态动画](../hover-state/) — 点击之前项目就有了反应
+- [对勾绘制](../checkmark-draw/) — 任务完成后自己画出来的对勾

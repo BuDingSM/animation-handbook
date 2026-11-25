@@ -1,28 +1,21 @@
-# Parallax Scrolling
+# 视差滚动
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/parallax-scrolling/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/parallax-scrolling/)
 
-## What it is
+## 它是什么
 
-Parallax scrolling moves the far layers of a scene less than the near ones as
-you scroll, so a flat picture seems to have depth. It copies what you see from a
-train window: nearby things rush past while distant hills barely move. Each
-layer gets its own speed, and how far apart those speeds are decides how deep
-the scene feels.
+视差滚动让场景的远图层比近图层移动得少，滚动时扁平的图片看起来有了深度。它模仿了你从火车车窗看到的景象：近处的东西飞速掠过，远处的山丘几乎不动。每个图层有自己的速度，速度之间差多远，决定了场景感觉有多深。
 
-## When to use it
+## 什么时候用
 
-- Hero sections on landing pages where a scene sets the mood
-- Storytelling scrolls and editorial features with environmental depth
-- Product showcases where scene context reinforces the subject
-- Portfolio "about" sections that benefit from atmospheric immersion
+- 落地页的主视觉区域，场景定下氛围
+- 带环境深度的故事滚动和编辑专题
+- 产品展示，场景上下文强化主题
+- 受益于氛围沉浸感的作品集“关于”栏目
 
-## How it works
+## 工作原理
 
-Each layer has a speed multiplier `s` between 0 and 1.5, set by the Depth
-setting. On scroll, a single `requestAnimationFrame` callback normalizes
-`scrollTop` to a 0–1 progress value and scales the travel, a quarter of the
-box's height, by the layer's speed:
+每个图层有一个速度倍数 `s`，在 0 到 1.5 之间，由“深度”设置决定。滚动时，单个 `requestAnimationFrame` 回调把 `scrollTop` 归一化为 0–1 的进度值，再按图层的速度缩放移动距离（盒子高度的四分之一）：
 
 ```js
 const progress = scrollTop / (scrollHeight - clientHeight); // 0 → 1
@@ -30,39 +23,25 @@ const offset   = progress * MAX_PARALLAX * speed;           // MAX_PARALLAX = a 
 layer.el.style.transform = `translate3d(0, ${offset}px, 0)`;
 ```
 
-Normalizing first makes the movement the same whatever the length of the
-scroll, and clamps it at both ends for free.
+先归一化让移动在任何滚动长度下都一样，两端还免费得到钳制。
 
-Layers with low speed (sky: 10%) barely move — they appear far away. Layers
-with high speed (the grass: 100%) move the most — they appear close. The
-ratio between speeds determines how convincing the illusion is.
+速度低的图层（天空：10%）几乎不动——看起来很远。速度高的图层（草地：100%）移动最多——看起来很近。速度之间的比例决定了幻觉有多可信。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Depth | Normal | The speeds of the sky, ridge, trees and grass: normal is 10%, 30%, 60% and 100%; shallow 50%, 65%, 80% and 100%; deep 0%, 25%, 70% and 150%; flat moves all four together. At 100% a layer travels a quarter of the box's height over the whole scroll |
+| 深度 | 普通 | 天空、山脊、树林和草地的速度：普通是 10%、30%、60% 和 100%；浅是 50%、65%、80% 和 100%；深是 0%、25%、70% 和 150%；平让四个一起移动。100% 时，一个图层在整个滚动中走过盒子高度的四分之一 |
 
-## Production notes
+## 生产注意事项
 
-- **GPU acceleration:** `translate3d` (not `translateY`) promotes the element
-  to a compositor layer. Pair with `will-change: transform` declared before the
-  first frame to avoid layer promotion jank on the initial scroll.
-- **rAF throttling:** scroll events fire faster than display refresh (up to
-  1000Hz on some devices vs. 60–120Hz frame rate). The dirty-flag pattern
-  (`ticking` boolean) ensures only one `requestAnimationFrame` is queued per
-  rendered frame, preventing redundant work.
-- **Library alternatives:** GSAP ScrollTrigger provides `scrub` easing and
-  timeline integration. Locomotive Scroll and Lenis add momentum/inertia
-  scrolling with parallax hooks. Rellax is a lightweight zero-dependency option
-  for simple cases.
-- **Accessibility:** respect `prefers-reduced-motion: reduce`. When the user
-  has requested reduced motion, hold every layer at zero offset and show the
-  static scene, and apply `will-change: auto` in the reduced-motion media
-  query to avoid unnecessary layer promotion.
+- **GPU 加速：** `translate3d`（而不是 `translateY`）把元素提升到合成器层。配合第一帧之前声明的 `will-change: transform`，避免初次滚动时图层提升造成的卡顿。
+- **rAF 节流：** 滚动事件触发得比显示刷新更快（某些设备上高达 1000Hz，而帧率是 60–120Hz）。脏标志模式（`ticking` 布尔值）保证每渲染一帧最多排一个 `requestAnimationFrame`，防止重复工作。
+- **库的替代方案：** GSAP ScrollTrigger 提供 `scrub` 缓动和时间线集成。Locomotive Scroll 和 Lenis 增加了带视差钩子的动量/惯性滚动。Rellax 是简单场景的轻量零依赖选择。
+- **无障碍：** 遵循 `prefers-reduced-motion: reduce`。当用户要求减弱动态时，让每个图层保持零偏移，显示静态场景，并在减弱动态媒体查询里应用 `will-change: auto`，避免不必要的图层提升。
 
-## See also
+## 另见
 
-- [Parallax Depth-of-Field](../parallax-depth-of-field/) — the same layers, with a moving focus that blurs them
-- [Reverse-Scrolling Columns](../reverse-scrolling-columns/) — columns move against each other as you scroll
-- [Wave Layers](../../07-ambient-background/wave-layers/) — the same near-fast, far-slow rule, on a loop instead of the scroll
+- [视差景深](../parallax-depth-of-field/) — 同样的图层，加上移动的焦点让它们模糊
+- [反向滚动列](../reverse-scrolling-columns/) — 列随滚动朝相反方向移动
+- [波浪层](../../07-ambient-background/wave-layers/) — 同样的近快远慢规则，改成循环而不是滚动

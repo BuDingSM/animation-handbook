@@ -1,18 +1,18 @@
-# Stagger Reveal
+# 交错显现
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/stagger-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/stagger-reveal/)
 
-## What it is
-A stagger reveal shows a group of items one after another instead of all at once, with a short delay between them, so the group appears as a sweep. The order can run from first to last, last to first, from the middle outward, or at random. The demo plays it on a grid of cards, a list and a cluster of tags as each scrolls into view.
+## 它是什么
+交错显现让一组元素一个接一个出现，而不是同时出现，元素之间有短暂延迟，所以整组像一次扫过一样出现。顺序可以从第一个到最后一个、从最后一个到第一个、从中间向外，或随机。演示在卡片网格、列表和一簇标签上播放它，每组滚动进入视野时触发。
 
-## When to use it
-- Card grids, search results, or gallery tiles that should feel populated rather than dumped
-- Navigation menus and dropdowns opening their items in sequence
-- List rows or table content entering after a section reveal
-- Any group where a uniform simultaneous appearance feels abrupt or mechanical
+## 什么时候用
+- 卡片网格、搜索结果或画廊瓷砖，应该感觉是逐渐填满而不是一下子倒出来
+- 导航菜单和下拉菜单，依次打开其中的项目
+- 列表行或表格内容，在区域显现后进入
+- 任何整齐划一同时出现会感觉突兀或机械的组
 
-## How it works
-Each item shares one CSS transition (`opacity` and `translateY`) and starts hidden. An `IntersectionObserver` on each group (the grid, the list and the tags) triggers `staggerIn`, which computes an order array for the chosen direction and schedules each item's `.in` class with a delay of `orderIndex × staggerMs`:
+## 工作原理
+每个元素共享一个 CSS 过渡（`opacity` 和 `translateY`），开始时隐藏。每组（网格、列表和标签）上的一个 `IntersectionObserver` 触发 `staggerIn`，它为选定的方向计算一个顺序数组，并以 `orderIndex × staggerMs` 的延迟为每个元素安排 `.in` 类：
 
 ```js
 function getOrder(n) {
@@ -31,26 +31,26 @@ function staggerIn(items) {
 }
 ```
 
-The order array holds a *rank* per item, not a target — item `i` waits `order[i] × staggerMs`. Center-out works by using distance-from-center as the rank, so the middle items (rank 0) fire first.
+顺序数组为每个元素保存一个*名次*，而不是目标——元素 `i` 等待 `order[i] × staggerMs`。从中间向外是把离中心的距离作为名次，所以中间的元素（名次 0）最先触发。
 
-`later()` is `setTimeout` that also remembers its timer. A group plays once, when half of it is in the box or its bottom edge has come into the box. The observers watch the group's items, not the section around them, so the cascade starts while the items are on screen instead of while they are still below the box; a threshold every 5% makes them report on the way, so a quick jump to the end is still noticed; a group less than half in view whose bottom edge is still below the box waits, hidden, until more of it scrolls in. Back to top, pressing Play with the box already at its end, and changing a setting all call `rebuild()` at once, which cancels the timers still waiting, builds the three groups again hidden and attaches fresh observers, so a group half in the box, or with its bottom edge in it, plays at once with the current settings. The observers report on the next frame, after the box has jumped to the top, so the finished groups are never drawn there. The last group ends with 80px of padding, more than the 20px an item sits low before it appears; without it the hidden items would stretch the scroll length and give it back as they arrive, and a script that reads the length once (as the demo's Play button does) would aim at an end that is not there.
+`later()` 是会记住自己定时器的 `setTimeout`。一组只播放一次，在它一半进入盒子、或它的底边进入盒子时。观察者盯着组的项目，而不是周围的区域，所以级联在项目出现在屏幕上时就开始，而不是在它们还在盒子下面时；每 5% 一个阈值让它们在途中报告，所以直接跳到结尾也会被注意到；不到一半在视野内、底边还在盒子下面的一组会藏着等待，直到更多部分滚进来。回到顶部、在盒子已经到底时按播放、以及改设置都会立刻调用 `rebuild()`，它取消还在等待的定时器，重新构建三组（隐藏状态）并挂上新的观察者，所以一半在盒子内、或底边在盒子内的组会立刻按当前设置播放。观察者在下一帧报告，此时盒子已经跳回顶部，所以完成后的组永远不会画在顶部。最后一组末尾有 80px 内边距，比元素出现前低坐的 20px 更多；没有它，隐藏的元素会拉长滚动长度，又在它们到达时还回去，而只读一次长度的脚本（像演示的播放按钮那样）会瞄准一个不存在的终点。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Delay between items | Medium | The wait before each next item: short is 30ms, medium 50ms and long 80ms; 40 to 60ms reads as a sweep, and under 30ms the items seem to arrive together. These values suit the demo's grid of 12 small items; a few large cards need a longer wait, about 100 to 150ms, to come in visibly one after another |
-| Order | First to last | Which item goes first: first to last, last to first, from the middle outward, or a random order each time |
+| 元素之间的延迟 | 中等 | 每个下一个元素之前的等待：短是 30ms，中等 50ms，长 80ms；40 到 60ms 读起来像一次扫过，低于 30ms 元素看起来像同时到达。这些值适合演示里 12 个小元素的网格；几张大卡片需要更长的等待，约 100 到 150ms，才能明显一个接一个出现 |
+| 顺序 | 从第一个到最后一个 | 哪个元素先出现：从第一个到最后一个、从最后一个到第一个、从中间向外，或每次随机 |
 
-## Production notes
-- **Delay vs. duration**: the stagger delay is the gap between items; each item's own transition duration is separate. Both matter — a 50ms stagger with a 400ms transition means the group overlaps heavily, which usually looks best.
-- **Cap the total**: on long lists, `delay × count` grows without bound and the tail feels sluggish. Clamp the effective delay so the whole cascade lands in ~600ms regardless of item count.
-- **Below 30ms reads as simultaneous**: if the eye can't separate the items, you've paid for stagger and gotten none of its benefit. Above ~100ms a long list starts to drag, though a few large cards need about that much to read as one after another.
-- **`setTimeout` vs. CSS `transition-delay`**: this demo uses timers so direction can change at runtime; a static cascade can instead set `transition-delay: calc(var(--i) * 50ms)` per item and avoid JS entirely.
-- **Reduced motion**: transitions are disabled under `prefers-reduced-motion`, so each item simply appears at its turn, without moving — the stagger is decorative, never load-bearing.
-- **Library equivalents**: GSAP's `stagger` property (including `from: "center"` and `"random"`) is the direct analog; Framer Motion uses `staggerChildren` on a parent variant; Motion One exposes a `stagger()` helper.
+## 生产注意事项
+- **延迟与时长**：交错延迟是元素之间的间隔；每个元素自身的过渡时长是另外的。两者都重要——50ms 交错配 400ms 过渡意味着整组大量重叠，通常最好看。
+- **给总时长封顶**：在长列表上，`delay × count` 会无限制增长，尾巴感觉拖沓。把有效延迟钳制住，让整个级联无论元素多少都在约 600ms 内落定。
+- **低于 30ms 读起来像同时出现**：如果眼睛分不开这些元素，你为交错付了代价却没得到它的好处。超过约 100ms，长列表开始拖沓，不过几张大卡片需要差不多这么多才能读出一个接一个。
+- **`setTimeout` 与 CSS `transition-delay`**：这个演示用定时器，是为了方向可以在运行时改变；静态级联可以改为给每个元素设 `transition-delay: calc(var(--i) * 50ms)`，完全不用 JS。
+- **减弱动态效果**：在 `prefers-reduced-motion` 下过渡被禁用，所以每个元素只是在轮到它时简单出现，不移动——交错是装饰性的，从不承担结构作用。
+- **库的等价实现**：GSAP 的 `stagger` 属性（包括 `from: "center"` 和 `"random"`）是直接对应的；Framer Motion 在父变体上用 `staggerChildren`；Motion One 提供一个 `stagger()` 辅助函数。
 
-## See also
-- [Reveal on Scroll](../reveal-on-scroll/) — one element appears as it crosses a line
-- [Fly-in Fly-out Contact List](../fly-in-fly-out-contact-list/) — rows fade and slide as they near the edges
-- [Stacking Cards](../stacking-cards/) — cards pile into a deck as you scroll
-- [Snap Scrolling](../snap-scrolling/) — the box settles on one section at a time
+## 另见
+- [滚动显现](../reveal-on-scroll/) — 一个元素越过一条线时出现
+- [联系人列表飞入飞出](../fly-in-fly-out-contact-list/) — 行在靠近边缘时淡入淡出、滑入滑出
+- [层叠卡片](../stacking-cards/) — 卡片滚动时叠成一摞
+- [滚动吸附](../snap-scrolling/) — 盒子一次停在一个区域上

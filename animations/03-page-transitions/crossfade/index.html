@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crossfade Transition — Animation Handbook</title>
-  <meta name="description" content="The old page fades out as the new one fades in. Best for calm page changes.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/crossfade/">
+  <title>交叉淡入淡出过渡 — 动画手册</title>
+  <meta name="description" content="旧页面淡出，新页面同时淡入。最适合平静的页面切换。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/03-page-transitions/crossfade/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Crossfade Transition — Animation Handbook">
-  <meta property="og:description" content="The old page fades out as the new one fades in. Best for calm page changes.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/crossfade/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="交叉淡入淡出过渡 — 动画手册">
+  <meta property="og:description" content="旧页面淡出，新页面同时淡入。最适合平静的页面切换。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/03-page-transitions/crossfade/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Crossfade Transition — Animation Handbook">
-  <meta name="twitter:description" content="The old page fades out as the new one fades in. Best for calm page changes.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Crossfade Transition", "name": "Crossfade Transition", "description": "The old page fades out as the new one fades in. Best for calm page changes.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/crossfade/", "inLanguage": "en", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Crossfade Transition"}</script>
+  <meta name="twitter:title" content="交叉淡入淡出过渡 — 动画手册">
+  <meta name="twitter:description" content="旧页面淡出，新页面同时淡入。最适合平静的页面切换。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "交叉淡入淡出过渡", "name": "交叉淡入淡出过渡", "description": "旧页面淡出，新页面同时淡入。最适合平静的页面切换。", "url": "https://animation.xizanghuapi.cn/animations/03-page-transitions/crossfade/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 交叉淡入淡出过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -100,90 +100,90 @@
       .stage[data-hb-mode="compare"] .pc{justify-content:flex-start}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../morph-transition/" rel="prev" aria-label="Previous: Morph Transition"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Morph Transition</span></a><a href="../slide-transition/" rel="next" aria-label="Next: Slide Transition"><span><span class="hb-dir">Next: </span>Slide Transition</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../morph-transition/" rel="prev" aria-label="上一个：变形过渡"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>变形过渡</span></a><a href="../slide-transition/" rel="next" aria-label="下一个：滑动过渡"><span><span class="hb-dir">下一个：</span>滑动过渡</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.04 · Page Transitions</p>
-    <h1>Crossfade Transition</h1>
-    <p class="hb-lede">The old page fades out as the new one fades in. Best for calm page changes.</p>
+    <p class="hb-cat">03.04 · 页面切换</p>
+    <h1>交叉淡入淡出过渡</h1>
+    <p class="hb-lede">旧页面淡出，新页面同时淡入。最适合平静的页面切换。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click Work or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「工作」或「关于」，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
       <div class="box" id="box">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"></nav>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
         <div class="page-area" id="page-area">
           <span class="frame fo" aria-hidden="true"></span><span class="frame fn" aria-hidden="true"></span>
-          <div class="caps g-old" aria-hidden="true"><span class="cap" data-hb-caption>Old page: fades out</span><span class="cap" id="l-order" data-hb-caption>They fade at the same time</span></div>
-          <div class="caps g-new" aria-hidden="true"><span class="cap" data-hb-caption>New page: fades in</span><span class="cap" id="l-len" data-hb-caption>The fade takes half a second</span></div>
+          <div class="caps g-old" aria-hidden="true"><span class="cap" data-hb-caption>旧页面：淡出</span><span class="cap" id="l-order" data-hb-caption>同时淡入淡出</span></div>
+          <div class="caps g-new" aria-hidden="true"><span class="cap" data-hb-caption>新页面：淡入</span><span class="cap" id="l-len" data-hb-caption>淡入淡出耗时半秒</span></div>
         </div>
       </div>
-      <p class="cap side first" aria-hidden="true" data-hb-caption>Switches at once</p>
-      <p class="cap side second" aria-hidden="true" data-hb-caption>Fades across</p>
+      <p class="cap side first" aria-hidden="true" data-hb-caption>立即切换</p>
+      <p class="cap side second" aria-hidden="true" data-hb-caption>淡入淡出</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the old and new page are pulled apart, so each one's own fade shows; with Together, where they overlap you see the blend. Click Work or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Switches at once simply changes page; Fades across fades the old page out and the new one in. Click Work or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，旧页面和新页面被拉开，各自的淡入淡出都能看到；用「同时」时，重叠处能看到混合效果。点「工作」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「立即切换」只是换页；「淡入淡出」则是旧页面淡出、新页面淡入。点「工作」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="order-lbl">Fade order</p>
+        <p class="hb-setting-name" id="order-lbl">淡入淡出顺序</p>
         <div class="seg" id="order-seg" role="group" aria-labelledby="order-lbl">
-          <button type="button" data-mode="true" class="on" aria-pressed="true">Together</button>
-          <button type="button" data-mode="seq" aria-pressed="false">One after the other</button>
+          <button type="button" data-mode="true" class="on" aria-pressed="true">同时</button>
+          <button type="button" data-mode="seq" aria-pressed="false">一个接一个</button>
         </div>
-        <p class="hb-hint">Together, both pages show at half strength midway.</p>
+        <p class="hb-hint">用「同时」时，两页在中途都半透明。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="800" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="500" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="300" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="800" aria-pressed="false">慢</button>
+          <button type="button" data-ms="500" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="300" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the whole fade takes.</p>
+        <p class="hb-hint">整个淡入淡出需要多长时间。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="feel-lbl">Feel</p>
+          <p class="hb-setting-name" id="feel-lbl">感觉</p>
           <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-            <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-            <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">Gentle</button>
-            <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+            <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+            <button type="button" data-ease="ease-in-out" class="on" aria-pressed="true">轻柔</button>
+            <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
           </div>
-          <p class="hb-hint">Even keeps one steady pace, the plainest fade.</p>
+          <p class="hb-hint">「均匀」保持一个稳定的速度，是最朴素的淡入淡出。</p>
         </div>
       </div>
     </details>
@@ -192,46 +192,46 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a crossfade between [the pages or views you want to switch between]. Stack the old and the new page in exactly the same place, then fade the old one out and the new one in. When the two fades run together, both pages are half visible for a moment and blend; one after the other, a short blank moment falls between them. Nothing moves; only how see-through each page is changes. It is the calmest page change and suits content that has no order. If the visitor has reduced motion turned on, switch pages instantly. Match the settings listed below.</p>
+      <p class="hb-prompt">在[你想切换的页面或视图]之间加上交叉淡入淡出。把旧页面和新页面叠在完全相同的位置，然后让旧页面淡出、新页面淡入。两个淡入淡出同时进行时，两页会有一瞬间都半透明并混合在一起；一个接一个时，中间会有一段短暂的空白。什么都不动，只有每页的透明度在变。这是最平静的页面切换，适合没有顺序的内容。如果访客开启了减弱动态效果，就直接换页。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Tabs</li><li>Image galleries</li><li>Content swaps</li><li>Calm sites</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Step-by-step flows</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>标签页</li><li>图片画廊</li><li>内容切换</li><li>平静的网站</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>分步流程</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PAGES=[
-    {name:'Home',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it. Every pixel considered.</p></div>`},
-    {name:'Work',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div><div><b>3</b><span>Continents</span></div></div></div>`},
+    {name:'首页',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it. Every pixel considered.</p></div>`},
+    {name:'工作',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div><div><b>3</b><span>Continents</span></div></div></div>`},
   ];
   const nav=document.getElementById('nav'),area=document.getElementById('page-area'),slowTog=document.getElementById('slow-tog');
   const motionOk=!window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -262,10 +262,10 @@
   const noteIn=document.querySelector('[data-hb-for="inside"]'),noteCmp=document.querySelector('[data-hb-for="compare"]');
   // Under reduced motion both views are still pictures, and their notes say so
   const STILL={
-    inside:{true:'Shown still: the old and new page pulled apart, each caught part way through its fade, and their blend where they overlap.',
-      seq:'Shown still: the old and new page pulled apart; the old one has almost faded out, and the new one, an empty frame, waits its turn.'},
-    compare:{true:'Shown still: Switches at once shows just one page; Fades across is caught part way, the old page fading out as the new one fades in.',
-      seq:'Shown still: Switches at once shows just one page; Fades across is caught part way, the old page almost gone before the new one starts.'}};
+    inside:{true:'静止画面：旧页面和新页面被拉开，各自停在淡入淡出半途，重叠处能看到混合效果。',
+      seq:'静止画面：旧页面和新页面被拉开；旧页面几乎淡出完了，新页面还是一个空框，等着轮到它。'},
+    compare:{true:'静止画面：「立即切换」只显示一个页面；「淡入淡出」停在半途，旧页面正在淡出，新页面正在淡入。',
+      seq:'静止画面：「立即切换」只显示一个页面；「淡入淡出」停在半途，旧页面几乎消失，新页面还没开始。'}};
   function write(el,text){if(el.textContent!==text)el.textContent=text}
 
   // Drops a timer's id once it fires, so `timers` only holds the ones still waiting.
@@ -387,8 +387,8 @@
   function pose(){
     // The length of the whole fade in plain words, three times as long in slow motion
     const ms=dur*(slowTog.checked?3:1);
-    write(lblLen,'The fade takes '+(ms===500?'half a second':(ms/1000).toFixed(1)+' seconds'));
-    write(lblOrder,mode==='true'?'They fade at the same time':'The new one waits its turn');
+    write(lblLen,'淡入淡出耗时'+(ms===500?'半秒':(ms/1000).toFixed(1)+' 秒'));
+    write(lblOrder,mode==='true'?'同时淡入淡出':'新页面等前一个淡出');
     if(!motionOk){write(noteIn,STILL.inside[mode]);write(noteCmp,STILL.compare[mode])}
     if(view==='normal'||animating||wayBack){lift();return}
     posed=true;

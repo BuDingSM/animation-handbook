@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snap Scrolling — Animation Handbook</title>
-  <meta name="description" content="The box settles on one whole section at a time. Best for slides and galleries.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/snap-scrolling/">
+  <title>滚动吸附 — 动画手册</title>
+  <meta name="description" content="盒子一次停在一个完整区域上。最适合幻灯片和画廊。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/snap-scrolling/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Snap Scrolling — Animation Handbook">
-  <meta property="og:description" content="The box settles on one whole section at a time. Best for slides and galleries.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/snap-scrolling/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="滚动吸附 — 动画手册">
+  <meta property="og:description" content="盒子一次停在一个完整区域上。最适合幻灯片和画廊。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/snap-scrolling/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Snap Scrolling — Animation Handbook">
-  <meta name="twitter:description" content="The box settles on one whole section at a time. Best for slides and galleries.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Snap Scrolling", "name": "Snap Scrolling", "description": "The box settles on one whole section at a time. Best for slides and galleries.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/snap-scrolling/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Snap Scrolling"}</script>
+  <meta name="twitter:title" content="滚动吸附 — 动画手册">
+  <meta name="twitter:description" content="盒子一次停在一个完整区域上。最适合幻灯片和画廊。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滚动吸附", "name": "滚动吸附", "description": "盒子一次停在一个完整区域上。最适合幻灯片和画廊。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/snap-scrolling/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 滚动吸附"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -85,59 +85,59 @@
     /* Reduced motion: no smooth-scroll animation, no dot tweening */
     @media(prefers-reduced-motion:reduce){.scroller{scroll-behavior:auto!important}.dot::before{transition:none!important}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../pin-animation/" rel="prev" aria-label="Previous: Pin Animation"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Pin Animation</span></a><a href="../scrollytelling/" rel="next" aria-label="Next: Scrollytelling"><span><span class="hb-dir">Next: </span>Scrollytelling</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../pin-animation/" rel="prev" aria-label="上一个：固定动画"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>固定动画</span></a><a href="../scrollytelling/" rel="next" aria-label="下一个：滚动叙事"><span><span class="hb-dir">下一个：</span>滚动叙事</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.10 · Scroll-Based</p>
-    <h1>Snap Scrolling</h1>
-    <p class="hb-lede">The box settles on one whole section at a time. Best for slides and galleries.</p>
+    <p class="hb-cat">01.10 · 滚动驱动</p>
+    <h1>滚动吸附</h1>
+    <p class="hb-lede">盒子一次停在一个完整区域上。最适合幻灯片和画廊。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box and let go: it settles on the nearest section. Press Play and it glides through without snapping.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动然后松手：它停在最近的区域上。按「播放」，它会滑过而不吸附。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
-      <div class="scroller" id="scroller" data-hb-scroller data-snap="mandatory" tabindex="0" role="region" aria-label="Five sections that the box snaps to"><div class="snap-rail"><div class="snap-dots" id="snap-dots"></div><i class="tick"></i><p class="say say-stop" data-hb-caption>A stop lines up here</p><p class="say say-rule" data-hb-caption>Past a dashed line, it settles on the next</p><p class="half" data-hb-caption>Always snaps</p></div></div>
+      <div class="scroller" id="scroller" data-hb-scroller data-snap="mandatory" tabindex="0" role="region" aria-label="盒子吸附的五个区域"><div class="snap-rail"><div class="snap-dots" id="snap-dots"></div><i class="tick"></i><p class="say say-stop" data-hb-caption>一个停靠点在这里对齐</p><p class="say say-rule" data-hb-caption>越过虚线，它停在下一个</p><p class="half" data-hb-caption>总是吸附</p></div></div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, solid lines mark where the box can stop, each section's top, and past a dashed middle line it settles on the next one. Scroll the box a little and let go.</p>
-      <p data-hb-for="compare" hidden>No snapping rests wherever you let go; Always snaps settles on the nearest whole section. Scroll either box a little and let go.</p>
+      <p data-hb-for="inside" hidden>在内部，实线标记盒子能停的地方，即每个区域的顶部，越过中间的虚线后它停在下一个上。滚动盒子一点然后松手。</p>
+      <p data-hb-for="compare" hidden>不吸附停在你松手的任何地方；总是吸附停在最近的完整区域上。两个盒子都滚动一点然后松手。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="snap-lbl">Snapping</p>
+        <p class="hb-setting-name" id="snap-lbl">吸附</p>
         <div class="seg" id="snap-seg" role="group" aria-labelledby="snap-lbl">
-          <button type="button" data-snap="mandatory" class="on" aria-pressed="true">Always</button>
-          <button type="button" data-snap="proximity" aria-pressed="false">When close</button>
-          <button type="button" data-snap="off" aria-pressed="false">Off</button>
+          <button type="button" data-snap="mandatory" class="on" aria-pressed="true">总是</button>
+          <button type="button" data-snap="proximity" aria-pressed="false">靠近时</button>
+          <button type="button" data-snap="off" aria-pressed="false">关</button>
         </div>
-        <p class="hb-hint">Scroll by hand to see it; Play glides without snapping.</p>
+        <p class="hb-hint">用手滚动看看；播放会滑过而不吸附。</p>
       </div>
     </div>
   </section>
@@ -145,48 +145,48 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add snap scrolling to [your page of full-height sections, slides or gallery]. Make each section exactly as tall as the scrolling area and mark its top as a snap point, so that, as the settings choose, the view settles on the nearest section instead of stopping between two. Use the browser's built-in scroll snapping rather than a script. Add small dots that show which section is in view and take the visitor to a section when pressed. Check scrolling with the arrow keys too, because strict snapping can feel stiff there. If the visitor has reduced motion turned on, let the view settle without a smooth glide. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的全高区域、幻灯片或画廊页面]加上滚动吸附。让每个区域与滚动区域一样高，把它的顶部标为吸附点，这样按设置选择，视图停在最近的区域上，而不是停在两个之间。用浏览器内置的滚动吸附，而不是脚本。加上小圆点，显示哪个区域在视野里，按下就带访客去那个区域。也用方向键检查滚动，因为严格的吸附在那里可能感觉生硬。如果访客开启了减弱动态效果，让视图停下时不要平滑滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Slides</li><li>Galleries</li><li>Onboarding</li><li>Full-screen sections</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Long articles</li><li>Uneven sections</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>幻灯片</li><li>画廊</li><li>新手引导</li><li>全屏区域</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>长文章</li><li>不均匀的区域</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const SECTIONS=[
-    {num:'01',title:'Pages, not pixels',      bg:'linear-gradient(160deg,#050e08,#0c2820)',accent:'#3fb950',type:'hero',   sub:'Snap scrolling turns one long scroll into a few set stops. Each section is a place to land.'},
-    {num:'02',title:'Magnetic edges',         bg:'linear-gradient(160deg,#060a10,#0a1628)',accent:'#58a6ff',type:'default',sub:'Stop scrolling and the box pulls itself to the nearest section.'},
-    {num:'03',title:'A page at a time',       bg:'linear-gradient(160deg,#0a0610,#1a0c28)',accent:'#bf91f3',type:'stats',  sub:'Design in whole sections, not an endless strip. Each stop is a chapter.'},
-    {num:'04',title:'"The feeling of deliberate motion is hard to achieve with code alone."',bg:'linear-gradient(160deg,#100806,#281808)',accent:'#ffa657',type:'quote',sub:'— on scroll design'},
-    {num:'05',title:"That's the whole trick", bg:'linear-gradient(160deg,#060810,#0c1020)',accent:'#79c0ff',type:'default',sub:'The browser does the pulling. Nothing has to be timed or scripted.'},
+    {num:'01',title:'按页，不按像素',      bg:'linear-gradient(160deg,#050e08,#0c2820)',accent:'#3fb950',type:'hero',   sub:'滚动吸附把一次长滚动变成几个固定的停靠点。每个区域都是一个落点。'},
+    {num:'02',title:'磁性边缘',         bg:'linear-gradient(160deg,#060a10,#0a1628)',accent:'#58a6ff',type:'default',sub:'停止滚动，盒子自己拉到最近的区域。'},
+    {num:'03',title:'一次一页',       bg:'linear-gradient(160deg,#0a0610,#1a0c28)',accent:'#bf91f3',type:'stats',  sub:'按完整区域设计，而不是无尽的长条。每个停靠点都是一章。'},
+    {num:'04',title:'“仅靠代码很难实现刻意运动的感觉。”',bg:'linear-gradient(160deg,#100806,#281808)',accent:'#ffa657',type:'quote',sub:'——论滚动设计'},
+    {num:'05',title:'诀窍就是这个', bg:'linear-gradient(160deg,#060810,#0c1020)',accent:'#79c0ff',type:'default',sub:'浏览器负责拉动。不需要计时或写脚本。'},
   ];
   const scroller=document.getElementById('scroller'),snapDots=document.getElementById('snap-dots');
   SECTIONS.forEach((s,i)=>{
@@ -196,11 +196,11 @@
       inner+=`<div class="pull-quote" style="color:${s.accent}">${s.title}</div><div class="quote-attr">${s.sub}</div>`;
     } else {
       inner+=`<div class="sec-title">${s.title}</div><div class="sec-sub">${s.sub}</div>`;
-      if(s.type==='stats') inner+=`<div class="stats"><div class="stat"><div class="stat-val" style="color:${s.accent}">5</div><div class="stat-label">Sections</div></div><div class="stat"><div class="stat-val" style="color:${s.accent}">5</div><div class="stat-label">Resting points</div></div><div class="stat"><div class="stat-val" style="color:${s.accent}">0</div><div class="stat-label">Stops in between</div></div></div>`;
+      if(s.type==='stats') inner+=`<div class="stats"><div class="stat"><div class="stat-val" style="color:${s.accent}">5</div><div class="stat-label">区域</div></div><div class="stat"><div class="stat-val" style="color:${s.accent}">5</div><div class="stat-label">停靠点</div></div><div class="stat"><div class="stat-val" style="color:${s.accent}">0</div><div class="stat-label">中间的停靠点</div></div></div>`;
     }
     sec.innerHTML=inner;scroller.appendChild(sec);
     const dot=document.createElement('button');dot.type='button';dot.className='dot'+(i===0?' active':'');
-    dot.setAttribute('aria-label','Section '+(i+1));
+    dot.setAttribute('aria-label','第 '+(i+1)+' 个区域');
     if(i===0)dot.setAttribute('aria-current','true');
     // no behavior: the box's own scroll-behavior decides, so this glides, or jumps under reduced motion
     dot.addEventListener('click',()=>scroller.scrollTo({top:i*scroller.clientHeight}));
@@ -229,25 +229,25 @@
   // scroll by hand, so it is not inert; it has no ids, no dots and no tab stop, and screen readers skip it.
   const copy=document.createElement('div');
   copy.className='scroller copy';copy.tabIndex=-1;copy.setAttribute('aria-hidden','true');
-  copy.innerHTML='<div class="snap-rail"><p class="half" data-hb-caption>No snapping</p></div>';
+  copy.innerHTML='<div class="snap-rail"><p class="half" data-hb-caption>不吸附</p></div>';
   scroller.querySelectorAll('.section').forEach(s=>copy.appendChild(s.cloneNode(true)));
   scroller.before(copy);
   const ruleSay=scroller.querySelector('.say-rule'),half=scroller.querySelector('.half');
   const insideNote=document.querySelector('[data-hb-for="inside"]'),compareNote=document.querySelector('[data-hb-for="compare"]');
   // The words for each Snapping choice: See inside's label, the right box's name and the two notes
   const WORDS={
-    mandatory:{rule:'Past a dashed line, it settles on the next',half:'Always snaps',
-      inside:"Inside, solid lines mark where the box can stop, each section's top, and past a dashed middle line it settles on the next one. Scroll the box a little and let go.",
-      compare:'No snapping rests wherever you let go; Always snaps settles on the nearest whole section. Scroll either box a little and let go.'},
-    proximity:{rule:'It settles only inside a shaded band',half:'Snaps when close',
-      inside:"Inside, solid lines mark the stops, and the box settles on one only if its top is in that stop's shaded band when you let go. Scroll the box a little and let go.",
-      compare:'No snapping rests wherever you let go; Snaps when close settles on a section only when you stop near one. Scroll either box a little and let go.'},
-    off:{rule:'Snapping is off: it rests anywhere',half:'Snapping off',
-      inside:'Inside, faint lines mark where the box could stop, but with Snapping off it rests wherever you let go. Scroll the box a little and let go.',
-      compare:'Snapping is set to Off, so No snapping and Snapping off both rest wherever you let go. Pick another Snapping in Try it, then scroll either box a little and let go.'}
+    mandatory:{rule:'越过虚线，它停在下一个',half:'总是吸附',
+      inside:'在内部，实线标记盒子能停的地方，即每个区域的顶部，越过中间的虚线后它停在下一个上。滚动盒子一点然后松手。',
+      compare:'不吸附停在你松手的任何地方；总是吸附停在最近的完整区域上。两个盒子都滚动一点然后松手。'},
+    proximity:{rule:'只在阴影带里才停下',half:'靠近时吸附',
+      inside:'在内部，实线标记停靠点，只有松手时盒子顶部在该停靠点的阴影带里，它才会停在上面。滚动盒子一点然后松手。',
+      compare:'不吸附停在你松手的任何地方；靠近时吸附只在你停在某个区域附近时才停在上面。两个盒子都滚动一点然后松手。'},
+    off:{rule:'吸附已关：它停在任何地方',half:'吸附已关',
+      inside:'在内部，淡线标记盒子能停的地方，但吸附关了，它就停在你松手的任何地方。滚动盒子一点然后松手。',
+      compare:'吸附设为“关”，所以不吸附和吸附已关都停在你松手的任何地方。在“试一试”里选另一个吸附，再滚动两个盒子一点然后松手。'}
   };
-  const NAMES={normal:'Five sections that the box snaps to',inside:'Five sections that the box snaps to, with lines where it can stop',
-    compare:'Five sections that the box snaps to, beside a copy that does not snap'};
+  const NAMES={normal:'盒子吸附的五个区域',inside:'盒子吸附的五个区域，附带它能停的地方的线',
+    compare:'盒子吸附的五个区域，旁边是不吸附的副本'};
   let mode='normal',following=0;
   // Play marks the box while it scrolls it (and the shared stylesheet turns snapping off for that while)
   const playing=()=>'hbAutoscrolling' in scroller.dataset;

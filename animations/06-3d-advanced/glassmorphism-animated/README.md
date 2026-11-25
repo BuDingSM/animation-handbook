@@ -1,18 +1,18 @@
-# Glassmorphism Animated
+# 动态毛玻璃
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/glassmorphism-animated/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/glassmorphism-animated/)
 
-## What it is
-Glassmorphism styles a card as frosted glass: a see-through tint, a blur of whatever sits behind it, and a thin light edge. It only works when something colorful moves behind the glass, so the demo drifts soft color blobs behind three cards: one with a still frost, one whose blur breathes, and one whose tint slowly changes.
+## 它是什么
+动态毛玻璃把卡片做成磨砂玻璃：半透明的着色、身后东西的模糊，和一条细细的亮边。只有玻璃后面有彩色的东西在动时它才成立，所以演示在三张卡片后面漂着柔和的彩色色块：一张是静止的磨砂，一张的模糊会呼吸，一张的着色会慢慢变化。
 
-## When to use it
-- SaaS dashboards and product landing pages where glass cards display metrics or features
-- Modal dialogs that sit over a blurred version of the underlying content
-- Navigation overlays and sidebars with blurred backdrop
-- Any dark-themed UI where depth between layers must be communicated without heavy borders
+## 什么时候用
+- SaaS 仪表盘和产品落地页，玻璃卡片展示指标或功能
+- 盖在底层内容模糊版之上的弹窗
+- 带模糊背景的导航叠加层和侧边栏
+- 任何深色主题界面，层与层之间的深度需要传达出来，又不想用粗边框
 
-## How it works
-Three CSS properties create the glass effect:
+## 工作原理
+三个 CSS 属性做出玻璃效果：
 
 ```css
 .glass-card {
@@ -25,7 +25,7 @@ Three CSS properties create the glass effect:
 }
 ```
 
-**Animated blur** cycles the `backdrop-filter` value via `@keyframes`:
+**动态模糊**用 `@keyframes` 循环改变 `backdrop-filter` 的值：
 
 ```css
 @keyframes blur-breath {
@@ -34,7 +34,7 @@ Three CSS properties create the glass effect:
 }
 ```
 
-**Animated background blobs** — pure CSS keyframe motion that gives the glass something interesting to blur:
+**动态背景色块**——纯 CSS 关键帧运动，让玻璃后面有值得模糊的东西：
 
 ```css
 .blob {
@@ -52,7 +52,7 @@ Three CSS properties create the glass effect:
 }
 ```
 
-**A pattern behind the glass** makes the frost visible. Colors that are already a soft blur leave the glass nothing to soften, so Light, Medium and Heavy frost would look alike. The demo puts a faint pattern of white dots between the colors and the cards. Each card blurs the dots behind it: Off leaves them sharp, Light softens them and Heavy smears them almost away. The pattern fades out toward the edges of the stage, so most of the stage still reads as soft color:
+**玻璃后面的图案**让磨砂看得见。本来就柔和模糊的颜色留给玻璃的东西不多，所以「轻」「中等」「重」三档磨砂看起来会差不多。演示在颜色和卡片之间放了一层淡淡的白点图案。每张卡片模糊身后的圆点：「关」让它们保持清晰，「轻」让它们变柔和，「重」几乎把它们抹掉。图案向舞台边缘渐渐淡出，所以舞台的大部分仍然是柔和的颜色：
 
 ```css
 .stage::after {
@@ -65,7 +65,7 @@ Three CSS properties create the glass effect:
 }
 ```
 
-**A dark layer under the text** keeps the words readable. Bright colors pass behind the glass, and white text over them can fall well under the 4.5:1 contrast that small text needs. Each card has a see-through dark layer that sits above the tint and the blurred backdrop and below the text (the card's `z-index` gives the layer's `z-index: -1` a place inside the card):
+**文字下面的一层深色**让文字保持可读。明亮的颜色从玻璃后面经过，白字压在上面时，对比度可能远低于小文字需要的 4.5:1。每张卡片都有一层半透明的深色，位于着色和模糊背景之上、文字之下（卡片的 `z-index` 给这层的 `z-index: -1` 在卡片内留了位置）：
 
 ```css
 .glass-card::before {
@@ -78,29 +78,29 @@ Three CSS properties create the glass effect:
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Frost | Medium | How strongly the glass blurs what is behind it: light is 6px, medium 12px and heavy 20px; off shows the cards with no blur, to compare |
-| Tint strength | Medium | How much color the glass adds: faint fills it with the tint color at 6% strength, medium at 12% and strong at 25% |
-| Speed | Normal | How long the colors behind take to drift through one path: slow is 13s, normal 8s and fast 5s |
-| Tint color | Blue | The color of the glass |
-| Breathing frost | on | The middle card's blur grows from 8px to 20px and back every 4 seconds |
-| Shifting tint | on | The right card's tint moves through blue, green, purple and orange every 8 seconds |
+| 磨砂程度 | 中等 | 玻璃把身后的东西模糊到什么程度：轻是 6px，中等 12px，重是 20px；关是不模糊卡片，用来对比 |
+| 着色强度 | 中等 | 玻璃加了多少颜色：淡淡是以 6% 的强度填充着色，中等 12%，强烈 25% |
+| 速度 | 普通 | 身后的颜色漂完一条路径要多长时间：慢是 13 秒，普通 8 秒，快是 5 秒 |
+| 玻璃颜色 | 蓝色 | 玻璃的颜色 |
+| 呼吸磨砂 | 开 | 中间卡片的模糊每 4 秒从 8px 变大到 20px 再回来 |
+| 变色 | 开 | 右边卡片的着色每 8 秒依次经过蓝色、绿色、紫色和橙色 |
 
-## Production notes
-- **`backdrop-filter` is GPU-expensive**: the browser must capture a snapshot of everything behind the element and blur it every frame. On large glass surfaces or low-end hardware this causes frame drops. Keep glass cards small; avoid full-screen glass overlays.
-- **`-webkit-` prefix still required**: Safari needs `-webkit-backdrop-filter` even in 2024. Include both the prefixed and unprefixed property.
-- **The backdrop must have content**: `backdrop-filter` blurs what is behind the element. If the background is a solid color, the blur does nothing — the glass looks like dirty plastic. Colorful, high-contrast content behind the glass is required for the effect to be visible.
-- **Frost needs detail behind it to show**: a blur of soft color changes little as the amount grows, so a Frost setting can look as if it does nothing. Put something with edges behind the glass, such as a pattern, shapes or an image, as the demo does with its dots.
-- **Keep the text readable**: measure the contrast of the text against what is really behind it, at several moments of the animation, not against the tint. The demo darkens the glass under the text with a see-through layer, so every text stays at 4.5:1 or better, even over the brightest colors.
-- **Dark mode**: glassmorphism requires a dark-enough background to read as glass rather than a white haze. The effect works better on dark themes.
-- **Changing the length of a running animation**: a new `animation-duration` puts a running CSS animation at a different point of its cycle, so it jumps. The demo makes its negative delays fractions of the duration and multiplies each blob's `currentTime` by the new length divided by the old one, so a change of Speed keeps every blob where it is.
-- **Compare with the blur off**: the demo's Frost setting has an Off choice. If the page is noticeably faster without the blur, reconsider the design.
-- **No library needed**: `backdrop-filter` is plain CSS, and so are the drifting blobs behind the glass; Framer Motion or GSAP only help when the glass has to move in step with the rest of the page.
+## 生产注意事项
+- **`backdrop-filter` 很耗 GPU**：浏览器每帧都要把元素身后的所有东西截一张快照再模糊。大面积玻璃或低端硬件上会掉帧。玻璃卡片保持小巧；避免全屏玻璃叠加层。
+- **仍需要 `-webkit-` 前缀**：Safari 即使在 2024 年也需要 `-webkit-backdrop-filter`。带前缀和不带前缀的属性都要写。
+- **背景必须有内容**：`backdrop-filter` 模糊的是元素身后的东西。如果背景是纯色，模糊什么也不做——玻璃看起来像脏塑料。玻璃后面需要色彩丰富、对比强的内容，效果才看得见。
+- **磨砂需要身后的细节来显现**：柔和颜色的模糊随程度增长变化很小，所以「磨砂程度」设置看起来可能像没起作用。在玻璃后面放带边缘的东西，比如图案、形状或图片，演示就是用圆点这样做的。
+- **保持文字可读**：在动画的几个时刻，测量文字相对真正身后内容的对比度，而不是相对着色。演示用一层半透明的深色把玻璃在文字下面压暗，所以每段文字即使压在最亮的颜色上也保持 4.5:1 或更好。
+- **深色模式**：毛玻璃需要足够深的背景，读起来才是玻璃而不是白雾。在深色主题上效果更好。
+- **改动运行中动画的长度**：新的 `animation-duration` 会把运行中的 CSS 动画放到周期的另一个点上，于是它会跳一下。演示把负延迟写成时长的分数，并把每个色块的 `currentTime` 乘以新长度除以旧长度，所以改「速度」时每个色块都留在原地。
+- **与关掉模糊对比**：演示的「磨砂程度」设置里有「关」这一档。如果关掉模糊后页面明显更快，就要重新考虑这个设计。
+- **不需要库**：`backdrop-filter` 是纯 CSS，玻璃后面漂移的色块也是纯 CSS；只有玻璃要和页面的其余部分同步移动时，Framer Motion 或 GSAP 才帮得上忙。
 
-## See also
-- [Mesh Gradient Animation](../../07-ambient-background/mesh-gradient/) — soft color blobs drifting as a background
-- [WebGL Shader Animation](../webgl-shader-animation/) — moving color drawn on the graphics chip
-- [Modal Expand](../../04-micro-interactions/modal-expand/) — a dialog, where frosted glass often appears
-- [Liquid Glass](../liquid-glass/) — clear glass that bends what is behind it at its edges instead of blurring it
+## 另见
+- [网格渐变](../../07-ambient-background/mesh-gradient/) — 作为背景漂移的柔和彩色色块
+- [WebGL 着色器动画](../webgl-shader-animation/) — 在显卡上画出的流动颜色
+- [弹窗展开](../../04-micro-interactions/modal-expand/) — 弹窗，磨砂玻璃常出现的地方
+- [液态玻璃](../liquid-glass/) — 透明玻璃，在边缘弯曲身后的东西而不是模糊它

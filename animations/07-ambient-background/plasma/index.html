@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plasma Field — Animation Handbook</title>
-  <meta name="description" content="Smooth waves of color flow endlessly, made from math. Best for creative sites.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/plasma/">
+  <title>等离子场 — 动画手册</title>
+  <meta name="description" content="平滑的色彩波浪无尽流动，全部由数学生成。最适合创意网站。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/07-ambient-background/plasma/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Plasma Field — Animation Handbook">
-  <meta property="og:description" content="Smooth waves of color flow endlessly, made from math. Best for creative sites.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/plasma/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="等离子场 — 动画手册">
+  <meta property="og:description" content="平滑的色彩波浪无尽流动，全部由数学生成。最适合创意网站。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/07-ambient-background/plasma/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Plasma Field — Animation Handbook">
-  <meta name="twitter:description" content="Smooth waves of color flow endlessly, made from math. Best for creative sites.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Plasma Field", "name": "Plasma Field", "description": "Smooth waves of color flow endlessly, made from math. Best for creative sites.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/07-ambient-background/plasma/", "inLanguage": "en", "articleSection": "Ambient & Background", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Ambient & Background, Plasma Field"}</script>
+  <meta name="twitter:title" content="等离子场 — 动画手册">
+  <meta name="twitter:description" content="平滑的色彩波浪无尽流动，全部由数学生成。最适合创意网站。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "等离子场", "name": "等离子场", "description": "平滑的色彩波浪无尽流动，全部由数学生成。最适合创意网站。", "url": "https://animation.xizanghuapi.cn/animations/07-ambient-background/plasma/", "inLanguage": "zh-CN", "articleSection": "氛围与背景", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 氛围与背景, 等离子场"}</script>
   <style>
     :root{--ui-accent:#ffce5a}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -33,97 +33,97 @@
     @media(max-width:600px){.stage[data-hb-mode="inside"] .cap.in.pic{display:none}}
     @media(max-width:360px){.cap{font-size:12px;padding:3px 7px}.cap.second{left:calc(50% + 6px)}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="loop">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../matrix-rain/" rel="prev" aria-label="Previous: Matrix Rain"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Matrix Rain</span></a><a href="../wave-layers/" rel="next" aria-label="Next: Wave Layers"><span><span class="hb-dir">Next: </span>Wave Layers</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../matrix-rain/" rel="prev" aria-label="上一个：矩阵雨"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>矩阵雨</span></a><a href="../wave-layers/" rel="next" aria-label="下一个：波浪层"><span><span class="hb-dir">下一个：</span>波浪层</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">07.17 · Ambient &amp; Background</p>
-    <h1>Plasma Field</h1>
-    <p class="hb-lede">Smooth waves of color flow endlessly, made from math. Best for creative sites.</p>
+    <p class="hb-cat">07.17 · 氛围与背景</p>
+    <h1>等离子场</h1>
+    <p class="hb-lede">平滑的色彩波浪无尽流动，全部由数学生成。最适合创意网站。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Watch it</h2><p>It moves by itself. Pause it to look closely, or turn on slow motion to see each part of the movement.</p></div>
+      <div><h2 id="hb-watch-title">看效果</h2><p>它自己会动。点「暂停」仔细看看，或打开慢动作，看清运动的每个部分。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
       <canvas id="c" aria-hidden="true"></canvas>
-      <p class="cap in tiles" aria-hidden="true" data-hb-caption>Four simple waves, each on its own</p>
-      <p class="cap in strip" aria-hidden="true" data-hb-caption>Added up, they pick a color from this strip</p>
-      <p class="cap in spot" aria-hidden="true" data-hb-caption>This spot's total</p>
-      <p class="cap in pic" aria-hidden="true" data-hb-caption>Drawn this small, then stretched to fill the box</p>
-      <p class="cap half first" aria-hidden="true" data-hb-caption>One wave</p>
-      <p class="cap half second" aria-hidden="true" data-hb-caption>Four waves</p>
+      <p class="cap in tiles" aria-hidden="true" data-hb-caption>四道简单的波，各自独立</p>
+      <p class="cap in strip" aria-hidden="true" data-hb-caption>加起来，从这条色带里选一个颜色</p>
+      <p class="cap in spot" aria-hidden="true" data-hb-caption>这个位置的总和</p>
+      <p class="cap in pic" aria-hidden="true" data-hb-caption>画得这么小，再拉伸填满盒子</p>
+      <p class="cap half first" aria-hidden="true" data-hb-caption>一道波</p>
+      <p class="cap half second" aria-hidden="true" data-hb-caption>四道波</p>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">Pause</span></button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-pause" data-hb-pause data-state="playing"><svg class="hb-ic hb-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><svg class="hb-ic hb-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9z"/></svg><span class="hb-pause-label">暂停</span></button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the colors come from four simple waves added together: the gray tiles show each one alone. At every spot their total picks a color from the strip.</p>
-      <p data-hb-for="compare" hidden>On the left, One wave is a single wave, so it makes plain stripes. On the right, Four waves adds up waves running four ways, so the colors blend into soft blobs.</p>
+      <p data-hb-for="inside" hidden>内部画面里，颜色来自四道简单波相加：灰色小块单独展示每一道波。在每个位置，它们的总和从色带里选一个颜色。</p>
+      <p data-hb-for="compare" hidden>左边是一道波：只有一道波，所以形成朴素的条纹。右边是四道波：把朝四个方向跑的波加起来，颜色就混合成柔和的色块。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting and see the difference as it moves.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，看看动起来有什么不同。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-speed="0.6" aria-pressed="false">Slow</button>
-          <button type="button" data-speed="1" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-speed="1.6" aria-pressed="false">Fast</button>
+          <button type="button" data-speed="0.6" aria-pressed="false">慢</button>
+          <button type="button" data-speed="1" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-speed="1.6" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">Slow drifts calmly; fast churns.</p>
+        <p class="hb-hint">慢速平静地漂移；快速翻腾。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Pattern size</p>
+        <p class="hb-setting-name" id="size-lbl">图案大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-scale="1.6" aria-pressed="false">Small</button>
-          <button type="button" data-scale="1" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-scale="0.6" aria-pressed="false">Large</button>
+          <button type="button" data-scale="1.6" aria-pressed="false">小</button>
+          <button type="button" data-scale="1" class="on" aria-pressed="true">中等</button>
+          <button type="button" data-scale="0.6" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Large shapes feel soft; small ones feel busy.</p>
+        <p class="hb-hint">大图形感觉柔和；小的感觉繁忙。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="color-lbl">Colors</p>
+        <p class="hb-setting-name" id="color-lbl">颜色</p>
         <div class="seg" id="color-seg" role="group" aria-labelledby="color-lbl">
-          <button type="button" data-pal="neon" class="on" aria-pressed="true">Neon</button>
-          <button type="button" data-pal="sunset" aria-pressed="false">Sunset</button>
-          <button type="button" data-pal="ocean" aria-pressed="false">Ocean</button>
-          <button type="button" data-pal="mono" aria-pressed="false">Rose</button>
+          <button type="button" data-pal="neon" class="on" aria-pressed="true">霓虹</button>
+          <button type="button" data-pal="sunset" aria-pressed="false">日落</button>
+          <button type="button" data-pal="ocean" aria-pressed="false">海洋</button>
+          <button type="button" data-pal="mono" aria-pressed="false">玫瑰</button>
         </div>
-        <p class="hb-hint">The set of colors the field flows through.</p>
+        <p class="hb-hint">色彩场流转经过的一组颜色。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="detail-lbl">Detail</p>
+          <p class="hb-setting-name" id="detail-lbl">细节</p>
           <div class="seg" id="detail-seg" role="group" aria-labelledby="detail-lbl">
-            <button type="button" data-px="96" aria-pressed="false">Low</button>
-            <button type="button" data-px="140" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-px="200" aria-pressed="false">High</button>
+            <button type="button" data-px="96" aria-pressed="false">低</button>
+            <button type="button" data-px="140" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-px="200" aria-pressed="false">高</button>
           </div>
-          <p class="hb-hint">Sharper detail costs more; phones use at most Medium.</p>
+          <p class="hb-hint">细节越清晰越耗性能；手机上最多用中等。</p>
         </div>
       </div>
     </details>
@@ -132,41 +132,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a plasma background to [the section you want it behind]. For every point, add up a few waves based on its position and on time (across, down, diagonally and outward from the center) and use the sum to pick a color from a smooth palette, so the whole field flows like liquid color. To keep it fast, draw the field into a small image and scale it up smoothly to fill the section, using a smaller image on phones. If the visitor has reduced motion turned on, show one still frame. Match the settings listed below.</p>
+      <p class="hb-prompt">给[想要作为背景的区域]加上等离子背景。对每个点，把几道基于位置和时间的波加起来（横向、纵向、对角线和从中心向外），用总和从平滑的调色板里选一个颜色，这样整个色彩场就像液体一样流动。为了保持速度，把色彩场画进一张小图里，再平滑放大填满整个区域，手机上用更小的图。如果访客开启了减弱动态效果，就显示一帧静止画面。 按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Music and creative sites</li><li>Hero sections</li><li>Loading screens</li><li>Retro themes</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Serious content</li><li>Long reading pages</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>音乐和创意网站</li><li>主视觉区</li><li>加载画面</li><li>复古主题</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>严肃内容</li><li>长文阅读页</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const view=document.getElementById('c'),vctx=view.getContext('2d');
   const stage=document.querySelector('.stage');

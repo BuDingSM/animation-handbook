@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parallax Scrolling — Animation Handbook</title>
-  <meta name="description" content="Far layers move slower than near ones as you scroll. Best for hero scenes.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/parallax-scrolling/">
+  <title>视差滚动 — 动画手册</title>
+  <meta name="description" content="远处的图层比近处的移动得更慢。最适合主视觉场景。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/parallax-scrolling/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Parallax Scrolling — Animation Handbook">
-  <meta property="og:description" content="Far layers move slower than near ones as you scroll. Best for hero scenes.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/parallax-scrolling/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="视差滚动 — 动画手册">
+  <meta property="og:description" content="远处的图层比近处的移动得更慢。最适合主视觉场景。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/parallax-scrolling/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Parallax Scrolling — Animation Handbook">
-  <meta name="twitter:description" content="Far layers move slower than near ones as you scroll. Best for hero scenes.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Parallax Scrolling", "name": "Parallax Scrolling", "description": "Far layers move slower than near ones as you scroll. Best for hero scenes.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/parallax-scrolling/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Parallax Scrolling"}</script>
+  <meta name="twitter:title" content="视差滚动 — 动画手册">
+  <meta name="twitter:description" content="远处的图层比近处的移动得更慢。最适合主视觉场景。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "视差滚动", "name": "视差滚动", "description": "远处的图层比近处的移动得更慢。最适合主视觉场景。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/parallax-scrolling/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 视差滚动"}</script>
   <style>
     :root{--ui-accent:#6ea8ff}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -77,37 +77,37 @@
     /* Under reduced motion no layer moves, so each start outline would lie exactly on its card's edge: none is drawn */
     @media(prefers-reduced-motion:reduce){.stage[data-hb-mode="inside"] .start{display:none}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
-<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="The layers stay still while the box scrolls">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../parallax-depth-of-field/" rel="prev" aria-label="Previous: Parallax Depth-of-Field"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Parallax Depth-of-Field</span></a><a href="../reverse-scrolling-columns/" rel="next" aria-label="Next: Reverse-Scrolling Columns"><span><span class="hb-dir">Next: </span>Reverse-Scrolling Columns</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="盒子滚动时图层保持不动">
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../parallax-depth-of-field/" rel="prev" aria-label="上一个：视差景深"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>视差景深</span></a><a href="../reverse-scrolling-columns/" rel="next" aria-label="下一个：反向滚动列"><span><span class="hb-dir">下一个：</span>反向滚动列</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.02 · Scroll-Based</p>
-    <h1>Parallax Scrolling</h1>
-    <p class="hb-lede">Far layers move slower than near ones as you scroll. Best for hero scenes.</p>
+    <p class="hb-cat">01.02 · 滚动驱动</p>
+    <h1>视差滚动</h1>
+    <p class="hb-lede">远处的图层比近处的移动得更慢。最适合主视觉场景。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="A landscape in four layers that move at different speeds">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="四层以不同速度移动的风景">
       <div class="scene">
         <div class="frame">
           <div class="layers" id="main">
-            <p class="side" data-hb-caption>With parallax</p>
+            <p class="side" data-hb-caption>有视差</p>
 
             <!-- L1: Sky + stars -->
             <span class="start s1" aria-hidden="true"></span>
@@ -131,7 +131,7 @@
                 <circle cx="420" cy="96"  r="1"   fill="#fff" opacity=".4"/>
                 <circle cx="640" cy="116" r=".8"  fill="#fff" opacity=".3"/>
               </svg>
-              <span class="tag" data-hb-caption><b>Sky</b><span></span><i></i></span>
+              <span class="tag" data-hb-caption><b>天空</b><span></span><i></i></span>
             </div>
 
             <!-- L2: Distant ridge -->
@@ -142,7 +142,7 @@
                   points="0,380 60,258 130,298 220,208 310,268 400,193
                           490,243 580,213 660,253 740,223 800,236 800,600 0,600"/>
               </svg>
-              <span class="tag" data-hb-caption><b>Hills</b><span></span><i></i></span>
+              <span class="tag" data-hb-caption><b>远山</b><span></span><i></i></span>
             </div>
 
             <!-- L3: Pine treeline -->
@@ -155,7 +155,7 @@
                           540,270 580,294 635,280 675,304 720,287 760,310
                           800,294 800,600 0,600"/>
               </svg>
-              <span class="tag" data-hb-caption><b>Trees</b><span></span><i></i></span>
+              <span class="tag" data-hb-caption><b>树林</b><span></span><i></i></span>
             </div>
 
             <!-- L4: Foreground grass -->
@@ -170,7 +170,7 @@
                 <ellipse cx="500" cy="508" rx="65" ry="16" fill="#040c07"/>
                 <ellipse cx="700" cy="502" rx="55" ry="14" fill="#040c07"/>
               </svg>
-              <span class="tag" data-hb-caption><b>Grass</b><span></span><i></i></span>
+              <span class="tag" data-hb-caption><b>草地</b><span></span><i></i></span>
             </div>
 
           </div>
@@ -178,30 +178,30 @@
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the picture is four flat layers, each with a faint outline where it started: the far ones move least and the near grass most. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>Without parallax (left), every layer moves the same and the picture looks flat; With parallax (right), each moves its own amount and it looks deep. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，图片是四个扁平图层，每个图层都有一个淡淡的轮廓标出它的起点：远处的移动最少，近处的草地移动最多。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>无视差（左侧）时，每层移动得一样，图片看起来是平的；有视差（右侧）时，每层移动各自的距离，看起来有深度。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="depth-lbl">Depth</p>
+        <p class="hb-setting-name" id="depth-lbl">深度</p>
         <div class="seg" id="depth-seg" role="group" aria-labelledby="depth-lbl">
-          <button type="button" data-depth="flat" aria-pressed="false">Flat</button>
-          <button type="button" data-depth="shallow" aria-pressed="false">Shallow</button>
-          <button type="button" data-depth="normal" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-depth="deep" aria-pressed="false">Deep</button>
+          <button type="button" data-depth="flat" aria-pressed="false">平</button>
+          <button type="button" data-depth="shallow" aria-pressed="false">浅</button>
+          <button type="button" data-depth="normal" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-depth="deep" aria-pressed="false">深</button>
         </div>
-        <p class="hb-hint">Deep spreads the layers' speeds; Flat moves them as one.</p>
+        <p class="hb-hint">深会拉开各图层的速度；平让它们像一个整体移动。</p>
       </div>
     </div>
   </section>
@@ -209,41 +209,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a parallax scene to [your hero section or illustration]. Split the scene into layers from far to near, such as sky, hills, trees and ground, and hold it in place while the visitor scrolls through a taller section. As they scroll, move each layer by its own amount, as the settings choose; usually the farthest layer barely moves and the nearest moves most, which makes the flat picture feel deep. Base the movement on how far through the section the visitor has scrolled, so it starts and stops at the same place every time. If the visitor has reduced motion turned on, keep every layer still. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的主视觉区域或插画]加一个视差场景。把场景从远到近分成图层，比如天空、远山、树林和地面，访客滚动经过一个更高的区域时把它固定在原地。滚动时，让每个图层按各自的幅度移动，具体按设置来；通常最远的图层几乎不动，最近的移动最多，这样扁平的图片就有了深度。根据访客滚过这个区域的进度来移动，每次开始和结束都在同一个地方。如果访客开启了减弱动态效果，让每个图层都保持不动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Hero scenes</li><li>Landing pages</li><li>Story sections</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Text-heavy pages</li><li>Forms</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>主视觉场景</li><li>落地页</li><li>故事段落</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>文字密集的页面</li><li>表单</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   // Speed multipliers of the sky, ridge, trees and grass under each Depth choice
   const DEPTHS = {
@@ -266,7 +266,7 @@
   twin.setAttribute('aria-hidden', 'true');
   twin.querySelector('linearGradient').id = 'sky-twin';
   twin.querySelector('rect[fill="url(#sky)"]').setAttribute('fill', 'url(#sky-twin)');
-  twin.querySelector('.side').textContent = 'Without parallax';
+  twin.querySelector('.side').textContent = '无视差';
   main.before(twin);
   const copies   = twin.querySelectorAll('.layer');
   const LAYERS   = DEPTHS.normal.map((s, i) => {
@@ -275,9 +275,9 @@
   });
   const motionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
   const LABELS = {
-    normal:  'A landscape in four layers that move at different speeds',
-    inside:  'The landscape pulled apart into its four layers, each labeled with how much it moves',
-    compare: 'Two copies of the landscape side by side, without parallax on the left and with parallax on the right',
+    normal:  '四层以不同速度移动的风景',
+    inside:  '四层风景拆开的样子，每层标出它移动多少',
+    compare: '同一片风景并排出现两次：左边没有视差，右边有视差',
   };
   const insideNote  = document.querySelector('[data-hb-for="inside"]');
   const compareNote = document.querySelector('[data-hb-for="compare"]');
@@ -309,20 +309,20 @@
   // the still picture shows instead of asking the visitor to watch.
   const NOTES = {
     moving: {
-      inside:  'Inside, the picture is four flat layers, each with a faint outline where it started: the far ones move least and the near grass most. Scroll the box or press Play to watch.',
-      compare: 'Without parallax (left), every layer moves the same and the picture looks flat; With parallax (right), each moves its own amount and it looks deep. Scroll the box or press Play to watch.',
+      inside:  '在内部，图片是四个扁平图层，每个图层都有一个淡淡的轮廓标出它的起点：远处的移动最少，近处的草地移动最多。滚动盒子或按「播放」观看。',
+      compare: '无视差（左侧）时，每层移动得一样，图片看起来是平的；有视差（右侧）时，每层移动各自的距离，看起来有深度。滚动盒子或按「播放」观看。',
     },
     movingFlat: {
-      inside:  'Inside, the picture is four flat layers; Depth is set to Flat, so they all move the same and the picture looks flat. Scroll the box or press Play to watch.',
-      compare: 'Depth is set to Flat, so Without parallax and With parallax move the same. Pick another Depth in Try it, then scroll the box or press Play to watch.',
+      inside:  '在内部，图片是四个扁平图层；深度设为“平”，所以它们移动得一样，图片看起来是平的。滚动盒子或按「播放」观看。',
+      compare: '深度设为“平”，所以无视差和有视差移动得一样。去“试一试”里选另一个深度，再滚动盒子或按「播放」观看。',
     },
     still: {
-      inside:  'Inside, the picture is four flat layers, shown still. Each bar shows how far that layer would move: least for the far sky, most for the near grass.',
-      compare: 'Both sides are shown still, as they stand halfway down the box: Without parallax, every layer has moved the same; With parallax, each layer has moved its own amount.',
+      inside:  '在内部，图片是四个扁平图层，静止显示。每条横条表示那层会移动多远：远处的天空最少，近处的草地最多。',
+      compare: '两边都静止显示，就像滚到盒子一半时的样子：无视差时，每层都移动了同样的距离；有视差时，每层移动了各自的距离。',
     },
     stillFlat: {
-      inside:  'Inside, the picture is four flat layers, shown still. Depth is set to Flat, so every bar is the same: the layers would all move together and the picture would look flat.',
-      compare: 'Both sides are shown still, halfway down the box; Depth is set to Flat, so Without parallax and With parallax match. Pick another Depth in Try it to see the difference.',
+      inside:  '在内部，图片是四个扁平图层，静止显示。深度设为“平”，所以每条横条都一样：图层会一起移动，图片看起来是平的。',
+      compare: '两边都静止显示，停在盒子一半处；深度设为“平”，所以无视差和有视差是一样的。去“试一试”里选另一个深度，看看区别。',
     },
   };
 
@@ -333,8 +333,8 @@
     const flat   = speeds.every(s => s === speeds[0]);
     LAYERS.forEach(L => {
       const s = L.speed;
-      L.tag.querySelector('span').textContent = flat ? 'moves with the rest' : s === 0 ? 'stays still' : s === most ? 'moves most'
-        : s <= most * 0.2 ? 'barely moves' : s <= most * 0.5 ? 'moves a little' : 'moves more';
+      L.tag.querySelector('span').textContent = flat ? '和其他层一起移动' : s === 0 ? '保持不动' : s === most ? '移动最多'
+        : s <= most * 0.2 ? '几乎不动' : s <= most * 0.5 ? '移动一点' : '移动更多';
       L.tag.style.setProperty('--far', most ? s / most : 1);
     });
     const notes = NOTES[(motionMQ.matches ? 'still' : 'moving') + (flat ? 'Flat' : '')];

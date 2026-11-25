@@ -1,18 +1,18 @@
-# Text Gradient Animation
+# 文字渐变动画
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-gradient-animation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-gradient-animation/)
 
-## What it is
-Text gradient animation fills the letters with a gradient instead of a flat color, then moves the gradient behind them, so color seems to flow through the word while the letters stay still. The trick is to paint the gradient as the text's background, show that background only inside the letter shapes, and make the text color itself see-through.
+## 它是什么
+文字渐变动画用渐变而不是纯色来填充字母，然后在字母后面移动渐变，所以颜色看起来在词里流动，而字母保持静止。窍门是把渐变画成文字的背景，只在字母形状里显示这个背景，并让文字颜色本身透明。
 
-## When to use it
-- Display headlines on creative, tech, and brand sites
-- Logo animations and wordmarks
-- Status text that indicates an active or loading state via color cycling
-- Decorative display type that needs visual richness without imagery
+## 什么时候用
+- 创意、科技和品牌网站上的展示标题
+- Logo 动画和字标
+- 通过颜色循环表示活跃或加载状态的状态文字
+- 需要视觉丰富度又不需要图片的装饰展示文字
 
-## How it works
-Two CSS properties expose the background through text shapes, then a keyframe animation moves the background:
+## 工作原理
+两个 CSS 属性让背景透过文字形状显示出来，然后一个关键帧动画移动背景：
 
 ```css
 .gradient-text {
@@ -33,9 +33,9 @@ Two CSS properties expose the background through text shapes, then a keyframe an
 }
 ```
 
-The `background-size: 300%` makes the gradient wider than the element, so scrolling `background-position` shows different color sections. The last color stop matches the first, creating a seamless loop.
+`background-size: 300%` 让渐变比元素宽，所以滚动 `background-position` 会显示不同的颜色段。最后一个颜色点和第一个相同，形成无缝循环。
 
-For a gradient that turns like a color wheel, register an angle property so the browser can animate the conic gradient's starting angle:
+对于像色轮一样旋转的渐变，注册一个角度属性，让浏览器可以给锥形渐变的起始角度做动画：
 
 ```css
 @property --ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
@@ -48,30 +48,30 @@ For a gradient that turns like a color wheel, register an angle property so the 
 @keyframes spin { to { --ang: 360deg; } }
 ```
 
-For live JavaScript control (e.g., mouse position driving gradient angle):
+对于实时的 JavaScript 控制（例如用鼠标位置驱动渐变角度）：
 
 ```js
 el.style.backgroundImage = `linear-gradient(${angle}deg, ${c1}, ${c2})`;
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Gradient | Flowing | Flowing slides the colors sideways, Spinning turns them like a color wheel, Diagonal slides slanted bands, Two colors flows between two colors of your choice |
-| Speed | Normal | How long one loop takes: slow is 6.4s, normal 4s and fast 2.4s; in each loop the gradient, three times as wide as the text, slides left by twice its own width, and a spinning one turns once; slower feels calm, faster feels lively |
-| First color | Blue | With Two colors, the color the gradient starts and ends with |
-| Second color | Purple | With Two colors, the color in the middle |
-| Your text | Flow | The text the colors flow through |
+| 渐变 | 流动 | 流动是把颜色横向滑动，旋转是让它们像色轮一样转，斜向是滑动倾斜的色带，双色是在你选的两种颜色之间流动 |
+| 速度 | 普通 | 一个循环需要的时间：慢速 6.4s，普通 4s，快速 2.4s；每个循环里，三倍于文字宽的渐变向左滑动两倍于自身的宽度，旋转的转一圈；慢一点感觉平静，快一点感觉活泼 |
+| 第一种颜色 | 蓝色 | 用双色时，渐变开始和结束的颜色 |
+| 第二种颜色 | 紫色 | 用双色时，中间的颜色 |
+| 你的文字 | Flow | 颜色流过其中的文字 |
 
-## Production notes
-- **`-webkit-background-clip: text`**: the non-prefixed `background-clip: text` is now widely supported (Chrome 119+, Firefox 122+, Safari 14+), but the `-webkit-` prefix is still required for Safari compatibility across all versions. Include both.
-- **`color: transparent` is required**: `background-clip: text` clips the background to the text shape, but the text color still renders on top. Without `color: transparent`, the gradient is hidden beneath solid text color.
-- **Performance**: `background-position` animation does not use the CSS compositor and triggers paint on each frame. For long-running animations on large text, test performance on mid-range devices. `@keyframes` (vs. JS `requestAnimationFrame`) avoids the main thread.
-- **Fallback**: set a solid `color` on the element before the gradient properties. Browsers that don't support `background-clip: text` will show solid-color text rather than invisible text.
-- **Selection color**: selected text with `color: transparent` may render without a visible selection highlight in some browsers. Test selection behavior and add `::selection { color: white; background: blue; }` if needed.
-- **No library needed**: `background-clip: text` and a keyframe animation are plain CSS; GSAP can tween `backgroundPosition` instead when the sweep has to keep time with other animations.
+## 生产注意事项
+- **`-webkit-background-clip: text`**：不带前缀的 `background-clip: text` 现在已经广泛支持（Chrome 119+、Firefox 122+、Safari 14+），但 `-webkit-` 前缀在所有版本的 Safari 上仍然需要。两个都写上。
+- **必须用 `color: transparent`**：`background-clip: text` 把背景裁剪到文字形状，但文字颜色仍然会渲染在上面。没有 `color: transparent`，渐变会被藏在实色文字下面。
+- **性能**：`background-position` 动画不用 CSS 合成器，每一帧都会触发绘制。对于长时间运行在大文字上的动画，先在中端设备上测性能。`@keyframes`（而不是 JS 的 `requestAnimationFrame`）可以避开主线程。
+- **降级**：在渐变属性之前，先给元素设一个实色 `color`。不支持 `background-clip: text` 的浏览器会显示实色文字，而不是看不见的文字。
+- **选中颜色**：在有些浏览器里，`color: transparent` 的选中文字可能没有可见的选中高亮。测一下选中行为，必要时加上 `::selection { color: white; background: blue; }`。
+- **不需要库**：`background-clip: text` 和一个关键帧动画就是纯 CSS；当扫动必须和其他动画保持同步时，GSAP 可以补间 `backgroundPosition`。
 
-## See also
-- [Variable Font Morph](../variable-font-morph/) — the letters themselves change weight and lean
-- [Outline to Fill](../outline-to-fill/) — hollow letters fill with color
-- [Kinetic Typography](../kinetic-typography/) — words that each move in their own way
+## 另见
+- [可变字体变形](../variable-font-morph/) — 字母本身变字重、变倾斜
+- [描边填充](../outline-to-fill/) — 空心字填满颜色
+- [动态排版](../kinetic-typography/) — 词语逐个以各自的方式进出

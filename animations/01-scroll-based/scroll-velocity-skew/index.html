@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scroll Velocity Skew — Animation Handbook</title>
-  <meta name="description" content="Rows lean when you scroll fast and straighten when you stop. Best for galleries.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-velocity-skew/">
+  <title>滚动速度倾斜 — 动画手册</title>
+  <meta name="description" content="滚得快时行会倾斜，停下时回正。最适合画廊。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-velocity-skew/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Scroll Velocity Skew — Animation Handbook">
-  <meta property="og:description" content="Rows lean when you scroll fast and straighten when you stop. Best for galleries.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-velocity-skew/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="滚动速度倾斜 — 动画手册">
+  <meta property="og:description" content="滚得快时行会倾斜，停下时回正。最适合画廊。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-velocity-skew/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Scroll Velocity Skew — Animation Handbook">
-  <meta name="twitter:description" content="Rows lean when you scroll fast and straighten when you stop. Best for galleries.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Scroll Velocity Skew", "name": "Scroll Velocity Skew", "description": "Rows lean when you scroll fast and straighten when you stop. Best for galleries.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-velocity-skew/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Scroll Velocity Skew"}</script>
+  <meta name="twitter:title" content="滚动速度倾斜 — 动画手册">
+  <meta name="twitter:description" content="滚得快时行会倾斜，停下时回正。最适合画廊。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滚动速度倾斜", "name": "滚动速度倾斜", "description": "滚得快时行会倾斜，停下时回正。最适合画廊。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-velocity-skew/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 滚动速度倾斜"}</script>
   <style>
     :root{--ui-accent:#6ea8ff;--ui-border:rgba(255,255,255,.09)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -81,109 +81,109 @@
       width:calc(50% + var(--cg) / 2);padding:var(--pad) var(--cg) var(--pad) var(--cp);background:#111114;box-shadow:inset -1px 0 0 var(--ui-border)}
     .stage[data-hb-mode="compare"] .twin .row{margin-left:0;will-change:auto}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
-<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="The rows stay straight however fast the box scrolls">
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../text-fill-on-scroll/" rel="prev" aria-label="Previous: Text Fill on Scroll"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Text Fill on Scroll</span></a><a href="../svg-line-draw/" rel="next" aria-label="Next: SVG Line Draw on Scroll"><span><span class="hb-dir">Next: </span>SVG Line Draw on Scroll</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<body class="hb" data-hb-kind="scroll" data-hb-autoplay data-hb-motion-note="盒子滚得多快，行都保持笔直">
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../text-fill-on-scroll/" rel="prev" aria-label="上一个：滚动文字填充"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>滚动文字填充</span></a><a href="../svg-line-draw/" rel="next" aria-label="下一个：SVG 线条滚动描绘"><span><span class="hb-dir">下一个：</span>SVG 线条滚动描绘</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.23 · Scroll-Based</p>
-    <h1>Scroll Velocity Skew</h1>
-    <p class="hb-lede">Rows lean when you scroll fast and straighten when you stop. Best for galleries.</p>
+    <p class="hb-cat">01.23 · 滚动驱动</p>
+    <h1>滚动速度倾斜</h1>
+    <p class="hb-lede">滚得快时行会倾斜，停下时回正。最适合画廊。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll fast inside the box and stop, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里快速滚动然后停下，或按「播放」，它会替你滚动。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="Rows that lean as you scroll">
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="随滚动倾斜的行">
       <div class="views" aria-hidden="true" inert>
         <div class="frame" id="frame">
           <div class="graph g-in">
-            <p class="cap" data-hb-caption>Lean (up) against scroll speed (across)</p>
+            <p class="cap" data-hb-caption>倾斜（纵向）对滚动速度（横向）</p>
             <div class="plot" id="plot">
               <svg aria-hidden="true"><path class="ax" id="g-ax"/><path class="lid" id="g-lid"/><path class="ln" id="g-ln"/></svg>
               <i class="dot dot-live" id="dot-live"></i><i class="dot dot-eg" id="dot-eg"></i>
-              <p class="cap" id="c-top" data-hb-caption>The most it leans</p>
+              <p class="cap" id="c-top" data-hb-caption>最大的倾斜</p>
             </div>
-            <p class="cap c-spring" data-hb-caption>Straight again in under half a second</p>
+            <p class="cap c-spring" data-hb-caption>不到半秒就回正</p>
           </div>
-          <p class="cap c-dash" data-hb-caption>Dashed: a quick scroll's lean</p>
-          <p class="cap h-l g-cmp" data-hb-caption>Stays straight</p>
-          <p class="cap h-r g-cmp" data-hb-caption>Leans with speed</p>
+          <p class="cap c-dash" data-hb-caption>虚线：快速滚动的倾斜</p>
+          <p class="cap h-l g-cmp" data-hb-caption>保持笔直</p>
+          <p class="cap h-r g-cmp" data-hb-caption>随速度倾斜</p>
           <div class="legend g-cmp">
-            <p class="cap c-dash" id="c-limit" data-hb-caption>Dashed: a quick scroll, never past a medium lean</p>
-            <p class="cap c-spring" data-hb-caption>Straight again in under half a second</p>
+            <p class="cap c-dash" id="c-limit" data-hb-caption>虚线：快速滚动，永远不超过中等倾斜</p>
+            <p class="cap c-spring" data-hb-caption>不到半秒就回正</p>
           </div>
         </div>
       </div>
       <div class="content" id="content"></div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the graph is the rule: the faster you scroll, the more the rows lean, up to a limit. Dashed rows show a quick scroll's lean; scroll fast and stop.</p>
-      <p data-hb-for="compare" hidden>Stays straight never leans; Leans with speed tips its rows while you scroll fast and straightens when you stop, shown dashed at rest. Scroll fast and stop, or press Play.</p>
+      <p data-hb-for="inside" hidden>在内部，图表就是规则：滚得越快，行倾斜得越多，直到一个上限。虚线的行显示快速滚动的倾斜；快速滚动然后停下。</p>
+      <p data-hb-for="compare" hidden>保持笔直从不倾斜；随速度倾斜在快速滚动时让行倾斜，停下时回正，静止时用虚线显示。快速滚动然后停下，或按「播放」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="str-lbl">Strength</p>
+        <p class="hb-setting-name" id="str-lbl">强度</p>
         <div class="seg" id="str-seg" role="group" aria-labelledby="str-lbl">
-          <button type="button" data-k="0.2" aria-pressed="false">Subtle</button>
-          <button type="button" data-k="0.35" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-k="0.6" aria-pressed="false">Strong</button>
+          <button type="button" data-k="0.2" aria-pressed="false">轻微</button>
+          <button type="button" data-k="0.35" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-k="0.6" aria-pressed="false">强烈</button>
         </div>
-        <p class="hb-hint">How far the rows lean for the same scroll speed.</p>
+        <p class="hb-hint">同样的滚动速度下，行倾斜多远。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="lean-lbl">Lean</p>
+        <p class="hb-setting-name" id="lean-lbl">倾斜</p>
         <div class="seg" id="lean-seg" role="group" aria-labelledby="lean-lbl">
-          <button type="button" data-axis="skewY" class="on" aria-pressed="true">Tilt</button>
-          <button type="button" data-axis="skewX" aria-pressed="false">Slant</button>
+          <button type="button" data-axis="skewY" class="on" aria-pressed="true">倾倒</button>
+          <button type="button" data-axis="skewX" aria-pressed="false">斜切</button>
         </div>
-        <p class="hb-hint">Tilt tips each row; Slant leans it like italics.</p>
+        <p class="hb-hint">倾倒让每行倾斜；斜切让它像斜体一样倾斜。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="spring-lbl">Spring back</p>
+        <p class="hb-setting-name" id="spring-lbl">回弹</p>
         <div class="seg" id="spring-seg" role="group" aria-labelledby="spring-lbl">
-          <button type="button" data-s="0.07" aria-pressed="false">Slow</button>
-          <button type="button" data-s="0.12" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-s="0.2" aria-pressed="false">Quick</button>
+          <button type="button" data-s="0.07" aria-pressed="false">慢</button>
+          <button type="button" data-s="0.12" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-s="0.2" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How quickly the rows react and straighten again.</p>
+        <p class="hb-hint">行反应和回正的速度有多快。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="max-lbl">Most it leans</p>
+          <p class="hb-setting-name" id="max-lbl">最大的倾斜</p>
           <div class="seg" id="max-seg" role="group" aria-labelledby="max-lbl">
-            <button type="button" data-max="6" aria-pressed="false">Small</button>
-            <button type="button" data-max="12" class="on" aria-pressed="true">Medium</button>
-            <button type="button" data-max="20" aria-pressed="false">Large</button>
+            <button type="button" data-max="6" aria-pressed="false">小</button>
+            <button type="button" data-max="12" class="on" aria-pressed="true">中等</button>
+            <button type="button" data-max="20" aria-pressed="false">大</button>
           </div>
-          <p class="hb-hint">A limit, so a hard flick cannot fold the rows over.</p>
+          <p class="hb-hint">一个上限，让猛地一划也不会把行折过去。</p>
         </div>
       </div>
     </details>
@@ -192,41 +192,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a velocity skew to [the rows or cards in your list or gallery]. Measure how far the list scrolls on each frame, smooth that speed so it rises and falls gradually, and lean every row by an angle in proportion to it, up to a limit. Fast scrolling leans the rows; when the scrolling stops, the speed falls to zero and they spring back straight. Lean each row on its own rather than the whole list, and stop the frame loop once everything is still. This effect can make some people feel unwell, so if the visitor has reduced motion turned on, keep the rows straight and scroll normally. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你列表或画廊里的行或卡片]加上速度倾斜。测量列表每帧滚动了多远，平滑这个速度，让它逐渐上升和下降，再让每行按与之成比例的角度倾斜，直到一个上限。快速滚动让行倾斜；滚动停下时，速度降到零，行弹回笔直。每行各自倾斜，而不是整个列表一起倾斜；一切静止后停止帧循环。这个效果会让有些人不舒服，所以访客开启减弱动态效果时，让行保持笔直、正常滚动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Galleries</li><li>Portfolios</li><li>Project lists</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Reading content</li><li>Forms</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>画廊</li><li>作品集</li><li>项目列表</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>阅读内容</li><li>表单</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const stage=document.getElementById('stage'),content=document.getElementById('content');
   const clamp=(v,a,b)=>Math.min(Math.max(v,a),b);
@@ -313,13 +313,13 @@
   const frame=document.getElementById('frame'),plot=document.getElementById('plot'),dotLive=document.getElementById('dot-live'),dotEg=document.getElementById('dot-eg');
   const lnTop=document.getElementById('c-top'),limitCap=document.getElementById('c-limit');
   const notes=[...document.querySelectorAll('[data-hb-for]')],NOTES0=notes.map(n=>n.textContent);
-  const NOTES_RM=['Shown still: as your device asks, the rows stay straight; the dashed rows and the graph show how far a quick scroll would lean them, up to a limit.',
-    'Shown still: Stays straight never leans; in Leans with speed the dashed rows show how far a quick scroll would tip them. Here the rows stay straight.'];
-  const NAMES_VIEW={normal:stage.getAttribute('aria-label'),inside:'Rows that lean as you scroll, with a graph of lean against scroll speed and dashed rows for a quick scroll',
-    compare:'The rows twice: staying straight, and leaning with the scroll speed'};
+  const NOTES_RM=['静止显示：如你的设备所要求，行保持笔直；虚线的行和图表显示快速滚动会让它们倾斜多远，直到一个上限。',
+    '静止显示：保持笔直从不倾斜；在随速度倾斜里，虚线的行显示快速滚动会让它们倾斜多远。这里行保持笔直。'];
+  const NAMES_VIEW={normal:stage.getAttribute('aria-label'),inside:'随滚动倾斜的行，附带倾斜对滚动速度的图表和快速滚动的虚线行',
+    compare:'行出现两次：保持笔直的，以及随滚动速度倾斜的'};
   // Each Spring back as a beginner says it (95% straight again after about 0.7, 0.4 and 0.2 s), and each limit
-  const SPRING={0.07:'about three quarters of a second',0.12:'under half a second',0.2:'about a fifth of a second'};
-  const LIMIT={6:'small',12:'medium',20:'large'};
+  const SPRING={0.07:'大约四分之三秒',0.12:'不到半秒',0.2:'大约五分之一秒'};
+  const LIMIT={6:'小',12:'中等',20:'大'};
   let view='normal',poseOn=true,poseTimer=0,twin=null,G={l:0,r:0,t:0,b:0},dotAt='';
 
   const showEx=()=>view!=='normal'&&(reduce||(poseOn&&!running));
@@ -352,8 +352,8 @@
   // The words that follow the settings and reduced motion; the markup holds Medium's and Normal's, for the default state
   function words(){
     const say=(el,t)=>{if(el.textContent!==t)el.textContent=t};
-    document.querySelectorAll('.c-spring').forEach(el=>say(el,(reduce?'Would be straight again in ':'Straight again in ')+SPRING[SMOOTH]));
-    say(limitCap,`Dashed: a quick scroll, never past a ${LIMIT[MAX]} lean`);
+    document.querySelectorAll('.c-spring').forEach(el=>say(el,reduce?'本来会在'+SPRING[SMOOTH]+'后回正':SPRING[SMOOTH]+'就回正'));
+    say(limitCap,`虚线：快速滚动，永远不超过${LIMIT[MAX]}倾斜`);
     notes.forEach((n,i)=>say(n,reduce?NOTES_RM[i]:NOTES0[i]));
   }
   // Compare's left column, made once on first entry: the same rows, no outlines, inert and hidden from screen readers

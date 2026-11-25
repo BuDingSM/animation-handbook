@@ -1,18 +1,18 @@
-# Flash / Light Leak Transition
+# 闪光 / 漏光过渡
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/flash-transition/)
+[在线演示](https://animation.xizanghuapi.cn/animations/03-page-transitions/flash-transition/)
 
-## What it is
-A flash transition hides a page change inside a burst of light. A colored layer covers the page and rises to full strength, the page is swapped while it is covered, and the layer then fades away to reveal the new page. The eye reads it as one bright moment, so the swap itself is never seen — the same trick films use to hide a cut.
+## 它是什么
+闪光过渡把一次页面切换藏在一道闪光里。一层彩色层盖住页面并升到全强度，趁盖住时换页，然后这层再淡出，露出新页面。眼睛会把它读成一个明亮的瞬间，所以切换本身永远看不见——电影里藏剪切点用的也是同一个技巧。
 
-## When to use it
-- Masking a cheap or instant content swap where a crossfade would look flat
-- High-energy brand sites, product launches, and portfolio galleries that want punch
-- Music, fashion, and event pages where a light leak matches the visual language
-- Any navigation where you want the transition itself to read as a deliberate beat, not just plumbing
+## 什么时候用
+- 遮住一次廉价或即时的内容切换，交叉淡入淡出会显得平淡的地方
+- 高能量的品牌网站、产品发布和作品集画廊，想要冲击力
+- 音乐、时尚和活动页面，漏光与视觉语言相符
+- 任何你希望过渡本身读起来像一个刻意的节拍、而不只是管道的导航
 
-## How it works
-A single absolutely-positioned overlay sits above the pages at a high `z-index`. The transition runs in three phases driven by two `setTimeout` calls: fade the overlay up over `flashIn`, swap the active page at peak opacity, then fade the overlay back down over `flashOut`. The content change happens while the overlay is opaque, so it is invisible.
+## 工作原理
+一个绝对定位的覆盖层以高 `z-index` 位于页面上方。过渡分三个阶段，由两次 `setTimeout` 驱动：把覆盖层在 `flashIn` 内淡入，在不透明度峰值处换掉当前页面，再在 `flashOut` 内把覆盖层淡回。内容变化发生在覆盖层不透明的时候，所以看不见：
 
 ```js
 function doTransition(prev, next, flashIn, flashOut) {
@@ -30,24 +30,24 @@ function doTransition(prev, next, flashIn, flashOut) {
 }
 ```
 
-The fade-out sets its own transition in the same step as the new opacity, so it runs over `flashOut` rather than `flashIn`. No flash starts less than half a second after the previous one began, whatever is pressed (page names, Show me or Reset), so the demo never flashes more than twice a second; a change asked for sooner waits for that moment with the overlay clear. An optional `blur()` filter applied during the flash softens the edge and sells the light-leak feel.
+淡出在与新不透明度相同的步骤里设置自己的过渡，所以它按 `flashOut` 而不是 `flashIn` 进行。无论按什么（页面名、「演示一下」或重置），上一次闪光开始后不到半秒不会开始新的闪光，所以演示每秒闪光不超过两次；更早提出的切换会等到那个时刻，覆盖层保持透明。闪光期间可选的 `blur()` 滤镜会柔化边缘，卖出漏光的感觉。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Flash color | White | White reads as a camera flash; gold, cyan and red read as a colored light leak |
-| Speed | Normal | How fast the flash rises and fades: slow is 320ms up and 510ms down, normal 200ms and 320ms, fast 120ms and 190ms; the fade is always a little longer than the rise |
-| Flash strength | Full | How solid the flash gets: full hides the page change completely; strong (75%) and soft (50%) let it show through |
-| Blurs the flash | off | Softens the flash's edges into a glow |
+| 闪光颜色 | 白色 | 白色读起来像相机闪光灯；金色、青色和红色读起来像彩色漏光 |
+| 速度 | 普通 | 闪光升起和淡出有多快：慢是 320ms 升、510ms 降，普通 200ms 和 320ms，快 120ms 和 190ms；淡出总比升起稍长一点 |
+| 闪光强度 | 全 | 闪光变得多实：全强度完全遮住页面切换；强（75%）和柔和（50%）会让它透出来 |
+| 模糊闪光 | 关 | 把闪光的边缘柔化成辉光 |
 
-## Production notes
-- **Swap only at true peak.** If intensity drops below ~0.9 the content change becomes visible as a hard cut through the overlay. Keep peak opacity high, and only lower it deliberately for a see-through effect.
-- **Guard against re-entry.** An `animating` flag blocks new navigations mid-transition; without it a fast double-click can swap pages while the overlay is already fading and expose the seam.
-- **Accessibility.** A full-screen white flash can be uncomfortable or trigger photosensitivity. This demo hides the overlay entirely under `prefers-reduced-motion: reduce` and swaps instantly instead — do the same in production, and avoid rapid repeated flashes.
-- **Library equivalents.** The View Transitions API can reproduce this by animating a `::view-transition-group` with a flash-colored pseudo-element, though a dedicated overlay is simpler. GSAP timelines chain the fade-in, swap callback, and fade-out cleanly. Barba.js exposes `leave`/`enter` hooks that map directly onto the peak-and-reveal structure.
+## 生产注意事项
+- **只在真正的峰值换页。**如果强度降到 ~0.9 以下，内容变化会透过覆盖层显现为一次硬切。保持峰值不透明度足够高，只在刻意要透视效果时才降低它。
+- **防止重入。**一个 `animating` 标志会在过渡中途阻止新的导航；没有它，快速双击可能在覆盖层已经淡出时换页，露出接缝。
+- **无障碍。**全屏白色闪光可能让人不适或诱发光敏反应。这个演示在 `prefers-reduced-motion: reduce` 下完全隐藏覆盖层、直接切换——生产环境也要这么做，并避免快速重复的闪光。
+- **等价的库。**View Transitions API 可以用一个闪光色的伪元素给 `::view-transition-group` 做动画来复现这一点，不过专用的覆盖层更简单。GSAP 时间线能干净地串起淡入、换页回调和淡出。Barba.js 的 `leave`/`enter` 钩子直接对应峰值-揭示结构。
 
-## See also
-- [Crossfade Transition](../crossfade/) — the plain fade this dresses up
-- [Dissolve Transition](../dissolve/) — tiles hide the change instead
-- [Blur Transition](../blur-transition/) — a blur hides the change instead
-- [Portal / Tunnel Zoom](../portal-zoom/) — the next page opens out of a clicked circle
+## 另见
+- [交叉淡入淡出过渡](../crossfade/) — 它装扮起来的普通淡入淡出
+- [溶解过渡](../dissolve/) — 瓷砖藏住切换
+- [模糊过渡](../blur-transition/) — 模糊藏住切换
+- [传送门 / 隧道缩放](../portal-zoom/) — 下一页从点击的圆圈里打开

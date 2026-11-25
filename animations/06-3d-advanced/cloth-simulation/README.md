@@ -1,18 +1,18 @@
-# Cloth / Soft-Body Simulation
+# 布料模拟
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/cloth-simulation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/cloth-simulation/)
 
-## What it is
-A cloth simulation treats fabric as a grid of points joined by links of fixed length. Sixty times a second, every point keeps moving the way it was moving, plus gravity and wind, and then the links pull neighboring points back into shape. Pin a few points and the grid hangs, sways and folds like fabric, and you can grab it.
+## 它是什么
+布料模拟把布看作由固定长度的连线连起来的点网格。每秒六十次，每个点按自己原来的运动方向继续移动，再加上重力和风，然后连线把相邻的点拉回原形。固定几个点，网格就会像布一样悬挂、摇摆和折叠，还可以抓着玩。
 
-## When to use it
-- Animated flags and banners on hero sections
-- Product pages for apparel, textiles, or physical goods
-- Interactive creative experiences where users can pull and manipulate a cloth
-- Educational demonstrations of physics simulation in the browser
+## 什么时候用
+- 主视觉区的动态旗帜和横幅
+- 服装、纺织品或实物商品的产品页
+- 用户可以拉扯和摆弄一块布的互动创意体验
+- 浏览器里物理模拟的教学演示
 
-## How it works
-**Verlet integration** — each vertex updates using its own history (`dt` is the fixed step, 1/60 s):
+## 工作原理
+**Verlet 积分**——每个顶点用自己的历史更新（`dt` 是固定步长，1/60 秒）：
 
 ```js
 function integrate(dt) {
@@ -30,7 +30,7 @@ function integrate(dt) {
 }
 ```
 
-**Distance constraints** — after integration, iteratively pull connected vertices toward their rest distances:
+**距离约束**——积分之后，反复把相连的顶点拉回它们的静止距离：
 
 ```js
 function solveConstraints(iterations) {
@@ -48,7 +48,7 @@ function solveConstraints(iterations) {
 }
 ```
 
-**Fixed steps** — Verlet keeps a point's velocity as the distance it moved in the last step, so every step must be the same length. Scaling one step by the time since the last frame changes the physics, and a long step throws points further than the links can pull them back. The demo therefore always steps by 1/60 s and runs as many steps per drawn frame as the time since the last frame calls for:
+**固定步长**——Verlet 把一个点的速度记为它上一步移动的距离，所以每步必须等长。按自上一帧以来的时间拉长一步会改变物理结果，长的一步会把点甩到连线拉不回来的地方。演示因此始终以 1/60 秒为步长，按自上一帧以来的时间跑相应步数：
 
 ```js
 const STEP = 1000 / 60;                  // one physics step, in milliseconds
@@ -66,9 +66,9 @@ function frame(elapsed) {                // elapsed: ms since the last drawn fra
 }
 ```
 
-A 60 Hz screen runs one step per frame and a 30 Hz screen two. The demo draws at most once per 16 ms, so a 120 Hz screen draws every second refresh with one step, and a 144 Hz screen every third refresh (about 48 pictures a second) with one or two steps. The cloth falls and swings at the same speed on every one of them. The 1 ms of slack keeps a frame that arrives a hair early from being skipped and then paid for twice, and the cap of three steps means a device that cannot keep up makes the cloth slower instead of piling up more work.
+60 Hz 的屏幕每帧跑一步，30 Hz 的跑两步。演示最多每 16ms 画一次，所以 120 Hz 的屏幕每隔一次刷新画一帧、跑一步，144 Hz 的屏幕每隔三次刷新（每秒约 48 张图）画一帧、跑一到两步。布在每种屏幕上落下和摆动的速度都一样。1ms 的宽限让来得稍早一丝的帧不会被跳过、然后又补算两次，最多三步的上限意味着跟不上的设备只会让布变慢，而不是堆积更多工作。
 
-**Rendering** — the triangulated mesh is drawn as filled quads. Each quad is split into two triangles sharing the diagonal:
+**渲染**——三角化的网格画成填充的四边形。每个四边形沿对角线分成两个三角形：
 
 ```js
 for (let r = 0; r < ROWS; r++) {
@@ -81,28 +81,28 @@ for (let r = 0; r < ROWS; r++) {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Hangs from | Two corners | Pins the top two corners, the whole top edge, one corner, or nothing, in which case the cloth falls to the floor |
-| Wind | Medium | How hard the wind blows; it rises and falls on its own over a 12.6-second cycle: at its peak it speeds points up sideways by about 30px a second every second at light, 75px at medium and 180px at strong, and part of the time it blows back at up to about half that |
-| Stiffness | Medium | How many times each step, sixty a second, the links are pulled back to length: stretchy is 2, medium 4 and stiff 8 |
-| Gravity | Normal | How heavy the cloth is: gravity speeds a falling point up by about 17px a second every second at light, 35px at normal and 58px at heavy |
-| Detail | Medium | How many cells the cloth's grid has, with a point at every corner: low is 16 × 12, medium 24 × 18 and high 40 × 30; the cloth is cut 80% as wide as the stage and 65% as tall, so the cells take their shape from the stage: about square on a phone, but two to three times as wide as tall on a laptop; phones start at low |
-| Shows the points | off | Marks every point of the grid, with the pinned ones in red |
+| 挂在 | 两个角 | 固定顶部两个角、整条顶边、一个角，或什么都不固定，那样布会掉到地上 |
+| 风 | 中等 | 风吹得多大；风力会在 12.6 秒的周期里自行起伏：峰值时轻风每秒每秒让点横向加速约 30px，中等 75px，强烈 180px，有一段时间还会以最多约一半的力度反向吹 |
+| 硬度 | 中等 | 每步（每秒六十步）把连线拉回原长的次数：有弹性是 2 次，中等 4 次，硬挺 8 次 |
+| 重力 | 普通 | 布有多重：重力让下落的点每秒每秒加速，轻约 17px，普通 35px，重 58px |
+| 细节 | 中等 | 布的网格有多少格子，每个角上一个点：低是 16 × 12，中等 24 × 18，高是 40 × 30；布裁成舞台宽的 80%、高的 65%，所以格子的形状跟着舞台走：手机上大约是正方形，笔记本上宽是高的两到三倍；手机从低开始 |
+| 显示点 | 关 | 标出网格上的每个点，固定住的点是红色的 |
 
-## Production notes
-- **Verlet vs explicit Euler**: explicit Euler integration stores velocity explicitly and adds it to position on every step. Verlet integration is more numerically stable for constrained systems — cloth springs don't "explode" as easily at large time steps.
-- **Fixed time step**: one step per drawn frame makes the cloth fall twice as fast on a 120 Hz screen and half as fast on a 30 Hz phone, and stretching a step to the length of the frame changes what Verlet computes. Step by a fixed 1/60 s from an accumulator, as above, and draw once per frame.
-- **Bending constraints**: for realistic cloth, add shear constraints (diagonal neighbors) and bending constraints (one vertex apart). This demo uses structural constraints only (immediate neighbors) for simplicity.
-- **GPU cloth simulation**: AAA games simulate cloth on the GPU using compute shaders (DirectX/Vulkan/Metal) or GPGPU passes (same ping-pong texture technique as the GPGPU particle demo). WebGPU enables this in browsers as of Chrome 113+.
-- **Cannon.js / Rapier.js**: JavaScript physics engines that include cloth/soft-body simulation with more accuracy and more constraint types. Rapier (Rust/WASM) is the fastest modern option.
-- **Self-collision**: this demo does not prevent cloth from passing through itself (self-intersection). Self-collision detection is O(n²) and requires spatial hashing or BVH acceleration structures.
-- **Performance**: at 40×30 (1,271 points, 2,470 links, 4 passes = 9,880 link corrections a step) a phone-class CPU manages about 17 frames a second (one step and one drawing each), and 24×18 about 47. The demo starts at 16×12 on phones (screens 600px wide or less, or 500px tall or less), where it holds 60; its Detail setting still lets you pick more.
-- **Canvas resolution**: the backing store is sized to `devicePixelRatio` (capped at 2) and the context is scaled to match, so the mesh stays crisp on phones without paying for a 3× framebuffer.
+## 生产注意事项
+- **Verlet 与显式欧拉**：显式欧拉积分把速度显式存下来，每步加到位置上。Verlet 积分对受约束的系统数值上更稳定——大步长下布的弹簧不那么容易“炸开”。
+- **固定时间步长**：每绘制一帧走一步，布在 120 Hz 的屏幕上会落两倍快，在 30 Hz 的手机上慢一半，而把一步拉长到一帧的长度会改变 Verlet 的计算结果。像上面那样从累加器里按固定 1/60 秒走步，每帧画一次。
+- **弯曲约束**：要做出真实的布，加上剪切约束（对角邻居）和弯曲约束（隔一个顶点）。演示为简单起见只用结构约束（直接邻居）。
+- **GPU 布料模拟**：3A 游戏用计算着色器（DirectX/Vulkan/Metal）或 GPGPU 通道（与 GPGPU 粒子系统演示相同的乒乓纹理技术）在 GPU 上模拟布料。Chrome 113+ 起浏览器里可用 WebGPU 实现。
+- **Cannon.js / Rapier.js**：包含布料/软体模拟的 JavaScript 物理引擎，精度更高、约束类型更多。Rapier（Rust/WASM）是目前最快的选择。
+- **自碰撞**：演示不阻止布穿过自身（自相交）。自碰撞检测是 O(n²)，需要空间哈希或 BVH 加速结构。
+- **性能**：40×30（1271 个点、2470 条连线，每步 4 遍 = 9880 次连线修正）时，手机级 CPU 每秒约 17 帧（每帧一步一画），24×18 时约 47 帧。演示在手机（宽 600px 及以下，或高 500px 及以下）上从 16×12 开始，那里能保持 60 帧；「细节」设置仍然可以选更多。
+- **画布分辨率**：后备存储按 `devicePixelRatio`（封顶 2）设置，上下文相应缩放，这样网格在手机上依然清晰，又不用付出 3 倍帧缓冲的代价。
 
-## See also
-- [GPGPU Particle System](../gpgpu-particle-system/) — physics moved to the graphics chip
-- [Noise-Based Motion](../noise-based-motion/) — natural movement from noise instead of physics
-- [Canvas Particle Effect](../canvas-particle-effect/) — simpler physics for loose particles
-- [2D Physics](../physics-2d/) — solid balls that fall, bounce and pile up
+## 另见
+- [GPGPU 粒子系统](../gpgpu-particle-system/) — 移到显卡上的物理
+- [噪声驱动运动](../noise-based-motion/) — 用噪声代替物理的自然运动
+- [Canvas 粒子效果](../canvas-particle-effect/) — 给松散粒子用的更简单的物理
+- [2D 物理](../physics-2d/) — 落下、弹跳、堆积的实心球

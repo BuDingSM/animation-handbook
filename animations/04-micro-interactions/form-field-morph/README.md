@@ -1,18 +1,18 @@
-# Form Field Morph
+# 表单字段变形
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/form-field-morph/)
+[在线演示](https://animation.xizanghuapi.cn/animations/04-micro-interactions/form-field-morph/)
 
-## What it is
-Form field morph, also called a floating label, starts with each field's label inside the field, like a placeholder. When you click into the field or type in it, the label moves up and shrinks, so it stays visible above your text instead of disappearing the way a placeholder does.
+## 它是什么
+表单字段变形，也叫浮动标签，一开始每个字段的标签都在字段里面，像占位符一样。点击字段或在里面输入时，标签上移并缩小，始终可见地待在文字上方，而不是像占位符那样消失。
 
-## When to use it
-- Any form where screen space is limited and a separate `<label>` above each input would be too tall
-- Sign-up, sign-in, and checkout forms
-- Settings pages where many fields appear in a compact list
-- Mobile forms where vertical space is at a premium
+## 什么时候用
+- 屏幕空间有限、每个输入框上方再放一个单独的 `<label>` 会太高的任何表单
+- 注册、登录和结账表单
+- 很多字段排成紧凑列表的设置页
+- 纵向空间紧张的移动端表单
 
-## How it works
-The label is positioned absolutely inside the field container, overlapping the input at placeholder height. On focus (or when the input is filled), it transforms upward using `translateY` and `scale`:
+## 工作原理
+标签绝对定位在字段容器里面，和占位符高度的输入框重叠。获得焦点时（或输入框填满时），它用 `translateY` 和 `scale` 向上变换：
 
 ```css
 :root {
@@ -52,7 +52,7 @@ The label is positioned absolutely inside the field container, overlapping the i
 }
 ```
 
-The `.filled` class is toggled in JavaScript by checking that the input holds text other than spaces, both while typing and when the field loses focus — this keeps the label floated when the user leaves a filled field:
+`.filled` 类在 JavaScript 里切换，检查输入框里是否有空格以外的文字，输入时和字段失去焦点时都检查——这样用户离开填满的字段时，标签保持浮起：
 
 ```js
 function syncFilled() {
@@ -62,9 +62,9 @@ input.addEventListener('input', syncFilled);
 input.addEventListener('blur', syncFilled);
 ```
 
-In the demo, Show me plays the effect by adding an `is-demo` class to a field instead of moving your focus, so the focus rules there list it next to `:focus-within`. You do not need it in your own form.
+演示里，「演示一下」通过给字段加 `is-demo` 类来播放效果，而不是移动你的焦点，所以那里的焦点规则把它列在 `:focus-within` 旁边。你自己的表单里不需要它。
 
-A CSS-only alternative uses `:placeholder-shown` (the placeholder is visible only when the field is empty):
+纯 CSS 的替代做法用 `:placeholder-shown`（占位符只在字段为空时可见）：
 
 ```css
 input:not(:placeholder-shown) ~ label,
@@ -73,24 +73,24 @@ input:focus ~ label {
 }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Speed | Normal | How long the label takes to move: slow is 320ms, normal 200ms and fast 120ms; slower feels heavy on a form with many fields |
-| How far it rises | Medium | How far the label moves up on the underlined fields: low is 16px, medium 22px and high 28px; it must clear the typed text |
-| Size when raised | Medium | How big the raised label is on the underlined fields: small is 70%, medium 80% and large 90% of its size |
-| Focus color | Blue | The color of the raised label and the active line or border |
+| 速度 | 普通 | 标签移动要花多长时间：慢是 320ms，普通 200ms，快 120ms；字段多的表单上慢了感觉沉重 |
+| 上升多少 | 中等 | 下划线字段上标签上移多远：低是 16px，中等 22px，高是 28px；必须盖住输入的文字 |
+| 升起时大小 | 中等 | 下划线字段上升起的标签有多大：小是 70%，中等 80%，大是它大小的 90% |
+| 聚焦颜色 | 蓝色 | 升起的标签和活动的线条或边框的颜色 |
 
-## Production notes
-- **The filled-state retention bug**: the most common mistake is animating on `:focus-within` alone. When the user tabs to the next field, the label snaps back even though the field is filled. Always combine with a filled class or `:placeholder-shown`.
-- **Placeholder text conflict**: floating labels and placeholder text serve the same purpose — don't use both. If using floating labels, leave the `placeholder` attribute blank or set it to a single space `" "` (needed for `:placeholder-shown` CSS detection).
-- **Box style variant**: the demo includes a box-style (Material-style) floating label where the label floats inside the border, not above it. This works better with bordered inputs than underline-only inputs.
-- **`transform-origin: left center`**: without this, the label scales from its center, shifting position horizontally.
-- **Accessibility**: always use a real `<label>` element (not `aria-label` or `placeholder` alone). Screen readers announce the label text; `placeholder` text is not reliably announced.
-- **React Hook Form + Floating UI**: common pairing in production. The float state is controlled via `formState.dirtyFields` or watched field values.
+## 生产注意事项
+- **填满状态保留的 bug**：最常见的错误是只在 `:focus-within` 上做动画。用户按 Tab 到下一个字段时，即使字段填满了，标签也会弹回去。一定要结合填满类或 `:placeholder-shown`。
+- **占位符文字冲突**：浮动标签和占位符文字用途相同——不要两个都用。用浮动标签时，把 `placeholder` 属性留空，或设为一个空格 `" "`（`:placeholder-shown` 的 CSS 检测需要它）。
+- **方框样式变体**：演示里有方框样式（Material 风格）的浮动标签，标签在边框里面浮动，而不是在上面。这对带边框的输入框比只用下划线的输入框更好。
+- **`transform-origin: left center`**：没有它，标签会从中心缩放，水平位置会漂移。
+- **无障碍**：始终用真正的 `<label>` 元素（不要只用 `aria-label` 或 `placeholder`）。读屏软件会播报标签文字；`placeholder` 文字不一定会被播报。
+- **React Hook Form + Floating UI**：生产里常见的搭配。浮动状态由 `formState.dirtyFields` 或监听的字段值控制。
 
-## See also
-- [Focus Ring Animation](../focus-ring/) — a ring shows which item the keyboard is on
-- [Toggle / Switch Slide](../toggle-switch/) — a switch slides between on and off
-- [Accordion Open/Close](../accordion/) — a panel opens and closes smoothly
-- [Expanding Search](../expanding-search/) — a search icon opens into a field you can type in
+## 另见
+- [焦点环动画](../focus-ring/) — 显示键盘在哪个项目上的圆环
+- [开关滑动](../toggle-switch/) — 在开和关之间滑动的开关
+- [手风琴展开/收起](../accordion/) — 平滑打开和收起的面板
+- [搜索框展开](../expanding-search/) — 搜索图标打开成可以输入的字段

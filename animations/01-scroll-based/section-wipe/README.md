@@ -1,18 +1,18 @@
-# Section Wipe
+# 区域擦除切换
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/section-wipe/)
+[在线演示](https://animation.xizanghuapi.cn/animations/01-scroll-based/section-wipe/)
 
-## What it is
-A section wipe replaces each full-screen section with the next by sliding the new one up over it, instead of scrolling the old one away. Every section sticks to the top of the screen and sits above the one before, so the next one covers it as you scroll. The covered section can shrink slightly, so it seems to sink behind the one arriving.
+## 它是什么
+区域擦除切换用下一个全屏区域从上面滑上来，取代前一个区域，而不是把旧的滚走。每个区域都吸在屏幕顶部，位于前一个之上，所以滚动时下一个区域盖住它。被盖住的区域可以略微缩小，看起来像沉到到来的那个后面。
 
-## When to use it
-- Full-screen storytelling sections that should feel layered rather than scrolled
-- Landing pages where each section is a distinct "screen" that replaces the last
-- Portfolio or case-study layouts with strong section-to-section breaks
-- Anywhere the covering motion should read as depth, one panel sliding behind another
+## 什么时候用
+- 全屏故事讲述区域，应该感觉是层叠的而不是滚动的
+- 落地页，其中每个区域都是一块独立的“屏”，取代上一块
+- 作品集或案例研究布局，区域之间有强烈的分隔
+- 任何希望盖住的动作读出深度感的地方，一块面板滑到另一块后面
 
-## How it works
-The wipe itself requires no animation code: every `.section` is `position: sticky; top: 0; height: 100cqh` (one stage height, because the stage is a size container), and their `z-index` values ascend (1, 2, 3, 4). As you scroll, each section sticks at the top until the next one — being higher in the stack — covers it. The only scripted effect is the receding scale, computed from how much of the viewport the next section has already covered:
+## 工作原理
+擦除本身不需要动画代码：每个 `.section` 都是 `position: sticky; top: 0; height: 100cqh`（一个舞台高，因为舞台是尺寸容器），它们的 `z-index` 依次递增（1、2、3、4）。滚动时，每个区域吸在顶部，直到下一个区域——在层叠中更高——盖住它。唯一用脚本实现的效果是后退缩放，根据下一个区域已经盖住多少视口来计算：
 
 ```js
 sections.forEach((s, i) => {
@@ -24,24 +24,24 @@ sections.forEach((s, i) => {
 });
 ```
 
-Here `sr` is the stage's inner box, its top edge and its height inside the border. Because `t` is a continuous ratio of coverage, the scale is scrubbed to scroll — freeze mid-wipe and the section sits at an intermediate scale, no snap. The scale-down makes the covered section feel like it's sliding *behind* the incoming one rather than simply being hidden.
+这里 `sr` 是舞台的内框，即它的顶边和在边框内的高度。因为 `t` 是盖住程度的连续比率，缩放是按滚动 scrub 的——在擦除中途停住，区域就停在中间的缩放比例，没有吸附。缩小让被盖住的区域感觉像滑到到来的那个*后面*，而不只是被藏起来。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Shrink | A little | How small the covered section gets: none keeps it full size, a little is 96% and a lot 88%; smaller sinks it deeper |
-| Shrink speed | Gradual | How much of the wipe the shrink takes: gradual spreads it over the whole wipe, medium over the first 60% and quick over the first 30% |
+| 缩小 | 一点 | 被盖住的区域缩到多小：无保持原大小，一点是 96%，很多是 88%；越小沉得越深 |
+| 缩小速度 | 渐进 | 缩小占用擦除的多少：渐进铺满整个擦除，中等占前 60%，快占前 30% |
 
-## Production notes
-- **The wipe is free**: sticky positioning plus ascending `z-index` produces the entire covering motion with zero JavaScript. Reach for script only for embellishments like the scale, never for the wipe itself.
-- **Scale the content, not the section**: the transform is applied to `.sec-content` inside the sticky section, not the sticky element — transforming a sticky element can break its stickiness in some engines.
-- **`will-change: transform`**: set on the scaled content so the browser promotes it to its own layer; the demo drops it under reduced motion to avoid holding a needless layer.
-- **Guard the top section**: the last section has the highest `z-index` and is never covered, so it's skipped in the scale loop — it should stay at scale 1.
-- **Reduced motion**: when `prefers-reduced-motion` is set the scale loop is skipped entirely; sections still wipe (that's pure layout) but without the recede.
-- **Library equivalents**: GSAP ScrollTrigger with `scrub: true` on a scale tween implements the same recede and adds the easing CSS alone can't provide here; Framer Motion maps `useScroll` progress to a `scale` motion value for the React version.
+## 生产注意事项
+- **擦除是免费的**：吸顶定位加递增的 `z-index` 就能用零 JavaScript 做出整个盖住的动作。只为缩放这类点缀用脚本，绝不要为擦除本身用脚本。
+- **缩放内容，而不是区域**：变换应用在吸顶区域内的 `.sec-content` 上，而不是吸顶元素本身——在某些引擎中，变换吸顶元素会破坏它的吸顶效果。
+- **`will-change: transform`**：设在被缩放的内容上，让浏览器把它提升为独立图层；演示在减弱动态效果下会去掉它，避免占用不必要的图层。
+- **保护最顶上的区域**：最后一个区域的 `z-index` 最高，永远不会被盖住，所以在缩放循环里跳过它——它应该保持缩放 1。
+- **减弱动态效果**：设置了 `prefers-reduced-motion` 时，缩放循环整个跳过；区域仍然擦除（那是纯布局），但没有后退。
+- **库的等价实现**：GSAP ScrollTrigger 在缩放补间上用 `scrub: true` 可以实现同样的后退，还能加上仅靠 CSS 在这里做不出的缓动；Framer Motion 把 `useScroll` 的进度映射到 `scale` 运动值，用于 React 版本。
 
-## See also
-- [Sticky Section](../sticky-section/) — one section holds still while its content changes
-- [Stacking Cards](../stacking-cards/) — cards pile up into a deck as you scroll
-- [Cover Card to Fixed Header](../cover-card-to-fixed-header/) — a big cover shrinks into a slim header as you scroll
-- [Snap Scrolling](../snap-scrolling/) — scrolling stops on one whole section at a time
+## 另见
+- [吸顶区域](../sticky-section/) — 一个区域固定不动，内容随之变化
+- [层叠卡片](../stacking-cards/) — 卡片滚动时叠成一摞
+- [封面卡片变固定顶栏](../cover-card-to-fixed-header/) — 大封面滚动时收成细顶栏
+- [滚动吸附](../snap-scrolling/) — 滚动一次停在一个完整区域上

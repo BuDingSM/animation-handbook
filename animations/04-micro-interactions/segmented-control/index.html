@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Segmented Control — Animation Handbook</title>
-  <meta name="description" content="A highlight slides to the option you pick. Best for switching views.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/segmented-control/">
+  <title>分段控制器 — 动画手册</title>
+  <meta name="description" content="高亮滑向你选中的选项。适合用在切换视图上。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/04-micro-interactions/segmented-control/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Segmented Control — Animation Handbook">
-  <meta property="og:description" content="A highlight slides to the option you pick. Best for switching views.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/segmented-control/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="分段控制器 — 动画手册">
+  <meta property="og:description" content="高亮滑向你选中的选项。适合用在切换视图上。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/04-micro-interactions/segmented-control/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Segmented Control — Animation Handbook">
-  <meta name="twitter:description" content="A highlight slides to the option you pick. Best for switching views.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Segmented Control", "name": "Segmented Control", "description": "A highlight slides to the option you pick. Best for switching views.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/04-micro-interactions/segmented-control/", "inLanguage": "en", "articleSection": "Micro-Interactions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Micro-Interactions, Segmented Control"}</script>
+  <meta name="twitter:title" content="分段控制器 — 动画手册">
+  <meta name="twitter:description" content="高亮滑向你选中的选项。适合用在切换视图上。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "分段控制器", "name": "分段控制器", "description": "高亮滑向你选中的选项。适合用在切换视图上。", "url": "https://animation.xizanghuapi.cn/animations/04-micro-interactions/segmented-control/", "inLanguage": "zh-CN", "articleSection": "微交互", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 微交互, 分段控制器"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#ff9d5c;--ui-text:#f4f4f2;--ui-muted:#8a8a92;--dur:340ms;--ease:cubic-bezier(.5,1.6,.4,1)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -66,90 +66,90 @@
       .stage[data-hb-mode="compare"] #seg,.stage[data-hb-mode="compare"] .cp-name.n1{grid-area:1/2}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../toast-notification/" rel="prev" aria-label="Previous: Toast Notification"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Toast Notification</span></a><a href="../pull-to-refresh/" rel="next" aria-label="Next: Pull to Refresh"><span><span class="hb-dir">Next: </span>Pull to Refresh</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../toast-notification/" rel="prev" aria-label="上一个：轻提示"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>轻提示</span></a><a href="../pull-to-refresh/" rel="next" aria-label="下一个：下拉刷新"><span><span class="hb-dir">下一个：</span>下拉刷新</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">04.28 · Micro-Interactions</p>
-    <h1>Segmented Control</h1>
-    <p class="hb-lede">A highlight slides to the option you pick. Best for switching views.</p>
+    <p class="hb-cat">04.28 · 微交互</p>
+    <h1>分段控制器</h1>
+    <p class="hb-lede">高亮滑向你选中的选项。适合用在切换视图上。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Press an option or move with the arrow keys, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>按一个选项，或用方向键移动，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage hb-dots">
-      <div class="seg-track" id="seg" role="radiogroup" aria-label="View mode"></div>
+      <div class="seg-track" id="seg" role="radiogroup" aria-label="视图模式"></div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo="css" autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, one highlight is shared by all the options: to change option it slides over from where it was and stretches to the new option's width. Press an option, or Show me.</p>
-      <p data-hb-for="compare" hidden>Jumps: the highlight is simply on the new option; Slides: it glides over and stretches to fit, so you see where it came from. Press an option, or Show me.</p>
+      <p data-hb-for="inside" hidden>内部：所有选项共用一个高亮：换选项时，它从原来的位置滑过去，拉伸到新选项的宽度。按一个选项，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>立刻切换：高亮直接在新选项上；滑动：它滑过去并拉伸贴合，这样你能看到它从哪里来。按一个选项，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="550" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="340" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="200" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="550" aria-pressed="false">慢</button>
+          <button type="button" data-ms="340" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="200" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the highlight takes to slide.</p>
+        <p class="hb-hint">高亮滑过去要花多长时间。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="feel-lbl">Feel</p>
+        <p class="hb-setting-name" id="feel-lbl">手感</p>
         <div class="seg" id="feel-seg" role="group" aria-labelledby="feel-lbl">
-          <button type="button" data-ease="cubic-bezier(.5,1.6,.4,1)" class="on" aria-pressed="true">Springy</button>
-          <button type="button" data-ease="ease-out" aria-pressed="false">Smooth</button>
-          <button type="button" data-ease="linear" aria-pressed="false">Even</button>
+          <button type="button" data-ease="cubic-bezier(.5,1.6,.4,1)" class="on" aria-pressed="true">回弹</button>
+          <button type="button" data-ease="ease-out" aria-pressed="false">平滑</button>
+          <button type="button" data-ease="linear" aria-pressed="false">均匀</button>
         </div>
-        <p class="hb-hint">Springy runs a little past, then settles.</p>
+        <p class="hb-hint">「回弹」会稍微跑过头，再落定。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="hl-lbl">Highlight</p>
+        <p class="hb-setting-name" id="hl-lbl">高亮</p>
         <div class="seg" id="hl-seg" role="group" aria-labelledby="hl-lbl">
-          <button type="button" data-style="pill" class="on" aria-pressed="true">Pill</button>
-          <button type="button" data-style="underline" aria-pressed="false">Underline</button>
+          <button type="button" data-style="pill" class="on" aria-pressed="true">胶囊</button>
+          <button type="button" data-style="underline" aria-pressed="false">下划线</button>
         </div>
-        <p class="hb-hint">A filled pill, or a thin line under the option.</p>
+        <p class="hb-hint">一个填满的胶囊，或选项下面的一条细线。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <p class="hb-setting-name" id="count-lbl">Number of options</p>
+          <p class="hb-setting-name" id="count-lbl">选项数量</p>
           <div class="seg" id="count-seg" role="group" aria-labelledby="count-lbl">
-            <button type="button" data-n="2" aria-pressed="false">Two</button>
-            <button type="button" data-n="3" aria-pressed="false">Three</button>
-            <button type="button" data-n="4" class="on" aria-pressed="true">Four</button>
-            <button type="button" data-n="5" aria-pressed="false">Five</button>
+            <button type="button" data-n="2" aria-pressed="false">两个</button>
+            <button type="button" data-n="3" aria-pressed="false">三个</button>
+            <button type="button" data-n="4" class="on" aria-pressed="true">四个</button>
+            <button type="button" data-n="5" aria-pressed="false">五个</button>
           </div>
-          <p class="hb-hint">Up to five short options fit on one line.</p>
+          <p class="hb-hint">一行最多放五个短选项。</p>
         </div>
       </div>
     </details>
@@ -158,43 +158,43 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴给 ChatGPT、Claude 或 Cursor 等 AI 助手，在你自己的项目里做出这个效果。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a segmented control to [the row of options people switch between, such as Day, Week and Month]. Show the options side by side with one highlight behind the chosen one. When another option is chosen, slide the highlight over to it and stretch or shrink it to that option's width, while the labels' colors cross over as it lands. Measure the chosen option and move the highlight with transforms only, measuring again when fonts load or the window resizes. Make it one group of radio buttons that the arrow keys move through. If the visitor has reduced motion turned on, move the highlight without sliding. Match the settings listed below.</p>
+      <p class="hb-prompt">给[人们来回切换的一排选项，比如天、周和月]加上分段控制器。把选项并排显示，选中的那个后面有一个高亮。选中另一个选项时，把高亮滑过去，拉伸或缩到那个选项的宽度；落下时，标签的颜色交叉换过来。量出选中选项的尺寸，只用变换移动高亮；字体加载或窗口调整大小时再量一次。把它做成一组方向键可以移动的单选按钮。如果访客开启了减弱动态效果，移动高亮时不要滑动。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>View switchers</li><li>Filters</li><li>Date ranges</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Many options</li><li>Long labels</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>视图切换器</li><li>筛选器</li><li>日期范围</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>很多选项</li><li>长标签</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
-  const LABELS=['Day','Week','Month','Year','Decade'];
+  const LABELS=['天','周','月','年','十年'];
   const seg=document.getElementById('seg'),ind=Object.assign(document.createElement('span'),{className:'seg-ind'});
   ind.setAttribute('aria-hidden','true'); // only the radios belong to the group
   const slowTog=document.getElementById('slow-tog');
@@ -322,14 +322,14 @@
 
   // ── See inside and Compare ──
   // See inside draws outlines, an arrow and four words around the real control, from the numbers spot() measures. Compare is the
-  // control twice: a copy that jumps, then the real one that slides. At rest both stand posed a tenth of a second into a slide from
+  // control twice: a copy that jumps, then the real one that slides. At rest both stand posed 十分之一秒 into a slide from
   // the first option to the third, drawn on the highlight and two labels without changing the choice.
   const stage=seg.parentElement,motionOk=!matchMedia('(prefers-reduced-motion:reduce)').matches;
   const CURVES={'cubic-bezier(.5,1.6,.4,1)':[.5,1.6,.4,1],'ease-out':[0,0,.58,1],linear:[0,0,1,1]}; // the Feel choices' speed curves
-  const FEEL={'cubic-bezier(.5,1.6,.4,1)':'running a little past, then back','ease-out':'slowing to a stop',linear:'at one steady speed'};
+  const FEEL={'cubic-bezier(.5,1.6,.4,1)':'稍微跑过头，再回来','ease-out':'慢慢停下',linear:'匀速'};
   const POSE_MS=100;
-  const STILL='Shown still, a moment after the same choice: Jumps is already on the new option; Slides is part way there, stretching as it goes.';
-  const JUMPED='Motion is reduced, so Slides jumps to the new option just as Jumps does; with motion on it glides over and stretches to fit. The faint outline marks where it started.';
+  const STILL='静止展示，在同一次选择后的一瞬间：立刻切换已经在新选项上；滑动正走到一半，边走边拉伸。';
+  const JUMPED='减弱了动态效果，所以滑动和立刻切换一样跳到新选项；有动态效果时，它滑过去并拉伸贴合。淡淡的轮廓标出它从哪里开始。';
   const over=document.createElement('div'),copy=document.createElement('div');
   over.className='sc-over';over.setAttribute('aria-hidden','true');
   over.innerHTML='<svg class="sc-svg"><path class="stem" stroke-width="1.5" opacity=".6"/><path class="arrow"/></svg><span class="ol from"></span><span class="ol to"></span>'+
@@ -339,10 +339,10 @@
   copy.innerHTML='<span class="seg-ind"></span>';
   const cind=copy.firstChild,q=s=>over.querySelector(s),easeNow=()=>getComputedStyle(document.documentElement).getPropertyValue('--ease').trim();
   stage.prepend(copy);stage.append(over);size=stage.clientWidth+'x'+stage.clientHeight;
-  stage.insertAdjacentHTML('beforeend','<span class="cap cp-name n0" data-hb-caption aria-hidden="true">Jumps</span><span class="cap cp-name n1" data-hb-caption aria-hidden="true">Slides</span>');
+  stage.insertAdjacentHTML('beforeend','<span class="cap cp-name n0" data-hb-caption aria-hidden="true">立刻切换</span><span class="cap cp-name n1" data-hb-caption aria-hidden="true">滑动</span>');
   function say(k,t){const el=k.nodeType?k:document.querySelector('[data-hb-for="'+k+'"]');if(el.textContent!==t)el.textContent=t}
   if(!motionOk){
-    say('inside','Inside, shown still: one highlight is shared by all the options; with motion on, it slides over from where it was and stretches to the new option\'s width.');
+    say('inside','内部，静止展示：所有选项共用一个高亮；有动态效果时，它从原来的位置滑过去，拉伸到新选项的宽度。');
     say('compare',STILL);
   }
   function sliding(){return ind.getAnimations().length>0}
@@ -357,8 +357,8 @@
   }
   function words(){
     const ms=dur*(slowTog.checked?3:1);
-    const t=ms<=250?'a fifth of a second':ms<=400?'about a third of a second':ms<=700?'over half a second':ms<=1200?'about a second':'about a second and a half';
-    const s=(motionOk?'':'with motion on: ')+t+', '+FEEL[easeNow()];
+    const t=ms<=250?'五分之一秒':ms<=400?'大约三分之一秒':ms<=700?'超过半秒':ms<=1200?'大约一秒':'大约一秒半';
+    const s=(motionOk?'':'有动态效果时：')+t+'，'+FEEL[easeNow()];
     return s[0].toUpperCase()+s.slice(1);
   }
   // An option's place as it is when chosen (the chosen label is heavier, so wider): the choice is put on it for a moment, with no fade
@@ -407,9 +407,9 @@
     box('from',S);
     if(mode!=='inside')return;
     box('to',Lg);
-    say(cap('hi'),under?'One line, under the labels':'One highlight, behind the labels');
-    say(cap('from'),motionOk?'Slides over from here':'Starts here');
-    say(cap('to'),'Lands here, stretched to fit this option');
+    say(cap('hi'),under?'一条线，在标签下面':'一个高亮，在标签后面');
+    say(cap('from'),motionOk?'从这里滑过去':'从这里开始');
+    say(cap('to'),'落在这里，拉伸贴合这个选项');
     say(cap('speed'),words());
     let stems='';
     const stack=(list,y,side)=>{

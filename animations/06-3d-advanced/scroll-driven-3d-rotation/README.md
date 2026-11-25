@@ -1,20 +1,20 @@
-# Scroll-Driven 3D Rotation
+# 滚动驱动 3D 旋转
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/scroll-driven-3d-rotation/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/scroll-driven-3d-rotation/)
 
-## What it is
-Scroll-driven 3D rotation ties an object's turn to the scroll position. The object stays pinned in view while the visitor scrolls through a tall section, and each stretch of scrolling moves it on to the next pose: turned, tilted, grown, then showing its back. Scrolling back runs it in reverse, the way many product pages show off a new device.
+## 它是什么
+滚动驱动 3D 旋转把物体的转动绑在滚动位置上。用户滚动经过一个高高的区域时，物体固定在视野里，每滚动一段就进入下一个姿态：转过去、倾斜、变大，然后露出背面。往回滚动会反向播放，就像许多产品页展示新设备那样。
 
-## When to use it
-- Product reveal pages where each scroll stage highlights a different feature or angle
-- Hardware or device landing pages that need an interactive feel without video
-- Storytelling sections where a 3D object serves as the visual anchor for sequential text
-- Onboarding flows with a step-by-step 3D walkthrough
+## 什么时候用
+- 产品发布页，每个滚动阶段突出一个不同的功能或角度
+- 需要互动感又不用视频的硬件或设备落地页
+- 3D 物体作为连续文字视觉锚点的叙事区域
+- 一步步 3D 演示的新手引导流程
 
-## How it works
-Combine two techniques: **pin** (sticky positioning keeps the 3D stage visible while content scrolls) and **scrub** (scroll progress maps to a transform timeline).
+## 工作原理
+结合两种手法：**固定**（吸顶定位让 3D 舞台在内容滚动时保持可见）和 **scrub**（滚动进度映射到变换时间线）。
 
-**HTML structure:**
+**HTML 结构：**
 ```html
 <div class="scroll-container" style="height: 400vh">
   <div class="sticky-stage">  <!-- position: sticky; top: 0 -->
@@ -23,9 +23,9 @@ Combine two techniques: **pin** (sticky positioning keeps the 3D stage visible w
 </div>
 ```
 
-In this demo the scrolling box is the stage itself: its content is four stage heights tall (400%) and the pinned frame is one stage height, a quarter of the content. On a whole page the same structure is a section of 400vh.
+演示里滚动的盒子就是舞台本身：内容是四个舞台高度（400%），固定的框是一个舞台高度，是内容的四分之一。在整页上同样的结构是一个 400vh 的区域。
 
-**Scroll progress → transform:**
+**滚动进度 → 变换：**
 ```js
 container.addEventListener('scroll', () => {
   const { scrollTop, scrollHeight, clientHeight } = container;
@@ -42,9 +42,9 @@ container.addEventListener('scroll', () => {
 function lerp(a, b, t) { return a + (b - a) * t; }
 ```
 
-The demo's keyframes are four poses, one for each quarter of the scroll: a quarter turn to the side, a forward tilt, a larger size (1.4 times), then turning round to show the back.
+演示的关键帧是四个姿态，滚动的每个四分之一对应一个：向侧面转四分之一圈、向前倾斜、变大（1.4 倍），然后转过去露出背面。
 
-**Smooth follow** adds a lerp each frame to ease between the raw scroll value and the applied rotation — this gives a cinematic feel:
+**平滑跟随**每帧加一个 lerp，在原始滚动值和应用的旋转之间缓动——这带来电影感：
 
 ```js
 const FRAME = 1000 / 60;                   // one frame on a 60 Hz screen, in milliseconds
@@ -60,25 +60,25 @@ function animate(now) {
 }
 ```
 
-The cube closes a tenth of the gap in every 1/60 s, so the share to close in one frame depends on how long the frame took. The cube then catches up in the same time on a 30, 60 or 144 Hz screen; a fixed 0.1 a frame would take twice as long on a 30 Hz phone and half as long at 120 Hz.
+立方体每六十分之一秒弥合十分之一的差距，所以一帧要弥合的占比取决于那一帧花了多长时间。立方体在 30、60 或 144 Hz 的屏幕上用同样的时间追上；每帧固定 0.1 的话，在 30 Hz 的手机上要两倍久，在 120 Hz 下只要一半。
 
-The demo asks for another frame only while the cube is still catching up, and stops once it has settled. The first frame after it starts again has no earlier frame to measure from, so it counts as one 1/60 s. The Turn amount setting multiplies the angles of every pose by 0.6, 1 or 1.6, and with reduced motion turned on the demo skips the gliding and sets each pose at once.
+演示只在立方体还在追赶时才请求下一帧，落定后就停下。重新开始后的第一帧没有更早的帧可测量，所以算作一个六十分之一秒。「转动幅度」设置把每个姿态的角度乘以 0.6、1 或 1.6，打开减弱动态时演示跳过滑行，直接设置每个姿态。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Turn amount | Normal | How far every pose turns the cube: less is 0.6, normal 1 and more 1.6 times the planned angles (a 90° turn to the side, a 30° forward tilt, and 180° the other way at the end); at normal the last pose shows the cube's back |
-| Smooth follow | on | The cube closes a tenth of the gap to its pose for every sixtieth of a second (95% of it in about half a second), so it glides after the scroll and catches up in the same time on every screen; off, it follows the scroll exactly |
+| 转动幅度 | 普通 | 每个姿态让立方体转多远：少是计划角度的 0.6 倍，普通 1 倍，多是 1.6 倍（向侧面转 90°、向前倾 30°，最后向另一边转 180°）；普通时最后一个姿态露出立方体的背面 |
+| 平滑跟随 | 开 | 立方体每六十分之一秒弥合与姿态之间十分之一的差距（约半秒弥合 95%），所以它在滚动后滑过去，在任何屏幕上都用同样的时间追上；关掉就精确跟随滚动 |
 
-## Production notes
-- **CSS Scroll-Driven Animations API** (Chrome 115+): `animation-timeline: scroll()` and `animation-range` can drive CSS transforms directly without JavaScript. The spec covers this natively, but browser support is still catching up for complex choreography.
-- **GSAP ScrollTrigger**: in production, `gsap.to(obj, { rotateY: 360, scrollTrigger: { trigger, scrub: 1 } })` is the idiomatic implementation. `scrub: 1` adds a 1-second smoothing lag.
-- **Time, not frames**: easing that closes a fixed share of the gap on every frame follows the screen's refresh rate. Scale the share by the time since the last frame, as above, and cap that time (this demo uses 50 ms).
-- **Performance**: CSS `transform` on a 3D element with `will-change: transform` runs on the compositor thread — scroll-driven rotation does not trigger layout or paint.
-- **Mobile scroll budget**: 400vh of scroll on mobile means the user must scroll a lot. Consider reducing section height for mobile, or switching to a swipe-driven (touch-drag) interaction.
+## 生产注意事项
+- **CSS Scroll-Driven Animations API**（Chrome 115+）：`animation-timeline: scroll()` 和 `animation-range` 不用 JavaScript 就能直接驱动 CSS 变换。规范原生覆盖了这一点，但复杂编排的浏览器支持还在跟进。
+- **GSAP ScrollTrigger**：生产环境里，`gsap.to(obj, { rotateY: 360, scrollTrigger: { trigger, scrub: 1 } })` 是惯用的实现。`scrub: 1` 增加 1 秒的平滑滞后。
+- **按时间，不按帧**：每帧弥合固定占比的缓动会跟着屏幕的刷新率走。像上面那样按自上一帧以来的时间缩放占比，并封顶这个时间（演示用 50ms）。
+- **性能**：带 `will-change: transform` 的 3D 元素上的 CSS `transform` 在合成线程上运行——滚动驱动旋转不会触发布局或绘制。
+- **手机滚动预算**：手机上 400vh 的滚动意味着用户要滚很多。考虑给手机减小区域高度，或换成滑动驱动（触摸拖动）的交互。
 
-## See also
-- [3D Model Orbit](../3d-model-orbit/) — time turns the object instead of scrolling
-- [Scrub Animation](../../01-scroll-based/scrub-animation/) — scroll position drives any animation, without 3D
-- [Sticky Section](../../01-scroll-based/sticky-section/) — the pinning that keeps the object in view
-- [Cube Transition](../../03-page-transitions/cube-transition/) — a click turns a cube of pages instead of scrolling
+## 另见
+- [3D 模型环绕](../3d-model-orbit/) — 时间转动物体，而不是滚动
+- [滚动 scrub 动画](../../01-scroll-based/scrub-animation/) — 滚动位置驱动任何动画，不用 3D
+- [吸顶区域](../../01-scroll-based/sticky-section/) — 让物体保持在视野里的固定
+- [立方体过渡](../../03-page-transitions/cube-transition/) — 点击转动一个页面立方体，而不是滚动

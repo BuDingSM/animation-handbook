@@ -1,19 +1,19 @@
-# Bounce In
+# 弹跳进入
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/02-entrance-and-exit/bounce-in/)
+[在线演示](https://animation.xizanghuapi.cn/animations/02-entrance-and-exit/bounce-in/)
 
-## What it is
+## 它是什么
 
-Bounce In brings an element up from small and low, overshoots its final size and position, then springs back to rest, like something landing with momentum. A real bounce isn't one smooth curve: it's a few hand-placed steps, each going a little past the target and coming back.
+弹跳进入把元素从小而低的位置带上来，超过它的最终大小和位置，再弹回静止，就像带着动量落地的东西。真正的弹跳不是一条平滑的曲线：它是几个手工放置的步骤，每一步都稍稍超过目标再回来。
 
-## When to use it
-- Playful confirmations — a success badge, a "message sent" checkmark, an added-to-cart chip
-- Toasts, tooltips, and popovers where a little life makes the appearance feel responsive
-- Game UI, kids' products, and brands whose tone welcomes personality
-- Any single element small enough that an energetic entrance won't feel heavy
+## 什么时候用
+- 好玩的确认——成功徽章、「消息已发送」对勾、已加入购物车标签
+- 轻提示、提示框和弹出层，一点点生气让出现感觉很灵敏
+- 游戏界面、儿童产品和语气欢迎个性的品牌
+- 任何小到一次精力充沛的入场不会显得沉重的单个元素
 
-## How it works
-The card animates via a named keyframe rather than a transition. Each stop scales past 1 and pulls back under it, translating the vertical overshoot at the same time. The overshoot amounts are computed from the Bounce strength choice (an intensity of 30, 60 or 100) so the waypoints stay proportional:
+## 工作原理
+卡片通过一个命名的关键帧而不是过渡来做动画。每个停靠点都缩放到 1 以上再拉回 1 以下，同时平移垂直的超过。超过的量是根据「弹跳力度」选项（强度 30、60 或 100）算出来的，这样路径点保持成比例：
 
 ```js
 const t=intensity/100;
@@ -31,26 +31,26 @@ kf=`@keyframes bounce-in{
 .card.in{animation:bounce-in var(--dur) ease forwards}
 ```
 
-The generated CSS is injected into a live `<style>` tag, so changing Bounce strength or Number of bounces rewrites the keyframe rule on the fly. Two- and three-bounce modes simply add more overshoot/undershoot pairs at tighter percentage intervals, each smaller than the last to imitate energy dissipating.
+生成的 CSS 被注入一个实时的 `<style>` 标签，所以改「弹跳力度」或「弹跳次数」会当场重写关键帧规则。两次和三次弹跳模式只是在更紧的百分比间隔里加更多的超过/不足对，每次都比上一次小，模仿能量耗散。
 
-## Key parameters
+## 关键参数
 
-| Parameter | Default | Effect |
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Bounce strength | Medium | How far past full size it grows: soft about 5%, medium 9% and strong 15%, with smaller dips back under, to about 2%, 4% and 7% below full size |
-| Number of bounces | One | How many times it overshoots; almost always one, since more looks cartoonish |
-| Speed | Normal | How long it takes: slow is 1800ms, normal 1100ms and fast 650ms; too short and the spring reads as a jitter |
-| Fades in | on | Whether it fades in while it bounces or is visible from the start |
+| 弹跳力度 | 中等 | 长到比完整尺寸大多少：「轻」大约 5%，「中等」9%，「强」15%，再缩回下面一点，大约比完整尺寸小 2%、4% 和 7% |
+| 弹跳次数 | 一次 | 超过多少次；几乎总是一次，因为多了会显得卡通 |
+| 速度 | 普通 | 要多长时间：「慢」是 1800ms，「普通」1100ms，「快」650ms；太短了，弹簧读起来像抖动 |
+| 淡入 | 开 | 弹跳时是否淡入，还是一开始就可见 |
 
-## Production notes
-- **Keyframes over easing**: an overshoot spring like `cubic-bezier(.34,1.56,.64,1)` gives *one* overshoot. Genuine multi-stage bounce and squash-and-stretch require explicit waypoints — that is the whole reason this technique uses `@keyframes`.
-- **One bounce is usually right**: each extra bounce cycle reads as more juvenile. Reserve doubles and triples for deliberately toy-like contexts.
-- **`animation-fill-mode: forwards`**: without it the element snaps back to its `scale(0.3)` start state after the animation ends; `forwards` holds the final frame.
-- **Reduced motion**: the demo disables the keyframe animation entirely and shows the element at its resting state when `prefers-reduced-motion` is set — bounce is a classic motion-sickness trigger.
-- **Framer Motion**: use a `type:"spring"` transition with `stiffness`/`damping`, or `bounce` on a spring — the physics model produces overshoot without authoring keyframes.
-- **GSAP**: `Bounce.out` / `Elastic.out` eases, or a `.fromTo()` with overshoot values, cover this without a manual keyframe block.
+## 生产注意事项
+- **关键帧胜过缓动**：像 `cubic-bezier(.34,1.56,.64,1)` 这样的超过弹簧只给*一次*超过。真正的多阶段弹跳和挤压拉伸需要明确的路径点——这就是这个技术用 `@keyframes` 的全部原因。
+- **一次弹跳通常是对的**：每多一个弹跳循环，读起来就更幼稚。两次和三次留给故意做得像玩具的场景。
+- **`animation-fill-mode: forwards`**：没有它，元素会在动画结束后一下子回到 `scale(0.3)` 的起始状态；`forwards` 会保持最后一帧。
+- **减弱动态**：在 `prefers-reduced-motion` 下，演示完全禁用关键帧动画，把元素显示在静止状态——弹跳是经典的晕动触发因素。
+- **Framer Motion**：用带 `stiffness`/`damping` 的 `type:"spring"` 过渡，或者弹簧上的 `bounce`——物理模型不用写关键帧就能产生超过。
+- **GSAP**：`Bounce.out` / `Elastic.out` 缓动，或者带超过值的 `.fromTo()`，不用手写关键帧块就能做到。
 
-## See also
-- [Scale In / Zoom In](../scale-in/) — grows into place without the bounce
-- [Rotate In](../rotate-in/) — spins into place while it grows
-- [Slide In](../slide-in/) — travels into place from one edge
+## 另见
+- [缩放进入](../scale-in/) — 放大到位，没有弹跳
+- [旋转进入](../rotate-in/) — 放大时旋转到位
+- [滑入](../slide-in/) — 从一边滑入到位

@@ -16,7 +16,7 @@
 
 - [ ] One folder under `animations/<category>/<slug>/` with `index.html` and `README.md`, and optionally `preview.gif` or `preview.png`
 - [ ] Copied from a page of the same kind, with `data-hb-kind` on the body and the player bar unchanged; plain HTML, CSS and JavaScript, under ~300 lines, no external requests, works offline
-- [ ] The README has all six sections (What it is, When to use it, How it works, Key parameters, Production notes, See also) and `[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/<category>/<slug>/)` on the line under its title
+- [ ] The README has all six sections (What it is, When to use it, How it works, Key parameters, Production notes, See also) and `[Live demo](https://animation.xizanghuapi.cn/animations/<category>/<slug>/)` on the line under its title
 - [ ] Responsive (reflows at 375px, touch targets ≥ 44px, works with touch), works from the keyboard, respects `prefers-reduced-motion` and animates only `transform` and `opacity`
 - [ ] Linked in: the page before it has a Next link to it and the page after it a Previous link, each replacing the old one, and the `NN.MM` category line of every later page is renumbered
 - [ ] A card in the category's `entries` in the `CATS` array of the root `index.html` (slug, name, the page's one-line description), its places in `PLACES` (in the same order as `CATS`) and its own preview: its key in `PV`, its CSS in the category's bespoke block, a `case` in `pvMarkup()` and a `STILL` point if the middle of its loop is not a clear frame

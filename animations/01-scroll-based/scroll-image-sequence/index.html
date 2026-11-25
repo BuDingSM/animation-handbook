@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scroll Image Sequence — Animation Handbook</title>
-  <meta name="description" content="Scrolling plays a series of pictures like a flip-book. Best for products.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-image-sequence/">
+  <title>滚动图片序列 — 动画手册</title>
+  <meta name="description" content="滚动像翻书一样播放一串图片。最适合产品展示。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-image-sequence/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Scroll Image Sequence — Animation Handbook">
-  <meta property="og:description" content="Scrolling plays a series of pictures like a flip-book. Best for products.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-image-sequence/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="滚动图片序列 — 动画手册">
+  <meta property="og:description" content="滚动像翻书一样播放一串图片。最适合产品展示。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-image-sequence/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Scroll Image Sequence — Animation Handbook">
-  <meta name="twitter:description" content="Scrolling plays a series of pictures like a flip-book. Best for products.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Scroll Image Sequence", "name": "Scroll Image Sequence", "description": "Scrolling plays a series of pictures like a flip-book. Best for products.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/01-scroll-based/scroll-image-sequence/", "inLanguage": "en", "articleSection": "Scroll-Based", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Scroll-Based, Scroll Image Sequence"}</script>
+  <meta name="twitter:title" content="滚动图片序列 — 动画手册">
+  <meta name="twitter:description" content="滚动像翻书一样播放一串图片。最适合产品展示。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "滚动图片序列", "name": "滚动图片序列", "description": "滚动像翻书一样播放一串图片。最适合产品展示。", "url": "https://animation.xizanghuapi.cn/animations/01-scroll-based/scroll-image-sequence/", "inLanguage": "zh-CN", "articleSection": "滚动驱动", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 滚动驱动, 滚动图片序列"}</script>
   <style>
     :root{--ui-accent:#6ea8ff}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -51,66 +51,66 @@
     @container (max-width:479px){.si-glide span,.si-strip span{display:block}}
     @container (max-width:399px){.cap{font-size:12px}}
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="scroll" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../zoom-into-image/" rel="prev" aria-label="Previous: Zoom Into Image"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Zoom Into Image</span></a><a href="../smooth-scroll/" rel="next" aria-label="Next: Smooth (Inertia) Scroll"><span><span class="hb-dir">Next: </span>Smooth (Inertia) Scroll</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../zoom-into-image/" rel="prev" aria-label="上一个：图片缩放进入"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>图片缩放进入</span></a><a href="../smooth-scroll/" rel="next" aria-label="下一个：平滑（惯性）滚动"><span><span class="hb-dir">下一个：</span>平滑（惯性）滚动</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">01.20 · Scroll-Based</p>
-    <h1>Scroll Image Sequence</h1>
-    <p class="hb-lede">Scrolling plays a series of pictures like a flip-book. Best for products.</p>
+    <p class="hb-cat">01.20 · 滚动驱动</p>
+    <h1>滚动图片序列</h1>
+    <p class="hb-lede">滚动像翻书一样播放一串图片。最适合产品展示。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Scroll it</h2><p>Scroll inside the box, or press Play and it scrolls for you.</p></div>
+      <div><h2 id="hb-watch-title">滚动试试</h2><p>在盒子里滚动，或按「播放」，它会替你滚动。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
-    <div class="stage" id="stage" tabindex="0" role="region" aria-label="A picture sequence that plays as you scroll"><div class="track" id="track"><div class="pin"><canvas id="c" role="img" aria-label="A wireframe cube with a smaller shape inside, turning and opening out as you scroll"></canvas>
-      <div class="capcol si"><p class="cap si si-count key" aria-hidden="true" data-hb-caption>Frame 1 of 120</p><p class="cap si si-glide key" aria-hidden="true" data-hb-caption><span>Glides to the frame</span> <span>the scroll points at</span></p></div>
-      <p class="cap si si-strip" aria-hidden="true" data-hb-caption><span>One picture</span> <span>per frame</span></p>
-      <p class="cap cm cm-first" aria-hidden="true" data-hb-caption>24 frames</p><p class="cap cm cm-second" aria-hidden="true" data-hb-caption>120 frames</p>
-      <div class="capfoot cm"><p class="cap cm cm-ghost" aria-hidden="true" data-hb-caption>Faint: the neighboring frames</p><p class="cap cm cm-glide" aria-hidden="true" data-hb-caption>Both glide</p></div>
+    <div class="stage" id="stage" tabindex="0" role="region" aria-label="随滚动播放的图片序列"><div class="track" id="track"><div class="pin"><canvas id="c" role="img" aria-label="一个线框立方体，里面有个更小的形状，随滚动旋转并展开"></canvas>
+      <div class="capcol si"><p class="cap si si-count key" aria-hidden="true" data-hb-caption>第 1 帧，共 120 帧</p><p class="cap si si-glide key" aria-hidden="true" data-hb-caption><span>滑向滚动</span> <span>指向的帧</span></p></div>
+      <p class="cap si si-strip" aria-hidden="true" data-hb-caption><span>每帧</span> <span>一张图片</span></p>
+      <p class="cap cm cm-first" aria-hidden="true" data-hb-caption>24 帧</p><p class="cap cm cm-second" aria-hidden="true" data-hb-caption>120 帧</p>
+      <div class="capfoot cm"><p class="cap cm cm-ghost" aria-hidden="true" data-hb-caption>淡色：相邻的帧</p><p class="cap cm cm-glide" aria-hidden="true" data-hb-caption>都滑动</p></div>
     </div></div></div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>Play</button>
-      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button>
+      <button class="hb-play" type="button" id="btn-scroll" data-hb-autoscroll><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>播放</button>
+      <button class="hb-play" type="button" id="btn-top" data-hb-top><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>回到顶部</button>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, the strip shows the pictures in order and the scroll picks one; with gliding on, the picture eases toward the frame the scroll points at. Scroll the box or press Play to watch.</p>
-      <p data-hb-for="compare" hidden>24 frames steps visibly from picture to picture while 120 frames looks smooth; the faint shapes are the neighboring frames. Scroll the box or press Play to watch.</p>
+      <p data-hb-for="inside" hidden>在内部，色带按顺序展示图片，滚动选其中一张；开启滑动时，图片会缓缓滑向滚动指向的帧。滚动盒子或按「播放」观看。</p>
+      <p data-hb-for="compare" hidden>24 帧从一张图片到下一张能看到明显的步进，120 帧看起来很平滑；淡色的形状是相邻的帧。滚动盒子或按「播放」观看。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then scroll again or press Play.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再滚动一次或按「播放」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="frames-lbl">Number of frames</p>
+        <p class="hb-setting-name" id="frames-lbl">帧数</p>
         <div class="seg" id="frames-seg" role="group" aria-labelledby="frames-lbl">
-          <button type="button" data-total="24" aria-pressed="false">Few</button>
-          <button type="button" data-total="120" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-total="240" aria-pressed="false">Many</button>
+          <button type="button" data-total="24" aria-pressed="false">少</button>
+          <button type="button" data-total="120" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-total="240" aria-pressed="false">多</button>
         </div>
-        <p class="hb-hint">Fewer frames step visibly; more frames look smooth.</p>
+        <p class="hb-hint">帧数越少，步进越明显；帧数越多，看起来越平滑。</p>
       </div>
       <div class="hb-setting">
-        <label class="hb-switch-row"><span>Glides between frames</span><input class="hb-switch" type="checkbox" role="switch" id="smooth-tog" checked autocomplete="off"></label>
-        <p class="hb-hint">Off, the picture jumps straight to each frame.</p>
+        <label class="hb-switch-row"><span>在帧之间滑动</span><input class="hb-switch" type="checkbox" role="switch" id="smooth-tog" checked autocomplete="off"></label>
+        <p class="hb-hint">关时图片直接跳到每一帧。</p>
       </div>
     </div>
   </section>
@@ -118,41 +118,41 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a scroll-driven image sequence to [your product or object animation]. Export the animation as a numbered series of pictures and load them all before the section comes into view. Pin a canvas in place while the visitor scrolls through a section a few screens tall, turn their scroll position into a frame number, and draw that frame whenever it changes, so scrolling plays the sequence like a flip-book and scrolling back plays it in reverse. When the settings include it, let the picture ease toward the frame the scroll points at instead of jumping. Give the canvas a text description for screen readers. If the visitor has reduced motion turned on, jump straight to each frame. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你的产品或物体动画]加上滚动驱动图片序列。把动画导出成带编号的一系列图片，在该区域进入视野之前全部加载好。访客滚动经过一个几屏高的区域时，把画布固定在原位，把他们的滚动位置换算成帧号，帧号变化时画出那一帧，滚动就像翻书一样播放序列，往回滚就倒放。设置里包含时，让图片缓缓滑向滚动指向的帧，而不是跳过去。给画布写一段给屏幕阅读器的文字说明。如果访客开启了减弱动态效果，直接跳到每一帧。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Product reveals</li><li>3D objects</li><li>Launch pages</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Slow connections</li><li>Text content</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>产品展示</li><li>3D 物体</li><li>发布页面</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>慢速连接</li><li>文字内容</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
 const stage=document.getElementById('stage'),canvas=document.getElementById('c'),ctx=canvas.getContext('2d');
 const track=document.getElementById('track');
@@ -249,7 +249,7 @@ function drawInside(f){
     ctx.lineWidth=w;ctx.strokeStyle=i===mid?'#6ea8ff':on?'rgba(159,176,200,.45)':'rgba(159,176,200,.2)';
     ctx.strokeRect(x+w/2,y+w/2,c-w,c-w);
   }
-  const words='Frame '+(f+1)+' of '+TOTAL;
+  const words='第 '+(f+1)+' 帧，共 '+TOTAL+' 帧';
   if(capCount.textContent!==words)capCount.textContent=words;
   if(!glides())return;
   const want=mid+aim()-f,k=Math.max(0,Math.min(L.n-1,want)),x=L.x0+k*(c+L.g);
@@ -298,7 +298,7 @@ function layout(){
     const n=W>=600?9:W>=440?7:5,g=W>=600?6:4,c=Math.min((W-2*M-(n-1)*g)/n,H*.2),x0=(W-n*c-(n-1)*g)/2,y0=H-M-20-c;
     capStrip.style.left=x0+'px';capStrip.style.top=y0-6-capStrip.offsetHeight+'px';
     const now=capCount.textContent;                 // the counter keeps the width of its longest words
-    capCount.style.minWidth='';capCount.textContent='Frame '+TOTAL+' of '+TOTAL;
+    capCount.style.minWidth='';capCount.textContent='第 '+TOTAL+' 帧，共 '+TOTAL+' 帧';
     capCount.style.minWidth=Math.ceil(capCount.getBoundingClientRect().width)+'px';capCount.textContent=now;
     const cl=at(capCol),st=at(capStrip),left=Math.max(cl.r,st.r)+8,bot=y0-6;
     let s=Math.min((bot-M)/2-P,(W-M-left)/2-P)/REACH,cx=Math.min(Math.max(W/2,left+REACH*s+P),W-M-REACH*s-P),cy=(M+bot)/2;
@@ -315,24 +315,24 @@ function layout(){
 // The words of both views, their notes and the names of the stage and its picture, for the frame count, the gliding switch
 // and reduced motion; the notes' words for the default state are the markup's own
 const IN_NOTE=noteIn.textContent,
-  IN_STILL='Inside, the strip shows the pictures in order and the scroll picks one; each frame is drawn straight away, as your device asks. Scroll the box or press Play to watch.',
-  CM_NOTE=n=>`${FEW} frames steps visibly from picture to picture while ${n} frames looks smooth; the faint shapes are the neighboring frames. Scroll the box or press Play to watch.`,
-  CM_STILL=n=>`Shown without gliding: in ${FEW} frames the faint neighboring frames sit far from the cube, in ${n} frames close to it, so the first steps visibly and the second looks smooth.`,
-  CM_SAME=`Number of frames is set to Few, so both halves have ${FEW} frames and step the same. Pick Normal or Many in Try it, then scroll the box or press Play to watch.`,
-  CM_SAME_STILL=`Shown without gliding; Number of frames is set to Few, so both halves have ${FEW} frames and step the same. Pick Normal or Many in Try it to see the difference.`;
+  IN_STILL='在内部，色带按顺序展示图片，滚动选其中一张；每一帧都直接画出来，如你的设备所要求。滚动盒子或按「播放」观看。',
+  CM_NOTE=n=>`${FEW} 帧从一张图片到下一张能看到明显的步进，${n} 帧看起来很平滑；淡色的形状是相邻的帧。滚动盒子或按「播放」观看。`,
+  CM_STILL=n=>`不滑动时显示：在 ${FEW} 帧里，淡色的相邻帧离立方体很远，在 ${n} 帧里离得很近，所以前者能看到明显的步进，后者看起来很平滑。`,
+  CM_SAME=`“帧数”设为“少”，所以两半都有 ${FEW} 帧，步进相同。去“试一试”里选“普通”或“多”，再滚动盒子或按「播放」观看。`,
+  CM_SAME_STILL=`不滑动时显示；“帧数”设为“少”，所以两半都有 ${FEW} 帧，步进相同。去“试一试”里选“普通”或“多”，看看区别。`;
 const NAMES={normal:[stage.getAttribute('aria-label'),canvas.getAttribute('aria-label')],
-  inside:['The picture sequence with a strip of its frames and the frame number','The cube drawn smaller above a strip of numbered frames, the one on show in the middle']};
+  inside:['带帧条和帧号的图片序列','缩小画在编号帧条上方的立方体，正在显示的那一帧在中间']};
 function put(el,words){if(el.textContent!==words)el.textContent=words}
 function describe(){
   const gl=glides(),same=TOTAL===FEW;
   capGlide.classList.toggle('key',gl);
-  if(capGlide.textContent!==(gl?'Glides to the frame the scroll points at':'Jumps straight to each frame'))
-    capGlide.innerHTML=gl?'<span>Glides to the frame</span> <span>the scroll points at</span>':'<span>Jumps straight</span> <span>to each frame</span>';
-  put(capBoth,gl?'Both glide':'Both jump');put(capSecond,TOTAL+' frames');
+  if(capGlide.textContent!==(gl?'滑向滚动指向的帧':'直接跳到每一帧'))
+    capGlide.innerHTML=gl?'<span>滑向滚动</span> <span>指向的帧</span>':'<span>直接跳到</span> <span>每一帧</span>';
+  put(capBoth,gl?'都滑动':'都跳跃');put(capSecond,TOTAL+' 帧');
   put(noteIn,reduce?IN_STILL:IN_NOTE);
   put(noteCm,same?(reduce?CM_SAME_STILL:CM_SAME):reduce?CM_STILL(TOTAL):CM_NOTE(TOTAL));
-  NAMES.compare=same?[`The sequence twice, both with ${FEW} frames, each with faint copies of its neighboring frames`,`Two cubes side by side, both from ${FEW} frames, each with its neighboring frames drawn faint`]
-    :[`The sequence twice: with ${FEW} frames and with ${TOTAL}, each with faint copies of its neighboring frames`,`Two cubes side by side, from ${FEW} frames on the left and ${TOTAL} on the right, each with its neighboring frames drawn faint`];
+  NAMES.compare=same?[`序列出现两次，都用 ${FEW} 帧，每次都附带相邻帧的淡色副本`,`两个立方体并排，都来自 ${FEW} 帧，每个都把相邻帧画得很淡`]
+    :[`序列出现两次：${FEW} 帧和 ${TOTAL} 帧，每次都附带相邻帧的淡色副本`,`两个立方体并排，左边来自 ${FEW} 帧，右边来自 ${TOTAL} 帧，每个都把相邻帧画得很淡`];
   stage.setAttribute('aria-label',NAMES[mode][0]);canvas.setAttribute('aria-label',NAMES[mode][1]);
   layout();
 }

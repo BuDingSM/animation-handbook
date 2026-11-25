@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dissolve Transition — Animation Handbook</title>
-  <meta name="description" content="The page breaks into tiles that give way to the next. Best for photo galleries.">
-  <link rel="canonical" href="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/dissolve/">
+  <title>溶解过渡 — 动画手册</title>
+  <meta name="description" content="页面碎成小块，让位给下一页。最适合图片画廊。">
+  <link rel="canonical" href="https://animation.xizanghuapi.cn/animations/03-page-transitions/dissolve/">
   <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
   <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Animation Handbook">
-  <meta property="og:title" content="Dissolve Transition — Animation Handbook">
-  <meta property="og:description" content="The page breaks into tiles that give way to the next. Best for photo galleries.">
-  <meta property="og:url" content="https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/dissolve/">
-  <meta property="og:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
+  <meta property="og:site_name" content="动画手册">
+  <meta property="og:title" content="溶解过渡 — 动画手册">
+  <meta property="og:description" content="页面碎成小块，让位给下一页。最适合图片画廊。">
+  <meta property="og:url" content="https://animation.xizanghuapi.cn/animations/03-page-transitions/dissolve/">
+  <meta property="og:image" content="https://animation.xizanghuapi.cn/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dissolve Transition — Animation Handbook">
-  <meta name="twitter:description" content="The page breaks into tiles that give way to the next. Best for photo galleries.">
-  <meta name="twitter:image" content="https://matinmonshizadeh.github.io/animation-handbook/og-image.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Dissolve Transition", "name": "Dissolve Transition", "description": "The page breaks into tiles that give way to the next. Best for photo galleries.", "url": "https://matinmonshizadeh.github.io/animation-handbook/animations/03-page-transitions/dissolve/", "inLanguage": "en", "articleSection": "Page Transitions", "isPartOf": {"@type": "WebSite", "name": "Animation Handbook", "url": "https://matinmonshizadeh.github.io/animation-handbook/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "web animation, CSS animation, Page Transitions, Dissolve Transition"}</script>
+  <meta name="twitter:title" content="溶解过渡 — 动画手册">
+  <meta name="twitter:description" content="页面碎成小块，让位给下一页。最适合图片画廊。">
+  <meta name="twitter:image" content="https://animation.xizanghuapi.cn/og-image.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "溶解过渡", "name": "溶解过渡", "description": "页面碎成小块，让位给下一页。最适合图片画廊。", "url": "https://animation.xizanghuapi.cn/animations/03-page-transitions/dissolve/", "inLanguage": "zh-CN", "articleSection": "页面切换", "isPartOf": {"@type": "WebSite", "name": "动画手册", "url": "https://animation.xizanghuapi.cn/"}, "author": {"@type": "Person", "name": "matinmonshizadeh"}, "keywords": "网页动画, CSS 动画, 页面切换, 溶解过渡"}</script>
   <style>
     :root{--bg:#0b0b0d;--ui-bg:#111114;--ui-border:rgba(255,255,255,.09);--ui-accent:#b98cff;--ui-text:#f4f4f2;--ui-muted:#8a8a92}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -88,96 +88,96 @@
       .stage[data-hb-mode="compare"] .pc{justify-content:flex-start}
     }
   </style>
-  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=11">
-  <script src="../../../assets/js/demo-page.js?v=11" defer></script>
+  <link rel="stylesheet" href="../../../assets/css/demo-page.css?v=13">
+  <script src="../../../assets/js/demo-page.js?v=13" defer></script>
 </head>
 <body class="hb" data-hb-kind="do" data-hb-autoplay>
-<nav class="hb-bar" aria-label="Animation Handbook">
-  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>Animation Handbook</span></a>
-  <span class="hb-pager"><a href="../portal-zoom/" rel="prev" aria-label="Previous: Portal / Tunnel Zoom"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">Previous: </span>Portal / Tunnel Zoom</span></a><a href="../flip-technique/" rel="next" aria-label="Next: FLIP Technique"><span><span class="hb-dir">Next: </span>FLIP Technique</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
-  <a class="hb-star" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener" aria-label="Star on GitHub"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>Star on GitHub</span></a>
+<nav class="hb-bar" aria-label="动画手册">
+  <a class="hb-home" href="../../../"><svg class="hb-mark" viewBox="0 0 32 32" aria-hidden="true"><g class="g"><circle cx="11.16" cy="20.84" r="6.1"/><circle cx="15.12" cy="16.88" r="6.1"/><circle cx="18.51" cy="13.49" r="6.1"/></g><circle class="b" cx="21.2" cy="10.8" r="6.6"/></svg><span>动画手册</span></a>
+  <span class="hb-pager"><a href="../portal-zoom/" rel="prev" aria-label="上一个：传送门 / 隧道缩放"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span><span class="hb-dir">上一个：</span>传送门 / 隧道缩放</span></a><a href="../flip-technique/" rel="next" aria-label="下一个：FLIP 技巧"><span><span class="hb-dir">下一个：</span>FLIP 技巧</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></span>
+  <a class="hb-star" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener" aria-label="在 GitHub 上点星"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>在 GitHub 上点星</span></a>
 </nav>
 <main class="hb-page">
   <header class="hb-head">
-    <p class="hb-cat">03.11 · Page Transitions</p>
-    <h1>Dissolve Transition</h1>
-    <p class="hb-lede">The page breaks into tiles that give way to the next. Best for photo galleries.</p>
+    <p class="hb-cat">03.11 · 页面切换</p>
+    <h1>溶解过渡</h1>
+    <p class="hb-lede">页面碎成小块，让位给下一页。最适合图片画廊。</p>
   </header>
 
   <section class="hb-step hb-watch" aria-labelledby="hb-watch-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">1</span>
-      <div><h2 id="hb-watch-title">Click it</h2><p>Click Work or About at the top of the box, or press Show me.</p></div>
+      <div><h2 id="hb-watch-title">点击试试</h2><p>点方框顶部的「工作」或「关于」，或按「演示一下」。</p></div>
     </div>
-    <div class="seg hb-modes" role="group" aria-label="What the box shows" data-hb-modes>
-      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">Normal</button>
-      <button type="button" data-hb-mode="inside" aria-pressed="false">See inside</button>
-      <button type="button" data-hb-mode="compare" aria-pressed="false">Compare</button>
+    <div class="seg hb-modes" role="group" aria-label="画面显示内容" data-hb-modes>
+      <button type="button" data-hb-mode="normal" class="on" aria-pressed="true">普通</button>
+      <button type="button" data-hb-mode="inside" aria-pressed="false">看内部</button>
+      <button type="button" data-hb-mode="compare" aria-pressed="false">对比</button>
     </div>
     <div class="stage">
       <div class="box" id="box">
-        <nav class="mini-nav" id="nav" aria-label="Demo pages"></nav>
+        <nav class="mini-nav" id="nav" aria-label="演示页面"></nav>
         <div class="page-area" id="page-area">
           <div id="dissolve-overlay" aria-hidden="true"></div>
         </div>
-        <p class="lbl side" aria-hidden="true" data-hb-caption>Dissolves in tiles</p>
+        <p class="lbl side" aria-hidden="true" data-hb-caption>瓷砖溶解</p>
       </div>
       <div class="steps" aria-hidden="true">
         <div class="tl"><i class="cv"></i><i class="gone"></i><i class="tick"></i></div>
-        <p class="key"><span class="lbl k" data-hb-caption><i class="sw"></i>Lighter tiles cover first</span><span class="lbl k" id="l-len" data-hb-caption>Covered in about half a second</span><span class="lbl k" data-hb-caption>The page swaps once every tile is in</span><span class="lbl k" id="l-end" data-hb-caption>Then the tiles vanish at once</span></p>
+        <p class="key"><span class="lbl k" data-hb-caption><i class="sw"></i>浅色瓷砖先盖住</span><span class="lbl k" id="l-len" data-hb-caption>约半秒盖满</span><span class="lbl k" data-hb-caption>所有瓷砖盖好后换页</span><span class="lbl k" id="l-end" data-hb-caption>然后瓷砖一下子消失</span></p>
       </div>
     </div>
     <div class="hb-player">
-      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Show me</button>
-      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
-      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>Slow motion</span></label>
+      <button class="hb-play" type="button" id="btn-demo" data-hb-demo><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>演示一下</button>
+      <button class="hb-play" type="button" id="btn-reset" data-hb-reset><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>重置</button>
+      <label class="hb-toggle"><input class="hb-switch" type="checkbox" role="switch" id="slow-tog" data-hb-slowmo autocomplete="off"><span>慢动作</span></label>
     </div>
     <div class="hb-mode-notes" aria-live="polite">
-      <p data-hb-for="inside" hidden>Inside, each tile's shade is its turn: lighter tiles cover the page first, and once all are in, the page swaps underneath. Click Work or About, or press Show me.</p>
-      <p data-hb-for="compare" hidden>Plain fade blends the two pages evenly; Dissolves in tiles covers the old page tile by tile in the chosen pattern, then shows the new one. Click Work or About, or press Show me.</p>
+      <p data-hb-for="inside" hidden>在「看内部」里，每块瓷砖的深浅就是它的顺序：浅色的先盖住页面，等全部盖好，页面在下面换掉。点「工作」或「关于」，或按「演示一下」。</p>
+      <p data-hb-for="compare" hidden>「普通淡入淡出」均匀地混合两个页面；「瓷砖溶解」按选定的图案一块一块盖住旧页面，再显示新页面。点「工作」或「关于」，或按「演示一下」。</p>
     </div>
   </section>
 
   <section class="hb-step hb-try" aria-labelledby="hb-try-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">2</span>
-      <div><h2 id="hb-try-title">Try it</h2><p>Change a setting, then try it again or press Show me.</p></div>
+      <div><h2 id="hb-try-title">试一试</h2><p>改一个设置，再试一次，或按「演示一下」。</p></div>
     </div>
     <div class="hb-settings">
       <div class="hb-setting">
-        <p class="hb-setting-name" id="pattern-lbl">Pattern</p>
+        <p class="hb-setting-name" id="pattern-lbl">图案</p>
         <div class="seg" id="pattern-seg" role="group" aria-labelledby="pattern-lbl">
-          <button type="button" data-pattern="random" class="on" aria-pressed="true">Random</button>
-          <button type="button" data-pattern="diagonal" aria-pressed="false">Diagonal</button>
-          <button type="button" data-pattern="radial" aria-pressed="false">From the middle</button>
+          <button type="button" data-pattern="random" class="on" aria-pressed="true">随机</button>
+          <button type="button" data-pattern="diagonal" aria-pressed="false">对角线</button>
+          <button type="button" data-pattern="radial" aria-pressed="false">从中间</button>
         </div>
-        <p class="hb-hint">The order in which the tiles appear.</p>
+        <p class="hb-hint">瓷砖出现的顺序。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="size-lbl">Tile size</p>
+        <p class="hb-setting-name" id="size-lbl">瓷砖大小</p>
         <div class="seg" id="size-seg" role="group" aria-labelledby="size-lbl">
-          <button type="button" data-tiles="16" aria-pressed="false">Small</button>
-          <button type="button" data-tiles="8" class="on" aria-pressed="true">Medium</button>
-          <button type="button" data-tiles="4" aria-pressed="false">Large</button>
+          <button type="button" data-tiles="16" aria-pressed="false">小</button>
+          <button type="button" data-tiles="8" class="on" aria-pressed="true">中</button>
+          <button type="button" data-tiles="4" aria-pressed="false">大</button>
         </div>
-        <p class="hb-hint">Small tiles look like grain; large ones like blocks.</p>
+        <p class="hb-hint">小瓷砖像颗粒；大瓷砖像方块。</p>
       </div>
       <div class="hb-setting">
-        <p class="hb-setting-name" id="speed-lbl">Speed</p>
+        <p class="hb-setting-name" id="speed-lbl">速度</p>
         <div class="seg" id="speed-seg" role="group" aria-labelledby="speed-lbl">
-          <button type="button" data-ms="1300" aria-pressed="false">Slow</button>
-          <button type="button" data-ms="800" class="on" aria-pressed="true">Normal</button>
-          <button type="button" data-ms="500" aria-pressed="false">Fast</button>
+          <button type="button" data-ms="1300" aria-pressed="false">慢</button>
+          <button type="button" data-ms="800" class="on" aria-pressed="true">普通</button>
+          <button type="button" data-ms="500" aria-pressed="false">快</button>
         </div>
-        <p class="hb-hint">How long the tiles take to cover the page.</p>
+        <p class="hb-hint">瓷砖盖住页面需要多长时间。</p>
       </div>
     </div>
     <details class="hb-options">
-      <summary><span class="hb-more-label">More options</span><span class="hb-less">Fewer options</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="hb-more-label">更多选项</span><span class="hb-less">收起选项</span><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="hb-settings">
         <div class="hb-setting">
-          <label class="hb-switch-row"><span>Dissolves both ways</span><input class="hb-switch" type="checkbox" role="switch" id="bi-tog" autocomplete="off"></label>
-          <p class="hb-hint">The tiles also fade away to reveal the new page.</p>
+          <label class="hb-switch-row"><span>双向溶解</span><input class="hb-switch" type="checkbox" role="switch" id="bi-tog" autocomplete="off"></label>
+          <p class="hb-hint">瓷砖也会淡出，露出新页面。</p>
         </div>
       </div>
     </details>
@@ -186,46 +186,46 @@
   <section class="hb-step hb-prompt-step" aria-labelledby="hb-prompt-title">
     <div class="hb-step-head">
       <span class="hb-num" aria-hidden="true">3</span>
-      <div><h2 id="hb-prompt-title">Copy the prompt</h2><p>Paste it into an AI assistant such as ChatGPT, Claude or Cursor to build this in your own project.</p></div>
+      <div><h2 id="hb-prompt-title">复制提示词</h2><p>把它粘贴到 ChatGPT、Claude 或 Cursor 等 AI 助手里，在你自己的项目中实现它。</p></div>
     </div>
     <div class="hb-card">
-      <p class="hb-prompt">Add a dissolve transition to [the pages or images you want to switch between]. Lay a grid of tiles over the old page and fade each tile in at a slightly different moment, following a pattern such as random, a diagonal sweep or rings from the middle, so the old page breaks up instead of fading evenly. Swap the page while the tiles cover it, then remove the tiles, or fade them away in the same pattern to reveal the new page. Give each tile its own delay and let the browser run the fades. If the visitor has reduced motion turned on, use a short, plain fade instead. Match the settings listed below.</p>
+      <p class="hb-prompt">给[你想切换的页面或图片]加上溶解过渡。在旧页面上铺一层瓷砖网格，让每块瓷砖在略有不同的时刻淡入，按随机、对角线扫过或从中间向外扩散成环等图案排列，这样旧页面会碎开，而不是均匀淡出。趁瓷砖盖住时换页，然后去掉瓷砖，或者让它们按同样的图案淡出，露出新页面。给每块瓷砖各自的延迟，让浏览器去跑淡入淡出。如果访客开启了减弱动态效果，改用短暂的普通淡入淡出。按下面列出的设置来做。</p>
       <div class="hb-chips-box" hidden>
-        <p class="hb-chips-title">Your settings</p>
+        <p class="hb-chips-title">你的设置</p>
         <ul class="hb-chips"></ul>
       </div>
       <div class="hb-copy-row">
-        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">Copy prompt</span></button>
-        <p class="hb-hint">Replace the words in brackets with your own element. Your settings are added at the end.</p>
+        <button class="hb-copy" type="button"><svg class="hb-ic hb-i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="hb-ic hb-i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="hb-copy-label" aria-live="polite">复制提示词</span></button>
+        <p class="hb-hint">把方括号里的词换成你自己的元素。你的设置会加在末尾。</p>
       </div>
     </div>
-    <div class="hb-star-row"><p>Free and open source. If this helped, a star on GitHub helps other people find it.</p><a class="hb-star-btn" href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Star on GitHub</a></div>
+    <div class="hb-star-row"><p>免费开源。如果你觉得有用，在 GitHub 上点个星星，能帮更多人找到它。</p><a class="hb-star-btn" href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener"><svg class="hb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>在 GitHub 上点星</a></div>
   </section>
 
   <section class="hb-about" aria-labelledby="hb-what-title">
     <div class="hb-what">
-      <h2 id="hb-what-title">What it is</h2>
-      <div class="hb-what-text"><p>The full explanation is in <a href="README.md">README.md</a>.</p></div>
+      <h2 id="hb-what-title">它是什么</h2>
+      <div class="hb-what-text"><p>完整说明见 <a href="README.md">README.md</a>。</p></div>
     </div>
     <div class="hb-fit">
-      <h2>Good for</h2>
-      <ul class="hb-tags hb-good"><li>Photo galleries</li><li>Slideshows</li><li>Retro and game sites</li></ul>
-      <h3>Avoid on</h3>
-      <ul class="hb-tags hb-avoid"><li>Everyday navigation</li></ul>
+      <h2>适合用在</h2>
+      <ul class="hb-tags hb-good"><li>图片画廊</li><li>幻灯片</li><li>复古和游戏网站</li></ul>
+      <h3>避免用在</h3>
+      <ul class="hb-tags hb-avoid"><li>日常导航</li></ul>
     </div>
   </section>
 
   <section class="hb-related" aria-labelledby="hb-related-title" hidden>
-    <h2 id="hb-related-title">Similar animations</h2>
+    <h2 id="hb-related-title">相似效果</h2>
     <div class="hb-rel-list"></div>
   </section>
 </main>
-<footer class="hb-foot"><span>Animation Handbook</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">Source on GitHub</a><a href="#top">Back to top ↑</a></footer>
+<footer class="hb-foot"><span>动画手册</span><a href="https://github.com/matinmonshizadeh/animation-handbook" target="_blank" rel="noopener">原作 Matin Monshizadeh · MIT</a><a href="https://github.com/BuDingSM/animation-handbook" target="_blank" rel="noopener">GitHub 上的源码</a><a href="#top">回到顶部 ↑</a></footer>
 <script>
   const PAGES=[
-    {name:'Home',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
-    {name:'Work',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
-    {name:'About',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
+    {name:'首页',bg:'linear-gradient(135deg,#0d1a2e,#192640)',html:`<div class="pc"><div class="pe">Creative Studio</div><p class="ph">Design without compromise.</p><p class="pp">We craft digital products that earn attention and keep it.</p></div>`},
+    {name:'工作',bg:'linear-gradient(135deg,#0d1f15,#152e1e)',html:`<div class="pc"><div class="pe">Selected Work</div><p class="ph">The Portfolio</p><div class="pgrid">${['Atlas','Orbit','Prism','Lumen','Frame','Echo'].map(n=>`<div class="gi">${n}</div>`).join('')}</div></div>`},
+    {name:'关于',bg:'linear-gradient(135deg,#1f0d26,#2e1540)',html:`<div class="pc"><div class="pe">Our Story</div><p class="ph">Built on conviction.</p><p class="pp">18 people who care unreasonably about craft. Independent since 2016.</p><div class="pstat"><div><b>140+</b><span>Projects</span></div><div><b>9</b><span>Years</span></div></div></div>`},
   ];
   const nav=document.getElementById('nav'),area=document.getElementById('page-area'),overlay=document.getElementById('dissolve-overlay');
   const box=document.getElementById('box'),stage=box.parentElement;
@@ -248,7 +248,7 @@
   twin.className='box twin';twin.inert=true;twin.setAttribute('aria-hidden','true');
   twin.innerHTML=`<div class="mini-nav">${PAGES.map(p=>`<span class="nav-btn">${p.name}</span>`).join('')}</div>`+
     `<div class="page-area">${PAGES.map(p=>`<div class="page" style="background:${p.bg}">${p.html}</div>`).join('')}</div>`+
-    `<p class="lbl side" data-hb-caption>Plain fade</p>`;
+    `<p class="lbl side" data-hb-caption>普通淡入淡出</p>`;
   box.before(twin);
   const twinPages=[...twin.querySelectorAll('.page')],twinNav=[...twin.querySelectorAll('.nav-btn')];
   function showTwin(n){
@@ -400,22 +400,22 @@
   const gridN=()=>window.matchMedia('(max-width:600px),(max-height:500px)').matches?Math.min(gran,10):gran;
   const SH0=.58,SH1=.08,SPAN=1300,POSE=.4; // a tile's shade for the first and the last turn; the strip's time line stands for SPAN ms; Compare holds a change at POSE of its length
   const noteIn=document.querySelector('[data-hb-for="inside"]'),noteCmp=document.querySelector('[data-hb-for="compare"]');
-  const NOTE_POSED='Shown still, part way through a change: Plain fade is an even blend; Dissolves in tiles has covered part of the old page, tile by tile.';
-  const NOTE_RUN='Reduced motion: Plain fade and Dissolves in tiles both change quickly, with no tiles; the still part way through a change comes back when the run ends.';
+  const NOTE_POSED='静止画面，停在切换半途：「普通淡入淡出」是均匀的混合；「瓷砖溶解」已经一块一块盖住了旧页面的一部分。';
+  const NOTE_RUN='减弱动态：「普通淡入淡出」和「瓷砖溶解」都快速切换，没有瓷砖；演示结束后会回到切换半途的静止画面。';
   if(!motionOk){
-    noteIn.textContent="Shown still: each tile's shade is its turn, lighter first; once all are in, the page swaps underneath.";
+    noteIn.textContent="静止画面：每块瓷砖的深浅就是它的顺序，浅色的先出现；等全部盖好，页面在下面换掉。";
     noteCmp.textContent=NOTE_POSED;
   }
   const steps=stage.querySelector('.steps'),[cv,gone,tick]=steps.querySelectorAll('.tl i'),lLen=document.getElementById('l-len'),lEnd=document.getElementById('l-end');
   steps.style.setProperty('--shade',`linear-gradient(90deg,rgba(255,255,255,${SH0}),rgba(255,255,255,${SH1}))`);
-  const LEN={300:'about a third of a second',480:'about half a second',780:'about three quarters of a second',900:'almost a second',1440:'about a second and a half',2340:'a little over two seconds'};
+  const LEN={300:'约三分之一秒',480:'约半秒',780:'约四分之三秒',900:'将近一秒',1440:'约一秒半',2340:'两秒多一点'};
   function say(el,txt){if(el.textContent!==txt)el.textContent=txt}
   // The time line: the tiles take COVER of the change, then (Dissolves both ways) fade away over the rest; the swap sits between
   function drawSteps(){
     const both=biTog.checked,c=100*COVER*dur/SPAN;
     cv.style.width=c+'%';tick.style.left=`calc(${c}% - 1px)`;gone.style.left=c+'%';gone.style.width=100*(1-COVER)*dur/SPAN+'%';gone.hidden=!both;
-    say(lLen,'Covered in '+LEN[Math.round(COVER*dur*(slowTog.checked?3:1))]);
-    say(lEnd,both?'Then they fade away in the same order':'Then the tiles vanish at once');
+    say(lLen,'覆盖耗时'+LEN[Math.round(COVER*dur*(slowTog.checked?3:1))]);
+    say(lEnd,both?'然后它们按同样的顺序淡出':'然后瓷砖一下子消失');
   }
   // A repeatable Random order (the same shuffle for the same seed), so stills are stable
   function seededDelays(n,seed){

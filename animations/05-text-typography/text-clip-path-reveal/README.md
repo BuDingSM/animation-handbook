@@ -1,18 +1,18 @@
-# Text Clip-Path Reveal
+# 裁剪揭示文字
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/05-text-typography/text-clip-path-reveal/)
+[在线演示](https://animation.xizanghuapi.cn/animations/05-text-typography/text-clip-path-reveal/)
 
-## What it is
-A text clip-path reveal uncovers a headline one line at a time, as if a hidden window opens across each line. Every letter sits in its final place from the start; only the visible part of each line grows. Because the text itself never moves, its spacing stays exactly as designed, which is hard to keep when each letter is animated on its own.
+## 它是什么
+裁剪揭示文字让标题一行一行地被揭开，就像一个隐藏的窗口划过每一行。每个字母从一开始就待在它最终的位置上；只有每行可见的部分在变大。因为文字本身从来不动，它的间距保持得和设计时一模一样，这在逐个给字母做动画时是很难保持的。
 
-## When to use it
-- Multi-line display headlines that should read as a single composed unit
-- Taglines where the typographer's exact spacing must be preserved
-- Photography or design portfolios where the type quality is part of the brand
-- Any heading where character-by-character stagger would disrupt the reading of the whole phrase
+## 什么时候用
+- 多行展示标题，应该读作一个完整的排版单元
+- 标语，排版师精确的间距必须保留
+- 摄影或设计作品集，字体质量本身就是品牌的一部分
+- 任何逐字错开会打断整句阅读的标题
 
-## How it works
-Each line is wrapped in a container with `overflow: hidden`. The text element starts with a `clip-path` that hides it entirely, then transitions to fully visible:
+## 工作原理
+每一行都包在一个 `overflow: hidden` 的容器里。文字元素先用一个把它完全藏起来的 `clip-path`，然后过渡到完全可见：
 
 ```css
 :root {
@@ -31,7 +31,7 @@ Each line is wrapped in a container with `overflow: hidden`. The text element st
 }
 ```
 
-Lines are staggered by adding a CSS `transition-delay` based on line index, or by applying the class with a `setTimeout` offset in JavaScript:
+按行的索引加一个 CSS `transition-delay` 来错开各行，或者在 JavaScript 里用 `setTimeout` 的偏移来加 class：
 
 ```js
 lines.forEach((span, i) => {
@@ -39,7 +39,7 @@ lines.forEach((span, i) => {
 });
 ```
 
-**Direction variants** use different initial clip-path values:
+**方向变体**用不同的初始 clip-path 值：
 ```css
 /* Left-to-right (default) */
 .ltr { clip-path: inset(0 100% 0 0); }
@@ -51,25 +51,25 @@ lines.forEach((span, i) => {
 .ttb { clip-path: inset(0 0 100% 0); }
 ```
 
-All resolve to `inset(0 0% 0 0)` when revealed — a single `.revealed` class handles all directions.
+揭示时都变成 `inset(0 0% 0 0)`——一个 `.revealed` class 就能处理所有方向。
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Starts from | Left | The side each line's wipe begins on: left follows the reading order, right suits right-to-left scripts, top works for display headings |
-| Speed | Normal | How long each line takes to uncover: slow is 1100ms, normal 700ms and fast 400ms |
-| Delay between lines | Medium | The wait before each next line starts: short is 100ms, medium 180ms and long 300ms; 100 to 200ms reads as a natural cascade |
-| Feel | Smooth | Smooth slows to a stop, which feels physical; Gentle eases in and out; Even keeps one steady pace, which feels mechanical |
-| Your lines | Good design / Is honest / Always. | The headline, one line per row |
+| 起始方向 | 左 | 每行擦除开始的一边：从左开始符合阅读顺序，从右适合从右到左的文字，从上适合展示标题 |
+| 速度 | 普通 | 每行揭开需要的时间：慢速 1100ms，普通 700ms，快速 400ms |
+| 行间延迟 | 中 | 下一行开始前的等待：短 100ms，中 180ms，长 300ms；100 到 200ms 读起来像是自然的层叠 |
+| 感觉 | 平滑 | 平滑是慢慢停下来，感觉很物理；柔和是进出都缓和；均匀保持一个稳定的速度，感觉很机械 |
+| 你的行 | Good design / Is honest / Always. | 标题，每行一行 |
 
-## Production notes
-- **No layout shift**: unlike character stagger, clip-path reveal has zero impact on layout — the text is always in its final position, just hidden. This means no reflows and no risk of line-break changes mid-animation.
-- **`overflow: hidden` not required**: unlike `translate`-based reveals that need overflow clipping, `clip-path` is self-contained. No parent overflow manipulation needed.
-- **SVG clip-path for complex shapes**: CSS `inset()` and `circle()` cover most cases. For shaped reveals (diagonal wipes, irregular masks), use an SVG `<clipPath>` element. The principle is identical; only the mask shape changes.
-- **GSAP**: `gsap.from(lines, { clipPath: 'inset(0 100% 0 0)', duration: 0.7, stagger: 0.18, ease: 'power2.out' })`. Clean one-liner, no class toggling.
-- **Intersection Observer pairing**: in production, trigger the reveal when the headline scrolls into view using `IntersectionObserver`. The demo triggers on load/replay; combine with the [Reveal on Scroll](../../01-scroll-based/reveal-on-scroll/) pattern for scroll-triggered variants.
+## 生产注意事项
+- **没有布局位移**：和逐字错开不同，裁剪揭示对布局零影响——文字始终在最终位置上，只是被藏起来。这意味着没有回流，也没有行断变化中途改变的风险。
+- **不需要 `overflow: hidden`**：和需要溢出裁剪的 `translate` 揭示不同，`clip-path` 是自包含的。不需要操作父级的溢出。
+- **复杂形状用 SVG 裁剪路径**：CSS 的 `inset()` 和 `circle()` 覆盖大多数情况。对于有形状的揭示（斜向擦除、不规则遮罩），用 SVG 的 `<clipPath>` 元素。原理是一样的，只是遮罩形状不同。
+- **GSAP**：`gsap.from(lines, { clipPath: 'inset(0 100% 0 0)', duration: 0.7, stagger: 0.18, ease: 'power2.out' })`。干净的一行，不用切换 class。
+- **Intersection Observer 搭配**：生产中用 `IntersectionObserver` 在标题滚动进入视野时触发揭示。演示在加载/重播时触发；和 [滚动显现](../../01-scroll-based/reveal-on-scroll/) 模式结合，用于滚动触发的变体。
 
-## See also
-- [Clip-Path Reveal](../../02-entrance-and-exit/clip-path-reveal/) — a shape uncovers any element
-- [Curtain Reveal](../../02-entrance-and-exit/curtain-reveal/) — a colored panel covers it, then slides away
-- [Enter/Exit Typography](../enter-exit-typography/) — each phrase comes in, holds and leaves
+## 另见
+- [剪裁路径揭示](../../02-entrance-and-exit/clip-path-reveal/) — 一个形状揭开任何元素
+- [幕布揭示](../../02-entrance-and-exit/curtain-reveal/) — 一块彩色面板盖住它，然后滑走
+- [入场退场排版](../enter-exit-typography/) — 每句短语进来、停留、再离开

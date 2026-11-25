@@ -96,7 +96,7 @@ problem goes privately, as [SECURITY.md](SECURITY.md) describes, not into a publ
 6. Add it to the category's `README.md` list (and to any other table there that names pages,
    such as 07's Implementation summary) and to the catalog in the root `README.md`, with the
    same name and description; there the name links to the live page,
-   `https://matinmonshizadeh.github.io/animation-handbook/animations/<category>/<slug>/`, and
+   `https://animation.xizanghuapi.cn/animations/<category>/<slug>/`, and
    the page's own README has `[Live demo](<that address>)` on the line under its title. Update
    the technique count where it is written: the root `README.md` (the total and the category's
    count), the home page (its title and meta tags too), `.github/ISSUE_TEMPLATE/config.yml` and
@@ -334,7 +334,7 @@ you change a shared file, bump `?v=N` on every page.
 
 ## Suggesting a famous effect
 
-The [Famous effects](https://matinmonshizadeh.github.io/animation-handbook/famous/) page shows effects people admire on
+The [Famous effects](https://animation.xizanghuapi.cn/famous/) page shows effects people admire on
 well-known websites, each with the handbook animations that make something similar and a prompt to build your own. Seen
 one we should add? Open an issue with the *Famous effect* template: the site's address, where on the page it shows and
 what you see, in your own words. Please attach no screenshots, videos or code from the site: the page describes each

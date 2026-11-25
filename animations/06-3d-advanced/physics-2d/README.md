@@ -1,18 +1,18 @@
-# 2D Physics
+# 2D 物理
 
-[Live demo](https://matinmonshizadeh.github.io/animation-handbook/animations/06-3d-advanced/physics-2d/)
+[在线演示](https://animation.xizanghuapi.cn/animations/06-3d-advanced/physics-2d/)
 
-## What it is
-2D physics moves objects the way real ones fall, bounce and settle, in small steps of simulated time. Each step adds gravity to every ball's speed, finds the balls that touch each other or a wall, and pushes them apart just enough to stop them sinking in, keeping part of their speed as a bounce. Sixty steps a second of those few rules are enough for balls to bounce, roll to a stop and pile up, and to be picked up and thrown.
+## 它是什么
+2D 物理按小步模拟时间，让物体像真实物体那样落下、弹跳和落定。每步给每个球的速度加上重力，找出互相接触或碰到墙的球，再把它们推开刚好不陷进去的距离，保留一部分速度作为弹跳。每秒六十步这样的几条规则，就足够让球弹跳、滚到停下、堆起来，还能被拿起和扔出去。
 
-## When to use it
-- Playful hero sections and intros that react to every click or tap
-- Empty states, 404 pages and waiting screens that give visitors something to play with
-- Games, toys and product pages where people throw, stack or knock things over
-- Teaching pages about gravity, bounce and friction
+## 什么时候用
+- 对每次点击或轻触都有反应的俏皮主视觉区和开场
+- 空状态、404 页面和等待画面，给用户一点可以玩的东西
+- 游戏、玩具和产品页，人们在那里扔、堆或推倒东西
+- 讲重力、弹跳和摩擦的教学页面
 
-## How it works
-**Fixed steps.** A physics step must always be the same length, or bounces and piles behave differently on every screen. The loop keeps the time not yet stepped in `behind` and runs as many 1/60 s steps as it holds, as Cloth Simulation does; slow motion adds only a third of the time:
+## 工作原理
+**固定步长。**物理步长必须始终等长，否则弹跳和堆积在每个屏幕上的表现都不一样。循环把还没走完的时间留在 `behind` 里，按它能走的步数跑 1/60 秒的步，和布料模拟的做法一样；慢动作只加三分之一的时间：
 
 ```js
 const FRAME = 1000 / 60;                       // one step, in ms
@@ -31,7 +31,7 @@ function loop(ts) {
 }
 ```
 
-**Contacts.** Each step adds gravity, then lists every touching pair and every ball touching a wall. A contact records its direction `n` and, if the two close faster than 1 px a step, the speed they should part with: the bounciness times the closing speed. Slower contacts get no bounce, so resting balls stay still instead of trembling:
+**接触。**每步先加上重力，再列出每个接触的球对和每个碰到墙的球。一个接触记录它的方向 `n`，如果两者靠近的速度快于每步 1px，记录它们应该分开的速度：弹性乘以靠近的速度。更慢的接触没有弹跳，所以静止的球会保持静止而不是颤抖：
 
 ```js
 const touch = (a, b, nx, ny) => {               // n points from a to b; a wall is a body that never moves
@@ -40,7 +40,7 @@ const touch = (a, b, nx, ny) => {               // n points from a to b; a wall 
 };
 ```
 
-**Pushes shared through a pile.** Eight passes over all contacts each add the push that brings a pair to its parting speed, keeping a running total that may never turn into a pull. A ball deep in a pile is pushed by several neighbors at once, and the passes let the pushes settle between them. Friction works the same way along the contact, limited to half the push, which is what lets the balls stack instead of sliding apart:
+**通过堆积传递推力。**对所有接触做八遍，每遍加上让一对球达到分开速度的推力，累计总数永远不会变成拉力。堆深处的球同时被几个邻居推，几遍下来推力在它们之间落定。摩擦沿接触面以同样的方式工作，限制在推力的一半，这正是球能堆起来而不是滑开的原因：
 
 ```js
 for (let pass = 0; pass < 8; pass++) for (const c of contacts) {
@@ -52,36 +52,36 @@ for (let pass = 0; pass < 8; pass++) for (const c of contacts) {
 }
 ```
 
-Then every ball moves by its speed (never more than about one radius a step, so a fast ball cannot pass through another), three passes ease apart the overlaps that are left, and every ball is kept inside the box. A ball's mass grows with its area, so a big ball shoves a small one aside.
+然后每个球按速度移动（每步不超过约一个半径，这样快球不会穿过另一个），三遍把剩下的重叠缓缓分开，每个球都留在盒子里。球的质量随面积增长，所以大球会把小球推到一边。
 
-**Sleeping.** When no ball has moved faster than about 0.14 px a step for 45 steps (three quarters of a second), every speed is set to zero and the loop stops drawing. A new ball, a throw, a removed ball or a new gravity wakes it again.
+**休眠。**45 步（四分之三秒）里没有球移动得比每步约 0.14px 更快时，所有速度设为零，循环停止绘制。新球、一次投掷、一个被移走的球或新的重力会再次唤醒它。
 
-**Throwing.** Pressing picks up the nearest ball in reach, which is its radius plus 8px and never less than a 44px circle, so a small ball is still easy to catch with a finger. A held ball follows the pointer, nothing pushes it, and it pushes the others. Pointer moves give the pointer's speed in pixels per 1/60 s, smoothed over the last few moves; letting go throws the ball with that speed if the pointer was still moving in the last 80 ms.
+**投掷。**按下会拿起够得着的最近的球，够得着的范围是它的半径加 8px，绝不小于一个 44px 的圆，所以小球用手指也容易抓住。拿着的球跟随指针，什么也不推它，而它会推别的球。指针移动给出指针每六十分之一秒的像素速度，经过最近几次移动平滑；松手时，如果指针在最近 80ms 里还在动，球就以那个速度被扔出去。
 
-**Reduced motion.** Nothing falls on screen. The steps of a drop or throw run at once, out of sight, until everything is still, and the new ball fades in where it came to rest:
+**减弱动态。**屏幕上什么也不落下。一次落下或投掷的步数会一下子在看不见的地方跑完，直到一切静止，新球在它落定的地方淡入：
 
 ```js
 function settle() { awake = true; calm = 0; for (let i = 0; i < 900 && awake; i++) step(); awake = false; }
 ```
 
-## Key parameters
-| Parameter | Default | Effect |
+## 关键参数
+| 参数 | 默认值 | 效果 |
 |-----------|---------|--------|
-| Gravity | Earth | How hard the balls are pulled down. Earth adds the box's height divided by 1,000 to a ball's downward speed every 60th of a second, so a ball falls the whole box in about three quarters of a second; the Moon pulls a fifth as hard, a fall of about 1.6 seconds, and Heavy twice as hard, about half a second |
-| Bounciness | Medium | The share of its closing speed a ball keeps after a hit: low is 0.2, medium 0.5 and high 0.8; a hit slower than 1 pixel per 60th of a second does not bounce |
-| Ball sizes | All the same | One radius for every ball (5.5% of the box's shorter side, between 12 and 22 pixels), or a mix from 0.6 to 1.4 times it, heavier by area |
-| Shows the speed | off | An arrow on each moving ball, 6 pixels long for every pixel it moves in a 60th of a second, at most three radii |
+| 重力 | 地球 | 球被往下拽的力度。地球每六十分之一秒给球的向下速度加上盒子高度除以 1000，球约四分之三秒落完整盒子；月球的拉力是五分之一，约 1.6 秒落下，重是两倍，约半秒 |
+| 弹性 | 中等 | 球撞击后保留的靠近速度占比：低是 0.2，中等 0.5，高是 0.8；慢于每六十分之一秒 1 像素的撞击不弹跳 |
+| 球的大小 | 全部相同 | 每个球一个半径（盒子较短边的 5.5%，在 12 到 22 像素之间），或 0.6 到 1.4 倍的混合，按面积更重 |
+| 显示速度 | 关 | 每个运动的球上一个箭头，每六十分之一秒移动 1 像素对应 6 像素长，最多三个半径 |
 
-## Production notes
-- **Libraries**: Matter.js handles circles, boxes, polygons, joints and sleeping in 2D; Planck.js is a port of Box2D, the engine behind many games; Rapier (Rust compiled to WebAssembly) does 2D and 3D at higher body counts. Reach for one as soon as you need boxes, polygons or hinges. GSAP and Framer Motion animate toward set values, and their spring and bounce eases fake one landing, not a pile.
-- **Circles only**: this demo has no turning bodies; the spot on each ball turns with its sideways speed, which reads as rolling. Boxes and polygons need angular speed, contact points and a polygon collision test.
-- **Fixed steps**: scaling a step by the frame time makes bounces higher on slow screens and piles jitter. Step by a fixed 1/60 s from an accumulator and cap the steps per frame (3 here), so a slow device slows the physics instead of falling behind.
-- **Tunneling**: a ball that moves more than its own size in one step can jump through another. The demo caps the speed at about one radius a step; engines use continuous collision tests or smaller steps.
-- **Sleeping** stops the work once everything is still, which saves battery on phones; wake the bodies on any input.
-- **Every pair is checked**: fine for the 40 balls the demo keeps (24 on phones, screens up to 600px wide or 500px tall); for hundreds, sort the bodies into a grid first.
-- **Touch**: the canvas turns off the browser's touch scrolling (`touch-action: none`), so a drag moves a ball instead of the page; the page still scrolls from outside the box.
+## 生产注意事项
+- **库**：Matter.js 在 2D 里处理圆形、方块、多边形、关节和休眠；Planck.js 是 Box2D 的移植版，是许多游戏背后的引擎；Rapier（Rust 编译成 WebAssembly）在更高的物体数量下做 2D 和 3D。一旦需要方块、多边形或铰链就用它们。GSAP 和 Framer Motion 朝设定值做动画，它们的弹簧和弹跳缓动只模拟一次落地，不是堆积。
+- **只有圆形**：演示没有转动的物体；每个球上的斑点随横向速度转动，读起来像滚动。方块和多边形需要角速度、接触点和多边形碰撞检测。
+- **固定步长**：按帧时间缩放一步会让慢屏幕上的弹跳更高、堆积抖动。从累加器里按固定 1/60 秒走步，封顶每帧的步数（这里是 3 步），慢设备只会让物理变慢而不是落后。
+- **隧穿**：一步移动超过自身大小的球可能跳过另一个。演示把速度封顶在每步约一个半径；引擎用连续碰撞检测或更小的步长。
+- **休眠**在一切静止后停掉工作，节省手机电量；任何输入都能唤醒物体。
+- **每对都会检查**：演示保留的 40 个球没问题（手机上 24 个，宽 600px 及以下或高 500px 及以下的屏幕）；几百个时先把物体排进网格。
+- **触摸**：画布关掉浏览器的触摸滚动（`touch-action: none`），所以拖动移动的是球而不是页面；页面仍然能从盒子外面滚动。
 
-## See also
-- [Cloth / Soft-Body Simulation](../cloth-simulation/) — physics in fixed steps, with points joined by links
-- [Bounce In](../../02-entrance-and-exit/bounce-in/) — one springy landing, made with keyframes instead of physics
-- [Flocking](../flocking/) — another simulation where a few simple rules make lifelike motion
+## 另见
+- [布料模拟](../cloth-simulation/) — 固定步长的物理，点与点之间由连线连接
+- [弹跳进入](../../02-entrance-and-exit/bounce-in/) — 一次弹簧式落地，用关键帧而不是物理做出
+- [鸟群](../flocking/) — 另一个模拟，几条简单规则做出栩栩如生的运动
